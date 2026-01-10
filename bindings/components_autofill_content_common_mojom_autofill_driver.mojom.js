@@ -247,6 +247,54 @@ autofill.mojom.AutofillDriverRemote = class {
   close() {
     this.proxy.close();
   }
+  formsSeen(updated_forms, removed_forms) {
+    return this.$.formsSeen(updated_forms, removed_forms);
+  }
+  formSubmitted(form, source) {
+    return this.$.formSubmitted(form, source);
+  }
+  caretMovedInFormField(form, field_id, caret_bounds) {
+    return this.$.caretMovedInFormField(form, field_id, caret_bounds);
+  }
+  textFieldValueChanged(form, field_id, timestamp) {
+    return this.$.textFieldValueChanged(form, field_id, timestamp);
+  }
+  didEndTextFieldEditing() {
+    return this.$.didEndTextFieldEditing();
+  }
+  textFieldDidScroll(form, field_id) {
+    return this.$.textFieldDidScroll(form, field_id);
+  }
+  selectControlSelectionChanged(form, field_id) {
+    return this.$.selectControlSelectionChanged(form, field_id);
+  }
+  selectFieldOptionsDidChange(form, field_id) {
+    return this.$.selectFieldOptionsDidChange(form, field_id);
+  }
+  focusOnFormField(form, field_id) {
+    return this.$.focusOnFormField(form, field_id);
+  }
+  focusOnNonFormField() {
+    return this.$.focusOnNonFormField();
+  }
+  askForValuesToFill(form, field_id, caret_bounds, trigger_source, password_request) {
+    return this.$.askForValuesToFill(form, field_id, caret_bounds, trigger_source, password_request);
+  }
+  hidePopup() {
+    return this.$.hidePopup();
+  }
+  didAutofillForm(form) {
+    return this.$.didAutofillForm(form);
+  }
+  suppressAutomaticRefills(fill_id) {
+    return this.$.suppressAutomaticRefills(fill_id);
+  }
+  requestRefill(fill_id) {
+    return this.$.requestRefill(fill_id);
+  }
+  javaScriptChangedAutofilledValue(form, field_id, old_value) {
+    return this.$.javaScriptChangedAutofilledValue(form, field_id, old_value);
+  }
 };
 
 autofill.mojom.AutofillDriverRemoteCallHandler = class {
@@ -907,6 +955,45 @@ autofill.mojom.PasswordManagerDriverRemote = class {
   close() {
     this.proxy.close();
   }
+  passwordFormsParsed(forms_data) {
+    return this.$.passwordFormsParsed(forms_data);
+  }
+  passwordFormsRendered(visible_forms_data) {
+    return this.$.passwordFormsRendered(visible_forms_data);
+  }
+  passwordFormSubmitted(form_data) {
+    return this.$.passwordFormSubmitted(form_data);
+  }
+  informAboutUserInput(form_data) {
+    return this.$.informAboutUserInput(form_data);
+  }
+  dynamicFormSubmission(submission_indication_event) {
+    return this.$.dynamicFormSubmission(submission_indication_event);
+  }
+  passwordFormCleared(form_data) {
+    return this.$.passwordFormCleared(form_data);
+  }
+  recordSavePasswordProgress(log) {
+    return this.$.recordSavePasswordProgress(log);
+  }
+  userModifiedPasswordField() {
+    return this.$.userModifiedPasswordField();
+  }
+  userModifiedNonPasswordField(renderer_id, value, autocomplete_attribute_has_username, is_likely_otp) {
+    return this.$.userModifiedNonPasswordField(renderer_id, value, autocomplete_attribute_has_username, is_likely_otp);
+  }
+  showPasswordSuggestions(request) {
+    return this.$.showPasswordSuggestions(request);
+  }
+  checkSafeBrowsingReputation(form_action, frame_url) {
+    return this.$.checkSafeBrowsingReputation(form_action, frame_url);
+  }
+  focusedInputChanged(focused_field_id, focused_field_type) {
+    return this.$.focusedInputChanged(focused_field_id, focused_field_type);
+  }
+  logFirstFillingResult(form_renderer_id, result) {
+    return this.$.logFirstFillingResult(form_renderer_id, result);
+  }
 };
 
 autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
@@ -1439,6 +1526,27 @@ autofill.mojom.PasswordGenerationDriverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  automaticGenerationAvailable(password_generation_ui_data) {
+    return this.$.automaticGenerationAvailable(password_generation_ui_data);
+  }
+  presaveGeneratedPassword(form_data, password_value) {
+    return this.$.presaveGeneratedPassword(form_data, password_value);
+  }
+  passwordNoLongerGenerated(form_data) {
+    return this.$.passwordNoLongerGenerated(form_data);
+  }
+  showPasswordEditingPopup(bounds, form_data, field_renderer_id, password_value) {
+    return this.$.showPasswordEditingPopup(bounds, form_data, field_renderer_id, password_value);
+  }
+  passwordGenerationRejectedByTyping() {
+    return this.$.passwordGenerationRejectedByTyping();
+  }
+  frameWasScrolled() {
+    return this.$.frameWasScrolled();
+  }
+  generationElementLostFocus() {
+    return this.$.generationElementLostFocus();
   }
 };
 

@@ -130,6 +130,9 @@ arc.mojom.EnterpriseReportingHostRemote = class {
   close() {
     this.proxy.close();
   }
+  reportCloudDpcOperationTime(time_ms, op, success) {
+    return this.$.reportCloudDpcOperationTime(time_ms, op, success);
+  }
 };
 
 arc.mojom.EnterpriseReportingHostRemoteCallHandler = class {
@@ -294,6 +297,12 @@ arc.mojom.EnterpriseReportingInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  getStatus() {
+    return this.$.getStatus();
   }
 };
 

@@ -121,6 +121,15 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getEvents() {
+    return this.$.getEvents();
+  }
+  dismissModule() {
+    return this.$.dismissModule();
+  }
+  restoreModule() {
+    return this.$.restoreModule();
+  }
 };
 
 ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {

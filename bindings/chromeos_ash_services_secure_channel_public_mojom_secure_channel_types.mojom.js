@@ -133,6 +133,9 @@ ash.secure_channel.mojom.FilePayloadListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onFileTransferUpdate(update) {
+    return this.$.onFileTransferUpdate(update);
+  }
 };
 
 ash.secure_channel.mojom.FilePayloadListenerRemoteCallHandler = class {

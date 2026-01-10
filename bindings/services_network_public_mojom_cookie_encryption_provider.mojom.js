@@ -109,6 +109,9 @@ network.mojom.CookieEncryptionProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getEncryptor() {
+    return this.$.getEncryptor();
+  }
 };
 
 network.mojom.CookieEncryptionProviderRemoteCallHandler = class {

@@ -109,6 +109,9 @@ content.mojom.RenderFrameTestHelperRemote = class {
   close() {
     this.proxy.close();
   }
+  getDocumentToken() {
+    return this.$.getDocumentToken();
+  }
 };
 
 content.mojom.RenderFrameTestHelperRemoteCallHandler = class {

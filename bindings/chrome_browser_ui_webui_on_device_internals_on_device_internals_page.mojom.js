@@ -184,6 +184,9 @@ on_device_internals.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 on_device_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -416,6 +419,33 @@ on_device_internals.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  loadModel(model_path, performance_hint, model) {
+    return this.$.loadModel(model_path, performance_hint, model);
+  }
+  loadPlatformModel(model_path, model) {
+    return this.$.loadPlatformModel(model_path, model);
+  }
+  getDeviceAndPerformanceInfo() {
+    return this.$.getDeviceAndPerformanceInfo();
+  }
+  getDefaultModelPath() {
+    return this.$.getDefaultModelPath();
+  }
+  uninstallDefaultModel() {
+    return this.$.uninstallDefaultModel();
+  }
+  getPageData() {
+    return this.$.getPageData();
+  }
+  setFeatureRecentlyUsedState(feature_key, is_recently_used) {
+    return this.$.setFeatureRecentlyUsedState(feature_key, is_recently_used);
+  }
+  decodeBitmap(image_buffer) {
+    return this.$.decodeBitmap(image_buffer);
+  }
+  resetModelCrashCount() {
+    return this.$.resetModelCrashCount();
   }
 };
 
@@ -842,6 +872,12 @@ on_device_internals.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLogMessageAdded(event_time, source_file, source_line, message) {
+    return this.$.onLogMessageAdded(event_time, source_file, source_line, message);
+  }
+  onDownloadProgressUpdate(downloaded_bytes, total_bytes) {
+    return this.$.onDownloadProgressUpdate(downloaded_bytes, total_bytes);
   }
 };
 

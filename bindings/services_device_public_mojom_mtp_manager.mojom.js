@@ -135,6 +135,12 @@ device.mojom.MtpManagerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  storageAttached(storage_info) {
+    return this.$.storageAttached(storage_info);
+  }
+  storageDetached(storage_name) {
+    return this.$.storageDetached(storage_name);
+  }
 };
 
 device.mojom.MtpManagerClientRemoteCallHandler = class {
@@ -468,6 +474,42 @@ device.mojom.MtpManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  enumerateStoragesAndSetClient(client) {
+    return this.$.enumerateStoragesAndSetClient(client);
+  }
+  getStorageInfo(storage_name) {
+    return this.$.getStorageInfo(storage_name);
+  }
+  getStorageInfoFromDevice(storage_name) {
+    return this.$.getStorageInfoFromDevice(storage_name);
+  }
+  openStorage(storage_name, mode) {
+    return this.$.openStorage(storage_name, mode);
+  }
+  closeStorage(storage_handle) {
+    return this.$.closeStorage(storage_handle);
+  }
+  createDirectory(storage_handle, parent_id, directory_name) {
+    return this.$.createDirectory(storage_handle, parent_id, directory_name);
+  }
+  readDirectoryEntryIds(storage_handle, file_id) {
+    return this.$.readDirectoryEntryIds(storage_handle, file_id);
+  }
+  readFileChunk(storage_handle, file_id, offset, count) {
+    return this.$.readFileChunk(storage_handle, file_id, offset, count);
+  }
+  getFileInfo(storage_handle, file_ids) {
+    return this.$.getFileInfo(storage_handle, file_ids);
+  }
+  renameObject(storage_handle, object_id, new_name) {
+    return this.$.renameObject(storage_handle, object_id, new_name);
+  }
+  copyFileFromLocal(storage_handle, source_file_descriptor, parent_id, file_name) {
+    return this.$.copyFileFromLocal(storage_handle, source_file_descriptor, parent_id, file_name);
+  }
+  deleteObject(storage_handle, object_id) {
+    return this.$.deleteObject(storage_handle, object_id);
   }
 };
 

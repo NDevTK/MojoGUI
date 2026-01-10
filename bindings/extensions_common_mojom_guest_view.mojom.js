@@ -125,6 +125,12 @@ extensions.mojom.GuestViewRemote = class {
   close() {
     this.proxy.close();
   }
+  readyToCreateMimeHandlerView(success) {
+    return this.$.readyToCreateMimeHandlerView(success);
+  }
+  canExecuteContentScript(script_id) {
+    return this.$.canExecuteContentScript(script_id);
+  }
 };
 
 extensions.mojom.GuestViewRemoteCallHandler = class {
@@ -331,6 +337,18 @@ extensions.mojom.MimeHandlerViewContainerManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setInternalId(token_id) {
+    return this.$.setInternalId(token_id);
+  }
+  createBeforeUnloadControl() {
+    return this.$.createBeforeUnloadControl();
+  }
+  destroyFrameContainer(element_instance_id) {
+    return this.$.destroyFrameContainer(element_instance_id);
+  }
+  didLoad(mime_handler_view_guest_element_instance_id, resource_url) {
+    return this.$.didLoad(mime_handler_view_guest_element_instance_id, resource_url);
   }
 };
 

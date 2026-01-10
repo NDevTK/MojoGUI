@@ -248,6 +248,45 @@ feed_internals.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getGeneralProperties() {
+    return this.$.getGeneralProperties();
+  }
+  getLastFetchProperties() {
+    return this.$.getLastFetchProperties();
+  }
+  refreshForYouFeed() {
+    return this.$.refreshForYouFeed();
+  }
+  refreshFollowingFeed() {
+    return this.$.refreshFollowingFeed();
+  }
+  refreshWebFeedSuggestions() {
+    return this.$.refreshWebFeedSuggestions();
+  }
+  getFeedProcessScopeDump() {
+    return this.$.getFeedProcessScopeDump();
+  }
+  getFeedHistograms() {
+    return this.$.getFeedHistograms();
+  }
+  overrideFeedHost(host) {
+    return this.$.overrideFeedHost(host);
+  }
+  overrideDiscoverApiEndpoint(endpoint_url) {
+    return this.$.overrideDiscoverApiEndpoint(endpoint_url);
+  }
+  overrideFeedStreamData(data) {
+    return this.$.overrideFeedStreamData(data);
+  }
+  setWebFeedFollowIntroDebugEnabled(enabled) {
+    return this.$.setWebFeedFollowIntroDebugEnabled(enabled);
+  }
+  setUseFeedQueryRequests(use_legacy) {
+    return this.$.setUseFeedQueryRequests(use_legacy);
+  }
+  setFollowingFeedOrder(order) {
+    return this.$.setFollowingFeedOrder(order);
+  }
 };
 
 feed_internals.mojom.PageHandlerRemoteCallHandler = class {

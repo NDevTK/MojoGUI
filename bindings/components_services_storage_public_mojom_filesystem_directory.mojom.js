@@ -179,6 +179,9 @@ storage.mojom.FileLockRemote = class {
   close() {
     this.proxy.close();
   }
+  release() {
+    return this.$.release();
+  }
 };
 
 storage.mojom.FileLockRemoteCallHandler = class {
@@ -448,6 +451,36 @@ storage.mojom.DirectoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  clone(receiver) {
+    return this.$.clone(receiver);
+  }
+  pathExists(path) {
+    return this.$.pathExists(path);
+  }
+  getEntries(path, mode) {
+    return this.$.getEntries(path, mode);
+  }
+  openFile(path, mode, read_access, write_access) {
+    return this.$.openFile(path, mode, read_access, write_access);
+  }
+  createDirectory(path) {
+    return this.$.createDirectory(path);
+  }
+  deleteFile(path) {
+    return this.$.deleteFile(path);
+  }
+  getFileInfo(path) {
+    return this.$.getFileInfo(path);
+  }
+  getPathAccess(path) {
+    return this.$.getPathAccess(path);
+  }
+  renameFile(old_path, new_path) {
+    return this.$.renameFile(old_path, new_path);
+  }
+  lockFile(path) {
+    return this.$.lockFile(path);
   }
 };
 

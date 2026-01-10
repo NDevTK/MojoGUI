@@ -123,6 +123,9 @@ blink.mojom.ShareServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  share(title, text, url, files) {
+    return this.$.share(title, text, url, files);
+  }
 };
 
 blink.mojom.ShareServiceRemoteCallHandler = class {

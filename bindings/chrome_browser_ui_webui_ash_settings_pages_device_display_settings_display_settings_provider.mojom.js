@@ -181,6 +181,9 @@ ash.settings.mojom.TabletModeObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onTabletModeChanged(is_tablet_mode) {
+    return this.$.onTabletModeChanged(is_tablet_mode);
+  }
 };
 
 ash.settings.mojom.TabletModeObserverRemoteCallHandler = class {
@@ -327,6 +330,9 @@ ash.settings.mojom.DisplayConfigurationObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onDisplayConfigurationChanged() {
+    return this.$.onDisplayConfigurationChanged();
   }
 };
 
@@ -477,6 +483,9 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onDisplayBrightnessChanged(brightness_percent, triggered_by_als) {
+    return this.$.onDisplayBrightnessChanged(brightness_percent, triggered_by_als);
+  }
 };
 
 ash.settings.mojom.DisplayBrightnessSettingsObserverRemoteCallHandler = class {
@@ -624,6 +633,9 @@ ash.settings.mojom.AmbientLightSensorObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onAmbientLightSensorEnabledChanged(is_ambient_light_sensor_enabled) {
+    return this.$.onAmbientLightSensorEnabledChanged(is_ambient_light_sensor_enabled);
   }
 };
 
@@ -849,6 +861,36 @@ ash.settings.mojom.DisplaySettingsProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  observeTabletMode(observer) {
+    return this.$.observeTabletMode(observer);
+  }
+  observeDisplayConfiguration(observer) {
+    return this.$.observeDisplayConfiguration(observer);
+  }
+  observeDisplayBrightnessSettings(observer) {
+    return this.$.observeDisplayBrightnessSettings(observer);
+  }
+  observeAmbientLightSensor(observer) {
+    return this.$.observeAmbientLightSensor(observer);
+  }
+  recordChangingDisplaySettings(type, value) {
+    return this.$.recordChangingDisplaySettings(type, value);
+  }
+  setShinyPerformance(enabled) {
+    return this.$.setShinyPerformance(enabled);
+  }
+  setInternalDisplayScreenBrightness(percent) {
+    return this.$.setInternalDisplayScreenBrightness(percent);
+  }
+  setInternalDisplayAmbientLightSensorEnabled(enabled) {
+    return this.$.setInternalDisplayAmbientLightSensorEnabled(enabled);
+  }
+  startNativeTouchscreenMappingExperience() {
+    return this.$.startNativeTouchscreenMappingExperience();
+  }
+  hasAmbientLightSensor() {
+    return this.$.hasAmbientLightSensor();
   }
 };
 

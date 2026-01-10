@@ -1661,6 +1661,90 @@ chromeos.network_config.mojom.CrosNetworkConfigRemote = class {
   close() {
     this.proxy.close();
   }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  getNetworkState(guid) {
+    return this.$.getNetworkState(guid);
+  }
+  getNetworkStateList(filter) {
+    return this.$.getNetworkStateList(filter);
+  }
+  getDeviceStateList() {
+    return this.$.getDeviceStateList();
+  }
+  getManagedProperties(guid) {
+    return this.$.getManagedProperties(guid);
+  }
+  setProperties(guid, properties) {
+    return this.$.setProperties(guid, properties);
+  }
+  configureNetwork(properties, shared) {
+    return this.$.configureNetwork(properties, shared);
+  }
+  forgetNetwork(guid) {
+    return this.$.forgetNetwork(guid);
+  }
+  setNetworkTypeEnabledState(type, enabled) {
+    return this.$.setNetworkTypeEnabledState(type, enabled);
+  }
+  setCellularSimState(state) {
+    return this.$.setCellularSimState(state);
+  }
+  selectCellularMobileNetwork(guid, network_id) {
+    return this.$.selectCellularMobileNetwork(guid, network_id);
+  }
+  requestNetworkScan(type) {
+    return this.$.requestNetworkScan(type);
+  }
+  getGlobalPolicy() {
+    return this.$.getGlobalPolicy();
+  }
+  startConnect(guid) {
+    return this.$.startConnect(guid);
+  }
+  startDisconnect(guid) {
+    return this.$.startDisconnect(guid);
+  }
+  setVpnProviders(providers) {
+    return this.$.setVpnProviders(providers);
+  }
+  getVpnProviders() {
+    return this.$.getVpnProviders();
+  }
+  getNetworkCertificates() {
+    return this.$.getNetworkCertificates();
+  }
+  getAlwaysOnVpn() {
+    return this.$.getAlwaysOnVpn();
+  }
+  setAlwaysOnVpn(properties) {
+    return this.$.setAlwaysOnVpn(properties);
+  }
+  getSupportedVpnTypes() {
+    return this.$.getSupportedVpnTypes();
+  }
+  requestTrafficCounters(guid) {
+    return this.$.requestTrafficCounters(guid);
+  }
+  resetTrafficCounters(guid) {
+    return this.$.resetTrafficCounters(guid);
+  }
+  setTrafficCountersResetDay(guid, day) {
+    return this.$.setTrafficCountersResetDay(guid, day);
+  }
+  createCustomApn(network_guid, apn) {
+    return this.$.createCustomApn(network_guid, apn);
+  }
+  createExclusivelyEnabledCustomApn(network_guid, apn) {
+    return this.$.createExclusivelyEnabledCustomApn(network_guid, apn);
+  }
+  removeCustomApn(network_guid, apn_id) {
+    return this.$.removeCustomApn(network_guid, apn_id);
+  }
+  modifyCustomApn(network_guid, apn) {
+    return this.$.modifyCustomApn(network_guid, apn);
+  }
 };
 
 chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
@@ -2749,6 +2833,27 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onActiveNetworksChanged(networks) {
+    return this.$.onActiveNetworksChanged(networks);
+  }
+  onNetworkStateChanged(network) {
+    return this.$.onNetworkStateChanged(network);
+  }
+  onNetworkStateListChanged() {
+    return this.$.onNetworkStateListChanged();
+  }
+  onDeviceStateListChanged() {
+    return this.$.onDeviceStateListChanged();
+  }
+  onVpnProvidersChanged() {
+    return this.$.onVpnProvidersChanged();
+  }
+  onNetworkCertificatesChanged() {
+    return this.$.onNetworkCertificatesChanged();
+  }
+  onPoliciesApplied(userhash) {
+    return this.$.onPoliciesApplied(userhash);
   }
 };
 

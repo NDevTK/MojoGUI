@@ -201,6 +201,15 @@ webxr.mojom.WebXrInternalsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getDeviceInfo() {
+    return this.$.getDeviceInfo();
+  }
+  getActiveRuntimes() {
+    return this.$.getActiveRuntimes();
+  }
+  subscribeToEvents(listener) {
+    return this.$.subscribeToEvents(listener);
+  }
 };
 
 webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
@@ -460,6 +469,30 @@ webxr.mojom.XRInternalsSessionListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  logXrSessionRequested(session_requested_record) {
+    return this.$.logXrSessionRequested(session_requested_record);
+  }
+  logXrSessionRejected(session_rejected_record) {
+    return this.$.logXrSessionRejected(session_rejected_record);
+  }
+  logXrSessionStarted(session_started_record) {
+    return this.$.logXrSessionStarted(session_started_record);
+  }
+  logXrSessionStopped(session_stopped_record) {
+    return this.$.logXrSessionStopped(session_stopped_record);
+  }
+  logXrRuntimeAdded(runtime_added_record) {
+    return this.$.logXrRuntimeAdded(runtime_added_record);
+  }
+  logXrRuntimeRemoved(device_id) {
+    return this.$.logXrRuntimeRemoved(device_id);
+  }
+  logFrameData(xrframe_statistics) {
+    return this.$.logFrameData(xrframe_statistics);
+  }
+  logConsoleMessages(xrlogging_statistics) {
+    return this.$.logConsoleMessages(xrlogging_statistics);
   }
 };
 

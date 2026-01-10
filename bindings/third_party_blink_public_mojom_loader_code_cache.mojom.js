@@ -163,6 +163,21 @@ blink.mojom.CodeCacheHostRemote = class {
   close() {
     this.proxy.close();
   }
+  getPendingBackend(cache_type) {
+    return this.$.getPendingBackend(cache_type);
+  }
+  didGenerateCacheableMetadata(cache_type, url, expected_response_time, data) {
+    return this.$.didGenerateCacheableMetadata(cache_type, url, expected_response_time, data);
+  }
+  fetchCachedCode(cache_type, url) {
+    return this.$.fetchCachedCode(cache_type, url);
+  }
+  clearCodeCacheEntry(cache_type, url) {
+    return this.$.clearCodeCacheEntry(cache_type, url);
+  }
+  didGenerateCacheableMetadataInCacheStorage(url, expected_response_time, data, cache_storage_cache_name) {
+    return this.$.didGenerateCacheableMetadataInCacheStorage(url, expected_response_time, data, cache_storage_cache_name);
+  }
 };
 
 blink.mojom.CodeCacheHostRemoteCallHandler = class {

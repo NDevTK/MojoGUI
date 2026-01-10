@@ -176,6 +176,9 @@ blink.mojom.MediaSessionClientRemote = class {
   close() {
     this.proxy.close();
   }
+  didReceiveAction(action, details) {
+    return this.$.didReceiveAction(action, details);
+  }
 };
 
 blink.mojom.MediaSessionClientRemoteCallHandler = class {
@@ -365,6 +368,30 @@ blink.mojom.MediaSessionServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setClient(client) {
+    return this.$.setClient(client);
+  }
+  setPlaybackState(state) {
+    return this.$.setPlaybackState(state);
+  }
+  setPositionState(position) {
+    return this.$.setPositionState(position);
+  }
+  setMetadata(metadata) {
+    return this.$.setMetadata(metadata);
+  }
+  setMicrophoneState(microphone_state) {
+    return this.$.setMicrophoneState(microphone_state);
+  }
+  setCameraState(camera_state) {
+    return this.$.setCameraState(camera_state);
+  }
+  enableAction(action) {
+    return this.$.enableAction(action);
+  }
+  disableAction(action) {
+    return this.$.disableAction(action);
   }
 };
 

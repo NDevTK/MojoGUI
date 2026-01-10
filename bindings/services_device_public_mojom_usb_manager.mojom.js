@@ -194,6 +194,30 @@ device.mojom.UsbDeviceManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  enumerateDevicesAndSetClient(client) {
+    return this.$.enumerateDevicesAndSetClient(client);
+  }
+  getDevices(options) {
+    return this.$.getDevices(options);
+  }
+  getDevice(guid, blocked_interface_classes, device_receiver, device_client) {
+    return this.$.getDevice(guid, blocked_interface_classes, device_receiver, device_client);
+  }
+  getSecurityKeyDevice(guid, device_receiver, device_client) {
+    return this.$.getSecurityKeyDevice(guid, device_receiver, device_client);
+  }
+  refreshDeviceInfo(guid) {
+    return this.$.refreshDeviceInfo(guid);
+  }
+  checkAccess(guid) {
+    return this.$.checkAccess(guid);
+  }
+  openFileDescriptor(guid, allowed_interfaces_mask, lifeline_fd) {
+    return this.$.openFileDescriptor(guid, allowed_interfaces_mask, lifeline_fd);
+  }
+  setClient(client) {
+    return this.$.setClient(client);
+  }
 };
 
 device.mojom.UsbDeviceManagerRemoteCallHandler = class {

@@ -123,6 +123,12 @@ blink.mojom.FontUniqueNameLookupRemote = class {
   close() {
     this.proxy.close();
   }
+  getUniqueNameLookupTableIfAvailable() {
+    return this.$.getUniqueNameLookupTableIfAvailable();
+  }
+  getUniqueNameLookupTable() {
+    return this.$.getUniqueNameLookupTable();
+  }
 };
 
 blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {

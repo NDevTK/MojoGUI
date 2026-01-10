@@ -147,6 +147,12 @@ media.mojom.AudioProcessorControlsRemote = class {
   close() {
     this.proxy.close();
   }
+  getStats() {
+    return this.$.getStats();
+  }
+  setPreferredNumCaptureChannels(num_preferred_channels) {
+    return this.$.setPreferredNumCaptureChannels(num_preferred_channels);
+  }
 };
 
 media.mojom.AudioProcessorControlsRemoteCallHandler = class {

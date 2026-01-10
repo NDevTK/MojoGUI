@@ -177,6 +177,24 @@ ash.boca_receiver.mojom.UntrustedPageRemote = class {
   close() {
     this.proxy.close();
   }
+  onInitReceiverInfo(receiver_info) {
+    return this.$.onInitReceiverInfo(receiver_info);
+  }
+  onInitReceiverError() {
+    return this.$.onInitReceiverError();
+  }
+  onFrameReceived(frame_data) {
+    return this.$.onFrameReceived(frame_data);
+  }
+  onAudioPacket(audio_packet) {
+    return this.$.onAudioPacket(audio_packet);
+  }
+  onConnecting(initiator, presenter) {
+    return this.$.onConnecting(initiator, presenter);
+  }
+  onConnectionClosed(reason) {
+    return this.$.onConnectionClosed(reason);
+  }
 };
 
 ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
@@ -469,6 +487,9 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createUntrustedPageHandler(page) {
+    return this.$.createUntrustedPageHandler(page);
   }
 };
 

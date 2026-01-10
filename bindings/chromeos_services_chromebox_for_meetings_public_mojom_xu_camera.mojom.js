@@ -246,6 +246,18 @@ ash.cfm.mojom.XuCameraRemote = class {
   close() {
     this.proxy.close();
   }
+  getUnitId(id, guid) {
+    return this.$.getUnitId(id, guid);
+  }
+  mapCtrl(id, mapping_ctrl) {
+    return this.$.mapCtrl(id, mapping_ctrl);
+  }
+  getCtrl(id, ctrl, fn) {
+    return this.$.getCtrl(id, ctrl, fn);
+  }
+  setCtrl(id, ctrl, data) {
+    return this.$.setCtrl(id, ctrl, data);
+  }
 };
 
 ash.cfm.mojom.XuCameraRemoteCallHandler = class {

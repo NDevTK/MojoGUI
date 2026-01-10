@@ -128,6 +128,9 @@ extensions_bar.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 extensions_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -287,6 +290,15 @@ extensions_bar.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  executeUserAction(id) {
+    return this.$.executeUserAction(id);
+  }
+  showContextMenu(source, id) {
+    return this.$.showContextMenu(source, id);
+  }
+  toggleExtensionsMenuFromWebUI() {
+    return this.$.toggleExtensionsMenuFromWebUI();
   }
 };
 
@@ -509,6 +521,15 @@ extensions_bar.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  actionsAddedOrUpdated(actions) {
+    return this.$.actionsAddedOrUpdated(actions);
+  }
+  actionRemoved(id) {
+    return this.$.actionRemoved(id);
+  }
+  actionPoppedOut() {
+    return this.$.actionPoppedOut();
   }
 };
 

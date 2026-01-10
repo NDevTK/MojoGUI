@@ -221,6 +221,69 @@ security_interstitials.mojom.InterstitialCommandsRemote = class {
   close() {
     this.proxy.close();
   }
+  dontProceed() {
+    return this.$.dontProceed();
+  }
+  proceed() {
+    return this.$.proceed();
+  }
+  showMoreSection() {
+    return this.$.showMoreSection();
+  }
+  openHelpCenter() {
+    return this.$.openHelpCenter();
+  }
+  openDiagnostic() {
+    return this.$.openDiagnostic();
+  }
+  reload() {
+    return this.$.reload();
+  }
+  openDateSettings() {
+    return this.$.openDateSettings();
+  }
+  openLogin() {
+    return this.$.openLogin();
+  }
+  doReport() {
+    return this.$.doReport();
+  }
+  dontReport() {
+    return this.$.dontReport();
+  }
+  openReportingPrivacy() {
+    return this.$.openReportingPrivacy();
+  }
+  openWhitepaper() {
+    return this.$.openWhitepaper();
+  }
+  openHelpCenterInNewTab() {
+    return this.$.openHelpCenterInNewTab();
+  }
+  openDiagnosticInNewTab() {
+    return this.$.openDiagnosticInNewTab();
+  }
+  openReportingPrivacyInNewTab() {
+    return this.$.openReportingPrivacyInNewTab();
+  }
+  openWhitepaperInNewTab() {
+    return this.$.openWhitepaperInNewTab();
+  }
+  reportPhishingErrorInNewTab() {
+    return this.$.reportPhishingErrorInNewTab();
+  }
+  reportPhishingError() {
+    return this.$.reportPhishingError();
+  }
+  openEnhancedProtectionSettings() {
+    return this.$.openEnhancedProtectionSettings();
+  }
+  showCertificateViewer() {
+    return this.$.showCertificateViewer();
+  }
+  openAndroidAdvancedProtectionSettings() {
+    return this.$.openAndroidAdvancedProtectionSettings();
+  }
 };
 
 security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {

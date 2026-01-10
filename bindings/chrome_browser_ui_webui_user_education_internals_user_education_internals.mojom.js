@@ -390,6 +390,63 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getTutorials() {
+    return this.$.getTutorials();
+  }
+  startTutorial(tutorial_id) {
+    return this.$.startTutorial(tutorial_id);
+  }
+  getSessionData() {
+    return this.$.getSessionData();
+  }
+  getFeaturePromos() {
+    return this.$.getFeaturePromos();
+  }
+  showFeaturePromo(feature_name) {
+    return this.$.showFeaturePromo(feature_name);
+  }
+  clearFeaturePromoData(feature_name) {
+    return this.$.clearFeaturePromoData(feature_name);
+  }
+  clearSessionData() {
+    return this.$.clearSessionData();
+  }
+  forceNewSession() {
+    return this.$.forceNewSession();
+  }
+  removeGracePeriods() {
+    return this.$.removeGracePeriods();
+  }
+  getNewBadges() {
+    return this.$.getNewBadges();
+  }
+  getWhatsNewModules() {
+    return this.$.getWhatsNewModules();
+  }
+  getWhatsNewEditions() {
+    return this.$.getWhatsNewEditions();
+  }
+  getNtpPromos() {
+    return this.$.getNtpPromos();
+  }
+  getNtpPromoPreferences() {
+    return this.$.getNtpPromoPreferences();
+  }
+  clearNewBadgeData(feature_name) {
+    return this.$.clearNewBadgeData(feature_name);
+  }
+  clearWhatsNewData() {
+    return this.$.clearWhatsNewData();
+  }
+  clearNtpPromoData(id) {
+    return this.$.clearNtpPromoData(id);
+  }
+  clearNtpPromoPreferences() {
+    return this.$.clearNtpPromoPreferences();
+  }
+  launchWhatsNewStaging() {
+    return this.$.launchWhatsNewStaging();
+  }
 };
 
 mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandler = class {

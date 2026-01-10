@@ -116,6 +116,12 @@ chrome.mojom.ZipListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onProgress(bytes, files, directories) {
+    return this.$.onProgress(bytes, files, directories);
+  }
+  onFinished(success) {
+    return this.$.onFinished(success);
+  }
 };
 
 chrome.mojom.ZipListenerRemoteCallHandler = class {
@@ -295,6 +301,9 @@ chrome.mojom.ZipFileCreatorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createZipFile(src_dir, relative_paths, zip_file, listener) {
+    return this.$.createZipFile(src_dir, relative_paths, zip_file, listener);
   }
 };
 

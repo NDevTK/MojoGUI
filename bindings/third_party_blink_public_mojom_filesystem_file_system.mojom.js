@@ -172,6 +172,9 @@ blink.mojom.FileSystemCancellableOperationRemote = class {
   close() {
     this.proxy.close();
   }
+  cancel() {
+    return this.$.cancel();
+  }
 };
 
 blink.mojom.FileSystemCancellableOperationRemoteCallHandler = class {
@@ -339,6 +342,15 @@ blink.mojom.FileSystemOperationListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  resultsRetrieved(entries, has_more) {
+    return this.$.resultsRetrieved(entries, has_more);
+  }
+  didWrite(byte_count, complete) {
+    return this.$.didWrite(byte_count, complete);
+  }
+  errorOccurred(error_code) {
+    return this.$.errorOccurred(error_code);
   }
 };
 
@@ -544,6 +556,9 @@ blink.mojom.ReceivedSnapshotListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  didReceiveSnapshotFile() {
+    return this.$.didReceiveSnapshotFile();
   }
 };
 
@@ -910,6 +925,57 @@ blink.mojom.FileSystemManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  open(origin, file_system_type) {
+    return this.$.open(origin, file_system_type);
+  }
+  resolveURL(filesystem_url) {
+    return this.$.resolveURL(filesystem_url);
+  }
+  move(src_path, dest_path) {
+    return this.$.move(src_path, dest_path);
+  }
+  copy(src_path, dest_path) {
+    return this.$.copy(src_path, dest_path);
+  }
+  remove(path, recursive) {
+    return this.$.remove(path, recursive);
+  }
+  readMetadata(path) {
+    return this.$.readMetadata(path);
+  }
+  create(path, exclusive, is_directory, recursive) {
+    return this.$.create(path, exclusive, is_directory, recursive);
+  }
+  exists(path, is_directory) {
+    return this.$.exists(path, is_directory);
+  }
+  readDirectory(path, listener) {
+    return this.$.readDirectory(path, listener);
+  }
+  readDirectorySync(path) {
+    return this.$.readDirectorySync(path);
+  }
+  write(file_path, blob, position, op_receiver, listener) {
+    return this.$.write(file_path, blob, position, op_receiver, listener);
+  }
+  writeSync(file_path, blob, position) {
+    return this.$.writeSync(file_path, blob, position);
+  }
+  truncate(file_path, length, op_receiver) {
+    return this.$.truncate(file_path, length, op_receiver);
+  }
+  truncateSync(file_path, length) {
+    return this.$.truncateSync(file_path, length);
+  }
+  createSnapshotFile(file_path) {
+    return this.$.createSnapshotFile(file_path);
+  }
+  getPlatformPath(file_path) {
+    return this.$.getPlatformPath(file_path);
+  }
+  registerBlob(content_type, url, length, expected_modification_time) {
+    return this.$.registerBlob(content_type, url, length, expected_modification_time);
   }
 };
 

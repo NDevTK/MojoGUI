@@ -359,6 +359,9 @@ new_tab_page.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 new_tab_page.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -720,6 +723,99 @@ new_tab_page.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setMostVisitedSettings(shortcuts_type, shortcuts_visible) {
+    return this.$.setMostVisitedSettings(shortcuts_type, shortcuts_visible);
+  }
+  getMostVisitedSettings() {
+    return this.$.getMostVisitedSettings();
+  }
+  getDoodle() {
+    return this.$.getDoodle();
+  }
+  updatePromoData() {
+    return this.$.updatePromoData();
+  }
+  blocklistPromo(promo_id) {
+    return this.$.blocklistPromo(promo_id);
+  }
+  undoBlocklistPromo(promo_id) {
+    return this.$.undoBlocklistPromo(promo_id);
+  }
+  onDismissModule(module_id) {
+    return this.$.onDismissModule(module_id);
+  }
+  onRestoreModule(module_id) {
+    return this.$.onRestoreModule(module_id);
+  }
+  setModulesVisible(visible) {
+    return this.$.setModulesVisible(visible);
+  }
+  updateDisabledModules() {
+    return this.$.updateDisabledModules();
+  }
+  onModulesLoadedWithData(module_ids) {
+    return this.$.onModulesLoadedWithData(module_ids);
+  }
+  onModuleUsed(module_id) {
+    return this.$.onModuleUsed(module_id);
+  }
+  getModulesIdNames() {
+    return this.$.getModulesIdNames();
+  }
+  getModulesEligibleForRemoval() {
+    return this.$.getModulesEligibleForRemoval();
+  }
+  setModulesOrder(module_ids) {
+    return this.$.setModulesOrder(module_ids);
+  }
+  getModulesOrder() {
+    return this.$.getModulesOrder();
+  }
+  updateModulesLoadable() {
+    return this.$.updateModulesLoadable();
+  }
+  setModulesDisabled(module_ids, disabled, is_user_action) {
+    return this.$.setModulesDisabled(module_ids, disabled, is_user_action);
+  }
+  updateActionChipsVisibility() {
+    return this.$.updateActionChipsVisibility();
+  }
+  updateFooterVisibility() {
+    return this.$.updateFooterVisibility();
+  }
+  incrementComposeButtonShownCount() {
+    return this.$.incrementComposeButtonShownCount();
+  }
+  maybeTriggerAutomaticCustomizeChromePromo() {
+    return this.$.maybeTriggerAutomaticCustomizeChromePromo();
+  }
+  recordContextMenuClick() {
+    return this.$.recordContextMenuClick();
+  }
+  onOneGoogleBarRendered(time) {
+    return this.$.onOneGoogleBarRendered(time);
+  }
+  onPromoRendered(time, log_url) {
+    return this.$.onPromoRendered(time, log_url);
+  }
+  onCustomizeDialogAction(action) {
+    return this.$.onCustomizeDialogAction(action);
+  }
+  onDoodleImageClicked(type, log_url) {
+    return this.$.onDoodleImageClicked(type, log_url);
+  }
+  onDoodleImageRendered(type, time, log_url) {
+    return this.$.onDoodleImageRendered(type, time, log_url);
+  }
+  onDoodleShared(channel, doodle_id, share_id) {
+    return this.$.onDoodleShared(channel, doodle_id, share_id);
+  }
+  onPromoLinkClicked() {
+    return this.$.onPromoLinkClicked();
+  }
+  onAppRendered(time) {
+    return this.$.onAppRendered(time);
   }
 };
 
@@ -1821,6 +1917,33 @@ new_tab_page.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setTheme(theme) {
+    return this.$.setTheme(theme);
+  }
+  setDisabledModules(all, ids) {
+    return this.$.setDisabledModules(all, ids);
+  }
+  setModulesLoadable() {
+    return this.$.setModulesLoadable();
+  }
+  setActionChipsVisibility(visible) {
+    return this.$.setActionChipsVisibility(visible);
+  }
+  setPromo(promo) {
+    return this.$.setPromo(promo);
+  }
+  showWebstoreToast() {
+    return this.$.showWebstoreToast();
+  }
+  setWallpaperSearchButtonVisibility(visible) {
+    return this.$.setWallpaperSearchButtonVisibility(visible);
+  }
+  footerVisibilityUpdated(visible) {
+    return this.$.footerVisibilityUpdated(visible);
+  }
+  connectToParentDocument(child_untrusted_document_remote) {
+    return this.$.connectToParentDocument(child_untrusted_document_remote);
   }
 };
 

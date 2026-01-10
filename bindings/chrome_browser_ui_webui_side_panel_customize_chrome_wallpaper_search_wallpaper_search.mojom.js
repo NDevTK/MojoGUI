@@ -261,6 +261,9 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createWallpaperSearchHandler(client, handler) {
+    return this.$.createWallpaperSearchHandler(client, handler);
+  }
 };
 
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler = class {
@@ -487,6 +490,39 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDescriptors() {
+    return this.$.getDescriptors();
+  }
+  getInspirations() {
+    return this.$.getInspirations();
+  }
+  getWallpaperSearchResults(result_descriptors) {
+    return this.$.getWallpaperSearchResults(result_descriptors);
+  }
+  setResultRenderTime(result_ids, time) {
+    return this.$.setResultRenderTime(result_ids, time);
+  }
+  setBackgroundToHistoryImage(result_id, descriptors) {
+    return this.$.setBackgroundToHistoryImage(result_id, descriptors);
+  }
+  setBackgroundToInspirationImage(id, background_url) {
+    return this.$.setBackgroundToInspirationImage(id, background_url);
+  }
+  setBackgroundToWallpaperSearchResult(result_id, time, descriptors) {
+    return this.$.setBackgroundToWallpaperSearchResult(result_id, time, descriptors);
+  }
+  updateHistory() {
+    return this.$.updateHistory();
+  }
+  setUserFeedback(selected_option) {
+    return this.$.setUserFeedback(selected_option);
+  }
+  openHelpArticle() {
+    return this.$.openHelpArticle();
+  }
+  launchHatsSurvey() {
+    return this.$.launchHatsSurvey();
   }
 };
 
@@ -943,6 +979,9 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setHistory(history) {
+    return this.$.setHistory(history);
   }
 };
 

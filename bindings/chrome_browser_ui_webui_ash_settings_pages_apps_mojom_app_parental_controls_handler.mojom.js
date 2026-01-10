@@ -208,6 +208,30 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemote = clas
   close() {
     this.proxy.close();
   }
+  getApps() {
+    return this.$.getApps();
+  }
+  updateApp(app_id, is_blocked) {
+    return this.$.updateApp(app_id, is_blocked);
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  onControlsDisabled() {
+    return this.$.onControlsDisabled();
+  }
+  validatePin(pin) {
+    return this.$.validatePin(pin);
+  }
+  setUpPin(pin) {
+    return this.$.setUpPin(pin);
+  }
+  verifyPin(pin) {
+    return this.$.verifyPin(pin);
+  }
+  isSetupCompleted() {
+    return this.$.isSetupCompleted();
+  }
 };
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHandler = class {
@@ -594,6 +618,12 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemote = cla
 
   close() {
     this.proxy.close();
+  }
+  onAppInstalledOrUpdated(app) {
+    return this.$.onAppInstalledOrUpdated(app);
+  }
+  onAppUninstalled(app) {
+    return this.$.onAppUninstalled(app);
   }
 };
 

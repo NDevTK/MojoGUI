@@ -162,6 +162,9 @@ pdf.mojom.SaveDataBufferHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  read(offset, block_size) {
+    return this.$.read(offset, block_size);
+  }
 };
 
 pdf.mojom.SaveDataBufferHandlerRemoteCallHandler = class {
@@ -378,6 +381,27 @@ pdf.mojom.PdfListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setCaretPosition(position) {
+    return this.$.setCaretPosition(position);
+  }
+  moveRangeSelectionExtent(extent) {
+    return this.$.moveRangeSelectionExtent(extent);
+  }
+  setSelectionBounds(base, extent) {
+    return this.$.setSelectionBounds(base, extent);
+  }
+  getPdfBytes(size_limit) {
+    return this.$.getPdfBytes(size_limit);
+  }
+  getPageText(page_index) {
+    return this.$.getPageText(page_index);
+  }
+  getMostVisiblePageIndex() {
+    return this.$.getMostVisiblePageIndex();
+  }
+  getSaveDataBufferHandlerForDrive(request_type) {
+    return this.$.getSaveDataBufferHandlerForDrive(request_type);
   }
 };
 
@@ -762,6 +786,27 @@ pdf.mojom.PdfHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setListener(client) {
+    return this.$.setListener(client);
+  }
+  onDocumentLoadComplete() {
+    return this.$.onDocumentLoadComplete();
+  }
+  updateContentRestrictions(restrictions) {
+    return this.$.updateContentRestrictions(restrictions);
+  }
+  saveUrlAs(url, policy) {
+    return this.$.saveUrlAs(url, policy);
+  }
+  selectionChanged(left, left_height, right, right_height) {
+    return this.$.selectionChanged(left, left_height, right, right_height);
+  }
+  setPluginCanSave(can_save) {
+    return this.$.setPluginCanSave(can_save);
+  }
+  onSearchifyStarted() {
+    return this.$.onSearchifyStarted();
   }
 };
 

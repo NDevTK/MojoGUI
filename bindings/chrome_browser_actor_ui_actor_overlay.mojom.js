@@ -132,6 +132,9 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, receiver) {
+    return this.$.createPageHandler(page, receiver);
+  }
 };
 
 actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
@@ -290,6 +293,12 @@ actor.ui.mojom.ActorOverlayPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onHoverStatusChanged(is_hovering) {
+    return this.$.onHoverStatusChanged(is_hovering);
+  }
+  getCurrentBorderGlowVisibility() {
+    return this.$.getCurrentBorderGlowVisibility();
   }
 };
 
@@ -506,6 +515,21 @@ actor.ui.mojom.ActorOverlayPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setScrimBackground(is_visible) {
+    return this.$.setScrimBackground(is_visible);
+  }
+  setBorderGlowVisibility(is_visible) {
+    return this.$.setBorderGlowVisibility(is_visible);
+  }
+  setTheme(theme) {
+    return this.$.setTheme(theme);
+  }
+  moveCursorTo(point) {
+    return this.$.moveCursorTo(point);
+  }
+  triggerClickAnimation() {
+    return this.$.triggerClickAnimation();
   }
 };
 

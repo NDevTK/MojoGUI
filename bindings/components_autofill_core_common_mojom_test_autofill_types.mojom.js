@@ -207,6 +207,30 @@ autofill.mojom.TypeTraitsTestRemote = class {
   close() {
     this.proxy.close();
   }
+  passFormData(s) {
+    return this.$.passFormData(s);
+  }
+  passFormFieldData(s) {
+    return this.$.passFormFieldData(s);
+  }
+  passFormDataPredictions(s) {
+    return this.$.passFormDataPredictions(s);
+  }
+  passFormFieldDataPredictions(s) {
+    return this.$.passFormFieldDataPredictions(s);
+  }
+  passPasswordFormFillData(s) {
+    return this.$.passPasswordFormFillData(s);
+  }
+  passPasswordFormGenerationData(s) {
+    return this.$.passPasswordFormGenerationData(s);
+  }
+  passPasswordGenerationUIData(s) {
+    return this.$.passPasswordGenerationUIData(s);
+  }
+  passPasswordSuggestionRequest(s) {
+    return this.$.passPasswordSuggestionRequest(s);
+  }
 };
 
 autofill.mojom.TypeTraitsTestRemoteCallHandler = class {

@@ -112,6 +112,9 @@ blink.mojom.DomStorageProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  bindDomStorage(receiver, client) {
+    return this.$.bindDomStorage(receiver, client);
+  }
 };
 
 blink.mojom.DomStorageProviderRemoteCallHandler = class {
@@ -277,6 +280,15 @@ blink.mojom.DomStorageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  openLocalStorage(storage_key, local_frame_token, area) {
+    return this.$.openLocalStorage(storage_key, local_frame_token, area);
+  }
+  bindSessionStorageNamespace(namespace_id, receiver) {
+    return this.$.bindSessionStorageNamespace(namespace_id, receiver);
+  }
+  bindSessionStorageArea(storage_key, local_frame_token, namespace_id, session_namespace) {
+    return this.$.bindSessionStorageArea(storage_key, local_frame_token, namespace_id, session_namespace);
   }
 };
 
@@ -487,6 +499,12 @@ blink.mojom.DomStorageClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  resetSessionStorageConnections() {
+    return this.$.resetSessionStorageConnections();
+  }
+  resetLocalStorageConnections() {
+    return this.$.resetLocalStorageConnections();
   }
 };
 

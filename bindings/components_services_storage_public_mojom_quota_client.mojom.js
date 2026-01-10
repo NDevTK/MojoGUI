@@ -149,6 +149,18 @@ storage.mojom.QuotaClientRemote = class {
   close() {
     this.proxy.close();
   }
+  getBucketUsage(bucket) {
+    return this.$.getBucketUsage(bucket);
+  }
+  getDefaultStorageKeys() {
+    return this.$.getDefaultStorageKeys();
+  }
+  deleteBucketData(bucket) {
+    return this.$.deleteBucketData(bucket);
+  }
+  performStorageCleanup() {
+    return this.$.performStorageCleanup();
+  }
 };
 
 storage.mojom.QuotaClientRemoteCallHandler = class {

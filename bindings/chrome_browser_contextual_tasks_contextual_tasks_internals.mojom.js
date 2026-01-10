@@ -140,6 +140,9 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRemot
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRemoteCallHandler = class {
@@ -293,6 +296,9 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemote = cla
 
   close() {
     this.proxy.close();
+  }
+  getRelevantContext(request) {
+    return this.$.getRelevantContext(request);
   }
 };
 
@@ -450,6 +456,9 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLogMessageAdded(event_time, source_file, source_line, message) {
+    return this.$.onLogMessageAdded(event_time, source_file, source_line, message);
   }
 };
 

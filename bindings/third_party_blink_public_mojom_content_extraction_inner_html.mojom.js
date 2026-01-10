@@ -108,6 +108,9 @@ blink.mojom.InnerHtmlAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  getInnerHtml() {
+    return this.$.getInnerHtml();
+  }
 };
 
 blink.mojom.InnerHtmlAgentRemoteCallHandler = class {

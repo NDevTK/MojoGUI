@@ -109,6 +109,12 @@ blink.mojom.ServiceWorkerWorkerClientRegistryRemote = class {
   close() {
     this.proxy.close();
   }
+  registerWorkerClient(client) {
+    return this.$.registerWorkerClient(client);
+  }
+  cloneWorkerClientRegistry(host) {
+    return this.$.cloneWorkerClientRegistry(host);
+  }
 };
 
 blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {

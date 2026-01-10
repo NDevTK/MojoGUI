@@ -585,6 +585,15 @@ ash.personalization_app.mojom.WallpaperObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onWallpaperPreviewEnded() {
+    return this.$.onWallpaperPreviewEnded();
+  }
+  onAttributionChanged(attribution) {
+    return this.$.onAttributionChanged(attribution);
+  }
+  onWallpaperChanged(image) {
+    return this.$.onWallpaperChanged(image);
+  }
 };
 
 ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
@@ -1053,6 +1062,84 @@ ash.personalization_app.mojom.WallpaperProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  makeTransparent() {
+    return this.$.makeTransparent();
+  }
+  makeOpaque() {
+    return this.$.makeOpaque();
+  }
+  fetchCollections() {
+    return this.$.fetchCollections();
+  }
+  fetchImagesForCollection(collection_id) {
+    return this.$.fetchImagesForCollection(collection_id);
+  }
+  fetchGooglePhotosAlbums(resume_token) {
+    return this.$.fetchGooglePhotosAlbums(resume_token);
+  }
+  fetchGooglePhotosSharedAlbums(resume_token) {
+    return this.$.fetchGooglePhotosSharedAlbums(resume_token);
+  }
+  fetchGooglePhotosEnabled() {
+    return this.$.fetchGooglePhotosEnabled();
+  }
+  fetchGooglePhotosPhotos(item_id, album_id, resume_token) {
+    return this.$.fetchGooglePhotosPhotos(item_id, album_id, resume_token);
+  }
+  getLocalImages() {
+    return this.$.getLocalImages();
+  }
+  getDefaultImageThumbnail() {
+    return this.$.getDefaultImageThumbnail();
+  }
+  getLocalImageThumbnail(file_path) {
+    return this.$.getLocalImageThumbnail(file_path);
+  }
+  setWallpaperObserver(observer) {
+    return this.$.setWallpaperObserver(observer);
+  }
+  selectWallpaper(unit_id, preview_mode) {
+    return this.$.selectWallpaper(unit_id, preview_mode);
+  }
+  selectDefaultImage() {
+    return this.$.selectDefaultImage();
+  }
+  selectLocalImage(path, layout, preview_mode) {
+    return this.$.selectLocalImage(path, layout, preview_mode);
+  }
+  selectGooglePhotosPhoto(id, layout, preview_mode) {
+    return this.$.selectGooglePhotosPhoto(id, layout, preview_mode);
+  }
+  selectGooglePhotosAlbum(id) {
+    return this.$.selectGooglePhotosAlbum(id);
+  }
+  getGooglePhotosDailyRefreshAlbumId() {
+    return this.$.getGooglePhotosDailyRefreshAlbumId();
+  }
+  setCurrentWallpaperLayout(layout) {
+    return this.$.setCurrentWallpaperLayout(layout);
+  }
+  setDailyRefreshCollectionId(collection_id) {
+    return this.$.setDailyRefreshCollectionId(collection_id);
+  }
+  getDailyRefreshCollectionId() {
+    return this.$.getDailyRefreshCollectionId();
+  }
+  updateDailyRefreshWallpaper() {
+    return this.$.updateDailyRefreshWallpaper();
+  }
+  isInTabletMode() {
+    return this.$.isInTabletMode();
+  }
+  confirmPreviewWallpaper() {
+    return this.$.confirmPreviewWallpaper();
+  }
+  cancelPreviewWallpaper() {
+    return this.$.cancelPreviewWallpaper();
+  }
+  shouldShowTimeOfDayWallpaperDialog() {
+    return this.$.shouldShowTimeOfDayWallpaperDialog();
   }
 };
 
@@ -2085,6 +2172,27 @@ ash.personalization_app.mojom.ThemeObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onColorModeChanged(dark_mode_enabled) {
+    return this.$.onColorModeChanged(dark_mode_enabled);
+  }
+  onColorModeAutoScheduleChanged(enabled) {
+    return this.$.onColorModeAutoScheduleChanged(enabled);
+  }
+  onColorSchemeChanged(color_scheme) {
+    return this.$.onColorSchemeChanged(color_scheme);
+  }
+  onSampleColorSchemesChanged(sample_color_schemes) {
+    return this.$.onSampleColorSchemesChanged(sample_color_schemes);
+  }
+  onStaticColorChanged(color) {
+    return this.$.onStaticColorChanged(color);
+  }
+  onGeolocationPermissionForSystemServicesChanged(enabled, is_user_modifiable) {
+    return this.$.onGeolocationPermissionForSystemServicesChanged(enabled, is_user_modifiable);
+  }
+  onDaylightTimeChanged(sunrise_time, sunset_time) {
+    return this.$.onDaylightTimeChanged(sunrise_time, sunset_time);
+  }
 };
 
 ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
@@ -2512,6 +2620,45 @@ ash.personalization_app.mojom.ThemeProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setThemeObserver(observer) {
+    return this.$.setThemeObserver(observer);
+  }
+  setColorModePref(dark_mode_enabled) {
+    return this.$.setColorModePref(dark_mode_enabled);
+  }
+  setColorModeAutoScheduleEnabled(enabled) {
+    return this.$.setColorModeAutoScheduleEnabled(enabled);
+  }
+  setColorScheme(colorScheme) {
+    return this.$.setColorScheme(colorScheme);
+  }
+  setStaticColor(static_color) {
+    return this.$.setStaticColor(static_color);
+  }
+  enableGeolocationForSystemServices() {
+    return this.$.enableGeolocationForSystemServices();
+  }
+  getColorScheme() {
+    return this.$.getColorScheme();
+  }
+  getStaticColor() {
+    return this.$.getStaticColor();
+  }
+  generateSampleColorSchemes() {
+    return this.$.generateSampleColorSchemes();
+  }
+  isColorModeAutoScheduleEnabled() {
+    return this.$.isColorModeAutoScheduleEnabled();
+  }
+  isDarkModeEnabled() {
+    return this.$.isDarkModeEnabled();
+  }
+  isGeolocationEnabledForSystemServices() {
+    return this.$.isGeolocationEnabledForSystemServices();
+  }
+  isGeolocationUserModifiable() {
+    return this.$.isGeolocationUserModifiable();
   }
 };
 
@@ -3069,6 +3216,18 @@ ash.personalization_app.mojom.UserImageObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onUserImageChanged(user_image) {
+    return this.$.onUserImageChanged(user_image);
+  }
+  onUserProfileImageUpdated(profile_image) {
+    return this.$.onUserProfileImageUpdated(profile_image);
+  }
+  onCameraPresenceCheckDone(is_camera_present) {
+    return this.$.onCameraPresenceCheckDone(is_camera_present);
+  }
+  onIsEnterpriseManagedChanged(is_enterprise_managed) {
+    return this.$.onIsEnterpriseManagedChanged(is_enterprise_managed);
+  }
 };
 
 ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
@@ -3352,6 +3511,30 @@ ash.personalization_app.mojom.UserProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setUserImageObserver(observer) {
+    return this.$.setUserImageObserver(observer);
+  }
+  getUserInfo() {
+    return this.$.getUserInfo();
+  }
+  getDefaultUserImages() {
+    return this.$.getDefaultUserImages();
+  }
+  selectDefaultImage(index) {
+    return this.$.selectDefaultImage(index);
+  }
+  selectProfileImage() {
+    return this.$.selectProfileImage();
+  }
+  selectCameraImage(data) {
+    return this.$.selectCameraImage(data);
+  }
+  selectImageFromDisk() {
+    return this.$.selectImageFromDisk();
+  }
+  selectLastExternalUserImage() {
+    return this.$.selectLastExternalUserImage();
   }
 };
 
@@ -3770,6 +3953,36 @@ ash.personalization_app.mojom.AmbientObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onAmbientModeEnabledChanged(ambient_mode_enabled) {
+    return this.$.onAmbientModeEnabledChanged(ambient_mode_enabled);
+  }
+  onAmbientThemeChanged(ambient_theme) {
+    return this.$.onAmbientThemeChanged(ambient_theme);
+  }
+  onTopicSourceChanged(topic_source) {
+    return this.$.onTopicSourceChanged(topic_source);
+  }
+  onScreenSaverDurationChanged(minutes) {
+    return this.$.onScreenSaverDurationChanged(minutes);
+  }
+  onTemperatureUnitChanged(temperature_unit) {
+    return this.$.onTemperatureUnitChanged(temperature_unit);
+  }
+  onAlbumsChanged(albums) {
+    return this.$.onAlbumsChanged(albums);
+  }
+  onPreviewsFetched(previews) {
+    return this.$.onPreviewsFetched(previews);
+  }
+  onAmbientUiVisibilityChanged(visibility) {
+    return this.$.onAmbientUiVisibilityChanged(visibility);
+  }
+  onGeolocationPermissionForSystemServicesChanged(enabled, is_user_modifiable) {
+    return this.$.onGeolocationPermissionForSystemServicesChanged(enabled, is_user_modifiable);
+  }
+  onAmbientThemePreviewImagesChanged(previews) {
+    return this.$.onAmbientThemePreviewImagesChanged(previews);
   }
 };
 
@@ -4286,6 +4499,54 @@ ash.personalization_app.mojom.AmbientProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  isAmbientModeEnabled() {
+    return this.$.isAmbientModeEnabled();
+  }
+  setAmbientModeEnabled(enabled) {
+    return this.$.setAmbientModeEnabled(enabled);
+  }
+  setAmbientObserver(observer) {
+    return this.$.setAmbientObserver(observer);
+  }
+  setAmbientTheme(ambient_theme) {
+    return this.$.setAmbientTheme(ambient_theme);
+  }
+  setScreenSaverDuration(minutes) {
+    return this.$.setScreenSaverDuration(minutes);
+  }
+  setTopicSource(topic_source) {
+    return this.$.setTopicSource(topic_source);
+  }
+  setTemperatureUnit(temperature_unit) {
+    return this.$.setTemperatureUnit(temperature_unit);
+  }
+  setAlbumSelected(id, topic_source, selected) {
+    return this.$.setAlbumSelected(id, topic_source, selected);
+  }
+  setPageViewed() {
+    return this.$.setPageViewed();
+  }
+  fetchSettingsAndAlbums() {
+    return this.$.fetchSettingsAndAlbums();
+  }
+  startScreenSaverPreview() {
+    return this.$.startScreenSaverPreview();
+  }
+  shouldShowTimeOfDayBanner() {
+    return this.$.shouldShowTimeOfDayBanner();
+  }
+  handleTimeOfDayBannerDismissed() {
+    return this.$.handleTimeOfDayBannerDismissed();
+  }
+  isGeolocationEnabledForSystemServices() {
+    return this.$.isGeolocationEnabledForSystemServices();
+  }
+  isGeolocationUserModifiable() {
+    return this.$.isGeolocationUserModifiable();
+  }
+  enableGeolocationForSystemServices() {
+    return this.$.enableGeolocationForSystemServices();
   }
 };
 
@@ -4900,6 +5161,12 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onBacklightStateChanged(currentBacklightState) {
+    return this.$.onBacklightStateChanged(currentBacklightState);
+  }
+  onWallpaperColorChanged(wallpaper_color) {
+    return this.$.onWallpaperColorChanged(wallpaper_color);
+  }
 };
 
 ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class {
@@ -5105,6 +5372,21 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setKeyboardBacklightObserver(observer) {
+    return this.$.setKeyboardBacklightObserver(observer);
+  }
+  setBacklightColor(backlight_color) {
+    return this.$.setBacklightColor(backlight_color);
+  }
+  setBacklightZoneColor(zone, backlight_color) {
+    return this.$.setBacklightZoneColor(zone, backlight_color);
+  }
+  shouldShowNudge() {
+    return this.$.shouldShowNudge();
+  }
+  handleNudgeShown() {
+    return this.$.handleNudgeShown();
   }
 };
 

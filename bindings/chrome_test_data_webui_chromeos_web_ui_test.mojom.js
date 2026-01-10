@@ -102,6 +102,9 @@ web_ui_test.mojom.TestRunnerRemote = class {
   close() {
     this.proxy.close();
   }
+  testComplete(failureMessage) {
+    return this.$.testComplete(failureMessage);
+  }
 };
 
 web_ui_test.mojom.TestRunnerRemoteCallHandler = class {

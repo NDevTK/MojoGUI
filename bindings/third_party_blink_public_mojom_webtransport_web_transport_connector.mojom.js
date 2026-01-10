@@ -107,6 +107,9 @@ blink.mojom.WebTransportConnectorRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(url, fingerprints, application_protocols, client) {
+    return this.$.connect(url, fingerprints, application_protocols, client);
+  }
 };
 
 blink.mojom.WebTransportConnectorRemoteCallHandler = class {

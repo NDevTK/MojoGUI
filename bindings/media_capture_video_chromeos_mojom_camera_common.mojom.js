@@ -203,6 +203,12 @@ cros.mojom.CameraModuleCallbacksRemote = class {
   close() {
     this.proxy.close();
   }
+  cameraDeviceStatusChange(camera_id, new_status) {
+    return this.$.cameraDeviceStatusChange(camera_id, new_status);
+  }
+  torchModeStatusChange(camera_id, new_status) {
+    return this.$.torchModeStatusChange(camera_id, new_status);
+  }
 };
 
 cros.mojom.CameraModuleCallbacksRemoteCallHandler = class {
@@ -431,6 +437,21 @@ cros.mojom.VendorTagOpsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getTagCount() {
+    return this.$.getTagCount();
+  }
+  getAllTags() {
+    return this.$.getAllTags();
+  }
+  getSectionName(tag) {
+    return this.$.getSectionName(tag);
+  }
+  getTagName(tag) {
+    return this.$.getTagName(tag);
+  }
+  getTagType(tag) {
+    return this.$.getTagType(tag);
   }
 };
 
@@ -815,6 +836,30 @@ cros.mojom.CameraModuleRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  openDevice(camera_id, device_ops_receiver) {
+    return this.$.openDevice(camera_id, device_ops_receiver);
+  }
+  getNumberOfCameras() {
+    return this.$.getNumberOfCameras();
+  }
+  getCameraInfo(camera_id) {
+    return this.$.getCameraInfo(camera_id);
+  }
+  setCallbacks(callbacks) {
+    return this.$.setCallbacks(callbacks);
+  }
+  setTorchMode(camera_id, enabled) {
+    return this.$.setTorchMode(camera_id, enabled);
+  }
+  init() {
+    return this.$.init();
+  }
+  getVendorTagOps(vendor_tag_ops_receiver) {
+    return this.$.getVendorTagOps(vendor_tag_ops_receiver);
+  }
+  setCallbacksAssociated(callbacks) {
+    return this.$.setCallbacksAssociated(callbacks);
   }
 };
 

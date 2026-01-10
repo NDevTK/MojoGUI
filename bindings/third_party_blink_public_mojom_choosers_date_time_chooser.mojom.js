@@ -141,6 +141,12 @@ blink.mojom.DateTimeChooserRemote = class {
   close() {
     this.proxy.close();
   }
+  openDateTimeDialog(value) {
+    return this.$.openDateTimeDialog(value);
+  }
+  closeDateTimeDialog() {
+    return this.$.closeDateTimeDialog();
+  }
 };
 
 blink.mojom.DateTimeChooserRemoteCallHandler = class {

@@ -142,6 +142,9 @@ ash.cellular_setup.mojom.CarrierPortalHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onCarrierPortalStatusChange(status) {
+    return this.$.onCarrierPortalStatusChange(status);
+  }
 };
 
 ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler = class {
@@ -295,6 +298,12 @@ ash.cellular_setup.mojom.ActivationDelegateRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onActivationStarted(metadata) {
+    return this.$.onActivationStarted(metadata);
+  }
+  onActivationFinished(result) {
+    return this.$.onActivationFinished(result);
   }
 };
 
@@ -478,6 +487,9 @@ ash.cellular_setup.mojom.CellularSetupRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startActivation(delegate) {
+    return this.$.startActivation(delegate);
   }
 };
 

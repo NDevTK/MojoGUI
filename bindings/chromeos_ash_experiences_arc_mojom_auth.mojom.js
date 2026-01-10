@@ -459,6 +459,42 @@ arc.mojom.AuthHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onAuthorizationResult(result, account) {
+    return this.$.onAuthorizationResult(result, account);
+  }
+  reportMetrics(metrics_type, value) {
+    return this.$.reportMetrics(metrics_type, value);
+  }
+  reportAccountCheckStatus(status) {
+    return this.$.reportAccountCheckStatus(status);
+  }
+  reportManagementChangeStatus(status) {
+    return this.$.reportManagementChangeStatus(status);
+  }
+  requestPrimaryAccount() {
+    return this.$.requestPrimaryAccount();
+  }
+  requestPrimaryAccountInfo() {
+    return this.$.requestPrimaryAccountInfo();
+  }
+  requestAccountInfo(account_name) {
+    return this.$.requestAccountInfo(account_name);
+  }
+  isAccountManagerAvailable() {
+    return this.$.isAccountManagerAvailable();
+  }
+  handleAddAccountRequest() {
+    return this.$.handleAddAccountRequest();
+  }
+  handleRemoveAccountRequest(account_name) {
+    return this.$.handleRemoveAccountRequest(account_name);
+  }
+  handleUpdateCredentialsRequest(account_name) {
+    return this.$.handleUpdateCredentialsRequest(account_name);
+  }
+  reportAccountReauthReason(reason) {
+    return this.$.reportAccountReauthReason(reason);
+  }
 };
 
 arc.mojom.AuthHostRemoteCallHandler = class {
@@ -989,6 +1025,21 @@ arc.mojom.AuthInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  onAccountUpdated(account_name, update_type) {
+    return this.$.onAccountUpdated(account_name, update_type);
+  }
+  getGoogleAccounts() {
+    return this.$.getGoogleAccounts();
+  }
+  getMainAccountResolutionStatus() {
+    return this.$.getMainAccountResolutionStatus();
+  }
+  setAccounts(accounts) {
+    return this.$.setAccounts(accounts);
   }
 };
 

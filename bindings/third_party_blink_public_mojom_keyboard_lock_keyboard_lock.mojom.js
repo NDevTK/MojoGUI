@@ -155,6 +155,15 @@ blink.mojom.KeyboardLockServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  requestKeyboardLock(key_codes) {
+    return this.$.requestKeyboardLock(key_codes);
+  }
+  cancelKeyboardLock() {
+    return this.$.cancelKeyboardLock();
+  }
+  getKeyboardLayoutMap() {
+    return this.$.getKeyboardLayoutMap();
+  }
 };
 
 blink.mojom.KeyboardLockServiceRemoteCallHandler = class {

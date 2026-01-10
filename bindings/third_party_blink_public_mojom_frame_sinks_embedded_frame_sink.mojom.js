@@ -123,6 +123,12 @@ blink.mojom.SurfaceEmbedderRemote = class {
   close() {
     this.proxy.close();
   }
+  setLocalSurfaceId(local_surface_id) {
+    return this.$.setLocalSurfaceId(local_surface_id);
+  }
+  onOpacityChanged(is_opaque) {
+    return this.$.onOpacityChanged(is_opaque);
+  }
 };
 
 blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
@@ -299,6 +305,9 @@ blink.mojom.EmbeddedFrameSinkClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindSurfaceEmbedder(embedder) {
+    return this.$.bindSurfaceEmbedder(embedder);
   }
 };
 
@@ -503,6 +512,30 @@ blink.mojom.EmbeddedFrameSinkProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  registerEmbeddedFrameSink(parent_frame_sink_id, frame_sink_id, client) {
+    return this.$.registerEmbeddedFrameSink(parent_frame_sink_id, frame_sink_id, client);
+  }
+  registerEmbeddedFrameSinkBundle(bundle_id, receiver, client) {
+    return this.$.registerEmbeddedFrameSinkBundle(bundle_id, receiver, client);
+  }
+  createCompositorFrameSink(frame_sink_id, client, sink) {
+    return this.$.createCompositorFrameSink(frame_sink_id, client, sink);
+  }
+  createBundledCompositorFrameSink(frame_sink_id, bundle_id, client, sink) {
+    return this.$.createBundledCompositorFrameSink(frame_sink_id, bundle_id, client, sink);
+  }
+  createSimpleCompositorFrameSink(parent_frame_sink_id, frame_sink_id, surface_client, client, sink) {
+    return this.$.createSimpleCompositorFrameSink(parent_frame_sink_id, frame_sink_id, surface_client, client, sink);
+  }
+  connectToEmbedder(frame_sink_id, embedder) {
+    return this.$.connectToEmbedder(frame_sink_id, embedder);
+  }
+  registerFrameSinkHierarchy(frame_sink_id) {
+    return this.$.registerFrameSinkHierarchy(frame_sink_id);
+  }
+  unregisterFrameSinkHierarchy(frame_sink_id) {
+    return this.$.unregisterFrameSinkHierarchy(frame_sink_id);
   }
 };
 

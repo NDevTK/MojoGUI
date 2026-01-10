@@ -174,6 +174,27 @@ ntp_promo.mojom.NtpPromoHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  requestPromos() {
+    return this.$.requestPromos();
+  }
+  onPromosShown(eligible_shown, completed_shown) {
+    return this.$.onPromosShown(eligible_shown, completed_shown);
+  }
+  onPromoClicked(promo_id) {
+    return this.$.onPromoClicked(promo_id);
+  }
+  snoozeSetupList() {
+    return this.$.snoozeSetupList();
+  }
+  unsnoozeSetupList() {
+    return this.$.unsnoozeSetupList();
+  }
+  disableSetupList() {
+    return this.$.disableSetupList();
+  }
+  undisableSetupList() {
+    return this.$.undisableSetupList();
+  }
 };
 
 ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
@@ -497,6 +518,9 @@ ntp_promo.mojom.NtpPromoClientRemote = class {
   close() {
     this.proxy.close();
   }
+  setPromos(eligible, completed) {
+    return this.$.setPromos(eligible, completed);
+  }
 };
 
 ntp_promo.mojom.NtpPromoClientRemoteCallHandler = class {
@@ -645,6 +669,9 @@ ntp_promo.mojom.NtpPromoHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createNtpPromoHandler(client, handler) {
+    return this.$.createNtpPromoHandler(client, handler);
   }
 };
 

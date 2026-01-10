@@ -457,6 +457,15 @@ device.mojom.HidManagerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  deviceAdded(device_info) {
+    return this.$.deviceAdded(device_info);
+  }
+  deviceRemoved(device_info) {
+    return this.$.deviceRemoved(device_info);
+  }
+  deviceChanged(device_info) {
+    return this.$.deviceChanged(device_info);
+  }
 };
 
 device.mojom.HidManagerClientRemoteCallHandler = class {
@@ -701,6 +710,18 @@ device.mojom.HidManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDevicesAndSetClient(client) {
+    return this.$.getDevicesAndSetClient(client);
+  }
+  getDevices() {
+    return this.$.getDevices();
+  }
+  connect(device_guid, connection_client, watcher, allow_protected_reports, allow_fido_reports) {
+    return this.$.connect(device_guid, connection_client, watcher, allow_protected_reports, allow_fido_reports);
+  }
+  addReceiver(receiver) {
+    return this.$.addReceiver(receiver);
   }
 };
 
@@ -1001,6 +1022,18 @@ device.mojom.HidConnectionRemote = class {
   close() {
     this.proxy.close();
   }
+  read() {
+    return this.$.read();
+  }
+  write(report_id, buffer) {
+    return this.$.write(report_id, buffer);
+  }
+  getFeatureReport(report_id) {
+    return this.$.getFeatureReport(report_id);
+  }
+  sendFeatureReport(report_id, buffer) {
+    return this.$.sendFeatureReport(report_id, buffer);
+  }
 };
 
 device.mojom.HidConnectionRemoteCallHandler = class {
@@ -1260,6 +1293,9 @@ device.mojom.HidConnectionClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onInputReport(report_id, buffer) {
+    return this.$.onInputReport(report_id, buffer);
   }
 };
 

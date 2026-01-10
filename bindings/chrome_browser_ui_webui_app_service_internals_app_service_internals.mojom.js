@@ -157,6 +157,9 @@ mojom.app_service_internals.AppServiceInternalsPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getDebugInfo() {
+    return this.$.getDebugInfo();
+  }
 };
 
 mojom.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler = class {

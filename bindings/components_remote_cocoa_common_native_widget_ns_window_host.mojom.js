@@ -623,6 +623,159 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onVisibilityChanged(visible) {
+    return this.$.onVisibilityChanged(visible);
+  }
+  onSpaceActivationChanged(is_space_active) {
+    return this.$.onSpaceActivationChanged(is_space_active);
+  }
+  onWindowNativeThemeChanged() {
+    return this.$.onWindowNativeThemeChanged();
+  }
+  onViewSizeChanged(new_size) {
+    return this.$.onViewSizeChanged(new_size);
+  }
+  getSheetOffsetY() {
+    return this.$.getSheetOffsetY();
+  }
+  setKeyboardAccessible(enabled) {
+    return this.$.setKeyboardAccessible(enabled);
+  }
+  onIsFirstResponderChanged(is_first_responder) {
+    return this.$.onIsFirstResponderChanged(is_first_responder);
+  }
+  onMouseCaptureActiveChanged(capture_is_active) {
+    return this.$.onMouseCaptureActiveChanged(capture_is_active);
+  }
+  onScrollEvent(event) {
+    return this.$.onScrollEvent(event);
+  }
+  onMouseEvent(event) {
+    return this.$.onMouseEvent(event);
+  }
+  onGestureEvent(event) {
+    return this.$.onGestureEvent(event);
+  }
+  dispatchKeyEventRemote(event) {
+    return this.$.dispatchKeyEventRemote(event);
+  }
+  dispatchKeyEventToMenuControllerRemote(event) {
+    return this.$.dispatchKeyEventToMenuControllerRemote(event);
+  }
+  dispatchMonitorEvent(event, target_is_this_window) {
+    return this.$.dispatchMonitorEvent(event, target_is_this_window);
+  }
+  getHasMenuController() {
+    return this.$.getHasMenuController();
+  }
+  getHitTestResult(location_in_content) {
+    return this.$.getHitTestResult(location_in_content);
+  }
+  getTooltipTextAt(location_in_content) {
+    return this.$.getTooltipTextAt(location_in_content);
+  }
+  getWidgetIsModal() {
+    return this.$.getWidgetIsModal();
+  }
+  getIsFocusedViewTextual() {
+    return this.$.getIsFocusedViewTextual();
+  }
+  onWindowGeometryChanged(window_bounds_in_screen_dips, content_bounds_in_screen_dips) {
+    return this.$.onWindowGeometryChanged(window_bounds_in_screen_dips, content_bounds_in_screen_dips);
+  }
+  onWindowWillStartLiveResize() {
+    return this.$.onWindowWillStartLiveResize();
+  }
+  onWindowDidEndLiveResize() {
+    return this.$.onWindowDidEndLiveResize();
+  }
+  onWindowFullscreenTransitionStart(target_fullscreen_state) {
+    return this.$.onWindowFullscreenTransitionStart(target_fullscreen_state);
+  }
+  onWindowFullscreenTransitionComplete(is_fullscreen) {
+    return this.$.onWindowFullscreenTransitionComplete(is_fullscreen);
+  }
+  onWindowMiniaturizedChanged(miniaturized) {
+    return this.$.onWindowMiniaturizedChanged(miniaturized);
+  }
+  onWindowZoomedChanged(zoomed) {
+    return this.$.onWindowZoomedChanged(zoomed);
+  }
+  onWindowDisplayChanged(display) {
+    return this.$.onWindowDisplayChanged(display);
+  }
+  onWindowWillClose() {
+    return this.$.onWindowWillClose();
+  }
+  onWindowHasClosed() {
+    return this.$.onWindowHasClosed();
+  }
+  onWindowKeyStatusChanged(is_key, is_content_first_responder, full_keyboard_access_enabled) {
+    return this.$.onWindowKeyStatusChanged(is_key, is_content_first_responder, full_keyboard_access_enabled);
+  }
+  onWindowStateRestorationDataChanged(data) {
+    return this.$.onWindowStateRestorationDataChanged(data);
+  }
+  onSheetModalShown() {
+    return this.$.onSheetModalShown();
+  }
+  onSheetModalClosed() {
+    return this.$.onSheetModalClosed();
+  }
+  onImmersiveFullscreenToolbarRevealChanged(is_revealed) {
+    return this.$.onImmersiveFullscreenToolbarRevealChanged(is_revealed);
+  }
+  onImmersiveFullscreenMenuBarRevealChanged(reveal_amount) {
+    return this.$.onImmersiveFullscreenMenuBarRevealChanged(reveal_amount);
+  }
+  onAutohidingMenuBarHeightChanged(menu_bar_height) {
+    return this.$.onAutohidingMenuBarHeightChanged(menu_bar_height);
+  }
+  doDialogButtonAction(button) {
+    return this.$.doDialogButtonAction(button);
+  }
+  getDialogButtonInfo(button) {
+    return this.$.getDialogButtonInfo(button);
+  }
+  getDoDialogButtonsExist() {
+    return this.$.getDoDialogButtonsExist();
+  }
+  getShouldShowWindowTitle() {
+    return this.$.getShouldShowWindowTitle();
+  }
+  getCanWindowBecomeKey() {
+    return this.$.getCanWindowBecomeKey();
+  }
+  getAlwaysRenderWindowAsKey() {
+    return this.$.getAlwaysRenderWindowAsKey();
+  }
+  onWindowCloseRequested() {
+    return this.$.onWindowCloseRequested();
+  }
+  getWindowFrameTitlebarHeight() {
+    return this.$.getWindowFrameTitlebarHeight();
+  }
+  onFocusWindowToolbar() {
+    return this.$.onFocusWindowToolbar();
+  }
+  setRemoteAccessibilityTokens(window_token, view_token) {
+    return this.$.setRemoteAccessibilityTokens(window_token, view_token);
+  }
+  getRootViewAccessibilityToken() {
+    return this.$.getRootViewAccessibilityToken();
+  }
+  validateUserInterfaceItem(command) {
+    return this.$.validateUserInterfaceItem(command);
+  }
+  willExecuteCommand(command, window_open_disposition, is_before_first_responder) {
+    return this.$.willExecuteCommand(command, window_open_disposition, is_before_first_responder);
+  }
+  executeCommand(command, window_open_disposition, is_before_first_responder) {
+    return this.$.executeCommand(command, window_open_disposition, is_before_first_responder);
+  }
+  handleAccelerator(accelerator, require_priority_handler) {
+    return this.$.handleAccelerator(accelerator, require_priority_handler);
+  }
 };
 
 remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {

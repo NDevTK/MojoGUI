@@ -102,6 +102,9 @@ content.mojom.FieldTrialRecorderRemote = class {
   close() {
     this.proxy.close();
   }
+  fieldTrialActivated(trial_name) {
+    return this.$.fieldTrialActivated(trial_name);
+  }
 };
 
 content.mojom.FieldTrialRecorderRemoteCallHandler = class {

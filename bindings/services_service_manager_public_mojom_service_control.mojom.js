@@ -101,6 +101,9 @@ service_manager.mojom.ServiceControlRemote = class {
   close() {
     this.proxy.close();
   }
+  requestQuit() {
+    return this.$.requestQuit();
+  }
 };
 
 service_manager.mojom.ServiceControlRemoteCallHandler = class {

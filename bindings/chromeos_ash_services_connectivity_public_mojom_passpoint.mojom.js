@@ -132,6 +132,12 @@ chromeos.connectivity.mojom.PasspointEventsListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onPasspointSubscriptionAdded(subscription) {
+    return this.$.onPasspointSubscriptionAdded(subscription);
+  }
+  onPasspointSubscriptionRemoved(subscription) {
+    return this.$.onPasspointSubscriptionRemoved(subscription);
+  }
 };
 
 chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler = class {
@@ -343,6 +349,18 @@ chromeos.connectivity.mojom.PasspointServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getPasspointSubscription(id) {
+    return this.$.getPasspointSubscription(id);
+  }
+  listPasspointSubscriptions() {
+    return this.$.listPasspointSubscriptions();
+  }
+  deletePasspointSubscription(id) {
+    return this.$.deletePasspointSubscription(id);
+  }
+  registerPasspointListener(listener) {
+    return this.$.registerPasspointListener(listener);
   }
 };
 

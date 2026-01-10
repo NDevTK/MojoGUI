@@ -123,6 +123,12 @@ gfx.mojom.ImageTraitsTestServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  echoImageSkiaRep(in) {
+    return this.$.echoImageSkiaRep(in);
+  }
+  echoImageSkia(in) {
+    return this.$.echoImageSkia(in);
+  }
 };
 
 gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class {

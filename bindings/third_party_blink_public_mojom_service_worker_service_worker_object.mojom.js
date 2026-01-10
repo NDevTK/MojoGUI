@@ -130,6 +130,12 @@ blink.mojom.ServiceWorkerObjectHostRemote = class {
   close() {
     this.proxy.close();
   }
+  postMessageToServiceWorker(message) {
+    return this.$.postMessageToServiceWorker(message);
+  }
+  terminateForTesting() {
+    return this.$.terminateForTesting();
+  }
 };
 
 blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = class {
@@ -312,6 +318,9 @@ blink.mojom.ServiceWorkerObjectRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  stateChanged(state) {
+    return this.$.stateChanged(state);
   }
 };
 

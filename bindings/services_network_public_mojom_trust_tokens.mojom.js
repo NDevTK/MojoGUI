@@ -307,6 +307,12 @@ network.mojom.TrustTokenQueryAnswererRemote = class {
   close() {
     this.proxy.close();
   }
+  hasTrustTokens(issuer) {
+    return this.$.hasTrustTokens(issuer);
+  }
+  hasRedemptionRecord(issuer) {
+    return this.$.hasRedemptionRecord(issuer);
+  }
 };
 
 network.mojom.TrustTokenQueryAnswererRemoteCallHandler = class {

@@ -102,6 +102,9 @@ media.mojom.SpeechRecognitionAudioForwarderRemote = class {
   close() {
     this.proxy.close();
   }
+  addAudioFromRenderer(buffer) {
+    return this.$.addAudioFromRenderer(buffer);
+  }
 };
 
 media.mojom.SpeechRecognitionAudioForwarderRemoteCallHandler = class {

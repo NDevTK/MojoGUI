@@ -165,6 +165,12 @@ cc.mojom.RenderFrameMetadataObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  updateRootScrollOffsetUpdateFrequency(frequency) {
+    return this.$.updateRootScrollOffsetUpdateFrequency(frequency);
+  }
+  reportAllFrameSubmissionsForTesting(enabled) {
+    return this.$.reportAllFrameSubmissionsForTesting(enabled);
+  }
 };
 
 cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
@@ -354,6 +360,15 @@ cc.mojom.RenderFrameMetadataObserverClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onRenderFrameMetadataChanged(frame_token, metadata) {
+    return this.$.onRenderFrameMetadataChanged(frame_token, metadata);
+  }
+  onFrameSubmissionForTesting(frame_token) {
+    return this.$.onFrameSubmissionForTesting(frame_token);
+  }
+  onRootScrollOffsetChanged(root_scroll_offset) {
+    return this.$.onRootScrollOffsetChanged(root_scroll_offset);
   }
 };
 

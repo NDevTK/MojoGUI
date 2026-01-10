@@ -118,6 +118,12 @@ blink.mojom.FetchLaterLoaderFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createLoader(loader, request_id, options, request, traffic_annotation) {
+    return this.$.createLoader(loader, request_id, options, request, traffic_annotation);
+  }
+  clone(factory) {
+    return this.$.clone(factory);
+  }
 };
 
 blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
@@ -298,6 +304,12 @@ blink.mojom.FetchLaterLoaderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sendNow() {
+    return this.$.sendNow();
+  }
+  cancel() {
+    return this.$.cancel();
   }
 };
 

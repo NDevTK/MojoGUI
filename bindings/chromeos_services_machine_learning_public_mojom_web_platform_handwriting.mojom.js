@@ -181,6 +181,9 @@ chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemote = class
   close() {
     this.proxy.close();
   }
+  getPrediction(strokes, hints) {
+    return this.$.getPrediction(strokes, hints);
+  }
 };
 
 chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemoteCallHandler = class {

@@ -103,6 +103,9 @@ ash.sanitize_ui.mojom.SettingsResetterRemote = class {
   close() {
     this.proxy.close();
   }
+  performSanitizeSettings() {
+    return this.$.performSanitizeSettings();
+  }
 };
 
 ash.sanitize_ui.mojom.SettingsResetterRemoteCallHandler = class {

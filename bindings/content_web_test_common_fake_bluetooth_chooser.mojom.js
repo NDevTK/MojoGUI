@@ -147,6 +147,15 @@ content.mojom.FakeBluetoothChooserRemote = class {
   close() {
     this.proxy.close();
   }
+  selectPeripheral(peripheral_address) {
+    return this.$.selectPeripheral(peripheral_address);
+  }
+  cancel() {
+    return this.$.cancel();
+  }
+  rescan() {
+    return this.$.rescan();
+  }
 };
 
 content.mojom.FakeBluetoothChooserRemoteCallHandler = class {
@@ -359,6 +368,9 @@ content.mojom.FakeBluetoothChooserFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createFakeBluetoothChooser(fake_chooser, client) {
+    return this.$.createFakeBluetoothChooser(fake_chooser, client);
+  }
 };
 
 content.mojom.FakeBluetoothChooserFactoryRemoteCallHandler = class {
@@ -512,6 +524,9 @@ content.mojom.FakeBluetoothChooserClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onEvent(event) {
+    return this.$.onEvent(event);
   }
 };
 

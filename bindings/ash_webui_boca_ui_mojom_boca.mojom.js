@@ -896,6 +896,99 @@ ash.boca.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  authenticateWebview() {
+    return this.$.authenticateWebview();
+  }
+  getWindowsTabsList() {
+    return this.$.getWindowsTabsList();
+  }
+  listCourses() {
+    return this.$.listCourses();
+  }
+  listStudents(course_id) {
+    return this.$.listStudents(course_id);
+  }
+  listAssignments(course_id) {
+    return this.$.listAssignments(course_id);
+  }
+  createSession(config) {
+    return this.$.createSession(config);
+  }
+  getSession() {
+    return this.$.getSession();
+  }
+  endSession() {
+    return this.$.endSession();
+  }
+  extendSessionDuration(extended_duration) {
+    return this.$.extendSessionDuration(extended_duration);
+  }
+  removeStudent(student_id) {
+    return this.$.removeStudent(student_id);
+  }
+  renotifyStudent(student_id) {
+    return this.$.renotifyStudent(student_id);
+  }
+  addStudents(students) {
+    return this.$.addStudents(students);
+  }
+  updateOnTaskConfig(on_task_config) {
+    return this.$.updateOnTaskConfig(on_task_config);
+  }
+  updateCaptionConfig(caption_config) {
+    return this.$.updateCaptionConfig(caption_config);
+  }
+  setFloatMode(is_float_mode) {
+    return this.$.setFloatMode(is_float_mode);
+  }
+  submitAccessCode(access_code) {
+    return this.$.submitAccessCode(access_code);
+  }
+  viewStudentScreen(id) {
+    return this.$.viewStudentScreen(id);
+  }
+  endViewScreenSession(id) {
+    return this.$.endViewScreenSession(id);
+  }
+  setViewScreenSessionActive(id) {
+    return this.$.setViewScreenSessionActive(id);
+  }
+  getUserPref(pref) {
+    return this.$.getUserPref(pref);
+  }
+  setUserPref(pref, value) {
+    return this.$.setUserPref(pref, value);
+  }
+  setSitePermission(url, permission, setting) {
+    return this.$.setSitePermission(url, permission, setting);
+  }
+  closeTab(tab_id) {
+    return this.$.closeTab(tab_id);
+  }
+  openFeedbackDialog() {
+    return this.$.openFeedbackDialog();
+  }
+  refreshWorkbook() {
+    return this.$.refreshWorkbook();
+  }
+  getSpeechRecognitionInstallationStatus() {
+    return this.$.getSpeechRecognitionInstallationStatus();
+  }
+  startSpotlight(crd_connection_code) {
+    return this.$.startSpotlight(crd_connection_code);
+  }
+  presentStudentScreen(student, receiver_id) {
+    return this.$.presentStudentScreen(student, receiver_id);
+  }
+  stopPresentingStudentScreen() {
+    return this.$.stopPresentingStudentScreen();
+  }
+  presentOwnScreen(receiver_id) {
+    return this.$.presentOwnScreen(receiver_id);
+  }
+  stopPresentingOwnScreen() {
+    return this.$.stopPresentingOwnScreen();
+  }
 };
 
 ash.boca.mojom.PageHandlerRemoteCallHandler = class {
@@ -2151,6 +2244,36 @@ ash.boca.mojom.PageRemote = class {
   close() {
     this.proxy.close();
   }
+  onStudentActivityUpdated(activities) {
+    return this.$.onStudentActivityUpdated(activities);
+  }
+  onSessionConfigUpdated(config) {
+    return this.$.onSessionConfigUpdated(config);
+  }
+  onActiveNetworkStateChanged(active_networks) {
+    return this.$.onActiveNetworkStateChanged(active_networks);
+  }
+  onLocalCaptionDisabled() {
+    return this.$.onLocalCaptionDisabled();
+  }
+  onSpeechRecognitionInstallStateUpdated(state) {
+    return this.$.onSpeechRecognitionInstallStateUpdated(state);
+  }
+  onSessionCaptionDisabled(is_error) {
+    return this.$.onSessionCaptionDisabled(is_error);
+  }
+  onFrameDataReceived(frame_data) {
+    return this.$.onFrameDataReceived(frame_data);
+  }
+  onSpotlightCrdSessionStatusUpdated(state) {
+    return this.$.onSpotlightCrdSessionStatusUpdated(state);
+  }
+  onPresentStudentScreenEnded() {
+    return this.$.onPresentStudentScreenEnded();
+  }
+  onPresentOwnScreenEnded() {
+    return this.$.onPresentOwnScreenEnded();
+  }
 };
 
 ash.boca.mojom.PageRemoteCallHandler = class {
@@ -2560,6 +2683,9 @@ ash.boca.mojom.BocaPageHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  create(handler, page) {
+    return this.$.create(handler, page);
   }
 };
 

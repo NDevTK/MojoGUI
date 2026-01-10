@@ -197,6 +197,9 @@ remote_cocoa.mojom.PopupMenuRunnerRemote = class {
   close() {
     this.proxy.close();
   }
+  hide() {
+    return this.$.hide();
+  }
 };
 
 remote_cocoa.mojom.PopupMenuRunnerRemoteCallHandler = class {
@@ -510,6 +513,84 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  initAsPopup(content_rect, popup_parent_ns_view_id) {
+    return this.$.initAsPopup(content_rect, popup_parent_ns_view_id);
+  }
+  setParentWebContentsNSView(parent_ns_view_id) {
+    return this.$.setParentWebContentsNSView(parent_ns_view_id);
+  }
+  disableDisplay() {
+    return this.$.disableDisplay();
+  }
+  makeFirstResponder() {
+    return this.$.makeFirstResponder();
+  }
+  setBounds(rect) {
+    return this.$.setBounds(rect);
+  }
+  setCALayerParams(ca_layer_params) {
+    return this.$.setCALayerParams(ca_layer_params);
+  }
+  setBackgroundColor(color) {
+    return this.$.setBackgroundColor(color);
+  }
+  setVisible(visible) {
+    return this.$.setVisible(visible);
+  }
+  setTooltipText(display_text) {
+    return this.$.setTooltipText(display_text);
+  }
+  setTextInputState(text_input_type, flags) {
+    return this.$.setTextInputState(text_input_type, flags);
+  }
+  setTextSelection(text, offset, range) {
+    return this.$.setTextSelection(text, offset, range);
+  }
+  setCompositionRangeInfo(range) {
+    return this.$.setCompositionRangeInfo(range);
+  }
+  cancelComposition() {
+    return this.$.cancelComposition();
+  }
+  setShowingContextMenu(showing) {
+    return this.$.setShowingContextMenu(showing);
+  }
+  displayCursor(cursor) {
+    return this.$.displayCursor(cursor);
+  }
+  setCursorLocked(locked) {
+    return this.$.setCursorLocked(locked);
+  }
+  setCursorLockedUnacceleratedMovement(unaccelerated_movement) {
+    return this.$.setCursorLockedUnacceleratedMovement(unaccelerated_movement);
+  }
+  showDictionaryOverlayForSelection() {
+    return this.$.showDictionaryOverlayForSelection();
+  }
+  showDictionaryOverlay(attributed_string, baseline_point) {
+    return this.$.showDictionaryOverlay(attributed_string, baseline_point);
+  }
+  lockKeyboard(dom_codes) {
+    return this.$.lockKeyboard(dom_codes);
+  }
+  unlockKeyboard() {
+    return this.$.unlockKeyboard();
+  }
+  showSharingServicePicker(title, text, url, file_paths) {
+    return this.$.showSharingServicePicker(title, text, url, file_paths);
+  }
+  destroy() {
+    return this.$.destroy();
+  }
+  gestureScrollEventAck(event, consumed) {
+    return this.$.gestureScrollEventAck(event, consumed);
+  }
+  didOverscroll(params) {
+    return this.$.didOverscroll(params);
+  }
+  displayPopupMenu(menu) {
+    return this.$.displayPopupMenu(menu);
   }
 };
 
@@ -1653,6 +1734,126 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  syncIsWidgetForMainFrame() {
+    return this.$.syncIsWidgetForMainFrame();
+  }
+  requestShutdown() {
+    return this.$.requestShutdown();
+  }
+  onFirstResponderChanged(is_first_responder) {
+    return this.$.onFirstResponderChanged(is_first_responder);
+  }
+  onWindowIsKeyChanged(is_key) {
+    return this.$.onWindowIsKeyChanged(is_key);
+  }
+  onBoundsInWindowChanged(view_bounds_in_window_dip, attached_to_window) {
+    return this.$.onBoundsInWindowChanged(view_bounds_in_window_dip, attached_to_window);
+  }
+  onWindowFrameInScreenChanged(window_frame_in_screen_dip) {
+    return this.$.onWindowFrameInScreenChanged(window_frame_in_screen_dip);
+  }
+  onScreenInfosChanged(screen_infos) {
+    return this.$.onScreenInfosChanged(screen_infos);
+  }
+  beginKeyboardEvent() {
+    return this.$.beginKeyboardEvent();
+  }
+  endKeyboardEvent() {
+    return this.$.endKeyboardEvent();
+  }
+  forwardKeyboardEventWithCommands(event, native_event_data, skip_if_unhandled, commands) {
+    return this.$.forwardKeyboardEventWithCommands(event, native_event_data, skip_if_unhandled, commands);
+  }
+  routeOrProcessMouseEvent(event) {
+    return this.$.routeOrProcessMouseEvent(event);
+  }
+  routeOrProcessTouchEvent(event) {
+    return this.$.routeOrProcessTouchEvent(event);
+  }
+  routeOrProcessWheelEvent(event) {
+    return this.$.routeOrProcessWheelEvent(event);
+  }
+  forwardMouseEvent(event) {
+    return this.$.forwardMouseEvent(event);
+  }
+  forwardWheelEvent(event) {
+    return this.$.forwardWheelEvent(event);
+  }
+  pinchEvent(event, is_synthetically_injected) {
+    return this.$.pinchEvent(event, is_synthetically_injected);
+  }
+  smartMagnifyEvent(event) {
+    return this.$.smartMagnifyEvent(event);
+  }
+  imeSetComposition(text, ime_text_spans, replacement_range, selection_start, selection_end) {
+    return this.$.imeSetComposition(text, ime_text_spans, replacement_range, selection_start, selection_end);
+  }
+  imeCommitText(text, replacement_range) {
+    return this.$.imeCommitText(text, replacement_range);
+  }
+  imeFinishComposingText() {
+    return this.$.imeFinishComposingText();
+  }
+  imeCancelCompositionFromCocoa() {
+    return this.$.imeCancelCompositionFromCocoa();
+  }
+  lookUpDictionaryOverlayAtPoint(root_point) {
+    return this.$.lookUpDictionaryOverlayAtPoint(root_point);
+  }
+  lookUpDictionaryOverlayFromRange(range) {
+    return this.$.lookUpDictionaryOverlayFromRange(range);
+  }
+  syncGetCharacterIndexAtPoint(root_point) {
+    return this.$.syncGetCharacterIndexAtPoint(root_point);
+  }
+  syncGetFirstRectForRange(requested_range) {
+    return this.$.syncGetFirstRectForRange(requested_range);
+  }
+  executeEditCommand(command) {
+    return this.$.executeEditCommand(command);
+  }
+  undo() {
+    return this.$.undo();
+  }
+  redo() {
+    return this.$.redo();
+  }
+  cut() {
+    return this.$.cut();
+  }
+  copy() {
+    return this.$.copy();
+  }
+  copyToFindPboard() {
+    return this.$.copyToFindPboard();
+  }
+  centerSelection() {
+    return this.$.centerSelection();
+  }
+  paste() {
+    return this.$.paste();
+  }
+  pasteAndMatchStyle() {
+    return this.$.pasteAndMatchStyle();
+  }
+  selectAll() {
+    return this.$.selectAll();
+  }
+  startSpeaking() {
+    return this.$.startSpeaking();
+  }
+  stopSpeaking() {
+    return this.$.stopSpeaking();
+  }
+  syncIsSpeaking() {
+    return this.$.syncIsSpeaking();
+  }
+  getRenderWidgetAccessibilityToken() {
+    return this.$.getRenderWidgetAccessibilityToken();
+  }
+  setRemoteAccessibilityWindowToken(window_token) {
+    return this.$.setRemoteAccessibilityWindowToken(window_token);
   }
 };
 

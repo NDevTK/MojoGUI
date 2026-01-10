@@ -148,6 +148,15 @@ arc.mojom.UsbHostHostRemote = class {
   close() {
     this.proxy.close();
   }
+  openDevice(guid, pkg_name) {
+    return this.$.openDevice(guid, pkg_name);
+  }
+  getDeviceInfo(guid) {
+    return this.$.getDeviceInfo(guid);
+  }
+  requestPermission(guid, pkg_name, interactive) {
+    return this.$.requestPermission(guid, pkg_name, interactive);
+  }
 };
 
 arc.mojom.UsbHostHostRemoteCallHandler = class {
@@ -390,6 +399,15 @@ arc.mojom.UsbHostInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  onDeviceAdded(guid, event_receiver_packages) {
+    return this.$.onDeviceAdded(guid, event_receiver_packages);
+  }
+  onDeviceRemoved(guid, event_receiver_packages) {
+    return this.$.onDeviceRemoved(guid, event_receiver_packages);
   }
 };
 

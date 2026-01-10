@@ -101,6 +101,9 @@ mojom.ModuleEventSinkRemote = class {
   close() {
     this.proxy.close();
   }
+  onModuleEvents(module_load_addresses) {
+    return this.$.onModuleEvents(module_load_addresses);
+  }
 };
 
 mojom.ModuleEventSinkRemoteCallHandler = class {

@@ -147,6 +147,18 @@ media_router.mojom.LoggerRemote = class {
   close() {
     this.proxy.close();
   }
+  logInfo(category, component, message, sink_id, media_source, session_id) {
+    return this.$.logInfo(category, component, message, sink_id, media_source, session_id);
+  }
+  logWarning(category, component, message, sink_id, media_source, session_id) {
+    return this.$.logWarning(category, component, message, sink_id, media_source, session_id);
+  }
+  logError(category, component, message, sink_id, media_source, session_id) {
+    return this.$.logError(category, component, message, sink_id, media_source, session_id);
+  }
+  bindReceiver(receiver) {
+    return this.$.bindReceiver(receiver);
+  }
 };
 
 media_router.mojom.LoggerRemoteCallHandler = class {

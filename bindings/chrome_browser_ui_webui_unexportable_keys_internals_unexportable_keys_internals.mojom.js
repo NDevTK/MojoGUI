@@ -132,6 +132,9 @@ unexportable_keys_internals.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createUnexportableKeysInternalsHandler(page, handler) {
+    return this.$.createUnexportableKeysInternalsHandler(page, handler);
+  }
 };
 
 unexportable_keys_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -296,6 +299,12 @@ unexportable_keys_internals.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getUnexportableKeysInfo() {
+    return this.$.getUnexportableKeysInfo();
+  }
+  deleteKey(key_id) {
+    return this.$.deleteKey(key_id);
   }
 };
 

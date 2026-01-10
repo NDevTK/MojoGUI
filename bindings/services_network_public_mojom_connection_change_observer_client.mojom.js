@@ -134,6 +134,15 @@ network.mojom.ConnectionChangeObserverClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onSessionClosed() {
+    return this.$.onSessionClosed();
+  }
+  onNetworkEvent(event) {
+    return this.$.onNetworkEvent(event);
+  }
+  onConnectionFailed() {
+    return this.$.onConnectionFailed();
+  }
 };
 
 network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {

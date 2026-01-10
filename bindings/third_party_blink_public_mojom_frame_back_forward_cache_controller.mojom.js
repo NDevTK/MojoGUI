@@ -119,6 +119,12 @@ blink.mojom.BackForwardCacheControllerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  evictFromBackForwardCache(reason, source) {
+    return this.$.evictFromBackForwardCache(reason, source);
+  }
+  didChangeBackForwardCacheDisablingFeatures(details) {
+    return this.$.didChangeBackForwardCacheDisablingFeatures(details);
+  }
 };
 
 blink.mojom.BackForwardCacheControllerHostRemoteCallHandler = class {

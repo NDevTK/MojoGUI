@@ -103,6 +103,9 @@ ash.cros_healthd.mojom.AshEventReporterRemote = class {
   close() {
     this.proxy.close();
   }
+  sendKeyboardDiagnosticEvent(info) {
+    return this.$.sendKeyboardDiagnosticEvent(info);
+  }
 };
 
 ash.cros_healthd.mojom.AshEventReporterRemoteCallHandler = class {

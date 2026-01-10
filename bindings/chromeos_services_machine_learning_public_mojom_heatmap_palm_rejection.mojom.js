@@ -149,6 +149,9 @@ chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onHeatmapProcessedEvent(event) {
+    return this.$.onHeatmapProcessedEvent(event);
+  }
 };
 
 chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemoteCallHandler = class {

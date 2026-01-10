@@ -111,6 +111,12 @@ network_hints.mojom.NetworkHintsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  prefetchDNS(url_list) {
+    return this.$.prefetchDNS(url_list);
+  }
+  preconnect(url, allow_credentials) {
+    return this.$.preconnect(url, allow_credentials);
+  }
 };
 
 network_hints.mojom.NetworkHintsHandlerRemoteCallHandler = class {

@@ -157,6 +157,18 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote = class {
   close() {
     this.proxy.close();
   }
+  saveCredentials(local_credentials, shared_credentials, public_credential_type) {
+    return this.$.saveCredentials(local_credentials, shared_credentials, public_credential_type);
+  }
+  getPublicCredentials(public_credential_type) {
+    return this.$.getPublicCredentials(public_credential_type);
+  }
+  getPrivateCredentials() {
+    return this.$.getPrivateCredentials();
+  }
+  updateLocalCredential(local_credential) {
+    return this.$.updateLocalCredential(local_credential);
+  }
 };
 
 ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = class {

@@ -105,6 +105,9 @@ drivefs.mojom.FakeDriveFsLauncherRemote = class {
   close() {
     this.proxy.close();
   }
+  launchDriveFs(datadir_path, mount_path, mojo_socket_handle) {
+    return this.$.launchDriveFs(datadir_path, mount_path, mojo_socket_handle);
+  }
 };
 
 drivefs.mojom.FakeDriveFsLauncherRemoteCallHandler = class {

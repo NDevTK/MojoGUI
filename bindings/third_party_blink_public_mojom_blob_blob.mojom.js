@@ -126,6 +126,12 @@ blink.mojom.BlobReaderClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onCalculatedSize(total_size, expected_content_size) {
+    return this.$.onCalculatedSize(total_size, expected_content_size);
+  }
+  onComplete(status, data_length) {
+    return this.$.onComplete(status, data_length);
+  }
 };
 
 blink.mojom.BlobReaderClientRemoteCallHandler = class {
@@ -367,6 +373,30 @@ blink.mojom.BlobRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  clone(blob) {
+    return this.$.clone(blob);
+  }
+  asDataPipeGetter(data_pipe_getter) {
+    return this.$.asDataPipeGetter(data_pipe_getter);
+  }
+  readAll(pipe, client) {
+    return this.$.readAll(pipe, client);
+  }
+  readRange(offset, length, pipe, client) {
+    return this.$.readRange(offset, length, pipe, client);
+  }
+  load(loader, request_method, headers, client) {
+    return this.$.load(loader, request_method, headers, client);
+  }
+  readSideData() {
+    return this.$.readSideData();
+  }
+  captureSnapshot() {
+    return this.$.captureSnapshot();
+  }
+  getInternalUUID() {
+    return this.$.getInternalUUID();
   }
 };
 

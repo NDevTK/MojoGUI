@@ -117,6 +117,12 @@ media.mojom.DCOMPSurfaceRegistryRemote = class {
   close() {
     this.proxy.close();
   }
+  registerDCOMPSurfaceHandle(surface_handle) {
+    return this.$.registerDCOMPSurfaceHandle(surface_handle);
+  }
+  unregisterDCOMPSurfaceHandle(token) {
+    return this.$.unregisterDCOMPSurfaceHandle(token);
+  }
 };
 
 media.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class {

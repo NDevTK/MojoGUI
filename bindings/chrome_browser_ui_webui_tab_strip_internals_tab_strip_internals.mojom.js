@@ -384,6 +384,9 @@ tab_strip_internals.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -536,6 +539,9 @@ tab_strip_internals.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getTabStripData() {
+    return this.$.getTabStripData();
   }
 };
 
@@ -690,6 +696,9 @@ tab_strip_internals.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onTabStripUpdated(data) {
+    return this.$.onTabStripUpdated(data);
   }
 };
 

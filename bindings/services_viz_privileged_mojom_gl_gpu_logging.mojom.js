@@ -104,6 +104,9 @@ viz.mojom.GpuLoggingRemote = class {
   close() {
     this.proxy.close();
   }
+  recordLogMessage(severity, header, message) {
+    return this.$.recordLogMessage(severity, header, message);
+  }
 };
 
 viz.mojom.GpuLoggingRemoteCallHandler = class {

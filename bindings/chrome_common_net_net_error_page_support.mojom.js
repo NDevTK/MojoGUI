@@ -114,6 +114,15 @@ chrome.mojom.NetErrorPageSupportRemote = class {
   close() {
     this.proxy.close();
   }
+  downloadPageLater() {
+    return this.$.downloadPageLater();
+  }
+  setIsShowingDownloadButtonInErrorPage(showing_download_button) {
+    return this.$.setIsShowingDownloadButtonInErrorPage(showing_download_button);
+  }
+  showPortalSignin() {
+    return this.$.showPortalSignin();
+  }
 };
 
 chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {

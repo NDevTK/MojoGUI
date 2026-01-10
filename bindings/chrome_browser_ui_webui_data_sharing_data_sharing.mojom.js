@@ -214,6 +214,9 @@ data_sharing.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 data_sharing.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -436,6 +439,36 @@ data_sharing.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  showUI() {
+    return this.$.showUI();
+  }
+  closeUI(status_code) {
+    return this.$.closeUI(status_code);
+  }
+  apiInitComplete() {
+    return this.$.apiInitComplete();
+  }
+  makeTabGroupShared(tab_group_id, group_id, access_token) {
+    return this.$.makeTabGroupShared(tab_group_id, group_id, access_token);
+  }
+  getShareLink(group_id, access_token) {
+    return this.$.getShareLink(group_id, access_token);
+  }
+  getTabGroupPreview(group_id, access_token) {
+    return this.$.getTabGroupPreview(group_id, access_token);
+  }
+  openTabGroup(group_id) {
+    return this.$.openTabGroup(group_id);
+  }
+  aboutToUnShareTabGroup(tab_group_id) {
+    return this.$.aboutToUnShareTabGroup(tab_group_id);
+  }
+  onTabGroupUnShareComplete(tab_group_id) {
+    return this.$.onTabGroupUnShareComplete(tab_group_id);
+  }
+  onGroupAction(action, progress) {
+    return this.$.onGroupAction(action, progress);
   }
 };
 
@@ -911,6 +944,21 @@ data_sharing.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onAccessTokenFetched(access_token) {
+    return this.$.onAccessTokenFetched(access_token);
+  }
+  readGroups(read_groups_params) {
+    return this.$.readGroups(read_groups_params);
+  }
+  readGroupWithToken(param) {
+    return this.$.readGroupWithToken(param);
+  }
+  deleteGroup(group_id) {
+    return this.$.deleteGroup(group_id);
+  }
+  leaveGroup(group_id) {
+    return this.$.leaveGroup(group_id);
   }
 };
 

@@ -178,6 +178,9 @@ ash.diagnostics.mojom.RoutineRunnerRemote = class {
   close() {
     this.proxy.close();
   }
+  onRoutineResult(info) {
+    return this.$.onRoutineResult(info);
+  }
 };
 
 ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
@@ -337,6 +340,12 @@ ash.diagnostics.mojom.SystemRoutineControllerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getSupportedRoutines() {
+    return this.$.getSupportedRoutines();
+  }
+  runRoutine(type, runner) {
+    return this.$.runRoutine(type, runner);
   }
 };
 

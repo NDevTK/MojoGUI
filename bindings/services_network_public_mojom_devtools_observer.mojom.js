@@ -280,6 +280,48 @@ network.mojom.DevToolsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onRawRequest(devtool_request_id, cookies_with_access_result, headers, timestamp, client_security_state, other_partition_info, applied_network_conditions_id) {
+    return this.$.onRawRequest(devtool_request_id, cookies_with_access_result, headers, timestamp, client_security_state, other_partition_info, applied_network_conditions_id);
+  }
+  onRawResponse(devtool_request_id, cookies_with_access_result, headers, raw_response_headers, resource_address_space, http_status_code, cookie_partition_key) {
+    return this.$.onRawResponse(devtool_request_id, cookies_with_access_result, headers, raw_response_headers, resource_address_space, http_status_code, cookie_partition_key);
+  }
+  onEarlyHintsResponse(devtool_request_id, headers) {
+    return this.$.onEarlyHintsResponse(devtool_request_id, headers);
+  }
+  onPrivateNetworkRequest(devtool_request_id, url, is_warning, resource_address_space, client_security_state) {
+    return this.$.onPrivateNetworkRequest(devtool_request_id, url, is_warning, resource_address_space, client_security_state);
+  }
+  onCorsPreflightRequest(devtool_request_id, request_headers, request_info, initiator_url, initiator_devtool_request_id) {
+    return this.$.onCorsPreflightRequest(devtool_request_id, request_headers, request_info, initiator_url, initiator_devtool_request_id);
+  }
+  onCorsPreflightResponse(devtool_request_id, url, head) {
+    return this.$.onCorsPreflightResponse(devtool_request_id, url, head);
+  }
+  onCorsPreflightRequestCompleted(devtool_request_id, status) {
+    return this.$.onCorsPreflightRequestCompleted(devtool_request_id, status);
+  }
+  onTrustTokenOperationDone(devtool_request_id, result) {
+    return this.$.onTrustTokenOperationDone(devtool_request_id, result);
+  }
+  onCorsError(devtool_request_id, initiator_origin, client_security_state, url, status, is_warning) {
+    return this.$.onCorsError(devtool_request_id, initiator_origin, client_security_state, url, status, is_warning);
+  }
+  onOrbError(devtools_request_id, url) {
+    return this.$.onOrbError(devtools_request_id, url);
+  }
+  onSharedDictionaryError(devtool_request_id, url, error) {
+    return this.$.onSharedDictionaryError(devtool_request_id, url, error);
+  }
+  onSRIMessageSignatureIssue(devtool_request_id, url, issues) {
+    return this.$.onSRIMessageSignatureIssue(devtool_request_id, url, issues);
+  }
+  onUnencodedDigestError(devtool_request_id, url, issue) {
+    return this.$.onUnencodedDigestError(devtool_request_id, url, issue);
+  }
+  clone(listener) {
+    return this.$.clone(listener);
+  }
 };
 
 network.mojom.DevToolsObserverRemoteCallHandler = class {

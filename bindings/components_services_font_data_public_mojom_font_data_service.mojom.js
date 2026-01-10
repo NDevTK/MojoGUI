@@ -227,6 +227,18 @@ font_data_service.mojom.FontDataServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  matchFamilyName(family_name, style) {
+    return this.$.matchFamilyName(family_name, style);
+  }
+  matchFamilyNameCharacter(family_name, style, bcp47s, character) {
+    return this.$.matchFamilyNameCharacter(family_name, style, bcp47s, character);
+  }
+  getAllFamilyNames() {
+    return this.$.getAllFamilyNames();
+  }
+  legacyMakeTypeface(family_name, style) {
+    return this.$.legacyMakeTypeface(family_name, style);
+  }
 };
 
 font_data_service.mojom.FontDataServiceRemoteCallHandler = class {

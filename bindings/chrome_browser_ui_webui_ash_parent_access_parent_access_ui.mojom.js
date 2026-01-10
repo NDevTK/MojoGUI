@@ -271,6 +271,24 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getOauthToken() {
+    return this.$.getOauthToken();
+  }
+  onParentAccessCallbackReceived(encoded_parent_access_callback_proto) {
+    return this.$.onParentAccessCallbackReceived(encoded_parent_access_callback_proto);
+  }
+  getParentAccessParams() {
+    return this.$.getParentAccessParams();
+  }
+  getParentAccessUrl() {
+    return this.$.getParentAccessUrl();
+  }
+  onParentAccessDone(result) {
+    return this.$.onParentAccessDone(result);
+  }
+  onBeforeScreenDone() {
+    return this.$.onBeforeScreenDone();
+  }
 };
 
 parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {

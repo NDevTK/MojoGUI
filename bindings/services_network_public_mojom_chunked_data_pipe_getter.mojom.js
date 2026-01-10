@@ -116,6 +116,12 @@ network.mojom.ChunkedDataPipeGetterRemote = class {
   close() {
     this.proxy.close();
   }
+  getSize() {
+    return this.$.getSize();
+  }
+  startReading(pipe) {
+    return this.$.startReading(pipe);
+  }
 };
 
 network.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {

@@ -132,6 +132,9 @@ media.mojom.FuchsiaMediaCdmProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  createCdm(key_system, cdm_request) {
+    return this.$.createCdm(key_system, cdm_request);
+  }
 };
 
 media.mojom.FuchsiaMediaCdmProviderRemoteCallHandler = class {
@@ -292,6 +295,12 @@ media.mojom.FuchsiaMediaCodecProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createVideoDecoder(codec, secure_mode, stream_processor_request) {
+    return this.$.createVideoDecoder(codec, secure_mode, stream_processor_request);
+  }
+  getSupportedVideoDecoderConfigs() {
+    return this.$.getSupportedVideoDecoderConfigs();
   }
 };
 

@@ -188,6 +188,12 @@ blink.mojom.FileChooserRemote = class {
   close() {
     this.proxy.close();
   }
+  openFileChooser(params) {
+    return this.$.openFileChooser(params);
+  }
+  enumerateChosenDirectory(directory_path) {
+    return this.$.enumerateChosenDirectory(directory_path);
+  }
 };
 
 blink.mojom.FileChooserRemoteCallHandler = class {

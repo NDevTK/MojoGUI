@@ -104,6 +104,9 @@ audio.mojom.DeviceListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  devicesChanged() {
+    return this.$.devicesChanged();
+  }
 };
 
 audio.mojom.DeviceListenerRemoteCallHandler = class {
@@ -251,6 +254,9 @@ audio.mojom.DeviceNotifierRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  registerListener(listener) {
+    return this.$.registerListener(listener);
   }
 };
 

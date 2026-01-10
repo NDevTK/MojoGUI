@@ -180,6 +180,12 @@ discards.mojom.SiteDataProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getSiteDataArray(explicitly_requested_origins) {
+    return this.$.getSiteDataArray(explicitly_requested_origins);
+  }
+  getSiteDataDatabaseSize() {
+    return this.$.getSiteDataDatabaseSize();
+  }
 };
 
 discards.mojom.SiteDataProviderRemoteCallHandler = class {

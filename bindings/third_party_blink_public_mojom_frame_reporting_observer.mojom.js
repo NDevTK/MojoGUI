@@ -130,6 +130,9 @@ blink.mojom.ReportingObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  notify(report) {
+    return this.$.notify(report);
+  }
 };
 
 blink.mojom.ReportingObserverRemoteCallHandler = class {

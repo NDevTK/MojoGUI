@@ -395,6 +395,24 @@ blink.mojom.MediaStreamDeviceObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onDeviceStopped(label, device) {
+    return this.$.onDeviceStopped(label, device);
+  }
+  onDeviceChanged(label, old_device, new_device) {
+    return this.$.onDeviceChanged(label, old_device, new_device);
+  }
+  onDeviceRequestStateChange(label, device, new_state) {
+    return this.$.onDeviceRequestStateChange(label, device, new_state);
+  }
+  onDeviceCaptureConfigurationChange(label, device) {
+    return this.$.onDeviceCaptureConfigurationChange(label, device);
+  }
+  onDeviceCaptureHandleChange(label, device) {
+    return this.$.onDeviceCaptureHandleChange(label, device);
+  }
+  onZoomLevelChange(label, device, zoom_level) {
+    return this.$.onZoomLevelChange(label, device, zoom_level);
+  }
 };
 
 blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = class {
@@ -824,6 +842,45 @@ blink.mojom.MediaStreamDispatcherHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  generateStreams(request_id, controls, user_gesture, audio_stream_selection_info) {
+    return this.$.generateStreams(request_id, controls, user_gesture, audio_stream_selection_info);
+  }
+  focusCapturedSurface(label, focus) {
+    return this.$.focusCapturedSurface(label, focus);
+  }
+  cancelRequest(request_id) {
+    return this.$.cancelRequest(request_id);
+  }
+  stopStreamDevice(device_id, session_id) {
+    return this.$.stopStreamDevice(device_id, session_id);
+  }
+  openDevice(request_id, device_id, type) {
+    return this.$.openDevice(request_id, device_id, type);
+  }
+  closeDevice(label) {
+    return this.$.closeDevice(label);
+  }
+  setCapturingLinkSecured(session_id, type, is_secure) {
+    return this.$.setCapturingLinkSecured(session_id, type, is_secure);
+  }
+  applySubCaptureTarget(session_id, type, sub_capture_target, sub_capture_target_version) {
+    return this.$.applySubCaptureTarget(session_id, type, sub_capture_target, sub_capture_target_version);
+  }
+  sendWheel(session_id, action) {
+    return this.$.sendWheel(session_id, action);
+  }
+  updateZoomLevel(session_id, action) {
+    return this.$.updateZoomLevel(session_id, action);
+  }
+  requestCapturedSurfaceControlPermission(session_id) {
+    return this.$.requestCapturedSurfaceControlPermission(session_id);
+  }
+  getOpenDevice(request_id, session_id, transfer_id) {
+    return this.$.getOpenDevice(request_id, session_id, transfer_id);
+  }
+  keepDeviceAliveForTransfer(session_id, transfer_id) {
+    return this.$.keepDeviceAliveForTransfer(session_id, transfer_id);
   }
 };
 
@@ -1370,6 +1427,12 @@ blink.mojom.MediaStreamTrackMetricsHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addTrack(id, is_audio, is_remote) {
+    return this.$.addTrack(id, is_audio, is_remote);
+  }
+  removeTrack(id) {
+    return this.$.removeTrack(id);
   }
 };
 

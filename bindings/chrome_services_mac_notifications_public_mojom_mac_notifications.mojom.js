@@ -251,6 +251,24 @@ mac_notifications.mojom.MacNotificationServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  displayNotification(notification) {
+    return this.$.displayNotification(notification);
+  }
+  getDisplayedNotifications(profile, origin) {
+    return this.$.getDisplayedNotifications(profile, origin);
+  }
+  closeNotification(identifier) {
+    return this.$.closeNotification(identifier);
+  }
+  closeNotificationsForProfile(profile) {
+    return this.$.closeNotificationsForProfile(profile);
+  }
+  closeAllNotifications() {
+    return this.$.closeAllNotifications();
+  }
+  okayToTerminateService() {
+    return this.$.okayToTerminateService();
+  }
 };
 
 mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
@@ -556,6 +574,9 @@ mac_notifications.mojom.MacNotificationActionHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onNotificationAction(info) {
+    return this.$.onNotificationAction(info);
+  }
 };
 
 mac_notifications.mojom.MacNotificationActionHandlerRemoteCallHandler = class {
@@ -704,6 +725,9 @@ mac_notifications.mojom.MacNotificationProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindNotificationService(service, handler) {
+    return this.$.bindNotificationService(service, handler);
   }
 };
 

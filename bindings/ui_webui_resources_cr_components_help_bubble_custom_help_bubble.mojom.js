@@ -114,6 +114,9 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createCustomHelpBubbleHandler(handler) {
+    return this.$.createCustomHelpBubbleHandler(handler);
+  }
 };
 
 custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemoteCallHandler = class {
@@ -261,6 +264,9 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  notifyUserAction(action) {
+    return this.$.notifyUserAction(action);
   }
 };
 

@@ -123,6 +123,12 @@ device.mojom.VibrationManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  vibrate(milliseconds) {
+    return this.$.vibrate(milliseconds);
+  }
+  cancel() {
+    return this.$.cancel();
+  }
 };
 
 device.mojom.VibrationManagerRemoteCallHandler = class {
@@ -310,6 +316,9 @@ device.mojom.VibrationManagerListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onVibrate() {
+    return this.$.onVibrate();
   }
 };
 

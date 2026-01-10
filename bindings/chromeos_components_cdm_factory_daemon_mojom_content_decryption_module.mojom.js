@@ -386,6 +386,36 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemote = class {
   close() {
     this.proxy.close();
   }
+  setServerCertificate(certificate_data) {
+    return this.$.setServerCertificate(certificate_data);
+  }
+  getStatusForPolicy(min_hdcp_version) {
+    return this.$.getStatusForPolicy(min_hdcp_version);
+  }
+  createSessionAndGenerateRequest(session_type, init_data_type, init_data) {
+    return this.$.createSessionAndGenerateRequest(session_type, init_data_type, init_data);
+  }
+  loadSession(session_type, session_id) {
+    return this.$.loadSession(session_type, session_id);
+  }
+  updateSession(session_id, response) {
+    return this.$.updateSession(session_id, response);
+  }
+  closeSession(session_id) {
+    return this.$.closeSession(session_id);
+  }
+  removeSession(session_id) {
+    return this.$.removeSession(session_id);
+  }
+  decryptDeprecated(encrypted_data, decrypt_config) {
+    return this.$.decryptDeprecated(encrypted_data, decrypt_config);
+  }
+  getHwKeyData(decrypt_config, hw_identifier) {
+    return this.$.getHwKeyData(decrypt_config, hw_identifier);
+  }
+  decrypt(encrypted_data, decrypt_config_in, is_video, secure_handle) {
+    return this.$.decrypt(encrypted_data, decrypt_config_in, is_video, secure_handle);
+  }
 };
 
 chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
@@ -877,6 +907,18 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onSessionMessage(session_id, message_type, message) {
+    return this.$.onSessionMessage(session_id, message_type, message);
+  }
+  onSessionClosed(session_id) {
+    return this.$.onSessionClosed(session_id);
+  }
+  onSessionKeysChange(session_id, has_additional_usable_key, keys_info) {
+    return this.$.onSessionKeysChange(session_id, has_additional_usable_key, keys_info);
+  }
+  onSessionExpirationUpdate(session_id, new_expiry_time_sec) {
+    return this.$.onSessionExpirationUpdate(session_id, new_expiry_time_sec);
   }
 };
 

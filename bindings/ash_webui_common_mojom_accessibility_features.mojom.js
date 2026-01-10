@@ -107,6 +107,9 @@ ash.common.mojom.ForceHiddenElementsVisibleObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onForceHiddenElementsVisibleChange(forceVisible) {
+    return this.$.onForceHiddenElementsVisibleChange(forceVisible);
+  }
 };
 
 ash.common.mojom.ForceHiddenElementsVisibleObserverRemoteCallHandler = class {
@@ -260,6 +263,9 @@ ash.common.mojom.AccessibilityFeaturesRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  observeForceHiddenElementsVisible(observer) {
+    return this.$.observeForceHiddenElementsVisible(observer);
   }
 };
 

@@ -105,6 +105,9 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createGhostLoaderPage(page) {
+    return this.$.createGhostLoaderPage(page);
+  }
 };
 
 lens.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHandler = class {
@@ -251,6 +254,9 @@ lens.mojom.LensGhostLoaderPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  showErrorState() {
+    return this.$.showErrorState();
   }
 };
 

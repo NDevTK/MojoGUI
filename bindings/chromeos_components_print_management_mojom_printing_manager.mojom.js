@@ -204,6 +204,12 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onAllPrintJobsDeleted() {
+    return this.$.onAllPrintJobsDeleted();
+  }
+  onPrintJobUpdate(print_job) {
+    return this.$.onPrintJobUpdate(print_job);
+  }
 };
 
 chromeos.printing.printing_manager.mojom.PrintJobsObserverRemoteCallHandler = class {
@@ -442,6 +448,24 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemote = class 
 
   close() {
     this.proxy.close();
+  }
+  observePrintJobs(observer) {
+    return this.$.observePrintJobs(observer);
+  }
+  getPrintJobs() {
+    return this.$.getPrintJobs();
+  }
+  deleteAllPrintJobs() {
+    return this.$.deleteAllPrintJobs();
+  }
+  cancelPrintJob(id) {
+    return this.$.cancelPrintJob(id);
+  }
+  getDeletePrintJobHistoryAllowedByPolicy() {
+    return this.$.getDeletePrintJobHistoryAllowedByPolicy();
+  }
+  getPrintJobHistoryExpirationPeriod() {
+    return this.$.getPrintJobHistoryExpirationPeriod();
   }
 };
 
@@ -777,6 +801,12 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  launchPrinterSettings(source) {
+    return this.$.launchPrinterSettings(source);
+  }
+  recordGetPrintJobsRequestDuration(duration) {
+    return this.$.recordGetPrintJobsRequestDuration(duration);
   }
 };
 

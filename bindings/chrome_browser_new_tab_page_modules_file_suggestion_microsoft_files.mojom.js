@@ -120,6 +120,15 @@ file_suggestion.mojom.MicrosoftFilesPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getFiles() {
+    return this.$.getFiles();
+  }
+  dismissModule() {
+    return this.$.dismissModule();
+  }
+  restoreModule() {
+    return this.$.restoreModule();
+  }
 };
 
 file_suggestion.mojom.MicrosoftFilesPageHandlerRemoteCallHandler = class {

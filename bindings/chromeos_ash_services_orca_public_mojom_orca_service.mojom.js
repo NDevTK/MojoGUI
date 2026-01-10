@@ -393,6 +393,54 @@ ash.orca.mojom.EditorClientRemote = class {
   close() {
     this.proxy.close();
   }
+  getPresetTextQueries() {
+    return this.$.getPresetTextQueries();
+  }
+  requestPresetRewrite(text_query_id, text_override) {
+    return this.$.requestPresetRewrite(text_query_id, text_override);
+  }
+  requestFreeformRewrite(input, text_override) {
+    return this.$.requestFreeformRewrite(input, text_override);
+  }
+  requestFreeformWrite(input) {
+    return this.$.requestFreeformWrite(input);
+  }
+  insertText(text) {
+    return this.$.insertText(text);
+  }
+  approveConsent() {
+    return this.$.approveConsent();
+  }
+  declineConsent() {
+    return this.$.declineConsent();
+  }
+  dismissConsent() {
+    return this.$.dismissConsent();
+  }
+  openUrlInNewWindow(url) {
+    return this.$.openUrlInNewWindow(url);
+  }
+  showUI() {
+    return this.$.showUI();
+  }
+  closeUI() {
+    return this.$.closeUI();
+  }
+  appendText(text) {
+    return this.$.appendText(text);
+  }
+  previewFeedback(result_id) {
+    return this.$.previewFeedback(result_id);
+  }
+  submitFeedback(result_id, user_description) {
+    return this.$.submitFeedback(result_id, user_description);
+  }
+  onTrigger(trigger_context) {
+    return this.$.onTrigger(trigger_context);
+  }
+  emitMetricEvent(metric_event) {
+    return this.$.emitMetricEvent(metric_event);
+  }
 };
 
 ash.orca.mojom.EditorClientRemoteCallHandler = class {
@@ -1006,6 +1054,9 @@ ash.orca.mojom.EditorClientConnectorRemote = class {
   close() {
     this.proxy.close();
   }
+  bindEditorClient(editor_client) {
+    return this.$.bindEditorClient(editor_client);
+  }
 };
 
 ash.orca.mojom.EditorClientConnectorRemoteCallHandler = class {
@@ -1153,6 +1204,9 @@ ash.orca.mojom.EditorEventSinkRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onContextUpdated(context) {
+    return this.$.onContextUpdated(context);
   }
 };
 
@@ -1345,6 +1399,33 @@ ash.orca.mojom.SystemActuatorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  insertText(text) {
+    return this.$.insertText(text);
+  }
+  approveConsent() {
+    return this.$.approveConsent();
+  }
+  declineConsent() {
+    return this.$.declineConsent();
+  }
+  openUrlInNewWindow(url) {
+    return this.$.openUrlInNewWindow(url);
+  }
+  showUI() {
+    return this.$.showUI();
+  }
+  closeUI() {
+    return this.$.closeUI();
+  }
+  submitFeedback(description) {
+    return this.$.submitFeedback(description);
+  }
+  onTrigger(trigger_context) {
+    return this.$.onTrigger(trigger_context);
+  }
+  emitMetricEvent(metric_event) {
+    return this.$.emitMetricEvent(metric_event);
   }
 };
 
@@ -1732,6 +1813,9 @@ ash.orca.mojom.TextQueryProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  process(request) {
+    return this.$.process(request);
+  }
 };
 
 ash.orca.mojom.TextQueryProviderRemoteCallHandler = class {
@@ -1889,6 +1973,9 @@ ash.orca.mojom.OrcaServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindEditor(system_actuator, text_query_provider, client_connector, event_sink, editor_config) {
+    return this.$.bindEditor(system_actuator, text_query_provider, client_connector, event_sink, editor_config);
   }
 };
 

@@ -322,6 +322,75 @@ extensions.mojom.RendererRemote = class {
   close() {
     this.proxy.close();
   }
+  activateExtension(extension_id) {
+    return this.$.activateExtension(extension_id);
+  }
+  setActivityLoggingEnabled(enabled) {
+    return this.$.setActivityLoggingEnabled(enabled);
+  }
+  loadExtensions(params) {
+    return this.$.loadExtensions(params);
+  }
+  unloadExtension(extension_id) {
+    return this.$.unloadExtension(extension_id);
+  }
+  suspendExtension(extension_id) {
+    return this.$.suspendExtension(extension_id);
+  }
+  cancelSuspendExtension(extension_id) {
+    return this.$.cancelSuspendExtension(extension_id);
+  }
+  setDeveloperMode(developer_mode_only) {
+    return this.$.setDeveloperMode(developer_mode_only);
+  }
+  setUserScriptsAllowed(extension_id, allowed) {
+    return this.$.setUserScriptsAllowed(extension_id, allowed);
+  }
+  setSessionInfo(channel, session) {
+    return this.$.setSessionInfo(channel, session);
+  }
+  setSystemFont(font_family, font_size) {
+    return this.$.setSystemFont(font_family, font_size);
+  }
+  setWebViewPartitionID(partition_id) {
+    return this.$.setWebViewPartitionID(partition_id);
+  }
+  setScriptingAllowlist(extension_ids) {
+    return this.$.setScriptingAllowlist(extension_ids);
+  }
+  updateUserScriptWorlds(infos) {
+    return this.$.updateUserScriptWorlds(infos);
+  }
+  clearUserScriptWorldConfig(extension_id, world_id) {
+    return this.$.clearUserScriptWorldConfig(extension_id, world_id);
+  }
+  shouldSuspend() {
+    return this.$.shouldSuspend();
+  }
+  transferBlobs() {
+    return this.$.transferBlobs();
+  }
+  updatePermissions(extension_id, active_permissions, withheld_permissions, policy_blocked_hosts, policy_allowed_hosts, uses_default_policy_host_restrictions) {
+    return this.$.updatePermissions(extension_id, active_permissions, withheld_permissions, policy_blocked_hosts, policy_allowed_hosts, uses_default_policy_host_restrictions);
+  }
+  updateDefaultPolicyHostRestrictions(default_policy_blocked_hosts, default_policy_allowed_hosts) {
+    return this.$.updateDefaultPolicyHostRestrictions(default_policy_blocked_hosts, default_policy_allowed_hosts);
+  }
+  updateUserHostRestrictions(user_blocked_hosts, user_allowed_hosts) {
+    return this.$.updateUserHostRestrictions(user_blocked_hosts, user_allowed_hosts);
+  }
+  updateTabSpecificPermissions(extension_id, new_hosts, tab_id, update_origin_allowlist) {
+    return this.$.updateTabSpecificPermissions(extension_id, new_hosts, tab_id, update_origin_allowlist);
+  }
+  updateUserScripts(region, owner) {
+    return this.$.updateUserScripts(region, owner);
+  }
+  clearTabSpecificPermissions(extension_ids, tab_id, update_origin_allowlist) {
+    return this.$.clearTabSpecificPermissions(extension_ids, tab_id, update_origin_allowlist);
+  }
+  watchPages(css_selectors) {
+    return this.$.watchPages(css_selectors);
+  }
 };
 
 extensions.mojom.RendererRemoteCallHandler = class {

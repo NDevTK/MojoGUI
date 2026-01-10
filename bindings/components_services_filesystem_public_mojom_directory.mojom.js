@@ -315,6 +315,48 @@ filesystem.mojom.DirectoryRemote = class {
   close() {
     this.proxy.close();
   }
+  read() {
+    return this.$.read();
+  }
+  openFileHandle(path, open_flags) {
+    return this.$.openFileHandle(path, open_flags);
+  }
+  openFileHandles(files) {
+    return this.$.openFileHandles(files);
+  }
+  openDirectory(path, directory, open_flags) {
+    return this.$.openDirectory(path, directory, open_flags);
+  }
+  rename(path, new_path) {
+    return this.$.rename(path, new_path);
+  }
+  replace(path, new_path) {
+    return this.$.replace(path, new_path);
+  }
+  delete(path, delete_flags) {
+    return this.$.delete(path, delete_flags);
+  }
+  exists(path) {
+    return this.$.exists(path);
+  }
+  isWritable(path) {
+    return this.$.isWritable(path);
+  }
+  flush() {
+    return this.$.flush();
+  }
+  statFile(path) {
+    return this.$.statFile(path);
+  }
+  clone(directory) {
+    return this.$.clone(directory);
+  }
+  readEntireFile(path) {
+    return this.$.readEntireFile(path);
+  }
+  writeFile(path, data) {
+    return this.$.writeFile(path, data);
+  }
 };
 
 filesystem.mojom.DirectoryRemoteCallHandler = class {

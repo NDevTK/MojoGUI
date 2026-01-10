@@ -190,6 +190,12 @@ paint_preview.mojom.PaintPreviewRecorderRemote = class {
   close() {
     this.proxy.close();
   }
+  capturePaintPreview(params) {
+    return this.$.capturePaintPreview(params);
+  }
+  getGeometryMetadata(params) {
+    return this.$.getGeometryMetadata(params);
+  }
 };
 
 paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {

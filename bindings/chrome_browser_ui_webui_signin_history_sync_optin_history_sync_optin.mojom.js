@@ -138,6 +138,9 @@ history_sync_optin.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createHistorySyncOptinHandler(page, handler) {
+    return this.$.createHistorySyncOptinHandler(page, handler);
+  }
 };
 
 history_sync_optin.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -300,6 +303,18 @@ history_sync_optin.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  accept() {
+    return this.$.accept();
+  }
+  reject() {
+    return this.$.reject();
+  }
+  requestAccountInfo() {
+    return this.$.requestAccountInfo();
+  }
+  updateDialogHeight(height) {
+    return this.$.updateDialogHeight(height);
   }
 };
 
@@ -541,6 +556,12 @@ history_sync_optin.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sendAccountInfo(account_info) {
+    return this.$.sendAccountInfo(account_info);
+  }
+  sendScreenMode(screen_mode) {
+    return this.$.sendScreenMode(screen_mode);
   }
 };
 

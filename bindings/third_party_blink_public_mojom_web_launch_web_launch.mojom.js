@@ -113,6 +113,12 @@ blink.mojom.WebLaunchServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  setLaunchFiles(files) {
+    return this.$.setLaunchFiles(files);
+  }
+  enqueueLaunchParams(launch_url, time_navigation_started_in_browser, navigation_started) {
+    return this.$.enqueueLaunchParams(launch_url, time_navigation_started_in_browser, navigation_started);
+  }
 };
 
 blink.mojom.WebLaunchServiceRemoteCallHandler = class {

@@ -159,6 +159,15 @@ arc.mojom.VolumeMounterHostRemote = class {
   close() {
     this.proxy.close();
   }
+  requestAllMountPoints() {
+    return this.$.requestAllMountPoints();
+  }
+  setUpExternalStorageMountPoints(media_provider_uid) {
+    return this.$.setUpExternalStorageMountPoints(media_provider_uid);
+  }
+  onReadyToSuspend(success) {
+    return this.$.onReadyToSuspend(success);
+  }
 };
 
 arc.mojom.VolumeMounterHostRemoteCallHandler = class {
@@ -393,6 +402,15 @@ arc.mojom.VolumeMounterInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  onMountEvent(mount_point_info) {
+    return this.$.onMountEvent(mount_point_info);
+  }
+  prepareForRemovableMediaUnmount(path) {
+    return this.$.prepareForRemovableMediaUnmount(path);
   }
 };
 

@@ -120,6 +120,9 @@ launcher_internals.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page) {
+    return this.$.createPageHandler(page);
+  }
 };
 
 launcher_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -269,6 +272,9 @@ launcher_internals.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateResults(query, keywords, results) {
+    return this.$.updateResults(query, keywords, results);
   }
 };
 

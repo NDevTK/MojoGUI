@@ -176,6 +176,12 @@ webui_browser.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
+  getTabStripInset() {
+    return this.$.getTabStripInset();
+  }
 };
 
 webui_browser.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -383,6 +389,21 @@ webui_browser.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setFocusToLocationBar(is_user_initiated) {
+    return this.$.setFocusToLocationBar(is_user_initiated);
+  }
+  setReloadStopState(is_loading) {
+    return this.$.setReloadStopState(is_loading);
+  }
+  showSidePanel(guest_contents_id, title) {
+    return this.$.showSidePanel(guest_contents_id, title);
+  }
+  closeSidePanel() {
+    return this.$.closeSidePanel();
+  }
+  onFullscreenModeChanged(is_fullscreen, context) {
+    return this.$.onFullscreenModeChanged(is_fullscreen, context);
   }
 };
 
@@ -711,6 +732,39 @@ webui_browser.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getGuestIdForTabId(tab_id, handler) {
+    return this.$.getGuestIdForTabId(tab_id, handler);
+  }
+  loadTabSearch() {
+    return this.$.loadTabSearch();
+  }
+  showTabSearchBubble(anchor_name) {
+    return this.$.showTabSearchBubble(anchor_name);
+  }
+  openAppMenu() {
+    return this.$.openAppMenu();
+  }
+  openProfileMenu() {
+    return this.$.openProfileMenu();
+  }
+  launchDevToolsForBrowser() {
+    return this.$.launchDevToolsForBrowser();
+  }
+  onSidePanelClosed() {
+    return this.$.onSidePanelClosed();
+  }
+  minimize() {
+    return this.$.minimize();
+  }
+  maximize() {
+    return this.$.maximize();
+  }
+  restore() {
+    return this.$.restore();
+  }
+  close() {
+    return this.$.close();
   }
 };
 
@@ -1219,6 +1273,33 @@ webui_browser.mojom.GuestHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  navigate(src) {
+    return this.$.navigate(src);
+  }
+  canGoBack() {
+    return this.$.canGoBack();
+  }
+  goBack() {
+    return this.$.goBack();
+  }
+  canGoForward() {
+    return this.$.canGoForward();
+  }
+  goForward() {
+    return this.$.goForward();
+  }
+  reload() {
+    return this.$.reload();
+  }
+  stopLoading() {
+    return this.$.stopLoading();
+  }
+  openPageInfoMenu() {
+    return this.$.openPageInfoMenu();
+  }
+  getSecurityIcon() {
+    return this.$.getSecurityIcon();
   }
 };
 

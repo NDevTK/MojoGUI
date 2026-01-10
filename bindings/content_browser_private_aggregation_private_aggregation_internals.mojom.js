@@ -162,6 +162,12 @@ private_aggregation_internals.mojom.ObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onRequestStorageModified() {
+    return this.$.onRequestStorageModified();
+  }
+  onReportHandled(report) {
+    return this.$.onReportHandled(report);
+  }
 };
 
 private_aggregation_internals.mojom.ObserverRemoteCallHandler = class {
@@ -364,6 +370,15 @@ private_aggregation_internals.mojom.HandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getReports() {
+    return this.$.getReports();
+  }
+  sendReports(ids) {
+    return this.$.sendReports(ids);
+  }
+  clearStorage() {
+    return this.$.clearStorage();
   }
 };
 
@@ -589,6 +604,9 @@ private_aggregation_internals.mojom.FactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  create(observer, handler) {
+    return this.$.create(observer, handler);
   }
 };
 

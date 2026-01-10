@@ -235,6 +235,12 @@ guest_view.mojom.GuestViewHostRemote = class {
   close() {
     this.proxy.close();
   }
+  attachToEmbedderFrame(element_instance_id, guest_instance_id, params) {
+    return this.$.attachToEmbedderFrame(element_instance_id, guest_instance_id, params);
+  }
+  viewCreated(view_instance_id, view_type, keep_alive_handle_receiver) {
+    return this.$.viewCreated(view_instance_id, view_type, keep_alive_handle_receiver);
+  }
 };
 
 guest_view.mojom.GuestViewHostRemoteCallHandler = class {

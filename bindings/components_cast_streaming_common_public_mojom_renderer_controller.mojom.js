@@ -109,6 +109,9 @@ cast_streaming.mojom.RendererControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  setPlaybackController(renderer) {
+    return this.$.setPlaybackController(renderer);
+  }
 };
 
 cast_streaming.mojom.RendererControllerRemoteCallHandler = class {

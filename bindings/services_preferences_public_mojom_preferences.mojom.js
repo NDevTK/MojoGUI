@@ -147,6 +147,9 @@ prefs.mojom.ResetOnLoadObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onResetOnLoad() {
+    return this.$.onResetOnLoad();
+  }
 };
 
 prefs.mojom.ResetOnLoadObserverRemoteCallHandler = class {

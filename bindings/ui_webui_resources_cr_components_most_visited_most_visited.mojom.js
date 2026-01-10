@@ -168,6 +168,9 @@ most_visited.mojom.MostVisitedPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler = class {
@@ -430,6 +433,54 @@ most_visited.mojom.MostVisitedPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addMostVisitedTile(url, title) {
+    return this.$.addMostVisitedTile(url, title);
+  }
+  deleteMostVisitedTile(tile) {
+    return this.$.deleteMostVisitedTile(tile);
+  }
+  reorderMostVisitedTile(tile, new_pos) {
+    return this.$.reorderMostVisitedTile(tile, new_pos);
+  }
+  restoreMostVisitedDefaults(source) {
+    return this.$.restoreMostVisitedDefaults(source);
+  }
+  undoMostVisitedAutoRemoval() {
+    return this.$.undoMostVisitedAutoRemoval();
+  }
+  undoMostVisitedTileAction(source) {
+    return this.$.undoMostVisitedTileAction(source);
+  }
+  updateMostVisitedInfo() {
+    return this.$.updateMostVisitedInfo();
+  }
+  updateMostVisitedTile(tile, new_url, new_title) {
+    return this.$.updateMostVisitedTile(tile, new_url, new_title);
+  }
+  prerenderMostVisitedTile(tile) {
+    return this.$.prerenderMostVisitedTile(tile);
+  }
+  prefetchMostVisitedTile(tile) {
+    return this.$.prefetchMostVisitedTile(tile);
+  }
+  preconnectMostVisitedTile(tile) {
+    return this.$.preconnectMostVisitedTile(tile);
+  }
+  cancelPrerender() {
+    return this.$.cancelPrerender();
+  }
+  getMostVisitedExpandedState() {
+    return this.$.getMostVisitedExpandedState();
+  }
+  setMostVisitedExpandedState(is_expanded) {
+    return this.$.setMostVisitedExpandedState(is_expanded);
+  }
+  onMostVisitedTilesRendered(tiles, time) {
+    return this.$.onMostVisitedTilesRendered(tiles, time);
+  }
+  onMostVisitedTileNavigation(tile, index, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
+    return this.$.onMostVisitedTileNavigation(tile, index, mouse_button, alt_key, ctrl_key, meta_key, shift_key);
   }
 };
 
@@ -1036,6 +1087,12 @@ most_visited.mojom.MostVisitedPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setMostVisitedInfo(info) {
+    return this.$.setMostVisitedInfo(info);
+  }
+  onMostVisitedTilesAutoRemoval() {
+    return this.$.onMostVisitedTilesAutoRemoval();
   }
 };
 

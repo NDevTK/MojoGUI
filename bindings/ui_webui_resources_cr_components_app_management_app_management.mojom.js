@@ -323,6 +323,9 @@ app_management.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 app_management.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -613,6 +616,63 @@ app_management.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getApps() {
+    return this.$.getApps();
+  }
+  getApp(app_id) {
+    return this.$.getApp(app_id);
+  }
+  getSubAppToParentMap() {
+    return this.$.getSubAppToParentMap();
+  }
+  getExtensionAppPermissionMessages(app_id) {
+    return this.$.getExtensionAppPermissionMessages(app_id);
+  }
+  setPinned(app_id, pinned) {
+    return this.$.setPinned(app_id, pinned);
+  }
+  setPermission(app_id, permission) {
+    return this.$.setPermission(app_id, permission);
+  }
+  setResizeLocked(app_id, locked) {
+    return this.$.setResizeLocked(app_id, locked);
+  }
+  uninstall(app_id) {
+    return this.$.uninstall(app_id);
+  }
+  openNativeSettings(app_id) {
+    return this.$.openNativeSettings(app_id);
+  }
+  setPreferredApp(app_id, is_preferred_app) {
+    return this.$.setPreferredApp(app_id, is_preferred_app);
+  }
+  getOverlappingPreferredApps(app_id) {
+    return this.$.getOverlappingPreferredApps(app_id);
+  }
+  updateAppSize(app_id) {
+    return this.$.updateAppSize(app_id);
+  }
+  setWindowMode(app_id, window_mode) {
+    return this.$.setWindowMode(app_id, window_mode);
+  }
+  setRunOnOsLoginMode(app_id, run_on_os_login_mode) {
+    return this.$.setRunOnOsLoginMode(app_id, run_on_os_login_mode);
+  }
+  setFileHandlingEnabled(app_id, enabled) {
+    return this.$.setFileHandlingEnabled(app_id, enabled);
+  }
+  showDefaultAppAssociationsUi() {
+    return this.$.showDefaultAppAssociationsUi();
+  }
+  openStorePage(app_id) {
+    return this.$.openStorePage(app_id);
+  }
+  setAppLocale(app_id, locale_tag) {
+    return this.$.setAppLocale(app_id, locale_tag);
+  }
+  openSystemNotificationSettings(app_id) {
+    return this.$.openSystemNotificationSettings(app_id);
   }
 };
 
@@ -1325,6 +1385,15 @@ app_management.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onAppAdded(app) {
+    return this.$.onAppAdded(app);
+  }
+  onAppChanged(update) {
+    return this.$.onAppChanged(update);
+  }
+  onAppRemoved(app_id) {
+    return this.$.onAppRemoved(app_id);
   }
 };
 

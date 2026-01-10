@@ -116,6 +116,9 @@ ash.color_internals.mojom.WallpaperColorsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onWallpaperColorsChanged(colors) {
+    return this.$.onWallpaperColorsChanged(colors);
+  }
 };
 
 ash.color_internals.mojom.WallpaperColorsObserverRemoteCallHandler = class {
@@ -263,6 +266,9 @@ ash.color_internals.mojom.WallpaperColorsHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setWallpaperColorsObserver(observer) {
+    return this.$.setWallpaperColorsObserver(observer);
   }
 };
 

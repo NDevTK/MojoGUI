@@ -146,6 +146,27 @@ audio.mojom.AudioServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  bindSystemInfo(receiver) {
+    return this.$.bindSystemInfo(receiver);
+  }
+  bindDebugRecording(receiver) {
+    return this.$.bindDebugRecording(receiver);
+  }
+  bindStreamFactory(receiver) {
+    return this.$.bindStreamFactory(receiver);
+  }
+  bindDeviceNotifier(receiver) {
+    return this.$.bindDeviceNotifier(receiver);
+  }
+  bindLogFactoryManager(receiver) {
+    return this.$.bindLogFactoryManager(receiver);
+  }
+  bindTestingApi(receiver) {
+    return this.$.bindTestingApi(receiver);
+  }
+  bindMlModelManager(receiver) {
+    return this.$.bindMlModelManager(receiver);
+  }
 };
 
 audio.mojom.AudioServiceRemoteCallHandler = class {

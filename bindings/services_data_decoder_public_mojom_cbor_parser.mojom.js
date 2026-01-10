@@ -111,6 +111,9 @@ data_decoder.mojom.CborParserRemote = class {
   close() {
     this.proxy.close();
   }
+  parse(cbor) {
+    return this.$.parse(cbor);
+  }
 };
 
 data_decoder.mojom.CborParserRemoteCallHandler = class {

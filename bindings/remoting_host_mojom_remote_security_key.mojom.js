@@ -110,6 +110,9 @@ remoting.mojom.SecurityKeyForwarderRemote = class {
   close() {
     this.proxy.close();
   }
+  onSecurityKeyRequest(request_data) {
+    return this.$.onSecurityKeyRequest(request_data);
+  }
 };
 
 remoting.mojom.SecurityKeyForwarderRemoteCallHandler = class {

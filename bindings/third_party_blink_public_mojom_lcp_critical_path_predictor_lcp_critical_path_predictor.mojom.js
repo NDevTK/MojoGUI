@@ -175,6 +175,27 @@ blink.mojom.LCPCriticalPathPredictorHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onLcpUpdated(lcp_element) {
+    return this.$.onLcpUpdated(lcp_element);
+  }
+  onLcpTimingPredictedForTesting(element_locator) {
+    return this.$.onLcpTimingPredictedForTesting(element_locator);
+  }
+  setLcpInfluencerScriptUrls(lcp_influencer_scripts) {
+    return this.$.setLcpInfluencerScriptUrls(lcp_influencer_scripts);
+  }
+  addPreconnectOrigin(origin) {
+    return this.$.addPreconnectOrigin(origin);
+  }
+  notifyFetchedFont(font_url, hit) {
+    return this.$.notifyFetchedFont(font_url, hit);
+  }
+  notifyFetchedSubresource(subresource_url, subresource_load_start, request_destination) {
+    return this.$.notifyFetchedSubresource(subresource_url, subresource_load_start, request_destination);
+  }
+  setUnusedPreloads(unused_preloads) {
+    return this.$.setUnusedPreloads(unused_preloads);
+  }
 };
 
 blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {

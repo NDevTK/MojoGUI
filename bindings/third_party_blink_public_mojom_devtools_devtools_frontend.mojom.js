@@ -114,6 +114,12 @@ blink.mojom.DevToolsFrontendRemote = class {
   close() {
     this.proxy.close();
   }
+  setupDevToolsFrontend(api_script, host) {
+    return this.$.setupDevToolsFrontend(api_script, host);
+  }
+  setupDevToolsExtensionAPI(extension_api) {
+    return this.$.setupDevToolsExtensionAPI(extension_api);
+  }
 };
 
 blink.mojom.DevToolsFrontendRemoteCallHandler = class {
@@ -290,6 +296,9 @@ blink.mojom.DevToolsFrontendHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  dispatchEmbedderMessage(message) {
+    return this.$.dispatchEmbedderMessage(message);
   }
 };
 

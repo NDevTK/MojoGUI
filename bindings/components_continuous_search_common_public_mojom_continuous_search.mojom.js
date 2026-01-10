@@ -161,6 +161,9 @@ continuous_search.mojom.SearchResultExtractorRemote = class {
   close() {
     this.proxy.close();
   }
+  extractCurrentSearchResults(result_types) {
+    return this.$.extractCurrentSearchResults(result_types);
+  }
 };
 
 continuous_search.mojom.SearchResultExtractorRemoteCallHandler = class {

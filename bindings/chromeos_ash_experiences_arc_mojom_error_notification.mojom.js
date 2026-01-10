@@ -139,6 +139,9 @@ arc.mojom.ErrorNotificationHostRemote = class {
   close() {
     this.proxy.close();
   }
+  sendErrorDetails(details, action_handler) {
+    return this.$.sendErrorDetails(details, action_handler);
+  }
 };
 
 arc.mojom.ErrorNotificationHostRemoteCallHandler = class {
@@ -298,6 +301,9 @@ arc.mojom.ErrorNotificationInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
 };
 
 arc.mojom.ErrorNotificationInstanceRemoteCallHandler = class {
@@ -451,6 +457,9 @@ arc.mojom.ErrorNotificationItemRemote = class {
   close() {
     this.proxy.close();
   }
+  closeErrorNotification() {
+    return this.$.closeErrorNotification();
+  }
 };
 
 arc.mojom.ErrorNotificationItemRemoteCallHandler = class {
@@ -603,6 +612,12 @@ arc.mojom.ErrorNotificationActionHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onNotificationButtonClicked(buttonIndex) {
+    return this.$.onNotificationButtonClicked(buttonIndex);
+  }
+  onNotificationClosed() {
+    return this.$.onNotificationClosed();
   }
 };
 

@@ -256,6 +256,12 @@ chromeos.cfm.mojom.CfmServiceContextRemote = class {
   close() {
     this.proxy.close();
   }
+  provideAdaptor(interface_name, adaptor_remote) {
+    return this.$.provideAdaptor(interface_name, adaptor_remote);
+  }
+  requestBindService(interface_name, receiver_pipe) {
+    return this.$.requestBindService(interface_name, receiver_pipe);
+  }
 };
 
 chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler = class {
@@ -444,6 +450,9 @@ chromeos.cfm.mojom.CfmServiceAdaptorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onBindService(receiver_pipe) {
+    return this.$.onBindService(receiver_pipe);
   }
 };
 

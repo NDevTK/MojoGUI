@@ -447,6 +447,48 @@ updater.mojom.UpdateServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getVersion() {
+    return this.$.getVersion();
+  }
+  fetchPolicies(reason) {
+    return this.$.fetchPolicies(reason);
+  }
+  registerApp(request) {
+    return this.$.registerApp(request);
+  }
+  getAppStates() {
+    return this.$.getAppStates();
+  }
+  runPeriodicTasks() {
+    return this.$.runPeriodicTasks();
+  }
+  updateAll() {
+    return this.$.updateAll();
+  }
+  update(app_id, install_data_index, priority, policy_same_version_update, do_update_check_only, language) {
+    return this.$.update(app_id, install_data_index, priority, policy_same_version_update, do_update_check_only, language);
+  }
+  install(registration, client_install_data, install_data_index, priority, language) {
+    return this.$.install(registration, client_install_data, install_data_index, priority, language);
+  }
+  cancelInstalls(app_id) {
+    return this.$.cancelInstalls(app_id);
+  }
+  runInstaller(app_id, installer_path, install_args, install_data, install_settings, language) {
+    return this.$.runInstaller(app_id, installer_path, install_args, install_data, install_settings, language);
+  }
+  checkForUpdate(app_id, priority, policy_same_version_update, language) {
+    return this.$.checkForUpdate(app_id, priority, policy_same_version_update, language);
+  }
+  getUpdaterState() {
+    return this.$.getUpdaterState();
+  }
+  getUpdaterPolicies() {
+    return this.$.getUpdaterPolicies();
+  }
+  getAppPolicies() {
+    return this.$.getAppPolicies();
+  }
 };
 
 updater.mojom.UpdateServiceRemoteCallHandler = class {
@@ -1055,6 +1097,12 @@ updater.mojom.StateChangeObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onStateChange(state) {
+    return this.$.onStateChange(state);
+  }
+  onComplete(result) {
+    return this.$.onComplete(result);
   }
 };
 

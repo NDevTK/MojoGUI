@@ -152,6 +152,18 @@ chromeos.payments.mojom.PaymentAppInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  isPaymentImplemented(package_name) {
+    return this.$.isPaymentImplemented(package_name);
+  }
+  isReadyToPay(parameters) {
+    return this.$.isReadyToPay(parameters);
+  }
+  invokePaymentApp(parameters) {
+    return this.$.invokePaymentApp(parameters);
+  }
+  abortPaymentApp(request_token) {
+    return this.$.abortPaymentApp(request_token);
+  }
 };
 
 chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandler = class {

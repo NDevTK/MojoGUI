@@ -180,6 +180,24 @@ media.mojom.AudioDecoderRemote = class {
   close() {
     this.proxy.close();
   }
+  getSupportedConfigs() {
+    return this.$.getSupportedConfigs();
+  }
+  construct(client, media_log) {
+    return this.$.construct(client, media_log);
+  }
+  initialize(config, cdm_id) {
+    return this.$.initialize(config, cdm_id);
+  }
+  setDataSource(receive_pipe) {
+    return this.$.setDataSource(receive_pipe);
+  }
+  decode(buffer) {
+    return this.$.decode(buffer);
+  }
+  reset() {
+    return this.$.reset();
+  }
 };
 
 media.mojom.AudioDecoderRemoteCallHandler = class {
@@ -502,6 +520,12 @@ media.mojom.AudioDecoderClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onBufferDecoded(buffer) {
+    return this.$.onBufferDecoded(buffer);
+  }
+  onWaiting(reason) {
+    return this.$.onWaiting(reason);
   }
 };
 

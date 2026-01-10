@@ -103,6 +103,9 @@ service_manager.mojom.InterfaceProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getInterface(interface_name, pipe) {
+    return this.$.getInterface(interface_name, pipe);
+  }
 };
 
 service_manager.mojom.InterfaceProviderRemoteCallHandler = class {

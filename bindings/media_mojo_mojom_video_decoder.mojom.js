@@ -161,6 +161,9 @@ media.mojom.VideoFrameHandleReleaserRemote = class {
   close() {
     this.proxy.close();
   }
+  releaseVideoFrame(release_token, release_sync_token) {
+    return this.$.releaseVideoFrame(release_token, release_sync_token);
+  }
 };
 
 media.mojom.VideoFrameHandleReleaserRemoteCallHandler = class {
@@ -371,6 +374,24 @@ media.mojom.VideoDecoderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getSupportedConfigs() {
+    return this.$.getSupportedConfigs();
+  }
+  construct(client, media_log, video_frame_handle_releaser, decoder_buffer_pipe, command_buffer_id, target_color_space) {
+    return this.$.construct(client, media_log, video_frame_handle_releaser, decoder_buffer_pipe, command_buffer_id, target_color_space);
+  }
+  initialize(config, low_delay, cdm) {
+    return this.$.initialize(config, low_delay, cdm);
+  }
+  decode(buffer) {
+    return this.$.decode(buffer);
+  }
+  reset() {
+    return this.$.reset();
+  }
+  onOverlayInfoChanged(overlay_info) {
+    return this.$.onOverlayInfoChanged(overlay_info);
   }
 };
 
@@ -701,6 +722,15 @@ media.mojom.VideoDecoderClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onVideoFrameDecoded(frame, can_read_without_stalling, release_token) {
+    return this.$.onVideoFrameDecoded(frame, can_read_without_stalling, release_token);
+  }
+  onWaiting(reason) {
+    return this.$.onWaiting(reason);
+  }
+  requestOverlayInfo() {
+    return this.$.requestOverlayInfo();
   }
 };
 

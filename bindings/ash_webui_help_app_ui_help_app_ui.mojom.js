@@ -167,6 +167,9 @@ ash.help_app.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 ash.help_app.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -389,6 +392,42 @@ ash.help_app.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  openFeedbackDialog() {
+    return this.$.openFeedbackDialog();
+  }
+  showOnDeviceAppControls() {
+    return this.$.showOnDeviceAppControls();
+  }
+  showParentalControls() {
+    return this.$.showParentalControls();
+  }
+  triggerWelcomeTipCallToAction(action_type_id) {
+    return this.$.triggerWelcomeTipCallToAction(action_type_id);
+  }
+  isLauncherSearchEnabled() {
+    return this.$.isLauncherSearchEnabled();
+  }
+  launchMicrosoft365Setup() {
+    return this.$.launchMicrosoft365Setup();
+  }
+  maybeShowReleaseNotesNotification() {
+    return this.$.maybeShowReleaseNotesNotification();
+  }
+  getDeviceInfo() {
+    return this.$.getDeviceInfo();
+  }
+  openUrlInBrowserAndTriggerInstallDialog(url) {
+    return this.$.openUrlInBrowserAndTriggerInstallDialog(url);
+  }
+  openSettings(component) {
+    return this.$.openSettings(component);
+  }
+  setHasCompletedNewDeviceChecklist() {
+    return this.$.setHasCompletedNewDeviceChecklist();
+  }
+  setHasVisitedHowToPage() {
+    return this.$.setHasVisitedHowToPage();
   }
 };
 

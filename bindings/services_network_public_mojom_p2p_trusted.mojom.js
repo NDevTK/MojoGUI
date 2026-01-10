@@ -116,6 +116,12 @@ network.mojom.P2PTrustedSocketManagerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  invalidSocketPortRangeRequested() {
+    return this.$.invalidSocketPortRangeRequested();
+  }
+  dumpPacket(packet_header, packet_length, incoming) {
+    return this.$.dumpPacket(packet_header, packet_length, incoming);
+  }
 };
 
 network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
@@ -310,6 +316,18 @@ network.mojom.P2PTrustedSocketManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startRtpDump(incoming, outgoing) {
+    return this.$.startRtpDump(incoming, outgoing);
+  }
+  stopRtpDump(incoming, outgoing) {
+    return this.$.stopRtpDump(incoming, outgoing);
+  }
+  pauseNetworkChangeNotifications() {
+    return this.$.pauseNetworkChangeNotifications();
+  }
+  resumeNetworkChangeNotifications() {
+    return this.$.resumeNetworkChangeNotifications();
   }
 };
 

@@ -108,6 +108,9 @@ media.mojom.MediaFoundationPreferencesRemote = class {
   close() {
     this.proxy.close();
   }
+  isHardwareSecureDecryptionAllowed() {
+    return this.$.isHardwareSecureDecryptionAllowed();
+  }
 };
 
 media.mojom.MediaFoundationPreferencesRemoteCallHandler = class {

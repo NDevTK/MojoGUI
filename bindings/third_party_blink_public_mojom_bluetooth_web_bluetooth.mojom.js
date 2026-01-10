@@ -546,6 +546,57 @@ blink.mojom.WebBluetoothServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getAvailability() {
+    return this.$.getAvailability();
+  }
+  requestDevice(options) {
+    return this.$.requestDevice(options);
+  }
+  getDevices() {
+    return this.$.getDevices();
+  }
+  forgetDevice(device_id) {
+    return this.$.forgetDevice(device_id);
+  }
+  remoteServerConnect(device_id, client) {
+    return this.$.remoteServerConnect(device_id, client);
+  }
+  remoteServerDisconnect(device_id) {
+    return this.$.remoteServerDisconnect(device_id);
+  }
+  remoteServerGetPrimaryServices(device_id, quantity, services_uuid) {
+    return this.$.remoteServerGetPrimaryServices(device_id, quantity, services_uuid);
+  }
+  remoteServiceGetCharacteristics(service_instance_id, quantity, characteristics_uuid) {
+    return this.$.remoteServiceGetCharacteristics(service_instance_id, quantity, characteristics_uuid);
+  }
+  remoteCharacteristicReadValue(characteristic_instance_id) {
+    return this.$.remoteCharacteristicReadValue(characteristic_instance_id);
+  }
+  remoteCharacteristicWriteValue(characteristic_instance_id, value, write_type) {
+    return this.$.remoteCharacteristicWriteValue(characteristic_instance_id, value, write_type);
+  }
+  remoteCharacteristicStartNotifications(characteristic_instance_id, client) {
+    return this.$.remoteCharacteristicStartNotifications(characteristic_instance_id, client);
+  }
+  remoteCharacteristicStopNotifications(characteristic_instance_id) {
+    return this.$.remoteCharacteristicStopNotifications(characteristic_instance_id);
+  }
+  remoteCharacteristicGetDescriptors(characteristics_instance_id, quantity, descriptor_uuid) {
+    return this.$.remoteCharacteristicGetDescriptors(characteristics_instance_id, quantity, descriptor_uuid);
+  }
+  remoteDescriptorReadValue(descriptor_instance_id) {
+    return this.$.remoteDescriptorReadValue(descriptor_instance_id);
+  }
+  remoteDescriptorWriteValue(descriptor_instance_id, value) {
+    return this.$.remoteDescriptorWriteValue(descriptor_instance_id, value);
+  }
+  requestScanningStart(client, options) {
+    return this.$.requestScanningStart(client, options);
+  }
+  watchAdvertisementsForDevice(device_id, client) {
+    return this.$.watchAdvertisementsForDevice(device_id, client);
+  }
 };
 
 blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
@@ -1253,6 +1304,9 @@ blink.mojom.WebBluetoothServerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  gATTServerDisconnected() {
+    return this.$.gATTServerDisconnected();
+  }
 };
 
 blink.mojom.WebBluetoothServerClientRemoteCallHandler = class {
@@ -1401,6 +1455,9 @@ blink.mojom.WebBluetoothCharacteristicClientRemote = class {
   close() {
     this.proxy.close();
   }
+  remoteCharacteristicValueChanged(value) {
+    return this.$.remoteCharacteristicValueChanged(value);
+  }
 };
 
 blink.mojom.WebBluetoothCharacteristicClientRemoteCallHandler = class {
@@ -1548,6 +1605,9 @@ blink.mojom.WebBluetoothAdvertisementClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  advertisingEvent(result) {
+    return this.$.advertisingEvent(result);
   }
 };
 

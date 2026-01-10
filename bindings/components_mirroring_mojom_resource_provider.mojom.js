@@ -116,6 +116,9 @@ mirroring.mojom.AudioStreamCreatorClientRemote = class {
   close() {
     this.proxy.close();
   }
+  streamCreated(stream, client_receiver, data_pipe) {
+    return this.$.streamCreated(stream, client_receiver, data_pipe);
+  }
 };
 
 mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler = class {
@@ -296,6 +299,24 @@ mirroring.mojom.ResourceProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindGpu(receiver) {
+    return this.$.bindGpu(receiver);
+  }
+  getVideoCaptureHost(receiver) {
+    return this.$.getVideoCaptureHost(receiver);
+  }
+  getVideoEncoderMetricsProvider(receiver) {
+    return this.$.getVideoEncoderMetricsProvider(receiver);
+  }
+  getNetworkContext(receiver) {
+    return this.$.getNetworkContext(receiver);
+  }
+  createAudioStream(client, param, shared_memory_count) {
+    return this.$.createAudioStream(client, param, shared_memory_count);
+  }
+  connectToRemotingSource(remoter, receiver) {
+    return this.$.connectToRemotingSource(remoter, receiver);
   }
 };
 

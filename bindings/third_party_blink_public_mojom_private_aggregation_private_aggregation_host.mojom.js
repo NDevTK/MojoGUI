@@ -146,6 +146,15 @@ blink.mojom.PrivateAggregationHostRemote = class {
   close() {
     this.proxy.close();
   }
+  contributeToHistogram(contributions) {
+    return this.$.contributeToHistogram(contributions);
+  }
+  contributeToHistogramOnEvent(error_event, contributions) {
+    return this.$.contributeToHistogramOnEvent(error_event, contributions);
+  }
+  enableDebugMode(debug_key) {
+    return this.$.enableDebugMode(debug_key);
+  }
 };
 
 blink.mojom.PrivateAggregationHostRemoteCallHandler = class {

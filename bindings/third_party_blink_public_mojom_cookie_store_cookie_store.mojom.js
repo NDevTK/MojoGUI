@@ -152,6 +152,15 @@ blink.mojom.CookieStoreRemote = class {
   close() {
     this.proxy.close();
   }
+  addSubscriptions(service_worker_registration_id, subscription) {
+    return this.$.addSubscriptions(service_worker_registration_id, subscription);
+  }
+  removeSubscriptions(service_worker_registration_id, subscription) {
+    return this.$.removeSubscriptions(service_worker_registration_id, subscription);
+  }
+  getSubscriptions(service_worker_registration_id) {
+    return this.$.getSubscriptions(service_worker_registration_id);
+  }
 };
 
 blink.mojom.CookieStoreRemoteCallHandler = class {

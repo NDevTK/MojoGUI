@@ -157,6 +157,9 @@ remoting.mojom.WebAuthnRequestCancellerRemote = class {
   close() {
     this.proxy.close();
   }
+  cancel() {
+    return this.$.cancel();
+  }
 };
 
 remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler = class {
@@ -341,6 +344,15 @@ remoting.mojom.WebAuthnProxyRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  isUserVerifyingPlatformAuthenticatorAvailable() {
+    return this.$.isUserVerifyingPlatformAuthenticatorAvailable();
+  }
+  create(request_data, request_canceller) {
+    return this.$.create(request_data, request_canceller);
+  }
+  get(request_data, request_canceller) {
+    return this.$.get(request_data, request_canceller);
   }
 };
 

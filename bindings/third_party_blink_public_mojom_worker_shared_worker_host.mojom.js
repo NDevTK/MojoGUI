@@ -137,6 +137,24 @@ blink.mojom.SharedWorkerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onConnected(connection_id) {
+    return this.$.onConnected(connection_id);
+  }
+  onContextClosed() {
+    return this.$.onContextClosed();
+  }
+  onReadyForInspection(agent, agent_host) {
+    return this.$.onReadyForInspection(agent, agent_host);
+  }
+  onScriptLoadFailed(error_message) {
+    return this.$.onScriptLoadFailed(error_message);
+  }
+  onReportException(details) {
+    return this.$.onReportException(details);
+  }
+  onFeatureUsed(feature) {
+    return this.$.onFeatureUsed(feature);
+  }
 };
 
 blink.mojom.SharedWorkerHostRemoteCallHandler = class {

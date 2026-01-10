@@ -141,6 +141,9 @@ ash.personalization_app.mojom.SearchResultsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onSearchResultsChanged() {
+    return this.$.onSearchResultsChanged();
+  }
 };
 
 ash.personalization_app.mojom.SearchResultsObserverRemoteCallHandler = class {
@@ -301,6 +304,12 @@ ash.personalization_app.mojom.SearchHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  search(query, max_num_results) {
+    return this.$.search(query, max_num_results);
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
   }
 };
 

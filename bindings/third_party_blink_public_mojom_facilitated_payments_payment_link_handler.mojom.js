@@ -104,6 +104,9 @@ payments.facilitated.mojom.PaymentLinkHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  handlePaymentLink(url) {
+    return this.$.handlePaymentLink(url);
+  }
 };
 
 payments.facilitated.mojom.PaymentLinkHandlerRemoteCallHandler = class {

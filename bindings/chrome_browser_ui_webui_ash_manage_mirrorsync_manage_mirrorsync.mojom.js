@@ -118,6 +118,9 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 ash.manage_mirrorsync.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -283,6 +286,12 @@ ash.manage_mirrorsync.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getChildFolders(path) {
+    return this.$.getChildFolders(path);
+  }
+  getSyncingPaths() {
+    return this.$.getSyncingPaths();
   }
 };
 

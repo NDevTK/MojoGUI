@@ -218,6 +218,30 @@ arc.mojom.PowerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onAcquireDisplayWakeLock(type) {
+    return this.$.onAcquireDisplayWakeLock(type);
+  }
+  onReleaseDisplayWakeLock(type) {
+    return this.$.onReleaseDisplayWakeLock(type);
+  }
+  onWakefulnessChanged(mode) {
+    return this.$.onWakefulnessChanged(mode);
+  }
+  isDisplayOn() {
+    return this.$.isDisplayOn();
+  }
+  onScreenBrightnessUpdateRequest(percent) {
+    return this.$.onScreenBrightnessUpdateRequest(percent);
+  }
+  onPreAnr(type) {
+    return this.$.onPreAnr(type);
+  }
+  onAnrRecoveryFailed(type) {
+    return this.$.onAnrRecoveryFailed(type);
+  }
+  getBatterySaverModeState() {
+    return this.$.getBatterySaverModeState();
+  }
 };
 
 arc.mojom.PowerHostRemoteCallHandler = class {
@@ -646,6 +670,36 @@ arc.mojom.PowerInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  setInteractiveDeprecated(enabled) {
+    return this.$.setInteractiveDeprecated(enabled);
+  }
+  suspend() {
+    return this.$.suspend();
+  }
+  resume() {
+    return this.$.resume();
+  }
+  updateScreenBrightnessSettings(percent) {
+    return this.$.updateScreenBrightnessSettings(percent);
+  }
+  powerSupplyInfoChanged() {
+    return this.$.powerSupplyInfoChanged();
+  }
+  getWakefulnessMode() {
+    return this.$.getWakefulnessMode();
+  }
+  onCpuRestrictionChanged(state) {
+    return this.$.onCpuRestrictionChanged(state);
+  }
+  onBatterySaverModeStateChanged(state) {
+    return this.$.onBatterySaverModeStateChanged(state);
+  }
+  setIdleState(state) {
+    return this.$.setIdleState(state);
   }
 };
 

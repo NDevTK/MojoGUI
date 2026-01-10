@@ -312,6 +312,9 @@ ash.camera_app.mojom.TabletModeMonitorRemote = class {
   close() {
     this.proxy.close();
   }
+  update(is_tablet_mode) {
+    return this.$.update(is_tablet_mode);
+  }
 };
 
 ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler = class {
@@ -459,6 +462,9 @@ ash.camera_app.mojom.ScreenStateMonitorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  update(state) {
+    return this.$.update(state);
   }
 };
 
@@ -608,6 +614,9 @@ ash.camera_app.mojom.ScreenLockedMonitorRemote = class {
   close() {
     this.proxy.close();
   }
+  update(is_screen_locked) {
+    return this.$.update(is_screen_locked);
+  }
 };
 
 ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler = class {
@@ -755,6 +764,9 @@ ash.camera_app.mojom.ExternalScreenMonitorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  update(has_external_screen) {
+    return this.$.update(has_external_screen);
   }
 };
 
@@ -908,6 +920,9 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onCameraUsageOwnershipChanged(has_usage) {
+    return this.$.onCameraUsageOwnershipChanged(has_usage);
   }
 };
 
@@ -1063,6 +1078,9 @@ ash.camera_app.mojom.LidStateMonitorRemote = class {
   close() {
     this.proxy.close();
   }
+  update(lid_status) {
+    return this.$.update(lid_status);
+  }
 };
 
 ash.camera_app.mojom.LidStateMonitorRemoteCallHandler = class {
@@ -1210,6 +1228,9 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  update(is_sw_privacy_switch_on) {
+    return this.$.update(is_sw_privacy_switch_on);
   }
 };
 
@@ -1364,6 +1385,12 @@ ash.camera_app.mojom.WindowStateMonitorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onWindowStateChanged(states) {
+    return this.$.onWindowStateChanged(states);
+  }
+  onWindowFocusChanged(is_focus) {
+    return this.$.onWindowFocusChanged(is_focus);
   }
 };
 
@@ -1541,6 +1568,9 @@ ash.camera_app.mojom.StorageMonitorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  update(status) {
+    return this.$.update(status);
   }
 };
 
@@ -1756,6 +1786,27 @@ ash.camera_app.mojom.WindowStateControllerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addMonitor(monitor) {
+    return this.$.addMonitor(monitor);
+  }
+  getWindowState() {
+    return this.$.getWindowState();
+  }
+  minimize() {
+    return this.$.minimize();
+  }
+  restore() {
+    return this.$.restore();
+  }
+  maximize() {
+    return this.$.maximize();
+  }
+  fullscreen() {
+    return this.$.fullscreen();
+  }
+  focus() {
+    return this.$.focus();
   }
 };
 
@@ -2433,6 +2484,102 @@ ash.camera_app.mojom.CameraAppHelperRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  handleCameraResult(intent_id, action, data) {
+    return this.$.handleCameraResult(intent_id, action, data);
+  }
+  isTabletMode() {
+    return this.$.isTabletMode();
+  }
+  startPerfEventTrace(event) {
+    return this.$.startPerfEventTrace(event);
+  }
+  stopPerfEventTrace(event) {
+    return this.$.stopPerfEventTrace(event);
+  }
+  setTabletMonitor(monitor) {
+    return this.$.setTabletMonitor(monitor);
+  }
+  setScreenStateMonitor(monitor) {
+    return this.$.setScreenStateMonitor(monitor);
+  }
+  isMetricsAndCrashReportingEnabled() {
+    return this.$.isMetricsAndCrashReportingEnabled();
+  }
+  setExternalScreenMonitor(monitor) {
+    return this.$.setExternalScreenMonitor(monitor);
+  }
+  openFileInGallery(name) {
+    return this.$.openFileInGallery(name);
+  }
+  openFeedbackDialog(placeholder) {
+    return this.$.openFeedbackDialog(placeholder);
+  }
+  openUrlInBrowser(url) {
+    return this.$.openUrlInBrowser(url);
+  }
+  getWindowStateController() {
+    return this.$.getWindowStateController();
+  }
+  processCapturedFile(file_type, destination) {
+    return this.$.processCapturedFile(file_type, destination);
+  }
+  monitorFileDeletion(name) {
+    return this.$.monitorFileDeletion(name);
+  }
+  isDocumentScannerSupported() {
+    return this.$.isDocumentScannerSupported();
+  }
+  checkDocumentModeReadiness() {
+    return this.$.checkDocumentModeReadiness();
+  }
+  scanDocumentCorners(jpeg_data) {
+    return this.$.scanDocumentCorners(jpeg_data);
+  }
+  convertToDocument(jpeg_data, corners, rotation) {
+    return this.$.convertToDocument(jpeg_data, corners, rotation);
+  }
+  maybeTriggerSurvey() {
+    return this.$.maybeTriggerSurvey();
+  }
+  startStorageMonitor(monitor) {
+    return this.$.startStorageMonitor(monitor);
+  }
+  stopStorageMonitor() {
+    return this.$.stopStorageMonitor();
+  }
+  openStorageManagement() {
+    return this.$.openStorageManagement();
+  }
+  openWifiDialog(config) {
+    return this.$.openWifiDialog(config);
+  }
+  setLidStateMonitor(monitor) {
+    return this.$.setLidStateMonitor(monitor);
+  }
+  setSWPrivacySwitchMonitor(monitor) {
+    return this.$.setSWPrivacySwitchMonitor(monitor);
+  }
+  getEventsSender() {
+    return this.$.getEventsSender();
+  }
+  setScreenLockedMonitor(monitor) {
+    return this.$.setScreenLockedMonitor(monitor);
+  }
+  renderPdfAsJpeg(pdf_data) {
+    return this.$.renderPdfAsJpeg(pdf_data);
+  }
+  performOcr(jpeg_data) {
+    return this.$.performOcr(jpeg_data);
+  }
+  performOcrInline(jpeg_data) {
+    return this.$.performOcrInline(jpeg_data);
+  }
+  createPdfBuilder(builder) {
+    return this.$.createPdfBuilder(builder);
+  }
+  getAspectRatioOrder() {
+    return this.$.getAspectRatioOrder();
   }
 };
 

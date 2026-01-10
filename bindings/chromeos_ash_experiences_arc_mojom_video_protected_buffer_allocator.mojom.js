@@ -134,6 +134,15 @@ arc.mojom.VideoProtectedBufferAllocatorRemote = class {
   close() {
     this.proxy.close();
   }
+  allocateProtectedSharedMemory(handle_fd, size) {
+    return this.$.allocateProtectedSharedMemory(handle_fd, size);
+  }
+  allocateProtectedNativePixmap(handle_fd, pixel_format, picture_size) {
+    return this.$.allocateProtectedNativePixmap(handle_fd, pixel_format, picture_size);
+  }
+  releaseProtectedBuffer(handle_fd) {
+    return this.$.releaseProtectedBuffer(handle_fd);
+  }
 };
 
 arc.mojom.VideoProtectedBufferAllocatorRemoteCallHandler = class {

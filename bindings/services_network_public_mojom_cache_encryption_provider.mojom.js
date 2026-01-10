@@ -109,6 +109,9 @@ network.mojom.CacheEncryptionProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getEncryptor() {
+    return this.$.getEncryptor();
+  }
 };
 
 network.mojom.CacheEncryptionProviderRemoteCallHandler = class {

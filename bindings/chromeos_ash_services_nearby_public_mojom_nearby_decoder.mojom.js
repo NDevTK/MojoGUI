@@ -123,6 +123,12 @@ sharing.mojom.NearbySharingDecoderRemote = class {
   close() {
     this.proxy.close();
   }
+  decodeAdvertisement(data) {
+    return this.$.decodeAdvertisement(data);
+  }
+  decodeFrame(data) {
+    return this.$.decodeFrame(data);
+  }
 };
 
 sharing.mojom.NearbySharingDecoderRemoteCallHandler = class {

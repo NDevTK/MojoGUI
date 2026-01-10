@@ -232,6 +232,18 @@ blink.mojom.DirectSocketsServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  openTCPSocket(options, receiver, observer) {
+    return this.$.openTCPSocket(options, receiver, observer);
+  }
+  openConnectedUDPSocket(options, receiver, listener) {
+    return this.$.openConnectedUDPSocket(options, receiver, listener);
+  }
+  openBoundUDPSocket(options, receiver, listener) {
+    return this.$.openBoundUDPSocket(options, receiver, listener);
+  }
+  openTCPServerSocket(options, receiver) {
+    return this.$.openTCPServerSocket(options, receiver);
+  }
 };
 
 blink.mojom.DirectSocketsServiceRemoteCallHandler = class {

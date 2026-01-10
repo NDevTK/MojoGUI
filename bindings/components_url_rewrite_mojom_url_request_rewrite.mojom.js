@@ -216,6 +216,9 @@ url_rewrite.mojom.UrlRequestRulesReceiverRemote = class {
   close() {
     this.proxy.close();
   }
+  onRulesUpdated(rules) {
+    return this.$.onRulesUpdated(rules);
+  }
 };
 
 url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandler = class {

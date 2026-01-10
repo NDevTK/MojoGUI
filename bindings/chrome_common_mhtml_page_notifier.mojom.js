@@ -107,6 +107,9 @@ offline_pages.mojom.MhtmlPageNotifierRemote = class {
   close() {
     this.proxy.close();
   }
+  notifyMhtmlPageLoadAttempted(load_result, url, date) {
+    return this.$.notifyMhtmlPageLoadAttempted(load_result, url, date);
+  }
 };
 
 offline_pages.mojom.MhtmlPageNotifierRemoteCallHandler = class {

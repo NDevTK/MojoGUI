@@ -133,6 +133,12 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemote = class {
   close() {
     this.proxy.close();
   }
+  setEncryptionKeys(gaia_id, encryption_keys) {
+    return this.$.setEncryptionKeys(gaia_id, encryption_keys);
+  }
+  addTrustedRecoveryMethod(gaia_id, public_key, method_type_hint) {
+    return this.$.addTrustedRecoveryMethod(gaia_id, public_key, method_type_hint);
+  }
 };
 
 chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {

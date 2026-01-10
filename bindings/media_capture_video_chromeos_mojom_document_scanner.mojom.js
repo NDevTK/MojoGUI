@@ -120,6 +120,9 @@ cros.mojom.CrosDocumentScannerRemote = class {
   close() {
     this.proxy.close();
   }
+  detectCornersFromNV12Image(nv12_image) {
+    return this.$.detectCornersFromNV12Image(nv12_image);
+  }
 };
 
 cros.mojom.CrosDocumentScannerRemoteCallHandler = class {

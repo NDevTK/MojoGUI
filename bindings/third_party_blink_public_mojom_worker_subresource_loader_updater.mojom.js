@@ -102,6 +102,9 @@ blink.mojom.SubresourceLoaderUpdaterRemote = class {
   close() {
     this.proxy.close();
   }
+  updateSubresourceLoaderFactories(subresource_loader_factories) {
+    return this.$.updateSubresourceLoaderFactories(subresource_loader_factories);
+  }
 };
 
 blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler = class {

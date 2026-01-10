@@ -189,6 +189,15 @@ ax.mojom.SpeechRecognitionEventObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onStop() {
+    return this.$.onStop();
+  }
+  onResult(event) {
+    return this.$.onResult(event);
+  }
+  onError(event) {
+    return this.$.onError(event);
+  }
 };
 
 ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
@@ -412,6 +421,12 @@ ax.mojom.SpeechRecognitionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  start(options) {
+    return this.$.start(options);
+  }
+  stop(options) {
+    return this.$.stop(options);
   }
 };
 

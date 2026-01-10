@@ -141,6 +141,9 @@ media.mojom.RemoterFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  create(source, remoter) {
+    return this.$.create(source, remoter);
+  }
 };
 
 media.mojom.RemoterFactoryRemoteCallHandler = class {
@@ -298,6 +301,12 @@ media.mojom.RemotingDataStreamSenderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sendFrame(frame) {
+    return this.$.sendFrame(frame);
+  }
+  cancelInFlightData() {
+    return this.$.cancelInFlightData();
   }
 };
 
@@ -517,6 +526,24 @@ media.mojom.RemoterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  start() {
+    return this.$.start();
+  }
+  startWithPermissionAlreadyGranted() {
+    return this.$.startWithPermissionAlreadyGranted();
+  }
+  startDataStreams(audio_pipe, video_pipe, audio_sender, video_sender) {
+    return this.$.startDataStreams(audio_pipe, video_pipe, audio_sender, video_sender);
+  }
+  stop(reason) {
+    return this.$.stop(reason);
+  }
+  sendMessageToSink(message) {
+    return this.$.sendMessageToSink(message);
+  }
+  estimateTransmissionCapacity() {
+    return this.$.estimateTransmissionCapacity();
   }
 };
 
@@ -845,6 +872,24 @@ media.mojom.RemotingSourceRemote = class {
   close() {
     this.proxy.close();
   }
+  onSinkAvailable(metadata) {
+    return this.$.onSinkAvailable(metadata);
+  }
+  onSinkGone() {
+    return this.$.onSinkGone();
+  }
+  onStarted() {
+    return this.$.onStarted();
+  }
+  onStartFailed(reason) {
+    return this.$.onStartFailed(reason);
+  }
+  onMessageFromSink(message) {
+    return this.$.onMessageFromSink(message);
+  }
+  onStopped(reason) {
+    return this.$.onStopped(reason);
+  }
 };
 
 media.mojom.RemotingSourceRemoteCallHandler = class {
@@ -1164,6 +1209,21 @@ media.mojom.RemoteeRemote = class {
   close() {
     this.proxy.close();
   }
+  onRemotingSinkReady(sink) {
+    return this.$.onRemotingSinkReady(sink);
+  }
+  sendMessageToSource(message) {
+    return this.$.sendMessageToSource(message);
+  }
+  startDataStreams(audio_stream, video_stream) {
+    return this.$.startDataStreams(audio_stream, video_stream);
+  }
+  onFlushUntil(audio_frame_count, video_frame_count) {
+    return this.$.onFlushUntil(audio_frame_count, video_frame_count);
+  }
+  onVideoNaturalSizeChange(size) {
+    return this.$.onVideoNaturalSizeChange(size);
+  }
 };
 
 media.mojom.RemoteeRemoteCallHandler = class {
@@ -1428,6 +1488,9 @@ media.mojom.RemotingSinkRemote = class {
   close() {
     this.proxy.close();
   }
+  onMessageFromSource(message) {
+    return this.$.onMessageFromSource(message);
+  }
 };
 
 media.mojom.RemotingSinkRemoteCallHandler = class {
@@ -1588,6 +1651,15 @@ media.mojom.RemotingDataStreamReceiverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  initializeDataPipe(data_pipe) {
+    return this.$.initializeDataPipe(data_pipe);
+  }
+  receiveFrame(frame_count, buffer) {
+    return this.$.receiveFrame(frame_count, buffer);
+  }
+  flushUntil(frame_count) {
+    return this.$.flushUntil(frame_count);
   }
 };
 

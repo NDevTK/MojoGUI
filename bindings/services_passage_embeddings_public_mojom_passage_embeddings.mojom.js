@@ -155,6 +155,9 @@ passage_embeddings.mojom.PassageEmbedderRemote = class {
   close() {
     this.proxy.close();
   }
+  generateEmbeddings(passages, priority) {
+    return this.$.generateEmbeddings(passages, priority);
+  }
 };
 
 passage_embeddings.mojom.PassageEmbedderRemoteCallHandler = class {
@@ -316,6 +319,9 @@ passage_embeddings.mojom.PassageEmbeddingsServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  loadModels(model_params, params, model) {
+    return this.$.loadModels(model_params, params, model);
   }
 };
 

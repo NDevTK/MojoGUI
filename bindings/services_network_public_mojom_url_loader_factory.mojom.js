@@ -136,6 +136,12 @@ network.mojom.URLLoaderFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createLoaderAndStart(loader, request_id, options, request, client, traffic_annotation) {
+    return this.$.createLoaderAndStart(loader, request_id, options, request, client, traffic_annotation);
+  }
+  clone(factory) {
+    return this.$.clone(factory);
+  }
 };
 
 network.mojom.URLLoaderFactoryRemoteCallHandler = class {

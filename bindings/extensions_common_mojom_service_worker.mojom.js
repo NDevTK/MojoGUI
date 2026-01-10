@@ -123,6 +123,12 @@ extensions.mojom.ServiceWorkerRemote = class {
   close() {
     this.proxy.close();
   }
+  updatePermissions(active_permissions, withheld_permissions) {
+    return this.$.updatePermissions(active_permissions, withheld_permissions);
+  }
+  dispatchOnConnect(port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host) {
+    return this.$.dispatchOnConnect(port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host);
+  }
 };
 
 extensions.mojom.ServiceWorkerRemoteCallHandler = class {

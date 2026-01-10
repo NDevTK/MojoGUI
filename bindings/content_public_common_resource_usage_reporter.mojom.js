@@ -143,6 +143,9 @@ content.mojom.ResourceUsageReporterRemote = class {
   close() {
     this.proxy.close();
   }
+  getUsageData() {
+    return this.$.getUsageData();
+  }
 };
 
 content.mojom.ResourceUsageReporterRemoteCallHandler = class {

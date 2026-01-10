@@ -208,6 +208,9 @@ lens.mojom.LensPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler, page) {
+    return this.$.createPageHandler(handler, page);
+  }
 };
 
 lens.mojom.LensPageHandlerFactoryRemoteCallHandler = class {
@@ -530,6 +533,90 @@ lens.mojom.LensPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  activityRequestedByOverlay(click_modifiers) {
+    return this.$.activityRequestedByOverlay(click_modifiers);
+  }
+  closeRequestedByOverlayCloseButton() {
+    return this.$.closeRequestedByOverlayCloseButton();
+  }
+  closeRequestedByOverlayBackgroundClick() {
+    return this.$.closeRequestedByOverlayBackgroundClick();
+  }
+  notifyOverlayInitialized() {
+    return this.$.notifyOverlayInitialized();
+  }
+  addBackgroundBlur() {
+    return this.$.addBackgroundBlur();
+  }
+  setLiveBlur(enabled) {
+    return this.$.setLiveBlur(enabled);
+  }
+  feedbackRequestedByOverlay() {
+    return this.$.feedbackRequestedByOverlay();
+  }
+  getOverlayInvocationSource() {
+    return this.$.getOverlayInvocationSource();
+  }
+  infoRequestedByOverlay(click_modifiers) {
+    return this.$.infoRequestedByOverlay(click_modifiers);
+  }
+  issueLensRegionRequest(region, is_click) {
+    return this.$.issueLensRegionRequest(region, is_click);
+  }
+  issueLensObjectRequest(region, is_mask_click) {
+    return this.$.issueLensObjectRequest(region, is_mask_click);
+  }
+  issueTextSelectionRequest(query, selection_start_index, selection_end_index, is_translate) {
+    return this.$.issueTextSelectionRequest(query, selection_start_index, selection_end_index, is_translate);
+  }
+  issueTranslateSelectionRequest(query, content_language, selection_start_index, selection_end_index) {
+    return this.$.issueTranslateSelectionRequest(query, content_language, selection_start_index, selection_end_index);
+  }
+  issueMathSelectionRequest(query, formula, selection_start_index, selection_end_index) {
+    return this.$.issueMathSelectionRequest(query, formula, selection_start_index, selection_end_index);
+  }
+  issueTranslateFullPageRequest(source_language, target_language) {
+    return this.$.issueTranslateFullPageRequest(source_language, target_language);
+  }
+  issueEndTranslateModeRequest() {
+    return this.$.issueEndTranslateModeRequest();
+  }
+  copyText(text) {
+    return this.$.copyText(text);
+  }
+  copyImage(region) {
+    return this.$.copyImage(region);
+  }
+  saveAsImage(region) {
+    return this.$.saveAsImage(region);
+  }
+  closePreselectionBubble() {
+    return this.$.closePreselectionBubble();
+  }
+  recordUkmAndTaskCompletionForLensOverlayInteraction(user_action) {
+    return this.$.recordUkmAndTaskCompletionForLensOverlayInteraction(user_action);
+  }
+  recordLensOverlaySemanticEvent(event) {
+    return this.$.recordLensOverlaySemanticEvent(event);
+  }
+  maybeShowTranslateFeaturePromo() {
+    return this.$.maybeShowTranslateFeaturePromo();
+  }
+  maybeCloseTranslateFeaturePromo(feature_engaged) {
+    return this.$.maybeCloseTranslateFeaturePromo(feature_engaged);
+  }
+  fetchSupportedLanguages() {
+    return this.$.fetchSupportedLanguages();
+  }
+  finishReshowOverlay() {
+    return this.$.finishReshowOverlay();
+  }
+  acceptPrivacyNotice() {
+    return this.$.acceptPrivacyNotice();
+  }
+  dismissPrivacyNotice() {
+    return this.$.dismissPrivacyNotice();
   }
 };
 
@@ -1577,6 +1664,63 @@ lens.mojom.LensPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  screenshotDataReceived(screenshot_data, is_side_panel_open) {
+    return this.$.screenshotDataReceived(screenshot_data, is_side_panel_open);
+  }
+  notifyHandshakeComplete() {
+    return this.$.notifyHandshakeComplete();
+  }
+  notifyResultsPanelOpened() {
+    return this.$.notifyResultsPanelOpened();
+  }
+  notifyOverlayClosing() {
+    return this.$.notifyOverlayClosing();
+  }
+  objectsReceived(objects) {
+    return this.$.objectsReceived(objects);
+  }
+  textReceived(text) {
+    return this.$.textReceived(text);
+  }
+  regionTextReceived(text, is_injected_image) {
+    return this.$.regionTextReceived(text, is_injected_image);
+  }
+  themeReceived(theme) {
+    return this.$.themeReceived(theme);
+  }
+  shouldShowContextualSearchBox(should_show) {
+    return this.$.shouldShowContextualSearchBox(should_show);
+  }
+  pageContentTypeChanged(new_page_content_type) {
+    return this.$.pageContentTypeChanged(new_page_content_type);
+  }
+  setPostRegionSelection(region) {
+    return this.$.setPostRegionSelection(region);
+  }
+  setTextSelection(selection_start_index, selection_end_index) {
+    return this.$.setTextSelection(selection_start_index, selection_end_index);
+  }
+  setTranslateMode(source_language, target_language) {
+    return this.$.setTranslateMode(source_language, target_language);
+  }
+  clearRegionSelection() {
+    return this.$.clearRegionSelection();
+  }
+  clearTextSelection() {
+    return this.$.clearTextSelection();
+  }
+  clearAllSelections() {
+    return this.$.clearAllSelections();
+  }
+  onCopyCommand() {
+    return this.$.onCopyCommand();
+  }
+  suppressGhostLoader() {
+    return this.$.suppressGhostLoader();
+  }
+  onOverlayReshown(screenshot_data) {
+    return this.$.onOverlayReshown(screenshot_data);
   }
 };
 

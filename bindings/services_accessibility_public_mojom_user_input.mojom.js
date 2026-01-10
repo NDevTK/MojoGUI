@@ -143,6 +143,12 @@ ax.mojom.UserInputRemote = class {
   close() {
     this.proxy.close();
   }
+  sendSyntheticKeyEventForShortcutOrNavigation(key_event) {
+    return this.$.sendSyntheticKeyEventForShortcutOrNavigation(key_event);
+  }
+  sendSyntheticMouseEvent(mouse_event) {
+    return this.$.sendSyntheticMouseEvent(mouse_event);
+  }
 };
 
 ax.mojom.UserInputRemoteCallHandler = class {

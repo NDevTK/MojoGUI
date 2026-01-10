@@ -239,6 +239,66 @@ crosapi.mojom.CrosapiRemote = class {
   close() {
     this.proxy.close();
   }
+  bindAccountManager(receiver) {
+    return this.$.bindAccountManager(receiver);
+  }
+  bindBrowserCdmFactory(receiver) {
+    return this.$.bindBrowserCdmFactory(receiver);
+  }
+  bindCfmServiceContext(receiver) {
+    return this.$.bindCfmServiceContext(receiver);
+  }
+  bindCrosDisplayConfigController(receiver) {
+    return this.$.bindCrosDisplayConfigController(receiver);
+  }
+  bindDiagnosticsService(receiver) {
+    return this.$.bindDiagnosticsService(receiver);
+  }
+  bindDocumentScan(receiver) {
+    return this.$.bindDocumentScan(receiver);
+  }
+  bindInSessionAuth(receiver) {
+    return this.$.bindInSessionAuth(receiver);
+  }
+  bindKeystoreService(receiver) {
+    return this.$.bindKeystoreService(receiver);
+  }
+  bindLocalPrinter(receiver) {
+    return this.$.bindLocalPrinter(receiver);
+  }
+  bindMachineLearningService(receiver) {
+    return this.$.bindMachineLearningService(receiver);
+  }
+  bindSensorHalClient(receiver) {
+    return this.$.bindSensorHalClient(receiver);
+  }
+  bindHidManager(receiver) {
+    return this.$.bindHidManager(receiver);
+  }
+  bindMediaSessionController(receiver) {
+    return this.$.bindMediaSessionController(receiver);
+  }
+  bindMediaSessionAudioFocus(receiver) {
+    return this.$.bindMediaSessionAudioFocus(receiver);
+  }
+  bindMediaSessionAudioFocusDebug(receiver) {
+    return this.$.bindMediaSessionAudioFocusDebug(receiver);
+  }
+  bindTelemetryDiagnosticRoutinesService(receiver) {
+    return this.$.bindTelemetryDiagnosticRoutinesService(receiver);
+  }
+  bindTelemetryManagementService(receiver) {
+    return this.$.bindTelemetryManagementService(receiver);
+  }
+  bindTelemetryProbeService(receiver) {
+    return this.$.bindTelemetryProbeService(receiver);
+  }
+  bindVideoCaptureDeviceFactory(receiver) {
+    return this.$.bindVideoCaptureDeviceFactory(receiver);
+  }
+  bindGuestOsSkForwarderFactory(receiver) {
+    return this.$.bindGuestOsSkForwarderFactory(receiver);
+  }
 };
 
 crosapi.mojom.CrosapiRemoteCallHandler = class {

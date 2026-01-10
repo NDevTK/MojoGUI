@@ -206,6 +206,30 @@ video_capture.mojom.PushVideoStreamSubscriptionRemote = class {
   close() {
     this.proxy.close();
   }
+  activate() {
+    return this.$.activate();
+  }
+  suspend() {
+    return this.$.suspend();
+  }
+  resume() {
+    return this.$.resume();
+  }
+  getPhotoState() {
+    return this.$.getPhotoState();
+  }
+  setPhotoOptions(settings) {
+    return this.$.setPhotoOptions(settings);
+  }
+  takePhoto() {
+    return this.$.takePhoto();
+  }
+  close() {
+    return this.$.close();
+  }
+  processFeedback(feedback) {
+    return this.$.processFeedback(feedback);
+  }
 };
 
 video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
@@ -596,6 +620,9 @@ video_capture.mojom.VideoSourceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createPushSubscription(subscriber, requested_settings, force_reopen_with_new_settings, subscription) {
+    return this.$.createPushSubscription(subscriber, requested_settings, force_reopen_with_new_settings, subscription);
   }
 };
 

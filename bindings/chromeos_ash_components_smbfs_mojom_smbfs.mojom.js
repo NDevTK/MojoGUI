@@ -212,6 +212,9 @@ smbfs.mojom.SmbFsBootstrapRemote = class {
   close() {
     this.proxy.close();
   }
+  mountShare(options, delegate) {
+    return this.$.mountShare(options, delegate);
+  }
 };
 
 smbfs.mojom.SmbFsBootstrapRemoteCallHandler = class {
@@ -382,6 +385,12 @@ smbfs.mojom.SmbFsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  removeSavedCredentials() {
+    return this.$.removeSavedCredentials();
+  }
+  deleteRecursively(path) {
+    return this.$.deleteRecursively(path);
   }
 };
 
@@ -576,6 +585,9 @@ smbfs.mojom.SmbFsDelegateRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestCredentials() {
+    return this.$.requestCredentials();
   }
 };
 

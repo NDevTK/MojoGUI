@@ -102,6 +102,9 @@ media.mojom.MediaLogRemote = class {
   close() {
     this.proxy.close();
   }
+  addLogRecord(event) {
+    return this.$.addLogRecord(event);
+  }
 };
 
 media.mojom.MediaLogRemoteCallHandler = class {

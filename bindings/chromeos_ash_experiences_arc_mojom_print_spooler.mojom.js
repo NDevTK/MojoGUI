@@ -239,6 +239,12 @@ arc.mojom.PrintSessionInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  onPrintPreviewClosed() {
+    return this.$.onPrintPreviewClosed();
+  }
+  createPreviewDocument(request) {
+    return this.$.createPreviewDocument(request);
+  }
 };
 
 arc.mojom.PrintSessionInstanceRemoteCallHandler = class {
@@ -430,6 +436,9 @@ arc.mojom.PrintSpoolerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  startPrintInCustomTab(scoped_handle, task_id, instance) {
+    return this.$.startPrintInCustomTab(scoped_handle, task_id, instance);
+  }
 };
 
 arc.mojom.PrintSpoolerHostRemoteCallHandler = class {
@@ -588,6 +597,9 @@ arc.mojom.PrintSpoolerInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

@@ -120,6 +120,12 @@ blink.mojom.OriginTrialStateHostRemote = class {
   close() {
     this.proxy.close();
   }
+  applyFeatureDiffForOriginTrial(origin_trial_features) {
+    return this.$.applyFeatureDiffForOriginTrial(origin_trial_features);
+  }
+  enablePersistentTrial(token, script_origins) {
+    return this.$.enablePersistentTrial(token, script_origins);
+  }
 };
 
 blink.mojom.OriginTrialStateHostRemoteCallHandler = class {

@@ -131,6 +131,18 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onNetworkSendRequest(request, timestamp) {
+    return this.$.onNetworkSendRequest(request, timestamp);
+  }
+  onNetworkResponseReceived(request_id, loader_id, request_url, headers) {
+    return this.$.onNetworkResponseReceived(request_id, loader_id, request_url, headers);
+  }
+  onNetworkRequestComplete(request_id, status) {
+    return this.$.onNetworkRequestComplete(request_id, status);
+  }
+  clone(receiver) {
+    return this.$.clone(receiver);
+  }
 };
 
 auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {

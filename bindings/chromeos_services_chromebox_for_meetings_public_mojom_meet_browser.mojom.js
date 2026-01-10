@@ -110,6 +110,9 @@ ash.cfm.mojom.MeetBrowserRemote = class {
   close() {
     this.proxy.close();
   }
+  translateVideoDeviceId(hashed_device_id) {
+    return this.$.translateVideoDeviceId(hashed_device_id);
+  }
 };
 
 ash.cfm.mojom.MeetBrowserRemoteCallHandler = class {

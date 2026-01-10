@@ -151,6 +151,12 @@ device.mojom.InputDeviceManagerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  inputDeviceAdded(device_info) {
+    return this.$.inputDeviceAdded(device_info);
+  }
+  inputDeviceRemoved(id) {
+    return this.$.inputDeviceRemoved(id);
+  }
 };
 
 device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
@@ -344,6 +350,12 @@ device.mojom.InputDeviceManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDevicesAndSetClient(client) {
+    return this.$.getDevicesAndSetClient(client);
+  }
+  getDevices() {
+    return this.$.getDevices();
   }
 };
 

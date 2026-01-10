@@ -126,6 +126,12 @@ blink.mojom.WebOTPServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  receive() {
+    return this.$.receive();
+  }
+  abort() {
+    return this.$.abort();
+  }
 };
 
 blink.mojom.WebOTPServiceRemoteCallHandler = class {

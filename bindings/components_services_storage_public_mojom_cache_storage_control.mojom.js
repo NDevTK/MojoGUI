@@ -124,6 +124,12 @@ storage.mojom.CacheStorageObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onCacheListChanged(bucket_locator) {
+    return this.$.onCacheListChanged(bucket_locator);
+  }
+  onCacheContentChanged(bucket_locator, cache_name) {
+    return this.$.onCacheContentChanged(bucket_locator, cache_name);
+  }
 };
 
 storage.mojom.CacheStorageObserverRemoteCallHandler = class {
@@ -318,6 +324,15 @@ storage.mojom.CacheStorageControlRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addReceiver(cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter, bucket_locator, owner, receiver) {
+    return this.$.addReceiver(cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter, bucket_locator, owner, receiver);
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  applyPolicyUpdates(policy_updates) {
+    return this.$.applyPolicyUpdates(policy_updates);
   }
 };
 

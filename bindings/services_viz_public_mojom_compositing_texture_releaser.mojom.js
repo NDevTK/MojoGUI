@@ -104,6 +104,9 @@ viz.mojom.TextureReleaserRemote = class {
   close() {
     this.proxy.close();
   }
+  release(sync_token, is_lost) {
+    return this.$.release(sync_token, is_lost);
+  }
 };
 
 viz.mojom.TextureReleaserRemoteCallHandler = class {

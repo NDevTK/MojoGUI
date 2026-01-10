@@ -111,6 +111,9 @@ blink.mojom.UnhandledTapNotifierRemote = class {
   close() {
     this.proxy.close();
   }
+  showUnhandledTapUIIfNeeded(unhandled_tap_info) {
+    return this.$.showUnhandledTapUIIfNeeded(unhandled_tap_info);
+  }
 };
 
 blink.mojom.UnhandledTapNotifierRemoteCallHandler = class {

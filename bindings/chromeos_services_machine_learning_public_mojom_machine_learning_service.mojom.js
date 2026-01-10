@@ -292,6 +292,45 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  clone(receiver) {
+    return this.$.clone(receiver);
+  }
+  loadBuiltinModel(spec, receiver) {
+    return this.$.loadBuiltinModel(spec, receiver);
+  }
+  loadFlatBufferModel(spec, receiver) {
+    return this.$.loadFlatBufferModel(spec, receiver);
+  }
+  loadTextClassifier(receiver) {
+    return this.$.loadTextClassifier(receiver);
+  }
+  loadHandwritingModel(spec, receiver) {
+    return this.$.loadHandwritingModel(spec, receiver);
+  }
+  loadSpeechRecognizer(config, soda_client, soda_recognizer) {
+    return this.$.loadSpeechRecognizer(config, soda_client, soda_recognizer);
+  }
+  loadGrammarChecker(receiver) {
+    return this.$.loadGrammarChecker(receiver);
+  }
+  loadTextSuggester(receiver, spec) {
+    return this.$.loadTextSuggester(receiver, spec);
+  }
+  loadWebPlatformHandwritingModel(constraint, receiver) {
+    return this.$.loadWebPlatformHandwritingModel(constraint, receiver);
+  }
+  loadDocumentScanner(receiver, config) {
+    return this.$.loadDocumentScanner(receiver, config);
+  }
+  loadImageAnnotator(config, receiver) {
+    return this.$.loadImageAnnotator(config, receiver);
+  }
+  loadHeatmapPalmRejection(config, client) {
+    return this.$.loadHeatmapPalmRejection(config, client);
+  }
+  rEMOVED_4(spec, receiver) {
+    return this.$.rEMOVED_4(spec, receiver);
+  }
 };
 
 chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class {

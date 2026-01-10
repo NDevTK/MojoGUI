@@ -182,6 +182,18 @@ chromeos.cfm.mojom.MeetDevicesInfoRemote = class {
   close() {
     this.proxy.close();
   }
+  addDeviceSettingsObserver(observer) {
+    return this.$.addDeviceSettingsObserver(observer);
+  }
+  getPolicyInfo() {
+    return this.$.getPolicyInfo();
+  }
+  getSysInfo() {
+    return this.$.getSysInfo();
+  }
+  getMachineStatisticsInfo() {
+    return this.$.getMachineStatisticsInfo();
+  }
 };
 
 chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
@@ -434,6 +446,9 @@ chromeos.cfm.mojom.PolicyInfoObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPolicyInfoChange(info) {
+    return this.$.onPolicyInfoChange(info);
   }
 };
 

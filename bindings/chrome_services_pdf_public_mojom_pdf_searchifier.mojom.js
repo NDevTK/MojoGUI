@@ -109,6 +109,9 @@ pdf.mojom.PdfSearchifierRemote = class {
   close() {
     this.proxy.close();
   }
+  searchify(pdf) {
+    return this.$.searchify(pdf);
+  }
 };
 
 pdf.mojom.PdfSearchifierRemoteCallHandler = class {

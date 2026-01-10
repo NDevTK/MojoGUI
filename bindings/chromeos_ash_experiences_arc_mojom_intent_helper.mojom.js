@@ -432,6 +432,9 @@ arc.mojom.CustomTabSessionRemote = class {
   close() {
     this.proxy.close();
   }
+  onOpenInChromeClicked() {
+    return this.$.onOpenInChromeClicked();
+  }
 };
 
 arc.mojom.CustomTabSessionRemoteCallHandler = class {
@@ -710,6 +713,66 @@ arc.mojom.IntentHelperHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onIconInvalidated(package_name) {
+    return this.$.onIconInvalidated(package_name);
+  }
+  onIntentFiltersUpdated(intent_filters) {
+    return this.$.onIntentFiltersUpdated(intent_filters);
+  }
+  onOpenDownloads() {
+    return this.$.onOpenDownloads();
+  }
+  onOpenUrl(url) {
+    return this.$.onOpenUrl(url);
+  }
+  onOpenCustomTab(url, task_id) {
+    return this.$.onOpenCustomTab(url, task_id);
+  }
+  openWallpaperPicker() {
+    return this.$.openWallpaperPicker();
+  }
+  openVolumeControl() {
+    return this.$.openVolumeControl();
+  }
+  onOpenChromePage(page) {
+    return this.$.onOpenChromePage(page);
+  }
+  onOpenWebApp(url) {
+    return this.$.onOpenWebApp(url);
+  }
+  factoryResetArc() {
+    return this.$.factoryResetArc();
+  }
+  launchCameraApp(intent_id, mode, should_handle_result, should_down_scale, is_secure, task_id) {
+    return this.$.launchCameraApp(intent_id, mode, should_handle_result, should_down_scale, is_secure, task_id);
+  }
+  onIntentFiltersUpdatedForPackage(package_name, intent_filters) {
+    return this.$.onIntentFiltersUpdatedForPackage(package_name, intent_filters);
+  }
+  closeCameraApp() {
+    return this.$.closeCameraApp();
+  }
+  isChromeAppEnabled(app) {
+    return this.$.isChromeAppEnabled(app);
+  }
+  onSupportedLinksChanged(added_packages, removed_packages, source) {
+    return this.$.onSupportedLinksChanged(added_packages, removed_packages, source);
+  }
+  onDownloadAddedDeprecated(relative_path, owner_package_name) {
+    return this.$.onDownloadAddedDeprecated(relative_path, owner_package_name);
+  }
+  onOpenAppWithIntent(start_url, intent) {
+    return this.$.onOpenAppWithIntent(start_url, intent);
+  }
+  onOpenGlobalActions() {
+    return this.$.onOpenGlobalActions();
+  }
+  onCloseSystemDialogs() {
+    return this.$.onCloseSystemDialogs();
+  }
+  onAndroidSettingChange(setting, is_enabled) {
+    return this.$.onAndroidSettingChange(setting, is_enabled);
   }
 };
 
@@ -1563,6 +1626,54 @@ arc.mojom.IntentHelperInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addPreferredPackage(package_name) {
+    return this.$.addPreferredPackage(package_name);
+  }
+  setVerifiedLinks(package_names, always_open) {
+    return this.$.setVerifiedLinks(package_names, always_open);
+  }
+  handleIntent(intent, activity) {
+    return this.$.handleIntent(intent, activity);
+  }
+  handleIntentWithWindowInfo(intent, activity, window_info) {
+    return this.$.handleIntentWithWindowInfo(intent, activity, window_info);
+  }
+  handleUrl(url, package_name) {
+    return this.$.handleUrl(url, package_name);
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  requestActivityIcons(activities, scale_factor) {
+    return this.$.requestActivityIcons(activities, scale_factor);
+  }
+  requestIntentHandlerList(intent) {
+    return this.$.requestIntentHandlerList(intent);
+  }
+  requestUrlHandlerList(url) {
+    return this.$.requestUrlHandlerList(url);
+  }
+  requestUrlListHandlerList(urls) {
+    return this.$.requestUrlListHandlerList(urls);
+  }
+  sendBroadcast(action, package_name, cls, extras) {
+    return this.$.sendBroadcast(action, package_name, cls, extras);
+  }
+  requestTextSelectionActions(text, scale_factor) {
+    return this.$.requestTextSelectionActions(text, scale_factor);
+  }
+  handleCameraResult(intent_id, action, data) {
+    return this.$.handleCameraResult(intent_id, action, data);
+  }
+  requestDomainVerificationStatusUpdate() {
+    return this.$.requestDomainVerificationStatusUpdate();
+  }
+  setCaptionStyle(style) {
+    return this.$.setCaptionStyle(style);
+  }
+  enableAccessibilityFeatures(features) {
+    return this.$.enableAccessibilityFeatures(features);
   }
 };
 

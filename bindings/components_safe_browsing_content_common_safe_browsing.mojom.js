@@ -237,6 +237,12 @@ safe_browsing.mojom.SafeBrowsingRemote = class {
   close() {
     this.proxy.close();
   }
+  createCheckerAndCheck(frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker) {
+    return this.$.createCheckerAndCheck(frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker);
+  }
+  clone(receiver) {
+    return this.$.clone(receiver);
+  }
 };
 
 safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
@@ -425,6 +431,9 @@ safe_browsing.mojom.ThreatReporterRemote = class {
   close() {
     this.proxy.close();
   }
+  getThreatDOMDetails() {
+    return this.$.getThreatDOMDetails();
+  }
 };
 
 safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
@@ -586,6 +595,9 @@ safe_browsing.mojom.PhishingDetectorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startPhishingDetection(url, request_type) {
+    return this.$.startPhishingDetection(url, request_type);
   }
 };
 
@@ -771,6 +783,21 @@ safe_browsing.mojom.PhishingModelSetterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setImageEmbeddingAndPhishingFlatBufferModel(region, tflite_model, image_embedding_model) {
+    return this.$.setImageEmbeddingAndPhishingFlatBufferModel(region, tflite_model, image_embedding_model);
+  }
+  attachImageEmbeddingModel(image_embedding_model) {
+    return this.$.attachImageEmbeddingModel(image_embedding_model);
+  }
+  setPhishingFlatBufferModel(region, tflite_model) {
+    return this.$.setPhishingFlatBufferModel(region, tflite_model);
+  }
+  clearScorer() {
+    return this.$.clearScorer();
+  }
+  setTestObserver(observer) {
+    return this.$.setTestObserver(observer);
   }
 };
 
@@ -1041,6 +1068,9 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  phishingModelUpdated() {
+    return this.$.phishingModelUpdated();
+  }
 };
 
 safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
@@ -1195,6 +1225,9 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startImageEmbedding(url) {
+    return this.$.startImageEmbedding(url);
   }
 };
 
@@ -1358,6 +1391,12 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sendWebRequestData(origin_extension_id, telemetry_url, protocol_type, contact_initiator_type) {
+    return this.$.sendWebRequestData(origin_extension_id, telemetry_url, protocol_type, contact_initiator_type);
+  }
+  clone(receiver) {
+    return this.$.clone(receiver);
   }
 };
 

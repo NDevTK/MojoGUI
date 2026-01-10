@@ -116,6 +116,12 @@ blink.mojom.FileSystemAccessTransferTokenRemote = class {
   close() {
     this.proxy.close();
   }
+  getInternalID() {
+    return this.$.getInternalID();
+  }
+  clone(token_clone) {
+    return this.$.clone(token_clone);
+  }
 };
 
 blink.mojom.FileSystemAccessTransferTokenRemoteCallHandler = class {

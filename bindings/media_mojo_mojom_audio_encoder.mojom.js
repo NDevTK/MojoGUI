@@ -179,6 +179,15 @@ media.mojom.AudioEncoderRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize(client, config) {
+    return this.$.initialize(client, config);
+  }
+  encode(buffer) {
+    return this.$.encode(buffer);
+  }
+  flush() {
+    return this.$.flush();
+  }
 };
 
 media.mojom.AudioEncoderRemoteCallHandler = class {
@@ -403,6 +412,9 @@ media.mojom.AudioEncoderClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onEncodedBufferReady(buffer, description) {
+    return this.$.onEncodedBufferReady(buffer, description);
   }
 };
 

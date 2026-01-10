@@ -306,6 +306,42 @@ blink.mojom.FileSystemAccessFileHandleRemote = class {
   close() {
     this.proxy.close();
   }
+  getPermissionStatus(mode) {
+    return this.$.getPermissionStatus(mode);
+  }
+  requestPermission(mode) {
+    return this.$.requestPermission(mode);
+  }
+  asBlob() {
+    return this.$.asBlob();
+  }
+  createFileWriter(keep_existing_data, auto_close, mode) {
+    return this.$.createFileWriter(keep_existing_data, auto_close, mode);
+  }
+  rename(new_entry_name) {
+    return this.$.rename(new_entry_name);
+  }
+  move(destination_directory, new_entry_name) {
+    return this.$.move(destination_directory, new_entry_name);
+  }
+  remove() {
+    return this.$.remove();
+  }
+  openAccessHandle(mode) {
+    return this.$.openAccessHandle(mode);
+  }
+  isSameEntry(other) {
+    return this.$.isSameEntry(other);
+  }
+  transfer(token) {
+    return this.$.transfer(token);
+  }
+  getUniqueId() {
+    return this.$.getUniqueId();
+  }
+  getCloudIdentifiers() {
+    return this.$.getCloudIdentifiers();
+  }
 };
 
 blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {

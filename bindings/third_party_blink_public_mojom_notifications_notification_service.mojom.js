@@ -144,6 +144,15 @@ blink.mojom.NonPersistentNotificationListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onShow() {
+    return this.$.onShow();
+  }
+  onClick() {
+    return this.$.onClick();
+  }
+  onClose() {
+    return this.$.onClose();
+  }
 };
 
 blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
@@ -416,6 +425,24 @@ blink.mojom.NotificationServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getPermissionStatus() {
+    return this.$.getPermissionStatus();
+  }
+  displayNonPersistentNotification(token, notification_data, notification_resources, event_listener) {
+    return this.$.displayNonPersistentNotification(token, notification_data, notification_resources, event_listener);
+  }
+  closeNonPersistentNotification(token) {
+    return this.$.closeNonPersistentNotification(token);
+  }
+  displayPersistentNotification(service_worker_registration_id, notification_data, notification_resources) {
+    return this.$.displayPersistentNotification(service_worker_registration_id, notification_data, notification_resources);
+  }
+  closePersistentNotification(notification_id) {
+    return this.$.closePersistentNotification(notification_id);
+  }
+  getNotifications(service_worker_registration_id, filter_tag, include_triggered) {
+    return this.$.getNotifications(service_worker_registration_id, filter_tag, include_triggered);
   }
 };
 

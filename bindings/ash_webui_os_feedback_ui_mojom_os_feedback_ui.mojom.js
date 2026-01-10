@@ -262,6 +262,9 @@ ash.os_feedback_ui.mojom.HelpContentProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getHelpContents(request) {
+    return this.$.getHelpContents(request);
+  }
 };
 
 ash.os_feedback_ui.mojom.HelpContentProviderRemoteCallHandler = class {
@@ -499,6 +502,45 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getFeedbackContext() {
+    return this.$.getFeedbackContext();
+  }
+  getScreenshotPng() {
+    return this.$.getScreenshotPng();
+  }
+  sendReport(report) {
+    return this.$.sendReport(report);
+  }
+  openDiagnosticsApp() {
+    return this.$.openDiagnosticsApp();
+  }
+  openExploreApp() {
+    return this.$.openExploreApp();
+  }
+  openMetricsDialog() {
+    return this.$.openMetricsDialog();
+  }
+  openSystemInfoDialog() {
+    return this.$.openSystemInfoDialog();
+  }
+  openAutofillDialog(autofill_metadata) {
+    return this.$.openAutofillDialog(autofill_metadata);
+  }
+  recordPostSubmitAction(action) {
+    return this.$.recordPostSubmitAction(action);
+  }
+  recordPreSubmitAction(action) {
+    return this.$.recordPreSubmitAction(action);
+  }
+  recordExitPath(exit_path) {
+    return this.$.recordExitPath(exit_path);
+  }
+  recordHelpContentOutcome(outcome) {
+    return this.$.recordHelpContentOutcome(outcome);
+  }
+  recordHelpContentSearchResultCount(count) {
+    return this.$.recordHelpContentSearchResultCount(count);
   }
 };
 

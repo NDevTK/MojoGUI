@@ -255,6 +255,42 @@ blink.mojom.PageBroadcastRemote = class {
   close() {
     this.proxy.close();
   }
+  setPageLifecycleState(state, page_restore_params) {
+    return this.$.setPageLifecycleState(state, page_restore_params);
+  }
+  audioStateChanged(is_audio_playing) {
+    return this.$.audioStateChanged(is_audio_playing);
+  }
+  activatePrerenderedPage(prerender_page_activation_params) {
+    return this.$.activatePrerenderedPage(prerender_page_activation_params);
+  }
+  updateWebPreferences(preferences) {
+    return this.$.updateWebPreferences(preferences);
+  }
+  updateRendererPreferences(preferences) {
+    return this.$.updateRendererPreferences(preferences);
+  }
+  setHistoryIndexAndLength(index, length) {
+    return this.$.setHistoryIndexAndLength(index, length);
+  }
+  setPageBaseBackgroundColor(color) {
+    return this.$.setPageBaseBackgroundColor(color);
+  }
+  createRemoteMainFrame(token, opener_frame_token, replication_state, is_loading, devtools_frame_token, navigation_metrics_token, remote_frame_interfaces, remote_main_frame_interfaces) {
+    return this.$.createRemoteMainFrame(token, opener_frame_token, replication_state, is_loading, devtools_frame_token, navigation_metrics_token, remote_frame_interfaces, remote_main_frame_interfaces);
+  }
+  updatePageBrowsingContextGroup(browsing_context_group_token) {
+    return this.$.updatePageBrowsingContextGroup(browsing_context_group_token);
+  }
+  setPageAttributionSupport(support) {
+    return this.$.setPageAttributionSupport(support);
+  }
+  updateColorProviders(color_provider_colors) {
+    return this.$.updateColorProviders(color_provider_colors);
+  }
+  setSupportsDraggableRegions(supports_draggable_regions) {
+    return this.$.setSupportsDraggableRegions(supports_draggable_regions);
+  }
 };
 
 blink.mojom.PageBroadcastRemoteCallHandler = class {

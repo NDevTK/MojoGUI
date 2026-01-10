@@ -109,6 +109,9 @@ content.mojom.MemoryConsumerTraitsTestRemote = class {
   close() {
     this.proxy.close();
   }
+  echoMemoryConsumerTraits(in) {
+    return this.$.echoMemoryConsumerTraits(in);
+  }
 };
 
 content.mojom.MemoryConsumerTraitsTestRemoteCallHandler = class {

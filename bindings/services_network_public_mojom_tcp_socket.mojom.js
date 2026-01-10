@@ -182,6 +182,12 @@ network.mojom.TCPBoundSocketRemote = class {
   close() {
     this.proxy.close();
   }
+  listen(backlog, socket) {
+    return this.$.listen(backlog, socket);
+  }
+  connect(remote_addr_list, tcp_connected_socket_options, socket, observer) {
+    return this.$.connect(remote_addr_list, tcp_connected_socket_options, socket, observer);
+  }
 };
 
 network.mojom.TCPBoundSocketRemoteCallHandler = class {
@@ -432,6 +438,21 @@ network.mojom.TCPConnectedSocketRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  upgradeToTLS(host_port_pair, options, traffic_annotation, receiver, observer) {
+    return this.$.upgradeToTLS(host_port_pair, options, traffic_annotation, receiver, observer);
+  }
+  setSendBufferSize(send_buffer_size) {
+    return this.$.setSendBufferSize(send_buffer_size);
+  }
+  setReceiveBufferSize(receive_buffer_size) {
+    return this.$.setReceiveBufferSize(receive_buffer_size);
+  }
+  setNoDelay(no_delay) {
+    return this.$.setNoDelay(no_delay);
+  }
+  setKeepAlive(enable, delay_secs) {
+    return this.$.setKeepAlive(enable, delay_secs);
   }
 };
 
@@ -733,6 +754,12 @@ network.mojom.SocketObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onReadError(net_error) {
+    return this.$.onReadError(net_error);
+  }
+  onWriteError(net_error) {
+    return this.$.onWriteError(net_error);
+  }
 };
 
 network.mojom.SocketObserverRemoteCallHandler = class {
@@ -919,6 +946,9 @@ network.mojom.TCPServerSocketRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  accept(observer) {
+    return this.$.accept(observer);
   }
 };
 

@@ -142,6 +142,9 @@ cros.mojom.CrosDisplayObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onDisplayRotationChanged(rotation) {
+    return this.$.onDisplayRotationChanged(rotation);
+  }
 };
 
 cros.mojom.CrosDisplayObserverRemoteCallHandler = class {
@@ -289,6 +292,9 @@ cros.mojom.CrosLidObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLidStateChanged(new_state) {
+    return this.$.onLidStateChanged(new_state);
   }
 };
 
@@ -446,6 +452,12 @@ cros.mojom.CrosPowerObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onSystemSuspend() {
+    return this.$.onSystemSuspend();
+  }
+  onSystemResume() {
+    return this.$.onSystemResume();
   }
 };
 
@@ -648,6 +660,18 @@ cros.mojom.CrosSystemEventMonitorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addDisplayObserver(observer) {
+    return this.$.addDisplayObserver(observer);
+  }
+  addLidObserver(observer) {
+    return this.$.addLidObserver(observer);
+  }
+  addPowerObserver(client_name, observer) {
+    return this.$.addPowerObserver(client_name, observer);
+  }
+  notifyDeviceChanged(type) {
+    return this.$.notifyDeviceChanged(type);
   }
 };
 

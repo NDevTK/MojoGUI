@@ -141,6 +141,9 @@ printing.mojom.UnsandboxedPrintBackendHostRemote = class {
   close() {
     this.proxy.close();
   }
+  bindBackend(service) {
+    return this.$.bindBackend(service);
+  }
 };
 
 printing.mojom.UnsandboxedPrintBackendHostRemoteCallHandler = class {
@@ -288,6 +291,9 @@ printing.mojom.SandboxedPrintBackendHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindBackend(service) {
+    return this.$.bindBackend(service);
   }
 };
 
@@ -578,6 +584,54 @@ printing.mojom.PrintBackendServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(locale, remote) {
+    return this.$.init(locale, remote);
+  }
+  poke() {
+    return this.$.poke();
+  }
+  enumeratePrinters() {
+    return this.$.enumeratePrinters();
+  }
+  getDefaultPrinterName() {
+    return this.$.getDefaultPrinterName();
+  }
+  getPrinterSemanticCapsAndDefaults(printer_name) {
+    return this.$.getPrinterSemanticCapsAndDefaults(printer_name);
+  }
+  fetchCapabilities(printer_name) {
+    return this.$.fetchCapabilities(printer_name);
+  }
+  getPaperPrintableArea(printer_name, media) {
+    return this.$.getPaperPrintableArea(printer_name, media);
+  }
+  establishPrintingContext(context_id, parent_window_id) {
+    return this.$.establishPrintingContext(context_id, parent_window_id);
+  }
+  useDefaultSettings(context_id) {
+    return this.$.useDefaultSettings(context_id);
+  }
+  askUserForSettings(context_id, max_pages, has_selection, is_scripted) {
+    return this.$.askUserForSettings(context_id, max_pages, has_selection, is_scripted);
+  }
+  updatePrintSettings(context_id, job_settings) {
+    return this.$.updatePrintSettings(context_id, job_settings);
+  }
+  startPrinting(context_id, document_cookie, document_name, settings) {
+    return this.$.startPrinting(context_id, document_cookie, document_name, settings);
+  }
+  renderPrintedPage(document_cookie, page_index, page_data_type, serialized_page, page_size, page_content_rect, shrink_factor) {
+    return this.$.renderPrintedPage(document_cookie, page_index, page_data_type, serialized_page, page_size, page_content_rect, shrink_factor);
+  }
+  renderPrintedDocument(document_cookie, page_count, data_type, serialized_doc) {
+    return this.$.renderPrintedDocument(document_cookie, page_count, data_type, serialized_doc);
+  }
+  documentDone(document_cookie) {
+    return this.$.documentDone(document_cookie);
+  }
+  cancel(document_cookie) {
+    return this.$.cancel(document_cookie);
   }
 };
 

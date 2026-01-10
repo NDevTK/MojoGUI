@@ -142,6 +142,12 @@ blink.mojom.PolicyContainerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  setReferrerPolicy(referrer_policy) {
+    return this.$.setReferrerPolicy(referrer_policy);
+  }
+  addContentSecurityPolicies(content_security_policies) {
+    return this.$.addContentSecurityPolicies(content_security_policies);
+  }
 };
 
 blink.mojom.PolicyContainerHostRemoteCallHandler = class {

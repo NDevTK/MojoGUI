@@ -118,6 +118,9 @@ feed.mojom.RssLinkReaderRemote = class {
   close() {
     this.proxy.close();
   }
+  getRssLinks() {
+    return this.$.getRssLinks();
+  }
 };
 
 feed.mojom.RssLinkReaderRemoteCallHandler = class {

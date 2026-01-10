@@ -102,6 +102,9 @@ mojo_base.mojom.BinderRemote = class {
   close() {
     this.proxy.close();
   }
+  bind(receiver) {
+    return this.$.bind(receiver);
+  }
 };
 
 mojo_base.mojom.BinderRemoteCallHandler = class {

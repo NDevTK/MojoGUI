@@ -733,6 +733,9 @@ drivefs.mojom.DriveFsBootstrapRemote = class {
   close() {
     this.proxy.close();
   }
+  init(config, drive_fs, delegate) {
+    return this.$.init(config, drive_fs, delegate);
+  }
 };
 
 drivefs.mojom.DriveFsBootstrapRemoteCallHandler = class {
@@ -1253,6 +1256,117 @@ drivefs.mojom.DriveFsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getMetadata(path) {
+    return this.$.getMetadata(path);
+  }
+  setPinned(path, pinned) {
+    return this.$.setPinned(path, pinned);
+  }
+  updateNetworkState(pause_syncing, is_offline) {
+    return this.$.updateNetworkState(pause_syncing, is_offline);
+  }
+  resetCache() {
+    return this.$.resetCache();
+  }
+  getThumbnail(path, crop_to_square) {
+    return this.$.getThumbnail(path, crop_to_square);
+  }
+  copyFile(source, target) {
+    return this.$.copyFile(source, target);
+  }
+  startSearchQuery(query, query_params) {
+    return this.$.startSearchQuery(query, query_params);
+  }
+  fetchAllChangeLogs() {
+    return this.$.fetchAllChangeLogs();
+  }
+  fetchChangeLog(options) {
+    return this.$.fetchChangeLog(options);
+  }
+  sendNativeMessageRequest(request) {
+    return this.$.sendNativeMessageRequest(request);
+  }
+  setStartupArguments(arguments) {
+    return this.$.setStartupArguments(arguments);
+  }
+  getStartupArguments() {
+    return this.$.getStartupArguments();
+  }
+  setTracingEnabled(enabled) {
+    return this.$.setTracingEnabled(enabled);
+  }
+  setNetworkingEnabled(enabled) {
+    return this.$.setNetworkingEnabled(enabled);
+  }
+  forcePauseSyncing(enable) {
+    return this.$.forcePauseSyncing(enable);
+  }
+  dumpAccountSettings() {
+    return this.$.dumpAccountSettings();
+  }
+  loadAccountSettings() {
+    return this.$.loadAccountSettings();
+  }
+  createNativeHostSession(params, host, port) {
+    return this.$.createNativeHostSession(params, host, port);
+  }
+  locateFilesByItemIds(item_ids) {
+    return this.$.locateFilesByItemIds(item_ids);
+  }
+  getQuotaUsage() {
+    return this.$.getQuotaUsage();
+  }
+  toggleMirroring(enabled) {
+    return this.$.toggleMirroring(enabled);
+  }
+  toggleSyncForPath(path, status) {
+    return this.$.toggleSyncForPath(path, status);
+  }
+  getSyncingPaths() {
+    return this.$.getSyncingPaths();
+  }
+  pollHostedFilePinStates() {
+    return this.$.pollHostedFilePinStates();
+  }
+  getPooledQuotaUsage() {
+    return this.$.getPooledQuotaUsage();
+  }
+  setPinnedByStableId(stable_id, pinned) {
+    return this.$.setPinnedByStableId(stable_id, pinned);
+  }
+  getMetadataByStableId(stable_id) {
+    return this.$.getMetadataByStableId(stable_id);
+  }
+  cancelUploadByPath(path, cancel_mode) {
+    return this.$.cancelUploadByPath(path, cancel_mode);
+  }
+  setDocsOfflineEnabled(enabled) {
+    return this.$.setDocsOfflineEnabled(enabled);
+  }
+  getOfflineFilesSpaceUsage() {
+    return this.$.getOfflineFilesSpaceUsage();
+  }
+  clearOfflineFiles() {
+    return this.$.clearOfflineFiles();
+  }
+  immediatelyUpload(path) {
+    return this.$.immediatelyUpload(path);
+  }
+  updateFromPairedDoc(path) {
+    return this.$.updateFromPairedDoc(path);
+  }
+  getItemFromCloudStore(path) {
+    return this.$.getItemFromCloudStore(path);
+  }
+  getDocsOfflineStats() {
+    return this.$.getDocsOfflineStats();
+  }
+  getMirrorSyncStatusForFile(path) {
+    return this.$.getMirrorSyncStatusForFile(path);
+  }
+  getMirrorSyncStatusForDirectory(path) {
+    return this.$.getMirrorSyncStatusForDirectory(path);
   }
 };
 
@@ -2747,6 +2861,66 @@ drivefs.mojom.DriveFsDelegateRemote = class {
   close() {
     this.proxy.close();
   }
+  getAccessToken(client_id, app_id, scopes) {
+    return this.$.getAccessToken(client_id, app_id, scopes);
+  }
+  onMounted() {
+    return this.$.onMounted();
+  }
+  onMountFailed(retry_delay) {
+    return this.$.onMountFailed(retry_delay);
+  }
+  onUnmounted(retry_delay) {
+    return this.$.onUnmounted(retry_delay);
+  }
+  onSyncingStatusUpdate(status) {
+    return this.$.onSyncingStatusUpdate(status);
+  }
+  onFilesChanged(changes) {
+    return this.$.onFilesChanged(changes);
+  }
+  onError(error) {
+    return this.$.onError(error);
+  }
+  onTeamDrivesListReady(team_drive_ids) {
+    return this.$.onTeamDrivesListReady(team_drive_ids);
+  }
+  onTeamDriveChanged(team_drive_id, change_type) {
+    return this.$.onTeamDriveChanged(team_drive_id, change_type);
+  }
+  onHeartbeat() {
+    return this.$.onHeartbeat();
+  }
+  connectToExtension(params, port, host) {
+    return this.$.connectToExtension(params, port, host);
+  }
+  displayConfirmDialog(reason) {
+    return this.$.displayConfirmDialog(reason);
+  }
+  executeHttpRequest(request, delegate) {
+    return this.$.executeHttpRequest(request, delegate);
+  }
+  getMachineRootID() {
+    return this.$.getMachineRootID();
+  }
+  persistMachineRootID(doc_id) {
+    return this.$.persistMachineRootID(doc_id);
+  }
+  onMirrorSyncingStatusUpdate(status) {
+    return this.$.onMirrorSyncingStatusUpdate(status);
+  }
+  onItemProgress(progress_event) {
+    return this.$.onItemProgress(progress_event);
+  }
+  getAccessTokenWithExpiry(client_id, app_id, scopes) {
+    return this.$.getAccessTokenWithExpiry(client_id, app_id, scopes);
+  }
+  onNotificationReceived(notification) {
+    return this.$.onNotificationReceived(notification);
+  }
+  onMirrorSyncError(error_list) {
+    return this.$.onMirrorSyncError(error_list);
+  }
 };
 
 drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
@@ -3482,6 +3656,9 @@ drivefs.mojom.SearchQueryRemote = class {
   close() {
     this.proxy.close();
   }
+  getNextPage() {
+    return this.$.getNextPage();
+  }
 };
 
 drivefs.mojom.SearchQueryRemoteCallHandler = class {
@@ -3653,6 +3830,18 @@ drivefs.mojom.HttpDelegateRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getRequestBody(request_body) {
+    return this.$.getRequestBody(request_body);
+  }
+  onReceiveResponse(response) {
+    return this.$.onReceiveResponse(response);
+  }
+  onReceiveBody(response_body) {
+    return this.$.onReceiveBody(response_body);
+  }
+  onRequestComplete(status) {
+    return this.$.onRequestComplete(status);
   }
 };
 

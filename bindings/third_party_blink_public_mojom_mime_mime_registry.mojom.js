@@ -109,6 +109,9 @@ blink.mojom.MimeRegistryRemote = class {
   close() {
     this.proxy.close();
   }
+  getMimeTypeFromExtension(extension) {
+    return this.$.getMimeTypeFromExtension(extension);
+  }
 };
 
 blink.mojom.MimeRegistryRemoteCallHandler = class {

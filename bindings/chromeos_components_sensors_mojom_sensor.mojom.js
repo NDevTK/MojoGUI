@@ -235,6 +235,15 @@ chromeos.sensors.mojom.SensorServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getDeviceIds(type) {
+    return this.$.getDeviceIds(type);
+  }
+  getAllDeviceIds() {
+    return this.$.getAllDeviceIds();
+  }
+  getDevice(iio_device_id, device_request) {
+    return this.$.getDevice(iio_device_id, device_request);
+  }
 };
 
 chromeos.sensors.mojom.SensorServiceRemoteCallHandler = class {
@@ -523,6 +532,30 @@ chromeos.sensors.mojom.SensorDeviceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setTimeout(timeout) {
+    return this.$.setTimeout(timeout);
+  }
+  getAttributes(attr_names) {
+    return this.$.getAttributes(attr_names);
+  }
+  setFrequency(frequency) {
+    return this.$.setFrequency(frequency);
+  }
+  startReadingSamples(observer) {
+    return this.$.startReadingSamples(observer);
+  }
+  stopReadingSamples() {
+    return this.$.stopReadingSamples();
+  }
+  getAllChannelIds() {
+    return this.$.getAllChannelIds();
+  }
+  getChannelsEnabled(iio_chn_indices) {
+    return this.$.getChannelsEnabled(iio_chn_indices);
+  }
+  getChannelsAttributes(iio_chn_indices, attr_name) {
+    return this.$.getChannelsAttributes(iio_chn_indices, attr_name);
   }
 };
 
@@ -911,6 +944,12 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onSampleUpdated(sample) {
+    return this.$.onSampleUpdated(sample);
+  }
+  onErrorOccurred(type) {
+    return this.$.onErrorOccurred(type);
+  }
 };
 
 chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteCallHandler = class {
@@ -1088,6 +1127,9 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onNewDeviceAdded(iio_device_id, types) {
+    return this.$.onNewDeviceAdded(iio_device_id, types);
   }
 };
 

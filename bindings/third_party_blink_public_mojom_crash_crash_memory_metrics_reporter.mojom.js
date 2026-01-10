@@ -103,6 +103,9 @@ blink.mojom.CrashMemoryMetricsReporterRemote = class {
   close() {
     this.proxy.close();
   }
+  setSharedMemory(shared_metrics_buffer) {
+    return this.$.setSharedMemory(shared_metrics_buffer);
+  }
 };
 
 blink.mojom.CrashMemoryMetricsReporterRemoteCallHandler = class {

@@ -113,6 +113,9 @@ chromecast.shell.mojom.FeatureManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  configureFeatures(features) {
+    return this.$.configureFeatures(features);
+  }
 };
 
 chromecast.shell.mojom.FeatureManagerRemoteCallHandler = class {

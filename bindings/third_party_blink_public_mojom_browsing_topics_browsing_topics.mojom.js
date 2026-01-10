@@ -114,6 +114,9 @@ blink.mojom.BrowsingTopicsDocumentServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getBrowsingTopics(observe) {
+    return this.$.getBrowsingTopics(observe);
+  }
 };
 
 blink.mojom.BrowsingTopicsDocumentServiceRemoteCallHandler = class {

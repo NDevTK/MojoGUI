@@ -110,6 +110,12 @@ chromecast.mojom.RemoteInterfacesRemote = class {
   close() {
     this.proxy.close();
   }
+  bindInterface(interface_name, pipe) {
+    return this.$.bindInterface(interface_name, pipe);
+  }
+  addClient(receiver) {
+    return this.$.addClient(receiver);
+  }
 };
 
 chromecast.mojom.RemoteInterfacesRemoteCallHandler = class {

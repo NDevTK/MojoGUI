@@ -110,6 +110,9 @@ sandbox.mac.mojom.TraitsTestServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  echoSeatbeltExtensionToken(in) {
+    return this.$.echoSeatbeltExtensionToken(in);
+  }
 };
 
 sandbox.mac.mojom.TraitsTestServiceRemoteCallHandler = class {

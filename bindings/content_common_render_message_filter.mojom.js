@@ -134,6 +134,12 @@ content.mojom.RenderMessageFilterRemote = class {
   close() {
     this.proxy.close();
   }
+  generateSingleFrameRoutingInfo() {
+    return this.$.generateSingleFrameRoutingInfo();
+  }
+  generateFrameRoutingInfos() {
+    return this.$.generateFrameRoutingInfos();
+  }
 };
 
 content.mojom.RenderMessageFilterRemoteCallHandler = class {

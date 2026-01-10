@@ -136,6 +136,9 @@ signout_confirmation.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createSignoutConfirmationHandler(page, handler) {
+    return this.$.createSignoutConfirmationHandler(page, handler);
+  }
 };
 
 signout_confirmation.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -305,6 +308,21 @@ signout_confirmation.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateViewHeight(height) {
+    return this.$.updateViewHeight(height);
+  }
+  accept(uninstall_account_extensions) {
+    return this.$.accept(uninstall_account_extensions);
+  }
+  cancel(uninstall_account_extensions) {
+    return this.$.cancel(uninstall_account_extensions);
+  }
+  performReauth() {
+    return this.$.performReauth();
+  }
+  close() {
+    return this.$.close();
   }
 };
 
@@ -569,6 +587,9 @@ signout_confirmation.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sendSignoutConfirmationData(data) {
+    return this.$.sendSignoutConfirmationData(data);
   }
 };
 

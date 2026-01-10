@@ -181,6 +181,9 @@ help_bubble.mojom.HelpBubbleHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createHelpBubbleHandler(client, handler) {
+    return this.$.createHelpBubbleHandler(client, handler);
+  }
 };
 
 help_bubble.mojom.HelpBubbleHandlerFactoryRemoteCallHandler = class {
@@ -329,6 +332,9 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createHelpBubbleHandler(client, handler) {
+    return this.$.createHelpBubbleHandler(client, handler);
   }
 };
 
@@ -491,6 +497,15 @@ help_bubble.mojom.HelpBubbleHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindTrackedElementHandler(handler) {
+    return this.$.bindTrackedElementHandler(handler);
+  }
+  helpBubbleButtonPressed(native_identifier, button_index) {
+    return this.$.helpBubbleButtonPressed(native_identifier, button_index);
+  }
+  helpBubbleClosed(native_identifier, reason) {
+    return this.$.helpBubbleClosed(native_identifier, reason);
   }
 };
 
@@ -716,6 +731,18 @@ help_bubble.mojom.HelpBubbleClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  showHelpBubble(params) {
+    return this.$.showHelpBubble(params);
+  }
+  toggleFocusForAccessibility(native_identifier) {
+    return this.$.toggleFocusForAccessibility(native_identifier);
+  }
+  hideHelpBubble(native_identifier) {
+    return this.$.hideHelpBubble(native_identifier);
+  }
+  externalHelpBubbleUpdated(native_identifier, shown) {
+    return this.$.externalHelpBubbleUpdated(native_identifier, shown);
   }
 };
 

@@ -683,6 +683,102 @@ crosapi.mojom.DiagnosticsServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getAvailableRoutines() {
+    return this.$.getAvailableRoutines();
+  }
+  getRoutineUpdate(id, command, include_output) {
+    return this.$.getRoutineUpdate(id, command, include_output);
+  }
+  runBatteryCapacityRoutine() {
+    return this.$.runBatteryCapacityRoutine();
+  }
+  runBatteryHealthRoutine() {
+    return this.$.runBatteryHealthRoutine();
+  }
+  runSmartctlCheckRoutine(percentage_used_threshold) {
+    return this.$.runSmartctlCheckRoutine(percentage_used_threshold);
+  }
+  runAcPowerRoutine(expected_status, expected_power_type) {
+    return this.$.runAcPowerRoutine(expected_status, expected_power_type);
+  }
+  runCpuCacheRoutine(length_seconds) {
+    return this.$.runCpuCacheRoutine(length_seconds);
+  }
+  runCpuStressRoutine(length_seconds) {
+    return this.$.runCpuStressRoutine(length_seconds);
+  }
+  runFloatingPointAccuracyRoutine(length_seconds) {
+    return this.$.runFloatingPointAccuracyRoutine(length_seconds);
+  }
+  dEPRECATED_RunNvmeWearLevelRoutine(wear_level_threshold) {
+    return this.$.dEPRECATED_RunNvmeWearLevelRoutine(wear_level_threshold);
+  }
+  runNvmeSelfTestRoutine(nvme_self_test_type) {
+    return this.$.runNvmeSelfTestRoutine(nvme_self_test_type);
+  }
+  runDiskReadRoutine(type, length_seconds, file_size_mb) {
+    return this.$.runDiskReadRoutine(type, length_seconds, file_size_mb);
+  }
+  runPrimeSearchRoutine(length_seconds) {
+    return this.$.runPrimeSearchRoutine(length_seconds);
+  }
+  runBatteryDischargeRoutine(length_seconds, maximum_discharge_percent_allowed) {
+    return this.$.runBatteryDischargeRoutine(length_seconds, maximum_discharge_percent_allowed);
+  }
+  runBatteryChargeRoutine(length_seconds, minimum_charge_percent_required) {
+    return this.$.runBatteryChargeRoutine(length_seconds, minimum_charge_percent_required);
+  }
+  runMemoryRoutine() {
+    return this.$.runMemoryRoutine();
+  }
+  runLanConnectivityRoutine() {
+    return this.$.runLanConnectivityRoutine();
+  }
+  runDnsResolutionRoutine() {
+    return this.$.runDnsResolutionRoutine();
+  }
+  runSignalStrengthRoutine() {
+    return this.$.runSignalStrengthRoutine();
+  }
+  runGatewayCanBePingedRoutine() {
+    return this.$.runGatewayCanBePingedRoutine();
+  }
+  runDnsResolverPresentRoutine() {
+    return this.$.runDnsResolverPresentRoutine();
+  }
+  runSensitiveSensorRoutine() {
+    return this.$.runSensitiveSensorRoutine();
+  }
+  runFingerprintAliveRoutine() {
+    return this.$.runFingerprintAliveRoutine();
+  }
+  runEmmcLifetimeRoutine() {
+    return this.$.runEmmcLifetimeRoutine();
+  }
+  runBluetoothPowerRoutine() {
+    return this.$.runBluetoothPowerRoutine();
+  }
+  runUfsLifetimeRoutine() {
+    return this.$.runUfsLifetimeRoutine();
+  }
+  runPowerButtonRoutine(timeout_seconds) {
+    return this.$.runPowerButtonRoutine(timeout_seconds);
+  }
+  runAudioDriverRoutine() {
+    return this.$.runAudioDriverRoutine();
+  }
+  runBluetoothDiscoveryRoutine() {
+    return this.$.runBluetoothDiscoveryRoutine();
+  }
+  runBluetoothScanningRoutine(length_seconds) {
+    return this.$.runBluetoothScanningRoutine(length_seconds);
+  }
+  runBluetoothPairingRoutine(peripheral_id) {
+    return this.$.runBluetoothPairingRoutine(peripheral_id);
+  }
+  runFanRoutine() {
+    return this.$.runFanRoutine();
+  }
 };
 
 crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {

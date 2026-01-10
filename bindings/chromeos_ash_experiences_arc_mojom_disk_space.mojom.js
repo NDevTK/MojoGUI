@@ -214,6 +214,24 @@ arc.mojom.DiskSpaceHostRemote = class {
   close() {
     this.proxy.close();
   }
+  isQuotaSupported() {
+    return this.$.isQuotaSupported();
+  }
+  getQuotaCurrentSpaceForUid(uid) {
+    return this.$.getQuotaCurrentSpaceForUid(uid);
+  }
+  getQuotaCurrentSpaceForGid(gid) {
+    return this.$.getQuotaCurrentSpaceForGid(gid);
+  }
+  getQuotaCurrentSpaceForProjectId(project_id) {
+    return this.$.getQuotaCurrentSpaceForProjectId(project_id);
+  }
+  getQuotaCurrentSpacesForIds(uids, gids, project_ids) {
+    return this.$.getQuotaCurrentSpacesForIds(uids, gids, project_ids);
+  }
+  getFreeDiskSpace() {
+    return this.$.getFreeDiskSpace();
+  }
 };
 
 arc.mojom.DiskSpaceHostRemoteCallHandler = class {
@@ -565,6 +583,15 @@ arc.mojom.DiskSpaceInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  getApplicationsSize() {
+    return this.$.getApplicationsSize();
+  }
+  resizeStorageBalloon(free_space_bytes) {
+    return this.$.resizeStorageBalloon(free_space_bytes);
   }
 };
 

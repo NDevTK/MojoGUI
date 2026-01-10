@@ -168,6 +168,9 @@ emoji_picker.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 emoji_picker.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -454,6 +457,51 @@ emoji_picker.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  showUI() {
+    return this.$.showUI();
+  }
+  insertEmoji(emoji, is_variant, search_length) {
+    return this.$.insertEmoji(emoji, is_variant, search_length);
+  }
+  insertGif(gif) {
+    return this.$.insertGif(gif);
+  }
+  isIncognitoTextField() {
+    return this.$.isIncognitoTextField();
+  }
+  getFeatureList() {
+    return this.$.getFeatureList();
+  }
+  getCategories() {
+    return this.$.getCategories();
+  }
+  getFeaturedGifs(pos) {
+    return this.$.getFeaturedGifs(pos);
+  }
+  searchGifs(query, pos) {
+    return this.$.searchGifs(query, pos);
+  }
+  getGifsByIds(ids) {
+    return this.$.getGifsByIds(ids);
+  }
+  onUiFullyLoaded() {
+    return this.$.onUiFullyLoaded();
+  }
+  getInitialCategory() {
+    return this.$.getInitialCategory();
+  }
+  getInitialQuery() {
+    return this.$.getInitialQuery();
+  }
+  updateHistoryInPrefs(category, history) {
+    return this.$.updateHistoryInPrefs(category, history);
+  }
+  updatePreferredVariantsInPrefs(preferred_variants) {
+    return this.$.updatePreferredVariantsInPrefs(preferred_variants);
+  }
+  getHistoryFromPrefs(category) {
+    return this.$.getHistoryFromPrefs(category);
   }
 };
 

@@ -159,6 +159,30 @@ media.mojom.AudioLogRemote = class {
   close() {
     this.proxy.close();
   }
+  onCreated(params, device_id) {
+    return this.$.onCreated(params, device_id);
+  }
+  onStarted() {
+    return this.$.onStarted();
+  }
+  onStopped() {
+    return this.$.onStopped();
+  }
+  onClosed() {
+    return this.$.onClosed();
+  }
+  onError() {
+    return this.$.onError();
+  }
+  onSetVolume(volume) {
+    return this.$.onSetVolume(volume);
+  }
+  onProcessingStateChanged(message) {
+    return this.$.onProcessingStateChanged(message);
+  }
+  onLogMessage(message) {
+    return this.$.onLogMessage(message);
+  }
 };
 
 media.mojom.AudioLogRemoteCallHandler = class {
@@ -511,6 +535,9 @@ media.mojom.AudioLogFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createAudioLog(component, component_id, audio_log_receiver) {
+    return this.$.createAudioLog(component, component_id, audio_log_receiver);
   }
 };
 

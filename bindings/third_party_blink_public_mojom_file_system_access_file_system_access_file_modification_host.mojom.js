@@ -115,6 +115,12 @@ blink.mojom.FileSystemAccessFileModificationHostRemote = class {
   close() {
     this.proxy.close();
   }
+  requestCapacityChange(capacity_delta) {
+    return this.$.requestCapacityChange(capacity_delta);
+  }
+  onContentsModified() {
+    return this.$.onContentsModified();
+  }
 };
 
 blink.mojom.FileSystemAccessFileModificationHostRemoteCallHandler = class {

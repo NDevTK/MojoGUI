@@ -180,6 +180,24 @@ network.mojom.NetworkContextClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onFileUploadRequested(process_id, async, file_paths, destination_url) {
+    return this.$.onFileUploadRequested(process_id, async, file_paths, destination_url);
+  }
+  onCanSendReportingReports(origins) {
+    return this.$.onCanSendReportingReports(origins);
+  }
+  onCanSendDomainReliabilityUpload(origin) {
+    return this.$.onCanSendDomainReliabilityUpload(origin);
+  }
+  onGenerateHttpNegotiateAuthToken(server_auth_token, can_delegate, auth_negotiate_android_account_type, spn) {
+    return this.$.onGenerateHttpNegotiateAuthToken(server_auth_token, can_delegate, auth_negotiate_android_account_type, spn);
+  }
+  onCanSendSCTAuditingReport() {
+    return this.$.onCanSendSCTAuditingReport();
+  }
+  onNewSCTAuditingReportSent() {
+    return this.$.onNewSCTAuditingReportSent();
+  }
 };
 
 network.mojom.NetworkContextClientRemoteCallHandler = class {

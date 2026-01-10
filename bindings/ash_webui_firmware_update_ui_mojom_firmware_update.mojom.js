@@ -199,6 +199,9 @@ ash.firmware_update.mojom.UpdateObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onUpdateListChanged(firmware_updates) {
+    return this.$.onUpdateListChanged(firmware_updates);
+  }
 };
 
 ash.firmware_update.mojom.UpdateObserverRemoteCallHandler = class {
@@ -347,6 +350,9 @@ ash.firmware_update.mojom.DeviceRequestObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onDeviceRequest(request) {
+    return this.$.onDeviceRequest(request);
+  }
 };
 
 ash.firmware_update.mojom.DeviceRequestObserverRemoteCallHandler = class {
@@ -494,6 +500,9 @@ ash.firmware_update.mojom.UpdateProgressObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onStatusChanged(update) {
+    return this.$.onStatusChanged(update);
   }
 };
 
@@ -665,6 +674,15 @@ ash.firmware_update.mojom.UpdateProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  observePeripheralUpdates(observer) {
+    return this.$.observePeripheralUpdates(observer);
+  }
+  prepareForUpdate(device_id) {
+    return this.$.prepareForUpdate(device_id);
+  }
+  fetchInProgressUpdate() {
+    return this.$.fetchInProgressUpdate();
   }
 };
 
@@ -897,6 +915,15 @@ ash.firmware_update.mojom.InstallControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  beginUpdate(device_id, filepath) {
+    return this.$.beginUpdate(device_id, filepath);
+  }
+  addDeviceRequestObserver(observer) {
+    return this.$.addDeviceRequestObserver(observer);
+  }
+  addUpdateProgressObserver(observer) {
+    return this.$.addUpdateProgressObserver(observer);
+  }
 };
 
 ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
@@ -1101,6 +1128,9 @@ ash.firmware_update.mojom.SystemUtilsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  restart() {
+    return this.$.restart();
   }
 };
 

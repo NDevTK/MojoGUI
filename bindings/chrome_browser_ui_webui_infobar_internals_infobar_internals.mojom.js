@@ -258,6 +258,12 @@ infobar_internals.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getInfoBars() {
+    return this.$.getInfoBars();
+  }
+  triggerInfoBar(type) {
+    return this.$.triggerInfoBar(type);
+  }
 };
 
 infobar_internals.mojom.PageHandlerRemoteCallHandler = class {
@@ -447,6 +453,9 @@ infobar_internals.mojom.PageHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
   }
 };
 

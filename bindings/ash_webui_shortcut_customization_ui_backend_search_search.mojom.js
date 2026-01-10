@@ -118,6 +118,9 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote = class
   close() {
     this.proxy.close();
   }
+  onSearchResultsAvailabilityChanged() {
+    return this.$.onSearchResultsAvailabilityChanged();
+  }
 };
 
 ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemoteCallHandler = class {
@@ -278,6 +281,12 @@ ash.shortcut_customization.mojom.SearchHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  search(query, max_num_results) {
+    return this.$.search(query, max_num_results);
+  }
+  addSearchResultsAvailabilityObserver(observer) {
+    return this.$.addSearchResultsAvailabilityObserver(observer);
   }
 };
 

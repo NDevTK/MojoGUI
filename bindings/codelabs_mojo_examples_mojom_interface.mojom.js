@@ -113,6 +113,9 @@ codelabs.mojom.ObjectARemote = class {
   close() {
     this.proxy.close();
   }
+  doA() {
+    return this.$.doA();
+  }
 };
 
 codelabs.mojom.ObjectARemoteCallHandler = class {
@@ -259,6 +262,9 @@ codelabs.mojom.ObjectBRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  doB() {
+    return this.$.doB();
   }
 };
 
@@ -407,6 +413,9 @@ codelabs.mojom.AssociatedProcessRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setProcess(process) {
+    return this.$.setProcess(process);
   }
 };
 
@@ -674,6 +683,12 @@ codelabs.mojom.ProcessRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sayHello() {
+    return this.$.sayHello();
+  }
+  getAssociatedInterface(name, receiver) {
+    return this.$.getAssociatedInterface(name, receiver);
   }
 };
 

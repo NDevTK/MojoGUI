@@ -316,6 +316,45 @@ history.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  setPage(page) {
+    return this.$.setPage(page);
+  }
+  queryHistory(query, max_results, begin_time) {
+    return this.$.queryHistory(query, max_results, begin_time);
+  }
+  queryHistoryContinuation() {
+    return this.$.queryHistoryContinuation();
+  }
+  removeVisits(items) {
+    return this.$.removeVisits(items);
+  }
+  openClearBrowsingDataDialog() {
+    return this.$.openClearBrowsingDataDialog();
+  }
+  removeBookmark(url) {
+    return this.$.removeBookmark(url);
+  }
+  setLastSelectedTab(last_tab) {
+    return this.$.setLastSelectedTab(last_tab);
+  }
+  showSidePanelUI() {
+    return this.$.showSidePanelUI();
+  }
+  requestAccountInfo() {
+    return this.$.requestAccountInfo();
+  }
+  turnOnHistorySync() {
+    return this.$.turnOnHistorySync();
+  }
+  shouldShowHistoryPageHistorySyncPromo() {
+    return this.$.shouldShowHistoryPageHistorySyncPromo();
+  }
+  recordHistoryPageHistorySyncPromoDismissed() {
+    return this.$.recordHistoryPageHistorySyncPromoDismissed();
+  }
+  incrementHistoryPageHistorySyncPromoShownCount() {
+    return this.$.incrementHistoryPageHistorySyncPromoShownCount();
+  }
 };
 
 history.mojom.PageHandlerRemoteCallHandler = class {
@@ -852,6 +891,15 @@ history.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onHistoryDeleted() {
+    return this.$.onHistoryDeleted();
+  }
+  onHasOtherFormsChanged(has_other_forms) {
+    return this.$.onHasOtherFormsChanged(has_other_forms);
+  }
+  sendAccountInfo(account_info) {
+    return this.$.sendAccountInfo(account_info);
   }
 };
 

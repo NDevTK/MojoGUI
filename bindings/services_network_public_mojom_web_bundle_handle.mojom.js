@@ -130,6 +130,15 @@ network.mojom.WebBundleHandleRemote = class {
   close() {
     this.proxy.close();
   }
+  clone(receiver) {
+    return this.$.clone(receiver);
+  }
+  onWebBundleError(type, message) {
+    return this.$.onWebBundleError(type, message);
+  }
+  onWebBundleLoadFinished(success) {
+    return this.$.onWebBundleLoadFinished(success);
+  }
 };
 
 network.mojom.WebBundleHandleRemoteCallHandler = class {

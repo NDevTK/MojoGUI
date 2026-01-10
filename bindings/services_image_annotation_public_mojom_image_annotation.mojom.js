@@ -160,6 +160,9 @@ image_annotation.mojom.ImageProcessorRemote = class {
   close() {
     this.proxy.close();
   }
+  getJpgImageData() {
+    return this.$.getJpgImageData();
+  }
 };
 
 image_annotation.mojom.ImageProcessorRemoteCallHandler = class {
@@ -322,6 +325,9 @@ image_annotation.mojom.AnnotatorRemote = class {
   close() {
     this.proxy.close();
   }
+  annotateImage(source_id, description_language_tag, image_processor) {
+    return this.$.annotateImage(source_id, description_language_tag, image_processor);
+  }
 };
 
 image_annotation.mojom.AnnotatorRemoteCallHandler = class {
@@ -475,6 +481,9 @@ image_annotation.mojom.ImageAnnotationServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindAnnotator(receiver) {
+    return this.$.bindAnnotator(receiver);
   }
 };
 

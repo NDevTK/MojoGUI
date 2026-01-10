@@ -118,6 +118,12 @@ blink.mojom.FileSystemAccessObserverHostRemote = class {
   close() {
     this.proxy.close();
   }
+  observe(token, is_recursive) {
+    return this.$.observe(token, is_recursive);
+  }
+  unobserve(token) {
+    return this.$.unobserve(token);
+  }
 };
 
 blink.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {

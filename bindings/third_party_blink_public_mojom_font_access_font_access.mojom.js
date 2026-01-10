@@ -132,6 +132,9 @@ blink.mojom.FontAccessManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  enumerateLocalFonts() {
+    return this.$.enumerateLocalFonts();
+  }
 };
 
 blink.mojom.FontAccessManagerRemoteCallHandler = class {

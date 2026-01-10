@@ -207,6 +207,33 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote = class
   close() {
     this.proxy.close();
   }
+  setAcceptedDisclosureVersion(version) {
+    return this.$.setAcceptedDisclosureVersion(version);
+  }
+  maybeShowDisclosure(urls, name, set_id) {
+    return this.$.maybeShowDisclosure(urls, name, set_id);
+  }
+  declineDisclosure() {
+    return this.$.declineDisclosure();
+  }
+  showSyncSetupFlow() {
+    return this.$.showSyncSetupFlow();
+  }
+  getPageTitleFromHistory(url) {
+    return this.$.getPageTitleFromHistory(url);
+  }
+  showProductSpecificationsSetForUuid(uuid, in_new_tab) {
+    return this.$.showProductSpecificationsSetForUuid(uuid, in_new_tab);
+  }
+  showProductSpecificationsSetsForUuids(uuids, disposition) {
+    return this.$.showProductSpecificationsSetsForUuids(uuids, disposition);
+  }
+  showComparePage(in_new_tab) {
+    return this.$.showComparePage(in_new_tab);
+  }
+  getComparisonTableUrlForUuid(uuid) {
+    return this.$.getComparisonTableUrlForUuid(uuid);
+  }
 };
 
 commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHandler = class {
@@ -622,6 +649,18 @@ commerce.product_specifications.mojom.PageRemote = class {
   close() {
     this.proxy.close();
   }
+  onProductSpecificationsSetAdded(set) {
+    return this.$.onProductSpecificationsSetAdded(set);
+  }
+  onProductSpecificationsSetUpdated(set) {
+    return this.$.onProductSpecificationsSetUpdated(set);
+  }
+  onProductSpecificationsSetRemoved(uuid) {
+    return this.$.onProductSpecificationsSetRemoved(uuid);
+  }
+  onSyncStateChanged() {
+    return this.$.onSyncStateChanged();
+  }
 };
 
 commerce.product_specifications.mojom.PageRemoteCallHandler = class {
@@ -857,6 +896,9 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemote 
 
   close() {
     this.proxy.close();
+  }
+  createProductSpecificationsHandler(page, handler) {
+    return this.$.createProductSpecificationsHandler(page, handler);
   }
 };
 

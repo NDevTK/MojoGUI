@@ -376,6 +376,9 @@ arc.mojom.KeymasterHostRemote = class {
   close() {
     this.proxy.close();
   }
+  getServer() {
+    return this.$.getServer();
+  }
 };
 
 arc.mojom.KeymasterHostRemoteCallHandler = class {
@@ -534,6 +537,9 @@ arc.mojom.KeymasterInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 
@@ -844,6 +850,48 @@ arc.mojom.KeymasterServerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setSystemVersion(os_version, os_patchlevel) {
+    return this.$.setSystemVersion(os_version, os_patchlevel);
+  }
+  addRngEntropy(data) {
+    return this.$.addRngEntropy(data);
+  }
+  getKeyCharacteristics(request) {
+    return this.$.getKeyCharacteristics(request);
+  }
+  generateKey(key_params) {
+    return this.$.generateKey(key_params);
+  }
+  importKey(request) {
+    return this.$.importKey(request);
+  }
+  exportKey(request) {
+    return this.$.exportKey(request);
+  }
+  attestKey(request) {
+    return this.$.attestKey(request);
+  }
+  upgradeKey(request) {
+    return this.$.upgradeKey(request);
+  }
+  deleteKey(key_blob) {
+    return this.$.deleteKey(key_blob);
+  }
+  deleteAllKeys() {
+    return this.$.deleteAllKeys();
+  }
+  begin(request) {
+    return this.$.begin(request);
+  }
+  update(request) {
+    return this.$.update(request);
+  }
+  finish(request) {
+    return this.$.finish(request);
+  }
+  abort(op_handle) {
+    return this.$.abort(op_handle);
   }
 };
 

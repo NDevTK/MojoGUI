@@ -108,6 +108,9 @@ chromecast.mojom.AudioSocketBrokerRemote = class {
   close() {
     this.proxy.close();
   }
+  getSocketDescriptor() {
+    return this.$.getSocketDescriptor();
+  }
 };
 
 chromecast.mojom.AudioSocketBrokerRemoteCallHandler = class {

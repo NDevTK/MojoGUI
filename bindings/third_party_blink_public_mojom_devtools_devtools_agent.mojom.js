@@ -171,6 +171,15 @@ blink.mojom.DevToolsAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  attachDevToolsSession(host, session, io_session, reattach_session_state, script_to_evaluate_on_load, client_expects_binary_responses, client_is_trusted, session_id, session_waits_for_debugger) {
+    return this.$.attachDevToolsSession(host, session, io_session, reattach_session_state, script_to_evaluate_on_load, client_expects_binary_responses, client_is_trusted, session_id, session_waits_for_debugger);
+  }
+  inspectElement(point) {
+    return this.$.inspectElement(point);
+  }
+  reportChildTargets(report, wait_for_debugger) {
+    return this.$.reportChildTargets(report, wait_for_debugger);
+  }
 };
 
 blink.mojom.DevToolsAgentRemoteCallHandler = class {
@@ -403,6 +412,18 @@ blink.mojom.DevToolsAgentHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  childTargetCreated(worker_devtools_agent, worker_devtools_agent_host, url, name, devtools_worker_token, waiting_for_debugger, context_type) {
+    return this.$.childTargetCreated(worker_devtools_agent, worker_devtools_agent_host, url, name, devtools_worker_token, waiting_for_debugger, context_type);
+  }
+  mainThreadDebuggerPaused() {
+    return this.$.mainThreadDebuggerPaused();
+  }
+  mainThreadDebuggerResumed() {
+    return this.$.mainThreadDebuggerResumed();
+  }
+  bringToForeground() {
+    return this.$.bringToForeground();
   }
 };
 
@@ -646,6 +667,12 @@ blink.mojom.DevToolsSessionRemote = class {
   close() {
     this.proxy.close();
   }
+  dispatchProtocolCommand(call_id, method, message) {
+    return this.$.dispatchProtocolCommand(call_id, method, message);
+  }
+  unpauseAndTerminate() {
+    return this.$.unpauseAndTerminate();
+  }
 };
 
 blink.mojom.DevToolsSessionRemoteCallHandler = class {
@@ -831,6 +858,12 @@ blink.mojom.DevToolsSessionHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  dispatchProtocolResponse(message, call_id, updates) {
+    return this.$.dispatchProtocolResponse(message, call_id, updates);
+  }
+  dispatchProtocolNotification(message, updates) {
+    return this.$.dispatchProtocolNotification(message, updates);
   }
 };
 

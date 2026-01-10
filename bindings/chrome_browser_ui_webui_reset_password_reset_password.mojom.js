@@ -100,6 +100,9 @@ mojom.ResetPasswordHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  handlePasswordReset() {
+    return this.$.handlePasswordReset();
+  }
 };
 
 mojom.ResetPasswordHandlerRemoteCallHandler = class {

@@ -135,6 +135,12 @@ network.mojom.URLLoaderRemote = class {
   close() {
     this.proxy.close();
   }
+  followRedirect(removed_headers, modified_headers, modified_cors_exempt_headers, new_url) {
+    return this.$.followRedirect(removed_headers, modified_headers, modified_cors_exempt_headers, new_url);
+  }
+  setPriority(priority, intra_priority_value) {
+    return this.$.setPriority(priority, intra_priority_value);
+  }
 };
 
 network.mojom.URLLoaderRemoteCallHandler = class {
@@ -350,6 +356,24 @@ network.mojom.URLLoaderClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onReceiveEarlyHints(early_hints) {
+    return this.$.onReceiveEarlyHints(early_hints);
+  }
+  onReceiveResponse(head, body, cached_metadata) {
+    return this.$.onReceiveResponse(head, body, cached_metadata);
+  }
+  onReceiveRedirect(redirect_info, head) {
+    return this.$.onReceiveRedirect(redirect_info, head);
+  }
+  onUploadProgress(current_position, total_size) {
+    return this.$.onUploadProgress(current_position, total_size);
+  }
+  onTransferSizeUpdated(transfer_size_diff) {
+    return this.$.onTransferSizeUpdated(transfer_size_diff);
+  }
+  onComplete(status) {
+    return this.$.onComplete(status);
   }
 };
 

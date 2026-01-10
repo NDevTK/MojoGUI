@@ -136,6 +136,24 @@ blink.mojom.TextSuggestionBackendRemote = class {
   close() {
     this.proxy.close();
   }
+  applySpellCheckSuggestion(suggestion) {
+    return this.$.applySpellCheckSuggestion(suggestion);
+  }
+  applyTextSuggestion(marker_tag, suggestion_index) {
+    return this.$.applyTextSuggestion(marker_tag, suggestion_index);
+  }
+  deleteActiveSuggestionRange() {
+    return this.$.deleteActiveSuggestionRange();
+  }
+  onNewWordAddedToDictionary(suggestion) {
+    return this.$.onNewWordAddedToDictionary(suggestion);
+  }
+  onSuggestionMenuClosed() {
+    return this.$.onSuggestionMenuClosed();
+  }
+  suggestionMenuTimeoutCallback(max_number_of_suggestions) {
+    return this.$.suggestionMenuTimeoutCallback(max_number_of_suggestions);
+  }
 };
 
 blink.mojom.TextSuggestionBackendRemoteCallHandler = class {

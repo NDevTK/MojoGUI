@@ -120,6 +120,9 @@ metrics.mojom.CallStackProfileCollectorRemote = class {
   close() {
     this.proxy.close();
   }
+  collect(start_timestamp, profile_type, profile) {
+    return this.$.collect(start_timestamp, profile_type, profile);
+  }
 };
 
 metrics.mojom.CallStackProfileCollectorRemoteCallHandler = class {

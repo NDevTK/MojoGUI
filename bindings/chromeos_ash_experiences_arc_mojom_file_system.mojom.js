@@ -527,6 +527,51 @@ arc.mojom.FileSystemHostRemote = class {
   close() {
     this.proxy.close();
   }
+  getFileName(url) {
+    return this.$.getFileName(url);
+  }
+  getFileSize(url) {
+    return this.$.getFileSize(url);
+  }
+  getLastModified(url) {
+    return this.$.getLastModified(url);
+  }
+  getFileType(url) {
+    return this.$.getFileType(url);
+  }
+  onDocumentChanged(watcher_id, type) {
+    return this.$.onDocumentChanged(watcher_id, type);
+  }
+  onRootsChanged() {
+    return this.$.onRootsChanged();
+  }
+  getVirtualFileId(url) {
+    return this.$.getVirtualFileId(url);
+  }
+  handleIdReleased(id) {
+    return this.$.handleIdReleased(id);
+  }
+  openFileToRead(url) {
+    return this.$.openFileToRead(url);
+  }
+  selectFiles(request) {
+    return this.$.selectFiles(request);
+  }
+  onFileSelectorEvent(event) {
+    return this.$.onFileSelectorEvent(event);
+  }
+  getFileSelectorElements(request) {
+    return this.$.getFileSelectorElements(request);
+  }
+  onMediaStoreUriAdded(uri, metadata) {
+    return this.$.onMediaStoreUriAdded(uri, metadata);
+  }
+  createMoniker(content_uri, read_only) {
+    return this.$.createMoniker(content_uri, read_only);
+  }
+  destroyMoniker(moniker) {
+    return this.$.destroyMoniker(moniker);
+  }
 };
 
 arc.mojom.FileSystemHostRemoteCallHandler = class {
@@ -1414,6 +1459,75 @@ arc.mojom.FileSystemInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addWatcher(authority, document_id) {
+    return this.$.addWatcher(authority, document_id);
+  }
+  getChildDocuments(authority, parent_document_id) {
+    return this.$.getChildDocuments(authority, parent_document_id);
+  }
+  getDocument(authority, document_id) {
+    return this.$.getDocument(authority, document_id);
+  }
+  getFileSize(url) {
+    return this.$.getFileSize(url);
+  }
+  getMimeType(url) {
+    return this.$.getMimeType(url);
+  }
+  getRecentDocuments(authority, root_id) {
+    return this.$.getRecentDocuments(authority, root_id);
+  }
+  getRoots() {
+    return this.$.getRoots();
+  }
+  getRootSize(authority, root_id) {
+    return this.$.getRootSize(authority, root_id);
+  }
+  deleteDocument(authority, document_id) {
+    return this.$.deleteDocument(authority, document_id);
+  }
+  renameDocument(authority, document_id, display_name) {
+    return this.$.renameDocument(authority, document_id, display_name);
+  }
+  createDocument(authority, parent_document_id, mime_type, display_name) {
+    return this.$.createDocument(authority, parent_document_id, mime_type, display_name);
+  }
+  copyDocument(authority, source_document_id, target_parent_document_id) {
+    return this.$.copyDocument(authority, source_document_id, target_parent_document_id);
+  }
+  moveDocument(authority, source_document_id, source_parent_document_id, target_parent_document_id) {
+    return this.$.moveDocument(authority, source_document_id, source_parent_document_id, target_parent_document_id);
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  openThumbnail(url, size_hint) {
+    return this.$.openThumbnail(url, size_hint);
+  }
+  closeFileSession(url_id, error_message) {
+    return this.$.closeFileSession(url_id, error_message);
+  }
+  openFileSessionToWrite(url) {
+    return this.$.openFileSessionToWrite(url);
+  }
+  openFileSessionToRead(url) {
+    return this.$.openFileSessionToRead(url);
+  }
+  removeWatcher(watcher_id) {
+    return this.$.removeWatcher(watcher_id);
+  }
+  requestMediaScan(paths) {
+    return this.$.requestMediaScan(paths);
+  }
+  reindexDirectory(directory_path) {
+    return this.$.reindexDirectory(directory_path);
+  }
+  requestFileRemovalScan(directory_paths) {
+    return this.$.requestFileRemovalScan(directory_paths);
+  }
+  openUrlsWithPermissionAndWindowInfo(request, window_info) {
+    return this.$.openUrlsWithPermissionAndWindowInfo(request, window_info);
   }
 };
 

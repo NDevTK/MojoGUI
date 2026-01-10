@@ -112,6 +112,9 @@ safe_browsing.mojom.SafeBrowsingUrlCheckerRemote = class {
   close() {
     this.proxy.close();
   }
+  checkUrl(url, method) {
+    return this.$.checkUrl(url, method);
+  }
 };
 
 safe_browsing.mojom.SafeBrowsingUrlCheckerRemoteCallHandler = class {

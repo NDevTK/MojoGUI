@@ -225,6 +225,9 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onBatteryChargeStatusUpdated(battery_charge_status) {
+    return this.$.onBatteryChargeStatusUpdated(battery_charge_status);
+  }
 };
 
 ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCallHandler = class {
@@ -372,6 +375,9 @@ ash.diagnostics.mojom.BatteryHealthObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onBatteryHealthUpdated(battery_health) {
+    return this.$.onBatteryHealthUpdated(battery_health);
   }
 };
 
@@ -521,6 +527,9 @@ ash.diagnostics.mojom.MemoryUsageObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onMemoryUsageUpdated(memory_usage) {
+    return this.$.onMemoryUsageUpdated(memory_usage);
+  }
 };
 
 ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandler = class {
@@ -668,6 +677,9 @@ ash.diagnostics.mojom.CpuUsageObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onCpuUsageUpdated(cpu_usage) {
+    return this.$.onCpuUsageUpdated(cpu_usage);
   }
 };
 
@@ -856,6 +868,24 @@ ash.diagnostics.mojom.SystemDataProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getSystemInfo() {
+    return this.$.getSystemInfo();
+  }
+  getBatteryInfo() {
+    return this.$.getBatteryInfo();
+  }
+  observeBatteryChargeStatus(observer) {
+    return this.$.observeBatteryChargeStatus(observer);
+  }
+  observeBatteryHealth(observer) {
+    return this.$.observeBatteryHealth(observer);
+  }
+  observeMemoryUsage(observer) {
+    return this.$.observeMemoryUsage(observer);
+  }
+  observeCpuUsage(observer) {
+    return this.$.observeCpuUsage(observer);
   }
 };
 

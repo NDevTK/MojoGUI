@@ -274,6 +274,9 @@ blink.mojom.PermissionObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onPermissionStatusChange(status) {
+    return this.$.onPermissionStatusChange(status);
+  }
 };
 
 blink.mojom.PermissionObserverRemoteCallHandler = class {
@@ -422,6 +425,9 @@ blink.mojom.EmbeddedPermissionControlClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onEmbeddedPermissionControlRegistered(allow, statuses) {
+    return this.$.onEmbeddedPermissionControlRegistered(allow, statuses);
   }
 };
 
@@ -659,6 +665,33 @@ blink.mojom.PermissionServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  hasPermission(permission) {
+    return this.$.hasPermission(permission);
+  }
+  registerPageEmbeddedPermissionControl(permissions, descriptor, client) {
+    return this.$.registerPageEmbeddedPermissionControl(permissions, descriptor, client);
+  }
+  requestPageEmbeddedPermission(permissions, descriptor) {
+    return this.$.requestPageEmbeddedPermission(permissions, descriptor);
+  }
+  requestPermission(permission, user_gesture) {
+    return this.$.requestPermission(permission, user_gesture);
+  }
+  requestPermissions(permission, user_gesture) {
+    return this.$.requestPermissions(permission, user_gesture);
+  }
+  revokePermission(permission) {
+    return this.$.revokePermission(permission);
+  }
+  addPermissionObserver(permission, last_known_status, observer) {
+    return this.$.addPermissionObserver(permission, last_known_status, observer);
+  }
+  addPageEmbeddedPermissionObserver(permission, last_known_status, observer) {
+    return this.$.addPageEmbeddedPermissionObserver(permission, last_known_status, observer);
+  }
+  notifyEventListener(permission, event_type, is_added) {
+    return this.$.notifyEventListener(permission, event_type, is_added);
   }
 };
 

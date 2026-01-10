@@ -124,6 +124,9 @@ blink.mojom.ColorChooserFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  openColorChooser(chooser, client, color, suggestions) {
+    return this.$.openColorChooser(chooser, client, color, suggestions);
+  }
 };
 
 blink.mojom.ColorChooserFactoryRemoteCallHandler = class {
@@ -272,6 +275,9 @@ blink.mojom.ColorChooserRemote = class {
   close() {
     this.proxy.close();
   }
+  setSelectedColor(color) {
+    return this.$.setSelectedColor(color);
+  }
 };
 
 blink.mojom.ColorChooserRemoteCallHandler = class {
@@ -419,6 +425,9 @@ blink.mojom.ColorChooserClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  didChooseColor(color) {
+    return this.$.didChooseColor(color);
   }
 };
 
@@ -573,6 +582,9 @@ blink.mojom.EyeDropperChooserRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  choose() {
+    return this.$.choose();
   }
 };
 

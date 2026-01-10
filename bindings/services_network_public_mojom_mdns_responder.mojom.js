@@ -125,6 +125,12 @@ network.mojom.MdnsResponderRemote = class {
   close() {
     this.proxy.close();
   }
+  createNameForAddress(address) {
+    return this.$.createNameForAddress(address);
+  }
+  removeNameForAddress(address) {
+    return this.$.removeNameForAddress(address);
+  }
 };
 
 network.mojom.MdnsResponderRemoteCallHandler = class {

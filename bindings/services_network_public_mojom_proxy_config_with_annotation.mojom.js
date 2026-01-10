@@ -130,6 +130,12 @@ network.mojom.ProxyConfigClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onProxyConfigUpdated(proxy_config) {
+    return this.$.onProxyConfigUpdated(proxy_config);
+  }
+  flushProxyConfig() {
+    return this.$.flushProxyConfig();
+  }
 };
 
 network.mojom.ProxyConfigClientRemoteCallHandler = class {
@@ -312,6 +318,9 @@ network.mojom.ProxyConfigPollerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onLazyProxyConfigPoll() {
+    return this.$.onLazyProxyConfigPoll();
+  }
 };
 
 network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
@@ -466,6 +475,12 @@ network.mojom.ProxyErrorClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPACScriptError(line_number, details) {
+    return this.$.onPACScriptError(line_number, details);
+  }
+  onRequestMaybeFailedDueToProxySettings(net_error) {
+    return this.$.onRequestMaybeFailedDueToProxySettings(net_error);
   }
 };
 

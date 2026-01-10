@@ -226,6 +226,15 @@ blink.mojom.BackgroundFetchRegistrationObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onProgress(upload_total, uploaded, download_total, downloaded, result, failure_reason) {
+    return this.$.onProgress(upload_total, uploaded, download_total, downloaded, result, failure_reason);
+  }
+  onRecordsUnavailable() {
+    return this.$.onRecordsUnavailable();
+  }
+  onRequestCompleted(request, response) {
+    return this.$.onRequestCompleted(request, response);
+  }
 };
 
 blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
@@ -481,6 +490,18 @@ blink.mojom.BackgroundFetchServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  fetch(service_worker_registration_id, developer_id, requests, options, icon, ukm_data) {
+    return this.$.fetch(service_worker_registration_id, developer_id, requests, options, icon, ukm_data);
+  }
+  getRegistration(service_worker_registration_id, developer_id) {
+    return this.$.getRegistration(service_worker_registration_id, developer_id);
+  }
+  getDeveloperIds(service_worker_registration_id) {
+    return this.$.getDeveloperIds(service_worker_registration_id);
+  }
+  getIconDisplaySize() {
+    return this.$.getIconDisplaySize();
   }
 };
 
@@ -778,6 +799,18 @@ blink.mojom.BackgroundFetchRegistrationServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateUI(title, icon) {
+    return this.$.updateUI(title, icon);
+  }
+  abort() {
+    return this.$.abort();
+  }
+  matchRequests(request_to_match, cache_query_options, match_all) {
+    return this.$.matchRequests(request_to_match, cache_query_options, match_all);
+  }
+  addRegistrationObserver(observer) {
+    return this.$.addRegistrationObserver(observer);
   }
 };
 

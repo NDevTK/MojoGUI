@@ -158,6 +158,12 @@ blink.mojom.AISummarizerRemote = class {
   close() {
     this.proxy.close();
   }
+  summarize(input, context, pending_responder) {
+    return this.$.summarize(input, context, pending_responder);
+  }
+  measureUsage(input, context) {
+    return this.$.measureUsage(input, context);
+  }
 };
 
 blink.mojom.AISummarizerRemoteCallHandler = class {

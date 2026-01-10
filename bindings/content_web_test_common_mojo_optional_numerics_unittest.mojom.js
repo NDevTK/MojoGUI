@@ -883,6 +883,135 @@ content.optional_numerics_unittest.mojom.ParamsRemote = class {
   close() {
     this.proxy.close();
   }
+  sendNullBool(optional_bool) {
+    return this.$.sendNullBool(optional_bool);
+  }
+  sendNullUint8(optional_uint8) {
+    return this.$.sendNullUint8(optional_uint8);
+  }
+  sendNullInt8(optional_int8) {
+    return this.$.sendNullInt8(optional_int8);
+  }
+  sendNullUint16(optional_uint16) {
+    return this.$.sendNullUint16(optional_uint16);
+  }
+  sendNullInt16(optional_int16) {
+    return this.$.sendNullInt16(optional_int16);
+  }
+  sendNullUint32(optional_uint32) {
+    return this.$.sendNullUint32(optional_uint32);
+  }
+  sendNullInt32(optional_int32) {
+    return this.$.sendNullInt32(optional_int32);
+  }
+  sendNullUint64(optional_uint64) {
+    return this.$.sendNullUint64(optional_uint64);
+  }
+  sendNullInt64(optional_int64) {
+    return this.$.sendNullInt64(optional_int64);
+  }
+  sendNullFloat(optional_float) {
+    return this.$.sendNullFloat(optional_float);
+  }
+  sendNullDouble(optional_double) {
+    return this.$.sendNullDouble(optional_double);
+  }
+  sendNullEnum(optional_enum) {
+    return this.$.sendNullEnum(optional_enum);
+  }
+  sendNullBools(optional_bools) {
+    return this.$.sendNullBools(optional_bools);
+  }
+  sendNullInt16s(optional_int16s) {
+    return this.$.sendNullInt16s(optional_int16s);
+  }
+  sendNullUint32s(optional_uint32s) {
+    return this.$.sendNullUint32s(optional_uint32s);
+  }
+  sendNullDoubles(optional_doubles) {
+    return this.$.sendNullDoubles(optional_doubles);
+  }
+  sendNullEnums(optional_enums) {
+    return this.$.sendNullEnums(optional_enums);
+  }
+  sendNullBoolMap(values) {
+    return this.$.sendNullBoolMap(values);
+  }
+  sendNullDoubleMap(values) {
+    return this.$.sendNullDoubleMap(values);
+  }
+  sendNullEnumMap(values) {
+    return this.$.sendNullEnumMap(values);
+  }
+  sendOptionalBool(optional_bool) {
+    return this.$.sendOptionalBool(optional_bool);
+  }
+  sendOptionalUint8(optional_uint8) {
+    return this.$.sendOptionalUint8(optional_uint8);
+  }
+  sendOptionalInt8(optional_int8) {
+    return this.$.sendOptionalInt8(optional_int8);
+  }
+  sendOptionalUint16(optional_uint16) {
+    return this.$.sendOptionalUint16(optional_uint16);
+  }
+  sendOptionalInt16(optional_int16) {
+    return this.$.sendOptionalInt16(optional_int16);
+  }
+  sendOptionalUint32(optional_uint32) {
+    return this.$.sendOptionalUint32(optional_uint32);
+  }
+  sendOptionalInt32(optional_int32) {
+    return this.$.sendOptionalInt32(optional_int32);
+  }
+  sendOptionalUint64(optional_uint64) {
+    return this.$.sendOptionalUint64(optional_uint64);
+  }
+  sendOptionalInt64(optional_int64) {
+    return this.$.sendOptionalInt64(optional_int64);
+  }
+  sendOptionalFloat(optional_float) {
+    return this.$.sendOptionalFloat(optional_float);
+  }
+  sendOptionalDouble(optional_double) {
+    return this.$.sendOptionalDouble(optional_double);
+  }
+  sendOptionalEnum(optional_enum) {
+    return this.$.sendOptionalEnum(optional_enum);
+  }
+  sendOptionalBools(optional_enums) {
+    return this.$.sendOptionalBools(optional_enums);
+  }
+  sendOptionalInt16s(optional_int16s) {
+    return this.$.sendOptionalInt16s(optional_int16s);
+  }
+  sendOptionalUint32s(optional_uint32s) {
+    return this.$.sendOptionalUint32s(optional_uint32s);
+  }
+  sendOptionalDoubles(optional_doubles) {
+    return this.$.sendOptionalDoubles(optional_doubles);
+  }
+  sendOptionalEnums(optional_enums) {
+    return this.$.sendOptionalEnums(optional_enums);
+  }
+  sendOptionalBoolMap(values) {
+    return this.$.sendOptionalBoolMap(values);
+  }
+  sendOptionalDoubleMap(values) {
+    return this.$.sendOptionalDoubleMap(values);
+  }
+  sendOptionalEnumMap(values) {
+    return this.$.sendOptionalEnumMap(values);
+  }
+  sendNullStructWithOptionalNumerics(s) {
+    return this.$.sendNullStructWithOptionalNumerics(s);
+  }
+  sendStructWithNullOptionalNumerics(s) {
+    return this.$.sendStructWithNullOptionalNumerics(s);
+  }
+  sendStructWithOptionalNumerics(s) {
+    return this.$.sendStructWithOptionalNumerics(s);
+  }
 };
 
 content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
@@ -3031,6 +3160,135 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemote = class {
   close() {
     this.proxy.close();
   }
+  getNullBool() {
+    return this.$.getNullBool();
+  }
+  getNullUint8() {
+    return this.$.getNullUint8();
+  }
+  getNullInt8() {
+    return this.$.getNullInt8();
+  }
+  getNullUint16() {
+    return this.$.getNullUint16();
+  }
+  getNullInt16() {
+    return this.$.getNullInt16();
+  }
+  getNullUint32() {
+    return this.$.getNullUint32();
+  }
+  getNullInt32() {
+    return this.$.getNullInt32();
+  }
+  getNullUint64() {
+    return this.$.getNullUint64();
+  }
+  getNullInt64() {
+    return this.$.getNullInt64();
+  }
+  getNullFloat() {
+    return this.$.getNullFloat();
+  }
+  getNullDouble() {
+    return this.$.getNullDouble();
+  }
+  getNullEnum() {
+    return this.$.getNullEnum();
+  }
+  getNullBools() {
+    return this.$.getNullBools();
+  }
+  getNullInt16s() {
+    return this.$.getNullInt16s();
+  }
+  getNullUint32s() {
+    return this.$.getNullUint32s();
+  }
+  getNullDoubles() {
+    return this.$.getNullDoubles();
+  }
+  getNullEnums() {
+    return this.$.getNullEnums();
+  }
+  getNullBoolMap() {
+    return this.$.getNullBoolMap();
+  }
+  getNullInt32Map() {
+    return this.$.getNullInt32Map();
+  }
+  getNullEnumMap() {
+    return this.$.getNullEnumMap();
+  }
+  getOptionalBool(value) {
+    return this.$.getOptionalBool(value);
+  }
+  getOptionalUint8(value) {
+    return this.$.getOptionalUint8(value);
+  }
+  getOptionalInt8(value) {
+    return this.$.getOptionalInt8(value);
+  }
+  getOptionalUint16(value) {
+    return this.$.getOptionalUint16(value);
+  }
+  getOptionalInt16(value) {
+    return this.$.getOptionalInt16(value);
+  }
+  getOptionalUint32(value) {
+    return this.$.getOptionalUint32(value);
+  }
+  getOptionalInt32(value) {
+    return this.$.getOptionalInt32(value);
+  }
+  getOptionalUint64(value) {
+    return this.$.getOptionalUint64(value);
+  }
+  getOptionalInt64(value) {
+    return this.$.getOptionalInt64(value);
+  }
+  getOptionalFloat(value) {
+    return this.$.getOptionalFloat(value);
+  }
+  getOptionalDouble(value) {
+    return this.$.getOptionalDouble(value);
+  }
+  getOptionalEnum(value) {
+    return this.$.getOptionalEnum(value);
+  }
+  getOptionalBools(value) {
+    return this.$.getOptionalBools(value);
+  }
+  getOptionalInt16s(value) {
+    return this.$.getOptionalInt16s(value);
+  }
+  getOptionalUint32s(value) {
+    return this.$.getOptionalUint32s(value);
+  }
+  getOptionalDoubles(value) {
+    return this.$.getOptionalDoubles(value);
+  }
+  getOptionalEnums(value) {
+    return this.$.getOptionalEnums(value);
+  }
+  getOptionalBoolMap(key, value) {
+    return this.$.getOptionalBoolMap(key, value);
+  }
+  getOptionalFloatMap(key, value) {
+    return this.$.getOptionalFloatMap(key, value);
+  }
+  getOptionalEnumMap(key, value) {
+    return this.$.getOptionalEnumMap(key, value);
+  }
+  getNullStructWithOptionalNumerics() {
+    return this.$.getNullStructWithOptionalNumerics();
+  }
+  getStructWithNullOptionalNumerics() {
+    return this.$.getStructWithNullOptionalNumerics();
+  }
+  getStructWithOptionalNumerics(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value) {
+    return this.$.getStructWithOptionalNumerics(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value);
+  }
 };
 
 content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class {
@@ -4671,6 +4929,12 @@ content.optional_numerics_unittest.mojom.InterfaceV0Remote = class {
   close() {
     this.proxy.close();
   }
+  methodWithVersionedParams() {
+    return this.$.methodWithVersionedParams();
+  }
+  methodWithVersionedStruct(s) {
+    return this.$.methodWithVersionedStruct(s);
+  }
 };
 
 content.optional_numerics_unittest.mojom.InterfaceV0RemoteCallHandler = class {
@@ -4921,6 +5185,12 @@ content.optional_numerics_unittest.mojom.InterfaceV2Remote = class {
 
   close() {
     this.proxy.close();
+  }
+  methodWithVersionedParams(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value) {
+    return this.$.methodWithVersionedParams(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value);
+  }
+  methodWithVersionedStruct(s) {
+    return this.$.methodWithVersionedStruct(s);
   }
 };
 

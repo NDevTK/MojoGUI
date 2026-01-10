@@ -111,6 +111,9 @@ chromeos.media_perception.mojom.MediaPerceptionServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getController(receiver, client) {
+    return this.$.getController(receiver, client);
+  }
 };
 
 chromeos.media_perception.mojom.MediaPerceptionServiceRemoteCallHandler = class {
@@ -259,6 +262,9 @@ chromeos.media_perception.mojom.MediaPerceptionControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  activateMediaPerception(receiver) {
+    return this.$.activateMediaPerception(receiver);
+  }
 };
 
 chromeos.media_perception.mojom.MediaPerceptionControllerRemoteCallHandler = class {
@@ -406,6 +412,9 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  connectToVideoCaptureService(receiver) {
+    return this.$.connectToVideoCaptureService(receiver);
   }
 };
 

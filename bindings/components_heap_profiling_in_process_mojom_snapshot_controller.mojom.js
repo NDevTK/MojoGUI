@@ -109,6 +109,12 @@ heap_profiling.mojom.SnapshotControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  takeSnapshot(process_probability_pct, process_index) {
+    return this.$.takeSnapshot(process_probability_pct, process_index);
+  }
+  logMetricsWithoutSnapshot() {
+    return this.$.logMetricsWithoutSnapshot();
+  }
 };
 
 heap_profiling.mojom.SnapshotControllerRemoteCallHandler = class {

@@ -155,6 +155,9 @@ chromeos.cfm.mojom.LoggerStateObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onNotifyState(state) {
+    return this.$.onNotifyState(state);
+  }
 };
 
 chromeos.cfm.mojom.LoggerStateObserverRemoteCallHandler = class {
@@ -315,6 +318,12 @@ chromeos.cfm.mojom.MeetDevicesLoggerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  enqueue(record, priority) {
+    return this.$.enqueue(record, priority);
+  }
+  addStateObserver(pending_observer) {
+    return this.$.addStateObserver(pending_observer);
   }
 };
 

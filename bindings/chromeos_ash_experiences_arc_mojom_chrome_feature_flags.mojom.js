@@ -134,6 +134,9 @@ arc.mojom.ChromeFeatureFlagsInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  notifyFeatureFlags(flags) {
+    return this.$.notifyFeatureFlags(flags);
+  }
 };
 
 arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = class {

@@ -131,6 +131,15 @@ viz.mojom.GpuRemote = class {
   close() {
     this.proxy.close();
   }
+  establishGpuChannel() {
+    return this.$.establishGpuChannel();
+  }
+  createJpegDecodeAccelerator(jda) {
+    return this.$.createJpegDecodeAccelerator(jda);
+  }
+  createVideoEncodeAcceleratorProvider(vea_provider) {
+    return this.$.createVideoEncodeAcceleratorProvider(vea_provider);
+  }
 };
 
 viz.mojom.GpuRemoteCallHandler = class {

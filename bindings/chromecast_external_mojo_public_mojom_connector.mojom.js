@@ -132,6 +132,9 @@ chromecast.external_mojo.mojom.ExternalServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  onBindInterface(interface_name, interface_pipe) {
+    return this.$.onBindInterface(interface_name, interface_pipe);
+  }
 };
 
 chromecast.external_mojo.mojom.ExternalServiceRemoteCallHandler = class {
@@ -310,6 +313,21 @@ chromecast.external_mojo.mojom.ExternalConnectorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  registerServiceInstances(instances_info) {
+    return this.$.registerServiceInstances(instances_info);
+  }
+  bindInterface(service_name, interface_name, interface_pipe) {
+    return this.$.bindInterface(service_name, interface_name, interface_pipe);
+  }
+  clone(receiver) {
+    return this.$.clone(receiver);
+  }
+  bindChromiumConnector(interface_pipe) {
+    return this.$.bindChromiumConnector(interface_pipe);
+  }
+  queryServiceList() {
+    return this.$.queryServiceList();
   }
 };
 

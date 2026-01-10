@@ -125,6 +125,12 @@ chromecast.mojom.ApiBindingsRemote = class {
   close() {
     this.proxy.close();
   }
+  getAll() {
+    return this.$.getAll();
+  }
+  connect(port_name, port) {
+    return this.$.connect(port_name, port);
+  }
 };
 
 chromecast.mojom.ApiBindingsRemoteCallHandler = class {

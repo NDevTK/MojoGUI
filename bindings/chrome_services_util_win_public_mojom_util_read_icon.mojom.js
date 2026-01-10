@@ -122,6 +122,9 @@ chrome.mojom.UtilReadIconRemote = class {
   close() {
     this.proxy.close();
   }
+  readIcon(file, size, scale) {
+    return this.$.readIcon(file, size, scale);
+  }
 };
 
 chrome.mojom.UtilReadIconRemoteCallHandler = class {

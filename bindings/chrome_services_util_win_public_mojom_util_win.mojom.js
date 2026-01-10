@@ -314,6 +314,27 @@ chrome.mojom.UtilWinRemote = class {
   close() {
     this.proxy.close();
   }
+  isPinnedToTaskbar() {
+    return this.$.isPinnedToTaskbar();
+  }
+  unpinShortcuts(shortcut_paths) {
+    return this.$.unpinShortcuts(shortcut_paths);
+  }
+  createOrUpdateShortcuts(shortcut_paths, properties, operation) {
+    return this.$.createOrUpdateShortcuts(shortcut_paths, properties, operation);
+  }
+  callExecuteSelectFile(type, owner, title, default_path, filter, file_type_index, default_extension) {
+    return this.$.callExecuteSelectFile(type, owner, title, default_path, filter, file_type_index, default_extension);
+  }
+  inspectModule(module_path) {
+    return this.$.inspectModule(module_path);
+  }
+  getAntiVirusProducts(report_full_names) {
+    return this.$.getAntiVirusProducts(report_full_names);
+  }
+  getTpmIdentifier() {
+    return this.$.getTpmIdentifier();
+  }
 };
 
 chrome.mojom.UtilWinRemoteCallHandler = class {
@@ -681,6 +702,9 @@ chrome.mojom.ProcessorMetricsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  recordProcessorMetrics() {
+    return this.$.recordProcessorMetrics();
   }
 };
 

@@ -111,6 +111,12 @@ content.mojom.RendererVariationsConfigurationRemote = class {
   close() {
     this.proxy.close();
   }
+  setVariationsHeaders(variations_headers) {
+    return this.$.setVariationsHeaders(variations_headers);
+  }
+  setFieldTrialGroup(trial_name, group_name) {
+    return this.$.setFieldTrialGroup(trial_name, group_name);
+  }
 };
 
 content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {

@@ -169,6 +169,15 @@ blink.mojom.SpeculationHostRemote = class {
   close() {
     this.proxy.close();
   }
+  updateSpeculationCandidates(candidates, enable_cross_origin_prerender_iframes) {
+    return this.$.updateSpeculationCandidates(candidates, enable_cross_origin_prerender_iframes);
+  }
+  onLCPPredicted() {
+    return this.$.onLCPPredicted();
+  }
+  initiatePreview(url) {
+    return this.$.initiatePreview(url);
+  }
 };
 
 blink.mojom.SpeculationHostRemoteCallHandler = class {

@@ -124,6 +124,15 @@ pdf.mojom.PdfProgressiveSearchifierRemote = class {
   close() {
     this.proxy.close();
   }
+  addPage(image, page_index) {
+    return this.$.addPage(image, page_index);
+  }
+  deletePage(page_index) {
+    return this.$.deletePage(page_index);
+  }
+  save() {
+    return this.$.save();
+  }
 };
 
 pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {

@@ -501,6 +501,33 @@ blink.mojom.WidgetInputHandlerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  setTouchActionFromMain(touch_action) {
+    return this.$.setTouchActionFromMain(touch_action);
+  }
+  setPanAction(pan_action) {
+    return this.$.setPanAction(pan_action);
+  }
+  didOverscroll(params) {
+    return this.$.didOverscroll(params);
+  }
+  didStartScrollingViewport() {
+    return this.$.didStartScrollingViewport();
+  }
+  imeCancelComposition() {
+    return this.$.imeCancelComposition();
+  }
+  imeCompositionRangeChanged(range, character_bounds) {
+    return this.$.imeCompositionRangeChanged(range, character_bounds);
+  }
+  setMouseCapture(capture) {
+    return this.$.setMouseCapture(capture);
+  }
+  setAutoscrollSelectionActiveInMainFrame(autoscroll_selection) {
+    return this.$.setAutoscrollSelectionActiveInMainFrame(autoscroll_selection);
+  }
+  requestMouseLock(from_user_gesture, unadjusted_movement) {
+    return this.$.requestMouseLock(from_user_gesture, unadjusted_movement);
+  }
 };
 
 blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
@@ -1105,6 +1132,105 @@ blink.mojom.FrameWidgetInputHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addImeTextSpansToExistingText(start, end, ime_text_spans) {
+    return this.$.addImeTextSpansToExistingText(start, end, ime_text_spans);
+  }
+  clearImeTextSpansByType(start, end, type) {
+    return this.$.clearImeTextSpansByType(start, end, type);
+  }
+  setCompositionFromExistingText(start, end, ime_text_spans) {
+    return this.$.setCompositionFromExistingText(start, end, ime_text_spans);
+  }
+  extendSelectionAndDelete(before, after) {
+    return this.$.extendSelectionAndDelete(before, after);
+  }
+  extendSelectionAndReplace(before, after, replacement_text) {
+    return this.$.extendSelectionAndReplace(before, after, replacement_text);
+  }
+  deleteSurroundingText(before, after) {
+    return this.$.deleteSurroundingText(before, after);
+  }
+  deleteSurroundingTextInCodePoints(before, after) {
+    return this.$.deleteSurroundingTextInCodePoints(before, after);
+  }
+  setEditableSelectionOffsets(start, end) {
+    return this.$.setEditableSelectionOffsets(start, end);
+  }
+  handleStylusWritingGestureAction(gesture_data) {
+    return this.$.handleStylusWritingGestureAction(gesture_data);
+  }
+  executeEditCommand(command, value) {
+    return this.$.executeEditCommand(command, value);
+  }
+  undo() {
+    return this.$.undo();
+  }
+  redo() {
+    return this.$.redo();
+  }
+  cut() {
+    return this.$.cut();
+  }
+  copy() {
+    return this.$.copy();
+  }
+  copyToFindPboard() {
+    return this.$.copyToFindPboard();
+  }
+  centerSelection() {
+    return this.$.centerSelection();
+  }
+  paste() {
+    return this.$.paste();
+  }
+  pasteAndMatchStyle() {
+    return this.$.pasteAndMatchStyle();
+  }
+  delete() {
+    return this.$.delete();
+  }
+  selectAll() {
+    return this.$.selectAll();
+  }
+  collapseSelection() {
+    return this.$.collapseSelection();
+  }
+  replace(word) {
+    return this.$.replace(word);
+  }
+  replaceMisspelling(word) {
+    return this.$.replaceMisspelling(word);
+  }
+  selectRange(base, extent) {
+    return this.$.selectRange(base, extent);
+  }
+  adjustSelectionByCharacterOffset(start, end, behavior) {
+    return this.$.adjustSelectionByCharacterOffset(start, end, behavior);
+  }
+  selectAroundCaret(granularity, should_show_handle, should_show_context_menu) {
+    return this.$.selectAroundCaret(granularity, should_show_handle, should_show_context_menu);
+  }
+  moveRangeSelectionExtent(extent) {
+    return this.$.moveRangeSelectionExtent(extent);
+  }
+  scrollFocusedEditableNodeIntoView() {
+    return this.$.scrollFocusedEditableNodeIntoView();
+  }
+  waitForPageScaleAnimationForTesting() {
+    return this.$.waitForPageScaleAnimationForTesting();
+  }
+  moveCaret(point) {
+    return this.$.moveCaret(point);
+  }
+  startAutoscrollForSelectionToPoint(point) {
+    return this.$.startAutoscrollForSelectionToPoint(point);
+  }
+  stopAutoscroll() {
+    return this.$.stopAutoscroll();
+  }
+  rectForEditFieldChars(range) {
+    return this.$.rectForEditFieldChars(range);
   }
 };
 
@@ -2336,6 +2462,54 @@ blink.mojom.WidgetInputHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setFocus(state) {
+    return this.$.setFocus(state);
+  }
+  mouseCaptureLost() {
+    return this.$.mouseCaptureLost();
+  }
+  setEditCommandsForNextKeyEvent(commands) {
+    return this.$.setEditCommandsForNextKeyEvent(commands);
+  }
+  cursorVisibilityChanged(visible) {
+    return this.$.cursorVisibilityChanged(visible);
+  }
+  imeSetComposition(text, ime_text_spans, range, start, end, ime_state) {
+    return this.$.imeSetComposition(text, ime_text_spans, range, start, end, ime_state);
+  }
+  imeCommitText(text, ime_text_spans, range, relative_cursor_position) {
+    return this.$.imeCommitText(text, ime_text_spans, range, relative_cursor_position);
+  }
+  imeFinishComposingText(keep_selection) {
+    return this.$.imeFinishComposingText(keep_selection);
+  }
+  requestTextInputStateUpdate() {
+    return this.$.requestTextInputStateUpdate();
+  }
+  requestCompositionUpdates(immediate_request, monitor_request) {
+    return this.$.requestCompositionUpdates(immediate_request, monitor_request);
+  }
+  dispatchEvent(event, original_event_for_gesture) {
+    return this.$.dispatchEvent(event, original_event_for_gesture);
+  }
+  dispatchNonBlockingEvent(event) {
+    return this.$.dispatchNonBlockingEvent(event);
+  }
+  waitForInputProcessed() {
+    return this.$.waitForInputProcessed();
+  }
+  pingMainThread() {
+    return this.$.pingMainThread();
+  }
+  attachSynchronousCompositor(control_host, host, compositor_request) {
+    return this.$.attachSynchronousCompositor(control_host, host, compositor_request);
+  }
+  getFrameWidgetInputHandler(interface_request) {
+    return this.$.getFrameWidgetInputHandler(interface_request);
+  }
+  updateBrowserControlsState(constraints, current, animate, offset_tag_modifications) {
+    return this.$.updateBrowserControlsState(constraints, current, animate, offset_tag_modifications);
   }
 };
 

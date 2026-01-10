@@ -125,6 +125,9 @@ ai.mojom.SmartTabGroupingServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  executeSmartTabGroupingRequest() {
+    return this.$.executeSmartTabGroupingRequest();
+  }
 };
 
 ai.mojom.SmartTabGroupingServiceRemoteCallHandler = class {

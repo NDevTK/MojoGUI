@@ -141,6 +141,18 @@ blink.mojom.BlobURLStoreRemote = class {
   close() {
     this.proxy.close();
   }
+  register(blob, url) {
+    return this.$.register(blob, url);
+  }
+  revoke(url) {
+    return this.$.revoke(url);
+  }
+  resolveAsURLLoaderFactory(url, factory) {
+    return this.$.resolveAsURLLoaderFactory(url, factory);
+  }
+  resolveAsBlobURLToken(url, token, is_top_level_navigation) {
+    return this.$.resolveAsBlobURLToken(url, token, is_top_level_navigation);
+  }
 };
 
 blink.mojom.BlobURLStoreRemoteCallHandler = class {
@@ -392,6 +404,12 @@ blink.mojom.BlobURLTokenRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  clone(token) {
+    return this.$.clone(token);
+  }
+  getToken() {
+    return this.$.getToken();
   }
 };
 

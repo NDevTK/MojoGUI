@@ -109,6 +109,9 @@ network.mojom.TraitsTestServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  echoHttpRequestHeaders(headers) {
+    return this.$.echoHttpRequestHeaders(headers);
+  }
 };
 
 network.mojom.TraitsTestServiceRemoteCallHandler = class {

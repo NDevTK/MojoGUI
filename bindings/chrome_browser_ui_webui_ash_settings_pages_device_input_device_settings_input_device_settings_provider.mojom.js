@@ -200,6 +200,12 @@ ash.settings.mojom.KeyboardSettingsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onKeyboardListUpdated(keyboards) {
+    return this.$.onKeyboardListUpdated(keyboards);
+  }
+  onKeyboardPoliciesUpdated(policies) {
+    return this.$.onKeyboardPoliciesUpdated(policies);
+  }
 };
 
 ash.settings.mojom.KeyboardSettingsObserverRemoteCallHandler = class {
@@ -377,6 +383,9 @@ ash.settings.mojom.TouchpadSettingsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onTouchpadListUpdated(touchpads) {
+    return this.$.onTouchpadListUpdated(touchpads);
+  }
 };
 
 ash.settings.mojom.TouchpadSettingsObserverRemoteCallHandler = class {
@@ -524,6 +533,9 @@ ash.settings.mojom.PointingStickSettingsObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPointingStickListUpdated(pointSticks) {
+    return this.$.onPointingStickListUpdated(pointSticks);
   }
 };
 
@@ -678,6 +690,12 @@ ash.settings.mojom.MouseSettingsObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onMouseListUpdated(mice) {
+    return this.$.onMouseListUpdated(mice);
+  }
+  onMousePoliciesUpdated(policies) {
+    return this.$.onMousePoliciesUpdated(policies);
   }
 };
 
@@ -856,6 +874,9 @@ ash.settings.mojom.ButtonPressObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onButtonPressed(button) {
+    return this.$.onButtonPressed(button);
+  }
 };
 
 ash.settings.mojom.ButtonPressObserverRemoteCallHandler = class {
@@ -1003,6 +1024,9 @@ ash.settings.mojom.GraphicsTabletSettingsObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onGraphicsTabletListUpdated(graphics_tablets) {
+    return this.$.onGraphicsTabletListUpdated(graphics_tablets);
   }
 };
 
@@ -1152,6 +1176,9 @@ ash.settings.mojom.KeyboardBrightnessObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onKeyboardBrightnessChanged(brightness_percent) {
+    return this.$.onKeyboardBrightnessChanged(brightness_percent);
+  }
 };
 
 ash.settings.mojom.KeyboardBrightnessObserverRemoteCallHandler = class {
@@ -1300,6 +1327,9 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onKeyboardAmbientLightSensorEnabledChanged(keyboard_ambient_light_sensor_enabled) {
+    return this.$.onKeyboardAmbientLightSensorEnabledChanged(keyboard_ambient_light_sensor_enabled);
+  }
 };
 
 ash.settings.mojom.KeyboardAmbientLightSensorObserverRemoteCallHandler = class {
@@ -1447,6 +1477,9 @@ ash.settings.mojom.LidStateObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLidStateChanged(is_lid_open) {
+    return this.$.onLidStateChanged(is_lid_open);
   }
 };
 
@@ -1808,6 +1841,93 @@ ash.settings.mojom.InputDeviceSettingsProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  observeKeyboardSettings(observer) {
+    return this.$.observeKeyboardSettings(observer);
+  }
+  observeTouchpadSettings(observer) {
+    return this.$.observeTouchpadSettings(observer);
+  }
+  observePointingStickSettings(observer) {
+    return this.$.observePointingStickSettings(observer);
+  }
+  observeMouseSettings(observer) {
+    return this.$.observeMouseSettings(observer);
+  }
+  observeGraphicsTabletSettings(observer) {
+    return this.$.observeGraphicsTabletSettings(observer);
+  }
+  observeButtonPresses(observer) {
+    return this.$.observeButtonPresses(observer);
+  }
+  observeKeyboardBrightness(observer) {
+    return this.$.observeKeyboardBrightness(observer);
+  }
+  observeKeyboardAmbientLightSensor(observer) {
+    return this.$.observeKeyboardAmbientLightSensor(observer);
+  }
+  observeLidState(observer) {
+    return this.$.observeLidState(observer);
+  }
+  restoreDefaultKeyboardRemappings(device_id) {
+    return this.$.restoreDefaultKeyboardRemappings(device_id);
+  }
+  setKeyboardSettings(device_id, settings) {
+    return this.$.setKeyboardSettings(device_id, settings);
+  }
+  setPointingStickSettings(device_id, settings) {
+    return this.$.setPointingStickSettings(device_id, settings);
+  }
+  setMouseSettings(device_id, settings) {
+    return this.$.setMouseSettings(device_id, settings);
+  }
+  setTouchpadSettings(device_id, settings) {
+    return this.$.setTouchpadSettings(device_id, settings);
+  }
+  setGraphicsTabletSettings(device_id, settings) {
+    return this.$.setGraphicsTabletSettings(device_id, settings);
+  }
+  setKeyboardBrightness(percent) {
+    return this.$.setKeyboardBrightness(percent);
+  }
+  setKeyboardAmbientLightSensorEnabled(enabled) {
+    return this.$.setKeyboardAmbientLightSensorEnabled(enabled);
+  }
+  startObserving(device_id) {
+    return this.$.startObserving(device_id);
+  }
+  stopObserving() {
+    return this.$.stopObserving();
+  }
+  getActionsForMouseButtonCustomization() {
+    return this.$.getActionsForMouseButtonCustomization();
+  }
+  getActionsForGraphicsTabletButtonCustomization() {
+    return this.$.getActionsForGraphicsTabletButtonCustomization();
+  }
+  getMetaKeyToDisplay() {
+    return this.$.getMetaKeyToDisplay();
+  }
+  hasKeyboardBacklight() {
+    return this.$.hasKeyboardBacklight();
+  }
+  hasAmbientLightSensor() {
+    return this.$.hasAmbientLightSensor();
+  }
+  isRgbKeyboardSupported() {
+    return this.$.isRgbKeyboardSupported();
+  }
+  recordKeyboardColorLinkClicked() {
+    return this.$.recordKeyboardColorLinkClicked();
+  }
+  recordKeyboardBrightnessChangeFromSlider(percent) {
+    return this.$.recordKeyboardBrightnessChangeFromSlider(percent);
+  }
+  getDeviceIconImage(device_key) {
+    return this.$.getDeviceIconImage(device_key);
+  }
+  launchCompanionApp(package_id) {
+    return this.$.launchCompanionApp(package_id);
   }
 };
 

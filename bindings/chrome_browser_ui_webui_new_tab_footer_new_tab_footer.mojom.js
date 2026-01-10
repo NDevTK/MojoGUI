@@ -148,6 +148,9 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createNewTabFooterHandler(document, handler) {
+    return this.$.createNewTabFooterHandler(document, handler);
+  }
 };
 
 new_tab_footer.mojom.NewTabFooterHandlerFactoryRemoteCallHandler = class {
@@ -336,6 +339,33 @@ new_tab_footer.mojom.NewTabFooterHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateNtpExtensionName() {
+    return this.$.updateNtpExtensionName();
+  }
+  updateManagementNotice() {
+    return this.$.updateManagementNotice();
+  }
+  updateAttachedTabState() {
+    return this.$.updateAttachedTabState();
+  }
+  updateBackgroundAttribution() {
+    return this.$.updateBackgroundAttribution();
+  }
+  openExtensionOptionsPageWithFallback() {
+    return this.$.openExtensionOptionsPageWithFallback();
+  }
+  openManagementPage() {
+    return this.$.openManagementPage();
+  }
+  openUrlInCurrentTab(url) {
+    return this.$.openUrlInCurrentTab(url);
+  }
+  showContextMenu(point) {
+    return this.$.showContextMenu(point);
+  }
+  notifyCustomizationButtonVisible() {
+    return this.$.notifyCustomizationButtonVisible();
   }
 };
 
@@ -735,6 +765,18 @@ new_tab_footer.mojom.NewTabFooterDocumentRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setNtpExtensionName(name) {
+    return this.$.setNtpExtensionName(name);
+  }
+  setManagementNotice(notice) {
+    return this.$.setManagementNotice(notice);
+  }
+  attachedTabStateUpdated(ntp_type, can_customize_chrome) {
+    return this.$.attachedTabStateUpdated(ntp_type, can_customize_chrome);
+  }
+  setBackgroundAttribution(background_image_attribution) {
+    return this.$.setBackgroundAttribution(background_image_attribution);
   }
 };
 

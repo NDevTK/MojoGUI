@@ -262,6 +262,39 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getNewScreencastPrecondition() {
+    return this.$.getNewScreencastPrecondition();
+  }
+  shouldDownloadSoda() {
+    return this.$.shouldDownloadSoda();
+  }
+  installSoda() {
+    return this.$.installSoda();
+  }
+  getPendingScreencasts() {
+    return this.$.getPendingScreencasts();
+  }
+  getUserPref(pref) {
+    return this.$.getUserPref(pref);
+  }
+  setUserPref(pref, value) {
+    return this.$.setUserPref(pref, value);
+  }
+  openFeedbackDialog() {
+    return this.$.openFeedbackDialog();
+  }
+  startProjectorSession(storage_dir_name) {
+    return this.$.startProjectorSession(storage_dir_name);
+  }
+  sendXhr(url, method, request_body, use_credentials, use_api_key, headers, account_email) {
+    return this.$.sendXhr(url, method, request_body, use_credentials, use_api_key, headers, account_email);
+  }
+  getAccounts() {
+    return this.$.getAccounts();
+  }
+  getVideo(video_file_id, resource_key) {
+    return this.$.getVideo(video_file_id, resource_key);
+  }
 };
 
 ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
@@ -788,6 +821,21 @@ ash.projector.mojom.UntrustedProjectorPageRemote = class {
   close() {
     this.proxy.close();
   }
+  onNewScreencastPreconditionChanged(precondition) {
+    return this.$.onNewScreencastPreconditionChanged(precondition);
+  }
+  onSodaInstallProgressUpdated(progress) {
+    return this.$.onSodaInstallProgressUpdated(progress);
+  }
+  onSodaInstalled() {
+    return this.$.onSodaInstalled();
+  }
+  onSodaInstallError() {
+    return this.$.onSodaInstallError();
+  }
+  onScreencastsStateChange(pending_screencasts) {
+    return this.$.onScreencastsStateChange(pending_screencasts);
+  }
 };
 
 ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
@@ -1052,6 +1100,9 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  create(handler, page) {
+    return this.$.create(handler, page);
   }
 };
 

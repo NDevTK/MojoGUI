@@ -105,6 +105,9 @@ blink.mojom.BroadcastChannelClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onMessage(message) {
+    return this.$.onMessage(message);
+  }
 };
 
 blink.mojom.BroadcastChannelClientRemoteCallHandler = class {
@@ -254,6 +257,9 @@ blink.mojom.BroadcastChannelProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  connectToChannel(name, client, connection) {
+    return this.$.connectToChannel(name, client, connection);
   }
 };
 

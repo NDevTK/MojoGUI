@@ -220,6 +220,18 @@ ash.cellular_setup.mojom.ESimManagerObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onAvailableEuiccListChanged() {
+    return this.$.onAvailableEuiccListChanged();
+  }
+  onProfileListChanged(euicc) {
+    return this.$.onProfileListChanged(euicc);
+  }
+  onEuiccChanged(euicc) {
+    return this.$.onEuiccChanged(euicc);
+  }
+  onProfileChanged(profile) {
+    return this.$.onProfileChanged(profile);
+  }
 };
 
 ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHandler = class {
@@ -465,6 +477,12 @@ ash.cellular_setup.mojom.ESimManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  getAvailableEuiccs() {
+    return this.$.getAvailableEuiccs();
   }
 };
 
@@ -713,6 +731,24 @@ ash.cellular_setup.mojom.EuiccRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getProperties() {
+    return this.$.getProperties();
+  }
+  getProfileList() {
+    return this.$.getProfileList();
+  }
+  requestAvailableProfiles() {
+    return this.$.requestAvailableProfiles();
+  }
+  refreshInstalledProfiles() {
+    return this.$.refreshInstalledProfiles();
+  }
+  installProfileFromActivationCode(activation_code, confirmation_code, install_method) {
+    return this.$.installProfileFromActivationCode(activation_code, confirmation_code, install_method);
+  }
+  getEidQRCode() {
+    return this.$.getEidQRCode();
   }
 };
 
@@ -1082,6 +1118,18 @@ ash.cellular_setup.mojom.ESimProfileRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getProperties() {
+    return this.$.getProperties();
+  }
+  installProfile(confirmation_code) {
+    return this.$.installProfile(confirmation_code);
+  }
+  uninstallProfile() {
+    return this.$.uninstallProfile();
+  }
+  setProfileNickname(nickname) {
+    return this.$.setProfileNickname(nickname);
   }
 };
 

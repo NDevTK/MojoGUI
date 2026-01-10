@@ -122,6 +122,12 @@ mojom.WebEngineMediaResourceProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  shouldUseAudioConsumer() {
+    return this.$.shouldUseAudioConsumer();
+  }
+  createAudioConsumer(request) {
+    return this.$.createAudioConsumer(request);
+  }
 };
 
 mojom.WebEngineMediaResourceProviderRemoteCallHandler = class {

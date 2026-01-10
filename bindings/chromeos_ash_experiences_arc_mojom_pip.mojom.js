@@ -114,6 +114,9 @@ arc.mojom.PipHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onPipEvent(event) {
+    return this.$.onPipEvent(event);
+  }
 };
 
 arc.mojom.PipHostRemoteCallHandler = class {
@@ -277,6 +280,15 @@ arc.mojom.PipInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  closePip() {
+    return this.$.closePip();
+  }
+  setPipSuppressionStatus(suppressed) {
+    return this.$.setPipSuppressionStatus(suppressed);
   }
 };
 

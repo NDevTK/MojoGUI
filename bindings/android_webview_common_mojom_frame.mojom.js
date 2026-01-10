@@ -171,6 +171,21 @@ android_webview.mojom.LocalMainFrameRemote = class {
   close() {
     this.proxy.close();
   }
+  setInitialPageScale(page_scale_factor) {
+    return this.$.setInitialPageScale(page_scale_factor);
+  }
+  setTextZoomFactor(zoom_factor) {
+    return this.$.setTextZoomFactor(zoom_factor);
+  }
+  documentHasImage() {
+    return this.$.documentHasImage();
+  }
+  resetScrollAndScaleState() {
+    return this.$.resetScrollAndScaleState();
+  }
+  smoothScroll(target_x, target_y, duration) {
+    return this.$.smoothScroll(target_x, target_y, duration);
+  }
 };
 
 android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
@@ -461,6 +476,15 @@ android_webview.mojom.FrameHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateHitTestData(data) {
+    return this.$.updateHitTestData(data);
+  }
+  contentsSizeChanged(contents_size) {
+    return this.$.contentsSizeChanged(contents_size);
+  }
+  shouldOverrideUrlLoading(url, has_user_gesture, is_redirect, is_outermost_main_frame) {
+    return this.$.shouldOverrideUrlLoading(url, has_user_gesture, is_redirect, is_outermost_main_frame);
   }
 };
 

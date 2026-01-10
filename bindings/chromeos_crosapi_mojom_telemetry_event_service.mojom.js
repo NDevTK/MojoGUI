@@ -454,6 +454,9 @@ crosapi.mojom.TelemetryEventObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onEvent(info) {
+    return this.$.onEvent(info);
+  }
 };
 
 crosapi.mojom.TelemetryEventObserverRemoteCallHandler = class {
@@ -614,6 +617,12 @@ crosapi.mojom.TelemetryEventServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addEventObserver(category, observer) {
+    return this.$.addEventObserver(category, observer);
+  }
+  isEventSupported(category) {
+    return this.$.isEventSupported(category);
   }
 };
 

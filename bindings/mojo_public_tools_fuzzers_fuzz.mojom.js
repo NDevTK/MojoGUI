@@ -264,6 +264,9 @@ fuzz.mojom.FuzzDummyInterfaceRemote = class {
   close() {
     this.proxy.close();
   }
+  ping() {
+    return this.$.ping();
+  }
 };
 
 fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
@@ -467,6 +470,27 @@ fuzz.mojom.FuzzInterfaceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  fuzzBasic() {
+    return this.$.fuzzBasic();
+  }
+  fuzzBasicResp() {
+    return this.$.fuzzBasicResp();
+  }
+  fuzzBasicSyncResp() {
+    return this.$.fuzzBasicSyncResp();
+  }
+  fuzzArgs(a, b) {
+    return this.$.fuzzArgs(a, b);
+  }
+  fuzzArgsResp(a, b) {
+    return this.$.fuzzArgsResp(a, b);
+  }
+  fuzzArgsSyncResp(a, b) {
+    return this.$.fuzzArgsSyncResp(a, b);
+  }
+  fuzzAssociated(receiver) {
+    return this.$.fuzzAssociated(receiver);
   }
 };
 

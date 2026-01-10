@@ -297,6 +297,18 @@ mojom.OmniboxPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  setClientPage(page) {
+    return this.$.setClientPage(page);
+  }
+  startOmniboxQuery(input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword, current_url, page_classification) {
+    return this.$.startOmniboxQuery(input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword, current_url, page_classification);
+  }
+  getMlModelVersion() {
+    return this.$.getMlModelVersion();
+  }
+  startMl(signals) {
+    return this.$.startMl(signals);
+  }
 };
 
 mojom.OmniboxPageHandlerRemoteCallHandler = class {
@@ -567,6 +579,18 @@ mojom.OmniboxPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  handleNewAutocompleteQuery(autocomplete_controller_type, input_text) {
+    return this.$.handleNewAutocompleteQuery(autocomplete_controller_type, input_text);
+  }
+  handleNewAutocompleteResponse(autocomplete_controller_type, response) {
+    return this.$.handleNewAutocompleteResponse(autocomplete_controller_type, response);
+  }
+  handleNewMlResponse(autocomplete_controller_type, input_text, matches) {
+    return this.$.handleNewMlResponse(autocomplete_controller_type, input_text, matches);
+  }
+  handleAnswerIconImageData(autocomplete_controller_type, image_url, image_data) {
+    return this.$.handleAnswerIconImageData(autocomplete_controller_type, image_url, image_data);
   }
 };
 

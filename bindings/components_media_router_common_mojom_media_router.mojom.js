@@ -404,6 +404,42 @@ media_router.mojom.MediaRouteProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  createRoute(media_source, sink_id, original_presentation_id, origin, frame_tree_node_id, timeout) {
+    return this.$.createRoute(media_source, sink_id, original_presentation_id, origin, frame_tree_node_id, timeout);
+  }
+  joinRoute(media_source, presentation_id, origin, frame_tree_node_id, timeout) {
+    return this.$.joinRoute(media_source, presentation_id, origin, frame_tree_node_id, timeout);
+  }
+  terminateRoute(route_id) {
+    return this.$.terminateRoute(route_id);
+  }
+  sendRouteMessage(media_route_id, message) {
+    return this.$.sendRouteMessage(media_route_id, message);
+  }
+  sendRouteBinaryMessage(media_route_id, data) {
+    return this.$.sendRouteBinaryMessage(media_route_id, data);
+  }
+  startObservingMediaSinks(media_source) {
+    return this.$.startObservingMediaSinks(media_source);
+  }
+  stopObservingMediaSinks(media_source) {
+    return this.$.stopObservingMediaSinks(media_source);
+  }
+  startObservingMediaRoutes() {
+    return this.$.startObservingMediaRoutes();
+  }
+  detachRoute(route_id) {
+    return this.$.detachRoute(route_id);
+  }
+  discoverSinksNow() {
+    return this.$.discoverSinksNow();
+  }
+  bindMediaController(route_id, media_controller, observer) {
+    return this.$.bindMediaController(route_id, media_controller, observer);
+  }
+  getState() {
+    return this.$.getState();
+  }
 };
 
 media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
@@ -985,6 +1021,42 @@ media_router.mojom.MediaRouterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  registerMediaRouteProvider(provider_id, media_router_provider) {
+    return this.$.registerMediaRouteProvider(provider_id, media_router_provider);
+  }
+  onSinksReceived(provider_id, media_source, sinks, origins) {
+    return this.$.onSinksReceived(provider_id, media_source, sinks, origins);
+  }
+  onIssue(issue) {
+    return this.$.onIssue(issue);
+  }
+  clearTopIssueForSink(sink_id) {
+    return this.$.clearTopIssueForSink(sink_id);
+  }
+  onRoutesUpdated(provider_id, routes) {
+    return this.$.onRoutesUpdated(provider_id, routes);
+  }
+  onPresentationConnectionStateChanged(route_id, state) {
+    return this.$.onPresentationConnectionStateChanged(route_id, state);
+  }
+  onPresentationConnectionClosed(route_id, reason, message) {
+    return this.$.onPresentationConnectionClosed(route_id, reason, message);
+  }
+  onRouteMessagesReceived(route_id, messages) {
+    return this.$.onRouteMessagesReceived(route_id, messages);
+  }
+  getMediaSinkServiceStatus() {
+    return this.$.getMediaSinkServiceStatus();
+  }
+  getLogger(receiver) {
+    return this.$.getLogger(receiver);
+  }
+  getDebugger(receiver) {
+    return this.$.getDebugger(receiver);
+  }
+  getLogsAsString() {
+    return this.$.getLogsAsString();
   }
 };
 

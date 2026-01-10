@@ -266,6 +266,54 @@ contextual_tasks.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getThreadUrl() {
+    return this.$.getThreadUrl();
+  }
+  getUrlForTask(uuid) {
+    return this.$.getUrlForTask(uuid);
+  }
+  setTaskId(uuid) {
+    return this.$.setTaskId(uuid);
+  }
+  isZeroState(url) {
+    return this.$.isZeroState(url);
+  }
+  setThreadTitle(title) {
+    return this.$.setThreadTitle(title);
+  }
+  closeSidePanel() {
+    return this.$.closeSidePanel();
+  }
+  showThreadHistory() {
+    return this.$.showThreadHistory();
+  }
+  isShownInTab() {
+    return this.$.isShownInTab();
+  }
+  openMyActivityUi() {
+    return this.$.openMyActivityUi();
+  }
+  openHelpUi() {
+    return this.$.openHelpUi();
+  }
+  openOnboardingHelpUi() {
+    return this.$.openOnboardingHelpUi();
+  }
+  moveTaskUiToNewTab() {
+    return this.$.moveTaskUiToNewTab();
+  }
+  onTabClickedFromSourcesMenu(tab_id, url) {
+    return this.$.onTabClickedFromSourcesMenu(tab_id, url);
+  }
+  onWebviewMessage(message) {
+    return this.$.onWebviewMessage(message);
+  }
+  getCommonSearchParams(is_dark_mode, is_side_panel) {
+    return this.$.getCommonSearchParams(is_dark_mode, is_side_panel);
+  }
+  onboardingTooltipDismissed() {
+    return this.$.onboardingTooltipDismissed();
+  }
 };
 
 contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
@@ -953,6 +1001,48 @@ contextual_tasks.mojom.PageRemote = class {
   close() {
     this.proxy.close();
   }
+  setThreadTitle(title) {
+    return this.$.setThreadTitle(title);
+  }
+  setTaskDetails(uuid, thread_id, turn_id) {
+    return this.$.setTaskDetails(uuid, thread_id, turn_id);
+  }
+  onSidePanelStateChanged() {
+    return this.$.onSidePanelStateChanged();
+  }
+  postMessageToWebview(message) {
+    return this.$.postMessageToWebview(message);
+  }
+  onHandshakeComplete() {
+    return this.$.onHandshakeComplete();
+  }
+  setOAuthToken(oauth_token) {
+    return this.$.setOAuthToken(oauth_token);
+  }
+  onContextUpdated(context_tabs) {
+    return this.$.onContextUpdated(context_tabs);
+  }
+  hideInput() {
+    return this.$.hideInput();
+  }
+  restoreInput() {
+    return this.$.restoreInput();
+  }
+  onZeroStateChange(is_zero_state) {
+    return this.$.onZeroStateChange(is_zero_state);
+  }
+  onAiPageStatusChanged(is_ai_page) {
+    return this.$.onAiPageStatusChanged(is_ai_page);
+  }
+  onLensOverlayStateChanged(is_showing) {
+    return this.$.onLensOverlayStateChanged(is_showing);
+  }
+  showErrorPage() {
+    return this.$.showErrorPage();
+  }
+  hideErrorPage() {
+    return this.$.hideErrorPage();
+  }
 };
 
 contextual_tasks.mojom.PageRemoteCallHandler = class {
@@ -1478,6 +1568,9 @@ contextual_tasks.mojom.PageHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createPageHandler(page, page_handler) {
+    return this.$.createPageHandler(page, page_handler);
   }
 };
 

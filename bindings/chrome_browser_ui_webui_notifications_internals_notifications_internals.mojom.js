@@ -102,6 +102,9 @@ notifications_internals.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  scheduleNotification(feature) {
+    return this.$.scheduleNotification(feature);
+  }
 };
 
 notifications_internals.mojom.PageHandlerRemoteCallHandler = class {

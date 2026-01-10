@@ -123,6 +123,15 @@ media_router.mojom.DebuggerRemote = class {
   close() {
     this.proxy.close();
   }
+  shouldFetchMirroringStats() {
+    return this.$.shouldFetchMirroringStats();
+  }
+  onMirroringStats(json_stats) {
+    return this.$.onMirroringStats(json_stats);
+  }
+  bindReceiver(receiver) {
+    return this.$.bindReceiver(receiver);
+  }
 };
 
 media_router.mojom.DebuggerRemoteCallHandler = class {

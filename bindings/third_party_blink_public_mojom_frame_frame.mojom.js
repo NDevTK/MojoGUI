@@ -1075,6 +1075,255 @@ blink.mojom.LocalFrameHostRemote = class {
   close() {
     this.proxy.close();
   }
+  enterFullscreen(options) {
+    return this.$.enterFullscreen(options);
+  }
+  exitFullscreen() {
+    return this.$.exitFullscreen();
+  }
+  fullscreenStateChanged(is_fullscreen, options) {
+    return this.$.fullscreenStateChanged(is_fullscreen, options);
+  }
+  registerProtocolHandler(scheme, url, user_gesture) {
+    return this.$.registerProtocolHandler(scheme, url, user_gesture);
+  }
+  unregisterProtocolHandler(scheme, url, user_gesture) {
+    return this.$.unregisterProtocolHandler(scheme, url, user_gesture);
+  }
+  didDisplayInsecureContent() {
+    return this.$.didDisplayInsecureContent();
+  }
+  didContainInsecureFormAction() {
+    return this.$.didContainInsecureFormAction();
+  }
+  mainDocumentElementAvailable(uses_temporary_zoom_level) {
+    return this.$.mainDocumentElementAvailable(uses_temporary_zoom_level);
+  }
+  setNeedsOcclusionTracking(needs_tracking) {
+    return this.$.setNeedsOcclusionTracking(needs_tracking);
+  }
+  setVirtualKeyboardMode(type) {
+    return this.$.setVirtualKeyboardMode(type);
+  }
+  visibilityChanged(visibility) {
+    return this.$.visibilityChanged(visibility);
+  }
+  didChangeThemeColor(theme_color) {
+    return this.$.didChangeThemeColor(theme_color);
+  }
+  didChangeBackgroundColor(background_color, color_adjust) {
+    return this.$.didChangeBackgroundColor(background_color, color_adjust);
+  }
+  didFailLoadWithError(url, error_code) {
+    return this.$.didFailLoadWithError(url, error_code);
+  }
+  didFocusFrame() {
+    return this.$.didFocusFrame();
+  }
+  didCallFocus() {
+    return this.$.didCallFocus();
+  }
+  enforceInsecureRequestPolicy(policy_bitmap) {
+    return this.$.enforceInsecureRequestPolicy(policy_bitmap);
+  }
+  enforceInsecureNavigationsSet(set) {
+    return this.$.enforceInsecureNavigationsSet(set);
+  }
+  suddenTerminationDisablerChanged(present, disabler_type) {
+    return this.$.suddenTerminationDisablerChanged(present, disabler_type);
+  }
+  hadStickyUserActivationBeforeNavigationChanged(has_gesture) {
+    return this.$.hadStickyUserActivationBeforeNavigationChanged(has_gesture);
+  }
+  scrollRectToVisibleInParentFrame(rect_to_scroll, params) {
+    return this.$.scrollRectToVisibleInParentFrame(rect_to_scroll, params);
+  }
+  bubbleLogicalScrollInParentFrame(direction, granularity) {
+    return this.$.bubbleLogicalScrollInParentFrame(direction, granularity);
+  }
+  startLoadingForAsyncNavigationApiCommit() {
+    return this.$.startLoadingForAsyncNavigationApiCommit();
+  }
+  didBlockNavigation(blocked_url, reason) {
+    return this.$.didBlockNavigation(blocked_url, reason);
+  }
+  didChangeLoadProgress(load_progress) {
+    return this.$.didChangeLoadProgress(load_progress);
+  }
+  didFinishLoad(validated_url) {
+    return this.$.didFinishLoad(validated_url);
+  }
+  dispatchLoad() {
+    return this.$.dispatchLoad();
+  }
+  goToEntryAtOffset(offset, has_user_gesture, actual_navigation_start, soft_navigation_heuristics_task_id) {
+    return this.$.goToEntryAtOffset(offset, has_user_gesture, actual_navigation_start, soft_navigation_heuristics_task_id);
+  }
+  navigateToNavigationApiKey(key, has_user_gesture, actual_navigation_start, soft_navigation_heuristics_task_id) {
+    return this.$.navigateToNavigationApiKey(key, has_user_gesture, actual_navigation_start, soft_navigation_heuristics_task_id);
+  }
+  navigateEventHandlerPresenceChanged(present) {
+    return this.$.navigateEventHandlerPresenceChanged(present);
+  }
+  updateTitle(title, title_direction) {
+    return this.$.updateTitle(title, title_direction);
+  }
+  updateApplicationTitle(application_title) {
+    return this.$.updateApplicationTitle(application_title);
+  }
+  updateUserActivationState(update_type, notification_type) {
+    return this.$.updateUserActivationState(update_type, notification_type);
+  }
+  didConsumeHistoryUserActivation() {
+    return this.$.didConsumeHistoryUserActivation();
+  }
+  handleAccessibilityFindInPageResult(params) {
+    return this.$.handleAccessibilityFindInPageResult(params);
+  }
+  handleAccessibilityFindInPageTermination() {
+    return this.$.handleAccessibilityFindInPageTermination();
+  }
+  documentOnLoadCompleted() {
+    return this.$.documentOnLoadCompleted();
+  }
+  forwardResourceTimingToParent(timing) {
+    return this.$.forwardResourceTimingToParent(timing);
+  }
+  didDispatchDOMContentLoadedEvent() {
+    return this.$.didDispatchDOMContentLoadedEvent();
+  }
+  runModalAlertDialog(alert_message, disable_third_party_subframe_suppresion) {
+    return this.$.runModalAlertDialog(alert_message, disable_third_party_subframe_suppresion);
+  }
+  runModalConfirmDialog(alert_message, disable_third_party_subframe_suppresion) {
+    return this.$.runModalConfirmDialog(alert_message, disable_third_party_subframe_suppresion);
+  }
+  runModalPromptDialog(alert_message, default_value, disable_third_party_subframe_suppresion) {
+    return this.$.runModalPromptDialog(alert_message, default_value, disable_third_party_subframe_suppresion);
+  }
+  runBeforeUnloadConfirm(is_reload) {
+    return this.$.runBeforeUnloadConfirm(is_reload);
+  }
+  updateFaviconURL(favicon_urls) {
+    return this.$.updateFaviconURL(favicon_urls);
+  }
+  downloadURL(params) {
+    return this.$.downloadURL(params);
+  }
+  focusedElementChanged(is_editable_element, is_richly_editable_element, bounds_in_frame_widget, focus_type) {
+    return this.$.focusedElementChanged(is_editable_element, is_richly_editable_element, bounds_in_frame_widget, focus_type);
+  }
+  textSelectionChanged(text, offset, range) {
+    return this.$.textSelectionChanged(text, offset, range);
+  }
+  showPopupMenu(popup_client, bounds, font_size, selected_item, menu_items, right_aligned, allow_multiple_selection) {
+    return this.$.showPopupMenu(popup_client, bounds, font_size, selected_item, menu_items, right_aligned, allow_multiple_selection);
+  }
+  createNewPopupWidget(popup_host, blink_widget_host, blink_widget) {
+    return this.$.createNewPopupWidget(popup_host, blink_widget_host, blink_widget);
+  }
+  showContextMenu(client, params) {
+    return this.$.showContextMenu(client, params);
+  }
+  didLoadResourceFromMemoryCache(url, http_method, mime_type, request_destination, include_credentials) {
+    return this.$.didLoadResourceFromMemoryCache(url, http_method, mime_type, request_destination, include_credentials);
+  }
+  didChangeFrameOwnerProperties(child_frame_token, frame_owner_properties) {
+    return this.$.didChangeFrameOwnerProperties(child_frame_token, frame_owner_properties);
+  }
+  didChangeOpener(opener_frame) {
+    return this.$.didChangeOpener(opener_frame);
+  }
+  didChangeFramePolicy(child_frame_token, frame_policy) {
+    return this.$.didChangeFramePolicy(child_frame_token, frame_policy);
+  }
+  didChangeIframeAttributes(child_frame_token, attributes) {
+    return this.$.didChangeIframeAttributes(child_frame_token, attributes);
+  }
+  capturePaintPreviewOfSubframe(clip_rect, guid) {
+    return this.$.capturePaintPreviewOfSubframe(clip_rect, guid);
+  }
+  setCloseListener(listener) {
+    return this.$.setCloseListener(listener);
+  }
+  detach() {
+    return this.$.detach();
+  }
+  getKeepAliveHandleFactory(factory) {
+    return this.$.getKeepAliveHandleFactory(factory);
+  }
+  didAddMessageToConsole(log_level, msg, line_number, source_id, untrusted_stack_trace) {
+    return this.$.didAddMessageToConsole(log_level, msg, line_number, source_id, untrusted_stack_trace);
+  }
+  frameSizeChanged(size) {
+    return this.$.frameSizeChanged(size);
+  }
+  didInferColorScheme(color_scheme) {
+    return this.$.didInferColorScheme(color_scheme);
+  }
+  didChangeSrcDoc(child_frame_token, srcdoc_value) {
+    return this.$.didChangeSrcDoc(child_frame_token, srcdoc_value);
+  }
+  receivedDelegatedCapability(delegated_capability) {
+    return this.$.receivedDelegatedCapability(delegated_capability);
+  }
+  sendFencedFrameReportingBeacon(event_data, event_type, destinations, cross_origin_exposed) {
+    return this.$.sendFencedFrameReportingBeacon(event_data, event_type, destinations, cross_origin_exposed);
+  }
+  sendFencedFrameReportingBeaconToCustomURL(destination_url, cross_origin_exposed) {
+    return this.$.sendFencedFrameReportingBeaconToCustomURL(destination_url, cross_origin_exposed);
+  }
+  disableUntrustedNetworkInFencedFrame() {
+    return this.$.disableUntrustedNetworkInFencedFrame();
+  }
+  exemptUrlFromNetworkRevocationForTesting(exempted_url) {
+    return this.$.exemptUrlFromNetworkRevocationForTesting(exempted_url);
+  }
+  sendLegacyTechEvent(type, code_location) {
+    return this.$.sendLegacyTechEvent(type, code_location);
+  }
+  setFencedFrameAutomaticBeaconReportEventData(event_type, event_data, destinations, once, cross_origin_exposed) {
+    return this.$.setFencedFrameAutomaticBeaconReportEventData(event_type, event_data, destinations, once, cross_origin_exposed);
+  }
+  sendPrivateAggregationRequestsForFencedFrameEvent(event_type) {
+    return this.$.sendPrivateAggregationRequestsForFencedFrameEvent(event_type);
+  }
+  createFencedFrame(fenced_frame, remote_frame_interfaces, frame_token, devtools_frame_token) {
+    return this.$.createFencedFrame(fenced_frame, remote_frame_interfaces, frame_token, devtools_frame_token);
+  }
+  forwardFencedFrameEventAndUserActivationToEmbedder(event_type) {
+    return this.$.forwardFencedFrameEventAndUserActivationToEmbedder(event_type);
+  }
+  onViewTransitionOptInChanged(view_transition_opt_in) {
+    return this.$.onViewTransitionOptInChanged(view_transition_opt_in);
+  }
+  startDragging(drag_data, operations_allowed, image, cursor_offset_in_dip, drag_obj_rect_in_dip, event_info) {
+    return this.$.startDragging(drag_data, operations_allowed, image, cursor_offset_in_dip, drag_obj_rect_in_dip, event_info);
+  }
+  issueKeepAliveHandle(receiver) {
+    return this.$.issueKeepAliveHandle(receiver);
+  }
+  notifyStorageAccessed(storageType, blocked) {
+    return this.$.notifyStorageAccessed(storageType, blocked);
+  }
+  recordWindowProxyUsageMetrics(target_frame_token, access_type) {
+    return this.$.recordWindowProxyUsageMetrics(target_frame_token, access_type);
+  }
+  notifyDocumentInteractive() {
+    return this.$.notifyDocumentInteractive();
+  }
+  setStorageAccessApiStatus(status) {
+    return this.$.setStorageAccessApiStatus(status);
+  }
+  initializeCrashReportStorage(length) {
+    return this.$.initializeCrashReportStorage(length);
+  }
+  setCrashReportStorageKey(key, value) {
+    return this.$.setCrashReportStorageKey(key, value);
+  }
+  removeCrashReportStorageKey(key) {
+    return this.$.removeCrashReportStorageKey(key);
+  }
 };
 
 blink.mojom.LocalFrameHostRemoteCallHandler = class {
@@ -3661,6 +3910,9 @@ blink.mojom.NonAssociatedLocalFrameHostRemote = class {
   close() {
     this.proxy.close();
   }
+  maybeStartOutermostMainFrameNavigation(urls) {
+    return this.$.maybeStartOutermostMainFrameNavigation(urls);
+  }
 };
 
 blink.mojom.NonAssociatedLocalFrameHostRemoteCallHandler = class {
@@ -4265,6 +4517,171 @@ blink.mojom.LocalFrameRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getTextSurroundingSelection(max_length) {
+    return this.$.getTextSurroundingSelection(max_length);
+  }
+  sendInterventionReport(id, message, child_frame_token) {
+    return this.$.sendInterventionReport(id, message, child_frame_token);
+  }
+  setFrameOwnerProperties(properties) {
+    return this.$.setFrameOwnerProperties(properties);
+  }
+  notifyUserActivation(notification_type) {
+    return this.$.notifyUserActivation(notification_type);
+  }
+  notifyVirtualKeyboardOverlayRect(keyboard_rect) {
+    return this.$.notifyVirtualKeyboardOverlayRect(keyboard_rect);
+  }
+  showInterestInElement(nodeID) {
+    return this.$.showInterestInElement(nodeID);
+  }
+  addMessageToConsole(level, message, discard_duplicates) {
+    return this.$.addMessageToConsole(level, message, discard_duplicates);
+  }
+  swapInImmediately() {
+    return this.$.swapInImmediately();
+  }
+  checkCompleted() {
+    return this.$.checkCompleted();
+  }
+  stopLoading() {
+    return this.$.stopLoading();
+  }
+  collapse(collapsed) {
+    return this.$.collapse(collapsed);
+  }
+  enableViewSourceMode() {
+    return this.$.enableViewSourceMode();
+  }
+  focus() {
+    return this.$.focus();
+  }
+  clearFocusedElement() {
+    return this.$.clearFocusedElement();
+  }
+  copyImageAt(window_point) {
+    return this.$.copyImageAt(window_point);
+  }
+  saveImageAt(window_point) {
+    return this.$.saveImageAt(window_point);
+  }
+  reportBlinkFeatureUsage(features) {
+    return this.$.reportBlinkFeatureUsage(features);
+  }
+  renderFallbackContent() {
+    return this.$.renderFallbackContent();
+  }
+  beforeUnload(is_reload) {
+    return this.$.beforeUnload(is_reload);
+  }
+  mediaPlayerActionAt(location, action) {
+    return this.$.mediaPlayerActionAt(location, action);
+  }
+  requestVideoFrameAtWithBoundsHint(location, max_size, max_area) {
+    return this.$.requestVideoFrameAtWithBoundsHint(location, max_size, max_area);
+  }
+  pluginActionAt(location, action) {
+    return this.$.pluginActionAt(location, action);
+  }
+  advanceFocusInFrame(focus_type, source_frame_token) {
+    return this.$.advanceFocusInFrame(focus_type, source_frame_token);
+  }
+  advanceFocusForIME(focus_type) {
+    return this.$.advanceFocusForIME(focus_type);
+  }
+  reportContentSecurityPolicyViolation(violation) {
+    return this.$.reportContentSecurityPolicyViolation(violation);
+  }
+  didUpdateFramePolicy(frame_policy) {
+    return this.$.didUpdateFramePolicy(frame_policy);
+  }
+  onFrameVisibilityChanged(visibility) {
+    return this.$.onFrameVisibilityChanged(visibility);
+  }
+  postMessageEvent(source_frame_token, source_origin, target_origin, message) {
+    return this.$.postMessageEvent(source_frame_token, source_origin, target_origin, message);
+  }
+  javaScriptMethodExecuteRequest(object_name, method_name, arguments, wants_result) {
+    return this.$.javaScriptMethodExecuteRequest(object_name, method_name, arguments, wants_result);
+  }
+  javaScriptExecuteRequest(javascript, wants_result) {
+    return this.$.javaScriptExecuteRequest(javascript, wants_result);
+  }
+  javaScriptExecuteRequestForTests(javascript, has_user_gesture, resolve_promises, honor_js_content_settings, world_id) {
+    return this.$.javaScriptExecuteRequestForTests(javascript, has_user_gesture, resolve_promises, honor_js_content_settings, world_id);
+  }
+  javaScriptExecuteRequestInIsolatedWorld(javascript, wants_result, world_id) {
+    return this.$.javaScriptExecuteRequestInIsolatedWorld(javascript, wants_result, world_id);
+  }
+  getCharacterIndexAtPoint(location) {
+    return this.$.getCharacterIndexAtPoint(location);
+  }
+  getFirstRectForRange(range) {
+    return this.$.getFirstRectForRange(range);
+  }
+  getStringForRange(range) {
+    return this.$.getStringForRange(range);
+  }
+  bindReportingObserver(receiver) {
+    return this.$.bindReportingObserver(receiver);
+  }
+  updateOpener(opener_frame_token) {
+    return this.$.updateOpener(opener_frame_token);
+  }
+  getSavableResourceLinks() {
+    return this.$.getSavableResourceLinks();
+  }
+  mixedContentFound(main_resource_url, mixed_content_url, request_context, was_allowed, url_before_redirects, had_redirect, source_location) {
+    return this.$.mixedContentFound(main_resource_url, mixed_content_url, request_context, was_allowed, url_before_redirects, had_redirect, source_location);
+  }
+  bindDevToolsAgent(agent_host, agent) {
+    return this.$.bindDevToolsAgent(agent_host, agent);
+  }
+  extractSmartClipData(rect) {
+    return this.$.extractSmartClipData(rect);
+  }
+  handleRendererDebugURL(url) {
+    return this.$.handleRendererDebugURL(url);
+  }
+  getCanonicalUrlForSharing() {
+    return this.$.getCanonicalUrlForSharing();
+  }
+  getOpenGraphMetadata() {
+    return this.$.getOpenGraphMetadata();
+  }
+  setNavigationApiHistoryEntriesForRestore(entry_arrays, restore_reason) {
+    return this.$.setNavigationApiHistoryEntriesForRestore(entry_arrays, restore_reason);
+  }
+  updatePrerenderURL(matched_url) {
+    return this.$.updatePrerenderURL(matched_url);
+  }
+  notifyNavigationApiOfDisposedEntries(keys) {
+    return this.$.notifyNavigationApiOfDisposedEntries(keys);
+  }
+  traverseCancelled(navigation_api_key, reason) {
+    return this.$.traverseCancelled(navigation_api_key, reason);
+  }
+  dispatchNavigateEventForCrossDocumentTraversal(url, page_state, is_browser_initiated) {
+    return this.$.dispatchNavigateEventForCrossDocumentTraversal(url, page_state, is_browser_initiated);
+  }
+  snapshotDocumentForViewTransition(transition_token, page_swap_event_params) {
+    return this.$.snapshotDocumentForViewTransition(transition_token, page_swap_event_params);
+  }
+  notifyViewTransitionAbortedToOldDocument() {
+    return this.$.notifyViewTransitionAbortedToOldDocument();
+  }
+  dispatchPageSwap(page_swap_event_params) {
+    return this.$.dispatchPageSwap(page_swap_event_params);
+  }
+  addResourceTimingEntryForFailedSubframeNavigation(subframe_token, initial_url, start_time, redirect_time, request_start, response_start, response_code, mime_type, load_timing_info, connection_info, alpn_negotiated_protocol, is_secure_transport, is_validated, normalized_server_timing, completion_status) {
+    return this.$.addResourceTimingEntryForFailedSubframeNavigation(subframe_token, initial_url, start_time, redirect_time, request_start, response_start, response_code, mime_type, load_timing_info, connection_info, alpn_negotiated_protocol, is_secure_transport, is_validated, normalized_server_timing, completion_status);
+  }
+  getScrollPosition() {
+    return this.$.getScrollPosition();
+  }
+  performSpellCheck() {
+    return this.$.performSpellCheck();
   }
 };
 
@@ -6154,6 +6571,42 @@ blink.mojom.LocalMainFrameRemote = class {
   close() {
     this.proxy.close();
   }
+  animateDoubleTapZoom(point, rect) {
+    return this.$.animateDoubleTapZoom(point, rect);
+  }
+  setScaleFactor(scale) {
+    return this.$.setScaleFactor(scale);
+  }
+  closePage() {
+    return this.$.closePage();
+  }
+  getFullPageSize() {
+    return this.$.getFullPageSize();
+  }
+  setInitialFocus(reverse) {
+    return this.$.setInitialFocus(reverse);
+  }
+  enablePreferredSizeChangedMode() {
+    return this.$.enablePreferredSizeChangedMode();
+  }
+  zoomToFindInPageRect(rect_in_root_frame) {
+    return this.$.zoomToFindInPageRect(rect_in_root_frame);
+  }
+  installCoopAccessMonitor(accessed_window, coop_reporter_info) {
+    return this.$.installCoopAccessMonitor(accessed_window, coop_reporter_info);
+  }
+  updateBrowserControlsState(constraints, current, animate, offset_tag_modifications) {
+    return this.$.updateBrowserControlsState(constraints, current, animate, offset_tag_modifications);
+  }
+  setV8CompileHints(data) {
+    return this.$.setV8CompileHints(data);
+  }
+  discard() {
+    return this.$.discard();
+  }
+  finalizeNavigationConfidence(randomized_trigger_rate, confidence) {
+    return this.$.finalizeNavigationConfidence(randomized_trigger_rate, confidence);
+  }
 };
 
 blink.mojom.LocalMainFrameRemoteCallHandler = class {
@@ -6745,6 +7198,57 @@ blink.mojom.LocalMainFrameHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  scaleFactorChanged(scale) {
+    return this.$.scaleFactorChanged(scale);
+  }
+  contentsPreferredSizeChanged(pref_size) {
+    return this.$.contentsPreferredSizeChanged(pref_size);
+  }
+  textAutosizerPageInfoChanged(page_info) {
+    return this.$.textAutosizerPageInfoChanged(page_info);
+  }
+  focusPage() {
+    return this.$.focusPage();
+  }
+  takeFocus(reverse) {
+    return this.$.takeFocus(reverse);
+  }
+  updateTargetURL(url) {
+    return this.$.updateTargetURL(url);
+  }
+  requestClose() {
+    return this.$.requestClose();
+  }
+  showCreatedWindow(opener_frame_token, disposition, window_features, opened_by_user_gesture) {
+    return this.$.showCreatedWindow(opener_frame_token, disposition, window_features, opened_by_user_gesture);
+  }
+  setWindowRect(bounds) {
+    return this.$.setWindowRect(bounds);
+  }
+  didFirstVisuallyNonEmptyPaint() {
+    return this.$.didFirstVisuallyNonEmptyPaint();
+  }
+  didAccessInitialMainDocument() {
+    return this.$.didAccessInitialMainDocument();
+  }
+  maximize() {
+    return this.$.maximize();
+  }
+  minimize() {
+    return this.$.minimize();
+  }
+  restore() {
+    return this.$.restore();
+  }
+  setResizable(resizable) {
+    return this.$.setResizable(resizable);
+  }
+  draggableRegionsChanged(regions) {
+    return this.$.draggableRegionsChanged(regions);
+  }
+  onFirstContentfulPaint(duration) {
+    return this.$.onFirstContentfulPaint(duration);
   }
 };
 

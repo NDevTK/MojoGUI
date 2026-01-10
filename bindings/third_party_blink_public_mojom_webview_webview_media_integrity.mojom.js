@@ -142,6 +142,9 @@ blink.mojom.WebViewMediaIntegrityServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getIntegrityProvider(provider_receiver, cloud_project_number) {
+    return this.$.getIntegrityProvider(provider_receiver, cloud_project_number);
+  }
 };
 
 blink.mojom.WebViewMediaIntegrityServiceRemoteCallHandler = class {
@@ -301,6 +304,9 @@ blink.mojom.WebViewMediaIntegrityProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestToken(content_binding) {
+    return this.$.requestToken(content_binding);
   }
 };
 

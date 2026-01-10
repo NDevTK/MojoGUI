@@ -101,6 +101,9 @@ video_capture.mojom.TestingControlsRemote = class {
   close() {
     this.proxy.close();
   }
+  crash() {
+    return this.$.crash();
+  }
 };
 
 video_capture.mojom.TestingControlsRemoteCallHandler = class {

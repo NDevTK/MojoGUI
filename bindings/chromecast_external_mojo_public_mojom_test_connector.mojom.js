@@ -105,6 +105,9 @@ chromecast.external_mojo.mojom.TestExternalConnectorRemote = class {
   close() {
     this.proxy.close();
   }
+  bindInterfaceInternal(service_name, interface_name, interface_pipe) {
+    return this.$.bindInterfaceInternal(service_name, interface_name, interface_pipe);
+  }
 };
 
 chromecast.external_mojo.mojom.TestExternalConnectorRemoteCallHandler = class {

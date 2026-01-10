@@ -121,6 +121,9 @@ ash.media_app_ui.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 ash.media_app_ui.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -342,6 +345,27 @@ ash.media_app_ui.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  openFeedbackDialog() {
+    return this.$.openFeedbackDialog();
+  }
+  toggleBrowserFullscreenMode() {
+    return this.$.toggleBrowserFullscreenMode();
+  }
+  maybeTriggerPdfHats() {
+    return this.$.maybeTriggerPdfHats();
+  }
+  isFileArcWritable(token) {
+    return this.$.isFileArcWritable(token);
+  }
+  isFileBrowserWritable(token) {
+    return this.$.isFileBrowserWritable(token);
+  }
+  editInPhotos(token, mime_type) {
+    return this.$.editInPhotos(token, mime_type);
+  }
+  submitForm(url, payload, header) {
+    return this.$.submitForm(url, payload, header);
   }
 };
 

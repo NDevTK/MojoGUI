@@ -108,6 +108,9 @@ web.mojom.WebUsageControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  setWebUsageEnabled(enabled) {
+    return this.$.setWebUsageEnabled(enabled);
+  }
 };
 
 web.mojom.WebUsageControllerRemoteCallHandler = class {

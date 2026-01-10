@@ -122,6 +122,9 @@ ash.extended_updates.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 ash.extended_updates.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -290,6 +293,15 @@ ash.extended_updates.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  optInToExtendedUpdates() {
+    return this.$.optInToExtendedUpdates();
+  }
+  closeDialog() {
+    return this.$.closeDialog();
+  }
+  getInstalledAndroidApps() {
+    return this.$.getInstalledAndroidApps();
   }
 };
 

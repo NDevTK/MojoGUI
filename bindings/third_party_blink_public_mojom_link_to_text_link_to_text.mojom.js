@@ -190,6 +190,24 @@ blink.mojom.TextFragmentReceiverRemote = class {
   close() {
     this.proxy.close();
   }
+  cancel() {
+    return this.$.cancel();
+  }
+  requestSelector() {
+    return this.$.requestSelector();
+  }
+  removeFragments() {
+    return this.$.removeFragments();
+  }
+  extractTextFragmentsMatches() {
+    return this.$.extractTextFragmentsMatches();
+  }
+  getExistingSelectors() {
+    return this.$.getExistingSelectors();
+  }
+  extractFirstFragmentRect() {
+    return this.$.extractFirstFragmentRect();
+  }
 };
 
 blink.mojom.TextFragmentReceiverRemoteCallHandler = class {

@@ -118,6 +118,9 @@ foo.mojom.FooHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getData() {
+    return this.$.getData();
+  }
 };
 
 foo.mojom.FooHandlerRemoteCallHandler = class {

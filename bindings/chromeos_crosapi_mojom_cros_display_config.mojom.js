@@ -397,6 +397,36 @@ crosapi.mojom.CrosDisplayConfigControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  getDisplayLayoutInfo() {
+    return this.$.getDisplayLayoutInfo();
+  }
+  setDisplayLayoutInfo(info) {
+    return this.$.setDisplayLayoutInfo(info);
+  }
+  getDisplayUnitInfoList(single_unified) {
+    return this.$.getDisplayUnitInfoList(single_unified);
+  }
+  setDisplayProperties(id, properties, source) {
+    return this.$.setDisplayProperties(id, properties, source);
+  }
+  setUnifiedDesktopEnabled(enabled) {
+    return this.$.setUnifiedDesktopEnabled(enabled);
+  }
+  overscanCalibration(display_id, op, delta) {
+    return this.$.overscanCalibration(display_id, op, delta);
+  }
+  touchCalibration(display_id, op, calibration) {
+    return this.$.touchCalibration(display_id, op, calibration);
+  }
+  highlightDisplay(id) {
+    return this.$.highlightDisplay(id);
+  }
+  dragDisplayDelta(display_id, delta_x, delta_y) {
+    return this.$.dragDisplayDelta(display_id, delta_x, delta_y);
+  }
 };
 
 crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
@@ -840,6 +870,9 @@ crosapi.mojom.CrosDisplayConfigObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onDisplayConfigChanged() {
+    return this.$.onDisplayConfigChanged();
   }
 };
 

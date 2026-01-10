@@ -180,6 +180,27 @@ media.mojom.RendererRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize(client, streams) {
+    return this.$.initialize(client, streams);
+  }
+  flush() {
+    return this.$.flush();
+  }
+  startPlayingFrom(time) {
+    return this.$.startPlayingFrom(time);
+  }
+  setPlaybackRate(playback_rate) {
+    return this.$.setPlaybackRate(playback_rate);
+  }
+  setVolume(volume) {
+    return this.$.setVolume(volume);
+  }
+  setCdm(cdm_id) {
+    return this.$.setCdm(cdm_id);
+  }
+  setLatencyHint(latency_hint) {
+    return this.$.setLatencyHint(latency_hint);
+  }
 };
 
 media.mojom.RendererRemoteCallHandler = class {
@@ -575,6 +596,36 @@ media.mojom.RendererClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onTimeUpdate(time, max_time, capture_time) {
+    return this.$.onTimeUpdate(time, max_time, capture_time);
+  }
+  onBufferingStateChange(state, reason) {
+    return this.$.onBufferingStateChange(state, reason);
+  }
+  onEnded() {
+    return this.$.onEnded();
+  }
+  onError(status) {
+    return this.$.onError(status);
+  }
+  onAudioConfigChange(config) {
+    return this.$.onAudioConfigChange(config);
+  }
+  onVideoConfigChange(config) {
+    return this.$.onVideoConfigChange(config);
+  }
+  onVideoNaturalSizeChange(size) {
+    return this.$.onVideoNaturalSizeChange(size);
+  }
+  onVideoOpacityChange(opaque) {
+    return this.$.onVideoOpacityChange(opaque);
+  }
+  onStatisticsUpdate(stats) {
+    return this.$.onStatisticsUpdate(stats);
+  }
+  onWaiting(reason) {
+    return this.$.onWaiting(reason);
   }
 };
 

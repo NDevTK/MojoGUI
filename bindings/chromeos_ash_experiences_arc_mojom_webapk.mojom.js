@@ -176,6 +176,12 @@ arc.mojom.WebApkInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  installWebApk(package_name, version, app_name, token) {
+    return this.$.installWebApk(package_name, version, app_name, token);
+  }
+  getWebApkInfo(package_name) {
+    return this.$.getWebApkInfo(package_name);
+  }
 };
 
 arc.mojom.WebApkInstanceRemoteCallHandler = class {

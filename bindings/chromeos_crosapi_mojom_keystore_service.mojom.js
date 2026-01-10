@@ -718,6 +718,72 @@ crosapi.mojom.KeystoreServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  challengeAttestationOnlyKeystore(type, challenge, migrate, algorithm) {
+    return this.$.challengeAttestationOnlyKeystore(type, challenge, migrate, algorithm);
+  }
+  getKeyStores() {
+    return this.$.getKeyStores();
+  }
+  selectClientCertificates(certificate_authorities) {
+    return this.$.selectClientCertificates(certificate_authorities);
+  }
+  getCertificates(keystore) {
+    return this.$.getCertificates(keystore);
+  }
+  addCertificate(keystore, certificate) {
+    return this.$.addCertificate(keystore, certificate);
+  }
+  removeCertificate(keystore, certificate) {
+    return this.$.removeCertificate(keystore, certificate);
+  }
+  getPublicKey(certificate, algorithm_name) {
+    return this.$.getPublicKey(certificate, algorithm_name);
+  }
+  generateKey(keystore, algorithm) {
+    return this.$.generateKey(keystore, algorithm);
+  }
+  removeKey(keystore, public_key) {
+    return this.$.removeKey(keystore, public_key);
+  }
+  sign(is_keystore_provided, keystore, public_key, scheme, data) {
+    return this.$.sign(is_keystore_provided, keystore, public_key, scheme, data);
+  }
+  getKeyTags(public_key) {
+    return this.$.getKeyTags(public_key);
+  }
+  addKeyTags(public_key, tags) {
+    return this.$.addKeyTags(public_key, tags);
+  }
+  canUserGrantPermissionForKey(public_key) {
+    return this.$.canUserGrantPermissionForKey(public_key);
+  }
+  setAttributeForKey(keystore, public_key, attribute_type, attribute_value) {
+    return this.$.setAttributeForKey(keystore, public_key, attribute_type, attribute_value);
+  }
+  dEPRECATED_ExtensionGenerateKey(keystore, algorithm, extension_id) {
+    return this.$.dEPRECATED_ExtensionGenerateKey(keystore, algorithm, extension_id);
+  }
+  dEPRECATED_ExtensionSign(keystore, public_key, scheme, data, extension_id) {
+    return this.$.dEPRECATED_ExtensionSign(keystore, public_key, scheme, data, extension_id);
+  }
+  dEPRECATED_GetPublicKey(certificate, algorithm_name) {
+    return this.$.dEPRECATED_GetPublicKey(certificate, algorithm_name);
+  }
+  dEPRECATED_GetKeyStores() {
+    return this.$.dEPRECATED_GetKeyStores();
+  }
+  dEPRECATED_GetCertificates(keystore) {
+    return this.$.dEPRECATED_GetCertificates(keystore);
+  }
+  dEPRECATED_AddCertificate(keystore, certificate) {
+    return this.$.dEPRECATED_AddCertificate(keystore, certificate);
+  }
+  dEPRECATED_RemoveCertificate(keystore, certificate) {
+    return this.$.dEPRECATED_RemoveCertificate(keystore, certificate);
+  }
+  dEPRECATED_ChallengeAttestationOnlyKeystore(challenge, type, migrate) {
+    return this.$.dEPRECATED_ChallengeAttestationOnlyKeystore(challenge, type, migrate);
+  }
 };
 
 crosapi.mojom.KeystoreServiceRemoteCallHandler = class {

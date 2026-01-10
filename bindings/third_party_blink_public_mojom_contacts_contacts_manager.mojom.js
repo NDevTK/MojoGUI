@@ -136,6 +136,9 @@ blink.mojom.ContactsManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  select(multiple, include_names, include_emails, include_tel, include_addresses, include_icons) {
+    return this.$.select(multiple, include_names, include_emails, include_tel, include_addresses, include_icons);
+  }
 };
 
 blink.mojom.ContactsManagerRemoteCallHandler = class {

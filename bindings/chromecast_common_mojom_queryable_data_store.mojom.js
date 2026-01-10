@@ -105,6 +105,9 @@ chromecast.shell.mojom.QueryableDataStoreRemote = class {
   close() {
     this.proxy.close();
   }
+  set(key, value) {
+    return this.$.set(key, value);
+  }
 };
 
 chromecast.shell.mojom.QueryableDataStoreRemoteCallHandler = class {

@@ -137,6 +137,9 @@ policy.local_user_files.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 policy.local_user_files.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -301,6 +304,15 @@ policy.local_user_files.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getInitialDialogInfo() {
+    return this.$.getInitialDialogInfo();
+  }
+  uploadOrDeleteNow() {
+    return this.$.uploadOrDeleteNow();
+  }
+  close() {
+    return this.$.close();
   }
 };
 
@@ -513,6 +525,9 @@ policy.local_user_files.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateRemainingTime(remaining_time) {
+    return this.$.updateRemainingTime(remaining_time);
   }
 };
 

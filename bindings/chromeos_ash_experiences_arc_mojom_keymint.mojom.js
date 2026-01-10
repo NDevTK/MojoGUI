@@ -791,6 +791,9 @@ arc.mojom.keymint.KeyMintHostRemote = class {
   close() {
     this.proxy.close();
   }
+  getServer() {
+    return this.$.getServer();
+  }
 };
 
 arc.mojom.keymint.KeyMintHostRemoteCallHandler = class {
@@ -949,6 +952,9 @@ arc.mojom.keymint.KeyMintInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 
@@ -1406,6 +1412,87 @@ arc.mojom.keymint.KeyMintServerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setSystemVersion(android_version, android_patchlevel) {
+    return this.$.setSystemVersion(android_version, android_patchlevel);
+  }
+  addRngEntropy(data) {
+    return this.$.addRngEntropy(data);
+  }
+  generateKey(request) {
+    return this.$.generateKey(request);
+  }
+  importKey(request) {
+    return this.$.importKey(request);
+  }
+  importWrappedKey(request) {
+    return this.$.importWrappedKey(request);
+  }
+  upgradeKey(request) {
+    return this.$.upgradeKey(request);
+  }
+  deleteKey(key_blob) {
+    return this.$.deleteKey(key_blob);
+  }
+  deleteAllKeys() {
+    return this.$.deleteAllKeys();
+  }
+  destroyAttestationIds() {
+    return this.$.destroyAttestationIds();
+  }
+  begin(request) {
+    return this.$.begin(request);
+  }
+  deviceLocked(password_only, timestamp_token) {
+    return this.$.deviceLocked(password_only, timestamp_token);
+  }
+  earlyBootEnded() {
+    return this.$.earlyBootEnded();
+  }
+  convertStorageKeyToEphemeral(storage_key_blob) {
+    return this.$.convertStorageKeyToEphemeral(storage_key_blob);
+  }
+  getKeyCharacteristics(request) {
+    return this.$.getKeyCharacteristics(request);
+  }
+  getRootOfTrustChallenge() {
+    return this.$.getRootOfTrustChallenge();
+  }
+  getRootOfTrust(challenge) {
+    return this.$.getRootOfTrust(challenge);
+  }
+  sendRootOfTrust(root_of_trust) {
+    return this.$.sendRootOfTrust(root_of_trust);
+  }
+  updateAad(request) {
+    return this.$.updateAad(request);
+  }
+  update(request) {
+    return this.$.update(request);
+  }
+  finish(request) {
+    return this.$.finish(request);
+  }
+  abort(op_handle) {
+    return this.$.abort(op_handle);
+  }
+  getSharedSecretParameters() {
+    return this.$.getSharedSecretParameters();
+  }
+  computeSharedSecret(secret_params) {
+    return this.$.computeSharedSecret(secret_params);
+  }
+  generateTimeStamp(challenge) {
+    return this.$.generateTimeStamp(challenge);
+  }
+  generateEcdsaP256KeyPair(test_mode) {
+    return this.$.generateEcdsaP256KeyPair(test_mode);
+  }
+  generateCertificateRequest(request) {
+    return this.$.generateCertificateRequest(request);
+  }
+  setVendorPatchLevel(android_vendor_patchlevel) {
+    return this.$.setVendorPatchLevel(android_vendor_patchlevel);
   }
 };
 

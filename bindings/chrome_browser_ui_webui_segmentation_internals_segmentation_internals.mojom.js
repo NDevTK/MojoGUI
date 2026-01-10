@@ -146,6 +146,9 @@ segmentation_internals.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 segmentation_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -312,6 +315,18 @@ segmentation_internals.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getServiceStatus() {
+    return this.$.getServiceStatus();
+  }
+  executeModel(segment_id) {
+    return this.$.executeModel(segment_id);
+  }
+  overwriteResult(segment_id, result) {
+    return this.$.overwriteResult(segment_id, result);
+  }
+  setSelected(segmentation_key, optimization_target) {
+    return this.$.setSelected(segmentation_key, optimization_target);
   }
 };
 
@@ -554,6 +569,12 @@ segmentation_internals.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onServiceStatusChanged(is_initialized, status_flag) {
+    return this.$.onServiceStatusChanged(is_initialized, status_flag);
+  }
+  onClientInfoAvailable(client_info) {
+    return this.$.onClientInfoAvailable(client_info);
   }
 };
 

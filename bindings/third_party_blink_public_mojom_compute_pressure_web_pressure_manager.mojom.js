@@ -114,6 +114,9 @@ blink.mojom.WebPressureManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  addClient(source, client) {
+    return this.$.addClient(source, client);
+  }
 };
 
 blink.mojom.WebPressureManagerRemoteCallHandler = class {
@@ -267,6 +270,9 @@ blink.mojom.WebPressureClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPressureUpdated(update) {
+    return this.$.onPressureUpdated(update);
   }
 };
 

@@ -163,6 +163,21 @@ blink.mojom.StorageAreaObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  keyChanged(key, new_value, old_value, source) {
+    return this.$.keyChanged(key, new_value, old_value, source);
+  }
+  keyChangeFailed(key, source) {
+    return this.$.keyChangeFailed(key, source);
+  }
+  keyDeleted(key, old_value, source) {
+    return this.$.keyDeleted(key, old_value, source);
+  }
+  allDeleted(was_nonempty, source) {
+    return this.$.allDeleted(was_nonempty, source);
+  }
+  shouldSendOldValueOnMutations(value) {
+    return this.$.shouldSendOldValueOnMutations(value);
+  }
 };
 
 blink.mojom.StorageAreaObserverRemoteCallHandler = class {
@@ -493,6 +508,24 @@ blink.mojom.StorageAreaRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  put(key, value, client_old_value, source) {
+    return this.$.put(key, value, client_old_value, source);
+  }
+  delete(key, client_old_value, source) {
+    return this.$.delete(key, client_old_value, source);
+  }
+  deleteAll(source, new_observer) {
+    return this.$.deleteAll(source, new_observer);
+  }
+  get(key) {
+    return this.$.get(key);
+  }
+  getAll(new_observer) {
+    return this.$.getAll(new_observer);
   }
 };
 

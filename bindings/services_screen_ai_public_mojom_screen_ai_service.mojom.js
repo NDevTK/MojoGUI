@@ -248,6 +248,24 @@ screen_ai.mojom.ScreenAIAnnotatorRemote = class {
   close() {
     this.proxy.close();
   }
+  performOcrAndReturnAXTreeUpdate(image) {
+    return this.$.performOcrAndReturnAXTreeUpdate(image);
+  }
+  performOcrAndReturnAnnotation(image) {
+    return this.$.performOcrAndReturnAnnotation(image);
+  }
+  setClientType(client_type) {
+    return this.$.setClientType(client_type);
+  }
+  getMaxImageDimension() {
+    return this.$.getMaxImageDimension();
+  }
+  setOCRLightMode(enabled) {
+    return this.$.setOCRLightMode(enabled);
+  }
+  isOCRBusy() {
+    return this.$.isOCRBusy();
+  }
 };
 
 screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
@@ -602,6 +620,18 @@ screen_ai.mojom.Screen2xMainContentExtractorRemote = class {
   close() {
     this.proxy.close();
   }
+  extractMainContent(snapshot) {
+    return this.$.extractMainContent(snapshot);
+  }
+  extractMainNode(snapshot) {
+    return this.$.extractMainNode(snapshot);
+  }
+  identifyMainNode(ax_tree) {
+    return this.$.identifyMainNode(ax_tree);
+  }
+  setClientType(client_type) {
+    return this.$.setClientType(client_type);
+  }
 };
 
 screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
@@ -855,6 +885,9 @@ screen_ai.mojom.OCRServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  bindAnnotator(annotator) {
+    return this.$.bindAnnotator(annotator);
+  }
 };
 
 screen_ai.mojom.OCRServiceRemoteCallHandler = class {
@@ -1002,6 +1035,9 @@ screen_ai.mojom.MainContentExtractionServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindMainContentExtractor(main_content_extractor) {
+    return this.$.bindMainContentExtractor(main_content_extractor);
   }
 };
 

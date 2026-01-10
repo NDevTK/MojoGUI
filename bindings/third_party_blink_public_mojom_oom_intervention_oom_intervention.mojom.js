@@ -112,6 +112,9 @@ blink.mojom.OomInterventionHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onHighMemoryUsage() {
+    return this.$.onHighMemoryUsage();
+  }
 };
 
 blink.mojom.OomInterventionHostRemoteCallHandler = class {
@@ -263,6 +266,9 @@ blink.mojom.OomInterventionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startDetection(host, detection_args, renderer_pause_enabled, navigate_ads_enabled, purge_v8_memory_enabled) {
+    return this.$.startDetection(host, detection_args, renderer_pause_enabled, navigate_ads_enabled, purge_v8_memory_enabled);
   }
 };
 

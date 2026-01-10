@@ -228,6 +228,9 @@ downloads.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 downloads.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -513,6 +516,78 @@ downloads.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDownloads(search_terms) {
+    return this.$.getDownloads(search_terms);
+  }
+  openFileRequiringGesture(id) {
+    return this.$.openFileRequiringGesture(id);
+  }
+  drag(id) {
+    return this.$.drag(id);
+  }
+  saveSuspiciousRequiringGesture(id) {
+    return this.$.saveSuspiciousRequiringGesture(id);
+  }
+  recordOpenBypassWarningDialog(id) {
+    return this.$.recordOpenBypassWarningDialog(id);
+  }
+  saveDangerousFromDialogRequiringGesture(id) {
+    return this.$.saveDangerousFromDialogRequiringGesture(id);
+  }
+  recordCancelBypassWarningDialog(id) {
+    return this.$.recordCancelBypassWarningDialog(id);
+  }
+  discardDangerous(id) {
+    return this.$.discardDangerous(id);
+  }
+  retryDownload(id) {
+    return this.$.retryDownload(id);
+  }
+  show(id) {
+    return this.$.show(id);
+  }
+  pause(id) {
+    return this.$.pause(id);
+  }
+  resume(id) {
+    return this.$.resume(id);
+  }
+  remove(id) {
+    return this.$.remove(id);
+  }
+  undo() {
+    return this.$.undo();
+  }
+  cancel(id) {
+    return this.$.cancel(id);
+  }
+  clearAll() {
+    return this.$.clearAll();
+  }
+  openDownloadsFolderRequiringGesture() {
+    return this.$.openDownloadsFolderRequiringGesture();
+  }
+  openEsbSettings() {
+    return this.$.openEsbSettings();
+  }
+  logEsbPromotionRowViewed() {
+    return this.$.logEsbPromotionRowViewed();
+  }
+  openDuringScanningRequiringGesture(id) {
+    return this.$.openDuringScanningRequiringGesture(id);
+  }
+  reviewDangerousRequiringGesture(id) {
+    return this.$.reviewDangerousRequiringGesture(id);
+  }
+  deepScan(id) {
+    return this.$.deepScan(id);
+  }
+  bypassDeepScanRequiringGesture(id) {
+    return this.$.bypassDeepScanRequiringGesture(id);
+  }
+  isEligibleForEsbPromo() {
+    return this.$.isEligibleForEsbPromo();
   }
 };
 
@@ -1353,6 +1428,18 @@ downloads.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  removeItem(index) {
+    return this.$.removeItem(index);
+  }
+  updateItem(index, data) {
+    return this.$.updateItem(index, data);
+  }
+  insertItems(index, items) {
+    return this.$.insertItems(index, items);
+  }
+  clearAll() {
+    return this.$.clearAll();
   }
 };
 

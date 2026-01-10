@@ -225,6 +225,9 @@ blink.mojom.FeatureObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  register(feature, type) {
+    return this.$.register(feature, type);
+  }
 };
 
 blink.mojom.FeatureObserverRemoteCallHandler = class {

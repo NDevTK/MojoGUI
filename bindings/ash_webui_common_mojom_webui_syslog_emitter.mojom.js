@@ -104,6 +104,9 @@ ash.common.mojom.WebUiSyslogEmitterRemote = class {
   close() {
     this.proxy.close();
   }
+  emitSyslog(prefix, message) {
+    return this.$.emitSyslog(prefix, message);
+  }
 };
 
 ash.common.mojom.WebUiSyslogEmitterRemoteCallHandler = class {

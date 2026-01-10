@@ -216,6 +216,24 @@ arc.mojom.DigitalGoodsInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  getDetails(package_name, scope, item_ids) {
+    return this.$.getDetails(package_name, scope, item_ids);
+  }
+  acknowledge(package_name, scope, purchase_token, make_available_again) {
+    return this.$.acknowledge(package_name, scope, purchase_token, make_available_again);
+  }
+  deprecatedListPurchases(package_name, scope) {
+    return this.$.deprecatedListPurchases(package_name, scope);
+  }
+  listPurchases(package_name, scope) {
+    return this.$.listPurchases(package_name, scope);
+  }
+  listPurchaseHistory(package_name, scope) {
+    return this.$.listPurchaseHistory(package_name, scope);
+  }
+  consume(package_name, scope, purchase_token) {
+    return this.$.consume(package_name, scope, purchase_token);
+  }
 };
 
 arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {

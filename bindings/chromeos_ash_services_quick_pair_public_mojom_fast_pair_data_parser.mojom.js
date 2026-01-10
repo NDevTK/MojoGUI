@@ -338,6 +338,21 @@ ash.quick_pair.mojom.FastPairDataParserRemote = class {
   close() {
     this.proxy.close();
   }
+  getHexModelIdFromServiceData(service_data) {
+    return this.$.getHexModelIdFromServiceData(service_data);
+  }
+  parseDecryptedResponse(aes_key, encrypted_response_bytes) {
+    return this.$.parseDecryptedResponse(aes_key, encrypted_response_bytes);
+  }
+  parseDecryptedPasskey(aes_key, encrypted_passkey_bytes) {
+    return this.$.parseDecryptedPasskey(aes_key, encrypted_passkey_bytes);
+  }
+  parseNotDiscoverableAdvertisement(service_data, address) {
+    return this.$.parseNotDiscoverableAdvertisement(service_data, address);
+  }
+  parseMessageStreamMessages(message_bytes) {
+    return this.$.parseMessageStreamMessages(message_bytes);
+  }
 };
 
 ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {

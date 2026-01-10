@@ -103,6 +103,9 @@ blink.mojom.DiskAllocatorRemote = class {
   close() {
     this.proxy.close();
   }
+  provideTemporaryFile(file) {
+    return this.$.provideTemporaryFile(file);
+  }
 };
 
 blink.mojom.DiskAllocatorRemoteCallHandler = class {

@@ -195,6 +195,18 @@ arc.mojom.VideoDecoderRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize(config, client, video_frame_pool) {
+    return this.$.initialize(config, client, video_frame_pool);
+  }
+  decode(buffer) {
+    return this.$.decode(buffer);
+  }
+  reset() {
+    return this.$.reset();
+  }
+  releaseVideoFrame(video_frame_id) {
+    return this.$.releaseVideoFrame(video_frame_id);
+  }
 };
 
 arc.mojom.VideoDecoderRemoteCallHandler = class {
@@ -455,6 +467,12 @@ arc.mojom.VideoDecoderClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onVideoFrameDecoded(video_frame_id, visible_rect, timestamp) {
+    return this.$.onVideoFrameDecoded(video_frame_id, visible_rect, timestamp);
+  }
+  onError(status) {
+    return this.$.onError(status);
   }
 };
 

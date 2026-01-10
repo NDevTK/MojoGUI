@@ -105,6 +105,9 @@ dom_distiller.mojom.DistillabilityServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  notifyIsDistillable(page_is_distillable, is_last_update, is_long_article, is_mobile_friendly) {
+    return this.$.notifyIsDistillable(page_is_distillable, is_last_update, is_long_article, is_mobile_friendly);
+  }
 };
 
 dom_distiller.mojom.DistillabilityServiceRemoteCallHandler = class {

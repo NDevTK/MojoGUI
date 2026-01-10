@@ -553,6 +553,15 @@ remoting.mojom.DesktopSessionRequestHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  connectDesktopChannel(desktop_pipe) {
+    return this.$.connectDesktopChannel(desktop_pipe);
+  }
+  injectSecureAttentionSequence() {
+    return this.$.injectSecureAttentionSequence();
+  }
+  crashNetworkProcess() {
+    return this.$.crashNetworkProcess();
+  }
 };
 
 remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
@@ -774,6 +783,15 @@ remoting.mojom.DesktopSessionManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  createDesktopSession(terminal_id, screen_resolution, is_virtual_terminal) {
+    return this.$.createDesktopSession(terminal_id, screen_resolution, is_virtual_terminal);
+  }
+  closeDesktopSession(terminal_id) {
+    return this.$.closeDesktopSession(terminal_id);
+  }
+  setScreenResolution(terminal_id, screen_resolution) {
+    return this.$.setScreenResolution(terminal_id, screen_resolution);
+  }
 };
 
 remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
@@ -988,6 +1006,9 @@ remoting.mojom.DesktopSessionAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  start(authenticated_jid, resolution, options) {
+    return this.$.start(authenticated_jid, resolution, options);
+  }
 };
 
 remoting.mojom.DesktopSessionAgentRemoteCallHandler = class {
@@ -1158,6 +1179,12 @@ remoting.mojom.FileWriterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  writeChunk(data) {
+    return this.$.writeChunk(data);
+  }
+  closeFile() {
+    return this.$.closeFile();
   }
 };
 
@@ -1353,6 +1380,9 @@ remoting.mojom.FileReaderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  readChunk(bytes_to_read) {
+    return this.$.readChunk(bytes_to_read);
   }
 };
 
@@ -1597,6 +1627,48 @@ remoting.mojom.DesktopSessionControlRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createVideoCapturer(desktop_display_id) {
+    return this.$.createVideoCapturer(desktop_display_id);
+  }
+  setScreenResolution(new_resolution) {
+    return this.$.setScreenResolution(new_resolution);
+  }
+  lockWorkstation() {
+    return this.$.lockWorkstation();
+  }
+  injectSendAttentionSequence() {
+    return this.$.injectSendAttentionSequence();
+  }
+  injectClipboardEvent(event) {
+    return this.$.injectClipboardEvent(event);
+  }
+  injectKeyEvent(event) {
+    return this.$.injectKeyEvent(event);
+  }
+  injectMouseEvent(event) {
+    return this.$.injectMouseEvent(event);
+  }
+  injectTextEvent(event) {
+    return this.$.injectTextEvent(event);
+  }
+  injectTouchEvent(event) {
+    return this.$.injectTouchEvent(event);
+  }
+  setUpUrlForwarder() {
+    return this.$.setUpUrlForwarder();
+  }
+  signalWebAuthnExtension() {
+    return this.$.signalWebAuthnExtension();
+  }
+  beginFileRead() {
+    return this.$.beginFileRead();
+  }
+  beginFileWrite(file_path) {
+    return this.$.beginFileWrite(file_path);
+  }
+  setHostCursorRenderedByClient() {
+    return this.$.setHostCursorRenderedByClient();
   }
 };
 
@@ -2146,6 +2218,12 @@ remoting.mojom.VideoCapturerRemote = class {
   close() {
     this.proxy.close();
   }
+  captureFrame() {
+    return this.$.captureFrame();
+  }
+  setComposeEnabled(enabled) {
+    return this.$.setComposeEnabled(enabled);
+  }
 };
 
 remoting.mojom.VideoCapturerRemoteCallHandler = class {
@@ -2336,6 +2414,15 @@ remoting.mojom.VideoCapturerEventHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onSharedMemoryRegionCreated(id, region, size) {
+    return this.$.onSharedMemoryRegionCreated(id, region, size);
+  }
+  onSharedMemoryRegionReleased(id) {
+    return this.$.onSharedMemoryRegionReleased(id);
+  }
+  onCaptureResult(result) {
+    return this.$.onCaptureResult(result);
   }
 };
 
@@ -2590,6 +2677,33 @@ remoting.mojom.DesktopSessionEventHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onClipboardEvent(event) {
+    return this.$.onClipboardEvent(event);
+  }
+  onUrlForwarderStateChange(state) {
+    return this.$.onUrlForwarderStateChange(state);
+  }
+  onAudioPacket(audio_packet) {
+    return this.$.onAudioPacket(audio_packet);
+  }
+  onDesktopDisplayChanged(layout) {
+    return this.$.onDesktopDisplayChanged(layout);
+  }
+  onMouseCursorChanged(mouse_cursor) {
+    return this.$.onMouseCursorChanged(mouse_cursor);
+  }
+  onMouseCursorFractionalPositionChanged(position) {
+    return this.$.onMouseCursorFractionalPositionChanged(position);
+  }
+  onKeyboardLayoutChanged(keyboard_layout) {
+    return this.$.onKeyboardLayoutChanged(keyboard_layout);
+  }
+  onLocalMouseMoveDetected(new_position) {
+    return this.$.onLocalMouseMoveDetected(new_position);
+  }
+  onLocalKeyboardInputDetected(usb_keycode) {
+    return this.$.onLocalKeyboardInputDetected(usb_keycode);
   }
 };
 
@@ -2973,6 +3087,9 @@ remoting.mojom.DesktopSessionStateHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  disconnectSession(error_code, error_details, error_location) {
+    return this.$.disconnectSession(error_code, error_details, error_location);
+  }
 };
 
 remoting.mojom.DesktopSessionStateHandlerRemoteCallHandler = class {
@@ -3122,6 +3239,9 @@ remoting.mojom.WorkerProcessControlRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  crashProcess(function_name, file_name, line_number) {
+    return this.$.crashProcess(function_name, file_name, line_number);
   }
 };
 

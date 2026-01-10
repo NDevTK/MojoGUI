@@ -179,6 +179,18 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize() {
+    return this.$.initialize();
+  }
+  decode(input_buffer, coded_size, output_handle, output_buffer_size) {
+    return this.$.decode(input_buffer, coded_size, output_handle, output_buffer_size);
+  }
+  decodeWithDmaBuf(task_id, src_dmabuf_fd, src_size, src_offset, dst_frame) {
+    return this.$.decodeWithDmaBuf(task_id, src_dmabuf_fd, src_size, src_offset, dst_frame);
+  }
+  uninitialize() {
+    return this.$.uninitialize();
+  }
 };
 
 chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHandler = class {

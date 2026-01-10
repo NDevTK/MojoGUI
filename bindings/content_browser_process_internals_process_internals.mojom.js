@@ -258,6 +258,27 @@ mojom.ProcessInternalsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getProcessCountInfo() {
+    return this.$.getProcessCountInfo();
+  }
+  getIsolationMode() {
+    return this.$.getIsolationMode();
+  }
+  getProcessPerSiteMode() {
+    return this.$.getProcessPerSiteMode();
+  }
+  getUserTriggeredIsolatedOrigins() {
+    return this.$.getUserTriggeredIsolatedOrigins();
+  }
+  getWebTriggeredIsolatedOrigins() {
+    return this.$.getWebTriggeredIsolatedOrigins();
+  }
+  getGloballyIsolatedOrigins() {
+    return this.$.getGloballyIsolatedOrigins();
+  }
+  getAllWebContentsInfo() {
+    return this.$.getAllWebContentsInfo();
+  }
 };
 
 mojom.ProcessInternalsHandlerRemoteCallHandler = class {

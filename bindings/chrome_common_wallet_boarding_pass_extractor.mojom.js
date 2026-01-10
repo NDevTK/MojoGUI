@@ -108,6 +108,9 @@ wallet.mojom.BoardingPassExtractorRemote = class {
   close() {
     this.proxy.close();
   }
+  extractBoardingPass() {
+    return this.$.extractBoardingPass();
+  }
 };
 
 wallet.mojom.BoardingPassExtractorRemoteCallHandler = class {

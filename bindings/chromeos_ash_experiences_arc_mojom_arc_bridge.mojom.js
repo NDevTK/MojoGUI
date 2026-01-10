@@ -503,6 +503,180 @@ arc.mojom.ArcBridgeHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onAccessibilityHelperInstanceReady(instance_remote) {
+    return this.$.onAccessibilityHelperInstanceReady(instance_remote);
+  }
+  onAdbdMonitorInstanceReady(instance_remote) {
+    return this.$.onAdbdMonitorInstanceReady(instance_remote);
+  }
+  onAppInstanceReady(instance_remote) {
+    return this.$.onAppInstanceReady(instance_remote);
+  }
+  onAppPermissionsInstanceReady(instance_remote) {
+    return this.$.onAppPermissionsInstanceReady(instance_remote);
+  }
+  onAppfuseInstanceReady(instance_remote) {
+    return this.$.onAppfuseInstanceReady(instance_remote);
+  }
+  onArcShellExecutionInstanceReady(instance_remote) {
+    return this.$.onArcShellExecutionInstanceReady(instance_remote);
+  }
+  onArcWifiInstanceReady(instance_remote) {
+    return this.$.onArcWifiInstanceReady(instance_remote);
+  }
+  onAudioInstanceReady(instance_remote) {
+    return this.$.onAudioInstanceReady(instance_remote);
+  }
+  onAuthInstanceReady(instance_remote) {
+    return this.$.onAuthInstanceReady(instance_remote);
+  }
+  onBackupSettingsInstanceReady(instance_remote) {
+    return this.$.onBackupSettingsInstanceReady(instance_remote);
+  }
+  onBluetoothInstanceReady(instance_remote) {
+    return this.$.onBluetoothInstanceReady(instance_remote);
+  }
+  onBootPhaseMonitorInstanceReady(instance_remote) {
+    return this.$.onBootPhaseMonitorInstanceReady(instance_remote);
+  }
+  onCameraInstanceReady(instance_remote) {
+    return this.$.onCameraInstanceReady(instance_remote);
+  }
+  onChromeFeatureFlagsInstanceReady(instance_remote) {
+    return this.$.onChromeFeatureFlagsInstanceReady(instance_remote);
+  }
+  onCompatibilityModeInstanceReady(instance_remote) {
+    return this.$.onCompatibilityModeInstanceReady(instance_remote);
+  }
+  onCrashCollectorInstanceReady(instance_remote) {
+    return this.$.onCrashCollectorInstanceReady(instance_remote);
+  }
+  onOnDeviceSafetyInstanceReady(instance_remote) {
+    return this.$.onOnDeviceSafetyInstanceReady(instance_remote);
+  }
+  onDigitalGoodsInstanceReady(instance_remote) {
+    return this.$.onDigitalGoodsInstanceReady(instance_remote);
+  }
+  onDiskSpaceInstanceReady(instance_remote) {
+    return this.$.onDiskSpaceInstanceReady(instance_remote);
+  }
+  onEnterpriseReportingInstanceReady(instance_remote) {
+    return this.$.onEnterpriseReportingInstanceReady(instance_remote);
+  }
+  onErrorNotificationInstanceReady(instance_remote) {
+    return this.$.onErrorNotificationInstanceReady(instance_remote);
+  }
+  onFileSystemInstanceReady(instance_remote) {
+    return this.$.onFileSystemInstanceReady(instance_remote);
+  }
+  onIioSensorInstanceReady(instance_remote) {
+    return this.$.onIioSensorInstanceReady(instance_remote);
+  }
+  onImeInstanceReady(instance_remote) {
+    return this.$.onImeInstanceReady(instance_remote);
+  }
+  onInputMethodManagerInstanceReady(instance_remote) {
+    return this.$.onInputMethodManagerInstanceReady(instance_remote);
+  }
+  onIntentHelperInstanceReady(instance_remote) {
+    return this.$.onIntentHelperInstanceReady(instance_remote);
+  }
+  onKeymasterInstanceReady(instance_remote) {
+    return this.$.onKeymasterInstanceReady(instance_remote);
+  }
+  onKeyMintInstanceReady(instance_remote) {
+    return this.$.onKeyMintInstanceReady(instance_remote);
+  }
+  onKioskInstanceReady(instance_remote) {
+    return this.$.onKioskInstanceReady(instance_remote);
+  }
+  onMediaSessionInstanceReady(instance_remote) {
+    return this.$.onMediaSessionInstanceReady(instance_remote);
+  }
+  onMemoryInstanceReady(instance_remote) {
+    return this.$.onMemoryInstanceReady(instance_remote);
+  }
+  onMetricsInstanceReady(instance_remote) {
+    return this.$.onMetricsInstanceReady(instance_remote);
+  }
+  onMidisInstanceReady(instance_remote) {
+    return this.$.onMidisInstanceReady(instance_remote);
+  }
+  onNearbyShareInstanceReady(instance_remote) {
+    return this.$.onNearbyShareInstanceReady(instance_remote);
+  }
+  onNetInstanceReady(instance_remote) {
+    return this.$.onNetInstanceReady(instance_remote);
+  }
+  onNotificationsInstanceReady(instance_remote) {
+    return this.$.onNotificationsInstanceReady(instance_remote);
+  }
+  onObbMounterInstanceReady(instance_remote) {
+    return this.$.onObbMounterInstanceReady(instance_remote);
+  }
+  onOemCryptoInstanceReady(instance_remote) {
+    return this.$.onOemCryptoInstanceReady(instance_remote);
+  }
+  onPaymentAppInstanceReady(instance_remote) {
+    return this.$.onPaymentAppInstanceReady(instance_remote);
+  }
+  onPipInstanceReady(instance_remote) {
+    return this.$.onPipInstanceReady(instance_remote);
+  }
+  onPolicyInstanceReady(instance_remote) {
+    return this.$.onPolicyInstanceReady(instance_remote);
+  }
+  onPowerInstanceReady(instance_remote) {
+    return this.$.onPowerInstanceReady(instance_remote);
+  }
+  onPrintSpoolerInstanceReady(instance_remote) {
+    return this.$.onPrintSpoolerInstanceReady(instance_remote);
+  }
+  onPrivacyItemsInstanceReady(instance_remote) {
+    return this.$.onPrivacyItemsInstanceReady(instance_remote);
+  }
+  onProcessInstanceReady(instance_remote) {
+    return this.$.onProcessInstanceReady(instance_remote);
+  }
+  onScreenCaptureInstanceReady(instance_remote) {
+    return this.$.onScreenCaptureInstanceReady(instance_remote);
+  }
+  onSharesheetInstanceReady(instance_remote) {
+    return this.$.onSharesheetInstanceReady(instance_remote);
+  }
+  onSystemStateInstanceReady(instance_remote) {
+    return this.$.onSystemStateInstanceReady(instance_remote);
+  }
+  onSystemUiInstanceReady(instance_remote) {
+    return this.$.onSystemUiInstanceReady(instance_remote);
+  }
+  onTimerInstanceReady(instance_remote) {
+    return this.$.onTimerInstanceReady(instance_remote);
+  }
+  onTracingInstanceReady(instance_remote) {
+    return this.$.onTracingInstanceReady(instance_remote);
+  }
+  onTtsInstanceReady(instance_remote) {
+    return this.$.onTtsInstanceReady(instance_remote);
+  }
+  onUsbHostInstanceReady(instance_remote) {
+    return this.$.onUsbHostInstanceReady(instance_remote);
+  }
+  onVideoInstanceReady(instance_remote) {
+    return this.$.onVideoInstanceReady(instance_remote);
+  }
+  onVolumeMounterInstanceReady(instance_remote) {
+    return this.$.onVolumeMounterInstanceReady(instance_remote);
+  }
+  onWakeLockInstanceReady(instance_remote) {
+    return this.$.onWakeLockInstanceReady(instance_remote);
+  }
+  onWallpaperInstanceReady(instance_remote) {
+    return this.$.onWallpaperInstanceReady(instance_remote);
+  }
+  onWebApkInstanceReady(instance_ptr) {
+    return this.$.onWebApkInstanceReady(instance_ptr);
+  }
 };
 
 arc.mojom.ArcBridgeHostRemoteCallHandler = class {

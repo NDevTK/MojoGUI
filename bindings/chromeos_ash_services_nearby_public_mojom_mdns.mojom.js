@@ -129,6 +129,12 @@ sharing.mojom.MdnsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  serviceFound(service_info) {
+    return this.$.serviceFound(service_info);
+  }
+  serviceLost(service_info) {
+    return this.$.serviceLost(service_info);
+  }
 };
 
 sharing.mojom.MdnsObserverRemoteCallHandler = class {
@@ -329,6 +335,15 @@ sharing.mojom.MdnsManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  startDiscoverySession(service_type) {
+    return this.$.startDiscoverySession(service_type);
+  }
+  stopDiscoverySession(service_type) {
+    return this.$.stopDiscoverySession(service_type);
   }
 };
 

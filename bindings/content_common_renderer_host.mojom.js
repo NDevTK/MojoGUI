@@ -143,6 +143,21 @@ content.mojom.RendererHostRemote = class {
   close() {
     this.proxy.close();
   }
+  getBrowserHistogram(name) {
+    return this.$.getBrowserHistogram(name);
+  }
+  suddenTerminationAllowedChanged(allowed) {
+    return this.$.suddenTerminationAllowedChanged(allowed);
+  }
+  recordUserMetricsAction(action) {
+    return this.$.recordUserMetricsAction(action);
+  }
+  setPrivateMemoryFootprint(private_memory_footprint_bytes) {
+    return this.$.setPrivateMemoryFootprint(private_memory_footprint_bytes);
+  }
+  hasGpuProcess() {
+    return this.$.hasGpuProcess();
+  }
 };
 
 content.mojom.RendererHostRemoteCallHandler = class {

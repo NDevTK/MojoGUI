@@ -187,6 +187,33 @@ viz.mojom.VizMainRemote = class {
   close() {
     this.proxy.close();
   }
+  createFrameSinkManager(params) {
+    return this.$.createFrameSinkManager(params);
+  }
+  createGpuService(gpu_service, gpu_host, gpu_logging, discardable_memory_manager, use_shader_cache_shm_count, params) {
+    return this.$.createGpuService(gpu_service, gpu_host, gpu_logging, discardable_memory_manager, use_shader_cache_shm_count, params);
+  }
+  setRenderParams(subpixel_rendering, text_contrast, text_gamma) {
+    return this.$.setRenderParams(subpixel_rendering, text_contrast, text_gamma);
+  }
+  createInfoCollectionGpuService(info_collection_gpu_service) {
+    return this.$.createInfoCollectionGpuService(info_collection_gpu_service);
+  }
+  setHostProcessId(pid) {
+    return this.$.setHostProcessId(pid);
+  }
+  notifyWorkloadIncrease() {
+    return this.$.notifyWorkloadIncrease();
+  }
+  startDebugStream(viz_debug) {
+    return this.$.startDebugStream(viz_debug);
+  }
+  filterDebugStream(filterData) {
+    return this.$.filterDebugStream(filterData);
+  }
+  stopDebugStream() {
+    return this.$.stopDebugStream();
+  }
 };
 
 viz.mojom.VizMainRemoteCallHandler = class {

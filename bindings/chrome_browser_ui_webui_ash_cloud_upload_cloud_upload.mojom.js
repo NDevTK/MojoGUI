@@ -253,6 +253,9 @@ ash.cloud_upload.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 ash.cloud_upload.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -528,6 +531,51 @@ ash.cloud_upload.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDialogArgs() {
+    return this.$.getDialogArgs();
+  }
+  isOfficeWebAppInstalled() {
+    return this.$.isOfficeWebAppInstalled();
+  }
+  installOfficeWebApp() {
+    return this.$.installOfficeWebApp();
+  }
+  isODFSMounted() {
+    return this.$.isODFSMounted();
+  }
+  signInToOneDrive() {
+    return this.$.signInToOneDrive();
+  }
+  respondWithUserActionAndClose(response) {
+    return this.$.respondWithUserActionAndClose(response);
+  }
+  respondWithLocalTaskAndClose(task_position) {
+    return this.$.respondWithLocalTaskAndClose(task_position);
+  }
+  setOfficeAsDefaultHandler() {
+    return this.$.setOfficeAsDefaultHandler();
+  }
+  getAlwaysMoveOfficeFilesToDrive() {
+    return this.$.getAlwaysMoveOfficeFilesToDrive();
+  }
+  setAlwaysMoveOfficeFilesToDrive(always_move) {
+    return this.$.setAlwaysMoveOfficeFilesToDrive(always_move);
+  }
+  getAlwaysMoveOfficeFilesToOneDrive() {
+    return this.$.getAlwaysMoveOfficeFilesToOneDrive();
+  }
+  setAlwaysMoveOfficeFilesToOneDrive(always_move) {
+    return this.$.setAlwaysMoveOfficeFilesToOneDrive(always_move);
+  }
+  getOfficeMoveConfirmationShownForDrive() {
+    return this.$.getOfficeMoveConfirmationShownForDrive();
+  }
+  getOfficeMoveConfirmationShownForOneDrive() {
+    return this.$.getOfficeMoveConfirmationShownForOneDrive();
+  }
+  recordCancel(page) {
+    return this.$.recordCancel(page);
   }
 };
 

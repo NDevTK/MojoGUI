@@ -355,6 +355,9 @@ tab_search.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 tab_search.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -730,6 +733,105 @@ tab_search.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  closeTab(tab_id) {
+    return this.$.closeTab(tab_id);
+  }
+  closeWebUiTab() {
+    return this.$.closeWebUiTab();
+  }
+  declutterTabs(tab_ids, urls) {
+    return this.$.declutterTabs(tab_ids, urls);
+  }
+  acceptTabOrganization(session_id, organization_id, tabs) {
+    return this.$.acceptTabOrganization(session_id, organization_id, tabs);
+  }
+  rejectTabOrganization(session_id, organization_id) {
+    return this.$.rejectTabOrganization(session_id, organization_id);
+  }
+  renameTabOrganization(session_id, organization_id, name) {
+    return this.$.renameTabOrganization(session_id, organization_id, name);
+  }
+  excludeFromStaleTabs(tab_id) {
+    return this.$.excludeFromStaleTabs(tab_id);
+  }
+  excludeFromDuplicateTabs(url) {
+    return this.$.excludeFromDuplicateTabs(url);
+  }
+  getProfileData() {
+    return this.$.getProfileData();
+  }
+  getUnusedTabs() {
+    return this.$.getUnusedTabs();
+  }
+  getTabSearchSection() {
+    return this.$.getTabSearchSection();
+  }
+  getTabOrganizationFeature() {
+    return this.$.getTabOrganizationFeature();
+  }
+  getTabOrganizationSession() {
+    return this.$.getTabOrganizationSession();
+  }
+  getTabOrganizationModelStrategy() {
+    return this.$.getTabOrganizationModelStrategy();
+  }
+  getIsSplit() {
+    return this.$.getIsSplit();
+  }
+  switchToTab(switch_to_tab_info) {
+    return this.$.switchToTab(switch_to_tab_info);
+  }
+  openRecentlyClosedEntry(session_id) {
+    return this.$.openRecentlyClosedEntry(session_id);
+  }
+  requestTabOrganization() {
+    return this.$.requestTabOrganization();
+  }
+  removeTabFromOrganization(session_id, organization_id, tab) {
+    return this.$.removeTabFromOrganization(session_id, organization_id, tab);
+  }
+  rejectSession(session_id) {
+    return this.$.rejectSession(session_id);
+  }
+  replaceActiveSplitTab(replacement_tab_id) {
+    return this.$.replaceActiveSplitTab(replacement_tab_id);
+  }
+  restartSession() {
+    return this.$.restartSession();
+  }
+  saveRecentlyClosedExpandedPref(expanded) {
+    return this.$.saveRecentlyClosedExpandedPref(expanded);
+  }
+  setOrganizationFeature(feature) {
+    return this.$.setOrganizationFeature(feature);
+  }
+  startTabGroupTutorial() {
+    return this.$.startTabGroupTutorial();
+  }
+  triggerFeedback(session_id) {
+    return this.$.triggerFeedback(session_id);
+  }
+  triggerSignIn() {
+    return this.$.triggerSignIn();
+  }
+  openHelpPage() {
+    return this.$.openHelpPage();
+  }
+  setTabOrganizationModelStrategy(strategy) {
+    return this.$.setTabOrganizationModelStrategy(strategy);
+  }
+  setTabOrganizationUserInstruction(user_instruction) {
+    return this.$.setTabOrganizationUserInstruction(user_instruction);
+  }
+  setUserFeedback(session_id, feedback) {
+    return this.$.setUserFeedback(session_id, feedback);
+  }
+  notifyOrganizationUIReadyToShow() {
+    return this.$.notifyOrganizationUIReadyToShow();
+  }
+  notifySearchUIReadyToShow() {
+    return this.$.notifySearchUIReadyToShow();
   }
 };
 
@@ -1912,6 +2014,42 @@ tab_search.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  tabOrganizationSessionUpdated(session) {
+    return this.$.tabOrganizationSessionUpdated(session);
+  }
+  tabOrganizationModelStrategyUpdated(strategy) {
+    return this.$.tabOrganizationModelStrategyUpdated(strategy);
+  }
+  hostWindowChanged() {
+    return this.$.hostWindowChanged();
+  }
+  tabsChanged(profile_tabs) {
+    return this.$.tabsChanged(profile_tabs);
+  }
+  tabUpdated(tabUpdateInfo) {
+    return this.$.tabUpdated(tabUpdateInfo);
+  }
+  tabsRemoved(tabsRemovedInfo) {
+    return this.$.tabsRemoved(tabsRemovedInfo);
+  }
+  tabSearchSectionChanged(section) {
+    return this.$.tabSearchSectionChanged(section);
+  }
+  tabOrganizationFeatureChanged(feature) {
+    return this.$.tabOrganizationFeatureChanged(feature);
+  }
+  showFREChanged(show) {
+    return this.$.showFREChanged(show);
+  }
+  tabOrganizationEnabledChanged(enabled) {
+    return this.$.tabOrganizationEnabledChanged(enabled);
+  }
+  unusedTabsChanged(tabs) {
+    return this.$.unusedTabsChanged(tabs);
+  }
+  tabUnsplit() {
+    return this.$.tabUnsplit();
   }
 };
 

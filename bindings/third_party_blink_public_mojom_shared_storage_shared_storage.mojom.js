@@ -194,6 +194,12 @@ blink.mojom.SharedStorageWorkletHostRemote = class {
   close() {
     this.proxy.close();
   }
+  selectURL(name, urls_with_metadata, serialized_data, keep_alive_after_operation, private_aggregation_config, resolve_to_config, saved_query_name, start_time) {
+    return this.$.selectURL(name, urls_with_metadata, serialized_data, keep_alive_after_operation, private_aggregation_config, resolve_to_config, saved_query_name, start_time);
+  }
+  run(name, serialized_data, keep_alive_after_operation, private_aggregation_config, start_time) {
+    return this.$.run(name, serialized_data, keep_alive_after_operation, private_aggregation_config, start_time);
+  }
 };
 
 blink.mojom.SharedStorageWorkletHostRemoteCallHandler = class {
@@ -434,6 +440,18 @@ blink.mojom.SharedStorageDocumentServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createWorklet(script_source_url, data_origin, data_origin_type, credentials_mode, creation_method, origin_trial_features, worklet_host) {
+    return this.$.createWorklet(script_source_url, data_origin, data_origin_type, credentials_mode, creation_method, origin_trial_features, worklet_host);
+  }
+  sharedStorageGet(key) {
+    return this.$.sharedStorageGet(key);
+  }
+  sharedStorageUpdate(method_with_options) {
+    return this.$.sharedStorageUpdate(method_with_options);
+  }
+  sharedStorageBatchUpdate(methods_with_options, with_lock) {
+    return this.$.sharedStorageBatchUpdate(methods_with_options, with_lock);
   }
 };
 

@@ -101,6 +101,9 @@ video_capture.mojom.DevicesChangedObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onDevicesChanged() {
+    return this.$.onDevicesChanged();
+  }
 };
 
 video_capture.mojom.DevicesChangedObserverRemoteCallHandler = class {

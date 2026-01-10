@@ -258,6 +258,27 @@ font_service.mojom.FontServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  matchFamilyName(family_name, style) {
+    return this.$.matchFamilyName(family_name, style);
+  }
+  openStream(id_number) {
+    return this.$.openStream(id_number);
+  }
+  fallbackFontForCharacter(character, locale) {
+    return this.$.fallbackFontForCharacter(character, locale);
+  }
+  fontRenderStyleForStrike(family, size, is_italic, is_bold, device_scale_factor) {
+    return this.$.fontRenderStyleForStrike(family, size, is_italic, is_bold, device_scale_factor);
+  }
+  matchFontByPostscriptNameOrFullFontName(postscript_name_or_full_font_name) {
+    return this.$.matchFontByPostscriptNameOrFullFontName(postscript_name_or_full_font_name);
+  }
+  listFamilies() {
+    return this.$.listFamilies();
+  }
+  matchFontWithFallback(family, is_bold, is_italic, charset, fallback_family_type) {
+    return this.$.matchFontWithFallback(family, is_bold, is_italic, charset, fallback_family_type);
+  }
 };
 
 font_service.mojom.FontServiceRemoteCallHandler = class {

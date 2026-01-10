@@ -188,6 +188,15 @@ blink.mojom.SubAppsServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  add(sub_apps_to_add) {
+    return this.$.add(sub_apps_to_add);
+  }
+  list() {
+    return this.$.list();
+  }
+  remove(manifest_id_paths) {
+    return this.$.remove(manifest_id_paths);
+  }
 };
 
 blink.mojom.SubAppsServiceRemoteCallHandler = class {

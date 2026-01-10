@@ -142,6 +142,15 @@ content_settings.mojom.ContentSettingsManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  clone(clone) {
+    return this.$.clone(clone);
+  }
+  allowStorageAccess(frame_token, storage_type, origin, site_for_cookies, top_frame_origin) {
+    return this.$.allowStorageAccess(frame_token, storage_type, origin, site_for_cookies, top_frame_origin);
+  }
+  onContentBlocked(frame_token, type) {
+    return this.$.onContentBlocked(frame_token, type);
+  }
 };
 
 content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {

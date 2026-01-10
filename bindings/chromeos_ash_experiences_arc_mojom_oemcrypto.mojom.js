@@ -1572,6 +1572,237 @@ arc.mojom.OemCryptoServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  initializeDeprecated() {
+    return this.$.initializeDeprecated();
+  }
+  initialize(oemcrypto_version) {
+    return this.$.initialize(oemcrypto_version);
+  }
+  terminate() {
+    return this.$.terminate();
+  }
+  openSession() {
+    return this.$.openSession();
+  }
+  closeSession(session) {
+    return this.$.closeSession(session);
+  }
+  generateDerivedKeys(session, mac_key_context, enc_key_context) {
+    return this.$.generateDerivedKeys(session, mac_key_context, enc_key_context);
+  }
+  generateNonce(session) {
+    return this.$.generateNonce(session);
+  }
+  generateSignature(session, message) {
+    return this.$.generateSignature(session, message);
+  }
+  loadKeysV11OrV12(session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length) {
+    return this.$.loadKeysV11OrV12(session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length);
+  }
+  refreshKeysV14(session, message, signature, key_array) {
+    return this.$.refreshKeysV14(session, message, signature, key_array);
+  }
+  queryKeyControl(session, key_id) {
+    return this.$.queryKeyControl(session, key_id);
+  }
+  selectKeyV13(session, key_id) {
+    return this.$.selectKeyV13(session, key_id);
+  }
+  decryptCencV15(session, data, is_encrypted, iv, block_offset, secure_buffer, pattern) {
+    return this.$.decryptCencV15(session, data, is_encrypted, iv, block_offset, secure_buffer, pattern);
+  }
+  genericEncrypt(session, data, iv, algorithm) {
+    return this.$.genericEncrypt(session, data, iv, algorithm);
+  }
+  genericDecrypt(session, data, iv, algorithm) {
+    return this.$.genericDecrypt(session, data, iv, algorithm);
+  }
+  genericSign(session, data, algorithm) {
+    return this.$.genericSign(session, data, algorithm);
+  }
+  genericVerify(session, data, algorithm, signature) {
+    return this.$.genericVerify(session, data, algorithm, signature);
+  }
+  copyBufferV14(data, out_buffer) {
+    return this.$.copyBufferV14(data, out_buffer);
+  }
+  loadTestKeyboxV13() {
+    return this.$.loadTestKeyboxV13();
+  }
+  isRootKeyCertificateValid() {
+    return this.$.isRootKeyCertificateValid();
+  }
+  getDeviceId() {
+    return this.$.getDeviceId();
+  }
+  getKeyData() {
+    return this.$.getKeyData();
+  }
+  getRandom(length) {
+    return this.$.getRandom(length);
+  }
+  getNumberOfOpenSessions() {
+    return this.$.getNumberOfOpenSessions();
+  }
+  getMaxNumberOfSessions() {
+    return this.$.getMaxNumberOfSessions();
+  }
+  rewrapDeviceRsaKey(session, message, signature, nonce_offset, enc_rsa_key_offset, enc_rsa_key_length, enc_rsa_key_iv_offset) {
+    return this.$.rewrapDeviceRsaKey(session, message, signature, nonce_offset, enc_rsa_key_offset, enc_rsa_key_length, enc_rsa_key_iv_offset);
+  }
+  loadDeviceRsaKey(session, wrapped_rsa_key) {
+    return this.$.loadDeviceRsaKey(session, wrapped_rsa_key);
+  }
+  generateRsaSignature(session, message, padding_scheme) {
+    return this.$.generateRsaSignature(session, message, padding_scheme);
+  }
+  deriveKeysFromSessionKey(session, enc_session_key, mac_key_context, enc_key_context) {
+    return this.$.deriveKeysFromSessionKey(session, enc_session_key, mac_key_context, enc_key_context);
+  }
+  securityPatchLevel() {
+    return this.$.securityPatchLevel();
+  }
+  getHdcpCapability() {
+    return this.$.getHdcpCapability();
+  }
+  updateUsageTable() {
+    return this.$.updateUsageTable();
+  }
+  deactivateUsageEntryV12(pst) {
+    return this.$.deactivateUsageEntryV12(pst);
+  }
+  reportUsage(session, pst) {
+    return this.$.reportUsage(session, pst);
+  }
+  deleteUsageEntry(session, pst_offset, pst_length, message, signature) {
+    return this.$.deleteUsageEntry(session, pst_offset, pst_length, message, signature);
+  }
+  forceDeleteUsageEntry(pst) {
+    return this.$.forceDeleteUsageEntry(pst);
+  }
+  deleteOldUsageTable() {
+    return this.$.deleteOldUsageTable();
+  }
+  getProvisioningMethod() {
+    return this.$.getProvisioningMethod();
+  }
+  supportedCertificates() {
+    return this.$.supportedCertificates();
+  }
+  isSrmUpdateSupported() {
+    return this.$.isSrmUpdateSupported();
+  }
+  getCurrentSrmVersion() {
+    return this.$.getCurrentSrmVersion();
+  }
+  loadSrm(buffer) {
+    return this.$.loadSrm(buffer);
+  }
+  removeSrm() {
+    return this.$.removeSrm();
+  }
+  createUsageTableHeader(avail_header_length) {
+    return this.$.createUsageTableHeader(avail_header_length);
+  }
+  loadUsageTableHeader(buffer) {
+    return this.$.loadUsageTableHeader(buffer);
+  }
+  createNewUsageEntry(session) {
+    return this.$.createNewUsageEntry(session);
+  }
+  loadUsageEntry(session, index, buffer) {
+    return this.$.loadUsageEntry(session, index, buffer);
+  }
+  updateUsageEntry(session, avail_header_length, avail_entry_length) {
+    return this.$.updateUsageEntry(session, avail_header_length, avail_entry_length);
+  }
+  deactivateUsageEntry(session, pst) {
+    return this.$.deactivateUsageEntry(session, pst);
+  }
+  shrinkUsageTableHeader(new_entry_count, avail_header_length) {
+    return this.$.shrinkUsageTableHeader(new_entry_count, avail_header_length);
+  }
+  moveEntry(session, new_index) {
+    return this.$.moveEntry(session, new_index);
+  }
+  copyOldUsageEntry(session, pst) {
+    return this.$.copyOldUsageEntry(session, pst);
+  }
+  createOldUsageEntry(time_since_license_received, time_since_first_decrypt, time_since_last_decrypt, status, server_mac_key, client_mac_key, pst) {
+    return this.$.createOldUsageEntry(time_since_license_received, time_since_first_decrypt, time_since_last_decrypt, status, server_mac_key, client_mac_key, pst);
+  }
+  getAnalogOutputFlags() {
+    return this.$.getAnalogOutputFlags();
+  }
+  loadTestKeybox(buffer) {
+    return this.$.loadTestKeybox(buffer);
+  }
+  loadEntitledContentKeysV14(session, key_array) {
+    return this.$.loadEntitledContentKeysV14(session, key_array);
+  }
+  selectKey(session, content_key_id, cipher_mode) {
+    return this.$.selectKey(session, content_key_id, cipher_mode);
+  }
+  loadKeysV14(session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length, srm_requirement, license_type) {
+    return this.$.loadKeysV14(session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length, srm_requirement, license_type);
+  }
+  loadKeys(session, message, signature, enc_mac_keys_iv, enc_mac_keys, key_array, pst, srm_restriction_data, license_type) {
+    return this.$.loadKeys(session, message, signature, enc_mac_keys_iv, enc_mac_keys, key_array, pst, srm_restriction_data, license_type);
+  }
+  resourceRatingTier() {
+    return this.$.resourceRatingTier();
+  }
+  buildInformation() {
+    return this.$.buildInformation();
+  }
+  refreshKeys(session, message, signature, key_array) {
+    return this.$.refreshKeys(session, message, signature, key_array);
+  }
+  loadEntitledContentKeys(session, message, key_array) {
+    return this.$.loadEntitledContentKeys(session, message, key_array);
+  }
+  getOemPublicCertificate() {
+    return this.$.getOemPublicCertificate();
+  }
+  maximumUsageTableHeaderSize() {
+    return this.$.maximumUsageTableHeaderSize();
+  }
+  isAntiRollbackHwPresent() {
+    return this.$.isAntiRollbackHwPresent();
+  }
+  minorApiVersion() {
+    return this.$.minorApiVersion();
+  }
+  prepAndSignLicenseRequest(session, message, core_message_size, avail_signature_size) {
+    return this.$.prepAndSignLicenseRequest(session, message, core_message_size, avail_signature_size);
+  }
+  prepAndSignRenewalRequest(session, message, core_message_size, avail_signature_size) {
+    return this.$.prepAndSignRenewalRequest(session, message, core_message_size, avail_signature_size);
+  }
+  prepAndSignProvisioningRequest(session, message, core_message_size, avail_signature_size) {
+    return this.$.prepAndSignProvisioningRequest(session, message, core_message_size, avail_signature_size);
+  }
+  loadLicense(session, message, core_message_length, signature) {
+    return this.$.loadLicense(session, message, core_message_length, signature);
+  }
+  loadRenewal(session, message, core_message_length, signature) {
+    return this.$.loadRenewal(session, message, core_message_length, signature);
+  }
+  loadProvisioning(session, message, core_message_length, signature, avail_wrapped_private_key_size) {
+    return this.$.loadProvisioning(session, message, core_message_length, signature, avail_wrapped_private_key_size);
+  }
+  loadOemPrivateKey(session) {
+    return this.$.loadOemPrivateKey(session);
+  }
+  loadDrmPrivateKey(session, key_type, wrapped_private_key) {
+    return this.$.loadDrmPrivateKey(session, key_type, wrapped_private_key);
+  }
+  decryptCenc(session, data, iv, sub_samples, pattern, secure_buffer) {
+    return this.$.decryptCenc(session, data, iv, sub_samples, pattern, secure_buffer);
+  }
+  copyBuffer(session, data, out_buffer, subsample_flags) {
+    return this.$.copyBuffer(session, data, out_buffer, subsample_flags);
+  }
 };
 
 arc.mojom.OemCryptoServiceRemoteCallHandler = class {
@@ -4386,6 +4617,9 @@ arc.mojom.OemCryptoHostRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(oemcryptor) {
+    return this.$.connect(oemcryptor);
+  }
 };
 
 arc.mojom.OemCryptoHostRemoteCallHandler = class {
@@ -4538,6 +4772,9 @@ arc.mojom.OemCryptoInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

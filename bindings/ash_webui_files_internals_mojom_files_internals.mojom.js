@@ -253,6 +253,48 @@ ash.mojom.files_internals.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getSmbfsEnableVerboseLogging() {
+    return this.$.getSmbfsEnableVerboseLogging();
+  }
+  setSmbfsEnableVerboseLogging(enabled) {
+    return this.$.setSmbfsEnableVerboseLogging(enabled);
+  }
+  getOfficeFileHandlers() {
+    return this.$.getOfficeFileHandlers();
+  }
+  clearOfficeFileHandlers() {
+    return this.$.clearOfficeFileHandlers();
+  }
+  getMoveConfirmationShownForDrive() {
+    return this.$.getMoveConfirmationShownForDrive();
+  }
+  getMoveConfirmationShownForOneDrive() {
+    return this.$.getMoveConfirmationShownForOneDrive();
+  }
+  getMoveConfirmationShownForLocalToDrive() {
+    return this.$.getMoveConfirmationShownForLocalToDrive();
+  }
+  getMoveConfirmationShownForLocalToOneDrive() {
+    return this.$.getMoveConfirmationShownForLocalToOneDrive();
+  }
+  getMoveConfirmationShownForCloudToDrive() {
+    return this.$.getMoveConfirmationShownForCloudToDrive();
+  }
+  getMoveConfirmationShownForCloudToOneDrive() {
+    return this.$.getMoveConfirmationShownForCloudToOneDrive();
+  }
+  getAlwaysMoveOfficeFilesToDrive() {
+    return this.$.getAlwaysMoveOfficeFilesToDrive();
+  }
+  setAlwaysMoveOfficeFilesToDrive(always_move) {
+    return this.$.setAlwaysMoveOfficeFilesToDrive(always_move);
+  }
+  getAlwaysMoveOfficeFilesToOneDrive() {
+    return this.$.getAlwaysMoveOfficeFilesToOneDrive();
+  }
+  setAlwaysMoveOfficeFilesToOneDrive(always_move) {
+    return this.$.setAlwaysMoveOfficeFilesToOneDrive(always_move);
+  }
 };
 
 ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {

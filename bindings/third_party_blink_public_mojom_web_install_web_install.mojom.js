@@ -143,6 +143,12 @@ blink.mojom.WebInstallServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  install(options) {
+    return this.$.install(options);
+  }
+  installFromElement(options) {
+    return this.$.installFromElement(options);
+  }
 };
 
 blink.mojom.WebInstallServiceRemoteCallHandler = class {

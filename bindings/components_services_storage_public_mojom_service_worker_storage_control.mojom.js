@@ -388,6 +388,15 @@ storage.mojom.ServiceWorkerResourceReaderRemote = class {
   close() {
     this.proxy.close();
   }
+  readResponseHead() {
+    return this.$.readResponseHead();
+  }
+  prepareReadData(size) {
+    return this.$.prepareReadData(size);
+  }
+  readData() {
+    return this.$.readData();
+  }
 };
 
 storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
@@ -630,6 +639,12 @@ storage.mojom.ServiceWorkerResourceWriterRemote = class {
   close() {
     this.proxy.close();
   }
+  writeResponseHead(response_head) {
+    return this.$.writeResponseHead(response_head);
+  }
+  writeData(data) {
+    return this.$.writeData(data);
+  }
 };
 
 storage.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
@@ -824,6 +839,9 @@ storage.mojom.ServiceWorkerResourceMetadataWriterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  writeMetadata(data) {
+    return this.$.writeMetadata(data);
   }
 };
 
@@ -1503,6 +1521,135 @@ storage.mojom.ServiceWorkerStorageControlRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  disable() {
+    return this.$.disable();
+  }
+  delete() {
+    return this.$.delete();
+  }
+  recover(versions) {
+    return this.$.recover(versions);
+  }
+  getRegisteredStorageKeys() {
+    return this.$.getRegisteredStorageKeys();
+  }
+  findRegistrationForClientUrl(client_url, key) {
+    return this.$.findRegistrationForClientUrl(client_url, key);
+  }
+  findRegistrationForScope(scope, key) {
+    return this.$.findRegistrationForScope(scope, key);
+  }
+  findRegistrationForId(registration_id, key) {
+    return this.$.findRegistrationForId(registration_id, key);
+  }
+  getRegistrationsForStorageKey(key) {
+    return this.$.getRegistrationsForStorageKey(key);
+  }
+  getUsageForStorageKey(key) {
+    return this.$.getUsageForStorageKey(key);
+  }
+  getAllRegistrationsDeprecated() {
+    return this.$.getAllRegistrationsDeprecated();
+  }
+  getFakeRegistrationForClientUrl(client_url, key) {
+    return this.$.getFakeRegistrationForClientUrl(client_url, key);
+  }
+  storeRegistration(registration, resources) {
+    return this.$.storeRegistration(registration, resources);
+  }
+  deleteRegistration(registration_id, key) {
+    return this.$.deleteRegistration(registration_id, key);
+  }
+  updateToActiveState(registration_id, key) {
+    return this.$.updateToActiveState(registration_id, key);
+  }
+  updateLastUpdateCheckTime(registration_id, key, last_update_check_time) {
+    return this.$.updateLastUpdateCheckTime(registration_id, key, last_update_check_time);
+  }
+  updateNavigationPreloadEnabled(registration_id, key, enable) {
+    return this.$.updateNavigationPreloadEnabled(registration_id, key, enable);
+  }
+  updateNavigationPreloadHeader(registration_id, key, value) {
+    return this.$.updateNavigationPreloadHeader(registration_id, key, value);
+  }
+  updateFetchHandlerType(registration_id, key, type) {
+    return this.$.updateFetchHandlerType(registration_id, key, type);
+  }
+  updateResourceSha256Checksums(registratation_id, key, updated_sha256_checksums) {
+    return this.$.updateResourceSha256Checksums(registratation_id, key, updated_sha256_checksums);
+  }
+  getNewRegistrationId() {
+    return this.$.getNewRegistrationId();
+  }
+  getNewVersionId() {
+    return this.$.getNewVersionId();
+  }
+  getNewResourceId() {
+    return this.$.getNewResourceId();
+  }
+  createResourceReader(resource_id, reader) {
+    return this.$.createResourceReader(resource_id, reader);
+  }
+  createResourceWriter(resource_id, writer) {
+    return this.$.createResourceWriter(resource_id, writer);
+  }
+  createResourceMetadataWriter(resource_id, writer) {
+    return this.$.createResourceMetadataWriter(resource_id, writer);
+  }
+  storeUncommittedResourceId(resource_id) {
+    return this.$.storeUncommittedResourceId(resource_id);
+  }
+  doomUncommittedResources(resource_ids) {
+    return this.$.doomUncommittedResources(resource_ids);
+  }
+  getUserData(registration_id, keys) {
+    return this.$.getUserData(registration_id, keys);
+  }
+  storeUserData(registration_id, key, user_data) {
+    return this.$.storeUserData(registration_id, key, user_data);
+  }
+  clearUserData(registration_id, keys) {
+    return this.$.clearUserData(registration_id, keys);
+  }
+  getUserDataByKeyPrefix(registration_id, key_prefix) {
+    return this.$.getUserDataByKeyPrefix(registration_id, key_prefix);
+  }
+  getUserKeysAndDataByKeyPrefix(registration_id, key_prefix) {
+    return this.$.getUserKeysAndDataByKeyPrefix(registration_id, key_prefix);
+  }
+  clearUserDataByKeyPrefixes(registratation_id, key_prefixes) {
+    return this.$.clearUserDataByKeyPrefixes(registratation_id, key_prefixes);
+  }
+  getUserDataForAllRegistrations(key) {
+    return this.$.getUserDataForAllRegistrations(key);
+  }
+  getUserDataForAllRegistrationsByKeyPrefix(key_prefix) {
+    return this.$.getUserDataForAllRegistrationsByKeyPrefix(key_prefix);
+  }
+  clearUserDataForAllRegistrationsByKeyPrefix(key_prefix) {
+    return this.$.clearUserDataForAllRegistrationsByKeyPrefix(key_prefix);
+  }
+  performStorageCleanup() {
+    return this.$.performStorageCleanup();
+  }
+  applyPolicyUpdates(policy_updates) {
+    return this.$.applyPolicyUpdates(policy_updates);
+  }
+  getPurgingResourceIdsForTest() {
+    return this.$.getPurgingResourceIdsForTest();
+  }
+  getPurgingResourceIdsForLiveVersionForTest(version_id) {
+    return this.$.getPurgingResourceIdsForLiveVersionForTest(version_id);
+  }
+  getPurgeableResourceIdsForTest() {
+    return this.$.getPurgeableResourceIdsForTest();
+  }
+  getUncommittedResourceIdsForTest() {
+    return this.$.getUncommittedResourceIdsForTest();
+  }
+  setPurgingCompleteCallbackForTest() {
+    return this.$.setPurgingCompleteCallbackForTest();
   }
 };
 

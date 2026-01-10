@@ -125,6 +125,9 @@ metrics.mojom.ChildHistogramFetcherFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createFetcher(shared_memory, child_histogram_fetcher) {
+    return this.$.createFetcher(shared_memory, child_histogram_fetcher);
+  }
 };
 
 metrics.mojom.ChildHistogramFetcherFactoryRemoteCallHandler = class {
@@ -288,6 +291,12 @@ metrics.mojom.ChildHistogramFetcherRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getChildNonPersistentHistogramData() {
+    return this.$.getChildNonPersistentHistogramData();
+  }
+  ping(call_source) {
+    return this.$.ping(call_source);
   }
 };
 

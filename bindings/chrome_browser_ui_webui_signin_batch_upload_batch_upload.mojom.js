@@ -151,6 +151,9 @@ batch_upload.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createBatchUploadHandler(page, handler) {
+    return this.$.createBatchUploadHandler(page, handler);
+  }
 };
 
 batch_upload.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -309,6 +312,15 @@ batch_upload.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateViewHeight(height) {
+    return this.$.updateViewHeight(height);
+  }
+  saveToAccount(idsToMove) {
+    return this.$.saveToAccount(idsToMove);
+  }
+  close() {
+    return this.$.close();
   }
 };
 
@@ -515,6 +527,9 @@ batch_upload.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sendBatchUploadData(data) {
+    return this.$.sendBatchUploadData(data);
   }
 };
 

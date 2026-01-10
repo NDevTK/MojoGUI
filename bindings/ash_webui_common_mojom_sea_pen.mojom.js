@@ -240,6 +240,12 @@ ash.personalization_app.mojom.SeaPenObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onSelectedSeaPenImageChanged(id) {
+    return this.$.onSelectedSeaPenImageChanged(id);
+  }
+  onTextQueryHistoryChanged(entries) {
+    return this.$.onTextQueryHistoryChanged(entries);
+  }
 };
 
 ash.personalization_app.mojom.SeaPenObserverRemoteCallHandler = class {
@@ -544,6 +550,48 @@ ash.personalization_app.mojom.SeaPenProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setSeaPenObserver(observer) {
+    return this.$.setSeaPenObserver(observer);
+  }
+  getSeaPenThumbnails(query) {
+    return this.$.getSeaPenThumbnails(query);
+  }
+  selectSeaPenThumbnail(id, preview_mode) {
+    return this.$.selectSeaPenThumbnail(id, preview_mode);
+  }
+  getRecentSeaPenImageIds() {
+    return this.$.getRecentSeaPenImageIds();
+  }
+  selectRecentSeaPenImage(id, preview_mode) {
+    return this.$.selectRecentSeaPenImage(id, preview_mode);
+  }
+  getRecentSeaPenImageThumbnail(id) {
+    return this.$.getRecentSeaPenImageThumbnail(id);
+  }
+  deleteRecentSeaPenImage(id) {
+    return this.$.deleteRecentSeaPenImage(id);
+  }
+  openFeedbackDialog(metadata) {
+    return this.$.openFeedbackDialog(metadata);
+  }
+  shouldShowSeaPenIntroductionDialog() {
+    return this.$.shouldShowSeaPenIntroductionDialog();
+  }
+  handleSeaPenIntroductionDialogClosed() {
+    return this.$.handleSeaPenIntroductionDialogClosed();
+  }
+  shouldShowSeaPenFreeformIntroductionDialog() {
+    return this.$.shouldShowSeaPenFreeformIntroductionDialog();
+  }
+  handleSeaPenFreeformIntroductionDialogClosed() {
+    return this.$.handleSeaPenFreeformIntroductionDialogClosed();
+  }
+  isInTabletMode() {
+    return this.$.isInTabletMode();
+  }
+  makeTransparent() {
+    return this.$.makeTransparent();
   }
 };
 

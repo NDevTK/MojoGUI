@@ -392,6 +392,15 @@ ash.nearby.presence.mojom.ScanObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onDeviceFound(device) {
+    return this.$.onDeviceFound(device);
+  }
+  onDeviceChanged(device) {
+    return this.$.onDeviceChanged(device);
+  }
+  onDeviceLost(device) {
+    return this.$.onDeviceLost(device);
+  }
 };
 
 ash.nearby.presence.mojom.ScanObserverRemoteCallHandler = class {
@@ -655,6 +664,24 @@ ash.nearby.presence.mojom.NearbyPresenceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startScan(scan_request) {
+    return this.$.startScan(scan_request);
+  }
+  setScanObserver(scan_observer) {
+    return this.$.setScanObserver(scan_observer);
+  }
+  updateLocalDeviceMetadata(metadata) {
+    return this.$.updateLocalDeviceMetadata(metadata);
+  }
+  updateLocalDeviceMetadataAndGenerateCredentials(metadata) {
+    return this.$.updateLocalDeviceMetadataAndGenerateCredentials(metadata);
+  }
+  updateRemoteSharedCredentials(shared_credentials, account_name) {
+    return this.$.updateRemoteSharedCredentials(shared_credentials, account_name);
+  }
+  getLocalSharedCredentials(account_name) {
+    return this.$.getLocalSharedCredentials(account_name);
   }
 };
 

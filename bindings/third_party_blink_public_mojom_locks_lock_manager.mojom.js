@@ -253,6 +253,12 @@ blink.mojom.LockRequestRemote = class {
   close() {
     this.proxy.close();
   }
+  granted(lock_handle) {
+    return this.$.granted(lock_handle);
+  }
+  failed() {
+    return this.$.failed();
+  }
 };
 
 blink.mojom.LockRequestRemoteCallHandler = class {
@@ -444,6 +450,12 @@ blink.mojom.LockManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestLock(name, mode, wait, request) {
+    return this.$.requestLock(name, mode, wait, request);
+  }
+  queryState() {
+    return this.$.queryState();
   }
 };
 

@@ -136,6 +136,18 @@ arc.mojom.CrashCollectorHostRemote = class {
   close() {
     this.proxy.close();
   }
+  dumpCrash(type, pipe, uptime) {
+    return this.$.dumpCrash(type, pipe, uptime);
+  }
+  setBuildProperties(device, board, cpu_abi, fingerprint) {
+    return this.$.setBuildProperties(device, board, cpu_abi, fingerprint);
+  }
+  dumpNativeCrash(exec_name, pid, timestamp, minidump_fd) {
+    return this.$.dumpNativeCrash(exec_name, pid, timestamp, minidump_fd);
+  }
+  dumpKernelCrash(ramoops_handle) {
+    return this.$.dumpKernelCrash(ramoops_handle);
+  }
 };
 
 arc.mojom.CrashCollectorHostRemoteCallHandler = class {
@@ -375,6 +387,9 @@ arc.mojom.CrashCollectorInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

@@ -258,6 +258,30 @@ nearby_share.mojom.NearbyShareSettingsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onEnabledChanged(enabled) {
+    return this.$.onEnabledChanged(enabled);
+  }
+  onFastInitiationNotificationStateChanged(state) {
+    return this.$.onFastInitiationNotificationStateChanged(state);
+  }
+  onIsFastInitiationHardwareSupportedChanged(is_supported) {
+    return this.$.onIsFastInitiationHardwareSupportedChanged(is_supported);
+  }
+  onDeviceNameChanged(device_name) {
+    return this.$.onDeviceNameChanged(device_name);
+  }
+  onDataUsageChanged(data_usage) {
+    return this.$.onDataUsageChanged(data_usage);
+  }
+  onVisibilityChanged(visibility) {
+    return this.$.onVisibilityChanged(visibility);
+  }
+  onAllowedContactsChanged(visible_contact_ids) {
+    return this.$.onAllowedContactsChanged(visible_contact_ids);
+  }
+  onIsOnboardingCompleteChanged(is_complete) {
+    return this.$.onIsOnboardingCompleteChanged(is_complete);
+  }
 };
 
 nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
@@ -756,6 +780,57 @@ nearby_share.mojom.NearbyShareSettingsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addSettingsObserver(observer) {
+    return this.$.addSettingsObserver(observer);
+  }
+  getEnabled() {
+    return this.$.getEnabled();
+  }
+  setEnabled(enabled) {
+    return this.$.setEnabled(enabled);
+  }
+  isOnboardingComplete() {
+    return this.$.isOnboardingComplete();
+  }
+  setIsOnboardingComplete(completed) {
+    return this.$.setIsOnboardingComplete(completed);
+  }
+  getFastInitiationNotificationState() {
+    return this.$.getFastInitiationNotificationState();
+  }
+  setFastInitiationNotificationState(state) {
+    return this.$.setFastInitiationNotificationState(state);
+  }
+  getIsFastInitiationHardwareSupported() {
+    return this.$.getIsFastInitiationHardwareSupported();
+  }
+  getDeviceName() {
+    return this.$.getDeviceName();
+  }
+  validateDeviceName(device_name) {
+    return this.$.validateDeviceName(device_name);
+  }
+  setDeviceName(device_name) {
+    return this.$.setDeviceName(device_name);
+  }
+  getDataUsage() {
+    return this.$.getDataUsage();
+  }
+  setDataUsage(data_usage) {
+    return this.$.setDataUsage(data_usage);
+  }
+  getVisibility() {
+    return this.$.getVisibility();
+  }
+  setVisibility(visibility) {
+    return this.$.setVisibility(visibility);
+  }
+  getAllowedContacts() {
+    return this.$.getAllowedContacts();
+  }
+  setAllowedContacts(allowed_contacts) {
+    return this.$.setAllowedContacts(allowed_contacts);
   }
 };
 
@@ -1436,6 +1511,12 @@ nearby_share.mojom.DownloadContactsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onContactsDownloaded(allowed_contacts, contacts, num_unreachable_contacts_filtered_out) {
+    return this.$.onContactsDownloaded(allowed_contacts, contacts, num_unreachable_contacts_filtered_out);
+  }
+  onContactsDownloadFailed() {
+    return this.$.onContactsDownloadFailed();
+  }
 };
 
 nearby_share.mojom.DownloadContactsObserverRemoteCallHandler = class {
@@ -1623,6 +1704,15 @@ nearby_share.mojom.ContactManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addDownloadContactsObserver(observer) {
+    return this.$.addDownloadContactsObserver(observer);
+  }
+  downloadContacts() {
+    return this.$.downloadContacts();
+  }
+  setAllowedContacts(allowed_contacts) {
+    return this.$.setAllowedContacts(allowed_contacts);
   }
 };
 

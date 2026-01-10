@@ -110,6 +110,9 @@ ash.ime.mojom.InputChannelRemote = class {
   close() {
     this.proxy.close();
   }
+  processMessage(message) {
+    return this.$.processMessage(message);
+  }
 };
 
 ash.ime.mojom.InputChannelRemoteCallHandler = class {

@@ -368,6 +368,21 @@ tracing.mojom.ProducerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  commitData(data_request) {
+    return this.$.commitData(data_request);
+  }
+  registerDataSource(registration_info) {
+    return this.$.registerDataSource(registration_info);
+  }
+  updateDataSource(registration_info) {
+    return this.$.updateDataSource(registration_info);
+  }
+  registerTraceWriter(writer_id, target_buffer) {
+    return this.$.registerTraceWriter(writer_id, target_buffer);
+  }
+  unregisterTraceWriter(writer_id) {
+    return this.$.unregisterTraceWriter(writer_id);
+  }
 };
 
 tracing.mojom.ProducerHostRemoteCallHandler = class {
@@ -672,6 +687,21 @@ tracing.mojom.ProducerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onTracingStart() {
+    return this.$.onTracingStart();
+  }
+  startDataSource(id, data_source_config) {
+    return this.$.startDataSource(id, data_source_config);
+  }
+  stopDataSource(id) {
+    return this.$.stopDataSource(id);
+  }
+  flush(flush_request_id, data_source_ids) {
+    return this.$.flush(flush_request_id, data_source_ids);
+  }
+  clearIncrementalState() {
+    return this.$.clearIncrementalState();
+  }
 };
 
 tracing.mojom.ProducerClientRemoteCallHandler = class {
@@ -951,6 +981,9 @@ tracing.mojom.PerfettoServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  connectToProducerHost(producer_client, producer_host_receiver, shared_memory, shared_memory_buffer_page_size_bytes) {
+    return this.$.connectToProducerHost(producer_client, producer_host_receiver, shared_memory, shared_memory_buffer_page_size_bytes);
+  }
 };
 
 tracing.mojom.PerfettoServiceRemoteCallHandler = class {
@@ -1118,6 +1151,12 @@ tracing.mojom.ConsumerHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  enableTracing(tracing_session_host, tracing_session_client, config, output_file) {
+    return this.$.enableTracing(tracing_session_host, tracing_session_client, config, output_file);
+  }
+  cloneSession(tracing_session_host, tracing_session_client, unguessable_name, privacy_filtering_enabled) {
+    return this.$.cloneSession(tracing_session_host, tracing_session_client, unguessable_name, privacy_filtering_enabled);
   }
 };
 
@@ -1343,6 +1382,21 @@ tracing.mojom.TracingSessionHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  changeTraceConfig(config) {
+    return this.$.changeTraceConfig(config);
+  }
+  disableTracing() {
+    return this.$.disableTracing();
+  }
+  readBuffers(stream) {
+    return this.$.readBuffers(stream);
+  }
+  requestBufferUsage() {
+    return this.$.requestBufferUsage();
+  }
+  disableTracingAndEmitJson(agent_label_filter, stream, privacy_filtering_enabled) {
+    return this.$.disableTracingAndEmitJson(agent_label_filter, stream, privacy_filtering_enabled);
   }
 };
 
@@ -1630,6 +1684,12 @@ tracing.mojom.TracingSessionClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onTracingEnabled() {
+    return this.$.onTracingEnabled();
+  }
+  onTracingDisabled(tracing_succeeded) {
+    return this.$.onTracingDisabled(tracing_succeeded);
   }
 };
 

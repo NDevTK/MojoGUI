@@ -112,6 +112,9 @@ ash.quick_start.mojom.QuickStartDecoderRemote = class {
   close() {
     this.proxy.close();
   }
+  decodeQuickStartMessage(data) {
+    return this.$.decodeQuickStartMessage(data);
+  }
 };
 
 ash.quick_start.mojom.QuickStartDecoderRemoteCallHandler = class {

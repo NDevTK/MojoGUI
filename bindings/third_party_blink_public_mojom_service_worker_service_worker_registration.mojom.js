@@ -200,6 +200,21 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemote = class {
   close() {
     this.proxy.close();
   }
+  update(outside_fetch_client_settings_object) {
+    return this.$.update(outside_fetch_client_settings_object);
+  }
+  unregister() {
+    return this.$.unregister();
+  }
+  enableNavigationPreload(enable) {
+    return this.$.enableNavigationPreload(enable);
+  }
+  getNavigationPreloadState() {
+    return this.$.getNavigationPreloadState();
+  }
+  setNavigationPreloadHeader(value) {
+    return this.$.setNavigationPreloadHeader(value);
+  }
 };
 
 blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
@@ -507,6 +522,15 @@ blink.mojom.ServiceWorkerRegistrationObjectRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setServiceWorkerObjects(changed_mask, installing, waiting, active) {
+    return this.$.setServiceWorkerObjects(changed_mask, installing, waiting, active);
+  }
+  setUpdateViaCache(update_via_cache) {
+    return this.$.setUpdateViaCache(update_via_cache);
+  }
+  updateFound() {
+    return this.$.updateFound();
   }
 };
 

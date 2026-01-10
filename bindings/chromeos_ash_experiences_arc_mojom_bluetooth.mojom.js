@@ -649,6 +649,9 @@ arc.mojom.RfcommListeningSocketClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onAccepted(connection) {
+    return this.$.onAccepted(connection);
+  }
 };
 
 arc.mojom.RfcommListeningSocketClientRemoteCallHandler = class {
@@ -801,6 +804,12 @@ arc.mojom.RfcommConnectingSocketClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onConnected(connection) {
+    return this.$.onConnected(connection);
+  }
+  onConnectFailed() {
+    return this.$.onConnectFailed();
   }
 };
 
@@ -979,6 +988,9 @@ arc.mojom.BluetoothListenSocketClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onAccepted(connection) {
+    return this.$.onAccepted(connection);
+  }
 };
 
 arc.mojom.BluetoothListenSocketClientRemoteCallHandler = class {
@@ -1131,6 +1143,12 @@ arc.mojom.BluetoothConnectSocketClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onConnected(connection) {
+    return this.$.onConnected(connection);
+  }
+  onConnectFailed() {
+    return this.$.onConnectFailed();
   }
 };
 
@@ -1730,6 +1748,126 @@ arc.mojom.BluetoothHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  enableAdapter() {
+    return this.$.enableAdapter();
+  }
+  disableAdapter() {
+    return this.$.disableAdapter();
+  }
+  getAdapterProperty(type) {
+    return this.$.getAdapterProperty(type);
+  }
+  setAdapterProperty(property) {
+    return this.$.setAdapterProperty(property);
+  }
+  startDiscovery() {
+    return this.$.startDiscovery();
+  }
+  cancelDiscovery() {
+    return this.$.cancelDiscovery();
+  }
+  createBond(addr, transport) {
+    return this.$.createBond(addr, transport);
+  }
+  removeBond(addr) {
+    return this.$.removeBond(addr);
+  }
+  cancelBond(addr) {
+    return this.$.cancelBond(addr);
+  }
+  getConnectionState(addr) {
+    return this.$.getConnectionState(addr);
+  }
+  startLEScan() {
+    return this.$.startLEScan();
+  }
+  stopLEScan() {
+    return this.$.stopLEScan();
+  }
+  connectLEDevice(remote_addr) {
+    return this.$.connectLEDevice(remote_addr);
+  }
+  disconnectLEDevice(remote_addr) {
+    return this.$.disconnectLEDevice(remote_addr);
+  }
+  searchService(remote_addr) {
+    return this.$.searchService(remote_addr);
+  }
+  getGattDB(remote_addr) {
+    return this.$.getGattDB(remote_addr);
+  }
+  readGattCharacteristic(remote_addr, service_id, char_id) {
+    return this.$.readGattCharacteristic(remote_addr, service_id, char_id);
+  }
+  writeGattCharacteristic(remote_addr, service_id, char_id, value, prepare) {
+    return this.$.writeGattCharacteristic(remote_addr, service_id, char_id, value, prepare);
+  }
+  readGattDescriptor(remote_addr, service_id, char_id, desc_id) {
+    return this.$.readGattDescriptor(remote_addr, service_id, char_id, desc_id);
+  }
+  writeGattDescriptor(remote_addr, service_id, char_id, desc_id, value) {
+    return this.$.writeGattDescriptor(remote_addr, service_id, char_id, desc_id, value);
+  }
+  executeWrite(remote_addr, execute) {
+    return this.$.executeWrite(remote_addr, execute);
+  }
+  registerForGattNotification(remote_addr, service_id, char_id) {
+    return this.$.registerForGattNotification(remote_addr, service_id, char_id);
+  }
+  deregisterForGattNotification(remote_addr, service_id, char_id) {
+    return this.$.deregisterForGattNotification(remote_addr, service_id, char_id);
+  }
+  readRemoteRssi(remote_addr) {
+    return this.$.readRemoteRssi(remote_addr);
+  }
+  addService(service_id, num_handles) {
+    return this.$.addService(service_id, num_handles);
+  }
+  addCharacteristic(service_handle, uuid, properties, permissions) {
+    return this.$.addCharacteristic(service_handle, uuid, properties, permissions);
+  }
+  addDescriptor(service_handle, uuid, permissions) {
+    return this.$.addDescriptor(service_handle, uuid, permissions);
+  }
+  startService(service_handle) {
+    return this.$.startService(service_handle);
+  }
+  stopService(service_handle) {
+    return this.$.stopService(service_handle);
+  }
+  deleteService(service_handle) {
+    return this.$.deleteService(service_handle);
+  }
+  sendIndication(attribute_handle, address, confirm, value) {
+    return this.$.sendIndication(attribute_handle, address, confirm, value);
+  }
+  getSdpRecords(remote_addr, target_uuid) {
+    return this.$.getSdpRecords(remote_addr, target_uuid);
+  }
+  createSdpRecord(record) {
+    return this.$.createSdpRecord(record);
+  }
+  removeSdpRecord(service_handle) {
+    return this.$.removeSdpRecord(service_handle);
+  }
+  reserveAdvertisementHandle() {
+    return this.$.reserveAdvertisementHandle();
+  }
+  enableAdvertisement(adv_handle, adv) {
+    return this.$.enableAdvertisement(adv_handle, adv);
+  }
+  releaseAdvertisementHandle(adv_handle) {
+    return this.$.releaseAdvertisementHandle(adv_handle);
+  }
+  disableAdvertisement(adv_handle) {
+    return this.$.disableAdvertisement(adv_handle);
+  }
+  bluetoothSocketListen(sock_type, sock_flags, port) {
+    return this.$.bluetoothSocketListen(sock_type, sock_flags, port);
+  }
+  bluetoothSocketConnect(sock_type, sock_flags, remote_addr, remote_port) {
+    return this.$.bluetoothSocketConnect(sock_type, sock_flags, remote_addr, remote_port);
   }
 };
 
@@ -3327,6 +3465,63 @@ arc.mojom.BluetoothInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  onAdapterProperties(status, properties) {
+    return this.$.onAdapterProperties(status, properties);
+  }
+  onDeviceFound(properties) {
+    return this.$.onDeviceFound(properties);
+  }
+  onDevicePropertiesChanged(remote_addr, properties) {
+    return this.$.onDevicePropertiesChanged(remote_addr, properties);
+  }
+  onDiscoveryStateChanged(state) {
+    return this.$.onDiscoveryStateChanged(state);
+  }
+  onBondStateChanged(status, remote_addr, state) {
+    return this.$.onBondStateChanged(status, remote_addr, state);
+  }
+  onConnectionStateChanged(remote_addr, device_type, connected) {
+    return this.$.onConnectionStateChanged(remote_addr, device_type, connected);
+  }
+  onLEDeviceFound(addr, rssi, eir) {
+    return this.$.onLEDeviceFound(addr, rssi, eir);
+  }
+  onLEConnectionStateChange(remote_addr, connected) {
+    return this.$.onLEConnectionStateChange(remote_addr, connected);
+  }
+  onLEDeviceAddressChange(old_addr, new_addr) {
+    return this.$.onLEDeviceAddressChange(old_addr, new_addr);
+  }
+  onSearchComplete(remote_addr, status) {
+    return this.$.onSearchComplete(remote_addr, status);
+  }
+  onGetGattDB(remote_addr, db) {
+    return this.$.onGetGattDB(remote_addr, db);
+  }
+  onGattNotify(remote_addr, service_id, char_id, is_notify, value) {
+    return this.$.onGattNotify(remote_addr, service_id, char_id, is_notify, value);
+  }
+  onServiceChanged(remote_addr) {
+    return this.$.onServiceChanged(remote_addr);
+  }
+  requestGattRead(address, attribute_handle, offset, is_long, attribute_type) {
+    return this.$.requestGattRead(address, attribute_handle, offset, is_long, attribute_type);
+  }
+  requestGattWrite(address, attribute_handle, offset, value, attribute_type, is_prepare) {
+    return this.$.requestGattWrite(address, attribute_handle, offset, value, attribute_type, is_prepare);
+  }
+  requestGattExecuteWrite(address, execute) {
+    return this.$.requestGattExecuteWrite(address, execute);
+  }
+  onMTUReceived(remote_addr, mtu) {
+    return this.$.onMTUReceived(remote_addr, mtu);
+  }
+  onGetSdpRecords(status, remote_addr, target_uuid, records) {
+    return this.$.onGetSdpRecords(status, remote_addr, target_uuid, records);
   }
 };
 

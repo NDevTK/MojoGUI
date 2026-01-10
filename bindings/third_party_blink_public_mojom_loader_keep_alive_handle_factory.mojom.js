@@ -102,6 +102,9 @@ blink.mojom.KeepAliveHandleFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  issueKeepAliveHandle(keep_alive_handle) {
+    return this.$.issueKeepAliveHandle(keep_alive_handle);
+  }
 };
 
 blink.mojom.KeepAliveHandleFactoryRemoteCallHandler = class {

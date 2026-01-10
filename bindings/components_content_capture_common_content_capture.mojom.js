@@ -127,6 +127,18 @@ content_capture.mojom.ContentCaptureReceiverRemote = class {
   close() {
     this.proxy.close();
   }
+  didCompleteBatchCaptureContent() {
+    return this.$.didCompleteBatchCaptureContent();
+  }
+  didCaptureContent(data, first_data) {
+    return this.$.didCaptureContent(data, first_data);
+  }
+  didUpdateContent(data) {
+    return this.$.didUpdateContent(data);
+  }
+  didRemoveContent(ids) {
+    return this.$.didRemoveContent(ids);
+  }
 };
 
 content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
@@ -365,6 +377,12 @@ content_capture.mojom.ContentCaptureSenderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startCapture() {
+    return this.$.startCapture();
+  }
+  stopCapture() {
+    return this.$.stopCapture();
   }
 };
 

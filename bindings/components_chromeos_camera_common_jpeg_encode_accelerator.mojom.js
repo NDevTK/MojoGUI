@@ -170,6 +170,15 @@ chromeos_camera.mojom.JpegEncodeAcceleratorRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize() {
+    return this.$.initialize();
+  }
+  encodeWithFD(task_id, input_fd, input_buffer_size, coded_size_width, coded_size_height, exif_fd, exif_buffer_size, output_fd, output_buffer_size) {
+    return this.$.encodeWithFD(task_id, input_fd, input_buffer_size, coded_size_width, coded_size_height, exif_fd, exif_buffer_size, output_fd, output_buffer_size);
+  }
+  encodeWithDmaBuf(task_id, input_format, input_planes, output_planes, exif_handle, exif_buffer_size, coded_size_width, coded_size_height, quality, has_input_modifier, input_modifier) {
+    return this.$.encodeWithDmaBuf(task_id, input_format, input_planes, output_planes, exif_handle, exif_buffer_size, coded_size_width, coded_size_height, quality, has_input_modifier, input_modifier);
+  }
 };
 
 chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHandler = class {

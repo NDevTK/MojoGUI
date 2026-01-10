@@ -112,6 +112,9 @@ blink.mojom.AutoplayConfigurationClientRemote = class {
   close() {
     this.proxy.close();
   }
+  addAutoplayFlags(origin, flags) {
+    return this.$.addAutoplayFlags(origin, flags);
+  }
 };
 
 blink.mojom.AutoplayConfigurationClientRemoteCallHandler = class {

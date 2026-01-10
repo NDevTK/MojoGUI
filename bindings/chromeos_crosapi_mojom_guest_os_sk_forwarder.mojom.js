@@ -106,6 +106,9 @@ crosapi.mojom.GuestOsSkForwarderFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  bindGuestOsSkForwarder(remote) {
+    return this.$.bindGuestOsSkForwarder(remote);
+  }
 };
 
 crosapi.mojom.GuestOsSkForwarderFactoryRemoteCallHandler = class {
@@ -259,6 +262,9 @@ crosapi.mojom.GuestOsSkForwarderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  forwardRequest(message) {
+    return this.$.forwardRequest(message);
   }
 };
 

@@ -132,6 +132,15 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getFeedbackInfo() {
+    return this.$.getFeedbackInfo();
+  }
+  closeDialog() {
+    return this.$.closeDialog();
+  }
+  sendFeedback(user_description) {
+    return this.$.sendFeedback(user_description);
+  }
 };
 
 ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {

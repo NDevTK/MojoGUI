@@ -131,6 +131,9 @@ ash.local_search_service.mojom.SearchMetricsReporterRemote = class {
   close() {
     this.proxy.close();
   }
+  onSearchPerformed(index_id) {
+    return this.$.onSearchPerformed(index_id);
+  }
 };
 
 ash.local_search_service.mojom.SearchMetricsReporterRemoteCallHandler = class {
@@ -293,6 +296,9 @@ ash.local_search_service.mojom.LocalSearchServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindIndex(index_id, backend, index_receiver, reporter_remote) {
+    return this.$.bindIndex(index_id, backend, index_receiver, reporter_remote);
   }
 };
 

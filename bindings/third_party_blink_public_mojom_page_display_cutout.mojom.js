@@ -122,6 +122,12 @@ blink.mojom.DisplayCutoutHostRemote = class {
   close() {
     this.proxy.close();
   }
+  notifyViewportFitChanged(value) {
+    return this.$.notifyViewportFitChanged(value);
+  }
+  notifyComplexSafeAreaConstraintChanged(value) {
+    return this.$.notifyComplexSafeAreaConstraintChanged(value);
+  }
 };
 
 blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
@@ -298,6 +304,9 @@ blink.mojom.DisplayCutoutClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setSafeArea(safe_area) {
+    return this.$.setSafeArea(safe_area);
   }
 };
 

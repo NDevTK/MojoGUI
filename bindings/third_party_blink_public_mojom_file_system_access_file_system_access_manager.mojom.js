@@ -281,6 +281,27 @@ blink.mojom.FileSystemAccessManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  getSandboxedFileSystem() {
+    return this.$.getSandboxedFileSystem();
+  }
+  getSandboxedFileSystemForDevtools(directory_path_components) {
+    return this.$.getSandboxedFileSystemForDevtools(directory_path_components);
+  }
+  chooseEntries(options) {
+    return this.$.chooseEntries(options);
+  }
+  getFileHandleFromToken(token, file_handle) {
+    return this.$.getFileHandleFromToken(token, file_handle);
+  }
+  getDirectoryHandleFromToken(token, directory_handle) {
+    return this.$.getDirectoryHandleFromToken(token, directory_handle);
+  }
+  getEntryFromDataTransferToken(token) {
+    return this.$.getEntryFromDataTransferToken(token);
+  }
+  bindObserverHost(observer_host) {
+    return this.$.bindObserverHost(observer_host);
+  }
 };
 
 blink.mojom.FileSystemAccessManagerRemoteCallHandler = class {

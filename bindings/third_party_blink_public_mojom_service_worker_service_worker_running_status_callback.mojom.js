@@ -102,6 +102,9 @@ blink.mojom.ServiceWorkerRunningStatusCallbackRemote = class {
   close() {
     this.proxy.close();
   }
+  onStatusChanged(status) {
+    return this.$.onStatusChanged(status);
+  }
 };
 
 blink.mojom.ServiceWorkerRunningStatusCallbackRemoteCallHandler = class {

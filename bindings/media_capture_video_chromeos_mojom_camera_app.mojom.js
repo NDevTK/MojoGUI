@@ -225,6 +225,15 @@ cros.mojom.CameraAppDeviceProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getCameraAppDevice(source_id) {
+    return this.$.getCameraAppDevice(source_id);
+  }
+  isSupported() {
+    return this.$.isSupported();
+  }
+  isDeviceInUse(source_id) {
+    return this.$.isDeviceInUse(source_id);
+  }
 };
 
 cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
@@ -491,6 +500,18 @@ cros.mojom.CameraAppDeviceBridgeRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getCameraAppDevice(device_id) {
+    return this.$.getCameraAppDevice(device_id);
+  }
+  isSupported() {
+    return this.$.isSupported();
+  }
+  setVirtualDeviceEnabled(device_id, enabled) {
+    return this.$.setVirtualDeviceEnabled(device_id, enabled);
+  }
+  isDeviceInUse(device_id) {
+    return this.$.isDeviceInUse(device_id);
   }
 };
 
@@ -889,6 +910,45 @@ cros.mojom.CameraAppDeviceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  takePortraitModePhoto(observer) {
+    return this.$.takePortraitModePhoto(observer);
+  }
+  setFpsRange(fps_range) {
+    return this.$.setFpsRange(fps_range);
+  }
+  setStillCaptureResolution(resolution) {
+    return this.$.setStillCaptureResolution(resolution);
+  }
+  setCaptureIntent(intent) {
+    return this.$.setCaptureIntent(intent);
+  }
+  addResultMetadataObserver(observer, stream_type) {
+    return this.$.addResultMetadataObserver(observer, stream_type);
+  }
+  addCameraEventObserver(observer) {
+    return this.$.addCameraEventObserver(observer);
+  }
+  setCameraFrameRotationEnabledAtSource(is_enabled) {
+    return this.$.setCameraFrameRotationEnabledAtSource(is_enabled);
+  }
+  getCameraFrameRotation() {
+    return this.$.getCameraFrameRotation();
+  }
+  registerDocumentCornersObserver(observer) {
+    return this.$.registerDocumentCornersObserver(observer);
+  }
+  setMultipleStreamsEnabled(enabled) {
+    return this.$.setMultipleStreamsEnabled(enabled);
+  }
+  registerCameraInfoObserver(observer) {
+    return this.$.registerCameraInfoObserver(observer);
+  }
+  setCropRegion(crop_region) {
+    return this.$.setCropRegion(crop_region);
+  }
+  resetCropRegion() {
+    return this.$.resetCropRegion();
   }
 };
 
@@ -1464,6 +1524,9 @@ cros.mojom.ResultMetadataObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onMetadataAvailable(camera_metadata) {
+    return this.$.onMetadataAvailable(camera_metadata);
+  }
 };
 
 cros.mojom.ResultMetadataObserverRemoteCallHandler = class {
@@ -1610,6 +1673,9 @@ cros.mojom.CameraEventObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onShutterDone() {
+    return this.$.onShutterDone();
   }
 };
 
@@ -1759,6 +1825,9 @@ cros.mojom.DocumentCornersObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onDocumentCornersUpdated(corners) {
+    return this.$.onDocumentCornersUpdated(corners);
+  }
 };
 
 cros.mojom.DocumentCornersObserverRemoteCallHandler = class {
@@ -1906,6 +1975,9 @@ cros.mojom.CameraInfoObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onCameraInfoUpdated(camera_info) {
+    return this.$.onCameraInfoUpdated(camera_info);
   }
 };
 
@@ -2056,6 +2128,9 @@ cros.mojom.StillCaptureResultObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onStillCaptureDone(effect, status, blob) {
+    return this.$.onStillCaptureDone(effect, status, blob);
   }
 };
 

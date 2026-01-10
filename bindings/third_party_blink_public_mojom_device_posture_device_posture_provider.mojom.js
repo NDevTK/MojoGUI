@@ -132,6 +132,15 @@ blink.mojom.DevicePostureProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  addListenerAndGetCurrentPosture(client) {
+    return this.$.addListenerAndGetCurrentPosture(client);
+  }
+  overrideDevicePostureForEmulation(posture) {
+    return this.$.overrideDevicePostureForEmulation(posture);
+  }
+  disableDevicePostureOverrideForEmulation() {
+    return this.$.disableDevicePostureOverrideForEmulation();
+  }
 };
 
 blink.mojom.DevicePostureProviderRemoteCallHandler = class {
@@ -343,6 +352,9 @@ blink.mojom.DevicePostureClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPostureChanged(posture) {
+    return this.$.onPostureChanged(posture);
   }
 };
 

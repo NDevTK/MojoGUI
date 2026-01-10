@@ -222,6 +222,42 @@ ash.screens_factory.mojom.ScreensFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  establishAiIntroScreenPipe(handler) {
+    return this.$.establishAiIntroScreenPipe(handler);
+  }
+  establishAppDownloadingScreenPipe(handler) {
+    return this.$.establishAppDownloadingScreenPipe(handler);
+  }
+  establishDrivePinningScreenPipe(handler) {
+    return this.$.establishDrivePinningScreenPipe(handler);
+  }
+  establishFjordStationSetupScreenPipe(handler) {
+    return this.$.establishFjordStationSetupScreenPipe(handler);
+  }
+  establishGaiaInfoScreenPipe(handler) {
+    return this.$.establishGaiaInfoScreenPipe(handler);
+  }
+  establishGestureNavigationScreenPipe(handler) {
+    return this.$.establishGestureNavigationScreenPipe(handler);
+  }
+  establishGeminiIntroScreenPipe(handler) {
+    return this.$.establishGeminiIntroScreenPipe(handler);
+  }
+  establishConsumerUpdateScreenPipe(handler) {
+    return this.$.establishConsumerUpdateScreenPipe(handler);
+  }
+  establishPackagedLicenseScreenPipe(handler) {
+    return this.$.establishPackagedLicenseScreenPipe(handler);
+  }
+  establishArcVmDataMigrationScreenPipe(handler) {
+    return this.$.establishArcVmDataMigrationScreenPipe(handler);
+  }
+  establishEncryptionMigrationScreenPipe(handler) {
+    return this.$.establishEncryptionMigrationScreenPipe(handler);
+  }
+  establishLocalDataLossWarningScreenPipe(handler) {
+    return this.$.establishLocalDataLossWarningScreenPipe(handler);
+  }
 };
 
 ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {

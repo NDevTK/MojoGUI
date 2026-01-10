@@ -135,6 +135,9 @@ password_manager.mojom.CSVPasswordParserRemote = class {
   close() {
     this.proxy.close();
   }
+  parseCSV(raw_csv) {
+    return this.$.parseCSV(raw_csv);
+  }
 };
 
 password_manager.mojom.CSVPasswordParserRemoteCallHandler = class {

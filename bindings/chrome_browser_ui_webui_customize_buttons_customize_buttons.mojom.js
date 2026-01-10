@@ -119,6 +119,9 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createCustomizeButtonsHandler(page, handler) {
+    return this.$.createCustomizeButtonsHandler(page, handler);
+  }
 };
 
 customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemoteCallHandler = class {
@@ -278,6 +281,15 @@ customize_buttons.mojom.CustomizeButtonsHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  incrementCustomizeChromeButtonOpenCount() {
+    return this.$.incrementCustomizeChromeButtonOpenCount();
+  }
+  incrementWallpaperSearchButtonShownCount() {
+    return this.$.incrementWallpaperSearchButtonShownCount();
+  }
+  setCustomizeChromeSidePanelVisible(visible, section, trigger) {
+    return this.$.setCustomizeChromeSidePanelVisible(visible, section, trigger);
   }
 };
 
@@ -484,6 +496,9 @@ customize_buttons.mojom.CustomizeButtonsDocumentRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setCustomizeChromeSidePanelVisibility(visible) {
+    return this.$.setCustomizeChromeSidePanelVisibility(visible);
   }
 };
 

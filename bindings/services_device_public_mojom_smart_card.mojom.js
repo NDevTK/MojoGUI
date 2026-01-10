@@ -420,6 +420,9 @@ device.mojom.SmartCardTransactionRemote = class {
   close() {
     this.proxy.close();
   }
+  endTransaction(disposition) {
+    return this.$.endTransaction(disposition);
+  }
 };
 
 device.mojom.SmartCardTransactionRemoteCallHandler = class {
@@ -652,6 +655,27 @@ device.mojom.SmartCardConnectionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  disconnect(disposition) {
+    return this.$.disconnect(disposition);
+  }
+  transmit(protocol, data) {
+    return this.$.transmit(protocol, data);
+  }
+  control(control_code, data) {
+    return this.$.control(control_code, data);
+  }
+  getAttrib(id) {
+    return this.$.getAttrib(id);
+  }
+  setAttrib(id, data) {
+    return this.$.setAttrib(id, data);
+  }
+  status() {
+    return this.$.status();
+  }
+  beginTransaction() {
+    return this.$.beginTransaction();
   }
 };
 
@@ -1016,6 +1040,9 @@ device.mojom.SmartCardConnectionWatcherRemote = class {
   close() {
     this.proxy.close();
   }
+  notifyConnectionUsed() {
+    return this.$.notifyConnectionUsed();
+  }
 };
 
 device.mojom.SmartCardConnectionWatcherRemoteCallHandler = class {
@@ -1207,6 +1234,18 @@ device.mojom.SmartCardContextRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  listReaders() {
+    return this.$.listReaders();
+  }
+  getStatusChange(timeout, reader_states) {
+    return this.$.getStatusChange(timeout, reader_states);
+  }
+  cancel() {
+    return this.$.cancel();
+  }
+  connect(reader, share_mode, preferred_protocols, connection_watcher) {
+    return this.$.connect(reader, share_mode, preferred_protocols, connection_watcher);
   }
 };
 
@@ -1471,6 +1510,9 @@ device.mojom.SmartCardContextFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createContext() {
+    return this.$.createContext();
   }
 };
 

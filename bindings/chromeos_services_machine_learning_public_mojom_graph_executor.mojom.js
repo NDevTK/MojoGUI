@@ -127,6 +127,9 @@ chromeos.machine_learning.mojom.GraphExecutorRemote = class {
   close() {
     this.proxy.close();
   }
+  execute(inputs, output_names) {
+    return this.$.execute(inputs, output_names);
+  }
 };
 
 chromeos.machine_learning.mojom.GraphExecutorRemoteCallHandler = class {

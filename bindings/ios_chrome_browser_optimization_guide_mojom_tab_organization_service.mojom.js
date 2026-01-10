@@ -110,6 +110,9 @@ ai.mojom.TabOrganizationServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  executeGroupTabs(request) {
+    return this.$.executeGroupTabs(request);
+  }
 };
 
 ai.mojom.TabOrganizationServiceRemoteCallHandler = class {

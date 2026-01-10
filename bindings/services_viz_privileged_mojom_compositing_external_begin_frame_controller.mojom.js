@@ -138,6 +138,18 @@ viz.mojom.ExternalBeginFrameControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  issueExternalBeginFrame(args, force) {
+    return this.$.issueExternalBeginFrame(args, force);
+  }
+  issueExternalBeginFrameNoAck(args) {
+    return this.$.issueExternalBeginFrameNoAck(args);
+  }
+  issueExternalVSync(params) {
+    return this.$.issueExternalVSync(params);
+  }
+  setSupportedDisplayLinkId(display_id, is_supported) {
+    return this.$.setSupportedDisplayLinkId(display_id, is_supported);
+  }
 };
 
 viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
@@ -391,6 +403,15 @@ viz.mojom.ExternalBeginFrameControllerClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setNeedsBeginFrame(needs_begin_frames) {
+    return this.$.setNeedsBeginFrame(needs_begin_frames);
+  }
+  needsBeginFrameWithId(display_id, needs_begin_frames) {
+    return this.$.needsBeginFrameWithId(display_id, needs_begin_frames);
+  }
+  setPreferredInterval(interval) {
+    return this.$.setPreferredInterval(interval);
   }
 };
 

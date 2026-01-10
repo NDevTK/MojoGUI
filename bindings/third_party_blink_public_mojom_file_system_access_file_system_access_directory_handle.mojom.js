@@ -155,6 +155,9 @@ blink.mojom.FileSystemAccessDirectoryEntriesListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  didReadDirectory(result, entries, has_more_entries) {
+    return this.$.didReadDirectory(result, entries, has_more_entries);
+  }
 };
 
 blink.mojom.FileSystemAccessDirectoryEntriesListenerRemoteCallHandler = class {
@@ -448,6 +451,45 @@ blink.mojom.FileSystemAccessDirectoryHandleRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getPermissionStatus(mode) {
+    return this.$.getPermissionStatus(mode);
+  }
+  requestPermission(mode) {
+    return this.$.requestPermission(mode);
+  }
+  getFile(basename, create) {
+    return this.$.getFile(basename, create);
+  }
+  getDirectory(basename, create) {
+    return this.$.getDirectory(basename, create);
+  }
+  getEntries(listener) {
+    return this.$.getEntries(listener);
+  }
+  rename(new_entry_name) {
+    return this.$.rename(new_entry_name);
+  }
+  move(destination_directory, new_entry_name) {
+    return this.$.move(destination_directory, new_entry_name);
+  }
+  remove(recurse) {
+    return this.$.remove(recurse);
+  }
+  removeEntry(basename, recurse) {
+    return this.$.removeEntry(basename, recurse);
+  }
+  resolve(possible_child) {
+    return this.$.resolve(possible_child);
+  }
+  transfer(token) {
+    return this.$.transfer(token);
+  }
+  getUniqueId() {
+    return this.$.getUniqueId();
+  }
+  getCloudIdentifiers() {
+    return this.$.getCloudIdentifiers();
   }
 };
 

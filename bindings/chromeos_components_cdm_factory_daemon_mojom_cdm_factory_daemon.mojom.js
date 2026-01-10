@@ -162,6 +162,15 @@ chromeos.cdm.mojom.CdmFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  dEPRECATED_1(client, storage, cdm, output_protection) {
+    return this.$.dEPRECATED_1(client, storage, cdm, output_protection);
+  }
+  createCdmDeprecated(client, storage, output_protection, host, cdm) {
+    return this.$.createCdmDeprecated(client, storage, output_protection, host, cdm);
+  }
+  createCdm(client, storage, output_protection, host, cdm) {
+    return this.$.createCdm(client, storage, output_protection, host, cdm);
+  }
 };
 
 chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
@@ -466,6 +475,36 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createFactory(key_system) {
+    return this.$.createFactory(key_system);
+  }
+  removedMethod1() {
+    return this.$.removedMethod1();
+  }
+  connectOemCrypto(oemcryptor, protected_buffer_manager, output_protection) {
+    return this.$.connectOemCrypto(oemcryptor, protected_buffer_manager, output_protection);
+  }
+  removedMethod3() {
+    return this.$.removedMethod3();
+  }
+  getHwConfigData() {
+    return this.$.getHwConfigData();
+  }
+  removedMethod5() {
+    return this.$.removedMethod5();
+  }
+  getHdcp14Key() {
+    return this.$.getHdcp14Key();
+  }
+  getAndroidHwKeyData(key_id, hw_identifier) {
+    return this.$.getAndroidHwKeyData(key_id, hw_identifier);
+  }
+  allocateSecureBuffer(size) {
+    return this.$.allocateSecureBuffer(size);
+  }
+  parseEncryptedSliceHeader(secure_handle, offset, stream_data) {
+    return this.$.parseEncryptedSliceHeader(secure_handle, offset, stream_data);
   }
 };
 

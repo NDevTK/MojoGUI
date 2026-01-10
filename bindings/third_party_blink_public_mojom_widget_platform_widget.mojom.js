@@ -139,6 +139,9 @@ blink.mojom.WidgetCompositorRemote = class {
   close() {
     this.proxy.close();
   }
+  visualStateRequest() {
+    return this.$.visualStateRequest();
+  }
 };
 
 blink.mojom.WidgetCompositorRemoteCallHandler = class {
@@ -344,6 +347,30 @@ blink.mojom.WidgetHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setCursor(cursor) {
+    return this.$.setCursor(cursor);
+  }
+  updateTooltipUnderCursor(tooltip_text, text_direction_hint) {
+    return this.$.updateTooltipUnderCursor(tooltip_text, text_direction_hint);
+  }
+  updateTooltipFromKeyboard(tooltip_text, text_direction_hint, bounds) {
+    return this.$.updateTooltipFromKeyboard(tooltip_text, text_direction_hint, bounds);
+  }
+  clearKeyboardTriggeredTooltip() {
+    return this.$.clearKeyboardTriggeredTooltip();
+  }
+  textInputStateChanged(state) {
+    return this.$.textInputStateChanged(state);
+  }
+  selectionBoundsChanged(anchor_rect, anchor_dir, focus_rect, focus_dir, bounding_box_rect, is_anchor_first) {
+    return this.$.selectionBoundsChanged(anchor_rect, anchor_dir, focus_rect, focus_dir, bounding_box_rect, is_anchor_first);
+  }
+  createFrameSink(compositor_frame_sink_receiver, compositor_frame_sink_client, render_input_router_client) {
+    return this.$.createFrameSink(compositor_frame_sink_receiver, compositor_frame_sink_client, render_input_router_client);
+  }
+  registerRenderFrameMetadataObserver(render_frame_metadata_observer_client_receiver, render_frame_metadata_observer) {
+    return this.$.registerRenderFrameMetadataObserver(render_frame_metadata_observer_client_receiver, render_frame_metadata_observer);
   }
 };
 
@@ -747,6 +774,30 @@ blink.mojom.WidgetRemote = class {
   close() {
     this.proxy.close();
   }
+  forceRedraw() {
+    return this.$.forceRedraw();
+  }
+  updateVisualProperties(visual_properties) {
+    return this.$.updateVisualProperties(visual_properties);
+  }
+  updateScreenRects(widget_screen_rect, window_screen_rect) {
+    return this.$.updateScreenRects(widget_screen_rect, window_screen_rect);
+  }
+  wasHidden() {
+    return this.$.wasHidden();
+  }
+  wasShown(was_evicted, record_tab_switch_time_request) {
+    return this.$.wasShown(was_evicted, record_tab_switch_time_request);
+  }
+  requestSuccessfulPresentationTimeForNextFrame(visible_time_request) {
+    return this.$.requestSuccessfulPresentationTimeForNextFrame(visible_time_request);
+  }
+  cancelSuccessfulPresentationTimeRequest() {
+    return this.$.cancelSuccessfulPresentationTimeRequest();
+  }
+  setupBrowserRenderInputRouterConnections(browser_client) {
+    return this.$.setupBrowserRenderInputRouterConnections(browser_client);
+  }
 };
 
 blink.mojom.WidgetRemoteCallHandler = class {
@@ -1124,6 +1175,15 @@ blink.mojom.RenderInputRouterClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getWidgetInputHandler(request, host, from_viz) {
+    return this.$.getWidgetInputHandler(request, host, from_viz);
+  }
+  showContextMenu(source_type, location) {
+    return this.$.showContextMenu(source_type, location);
+  }
+  bindInputTargetClient(host) {
+    return this.$.bindInputTargetClient(host);
   }
 };
 

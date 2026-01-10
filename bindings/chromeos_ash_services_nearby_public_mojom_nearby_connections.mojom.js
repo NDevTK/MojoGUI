@@ -173,6 +173,12 @@ nearby.connections.mojom.EndpointDiscoveryListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onEndpointFound(endpoint_id, info) {
+    return this.$.onEndpointFound(endpoint_id, info);
+  }
+  onEndpointLost(endpoint_id) {
+    return this.$.onEndpointLost(endpoint_id);
+  }
 };
 
 nearby.connections.mojom.EndpointDiscoveryListenerRemoteCallHandler = class {
@@ -376,6 +382,21 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onConnectionInitiated(endpoint_id, info) {
+    return this.$.onConnectionInitiated(endpoint_id, info);
+  }
+  onConnectionAccepted(endpoint_id) {
+    return this.$.onConnectionAccepted(endpoint_id);
+  }
+  onConnectionRejected(endpoint_id, status) {
+    return this.$.onConnectionRejected(endpoint_id, status);
+  }
+  onDisconnected(endpoint_id) {
+    return this.$.onDisconnected(endpoint_id);
+  }
+  onBandwidthChanged(endpoint_id, medium) {
+    return this.$.onBandwidthChanged(endpoint_id, medium);
   }
 };
 
@@ -649,6 +670,12 @@ nearby.connections.mojom.PayloadListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onPayloadReceived(endpoint_id, payload) {
+    return this.$.onPayloadReceived(endpoint_id, payload);
+  }
+  onPayloadTransferUpdate(endpoint_id, update) {
+    return this.$.onPayloadTransferUpdate(endpoint_id, update);
+  }
 };
 
 nearby.connections.mojom.PayloadListenerRemoteCallHandler = class {
@@ -846,6 +873,18 @@ nearby.connections.mojom.ConnectionListenerV3Remote = class {
 
   close() {
     this.proxy.close();
+  }
+  onConnectionInitiatedV3(endpoint_id, info) {
+    return this.$.onConnectionInitiatedV3(endpoint_id, info);
+  }
+  onConnectionResultV3(endpoint_id, resolution) {
+    return this.$.onConnectionResultV3(endpoint_id, resolution);
+  }
+  onDisconnectedV3(endpoint_id) {
+    return this.$.onDisconnectedV3(endpoint_id);
+  }
+  onBandwidthChangedV3(endpoint_id, bandwidth_info) {
+    return this.$.onBandwidthChangedV3(endpoint_id, bandwidth_info);
   }
 };
 
@@ -1089,6 +1128,12 @@ nearby.connections.mojom.PayloadListenerV3Remote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPayloadReceivedV3(endpoint_id, payload) {
+    return this.$.onPayloadReceivedV3(endpoint_id, payload);
+  }
+  onPayloadTransferUpdateV3(endpoint_id, update) {
+    return this.$.onPayloadTransferUpdateV3(endpoint_id, update);
   }
 };
 
@@ -1512,6 +1557,63 @@ nearby.connections.mojom.NearbyConnectionsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startAdvertising(service_id, endpoint_info, options, listener) {
+    return this.$.startAdvertising(service_id, endpoint_info, options, listener);
+  }
+  stopAdvertising(service_id) {
+    return this.$.stopAdvertising(service_id);
+  }
+  startDiscovery(service_id, options, listener) {
+    return this.$.startDiscovery(service_id, options, listener);
+  }
+  stopDiscovery(service_id) {
+    return this.$.stopDiscovery(service_id);
+  }
+  injectBluetoothEndpoint(service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address) {
+    return this.$.injectBluetoothEndpoint(service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address);
+  }
+  requestConnection(service_id, endpoint_info, endpoint_id, options, listener) {
+    return this.$.requestConnection(service_id, endpoint_info, endpoint_id, options, listener);
+  }
+  acceptConnection(service_id, endpoint_id, listener) {
+    return this.$.acceptConnection(service_id, endpoint_id, listener);
+  }
+  rejectConnection(service_id, endpoint_id) {
+    return this.$.rejectConnection(service_id, endpoint_id);
+  }
+  disconnectFromEndpoint(service_id, endpoint_id) {
+    return this.$.disconnectFromEndpoint(service_id, endpoint_id);
+  }
+  sendPayload(service_id, endpoint_ids, payload) {
+    return this.$.sendPayload(service_id, endpoint_ids, payload);
+  }
+  cancelPayload(service_id, payload_id) {
+    return this.$.cancelPayload(service_id, payload_id);
+  }
+  stopAllEndpoints(service_id) {
+    return this.$.stopAllEndpoints(service_id);
+  }
+  initiateBandwidthUpgrade(service_id, endpoint_id) {
+    return this.$.initiateBandwidthUpgrade(service_id, endpoint_id);
+  }
+  registerPayloadFile(service_id, payload_id, input_file, output_file) {
+    return this.$.registerPayloadFile(service_id, payload_id, input_file, output_file);
+  }
+  requestConnectionV3(service_id, remote_device, connection_options, listener) {
+    return this.$.requestConnectionV3(service_id, remote_device, connection_options, listener);
+  }
+  acceptConnectionV3(service_id, remote_device, listener) {
+    return this.$.acceptConnectionV3(service_id, remote_device, listener);
+  }
+  rejectConnectionV3(service_id, remote_device) {
+    return this.$.rejectConnectionV3(service_id, remote_device);
+  }
+  disconnectFromDeviceV3(service_id, remote_device) {
+    return this.$.disconnectFromDeviceV3(service_id, remote_device);
+  }
+  registerServiceWithPresenceDeviceProvider(service_id) {
+    return this.$.registerServiceWithPresenceDeviceProvider(service_id);
   }
 };
 

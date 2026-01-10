@@ -376,6 +376,36 @@ blink.mojom.FederatedAuthRequestRemote = class {
   close() {
     this.proxy.close();
   }
+  requestToken(idp_get_params, requirement) {
+    return this.$.requestToken(idp_get_params, requirement);
+  }
+  requestUserInfo(provider) {
+    return this.$.requestUserInfo(provider);
+  }
+  cancelTokenRequest() {
+    return this.$.cancelTokenRequest();
+  }
+  resolveTokenRequest(account_id, token) {
+    return this.$.resolveTokenRequest(account_id, token);
+  }
+  setIdpSigninStatus(origin, status, options) {
+    return this.$.setIdpSigninStatus(origin, status, options);
+  }
+  registerIdP(url) {
+    return this.$.registerIdP(url);
+  }
+  unregisterIdP(url) {
+    return this.$.unregisterIdP(url);
+  }
+  closeModalDialogView() {
+    return this.$.closeModalDialogView();
+  }
+  preventSilentAccess() {
+    return this.$.preventSilentAccess();
+  }
+  disconnect(options) {
+    return this.$.disconnect(options);
+  }
 };
 
 blink.mojom.FederatedAuthRequestRemoteCallHandler = class {

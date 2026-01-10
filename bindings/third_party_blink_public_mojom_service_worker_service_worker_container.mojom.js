@@ -219,6 +219,33 @@ blink.mojom.ServiceWorkerContainerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  register(script_url, options, outside_fetch_client_settings_object) {
+    return this.$.register(script_url, options, outside_fetch_client_settings_object);
+  }
+  getRegistration(client_url) {
+    return this.$.getRegistration(client_url);
+  }
+  getRegistrations() {
+    return this.$.getRegistrations();
+  }
+  getRegistrationForReady() {
+    return this.$.getRegistrationForReady();
+  }
+  ensureControllerServiceWorker(receiver, purpose) {
+    return this.$.ensureControllerServiceWorker(receiver, purpose);
+  }
+  cloneContainerHost(container_host) {
+    return this.$.cloneContainerHost(container_host);
+  }
+  hintToUpdateServiceWorker() {
+    return this.$.hintToUpdateServiceWorker();
+  }
+  ensureFileAccess(files) {
+    return this.$.ensureFileAccess(files);
+  }
+  onExecutionReady() {
+    return this.$.onExecutionReady();
+  }
 };
 
 blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
@@ -642,6 +669,15 @@ blink.mojom.ServiceWorkerContainerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setController(controller_info, should_notify_controllerchange) {
+    return this.$.setController(controller_info, should_notify_controllerchange);
+  }
+  postMessageToClient(source, message) {
+    return this.$.postMessageToClient(source, message);
+  }
+  countFeature(feature) {
+    return this.$.countFeature(feature);
   }
 };
 

@@ -141,6 +141,9 @@ recording.mojom.DriveFsQuotaDelegateRemote = class {
   close() {
     this.proxy.close();
   }
+  getDriveFsFreeSpaceBytes() {
+    return this.$.getDriveFsFreeSpaceBytes();
+  }
 };
 
 recording.mojom.DriveFsQuotaDelegateRemoteCallHandler = class {
@@ -295,6 +298,9 @@ recording.mojom.RecordingServiceClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onRecordingEnded(status, thumbnail) {
+    return this.$.onRecordingEnded(status, thumbnail);
   }
 };
 
@@ -508,6 +514,27 @@ recording.mojom.RecordingServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  recordFullscreen(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor) {
+    return this.$.recordFullscreen(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor);
+  }
+  recordWindow(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip) {
+    return this.$.recordWindow(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip);
+  }
+  recordRegion(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip) {
+    return this.$.recordRegion(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip);
+  }
+  stopRecording() {
+    return this.$.stopRecording();
+  }
+  onRecordedWindowChangingRoot(new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor) {
+    return this.$.onRecordedWindowChangingRoot(new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor);
+  }
+  onRecordedWindowSizeChanged(new_window_size_dip) {
+    return this.$.onRecordedWindowSizeChanged(new_window_size_dip);
+  }
+  onFrameSinkSizeChanged(new_frame_sink_size_dip, new_device_scale_factor) {
+    return this.$.onFrameSinkSizeChanged(new_frame_sink_size_dip, new_device_scale_factor);
   }
 };
 

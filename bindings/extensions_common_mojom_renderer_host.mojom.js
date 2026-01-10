@@ -143,6 +143,18 @@ extensions.mojom.RendererHostRemote = class {
   close() {
     this.proxy.close();
   }
+  addAPIActionToActivityLog(extension_id, call_name, args, extra) {
+    return this.$.addAPIActionToActivityLog(extension_id, call_name, args, extra);
+  }
+  addEventToActivityLog(extension_id, call_name, args, extra) {
+    return this.$.addEventToActivityLog(extension_id, call_name, args, extra);
+  }
+  addDOMActionToActivityLog(extension_id, call_name, args, url, url_title, call_type) {
+    return this.$.addDOMActionToActivityLog(extension_id, call_name, args, url, url_title, call_type);
+  }
+  getMessageBundle(extension_id) {
+    return this.$.getMessageBundle(extension_id);
+  }
 };
 
 extensions.mojom.RendererHostRemoteCallHandler = class {

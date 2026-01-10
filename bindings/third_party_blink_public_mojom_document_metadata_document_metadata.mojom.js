@@ -120,6 +120,9 @@ blink.mojom.DocumentMetadataRemote = class {
   close() {
     this.proxy.close();
   }
+  getEntities() {
+    return this.$.getEntities();
+  }
 };
 
 blink.mojom.DocumentMetadataRemoteCallHandler = class {

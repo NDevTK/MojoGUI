@@ -175,6 +175,15 @@ network.mojom.ClientCertificateResponderRemote = class {
   close() {
     this.proxy.close();
   }
+  continueWithCertificate(x509_certificate, provider_name, algorithm_preferences, ssl_private_key) {
+    return this.$.continueWithCertificate(x509_certificate, provider_name, algorithm_preferences, ssl_private_key);
+  }
+  continueWithoutCertificate() {
+    return this.$.continueWithoutCertificate();
+  }
+  cancelRequest() {
+    return this.$.cancelRequest();
+  }
 };
 
 network.mojom.ClientCertificateResponderRemoteCallHandler = class {
@@ -389,6 +398,9 @@ network.mojom.SSLPrivateKeyRemote = class {
   close() {
     this.proxy.close();
   }
+  sign(algorithm, input) {
+    return this.$.sign(algorithm, input);
+  }
 };
 
 network.mojom.SSLPrivateKeyRemoteCallHandler = class {
@@ -542,6 +554,9 @@ network.mojom.AuthChallengeResponderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onAuthCredentials(credentials) {
+    return this.$.onAuthCredentials(credentials);
   }
 };
 
@@ -808,6 +823,42 @@ network.mojom.URLLoaderNetworkServiceObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onSSLCertificateError(url, net_error, ssl_info, fatal) {
+    return this.$.onSSLCertificateError(url, net_error, ssl_info, fatal);
+  }
+  onCertificateRequested(window_id, cert_info, cert_responder) {
+    return this.$.onCertificateRequested(window_id, cert_info, cert_responder);
+  }
+  onAuthRequired(window_id, request_id, url, first_auth_attempt, auth_info, head_headers, auth_challenge_responder) {
+    return this.$.onAuthRequired(window_id, request_id, url, first_auth_attempt, auth_info, head_headers, auth_challenge_responder);
+  }
+  onLocalNetworkAccessPermissionRequired(transport_type, ip_address_space) {
+    return this.$.onLocalNetworkAccessPermissionRequired(transport_type, ip_address_space);
+  }
+  onClearSiteData(url, header_value, load_flags, cookie_partition_key, partitioned_state_allowed_only) {
+    return this.$.onClearSiteData(url, header_value, load_flags, cookie_partition_key, partitioned_state_allowed_only);
+  }
+  onLoadingStateUpdate(info) {
+    return this.$.onLoadingStateUpdate(info);
+  }
+  onDataUseUpdate(network_traffic_annotation_id_hash, recv_bytes, sent_bytes) {
+    return this.$.onDataUseUpdate(network_traffic_annotation_id_hash, recv_bytes, sent_bytes);
+  }
+  onSharedStorageHeaderReceived(request_origin, methods_with_options, with_lock) {
+    return this.$.onSharedStorageHeaderReceived(request_origin, methods_with_options, with_lock);
+  }
+  onAdAuctionEventRecordHeaderReceived(ad_auction_event_record, top_frame_origin) {
+    return this.$.onAdAuctionEventRecordHeaderReceived(ad_auction_event_record, top_frame_origin);
+  }
+  clone(listener) {
+    return this.$.clone(listener);
+  }
+  onWebSocketConnectedToPrivateNetwork(request_url, ip_address_space) {
+    return this.$.onWebSocketConnectedToPrivateNetwork(request_url, ip_address_space);
+  }
+  onUrlLoaderConnectedToPrivateNetwork(request_url, response_address_space, client_address_space, target_address_space) {
+    return this.$.onUrlLoaderConnectedToPrivateNetwork(request_url, response_address_space, client_address_space, target_address_space);
   }
 };
 

@@ -111,6 +111,12 @@ arc.mojom.AdbdMonitorHostRemote = class {
   close() {
     this.proxy.close();
   }
+  adbdStarted() {
+    return this.$.adbdStarted();
+  }
+  adbdStopped() {
+    return this.$.adbdStopped();
+  }
 };
 
 arc.mojom.AdbdMonitorHostRemoteCallHandler = class {
@@ -292,6 +298,9 @@ arc.mojom.AdbdMonitorInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

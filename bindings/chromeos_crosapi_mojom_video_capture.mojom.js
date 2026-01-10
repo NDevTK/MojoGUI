@@ -432,6 +432,51 @@ crosapi.mojom.VideoFrameHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onCaptureConfigurationChanged() {
+    return this.$.onCaptureConfigurationChanged();
+  }
+  onNewBuffer(buffer_id, buffer_handle) {
+    return this.$.onNewBuffer(buffer_id, buffer_handle);
+  }
+  dEPRECATED_OnFrameReadyInBuffer(buffer, scaled_buffers) {
+    return this.$.dEPRECATED_OnFrameReadyInBuffer(buffer, scaled_buffers);
+  }
+  onFrameReadyInBuffer(buffer) {
+    return this.$.onFrameReadyInBuffer(buffer);
+  }
+  onBufferRetired(buffer_id) {
+    return this.$.onBufferRetired(buffer_id);
+  }
+  onError(error) {
+    return this.$.onError(error);
+  }
+  onFrameDropped(reason) {
+    return this.$.onFrameDropped(reason);
+  }
+  dEPRECATED_OnNewCropVersion(crop_version) {
+    return this.$.dEPRECATED_OnNewCropVersion(crop_version);
+  }
+  dEPRECATED_OnNewSubCaptureTargetVersion(sub_capture_target_version) {
+    return this.$.dEPRECATED_OnNewSubCaptureTargetVersion(sub_capture_target_version);
+  }
+  onNewCaptureVersion(capture_version) {
+    return this.$.onNewCaptureVersion(capture_version);
+  }
+  onFrameWithEmptyRegionCapture() {
+    return this.$.onFrameWithEmptyRegionCapture();
+  }
+  onLog(message) {
+    return this.$.onLog(message);
+  }
+  onStarted() {
+    return this.$.onStarted();
+  }
+  onStartedUsingGpuDecode() {
+    return this.$.onStartedUsingGpuDecode();
+  }
+  onStopped() {
+    return this.$.onStopped();
+  }
 };
 
 crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
@@ -1042,6 +1087,30 @@ crosapi.mojom.VideoCaptureDeviceRemote = class {
   close() {
     this.proxy.close();
   }
+  start(requested_settings, handler) {
+    return this.$.start(requested_settings, handler);
+  }
+  maybeSuspend() {
+    return this.$.maybeSuspend();
+  }
+  resume() {
+    return this.$.resume();
+  }
+  getPhotoState() {
+    return this.$.getPhotoState();
+  }
+  setPhotoOptions(settings) {
+    return this.$.setPhotoOptions(settings);
+  }
+  takePhoto() {
+    return this.$.takePhoto();
+  }
+  processFeedback(feedback) {
+    return this.$.processFeedback(feedback);
+  }
+  requestRefreshFrame() {
+    return this.$.requestRefreshFrame();
+  }
 };
 
 crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
@@ -1428,6 +1497,12 @@ crosapi.mojom.VideoCaptureDeviceFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDeviceInfos() {
+    return this.$.getDeviceInfos();
+  }
+  createDevice(device_id, device_receiver) {
+    return this.$.createDevice(device_id, device_receiver);
   }
 };
 

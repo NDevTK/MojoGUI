@@ -537,6 +537,9 @@ blink.mojom.AIPageContentAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  getAIPageContent(request) {
+    return this.$.getAIPageContent(request);
+  }
 };
 
 blink.mojom.AIPageContentAgentRemoteCallHandler = class {

@@ -141,6 +141,15 @@ blink.mojom.TextSuggestionHostRemote = class {
   close() {
     this.proxy.close();
   }
+  startSuggestionMenuTimer() {
+    return this.$.startSuggestionMenuTimer();
+  }
+  showSpellCheckSuggestionMenu(caret_x, caret_y, marked_text, suggestions) {
+    return this.$.showSpellCheckSuggestionMenu(caret_x, caret_y, marked_text, suggestions);
+  }
+  showTextSuggestionMenu(caret_x, caret_y, marked_text, suggestions) {
+    return this.$.showTextSuggestionMenu(caret_x, caret_y, marked_text, suggestions);
+  }
 };
 
 blink.mojom.TextSuggestionHostRemoteCallHandler = class {

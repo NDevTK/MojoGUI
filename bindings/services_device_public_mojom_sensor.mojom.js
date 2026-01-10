@@ -191,6 +191,24 @@ device.mojom.SensorRemote = class {
   close() {
     this.proxy.close();
   }
+  getDefaultConfiguration() {
+    return this.$.getDefaultConfiguration();
+  }
+  addConfiguration(configuration) {
+    return this.$.addConfiguration(configuration);
+  }
+  removeConfiguration(configuration) {
+    return this.$.removeConfiguration(configuration);
+  }
+  suspend() {
+    return this.$.suspend();
+  }
+  resume() {
+    return this.$.resume();
+  }
+  configureReadingChangeNotifications(enabled) {
+    return this.$.configureReadingChangeNotifications(enabled);
+  }
 };
 
 device.mojom.SensorRemoteCallHandler = class {
@@ -499,6 +517,12 @@ device.mojom.SensorClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  raiseError() {
+    return this.$.raiseError();
+  }
+  sensorReadingChanged() {
+    return this.$.sensorReadingChanged();
   }
 };
 

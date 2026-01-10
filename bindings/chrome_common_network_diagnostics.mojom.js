@@ -107,6 +107,9 @@ chrome.mojom.NetworkDiagnosticsRemote = class {
   close() {
     this.proxy.close();
   }
+  runNetworkDiagnostics(failed_url) {
+    return this.$.runNetworkDiagnostics(failed_url);
+  }
 };
 
 chrome.mojom.NetworkDiagnosticsRemoteCallHandler = class {
@@ -260,6 +263,12 @@ chrome.mojom.NetworkDiagnosticsClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setCanShowNetworkDiagnosticsDialog(can_show) {
+    return this.$.setCanShowNetworkDiagnosticsDialog(can_show);
+  }
+  dNSProbeStatus(status) {
+    return this.$.dNSProbeStatus(status);
   }
 };
 

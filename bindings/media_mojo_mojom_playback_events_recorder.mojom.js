@@ -153,6 +153,33 @@ media.mojom.PlaybackEventsRecorderRemote = class {
   close() {
     this.proxy.close();
   }
+  onPlaying() {
+    return this.$.onPlaying();
+  }
+  onPaused() {
+    return this.$.onPaused();
+  }
+  onSeeking() {
+    return this.$.onSeeking();
+  }
+  onEnded() {
+    return this.$.onEnded();
+  }
+  onError(status) {
+    return this.$.onError(status);
+  }
+  onBuffering() {
+    return this.$.onBuffering();
+  }
+  onBufferingComplete() {
+    return this.$.onBufferingComplete();
+  }
+  onNaturalSizeChanged(size) {
+    return this.$.onNaturalSizeChanged(size);
+  }
+  onPipelineStatistics(stats) {
+    return this.$.onPipelineStatistics(stats);
+  }
 };
 
 media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {

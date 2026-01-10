@@ -105,6 +105,9 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onGeneralAudienceBrowsingAPIKeyChanged(api_key) {
+    return this.$.onGeneralAudienceBrowsingAPIKeyChanged(api_key);
+  }
 };
 
 chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemoteCallHandler = class {
@@ -252,6 +255,9 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addGeneralAudienceBrowsingAPIKeyObserver(observer) {
+    return this.$.addGeneralAudienceBrowsingAPIKeyObserver(observer);
   }
 };
 

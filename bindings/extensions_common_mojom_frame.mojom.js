@@ -246,6 +246,36 @@ extensions.mojom.LocalFrameRemote = class {
   close() {
     this.proxy.close();
   }
+  setFrameName(frame_name) {
+    return this.$.setFrameName(frame_name);
+  }
+  setSpatialNavigationEnabled(spatial_nav_enabled) {
+    return this.$.setSpatialNavigationEnabled(spatial_nav_enabled);
+  }
+  setTabId(tab_id) {
+    return this.$.setTabId(tab_id);
+  }
+  appWindowClosed(send_onclosed) {
+    return this.$.appWindowClosed(send_onclosed);
+  }
+  notifyRenderViewType(view_type) {
+    return this.$.notifyRenderViewType(view_type);
+  }
+  messageInvoke(extension_id, module_name, function_name, args) {
+    return this.$.messageInvoke(extension_id, module_name, function_name, args);
+  }
+  executeCode(param) {
+    return this.$.executeCode(param);
+  }
+  executeDeclarativeScript(tab_id, extension_id, script_id, url) {
+    return this.$.executeDeclarativeScript(tab_id, extension_id, script_id, url);
+  }
+  updateBrowserWindowId(window_id) {
+    return this.$.updateBrowserWindowId(window_id);
+  }
+  dispatchOnConnect(port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host) {
+    return this.$.dispatchOnConnect(port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host);
+  }
 };
 
 extensions.mojom.LocalFrameRemoteCallHandler = class {
@@ -777,6 +807,45 @@ extensions.mojom.LocalFrameHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestScriptInjectionPermission(extension_id, script_type, run_location) {
+    return this.$.requestScriptInjectionPermission(extension_id, script_type, run_location);
+  }
+  getAppInstallState(url) {
+    return this.$.getAppInstallState(url);
+  }
+  request(params) {
+    return this.$.request(params);
+  }
+  responseAck(request_uuid) {
+    return this.$.responseAck(request_uuid);
+  }
+  watchedPageChange(css_selectors) {
+    return this.$.watchedPageChange(css_selectors);
+  }
+  detailedConsoleMessageAdded(message, source, stack_trace, level) {
+    return this.$.detailedConsoleMessageAdded(message, source, stack_trace, level);
+  }
+  contentScriptsExecuting(extension_id_to_scripts, frame_url) {
+    return this.$.contentScriptsExecuting(extension_id_to_scripts, frame_url);
+  }
+  incrementLazyKeepaliveCount() {
+    return this.$.incrementLazyKeepaliveCount();
+  }
+  decrementLazyKeepaliveCount() {
+    return this.$.decrementLazyKeepaliveCount();
+  }
+  appWindowReady() {
+    return this.$.appWindowReady();
+  }
+  openChannelToExtension(info, channel_type, channel_name, port_id, port, port_host) {
+    return this.$.openChannelToExtension(info, channel_type, channel_name, port_id, port, port_host);
+  }
+  openChannelToNativeApp(native_app_name, port_id, port, port_host) {
+    return this.$.openChannelToNativeApp(native_app_name, port_id, port, port_host);
+  }
+  openChannelToTab(tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host) {
+    return this.$.openChannelToTab(tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host);
   }
 };
 

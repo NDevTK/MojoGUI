@@ -120,6 +120,15 @@ tracked_element.mojom.TrackedElementHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  trackedElementVisibilityChanged(native_identifier, visible, rect) {
+    return this.$.trackedElementVisibilityChanged(native_identifier, visible, rect);
+  }
+  trackedElementActivated(native_identifier) {
+    return this.$.trackedElementActivated(native_identifier);
+  }
+  trackedElementCustomEvent(native_identifier, custom_event_name) {
+    return this.$.trackedElementCustomEvent(native_identifier, custom_event_name);
+  }
 };
 
 tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {

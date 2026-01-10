@@ -119,6 +119,9 @@ remoting.mojom.RemoteUrlOpenerRemote = class {
   close() {
     this.proxy.close();
   }
+  openUrl(url) {
+    return this.$.openUrl(url);
+  }
 };
 
 remoting.mojom.RemoteUrlOpenerRemoteCallHandler = class {

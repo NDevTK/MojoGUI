@@ -130,6 +130,15 @@ printing.mojom.PdfToEmfConverterRemote = class {
   close() {
     this.proxy.close();
   }
+  convertPage(page_index) {
+    return this.$.convertPage(page_index);
+  }
+  setWebContentsURL(url) {
+    return this.$.setWebContentsURL(url);
+  }
+  setUseSkiaRendererPolicy(use_skia) {
+    return this.$.setUseSkiaRendererPolicy(use_skia);
+  }
 };
 
 printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
@@ -349,6 +358,9 @@ printing.mojom.PdfToEmfConverterFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createConverter(pdf_region, render_settings) {
+    return this.$.createConverter(pdf_region, render_settings);
   }
 };
 

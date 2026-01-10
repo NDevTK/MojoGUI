@@ -137,6 +137,9 @@ data_decoder.mojom.XmlParserRemote = class {
   close() {
     this.proxy.close();
   }
+  parse(xml, whitespace_behavior) {
+    return this.$.parse(xml, whitespace_behavior);
+  }
 };
 
 data_decoder.mojom.XmlParserRemoteCallHandler = class {

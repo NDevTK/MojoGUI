@@ -133,6 +133,9 @@ ash.cfm.mojom.DataWatchDogRemote = class {
   close() {
     this.proxy.close();
   }
+  onNotify(data) {
+    return this.$.onNotify(data);
+  }
 };
 
 ash.cfm.mojom.DataWatchDogRemoteCallHandler = class {
@@ -303,6 +306,15 @@ ash.cfm.mojom.DataSourceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  fetch() {
+    return this.$.fetch();
+  }
+  addWatchDog(filter, watch_dog) {
+    return this.$.addWatchDog(filter, watch_dog);
+  }
+  flush() {
+    return this.$.flush();
   }
 };
 
@@ -553,6 +565,15 @@ ash.cfm.mojom.DataAggregatorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDataSourceNames() {
+    return this.$.getDataSourceNames();
+  }
+  addDataSource(source_name, data_source) {
+    return this.$.addDataSource(source_name, data_source);
+  }
+  addWatchDog(source_name, filter, watch_dog) {
+    return this.$.addWatchDog(source_name, filter, watch_dog);
   }
 };
 

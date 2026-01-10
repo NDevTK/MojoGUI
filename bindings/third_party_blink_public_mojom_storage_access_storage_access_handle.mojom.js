@@ -167,6 +167,30 @@ blink.mojom.StorageAccessHandleRemote = class {
   close() {
     this.proxy.close();
   }
+  bindIndexedDB(receiver) {
+    return this.$.bindIndexedDB(receiver);
+  }
+  bindLocks(receiver) {
+    return this.$.bindLocks(receiver);
+  }
+  bindCaches(receiver) {
+    return this.$.bindCaches(receiver);
+  }
+  getDirectory() {
+    return this.$.getDirectory();
+  }
+  estimate() {
+    return this.$.estimate();
+  }
+  bindBlobStorage(receiver) {
+    return this.$.bindBlobStorage(receiver);
+  }
+  bindBroadcastChannel(receiver) {
+    return this.$.bindBroadcastChannel(receiver);
+  }
+  bindSharedWorker(receiver) {
+    return this.$.bindSharedWorker(receiver);
+  }
 };
 
 blink.mojom.StorageAccessHandleRemoteCallHandler = class {

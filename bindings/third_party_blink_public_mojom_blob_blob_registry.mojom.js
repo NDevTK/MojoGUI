@@ -109,6 +109,9 @@ blink.mojom.ProgressClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onProgress(delta) {
+    return this.$.onProgress(delta);
+  }
 };
 
 blink.mojom.ProgressClientRemoteCallHandler = class {
@@ -281,6 +284,12 @@ blink.mojom.BlobRegistryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  register(blob, uuid, content_type, content_disposition, elements) {
+    return this.$.register(blob, uuid, content_type, content_disposition, elements);
+  }
+  registerFromStream(content_type, content_disposition, length_hint, data, progress_client) {
+    return this.$.registerFromStream(content_type, content_disposition, length_hint, data, progress_client);
   }
 };
 

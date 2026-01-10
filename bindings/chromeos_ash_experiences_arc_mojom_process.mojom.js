@@ -282,6 +282,27 @@ arc.mojom.ProcessInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  killProcess(pid, reason) {
+    return this.$.killProcess(pid, reason);
+  }
+  requestProcessList() {
+    return this.$.requestProcessList();
+  }
+  requestApplicationProcessMemoryInfo() {
+    return this.$.requestApplicationProcessMemoryInfo();
+  }
+  requestSystemProcessMemoryInfo(nspids) {
+    return this.$.requestSystemProcessMemoryInfo(nspids);
+  }
+  applyHostMemoryPressureDeprecated(level, reclaim_target) {
+    return this.$.applyHostMemoryPressureDeprecated(level, reclaim_target);
+  }
+  applyHostMemoryPressure(level, reclaim_target) {
+    return this.$.applyHostMemoryPressure(level, reclaim_target);
+  }
+  requestLowMemoryKillCounts() {
+    return this.$.requestLowMemoryKillCounts();
+  }
 };
 
 arc.mojom.ProcessInstanceRemoteCallHandler = class {

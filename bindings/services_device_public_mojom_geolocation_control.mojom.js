@@ -101,6 +101,9 @@ device.mojom.GeolocationControlRemote = class {
   close() {
     this.proxy.close();
   }
+  userDidOptIntoLocationServices() {
+    return this.$.userDidOptIntoLocationServices();
+  }
 };
 
 device.mojom.GeolocationControlRemoteCallHandler = class {

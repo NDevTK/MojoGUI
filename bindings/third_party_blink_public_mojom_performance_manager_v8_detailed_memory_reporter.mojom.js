@@ -158,6 +158,9 @@ blink.mojom.V8DetailedMemoryReporterRemote = class {
   close() {
     this.proxy.close();
   }
+  getV8MemoryUsage(mode) {
+    return this.$.getV8MemoryUsage(mode);
+  }
 };
 
 blink.mojom.V8DetailedMemoryReporterRemoteCallHandler = class {

@@ -135,6 +135,15 @@ mirroring.mojom.MirroringServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  start(params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel) {
+    return this.$.start(params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel);
+  }
+  switchMirroringSourceTab() {
+    return this.$.switchMirroringSourceTab();
+  }
+  getMirroringStats() {
+    return this.$.getMirroringStats();
+  }
 };
 
 mirroring.mojom.MirroringServiceRemoteCallHandler = class {

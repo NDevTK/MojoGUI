@@ -117,6 +117,9 @@ pdf.mojom.OcrRemote = class {
   close() {
     this.proxy.close();
   }
+  performOcr(image) {
+    return this.$.performOcr(image);
+  }
 };
 
 pdf.mojom.OcrRemoteCallHandler = class {
@@ -284,6 +287,15 @@ pdf.mojom.PdfServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindPdfProgressiveSearchifier(receiver, ocr) {
+    return this.$.bindPdfProgressiveSearchifier(receiver, ocr);
+  }
+  bindPdfSearchifier(receiver, ocr) {
+    return this.$.bindPdfSearchifier(receiver, ocr);
+  }
+  bindPdfThumbnailer(receiver) {
+    return this.$.bindPdfThumbnailer(receiver);
   }
 };
 

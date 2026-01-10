@@ -154,6 +154,18 @@ arc.mojom.ProtectedBufferManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  deprecatedGetProtectedSharedMemoryFromHandle(dummy_handle) {
+    return this.$.deprecatedGetProtectedSharedMemoryFromHandle(dummy_handle);
+  }
+  getProtectedSharedMemoryFromHandle(dummy_handle) {
+    return this.$.getProtectedSharedMemoryFromHandle(dummy_handle);
+  }
+  getProtectedNativePixmapHandleFromHandle(dummy_handle) {
+    return this.$.getProtectedNativePixmapHandleFromHandle(dummy_handle);
+  }
+  isProtectedNativePixmapHandle(dummy_handle) {
+    return this.$.isProtectedNativePixmapHandle(dummy_handle);
+  }
 };
 
 arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {

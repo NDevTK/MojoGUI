@@ -122,6 +122,9 @@ media.mojom.MediaDrmSupportRemote = class {
   close() {
     this.proxy.close();
   }
+  isKeySystemSupported(key_system, is_secure) {
+    return this.$.isKeySystemSupported(key_system, is_secure);
+  }
 };
 
 media.mojom.MediaDrmSupportRemoteCallHandler = class {

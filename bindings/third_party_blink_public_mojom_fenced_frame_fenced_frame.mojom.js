@@ -113,6 +113,12 @@ blink.mojom.FencedFrameOwnerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  navigate(url, navigation_start_time, embedder_shared_storage_context) {
+    return this.$.navigate(url, navigation_start_time, embedder_shared_storage_context);
+  }
+  didChangeFramePolicy(frame_policy) {
+    return this.$.didChangeFramePolicy(frame_policy);
+  }
 };
 
 blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {

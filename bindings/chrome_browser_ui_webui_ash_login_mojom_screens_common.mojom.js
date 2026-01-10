@@ -151,6 +151,9 @@ ash.screens_common.mojom.AiIntroPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onNextClicked() {
+    return this.$.onNextClicked();
+  }
 };
 
 ash.screens_common.mojom.AiIntroPageHandlerRemoteCallHandler = class {
@@ -299,6 +302,9 @@ ash.screens_common.mojom.AiIntroPageRemote = class {
   close() {
     this.proxy.close();
   }
+  setAutoTransition(value) {
+    return this.$.setAutoTransition(value);
+  }
 };
 
 ash.screens_common.mojom.AiIntroPageRemoteCallHandler = class {
@@ -445,6 +451,9 @@ ash.screens_common.mojom.AppDownloadingPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onContinueClicked() {
+    return this.$.onContinueClicked();
   }
 };
 
@@ -599,6 +608,12 @@ ash.screens_common.mojom.DrivePinningPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onReturnClicked(enable_drive_pinning) {
+    return this.$.onReturnClicked(enable_drive_pinning);
+  }
+  onNextClicked(enable_drive_pinning) {
+    return this.$.onNextClicked(enable_drive_pinning);
   }
 };
 
@@ -778,6 +793,9 @@ ash.screens_common.mojom.DrivePinningPageRemote = class {
   close() {
     this.proxy.close();
   }
+  setRequiredSpaceInfo(required_space, free_space) {
+    return this.$.setRequiredSpaceInfo(required_space, free_space);
+  }
 };
 
 ash.screens_common.mojom.DrivePinningPageRemoteCallHandler = class {
@@ -924,6 +942,9 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onSetupComplete() {
+    return this.$.onSetupComplete();
   }
 };
 
@@ -1077,6 +1098,12 @@ ash.screens_common.mojom.GaiaInfoPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onBackClicked() {
+    return this.$.onBackClicked();
+  }
+  onNextClicked(user_flow) {
+    return this.$.onNextClicked(user_flow);
   }
 };
 
@@ -1254,6 +1281,9 @@ ash.screens_common.mojom.GaiaInfoPageRemote = class {
   close() {
     this.proxy.close();
   }
+  setQuickStartVisible() {
+    return this.$.setQuickStartVisible();
+  }
 };
 
 ash.screens_common.mojom.GaiaInfoPageRemoteCallHandler = class {
@@ -1411,6 +1441,15 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPageChange(page) {
+    return this.$.onPageChange(page);
+  }
+  onSkipClicked() {
+    return this.$.onSkipClicked();
+  }
+  onExitClicked() {
+    return this.$.onExitClicked();
   }
 };
 
@@ -1621,6 +1660,12 @@ ash.screens_common.mojom.GeminiIntroPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onBackClicked() {
+    return this.$.onBackClicked();
+  }
+  onNextClicked() {
+    return this.$.onNextClicked();
   }
 };
 

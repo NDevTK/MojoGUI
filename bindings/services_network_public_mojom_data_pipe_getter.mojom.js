@@ -117,6 +117,12 @@ network.mojom.DataPipeGetterRemote = class {
   close() {
     this.proxy.close();
   }
+  read(pipe) {
+    return this.$.read(pipe);
+  }
+  clone(receiver) {
+    return this.$.clone(receiver);
+  }
 };
 
 network.mojom.DataPipeGetterRemoteCallHandler = class {

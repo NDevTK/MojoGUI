@@ -115,6 +115,9 @@ chrome.mojom.SingleFileExtractorRemote = class {
   close() {
     this.proxy.close();
   }
+  extract(src_file, dst_file, listener) {
+    return this.$.extract(src_file, dst_file, listener);
+  }
 };
 
 chrome.mojom.SingleFileExtractorRemoteCallHandler = class {
@@ -269,6 +272,9 @@ chrome.mojom.SingleFileExtractorListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onProgress(total_bytes, progress_bytes) {
+    return this.$.onProgress(total_bytes, progress_bytes);
   }
 };
 

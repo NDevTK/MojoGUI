@@ -166,6 +166,15 @@ arc.mojom.TimerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  createTimers(timer_requests) {
+    return this.$.createTimers(timer_requests);
+  }
+  startTimer(clock_id, absolute_expiration_time) {
+    return this.$.startTimer(clock_id, absolute_expiration_time);
+  }
+  setTime(time) {
+    return this.$.setTime(time);
+  }
 };
 
 arc.mojom.TimerHostRemoteCallHandler = class {
@@ -394,6 +403,9 @@ arc.mojom.TimerInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

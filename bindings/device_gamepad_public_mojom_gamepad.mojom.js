@@ -271,6 +271,15 @@ device.mojom.GamepadObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  gamepadConnected(index, gamepad) {
+    return this.$.gamepadConnected(index, gamepad);
+  }
+  gamepadDisconnected(index, gamepad) {
+    return this.$.gamepadDisconnected(index, gamepad);
+  }
+  gamepadRawInputChanged(index, gamepad) {
+    return this.$.gamepadRawInputChanged(index, gamepad);
+  }
 };
 
 device.mojom.GamepadObserverRemoteCallHandler = class {
@@ -497,6 +506,15 @@ device.mojom.GamepadMonitorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  gamepadStartPolling() {
+    return this.$.gamepadStartPolling();
+  }
+  gamepadStopPolling() {
+    return this.$.gamepadStopPolling();
+  }
+  setObserver(gamepad_observer) {
+    return this.$.setObserver(gamepad_observer);
   }
 };
 
@@ -735,6 +753,12 @@ device.mojom.GamepadHapticsManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  playVibrationEffectOnce(pad_index, type, params) {
+    return this.$.playVibrationEffectOnce(pad_index, type, params);
+  }
+  resetVibrationActuator(pad_index) {
+    return this.$.resetVibrationActuator(pad_index);
   }
 };
 

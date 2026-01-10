@@ -234,6 +234,12 @@ ash.device_sync.mojom.DeviceSyncObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onEnrollmentFinished() {
+    return this.$.onEnrollmentFinished();
+  }
+  onNewDevicesSynced() {
+    return this.$.onNewDevicesSynced();
+  }
 };
 
 ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler = class {
@@ -560,6 +566,45 @@ ash.device_sync.mojom.DeviceSyncRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  forceEnrollmentNow() {
+    return this.$.forceEnrollmentNow();
+  }
+  forceSyncNow() {
+    return this.$.forceSyncNow();
+  }
+  getGroupPrivateKeyStatus() {
+    return this.$.getGroupPrivateKeyStatus();
+  }
+  getBetterTogetherMetadataStatus() {
+    return this.$.getBetterTogetherMetadataStatus();
+  }
+  getSyncedDevices() {
+    return this.$.getSyncedDevices();
+  }
+  getLocalDeviceMetadata() {
+    return this.$.getLocalDeviceMetadata();
+  }
+  setSoftwareFeatureState(device_public_key, software_feature, enabled, is_exclusive) {
+    return this.$.setSoftwareFeatureState(device_public_key, software_feature, enabled, is_exclusive);
+  }
+  setFeatureStatus(device_instance_id, feature, status_change) {
+    return this.$.setFeatureStatus(device_instance_id, feature, status_change);
+  }
+  findEligibleDevices(software_feature) {
+    return this.$.findEligibleDevices(software_feature);
+  }
+  notifyDevices(device_instance_ids, cryptauth_service, feature) {
+    return this.$.notifyDevices(device_instance_ids, cryptauth_service, feature);
+  }
+  getDevicesActivityStatus() {
+    return this.$.getDevicesActivityStatus();
+  }
+  getDebugInfo() {
+    return this.$.getDebugInfo();
   }
 };
 

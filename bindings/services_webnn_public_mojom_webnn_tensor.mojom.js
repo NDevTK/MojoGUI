@@ -166,6 +166,18 @@ webnn.mojom.WebNNTensorRemote = class {
   close() {
     this.proxy.close();
   }
+  readTensor() {
+    return this.$.readTensor();
+  }
+  writeTensor(src_buffer) {
+    return this.$.writeTensor(src_buffer);
+  }
+  exportTensor() {
+    return this.$.exportTensor();
+  }
+  importTensor(fence) {
+    return this.$.importTensor(fence);
+  }
 };
 
 webnn.mojom.WebNNTensorRemoteCallHandler = class {

@@ -159,6 +159,12 @@ spellcheck.mojom.SpellCheckerRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize(dictionaries, custom_words, enable) {
+    return this.$.initialize(dictionaries, custom_words, enable);
+  }
+  customDictionaryChanged(words_added, words_removed) {
+    return this.$.customDictionaryChanged(words_added, words_removed);
+  }
 };
 
 spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
@@ -334,6 +340,9 @@ spellcheck.mojom.SpellCheckInitializationHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestDictionary() {
+    return this.$.requestDictionary();
   }
 };
 
@@ -551,6 +560,27 @@ spellcheck.mojom.SpellCheckHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  notifyChecked(word, misspelled) {
+    return this.$.notifyChecked(word, misspelled);
+  }
+  callSpellingService(text) {
+    return this.$.callSpellingService(text);
+  }
+  requestTextCheck(text, spelling_markers) {
+    return this.$.requestTextCheck(text, spelling_markers);
+  }
+  disconnectSessionBridge() {
+    return this.$.disconnectSessionBridge();
+  }
+  checkSpelling(word) {
+    return this.$.checkSpelling(word);
+  }
+  fillSuggestionList(word) {
+    return this.$.fillSuggestionList(word);
+  }
+  initializeDictionaries() {
+    return this.$.initializeDictionaries();
   }
 };
 

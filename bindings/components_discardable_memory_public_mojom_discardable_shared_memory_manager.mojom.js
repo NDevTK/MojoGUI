@@ -118,6 +118,12 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  allocateLockedDiscardableSharedMemory(size, id) {
+    return this.$.allocateLockedDiscardableSharedMemory(size, id);
+  }
+  deletedDiscardableSharedMemory(id) {
+    return this.$.deletedDiscardableSharedMemory(id);
+  }
 };
 
 discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class {

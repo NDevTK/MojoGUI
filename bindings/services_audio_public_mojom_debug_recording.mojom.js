@@ -137,6 +137,12 @@ audio.mojom.DebugRecordingFileProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  createWavFile(stream_type, id) {
+    return this.$.createWavFile(stream_type, id);
+  }
+  createAecdumpFile(id) {
+    return this.$.createAecdumpFile(id);
+  }
 };
 
 audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
@@ -325,6 +331,9 @@ audio.mojom.DebugRecordingRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  enable(file_provider) {
+    return this.$.enable(file_provider);
   }
 };
 

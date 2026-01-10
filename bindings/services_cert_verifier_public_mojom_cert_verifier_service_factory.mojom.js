@@ -285,6 +285,36 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  getNewCertVerifier(receiver, updater, client, creation_params) {
+    return this.$.getNewCertVerifier(receiver, updater, client, creation_params);
+  }
+  updateCRLSet(crl_set) {
+    return this.$.updateCRLSet(crl_set);
+  }
+  updateCtLogList(log_list, update_time) {
+    return this.$.updateCtLogList(log_list, update_time);
+  }
+  disableCtEnforcement() {
+    return this.$.disableCtEnforcement();
+  }
+  updateChromeRootStore(new_root_store) {
+    return this.$.updateChromeRootStore(new_root_store);
+  }
+  updateMtcMetadata(new_mtc_metadata) {
+    return this.$.updateMtcMetadata(new_mtc_metadata);
+  }
+  setUseChromeRootStore(use_crs) {
+    return this.$.setUseChromeRootStore(use_crs);
+  }
+  getChromeRootStoreInfo() {
+    return this.$.getChromeRootStoreInfo();
+  }
+  getPlatformRootStoreInfo() {
+    return this.$.getPlatformRootStoreInfo();
+  }
+  updateNetworkTime(system_time, system_ticks, current_time) {
+    return this.$.updateNetworkTime(system_time, system_ticks, current_time);
+  }
 };
 
 cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {

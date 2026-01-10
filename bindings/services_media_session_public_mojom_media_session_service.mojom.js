@@ -123,6 +123,18 @@ media_session.mojom.MediaSessionServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  bindAudioFocusManager(receiver) {
+    return this.$.bindAudioFocusManager(receiver);
+  }
+  bindAudioFocusManagerDebug(receiver) {
+    return this.$.bindAudioFocusManagerDebug(receiver);
+  }
+  bindMediaControllerManager(receiver) {
+    return this.$.bindMediaControllerManager(receiver);
+  }
+  bind(receiver) {
+    return this.$.bind(receiver);
+  }
 };
 
 media_session.mojom.MediaSessionServiceRemoteCallHandler = class {

@@ -537,6 +537,48 @@ device.mojom.UsbDeviceRemote = class {
   close() {
     this.proxy.close();
   }
+  open() {
+    return this.$.open();
+  }
+  close() {
+    return this.$.close();
+  }
+  setConfiguration(value) {
+    return this.$.setConfiguration(value);
+  }
+  claimInterface(interface_number) {
+    return this.$.claimInterface(interface_number);
+  }
+  releaseInterface(interface_number) {
+    return this.$.releaseInterface(interface_number);
+  }
+  setInterfaceAlternateSetting(interface_number, alternate_setting) {
+    return this.$.setInterfaceAlternateSetting(interface_number, alternate_setting);
+  }
+  reset() {
+    return this.$.reset();
+  }
+  clearHalt(direction, endpoint_number) {
+    return this.$.clearHalt(direction, endpoint_number);
+  }
+  controlTransferIn(params, length, timeout) {
+    return this.$.controlTransferIn(params, length, timeout);
+  }
+  controlTransferOut(params, data, timeout) {
+    return this.$.controlTransferOut(params, data, timeout);
+  }
+  genericTransferIn(endpoint_number, length, timeout) {
+    return this.$.genericTransferIn(endpoint_number, length, timeout);
+  }
+  genericTransferOut(endpoint_number, data, timeout) {
+    return this.$.genericTransferOut(endpoint_number, data, timeout);
+  }
+  isochronousTransferIn(endpoint_number, packet_lengths, timeout) {
+    return this.$.isochronousTransferIn(endpoint_number, packet_lengths, timeout);
+  }
+  isochronousTransferOut(endpoint_number, data, packet_lengths, timeout) {
+    return this.$.isochronousTransferOut(endpoint_number, data, packet_lengths, timeout);
+  }
 };
 
 device.mojom.UsbDeviceRemoteCallHandler = class {
@@ -1149,6 +1191,12 @@ device.mojom.UsbDeviceClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onDeviceOpened() {
+    return this.$.onDeviceOpened();
+  }
+  onDeviceClosed() {
+    return this.$.onDeviceClosed();
   }
 };
 

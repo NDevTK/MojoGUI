@@ -103,6 +103,9 @@ viz.mojom.VizDebugOutputRemote = class {
   close() {
     this.proxy.close();
   }
+  logFrame(frameData) {
+    return this.$.logFrame(frameData);
+  }
 };
 
 viz.mojom.VizDebugOutputRemoteCallHandler = class {

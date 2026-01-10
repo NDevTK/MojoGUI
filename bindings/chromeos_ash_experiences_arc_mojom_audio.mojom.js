@@ -145,6 +145,12 @@ arc.mojom.AudioHostRemote = class {
   close() {
     this.proxy.close();
   }
+  showVolumeControls() {
+    return this.$.showVolumeControls();
+  }
+  onSystemVolumeUpdateRequest(percent) {
+    return this.$.onSystemVolumeUpdateRequest(percent);
+  }
 };
 
 arc.mojom.AudioHostRemoteCallHandler = class {
@@ -351,6 +357,21 @@ arc.mojom.AudioInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  notifySwitchState(state) {
+    return this.$.notifySwitchState(state);
+  }
+  notifyVolumeState(volume, muted) {
+    return this.$.notifyVolumeState(volume, muted);
+  }
+  notifySpatialAudioState(enabled) {
+    return this.$.notifySpatialAudioState(enabled);
+  }
+  notifyOutputDeviceInfo(device_type) {
+    return this.$.notifyOutputDeviceInfo(device_type);
   }
 };
 

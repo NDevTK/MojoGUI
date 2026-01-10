@@ -102,6 +102,9 @@ extensions.mojom.AppWindowRemote = class {
   close() {
     this.proxy.close();
   }
+  setVisuallyDeemphasized(deemphasized) {
+    return this.$.setVisuallyDeemphasized(deemphasized);
+  }
 };
 
 extensions.mojom.AppWindowRemoteCallHandler = class {

@@ -110,6 +110,9 @@ content.mojom.PowerMonitorTestRemote = class {
   close() {
     this.proxy.close();
   }
+  queryNextState() {
+    return this.$.queryNextState();
+  }
 };
 
 content.mojom.PowerMonitorTestRemoteCallHandler = class {

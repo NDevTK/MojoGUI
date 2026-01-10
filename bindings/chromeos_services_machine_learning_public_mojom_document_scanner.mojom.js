@@ -176,6 +176,15 @@ chromeos.machine_learning.mojom.DocumentScannerRemote = class {
   close() {
     this.proxy.close();
   }
+  detectCornersFromNV12Image(nv12_image) {
+    return this.$.detectCornersFromNV12Image(nv12_image);
+  }
+  detectCornersFromJPEGImage(jpeg_image) {
+    return this.$.detectCornersFromJPEGImage(jpeg_image);
+  }
+  doPostProcessing(jpeg_image, corners, rotation) {
+    return this.$.doPostProcessing(jpeg_image, corners, rotation);
+  }
 };
 
 chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler = class {

@@ -243,6 +243,60 @@ viz.mojom.DisplayPrivateRemote = class {
   close() {
     this.proxy.close();
   }
+  setDisplayVisible(visible) {
+    return this.$.setDisplayVisible(visible);
+  }
+  disableSwapUntilResize() {
+    return this.$.disableSwapUntilResize();
+  }
+  resize(size) {
+    return this.$.resize(size);
+  }
+  setDisplayColorMatrix(color_matrix) {
+    return this.$.setDisplayColorMatrix(color_matrix);
+  }
+  setDisplayColorSpaces(display_color_spaces) {
+    return this.$.setDisplayColorSpaces(display_color_spaces);
+  }
+  setOutputIsSecure(secure) {
+    return this.$.setOutputIsSecure(secure);
+  }
+  setVSyncDisplayID(display_id) {
+    return this.$.setVSyncDisplayID(display_id);
+  }
+  setDisplayVSyncParameters(timebase, interval) {
+    return this.$.setDisplayVSyncParameters(timebase, interval);
+  }
+  forceImmediateDrawAndSwapIfPossible() {
+    return this.$.forceImmediateDrawAndSwapIfPossible();
+  }
+  updateRefreshRate(refresh_rate) {
+    return this.$.updateRefreshRate(refresh_rate);
+  }
+  setAdaptiveRefreshRateInfo(has_support, suggested_high, device_scale_factor) {
+    return this.$.setAdaptiveRefreshRateInfo(has_support, suggested_high, device_scale_factor);
+  }
+  setSupportedRefreshRates(refresh_rates) {
+    return this.$.setSupportedRefreshRates(refresh_rates);
+  }
+  preserveChildSurfaceControls() {
+    return this.$.preserveChildSurfaceControls();
+  }
+  setSwapCompletionCallbackEnabled(enable) {
+    return this.$.setSwapCompletionCallbackEnabled(enable);
+  }
+  addVSyncParameterObserver(observer) {
+    return this.$.addVSyncParameterObserver(observer);
+  }
+  setDelegatedInkPointRenderer(receiver) {
+    return this.$.setDelegatedInkPointRenderer(receiver);
+  }
+  setStandaloneBeginFrameObserver(observer) {
+    return this.$.setStandaloneBeginFrameObserver(observer);
+  }
+  setMaxVSyncAndVrr(max_vsync_interval, vrr_state) {
+    return this.$.setMaxVSyncAndVrr(max_vsync_interval, vrr_state);
+  }
 };
 
 viz.mojom.DisplayPrivateRemoteCallHandler = class {
@@ -931,6 +985,30 @@ viz.mojom.DisplayClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onDisplayReceivedCALayerParams(ca_layer_params) {
+    return this.$.onDisplayReceivedCALayerParams(ca_layer_params);
+  }
+  createLayeredWindowUpdater(receiver) {
+    return this.$.createLayeredWindowUpdater(receiver);
+  }
+  addChildWindowToBrowser(child_window) {
+    return this.$.addChildWindowToBrowser(child_window);
+  }
+  didCompleteSwapWithSize(size) {
+    return this.$.didCompleteSwapWithSize(size);
+  }
+  didCompleteSwapWithNewSize(size) {
+    return this.$.didCompleteSwapWithNewSize(size);
+  }
+  onContextCreationResult(result) {
+    return this.$.onContextCreationResult(result);
+  }
+  setWideColorEnabled(enabled) {
+    return this.$.setWideColorEnabled(enabled);
+  }
+  setPreferredRefreshRate(refresh_rate) {
+    return this.$.setPreferredRefreshRate(refresh_rate);
   }
 };
 

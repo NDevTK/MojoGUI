@@ -190,6 +190,9 @@ ash.ime.mojom.JpUnusedRemote = class {
   close() {
     this.proxy.close();
   }
+  unused() {
+    return this.$.unused();
+  }
 };
 
 ash.ime.mojom.JpUnusedRemoteCallHandler = class {

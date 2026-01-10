@@ -351,6 +351,42 @@ blink.mojom.ServiceWorkerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  setCachedMetadata(url, data) {
+    return this.$.setCachedMetadata(url, data);
+  }
+  clearCachedMetadata(url) {
+    return this.$.clearCachedMetadata(url);
+  }
+  getClients(options) {
+    return this.$.getClients(options);
+  }
+  getClient(client_uuid) {
+    return this.$.getClient(client_uuid);
+  }
+  openNewTab(url) {
+    return this.$.openNewTab(url);
+  }
+  openPaymentHandlerWindow(url) {
+    return this.$.openPaymentHandlerWindow(url);
+  }
+  postMessageToClient(client_uuid, message) {
+    return this.$.postMessageToClient(client_uuid, message);
+  }
+  focusClient(client_uuid) {
+    return this.$.focusClient(client_uuid);
+  }
+  navigateClient(client_uuid, url) {
+    return this.$.navigateClient(client_uuid, url);
+  }
+  skipWaiting() {
+    return this.$.skipWaiting();
+  }
+  claimClients() {
+    return this.$.claimClients();
+  }
+  addRoutes(rules) {
+    return this.$.addRoutes(rules);
+  }
 };
 
 blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
@@ -1176,6 +1212,87 @@ blink.mojom.ServiceWorkerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  initializeGlobalScope(service_worker_host, associated_interfaces_to_browser, associated_interfaces_from_browser, registration_info, service_worker_info, fetch_handler_existence, ancestor_frame_type, storage_key) {
+    return this.$.initializeGlobalScope(service_worker_host, associated_interfaces_to_browser, associated_interfaces_from_browser, registration_info, service_worker_info, fetch_handler_existence, ancestor_frame_type, storage_key);
+  }
+  dispatchInstallEvent() {
+    return this.$.dispatchInstallEvent();
+  }
+  dispatchActivateEvent() {
+    return this.$.dispatchActivateEvent();
+  }
+  dispatchBackgroundFetchAbortEvent(registration) {
+    return this.$.dispatchBackgroundFetchAbortEvent(registration);
+  }
+  dispatchBackgroundFetchClickEvent(registration) {
+    return this.$.dispatchBackgroundFetchClickEvent(registration);
+  }
+  dispatchBackgroundFetchFailEvent(registration) {
+    return this.$.dispatchBackgroundFetchFailEvent(registration);
+  }
+  dispatchBackgroundFetchSuccessEvent(registration) {
+    return this.$.dispatchBackgroundFetchSuccessEvent(registration);
+  }
+  dispatchCookieChangeEvent(change) {
+    return this.$.dispatchCookieChangeEvent(change);
+  }
+  dispatchFetchEventForMainResource(params, response_callback) {
+    return this.$.dispatchFetchEventForMainResource(params, response_callback);
+  }
+  dispatchNotificationClickEvent(notification_id, notification_data, action_index, reply) {
+    return this.$.dispatchNotificationClickEvent(notification_id, notification_data, action_index, reply);
+  }
+  dispatchNotificationCloseEvent(notification_id, notification_data) {
+    return this.$.dispatchNotificationCloseEvent(notification_id, notification_data);
+  }
+  dispatchPushEvent(payload) {
+    return this.$.dispatchPushEvent(payload);
+  }
+  dispatchPushEventRecordingNetworkRequests(payload) {
+    return this.$.dispatchPushEventRecordingNetworkRequests(payload);
+  }
+  dispatchPushSubscriptionChangeEvent(old_subscription, new_subscription) {
+    return this.$.dispatchPushSubscriptionChangeEvent(old_subscription, new_subscription);
+  }
+  dispatchSyncEvent(tag, last_chance, timeout) {
+    return this.$.dispatchSyncEvent(tag, last_chance, timeout);
+  }
+  dispatchPeriodicSyncEvent(tag, timeout) {
+    return this.$.dispatchPeriodicSyncEvent(tag, timeout);
+  }
+  dispatchAbortPaymentEvent(result_of_abort_payment) {
+    return this.$.dispatchAbortPaymentEvent(result_of_abort_payment);
+  }
+  dispatchCanMakePaymentEvent(event_data, result_of_can_make_payment) {
+    return this.$.dispatchCanMakePaymentEvent(event_data, result_of_can_make_payment);
+  }
+  dispatchPaymentRequestEvent(request_data, response_callback) {
+    return this.$.dispatchPaymentRequestEvent(request_data, response_callback);
+  }
+  dispatchExtendableMessageEvent(event) {
+    return this.$.dispatchExtendableMessageEvent(event);
+  }
+  dispatchContentDeleteEvent(id) {
+    return this.$.dispatchContentDeleteEvent(id);
+  }
+  ping() {
+    return this.$.ping();
+  }
+  setIdleDelay(delay) {
+    return this.$.setIdleDelay(delay);
+  }
+  addKeepAlive() {
+    return this.$.addKeepAlive();
+  }
+  clearKeepAlive() {
+    return this.$.clearKeepAlive();
+  }
+  addMessageToConsole(level, message) {
+    return this.$.addMessageToConsole(level, message);
+  }
+  executeScriptForTest(javascript, wants_result) {
+    return this.$.executeScriptForTest(javascript, wants_result);
   }
 };
 

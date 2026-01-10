@@ -107,6 +107,9 @@ blink.mojom.FileSystemAccessAccessHandleHostRemote = class {
   close() {
     this.proxy.close();
   }
+  close() {
+    return this.$.close();
+  }
 };
 
 blink.mojom.FileSystemAccessAccessHandleHostRemoteCallHandler = class {

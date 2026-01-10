@@ -102,6 +102,9 @@ mojom.LocationInternalsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  bindInternalsInterface(receiver) {
+    return this.$.bindInternalsInterface(receiver);
+  }
 };
 
 mojom.LocationInternalsHandlerRemoteCallHandler = class {

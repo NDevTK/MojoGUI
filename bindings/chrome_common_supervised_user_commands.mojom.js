@@ -139,6 +139,18 @@ supervised_user.mojom.SupervisedUserCommandsRemote = class {
   close() {
     this.proxy.close();
   }
+  goBack() {
+    return this.$.goBack();
+  }
+  requestUrlAccessRemote() {
+    return this.$.requestUrlAccessRemote();
+  }
+  requestUrlAccessLocal() {
+    return this.$.requestUrlAccessLocal();
+  }
+  learnMore() {
+    return this.$.learnMore();
+  }
 };
 
 supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {

@@ -158,6 +158,9 @@ whats_new.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 whats_new.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -440,6 +443,72 @@ whats_new.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getServerUrl(is_staging) {
+    return this.$.getServerUrl(is_staging);
+  }
+  recordTimeToLoadContent(time) {
+    return this.$.recordTimeToLoadContent(time);
+  }
+  recordVersionPageLoaded(is_auto_open) {
+    return this.$.recordVersionPageLoaded(is_auto_open);
+  }
+  recordEditionPageLoaded(page_uid, is_auto_open) {
+    return this.$.recordEditionPageLoaded(page_uid, is_auto_open);
+  }
+  recordModuleImpression(module_name, position) {
+    return this.$.recordModuleImpression(module_name, position);
+  }
+  recordExploreMoreToggled(expanded) {
+    return this.$.recordExploreMoreToggled(expanded);
+  }
+  recordScrollDepth(depth) {
+    return this.$.recordScrollDepth(depth);
+  }
+  recordTimeOnPage(time) {
+    return this.$.recordTimeOnPage(time);
+  }
+  recordModuleLinkClicked(module_name, position) {
+    return this.$.recordModuleLinkClicked(module_name, position);
+  }
+  recordModuleVideoStarted(module_name, position) {
+    return this.$.recordModuleVideoStarted(module_name, position);
+  }
+  recordModuleVideoEnded(module_name, position) {
+    return this.$.recordModuleVideoEnded(module_name, position);
+  }
+  recordModulePlayClicked(module_name, position) {
+    return this.$.recordModulePlayClicked(module_name, position);
+  }
+  recordModulePauseClicked(module_name, position) {
+    return this.$.recordModulePauseClicked(module_name, position);
+  }
+  recordModuleRestartClicked(module_name, position) {
+    return this.$.recordModuleRestartClicked(module_name, position);
+  }
+  recordBrowserCommandExecuted() {
+    return this.$.recordBrowserCommandExecuted();
+  }
+  recordQrCodeToggled(expanded) {
+    return this.$.recordQrCodeToggled(expanded);
+  }
+  recordNavClick() {
+    return this.$.recordNavClick();
+  }
+  recordFeatureTileNavigation() {
+    return this.$.recordFeatureTileNavigation();
+  }
+  recordCarouselScrollButtonClick() {
+    return this.$.recordCarouselScrollButtonClick();
+  }
+  recordExpandMediaToggled(module_name, expanded) {
+    return this.$.recordExpandMediaToggled(module_name, expanded);
+  }
+  recordCtaClick() {
+    return this.$.recordCtaClick();
+  }
+  recordNextButtonClick() {
+    return this.$.recordNextButtonClick();
   }
 };
 

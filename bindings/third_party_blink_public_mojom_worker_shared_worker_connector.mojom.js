@@ -106,6 +106,9 @@ blink.mojom.SharedWorkerConnectorRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(info, client, creation_context_type, message_port, blob_url_token) {
+    return this.$.connect(info, client, creation_context_type, message_port, blob_url_token);
+  }
 };
 
 blink.mojom.SharedWorkerConnectorRemoteCallHandler = class {

@@ -116,6 +116,12 @@ ash.common.mojom.ShortcutInputObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onShortcutInputEventPressed(prerewritten_key_event, key_event) {
+    return this.$.onShortcutInputEventPressed(prerewritten_key_event, key_event);
+  }
+  onShortcutInputEventReleased(prerewritten_key_event, key_event) {
+    return this.$.onShortcutInputEventReleased(prerewritten_key_event, key_event);
+  }
 };
 
 ash.common.mojom.ShortcutInputObserverRemoteCallHandler = class {
@@ -297,6 +303,12 @@ ash.common.mojom.ShortcutInputProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startObservingShortcutInput(observer) {
+    return this.$.startObservingShortcutInput(observer);
+  }
+  stopObservingShortcutInput() {
+    return this.$.stopObservingShortcutInput();
   }
 };
 

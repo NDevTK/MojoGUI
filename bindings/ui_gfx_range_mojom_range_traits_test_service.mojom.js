@@ -123,6 +123,12 @@ gfx.mojom.RangeTraitsTestServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  echoRange(p) {
+    return this.$.echoRange(p);
+  }
+  echoRangeF(p) {
+    return this.$.echoRangeF(p);
+  }
 };
 
 gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {

@@ -135,6 +135,18 @@ device.mojom.GeolocationContextRemote = class {
   close() {
     this.proxy.close();
   }
+  bindGeolocation(receiver, requesting_url, client_id, has_precise_permission) {
+    return this.$.bindGeolocation(receiver, requesting_url, client_id, has_precise_permission);
+  }
+  onPermissionUpdated(origin, permission_level) {
+    return this.$.onPermissionUpdated(origin, permission_level);
+  }
+  setOverride(result) {
+    return this.$.setOverride(result);
+  }
+  clearOverride() {
+    return this.$.clearOverride();
+  }
 };
 
 device.mojom.GeolocationContextRemoteCallHandler = class {

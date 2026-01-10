@@ -192,6 +192,9 @@ chromeos.machine_learning.mojom.TextSuggesterRemote = class {
   close() {
     this.proxy.close();
   }
+  suggest(query) {
+    return this.$.suggest(query);
+  }
 };
 
 chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler = class {

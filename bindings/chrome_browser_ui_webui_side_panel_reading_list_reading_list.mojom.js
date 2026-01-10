@@ -163,6 +163,9 @@ reading_list.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 reading_list.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -380,6 +383,39 @@ reading_list.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getReadLaterEntries() {
+    return this.$.getReadLaterEntries();
+  }
+  openURL(url, mark_as_read, click_modifiers) {
+    return this.$.openURL(url, mark_as_read, click_modifiers);
+  }
+  updateReadStatus(url, read) {
+    return this.$.updateReadStatus(url, read);
+  }
+  markCurrentTabAsRead() {
+    return this.$.markCurrentTabAsRead();
+  }
+  addCurrentTab() {
+    return this.$.addCurrentTab();
+  }
+  removeEntry(url) {
+    return this.$.removeEntry(url);
+  }
+  showContextMenuForURL(url, x, y) {
+    return this.$.showContextMenuForURL(url, x, y);
+  }
+  updateCurrentPageActionButtonState() {
+    return this.$.updateCurrentPageActionButtonState();
+  }
+  showUI() {
+    return this.$.showUI();
+  }
+  closeUI() {
+    return this.$.closeUI();
+  }
+  getWindowData() {
+    return this.$.getWindowData();
   }
 };
 
@@ -836,6 +872,12 @@ reading_list.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  itemsChanged(entries) {
+    return this.$.itemsChanged(entries);
+  }
+  currentPageActionButtonStateChanged(state) {
+    return this.$.currentPageActionButtonStateChanged(state);
   }
 };
 

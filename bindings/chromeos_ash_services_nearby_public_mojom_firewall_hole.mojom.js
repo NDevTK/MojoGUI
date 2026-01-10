@@ -224,6 +224,9 @@ sharing.mojom.FirewallHoleFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  openFirewallHole(port) {
+    return this.$.openFirewallHole(port);
+  }
 };
 
 sharing.mojom.FirewallHoleFactoryRemoteCallHandler = class {

@@ -146,6 +146,15 @@ arc.mojom.AppfuseHostRemote = class {
   close() {
     this.proxy.close();
   }
+  mount(uid, mount_id) {
+    return this.$.mount(uid, mount_id);
+  }
+  unmount(uid, mount_id) {
+    return this.$.unmount(uid, mount_id);
+  }
+  openFile(uid, mount_id, file_id, flags) {
+    return this.$.openFile(uid, mount_id, file_id, flags);
+  }
 };
 
 arc.mojom.AppfuseHostRemoteCallHandler = class {
@@ -374,6 +383,9 @@ arc.mojom.AppfuseInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

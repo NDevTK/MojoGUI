@@ -102,6 +102,9 @@ content.mojom.DomAutomationControllerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  domOperationResponse(json_string) {
+    return this.$.domOperationResponse(json_string);
+  }
 };
 
 content.mojom.DomAutomationControllerHostRemoteCallHandler = class {

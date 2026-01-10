@@ -110,6 +110,9 @@ chromecast.mojom.ActivityUrlFilterConfigurationRemote = class {
   close() {
     this.proxy.close();
   }
+  setFilter(filter) {
+    return this.$.setFilter(filter);
+  }
 };
 
 chromecast.mojom.ActivityUrlFilterConfigurationRemoteCallHandler = class {

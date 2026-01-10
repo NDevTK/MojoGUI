@@ -242,6 +242,57 @@ viz.mojom.GpuHostRemote = class {
   close() {
     this.proxy.close();
   }
+  didInitialize(gpu_info, gpu_feature_info, gpu_info_for_hardware_gpu, gpu_feature_info_for_hardware_gpu, gpu_extra_info) {
+    return this.$.didInitialize(gpu_info, gpu_feature_info, gpu_info_for_hardware_gpu, gpu_feature_info_for_hardware_gpu, gpu_extra_info);
+  }
+  didFailInitialize() {
+    return this.$.didFailInitialize();
+  }
+  didCreateContextSuccessfully() {
+    return this.$.didCreateContextSuccessfully();
+  }
+  didCreateOffscreenContext(url) {
+    return this.$.didCreateOffscreenContext(url);
+  }
+  didDestroyOffscreenContext(url) {
+    return this.$.didDestroyOffscreenContext(url);
+  }
+  didDestroyChannel(client_id) {
+    return this.$.didDestroyChannel(client_id);
+  }
+  didDestroyAllChannels() {
+    return this.$.didDestroyAllChannels();
+  }
+  didLoseContext(reason, active_url) {
+    return this.$.didLoseContext(reason, active_url);
+  }
+  didUpdateGPUInfo(gpu_info) {
+    return this.$.didUpdateGPUInfo(gpu_info);
+  }
+  didUpdateOverlayInfo(overlay_info) {
+    return this.$.didUpdateOverlayInfo(overlay_info);
+  }
+  didUpdateDXGIInfo(dxgi_info) {
+    return this.$.didUpdateDXGIInfo(dxgi_info);
+  }
+  disableGpuCompositing() {
+    return this.$.disableGpuCompositing();
+  }
+  getIsolationKey(client_id, wgpu_context_token) {
+    return this.$.getIsolationKey(client_id, wgpu_context_token);
+  }
+  storeBlobToDisk(cache_handle, key, blob) {
+    return this.$.storeBlobToDisk(cache_handle, key, blob);
+  }
+  clearGrShaderDiskCache() {
+    return this.$.clearGrShaderDiskCache();
+  }
+  ensureWebNNExecutionProvidersReady() {
+    return this.$.ensureWebNNExecutionProvidersReady();
+  }
+  createWebNNWeightsFile() {
+    return this.$.createWebNNWeightsFile();
+  }
 };
 
 viz.mojom.GpuHostRemoteCallHandler = class {

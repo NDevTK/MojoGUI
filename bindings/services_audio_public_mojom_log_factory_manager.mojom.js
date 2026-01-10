@@ -104,6 +104,9 @@ audio.mojom.LogFactoryManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  setLogFactory(factory) {
+    return this.$.setLogFactory(factory);
+  }
 };
 
 audio.mojom.LogFactoryManagerRemoteCallHandler = class {

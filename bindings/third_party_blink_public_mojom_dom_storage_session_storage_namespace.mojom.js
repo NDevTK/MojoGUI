@@ -102,6 +102,9 @@ blink.mojom.SessionStorageNamespaceRemote = class {
   close() {
     this.proxy.close();
   }
+  clone(clone_to_namespace) {
+    return this.$.clone(clone_to_namespace);
+  }
 };
 
 blink.mojom.SessionStorageNamespaceRemoteCallHandler = class {

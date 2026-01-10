@@ -243,6 +243,24 @@ mantis.mojom.MantisProcessorRemote = class {
   close() {
     this.proxy.close();
   }
+  inpainting(image, mask, seed) {
+    return this.$.inpainting(image, mask, seed);
+  }
+  generativeFill(image, mask, seed, prompt) {
+    return this.$.generativeFill(image, mask, seed, prompt);
+  }
+  segmentation(image, prior) {
+    return this.$.segmentation(image, prior);
+  }
+  classifyImageSafety(image) {
+    return this.$.classifyImageSafety(image);
+  }
+  outpainting(image, mask, seed) {
+    return this.$.outpainting(image, mask, seed);
+  }
+  inferSegmentationMode(gesture) {
+    return this.$.inferSegmentationMode(gesture);
+  }
 };
 
 mantis.mojom.MantisProcessorRemoteCallHandler = class {

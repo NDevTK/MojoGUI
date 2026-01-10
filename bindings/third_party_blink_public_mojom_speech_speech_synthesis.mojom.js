@@ -160,6 +160,9 @@ blink.mojom.SpeechSynthesisVoiceListObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onSetVoiceList(voice_list) {
+    return this.$.onSetVoiceList(voice_list);
+  }
 };
 
 blink.mojom.SpeechSynthesisVoiceListObserverRemoteCallHandler = class {
@@ -341,6 +344,27 @@ blink.mojom.SpeechSynthesisClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onStartedSpeaking() {
+    return this.$.onStartedSpeaking();
+  }
+  onFinishedSpeaking(error_code) {
+    return this.$.onFinishedSpeaking(error_code);
+  }
+  onPausedSpeaking() {
+    return this.$.onPausedSpeaking();
+  }
+  onResumedSpeaking() {
+    return this.$.onResumedSpeaking();
+  }
+  onEncounteredWordBoundary(char_index, char_length) {
+    return this.$.onEncounteredWordBoundary(char_index, char_length);
+  }
+  onEncounteredSentenceBoundary(char_index, char_length) {
+    return this.$.onEncounteredSentenceBoundary(char_index, char_length);
+  }
+  onEncounteredSpeakingError() {
+    return this.$.onEncounteredSpeakingError();
   }
 };
 
@@ -685,6 +709,21 @@ blink.mojom.SpeechSynthesisRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addVoiceListObserver(observer) {
+    return this.$.addVoiceListObserver(observer);
+  }
+  speak(utterance, client) {
+    return this.$.speak(utterance, client);
+  }
+  pause() {
+    return this.$.pause();
+  }
+  resume() {
+    return this.$.resume();
+  }
+  cancel() {
+    return this.$.cancel();
   }
 };
 

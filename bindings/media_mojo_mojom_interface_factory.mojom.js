@@ -291,6 +291,33 @@ media.mojom.InterfaceFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createAudioDecoder(audio_decoder) {
+    return this.$.createAudioDecoder(audio_decoder);
+  }
+  createVideoDecoder(video_decoder, dst_video_decoder) {
+    return this.$.createVideoDecoder(video_decoder, dst_video_decoder);
+  }
+  createVideoDecoderWithTracker(receiver, tracker) {
+    return this.$.createVideoDecoderWithTracker(receiver, tracker);
+  }
+  createAudioEncoder(audio_encoder) {
+    return this.$.createAudioEncoder(audio_encoder);
+  }
+  createDefaultRenderer(audio_device_id, renderer) {
+    return this.$.createDefaultRenderer(audio_device_id, renderer);
+  }
+  createCastRenderer(overlay_plane_id, renderer) {
+    return this.$.createCastRenderer(overlay_plane_id, renderer);
+  }
+  createMediaFoundationRenderer(media_log, renderer, renderer_extension) {
+    return this.$.createMediaFoundationRenderer(media_log, renderer, renderer_extension);
+  }
+  createFlingingRenderer(presentation_id, client_extension, renderer) {
+    return this.$.createFlingingRenderer(presentation_id, client_extension, renderer);
+  }
+  createCdm(cdm_config) {
+    return this.$.createCdm(cdm_config);
+  }
 };
 
 media.mojom.InterfaceFactoryRemoteCallHandler = class {

@@ -152,6 +152,9 @@ media.mojom.SpeechRecognizerRemote = class {
   close() {
     this.proxy.close();
   }
+  start(params) {
+    return this.$.start(params);
+  }
 };
 
 media.mojom.SpeechRecognizerRemoteCallHandler = class {
@@ -317,6 +320,12 @@ media.mojom.OnDeviceSpeechRecognitionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  available(languages) {
+    return this.$.available(languages);
+  }
+  install(languages) {
+    return this.$.install(languages);
   }
 };
 
@@ -516,6 +525,15 @@ media.mojom.SpeechRecognitionSessionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  abort() {
+    return this.$.abort();
+  }
+  stopCapture() {
+    return this.$.stopCapture();
+  }
+  updateRecognitionContext(recognition_context) {
+    return this.$.updateRecognitionContext(recognition_context);
   }
 };
 
@@ -758,6 +776,30 @@ media.mojom.SpeechRecognitionSessionClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  resultRetrieved(results) {
+    return this.$.resultRetrieved(results);
+  }
+  errorOccurred(error) {
+    return this.$.errorOccurred(error);
+  }
+  started() {
+    return this.$.started();
+  }
+  audioStarted() {
+    return this.$.audioStarted();
+  }
+  soundStarted() {
+    return this.$.soundStarted();
+  }
+  soundEnded() {
+    return this.$.soundEnded();
+  }
+  audioEnded() {
+    return this.$.audioEnded();
+  }
+  ended() {
+    return this.$.ended();
   }
 };
 

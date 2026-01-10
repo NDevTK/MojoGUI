@@ -101,6 +101,9 @@ audio.mojom.TestingApiRemote = class {
   close() {
     this.proxy.close();
   }
+  crash() {
+    return this.$.crash();
+  }
 };
 
 audio.mojom.TestingApiRemoteCallHandler = class {

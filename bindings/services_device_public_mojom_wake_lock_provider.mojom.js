@@ -138,6 +138,18 @@ device.mojom.WakeLockProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getWakeLockContextForID(context_id, context) {
+    return this.$.getWakeLockContextForID(context_id, context);
+  }
+  getWakeLockWithoutContext(type, reason, description, wake_lock) {
+    return this.$.getWakeLockWithoutContext(type, reason, description, wake_lock);
+  }
+  notifyOnWakeLockDeactivation(type, observer) {
+    return this.$.notifyOnWakeLockDeactivation(type, observer);
+  }
+  getActiveWakeLocksForTests(type) {
+    return this.$.getActiveWakeLocksForTests(type);
+  }
 };
 
 device.mojom.WakeLockProviderRemoteCallHandler = class {
@@ -378,6 +390,9 @@ device.mojom.WakeLockObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onWakeLockDeactivated(type) {
+    return this.$.onWakeLockDeactivated(type);
   }
 };
 

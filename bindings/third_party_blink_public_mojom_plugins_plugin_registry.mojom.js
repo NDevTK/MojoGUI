@@ -132,6 +132,9 @@ blink.mojom.PluginRegistryRemote = class {
   close() {
     this.proxy.close();
   }
+  getPlugins() {
+    return this.$.getPlugins();
+  }
 };
 
 blink.mojom.PluginRegistryRemoteCallHandler = class {

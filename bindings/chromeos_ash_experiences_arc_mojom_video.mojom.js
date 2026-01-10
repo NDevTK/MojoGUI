@@ -134,6 +134,12 @@ arc.mojom.VideoHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onBootstrapVideoAcceleratorFactory() {
+    return this.$.onBootstrapVideoAcceleratorFactory();
+  }
+  createVideoAcceleratorFactory() {
+    return this.$.createVideoAcceleratorFactory();
+  }
 };
 
 arc.mojom.VideoHostRemoteCallHandler = class {
@@ -328,6 +334,9 @@ arc.mojom.VideoInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
 };
 
 arc.mojom.VideoInstanceRemoteCallHandler = class {
@@ -501,6 +510,18 @@ arc.mojom.VideoAcceleratorFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createEncodeAccelerator(video_encoder) {
+    return this.$.createEncodeAccelerator(video_encoder);
+  }
+  createDecodeAccelerator(video_decoder, protected_buffer_manager, browser_cdm_factory) {
+    return this.$.createDecodeAccelerator(video_decoder, protected_buffer_manager, browser_cdm_factory);
+  }
+  createVideoDecoder(video_decoder) {
+    return this.$.createVideoDecoder(video_decoder);
+  }
+  createProtectedBufferAllocator(video_protected_buffer_allocator) {
+    return this.$.createProtectedBufferAllocator(video_protected_buffer_allocator);
   }
 };
 

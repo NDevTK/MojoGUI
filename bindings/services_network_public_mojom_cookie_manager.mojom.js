@@ -467,6 +467,9 @@ network.mojom.CookieChangeListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onCookieChange(change) {
+    return this.$.onCookieChange(change);
+  }
 };
 
 network.mojom.CookieChangeListenerRemoteCallHandler = class {
@@ -789,6 +792,63 @@ network.mojom.CookieManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getAllCookies() {
+    return this.$.getAllCookies();
+  }
+  getAllCookiesWithAccessSemantics() {
+    return this.$.getAllCookiesWithAccessSemantics();
+  }
+  getCookieList(url, cookie_options, cookie_partition_key_collection) {
+    return this.$.getCookieList(url, cookie_options, cookie_partition_key_collection);
+  }
+  setCanonicalCookie(cookie, source_url, cookie_options) {
+    return this.$.setCanonicalCookie(cookie, source_url, cookie_options);
+  }
+  deleteCanonicalCookie(cookie) {
+    return this.$.deleteCanonicalCookie(cookie);
+  }
+  deleteCookies(filter) {
+    return this.$.deleteCookies(filter);
+  }
+  deleteSessionOnlyCookies() {
+    return this.$.deleteSessionOnlyCookies();
+  }
+  deleteStaleSessionOnlyCookies() {
+    return this.$.deleteStaleSessionOnlyCookies();
+  }
+  addCookieChangeListener(url, name, listener) {
+    return this.$.addCookieChangeListener(url, name, listener);
+  }
+  addGlobalChangeListener(notification_pointer) {
+    return this.$.addGlobalChangeListener(notification_pointer);
+  }
+  cloneInterface(new_interface) {
+    return this.$.cloneInterface(new_interface);
+  }
+  flushCookieStore() {
+    return this.$.flushCookieStore();
+  }
+  allowFileSchemeCookies(allow) {
+    return this.$.allowFileSchemeCookies(allow);
+  }
+  setContentSettings(content_settings_type, settings) {
+    return this.$.setContentSettings(content_settings_type, settings);
+  }
+  setForceKeepSessionState() {
+    return this.$.setForceKeepSessionState();
+  }
+  blockThirdPartyCookies(block) {
+    return this.$.blockThirdPartyCookies(block);
+  }
+  setMitigationsEnabledFor3pcd(enable) {
+    return this.$.setMitigationsEnabledFor3pcd(enable);
+  }
+  setTrackingProtectionEnabledFor3pcd(enable) {
+    return this.$.setTrackingProtectionEnabledFor3pcd(enable);
+  }
+  setPreCommitCallbackDelayForTesting(delay) {
+    return this.$.setPreCommitCallbackDelayForTesting(delay);
   }
 };
 

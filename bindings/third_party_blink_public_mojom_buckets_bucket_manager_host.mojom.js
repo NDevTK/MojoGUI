@@ -262,6 +262,39 @@ blink.mojom.BucketHostRemote = class {
   close() {
     this.proxy.close();
   }
+  persist() {
+    return this.$.persist();
+  }
+  persisted() {
+    return this.$.persisted();
+  }
+  estimate() {
+    return this.$.estimate();
+  }
+  durability() {
+    return this.$.durability();
+  }
+  setExpires(expires) {
+    return this.$.setExpires(expires);
+  }
+  expires() {
+    return this.$.expires();
+  }
+  getIdbFactory(idb_factory) {
+    return this.$.getIdbFactory(idb_factory);
+  }
+  getLockManager(lock_manager) {
+    return this.$.getLockManager(lock_manager);
+  }
+  getCaches(cache_storage) {
+    return this.$.getCaches(cache_storage);
+  }
+  getDirectory() {
+    return this.$.getDirectory();
+  }
+  getDirectoryForDevtools(directory_path_components) {
+    return this.$.getDirectoryForDevtools(directory_path_components);
+  }
 };
 
 blink.mojom.BucketHostRemoteCallHandler = class {
@@ -786,6 +819,18 @@ blink.mojom.BucketManagerHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  openBucket(name, policy) {
+    return this.$.openBucket(name, policy);
+  }
+  getBucketForDevtools(name, receiver) {
+    return this.$.getBucketForDevtools(name, receiver);
+  }
+  keys() {
+    return this.$.keys();
+  }
+  deleteBucket(name) {
+    return this.$.deleteBucket(name);
   }
 };
 

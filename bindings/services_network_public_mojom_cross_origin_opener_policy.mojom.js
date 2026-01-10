@@ -146,6 +146,9 @@ network.mojom.CrossOriginOpenerPolicyReporterRemote = class {
   close() {
     this.proxy.close();
   }
+  queueAccessReport(report_type, property, source_location, reported_window_url) {
+    return this.$.queueAccessReport(report_type, property, source_location, reported_window_url);
+  }
 };
 
 network.mojom.CrossOriginOpenerPolicyReporterRemoteCallHandler = class {

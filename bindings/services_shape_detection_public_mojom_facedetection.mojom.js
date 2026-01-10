@@ -146,6 +146,9 @@ shape_detection.mojom.FaceDetectionRemote = class {
   close() {
     this.proxy.close();
   }
+  detect(bitmap_data) {
+    return this.$.detect(bitmap_data);
+  }
 };
 
 shape_detection.mojom.FaceDetectionRemoteCallHandler = class {

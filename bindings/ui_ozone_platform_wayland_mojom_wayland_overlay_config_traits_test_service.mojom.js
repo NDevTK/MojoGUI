@@ -109,6 +109,9 @@ wl.mojom.ConfigTraitsTestServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  echoTransform(t) {
+    return this.$.echoTransform(t);
+  }
 };
 
 wl.mojom.ConfigTraitsTestServiceRemoteCallHandler = class {

@@ -139,6 +139,9 @@ cert_verifier.mojom.URLLoaderFactoryConnectorRemote = class {
   close() {
     this.proxy.close();
   }
+  createURLLoaderFactory(url_loader_factory) {
+    return this.$.createURLLoaderFactory(url_loader_factory);
+  }
 };
 
 cert_verifier.mojom.URLLoaderFactoryConnectorRemoteCallHandler = class {
@@ -316,6 +319,18 @@ cert_verifier.mojom.CertVerifierServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  enableNetworkAccess(url_loader_factory, reconnector) {
+    return this.$.enableNetworkAccess(url_loader_factory, reconnector);
+  }
+  verify(params, net_log_source, cert_verifier_request) {
+    return this.$.verify(params, net_log_source, cert_verifier_request);
+  }
+  verify2QwacBinding(binding, hostname, tls_certificate, net_log_source) {
+    return this.$.verify2QwacBinding(binding, hostname, tls_certificate, net_log_source);
+  }
+  setConfig(config) {
+    return this.$.setConfig(config);
   }
 };
 
@@ -557,6 +572,9 @@ cert_verifier.mojom.CertVerifierServiceClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onCertVerifierChanged() {
+    return this.$.onCertVerifierChanged();
+  }
 };
 
 cert_verifier.mojom.CertVerifierServiceClientRemoteCallHandler = class {
@@ -705,6 +723,9 @@ cert_verifier.mojom.CertVerifierRequestRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  complete(result, net_error) {
+    return this.$.complete(result, net_error);
   }
 };
 

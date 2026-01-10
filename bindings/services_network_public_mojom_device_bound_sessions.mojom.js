@@ -497,6 +497,24 @@ network.mojom.DeviceBoundSessionManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  getAllSessions() {
+    return this.$.getAllSessions();
+  }
+  deleteSession(reason, session) {
+    return this.$.deleteSession(reason, session);
+  }
+  deleteAllSessions(reason, created_after_time, created_before_time, filter) {
+    return this.$.deleteAllSessions(reason, created_after_time, created_before_time, filter);
+  }
+  addObserver(url, observer) {
+    return this.$.addObserver(url, observer);
+  }
+  addEventObserver(observer) {
+    return this.$.addEventObserver(observer);
+  }
+  createBoundSessions(params, wrapped_key, cookies_to_set, cookie_options) {
+    return this.$.createBoundSessions(params, wrapped_key, cookies_to_set, cookie_options);
+  }
 };
 
 network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
@@ -814,6 +832,12 @@ network.mojom.DeviceBoundSessionAccessObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onDeviceBoundSessionAccessed(access) {
+    return this.$.onDeviceBoundSessionAccessed(access);
+  }
+  clone(observer) {
+    return this.$.clone(observer);
+  }
 };
 
 network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
@@ -996,6 +1020,12 @@ network.mojom.DeviceBoundSessionEventObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onDeviceBoundSessionEventReceived(event) {
+    return this.$.onDeviceBoundSessionEventReceived(event);
+  }
+  addDeviceBoundSessionDisplays(session_displays) {
+    return this.$.addDeviceBoundSessionDisplays(session_displays);
   }
 };
 

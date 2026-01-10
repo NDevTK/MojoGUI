@@ -156,6 +156,24 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getURLVisits() {
+    return this.$.getURLVisits();
+  }
+  dismissModule(url_visits) {
+    return this.$.dismissModule(url_visits);
+  }
+  dismissURLVisit(url_visit) {
+    return this.$.dismissURLVisit(url_visit);
+  }
+  restoreModule(url_visits) {
+    return this.$.restoreModule(url_visits);
+  }
+  restoreURLVisit(url_visit) {
+    return this.$.restoreURLVisit(url_visit);
+  }
+  recordAction(action, url_key, visit_request_id) {
+    return this.$.recordAction(action, url_key, visit_request_id);
+  }
 };
 
 ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {

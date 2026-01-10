@@ -176,6 +176,15 @@ media_session.mojom.AudioFocusObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onFocusGained(state) {
+    return this.$.onFocusGained(state);
+  }
+  onFocusLost(state) {
+    return this.$.onFocusLost(state);
+  }
+  onRequestIdReleased(request_id) {
+    return this.$.onRequestIdReleased(request_id);
+  }
 };
 
 media_session.mojom.AudioFocusObserverRemoteCallHandler = class {
@@ -398,6 +407,15 @@ media_session.mojom.AudioFocusRequestClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestAudioFocus(session_info, type) {
+    return this.$.requestAudioFocus(session_info, type);
+  }
+  abandonAudioFocus() {
+    return this.$.abandonAudioFocus();
+  }
+  mediaSessionInfoChanged(session_info) {
+    return this.$.mediaSessionInfoChanged(session_info);
   }
 };
 
@@ -712,6 +730,42 @@ media_session.mojom.AudioFocusManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestAudioFocus(client, session, session_info, type) {
+    return this.$.requestAudioFocus(client, session, session_info, type);
+  }
+  requestGroupedAudioFocus(request_id, client, session, session_info, type, group_id) {
+    return this.$.requestGroupedAudioFocus(request_id, client, session, session_info, type, group_id);
+  }
+  getFocusRequests() {
+    return this.$.getFocusRequests();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  setSource(identity, name) {
+    return this.$.setSource(identity, name);
+  }
+  setEnforcementMode(mode) {
+    return this.$.setEnforcementMode(mode);
+  }
+  addSourceObserver(source_id, observer) {
+    return this.$.addSourceObserver(source_id, observer);
+  }
+  getSourceFocusRequests(source_id) {
+    return this.$.getSourceFocusRequests(source_id);
+  }
+  requestIdReleased(request_id) {
+    return this.$.requestIdReleased(request_id);
+  }
+  startDuckingAllAudio(exempted_request_id) {
+    return this.$.startDuckingAllAudio(exempted_request_id);
+  }
+  stopDuckingAllAudio() {
+    return this.$.stopDuckingAllAudio();
+  }
+  flushForTesting() {
+    return this.$.flushForTesting();
   }
 };
 
@@ -1215,6 +1269,9 @@ media_session.mojom.AudioFocusManagerDebugRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDebugInfoForRequest(request_id) {
+    return this.$.getDebugInfoForRequest(request_id);
   }
 };
 

@@ -153,6 +153,18 @@ data_decoder.mojom.GzipperRemote = class {
   close() {
     this.proxy.close();
   }
+  deflate(data) {
+    return this.$.deflate(data);
+  }
+  inflate(data, max_uncompressed_size) {
+    return this.$.inflate(data, max_uncompressed_size);
+  }
+  compress(data) {
+    return this.$.compress(data);
+  }
+  uncompress(compressed_data) {
+    return this.$.uncompress(compressed_data);
+  }
 };
 
 data_decoder.mojom.GzipperRemoteCallHandler = class {

@@ -137,6 +137,18 @@ metrics_reporter.mojom.PageMetricsHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onPageRemoteCreated(page) {
+    return this.$.onPageRemoteCreated(page);
+  }
+  onGetMark(name) {
+    return this.$.onGetMark(name);
+  }
+  onClearMark(name) {
+    return this.$.onClearMark(name);
+  }
+  onUmaReportTime(name, time) {
+    return this.$.onUmaReportTime(name, time);
+  }
 };
 
 metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
@@ -389,6 +401,12 @@ metrics_reporter.mojom.PageMetricsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onGetMark(name) {
+    return this.$.onGetMark(name);
+  }
+  onClearMark(name) {
+    return this.$.onClearMark(name);
   }
 };
 

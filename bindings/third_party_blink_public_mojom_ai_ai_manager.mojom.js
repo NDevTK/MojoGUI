@@ -168,6 +168,12 @@ blink.mojom.AIManagerCreateWriterClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onResult(writer) {
+    return this.$.onResult(writer);
+  }
+  onError(error, quota_error_info) {
+    return this.$.onError(error, quota_error_info);
+  }
 };
 
 blink.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
@@ -351,6 +357,12 @@ blink.mojom.AIManagerCreateRewriterClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onResult(rewriter) {
+    return this.$.onResult(rewriter);
+  }
+  onError(error, quota_error_info) {
+    return this.$.onError(error, quota_error_info);
   }
 };
 
@@ -536,6 +548,12 @@ blink.mojom.AIManagerCreateSummarizerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onResult(summarizer) {
+    return this.$.onResult(summarizer);
+  }
+  onError(error, quota_error_info) {
+    return this.$.onError(error, quota_error_info);
+  }
 };
 
 blink.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
@@ -719,6 +737,12 @@ blink.mojom.AIManagerCreateProofreaderClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onResult(proofreader) {
+    return this.$.onResult(proofreader);
+  }
+  onError(error, quota_error_info) {
+    return this.$.onError(error, quota_error_info);
   }
 };
 
@@ -1002,6 +1026,42 @@ blink.mojom.AIManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  canCreateLanguageModel(options) {
+    return this.$.canCreateLanguageModel(options);
+  }
+  createLanguageModel(client, options) {
+    return this.$.createLanguageModel(client, options);
+  }
+  canCreateSummarizer(options) {
+    return this.$.canCreateSummarizer(options);
+  }
+  createSummarizer(client, options) {
+    return this.$.createSummarizer(client, options);
+  }
+  getLanguageModelParams() {
+    return this.$.getLanguageModelParams();
+  }
+  canCreateWriter(options) {
+    return this.$.canCreateWriter(options);
+  }
+  createWriter(client, options) {
+    return this.$.createWriter(client, options);
+  }
+  canCreateRewriter(options) {
+    return this.$.canCreateRewriter(options);
+  }
+  createRewriter(client, options) {
+    return this.$.createRewriter(client, options);
+  }
+  canCreateProofreader(options) {
+    return this.$.canCreateProofreader(options);
+  }
+  createProofreader(client, options) {
+    return this.$.createProofreader(client, options);
+  }
+  addModelDownloadProgressObserver(observer_remote) {
+    return this.$.addModelDownloadProgressObserver(observer_remote);
   }
 };
 

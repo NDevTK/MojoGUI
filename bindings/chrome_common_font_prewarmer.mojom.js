@@ -106,6 +106,9 @@ chrome.mojom.FontPrewarmerRemote = class {
   close() {
     this.proxy.close();
   }
+  prewarmFonts(font_names) {
+    return this.$.prewarmFonts(font_names);
+  }
 };
 
 chrome.mojom.FontPrewarmerRemoteCallHandler = class {
@@ -258,6 +261,9 @@ chrome.mojom.RenderFrameFontFamilyAccessorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getFontFamilyNames() {
+    return this.$.getFontFamilyNames();
   }
 };
 

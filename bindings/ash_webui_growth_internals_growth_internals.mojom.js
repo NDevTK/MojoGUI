@@ -115,6 +115,12 @@ ash.growth.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getCampaignsLogs() {
+    return this.$.getCampaignsLogs();
+  }
+  clearAllEvents() {
+    return this.$.clearAllEvents();
+  }
 };
 
 ash.growth.mojom.PageHandlerRemoteCallHandler = class {

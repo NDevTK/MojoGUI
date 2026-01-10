@@ -199,6 +199,42 @@ system_media_controls.mojom.SystemMediaControlsRemote = class {
   close() {
     this.proxy.close();
   }
+  setIsNextEnabled(enabled) {
+    return this.$.setIsNextEnabled(enabled);
+  }
+  setIsPreviousEnabled(enabled) {
+    return this.$.setIsPreviousEnabled(enabled);
+  }
+  setIsPlayPauseEnabled(enabled) {
+    return this.$.setIsPlayPauseEnabled(enabled);
+  }
+  setIsStopEnabled(enabled) {
+    return this.$.setIsStopEnabled(enabled);
+  }
+  setIsSeekToEnabled(enabled) {
+    return this.$.setIsSeekToEnabled(enabled);
+  }
+  setPlaybackStatus(status) {
+    return this.$.setPlaybackStatus(status);
+  }
+  setTitle(title) {
+    return this.$.setTitle(title);
+  }
+  setArtist(artist) {
+    return this.$.setArtist(artist);
+  }
+  setAlbum(album) {
+    return this.$.setAlbum(album);
+  }
+  setThumbnail(thumbnail) {
+    return this.$.setThumbnail(thumbnail);
+  }
+  setPosition(position) {
+    return this.$.setPosition(position);
+  }
+  clearMetadata() {
+    return this.$.clearMetadata();
+  }
 };
 
 system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
@@ -705,6 +741,33 @@ system_media_controls.mojom.SystemMediaControlsObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onNext() {
+    return this.$.onNext();
+  }
+  onPrevious() {
+    return this.$.onPrevious();
+  }
+  onPause() {
+    return this.$.onPause();
+  }
+  onPlayPause() {
+    return this.$.onPlayPause();
+  }
+  onStop() {
+    return this.$.onStop();
+  }
+  onPlay() {
+    return this.$.onPlay();
+  }
+  onSeekTo(seek_time) {
+    return this.$.onSeekTo(seek_time);
+  }
+  onBridgeCreatedForTesting() {
+    return this.$.onBridgeCreatedForTesting();
+  }
+  onMetadataClearedForTesting() {
+    return this.$.onMetadataClearedForTesting();
   }
 };
 

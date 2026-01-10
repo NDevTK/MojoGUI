@@ -104,6 +104,9 @@ blink.mojom.MemoryUsageMonitorLinuxRemote = class {
   close() {
     this.proxy.close();
   }
+  setProcFiles(statm_file, status_file) {
+    return this.$.setProcFiles(statm_file, status_file);
+  }
 };
 
 blink.mojom.MemoryUsageMonitorLinuxRemoteCallHandler = class {

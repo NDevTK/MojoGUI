@@ -141,6 +141,18 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onDeclineCellularClicked() {
+    return this.$.onDeclineCellularClicked();
+  }
+  onAcceptCellularClicked() {
+    return this.$.onAcceptCellularClicked();
+  }
+  onSkipClicked() {
+    return this.$.onSkipClicked();
+  }
+  onBackClicked() {
+    return this.$.onBackClicked();
+  }
 };
 
 ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
@@ -400,6 +412,21 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  showSkipButton() {
+    return this.$.showSkipButton();
+  }
+  setLowBatteryWarningVisible(visible) {
+    return this.$.setLowBatteryWarningVisible(visible);
+  }
+  setScreenStep(step) {
+    return this.$.setScreenStep(step);
+  }
+  setUpdateStatusMessage(percent, percent_message, time_left_message) {
+    return this.$.setUpdateStatusMessage(percent, percent_message, time_left_message);
+  }
+  setAutoTransition(enabled) {
+    return this.$.setAutoTransition(enabled);
   }
 };
 
@@ -668,6 +695,12 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onDontEnrollClicked() {
+    return this.$.onDontEnrollClicked();
+  }
+  onEnrollClicked() {
+    return this.$.onEnrollClicked();
   }
 };
 

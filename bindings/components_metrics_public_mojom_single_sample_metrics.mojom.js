@@ -110,6 +110,9 @@ metrics.mojom.SingleSampleMetricsProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  acquireSingleSampleMetric(histogram_name, min, max, bucket_count, flags, receiver) {
+    return this.$.acquireSingleSampleMetric(histogram_name, min, max, bucket_count, flags, receiver);
+  }
 };
 
 metrics.mojom.SingleSampleMetricsProviderRemoteCallHandler = class {
@@ -257,6 +260,9 @@ metrics.mojom.SingleSampleMetricRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setSample(sample) {
+    return this.$.setSample(sample);
   }
 };
 

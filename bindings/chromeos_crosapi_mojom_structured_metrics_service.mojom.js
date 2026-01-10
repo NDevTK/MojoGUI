@@ -103,6 +103,9 @@ crosapi.mojom.StructuredMetricsServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  record(events) {
+    return this.$.record(events);
+  }
 };
 
 crosapi.mojom.StructuredMetricsServiceRemoteCallHandler = class {

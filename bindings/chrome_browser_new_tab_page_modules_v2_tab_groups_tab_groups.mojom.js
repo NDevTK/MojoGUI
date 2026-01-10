@@ -152,6 +152,21 @@ ntp.tab_groups.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  createNewTabGroup() {
+    return this.$.createNewTabGroup();
+  }
+  getTabGroups() {
+    return this.$.getTabGroups();
+  }
+  openTabGroup(id) {
+    return this.$.openTabGroup(id);
+  }
+  dismissModule() {
+    return this.$.dismissModule();
+  }
+  restoreModule() {
+    return this.$.restoreModule();
+  }
 };
 
 ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {

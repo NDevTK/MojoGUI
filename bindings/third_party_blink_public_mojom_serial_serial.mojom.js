@@ -191,6 +191,21 @@ blink.mojom.SerialServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  setClient(client) {
+    return this.$.setClient(client);
+  }
+  getPorts() {
+    return this.$.getPorts();
+  }
+  requestPort(filters, allowed_bluetooth_service_class_ids) {
+    return this.$.requestPort(filters, allowed_bluetooth_service_class_ids);
+  }
+  openPort(token, options, client) {
+    return this.$.openPort(token, options, client);
+  }
+  forgetPort(token) {
+    return this.$.forgetPort(token);
+  }
 };
 
 blink.mojom.SerialServiceRemoteCallHandler = class {
@@ -478,6 +493,9 @@ blink.mojom.SerialServiceClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPortConnectedStateChanged(port_info) {
+    return this.$.onPortConnectedStateChanged(port_info);
   }
 };
 

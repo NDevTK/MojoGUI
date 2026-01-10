@@ -140,6 +140,9 @@ remote_cocoa.mojom.SelectFileDialogRemote = class {
   close() {
     this.proxy.close();
   }
+  show(type, title, file_path, file_types, file_type_index, default_extension) {
+    return this.$.show(type, title, file_path, file_types, file_type_index, default_extension);
+  }
 };
 
 remote_cocoa.mojom.SelectFileDialogRemoteCallHandler = class {

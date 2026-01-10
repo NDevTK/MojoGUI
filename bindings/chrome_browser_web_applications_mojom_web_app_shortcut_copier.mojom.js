@@ -111,6 +111,9 @@ web_app.mojom.WebAppShortcutCopierRemote = class {
   close() {
     this.proxy.close();
   }
+  copyWebAppShortcut(source_path, destination_path) {
+    return this.$.copyWebAppShortcut(source_path, destination_path);
+  }
 };
 
 web_app.mojom.WebAppShortcutCopierRemoteCallHandler = class {

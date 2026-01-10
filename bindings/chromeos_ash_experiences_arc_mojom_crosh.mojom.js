@@ -142,6 +142,9 @@ arc.mojom.ArcShellExecutionInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  exec(request) {
+    return this.$.exec(request);
+  }
 };
 
 arc.mojom.ArcShellExecutionInstanceRemoteCallHandler = class {

@@ -102,6 +102,9 @@ prerender.mojom.NoStatePrefetchMessagesRemote = class {
   close() {
     this.proxy.close();
   }
+  setIsNoStatePrefetching(histogram_prefix) {
+    return this.$.setIsNoStatePrefetching(histogram_prefix);
+  }
 };
 
 prerender.mojom.NoStatePrefetchMessagesRemoteCallHandler = class {

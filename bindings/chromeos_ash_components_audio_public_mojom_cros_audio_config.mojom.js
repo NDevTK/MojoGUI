@@ -207,6 +207,9 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onPropertiesUpdated(properties) {
+    return this.$.onPropertiesUpdated(properties);
+  }
 };
 
 ash.audio_config.mojom.AudioSystemPropertiesObserverRemoteCallHandler = class {
@@ -425,6 +428,45 @@ ash.audio_config.mojom.CrosAudioConfigRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  observeAudioSystemProperties(observer) {
+    return this.$.observeAudioSystemProperties(observer);
+  }
+  setOutputMuted(muted) {
+    return this.$.setOutputMuted(muted);
+  }
+  setOutputVolumePercent(volume) {
+    return this.$.setOutputVolumePercent(volume);
+  }
+  setInputGainPercent(gain) {
+    return this.$.setInputGainPercent(gain);
+  }
+  setActiveDevice(device) {
+    return this.$.setActiveDevice(device);
+  }
+  setInputMuted(muted) {
+    return this.$.setInputMuted(muted);
+  }
+  recordVoiceIsolationEnabledChange() {
+    return this.$.recordVoiceIsolationEnabledChange();
+  }
+  recordVoiceIsolationPreferredEffectChange(preferred_effect) {
+    return this.$.recordVoiceIsolationPreferredEffectChange(preferred_effect);
+  }
+  setNoiseCancellationEnabled(enabled) {
+    return this.$.setNoiseCancellationEnabled(enabled);
+  }
+  setStyleTransferEnabled(enabled) {
+    return this.$.setStyleTransferEnabled(enabled);
+  }
+  setForceRespectUiGainsEnabled(enabled) {
+    return this.$.setForceRespectUiGainsEnabled(enabled);
+  }
+  setHfpMicSrEnabled(enabled) {
+    return this.$.setHfpMicSrEnabled(enabled);
+  }
+  setSpatialAudioEnabled(enabled) {
+    return this.$.setSpatialAudioEnabled(enabled);
   }
 };
 

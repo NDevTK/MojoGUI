@@ -124,6 +124,12 @@ shape_detection.mojom.BarcodeDetectionProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  createBarcodeDetection(receiver, options) {
+    return this.$.createBarcodeDetection(receiver, options);
+  }
+  enumerateSupportedFormats() {
+    return this.$.enumerateSupportedFormats();
+  }
 };
 
 shape_detection.mojom.BarcodeDetectionProviderRemoteCallHandler = class {

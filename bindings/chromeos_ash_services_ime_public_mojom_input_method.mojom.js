@@ -804,6 +804,36 @@ ash.ime.mojom.InputMethodRemote = class {
   close() {
     this.proxy.close();
   }
+  onFocusDeprecated(input_field_info, settings) {
+    return this.$.onFocusDeprecated(input_field_info, settings);
+  }
+  onFocus(input_field_info, deprecated_settings) {
+    return this.$.onFocus(input_field_info, deprecated_settings);
+  }
+  onBlur() {
+    return this.$.onBlur();
+  }
+  processKeyEvent(event) {
+    return this.$.processKeyEvent(event);
+  }
+  onSurroundingTextChanged(text, offset, selection_range) {
+    return this.$.onSurroundingTextChanged(text, offset, selection_range);
+  }
+  onCompositionCanceledBySystem() {
+    return this.$.onCompositionCanceledBySystem();
+  }
+  onCandidateSelected(selected_candidate_index) {
+    return this.$.onCandidateSelected(selected_candidate_index);
+  }
+  onQuickSettingsUpdated(settings) {
+    return this.$.onQuickSettingsUpdated(settings);
+  }
+  isReadyForTesting() {
+    return this.$.isReadyForTesting();
+  }
+  onAssistiveWindowChanged(window) {
+    return this.$.onAssistiveWindowChanged(window);
+  }
 };
 
 ash.ime.mojom.InputMethodRemoteCallHandler = class {

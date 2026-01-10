@@ -108,6 +108,9 @@ ax.mojom.AutoclickRemote = class {
   close() {
     this.proxy.close();
   }
+  requestScrollableBoundsForPoint(point) {
+    return this.$.requestScrollableBoundsForPoint(point);
+  }
 };
 
 ax.mojom.AutoclickRemoteCallHandler = class {
@@ -266,6 +269,12 @@ ax.mojom.AutoclickClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  handleScrollableBoundsForPointFound(bounds) {
+    return this.$.handleScrollableBoundsForPointFound(bounds);
+  }
+  bindAutoclick() {
+    return this.$.bindAutoclick();
   }
 };
 

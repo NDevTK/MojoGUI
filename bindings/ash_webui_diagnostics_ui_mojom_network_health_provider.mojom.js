@@ -246,6 +246,9 @@ ash.diagnostics.mojom.NetworkListObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onNetworkListChanged(network_guids, active_guid) {
+    return this.$.onNetworkListChanged(network_guids, active_guid);
+  }
 };
 
 ash.diagnostics.mojom.NetworkListObserverRemoteCallHandler = class {
@@ -393,6 +396,9 @@ ash.diagnostics.mojom.NetworkStateObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onNetworkStateChanged(network) {
+    return this.$.onNetworkStateChanged(network);
   }
 };
 
@@ -548,6 +554,12 @@ ash.diagnostics.mojom.NetworkHealthProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  observeNetworkList(observer) {
+    return this.$.observeNetworkList(observer);
+  }
+  observeNetwork(observer, guid) {
+    return this.$.observeNetwork(observer, guid);
   }
 };
 

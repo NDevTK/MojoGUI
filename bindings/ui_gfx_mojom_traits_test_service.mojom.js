@@ -151,6 +151,18 @@ gfx.mojom.TraitsTestServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  echoSelectionBound(s) {
+    return this.$.echoSelectionBound(s);
+  }
+  echoTransform(t) {
+    return this.$.echoTransform(t);
+  }
+  echoGpuMemoryBufferHandle(g) {
+    return this.$.echoGpuMemoryBufferHandle(g);
+  }
+  echoRRectF(t) {
+    return this.$.echoRRectF(t);
+  }
 };
 
 gfx.mojom.TraitsTestServiceRemoteCallHandler = class {

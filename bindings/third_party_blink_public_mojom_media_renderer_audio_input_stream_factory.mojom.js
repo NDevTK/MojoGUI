@@ -120,6 +120,12 @@ blink.mojom.RendererAudioInputStreamFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createStream(client, session_id, params, automatic_gain_control, shared_memory_count, processing_config) {
+    return this.$.createStream(client, session_id, params, automatic_gain_control, shared_memory_count, processing_config);
+  }
+  associateInputAndOutputForAec(input_stream_id, output_device_id) {
+    return this.$.associateInputAndOutputForAec(input_stream_id, output_device_id);
+  }
 };
 
 blink.mojom.RendererAudioInputStreamFactoryRemoteCallHandler = class {
@@ -300,6 +306,9 @@ blink.mojom.RendererAudioInputStreamFactoryClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  streamCreated(stream, client_request, data_pipe, initially_muted, stream_id) {
+    return this.$.streamCreated(stream, client_request, data_pipe, initially_muted, stream_id);
   }
 };
 

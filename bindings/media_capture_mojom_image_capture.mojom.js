@@ -302,6 +302,15 @@ media.mojom.ImageCaptureRemote = class {
   close() {
     this.proxy.close();
   }
+  getPhotoState(source_id) {
+    return this.$.getPhotoState(source_id);
+  }
+  setPhotoOptions(source_id, settings) {
+    return this.$.setPhotoOptions(source_id, settings);
+  }
+  takePhoto(source_id) {
+    return this.$.takePhoto(source_id);
+  }
 };
 
 media.mojom.ImageCaptureRemoteCallHandler = class {

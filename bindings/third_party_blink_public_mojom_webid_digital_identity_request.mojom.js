@@ -164,6 +164,15 @@ blink.mojom.DigitalIdentityRequestRemote = class {
   close() {
     this.proxy.close();
   }
+  get(digital_credential_requests) {
+    return this.$.get(digital_credential_requests);
+  }
+  create(digital_credential_requests) {
+    return this.$.create(digital_credential_requests);
+  }
+  abort() {
+    return this.$.abort();
+  }
 };
 
 blink.mojom.DigitalIdentityRequestRemoteCallHandler = class {

@@ -116,6 +116,9 @@ chromecast.media.mojom.MediaCapsRemote = class {
   close() {
     this.proxy.close();
   }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
 };
 
 chromecast.media.mojom.MediaCapsRemoteCallHandler = class {
@@ -263,6 +266,9 @@ chromecast.media.mojom.MediaCapsObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addSupportedCodecProfileLevel(codec_profile_level) {
+    return this.$.addSupportedCodecProfileLevel(codec_profile_level);
   }
 };
 

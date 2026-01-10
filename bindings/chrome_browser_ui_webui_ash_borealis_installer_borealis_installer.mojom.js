@@ -118,6 +118,9 @@ ash.borealis_installer.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 ash.borealis_installer.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -289,6 +292,24 @@ ash.borealis_installer.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  install() {
+    return this.$.install();
+  }
+  shutDown() {
+    return this.$.shutDown();
+  }
+  launch() {
+    return this.$.launch();
+  }
+  cancelInstall() {
+    return this.$.cancelInstall();
+  }
+  onPageClosed() {
+    return this.$.onPageClosed();
+  }
+  openStoragePage() {
+    return this.$.openStoragePage();
   }
 };
 
@@ -594,6 +615,15 @@ ash.borealis_installer.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onProgressUpdate(progress_fraction, label) {
+    return this.$.onProgressUpdate(progress_fraction, label);
+  }
+  onInstallFinished(error) {
+    return this.$.onInstallFinished(error);
+  }
+  requestClose() {
+    return this.$.requestClose();
   }
 };
 

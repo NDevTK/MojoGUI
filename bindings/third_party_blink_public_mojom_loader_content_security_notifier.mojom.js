@@ -116,6 +116,15 @@ blink.mojom.ContentSecurityNotifierRemote = class {
   close() {
     this.proxy.close();
   }
+  notifyContentWithCertificateErrorsRan() {
+    return this.$.notifyContentWithCertificateErrorsRan();
+  }
+  notifyContentWithCertificateErrorsDisplayed() {
+    return this.$.notifyContentWithCertificateErrorsDisplayed();
+  }
+  notifyInsecureContentRan(origin, insecure_url) {
+    return this.$.notifyInsecureContentRan(origin, insecure_url);
+  }
 };
 
 blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {

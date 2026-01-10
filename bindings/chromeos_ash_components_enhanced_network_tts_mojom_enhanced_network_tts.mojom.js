@@ -173,6 +173,9 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemote = class {
   close() {
     this.proxy.close();
   }
+  getAudioData(request) {
+    return this.$.getAudioData(request);
+  }
 };
 
 ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemoteCallHandler = class {
@@ -326,6 +329,9 @@ ash.enhanced_network_tts.mojom.AudioDataObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onAudioDataReceived(response) {
+    return this.$.onAudioDataReceived(response);
   }
 };
 

@@ -104,6 +104,9 @@ viz.mojom.CompositingModeWatcherRemote = class {
   close() {
     this.proxy.close();
   }
+  compositingModeFallbackToSoftware() {
+    return this.$.compositingModeFallbackToSoftware();
+  }
 };
 
 viz.mojom.CompositingModeWatcherRemoteCallHandler = class {
@@ -251,6 +254,9 @@ viz.mojom.CompositingModeReporterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addCompositingModeWatcher(watcher) {
+    return this.$.addCompositingModeWatcher(watcher);
   }
 };
 

@@ -151,6 +151,9 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getRelatedWebsiteSets() {
+    return this.$.getRelatedWebsiteSets();
+  }
 };
 
 related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler = class {

@@ -136,6 +136,12 @@ heap_profiling.mojom.ProfilingServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  addProfilingClient(pid, client, process_type, params) {
+    return this.$.addProfilingClient(pid, client, process_type, params);
+  }
+  getProfiledPids() {
+    return this.$.getProfiledPids();
+  }
 };
 
 heap_profiling.mojom.ProfilingServiceRemoteCallHandler = class {

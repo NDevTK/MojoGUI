@@ -177,6 +177,21 @@ media.mojom.MediaDrmStorageRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize() {
+    return this.$.initialize();
+  }
+  onProvisioned() {
+    return this.$.onProvisioned();
+  }
+  savePersistentSession(session_id, session_data) {
+    return this.$.savePersistentSession(session_id, session_data);
+  }
+  loadPersistentSession(session_id) {
+    return this.$.loadPersistentSession(session_id);
+  }
+  removePersistentSession(session_id) {
+    return this.$.removePersistentSession(session_id);
+  }
 };
 
 media.mojom.MediaDrmStorageRemoteCallHandler = class {

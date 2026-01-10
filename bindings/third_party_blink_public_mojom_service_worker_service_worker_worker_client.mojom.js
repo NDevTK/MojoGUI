@@ -102,6 +102,9 @@ blink.mojom.ServiceWorkerWorkerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onControllerChanged(mode) {
+    return this.$.onControllerChanged(mode);
+  }
 };
 
 blink.mojom.ServiceWorkerWorkerClientRemoteCallHandler = class {

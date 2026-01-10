@@ -119,6 +119,12 @@ device.mojom.ScreenOrientationRemote = class {
   close() {
     this.proxy.close();
   }
+  lockOrientation(orientation) {
+    return this.$.lockOrientation(orientation);
+  }
+  unlockOrientation() {
+    return this.$.unlockOrientation();
+  }
 };
 
 device.mojom.ScreenOrientationRemoteCallHandler = class {
@@ -306,6 +312,9 @@ device.mojom.ScreenOrientationListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  isAutoRotateEnabledByUser() {
+    return this.$.isAutoRotateEnabledByUser();
   }
 };
 

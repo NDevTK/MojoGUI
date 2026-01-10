@@ -1005,6 +1005,24 @@ device.mojom.VRServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  setClient(client) {
+    return this.$.setClient(client);
+  }
+  requestSession(options) {
+    return this.$.requestSession(options);
+  }
+  supportsSession(options) {
+    return this.$.supportsSession(options);
+  }
+  exitPresent() {
+    return this.$.exitPresent();
+  }
+  setFramesThrottled(throttled) {
+    return this.$.setFramesThrottled(throttled);
+  }
+  makeXrCompatible() {
+    return this.$.makeXrCompatible();
+  }
 };
 
 device.mojom.VRServiceRemoteCallHandler = class {
@@ -1322,6 +1340,9 @@ device.mojom.XRSessionMetricsRecorderRemote = class {
   close() {
     this.proxy.close();
   }
+  reportFeatureUsed(feature) {
+    return this.$.reportFeatureUsed(feature);
+  }
 };
 
 device.mojom.XRSessionMetricsRecorderRemoteCallHandler = class {
@@ -1468,6 +1489,9 @@ device.mojom.VRServiceClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onDeviceChanged() {
+    return this.$.onDeviceChanged();
   }
 };
 
@@ -1664,6 +1688,21 @@ device.mojom.XREnvironmentIntegrationProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  subscribeToHitTest(native_origin_information, entity_types, ray) {
+    return this.$.subscribeToHitTest(native_origin_information, entity_types, ray);
+  }
+  subscribeToHitTestForTransientInput(profile_name, entity_types, ray) {
+    return this.$.subscribeToHitTestForTransientInput(profile_name, entity_types, ray);
+  }
+  unsubscribeFromHitTest(subscription_id) {
+    return this.$.unsubscribeFromHitTest(subscription_id);
+  }
+  createAnchor(native_origin_information, native_origin_from_anchor, plane_id) {
+    return this.$.createAnchor(native_origin_information, native_origin_from_anchor, plane_id);
+  }
+  detachAnchor(anchor_id) {
+    return this.$.detachAnchor(anchor_id);
   }
 };
 
@@ -1959,6 +1998,12 @@ device.mojom.XRFrameDataProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getFrameData(options) {
+    return this.$.getFrameData(options);
+  }
+  getEnvironmentIntegrationProvider(environment_provider) {
+    return this.$.getEnvironmentIntegrationProvider(environment_provider);
+  }
 };
 
 device.mojom.XRFrameDataProviderRemoteCallHandler = class {
@@ -2175,6 +2220,21 @@ device.mojom.XRPresentationProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateLayerBounds(frame_id, left_bounds, right_bounds, source_size) {
+    return this.$.updateLayerBounds(frame_id, left_bounds, right_bounds, source_size);
+  }
+  submitFrameMissing(frame_id, sync_token) {
+    return this.$.submitFrameMissing(frame_id, sync_token);
+  }
+  submitFrame(frame_id, time_waited) {
+    return this.$.submitFrame(frame_id, time_waited);
+  }
+  submitFrameWithTextureHandle(frame_id, texture, sync_token) {
+    return this.$.submitFrameWithTextureHandle(frame_id, texture, sync_token);
+  }
+  submitFrameDrawnIntoTexture(frame_id, layer_ids, sync_token, time_waited) {
+    return this.$.submitFrameDrawnIntoTexture(frame_id, layer_ids, sync_token, time_waited);
   }
 };
 
@@ -2451,6 +2511,15 @@ device.mojom.XRPresentationClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onSubmitFrameTransferred(success) {
+    return this.$.onSubmitFrameTransferred(success);
+  }
+  onSubmitFrameRendered() {
+    return this.$.onSubmitFrameRendered();
+  }
+  onSubmitFrameGpuFence(gpu_fence_handle) {
+    return this.$.onSubmitFrameGpuFence(gpu_fence_handle);
+  }
 };
 
 device.mojom.XRPresentationClientRemoteCallHandler = class {
@@ -2662,6 +2731,12 @@ device.mojom.XRSessionClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onExitPresent() {
+    return this.$.onExitPresent();
+  }
+  onVisibilityStateChanged(visibility_state) {
+    return this.$.onVisibilityStateChanged(visibility_state);
+  }
 };
 
 device.mojom.XRSessionClientRemoteCallHandler = class {
@@ -2863,6 +2938,18 @@ device.mojom.XRLayerManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createCompositionLayer(create_data) {
+    return this.$.createCompositionLayer(create_data);
+  }
+  destroyCompositionLayer(layer_id) {
+    return this.$.destroyCompositionLayer(layer_id);
+  }
+  updateCompositionLayer(layer_id, update_data) {
+    return this.$.updateCompositionLayer(layer_id, update_data);
+  }
+  setEnabledCompositionLayers(layer_ids) {
+    return this.$.setEnabledCompositionLayers(layer_ids);
   }
 };
 
@@ -3110,6 +3197,12 @@ device.mojom.WebXrInternalsRendererListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onFrameData(xrframe_statistics) {
+    return this.$.onFrameData(xrframe_statistics);
+  }
+  onConsoleLog(xrlogging_statistics) {
+    return this.$.onConsoleLog(xrlogging_statistics);
   }
 };
 

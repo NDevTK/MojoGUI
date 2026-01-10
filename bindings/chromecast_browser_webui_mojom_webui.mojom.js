@@ -115,6 +115,9 @@ chromecast.mojom.MessageCallbackRemote = class {
   close() {
     this.proxy.close();
   }
+  onMessage(list) {
+    return this.$.onMessage(list);
+  }
 };
 
 chromecast.mojom.MessageCallbackRemoteCallHandler = class {
@@ -270,6 +273,12 @@ chromecast.mojom.WebUiRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  registerMessageCallback(message, cb) {
+    return this.$.registerMessageCallback(message, cb);
+  }
+  callJavascriptFunction(function, args) {
+    return this.$.callJavascriptFunction(function, args);
   }
 };
 
@@ -454,6 +463,9 @@ chromecast.mojom.ResourcesRemote = class {
   close() {
     this.proxy.close();
   }
+  requestResourceBytes(path) {
+    return this.$.requestResourceBytes(path);
+  }
 };
 
 chromecast.mojom.ResourcesRemoteCallHandler = class {
@@ -616,6 +628,12 @@ chromecast.mojom.WebUiClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createController(host, web_ui, resources) {
+    return this.$.createController(host, web_ui, resources);
+  }
+  createResources(host, resources) {
+    return this.$.createResources(host, resources);
   }
 };
 

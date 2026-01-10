@@ -209,6 +209,21 @@ device.mojom.FingerprintObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onRestarted() {
+    return this.$.onRestarted();
+  }
+  onStatusChanged(status) {
+    return this.$.onStatusChanged(status);
+  }
+  onEnrollScanDone(scan_result, is_complete, percent_complete) {
+    return this.$.onEnrollScanDone(scan_result, is_complete, percent_complete);
+  }
+  onAuthScanDone(msg, matches) {
+    return this.$.onAuthScanDone(msg, matches);
+  }
+  onSessionFailed() {
+    return this.$.onSessionFailed();
+  }
 };
 
 device.mojom.FingerprintObserverRemoteCallHandler = class {
@@ -578,6 +593,39 @@ device.mojom.FingerprintRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getRecordsForUser(user_id) {
+    return this.$.getRecordsForUser(user_id);
+  }
+  startEnrollSession(user_id, label) {
+    return this.$.startEnrollSession(user_id, label);
+  }
+  cancelCurrentEnrollSession() {
+    return this.$.cancelCurrentEnrollSession();
+  }
+  requestRecordLabel(record_path) {
+    return this.$.requestRecordLabel(record_path);
+  }
+  setRecordLabel(record_path, new_label) {
+    return this.$.setRecordLabel(record_path, new_label);
+  }
+  removeRecord(record_path) {
+    return this.$.removeRecord(record_path);
+  }
+  startAuthSession() {
+    return this.$.startAuthSession();
+  }
+  endCurrentAuthSession() {
+    return this.$.endCurrentAuthSession();
+  }
+  destroyAllRecords() {
+    return this.$.destroyAllRecords();
+  }
+  addFingerprintObserver(observer) {
+    return this.$.addFingerprintObserver(observer);
+  }
+  requestType() {
+    return this.$.requestType();
   }
 };
 

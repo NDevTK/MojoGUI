@@ -122,6 +122,9 @@ drivefs.mojom.NativeMessagingPortRemote = class {
   close() {
     this.proxy.close();
   }
+  postMessageToExtension(message) {
+    return this.$.postMessageToExtension(message);
+  }
 };
 
 drivefs.mojom.NativeMessagingPortRemoteCallHandler = class {
@@ -269,6 +272,9 @@ drivefs.mojom.NativeMessagingHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  handleMessageFromExtension(message) {
+    return this.$.handleMessageFromExtension(message);
   }
 };
 

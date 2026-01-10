@@ -108,6 +108,12 @@ gfx.mojom.DelegatedInkPointRendererRemote = class {
   close() {
     this.proxy.close();
   }
+  storeDelegatedInkPoint(point) {
+    return this.$.storeDelegatedInkPoint(point);
+  }
+  resetPrediction() {
+    return this.$.resetPrediction();
+  }
 };
 
 gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {

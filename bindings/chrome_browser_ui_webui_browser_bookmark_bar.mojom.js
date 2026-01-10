@@ -136,6 +136,9 @@ bookmark_bar.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 bookmark_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -294,6 +297,12 @@ bookmark_bar.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getBookmarkBar() {
+    return this.$.getBookmarkBar();
+  }
+  openInNewTab(node_id) {
+    return this.$.openInNewTab(node_id);
   }
 };
 
@@ -492,6 +501,18 @@ bookmark_bar.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bookmarkLoaded() {
+    return this.$.bookmarkLoaded();
+  }
+  favIconChanged(bookmark_data) {
+    return this.$.favIconChanged(bookmark_data);
+  }
+  show() {
+    return this.$.show();
+  }
+  hide() {
+    return this.$.hide();
   }
 };
 

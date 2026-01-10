@@ -182,6 +182,9 @@ blink.mojom.ClipboardListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onClipboardDataChanged(types, change_id) {
+    return this.$.onClipboardDataChanged(types, change_id);
+  }
 };
 
 blink.mojom.ClipboardListenerRemoteCallHandler = class {
@@ -549,6 +552,78 @@ blink.mojom.ClipboardHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getSequenceNumber(buffer) {
+    return this.$.getSequenceNumber(buffer);
+  }
+  isFormatAvailable(format, buffer) {
+    return this.$.isFormatAvailable(format, buffer);
+  }
+  readAvailableTypes(buffer) {
+    return this.$.readAvailableTypes(buffer);
+  }
+  readText(buffer) {
+    return this.$.readText(buffer);
+  }
+  readHtml(buffer) {
+    return this.$.readHtml(buffer);
+  }
+  readSvg(buffer) {
+    return this.$.readSvg(buffer);
+  }
+  readRtf(buffer) {
+    return this.$.readRtf(buffer);
+  }
+  readPng(buffer) {
+    return this.$.readPng(buffer);
+  }
+  readFiles(buffer) {
+    return this.$.readFiles(buffer);
+  }
+  readDataTransferCustomData(buffer, type) {
+    return this.$.readDataTransferCustomData(buffer, type);
+  }
+  readAvailableCustomAndStandardFormats() {
+    return this.$.readAvailableCustomAndStandardFormats();
+  }
+  readUnsanitizedCustomFormat(format) {
+    return this.$.readUnsanitizedCustomFormat(format);
+  }
+  writeText(text) {
+    return this.$.writeText(text);
+  }
+  writeHtml(markup, url) {
+    return this.$.writeHtml(markup, url);
+  }
+  writeSvg(markup) {
+    return this.$.writeSvg(markup);
+  }
+  writeSmartPasteMarker() {
+    return this.$.writeSmartPasteMarker();
+  }
+  writeDataTransferCustomData(data) {
+    return this.$.writeDataTransferCustomData(data);
+  }
+  writeBookmark(url, title) {
+    return this.$.writeBookmark(url, title);
+  }
+  writeImage(image) {
+    return this.$.writeImage(image);
+  }
+  writeUnsanitizedCustomFormat(format, data) {
+    return this.$.writeUnsanitizedCustomFormat(format, data);
+  }
+  commitWrite() {
+    return this.$.commitWrite();
+  }
+  writeStringToFindPboard(text) {
+    return this.$.writeStringToFindPboard(text);
+  }
+  getPlatformPermissionState() {
+    return this.$.getPlatformPermissionState();
+  }
+  registerClipboardListener(listener) {
+    return this.$.registerClipboardListener(listener);
   }
 };
 

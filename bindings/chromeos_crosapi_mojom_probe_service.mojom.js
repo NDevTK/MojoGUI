@@ -944,6 +944,12 @@ crosapi.mojom.TelemetryProbeServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  probeTelemetryInfo(categories) {
+    return this.$.probeTelemetryInfo(categories);
+  }
+  getOemData() {
+    return this.$.getOemData();
+  }
 };
 
 crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = class {

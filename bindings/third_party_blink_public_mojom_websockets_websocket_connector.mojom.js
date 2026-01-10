@@ -111,6 +111,9 @@ blink.mojom.WebSocketConnectorRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(url, requested_protocols, site_for_cookies, user_agent, storage_access_api_status, handshake_client, throttling_profile_id) {
+    return this.$.connect(url, requested_protocols, site_for_cookies, user_agent, storage_access_api_status, handshake_client, throttling_profile_id);
+  }
 };
 
 blink.mojom.WebSocketConnectorRemoteCallHandler = class {

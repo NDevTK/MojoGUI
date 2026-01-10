@@ -140,6 +140,9 @@ action_chips.mojom.ActionChipsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  startActionChipsRetrieval() {
+    return this.$.startActionChipsRetrieval();
+  }
 };
 
 action_chips.mojom.ActionChipsHandlerRemoteCallHandler = class {
@@ -287,6 +290,9 @@ action_chips.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onActionChipsChanged(action_chips) {
+    return this.$.onActionChipsChanged(action_chips);
   }
 };
 
@@ -436,6 +442,9 @@ action_chips.mojom.ActionChipsHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createActionChipsHandler(handler, page) {
+    return this.$.createActionChipsHandler(handler, page);
   }
 };
 

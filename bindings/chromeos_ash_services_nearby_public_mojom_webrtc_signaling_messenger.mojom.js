@@ -134,6 +134,12 @@ sharing.mojom.IncomingMessagesListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onMessage(message) {
+    return this.$.onMessage(message);
+  }
+  onComplete(success) {
+    return this.$.onComplete(success);
+  }
 };
 
 sharing.mojom.IncomingMessagesListenerRemoteCallHandler = class {
@@ -310,6 +316,9 @@ sharing.mojom.ReceiveMessagesSessionRemote = class {
   close() {
     this.proxy.close();
   }
+  stopReceivingMessages() {
+    return this.$.stopReceivingMessages();
+  }
 };
 
 sharing.mojom.ReceiveMessagesSessionRemoteCallHandler = class {
@@ -481,6 +490,12 @@ sharing.mojom.WebRtcSignalingMessengerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sendMessage(self_id, peer_id, location_hint, message) {
+    return this.$.sendMessage(self_id, peer_id, location_hint, message);
+  }
+  startReceivingMessages(self_id, location_hint, listener) {
+    return this.$.startReceivingMessages(self_id, location_hint, listener);
   }
 };
 

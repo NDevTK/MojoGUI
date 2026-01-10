@@ -386,6 +386,105 @@ viz.mojom.GpuServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  establishGpuChannel(client_id, client_tracing_id, is_gpu_host, enable_extra_handles_validation) {
+    return this.$.establishGpuChannel(client_id, client_tracing_id, is_gpu_host, enable_extra_handles_validation);
+  }
+  setChannelClientPid(client_id, client_pid) {
+    return this.$.setChannelClientPid(client_id, client_pid);
+  }
+  setChannelDiskCacheHandle(client_id, cache_handle) {
+    return this.$.setChannelDiskCacheHandle(client_id, cache_handle);
+  }
+  setChannelPersistentCachePendingBackend(client_id, cache_handle, pending_backend) {
+    return this.$.setChannelPersistentCachePendingBackend(client_id, cache_handle, pending_backend);
+  }
+  onDiskCacheHandleDestoyed(cache_handle) {
+    return this.$.onDiskCacheHandleDestoyed(cache_handle);
+  }
+  closeChannel(client_id) {
+    return this.$.closeChannel(client_id);
+  }
+  createJpegDecodeAccelerator(jda) {
+    return this.$.createJpegDecodeAccelerator(jda);
+  }
+  createJpegEncodeAccelerator(jea) {
+    return this.$.createJpegEncodeAccelerator(jea);
+  }
+  registerDCOMPSurfaceHandle(surface_handle) {
+    return this.$.registerDCOMPSurfaceHandle(surface_handle);
+  }
+  unregisterDCOMPSurfaceHandle(token) {
+    return this.$.unregisterDCOMPSurfaceHandle(token);
+  }
+  createVideoEncodeAcceleratorProvider(vea_provider) {
+    return this.$.createVideoEncodeAcceleratorProvider(vea_provider);
+  }
+  bindWebNNContextProvider(receiver, client_id) {
+    return this.$.bindWebNNContextProvider(receiver, client_id);
+  }
+  getVideoMemoryUsageStats() {
+    return this.$.getVideoMemoryUsageStats();
+  }
+  startPeakMemoryMonitor(sequence_num) {
+    return this.$.startPeakMemoryMonitor(sequence_num);
+  }
+  getPeakMemoryUsage(sequence_num) {
+    return this.$.getPeakMemoryUsage(sequence_num);
+  }
+  requestDXGIInfo() {
+    return this.$.requestDXGIInfo();
+  }
+  loadedBlob(cache_handle, key, data) {
+    return this.$.loadedBlob(cache_handle, key, data);
+  }
+  wakeUpGpu() {
+    return this.$.wakeUpGpu();
+  }
+  gpuSwitched() {
+    return this.$.gpuSwitched();
+  }
+  displayAdded() {
+    return this.$.displayAdded();
+  }
+  displayRemoved() {
+    return this.$.displayRemoved();
+  }
+  displayMetricsChanged() {
+    return this.$.displayMetricsChanged();
+  }
+  destroyAllChannels() {
+    return this.$.destroyAllChannels();
+  }
+  onBackgroundCleanup() {
+    return this.$.onBackgroundCleanup();
+  }
+  onBackgrounded() {
+    return this.$.onBackgrounded();
+  }
+  onForegrounded() {
+    return this.$.onForegrounded();
+  }
+  beginCATransaction() {
+    return this.$.beginCATransaction();
+  }
+  commitCATransaction() {
+    return this.$.commitCATransaction();
+  }
+  writeClangProfilingProfile() {
+    return this.$.writeClangProfilingProfile();
+  }
+  getDawnInfo(collect_metrics) {
+    return this.$.getDawnInfo(collect_metrics);
+  }
+  crash() {
+    return this.$.crash();
+  }
+  hang() {
+    return this.$.hang();
+  }
+  throwJavaException() {
+    return this.$.throwJavaException();
+  }
 };
 
 viz.mojom.GpuServiceRemoteCallHandler = class {

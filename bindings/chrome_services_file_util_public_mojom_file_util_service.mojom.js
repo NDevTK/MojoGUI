@@ -124,6 +124,18 @@ chrome.mojom.FileUtilServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  bindZipFileCreator(receiver) {
+    return this.$.bindZipFileCreator(receiver);
+  }
+  bindSafeArchiveAnalyzer(receiver) {
+    return this.$.bindSafeArchiveAnalyzer(receiver);
+  }
+  bindSingleFileTarFileExtractor(receiver) {
+    return this.$.bindSingleFileTarFileExtractor(receiver);
+  }
+  bindSingleFileTarXzFileExtractor(receiver) {
+    return this.$.bindSingleFileTarXzFileExtractor(receiver);
+  }
 };
 
 chrome.mojom.FileUtilServiceRemoteCallHandler = class {

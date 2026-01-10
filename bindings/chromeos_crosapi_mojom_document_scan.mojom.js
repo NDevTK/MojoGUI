@@ -541,6 +541,27 @@ crosapi.mojom.DocumentScanRemote = class {
   close() {
     this.proxy.close();
   }
+  openScanner(client_id, scanner_id) {
+    return this.$.openScanner(client_id, scanner_id);
+  }
+  closeScanner(scanner_handle) {
+    return this.$.closeScanner(scanner_handle);
+  }
+  startPreparedScan(scanner_handle, options) {
+    return this.$.startPreparedScan(scanner_handle, options);
+  }
+  readScanData(job_handle) {
+    return this.$.readScanData(job_handle);
+  }
+  setOptions(scanner_handle, options) {
+    return this.$.setOptions(scanner_handle, options);
+  }
+  getOptionGroups(scanner_handle) {
+    return this.$.getOptionGroups(scanner_handle);
+  }
+  cancelScan(job_handle) {
+    return this.$.cancelScan(job_handle);
+  }
 };
 
 crosapi.mojom.DocumentScanRemoteCallHandler = class {

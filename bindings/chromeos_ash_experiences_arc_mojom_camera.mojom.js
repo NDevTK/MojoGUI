@@ -252,6 +252,30 @@ arc.mojom.CameraServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(device_path) {
+    return this.$.connect(device_path);
+  }
+  disconnect() {
+    return this.$.disconnect();
+  }
+  streamOn(width, height, pixel_format, frame_rate) {
+    return this.$.streamOn(width, height, pixel_format, frame_rate);
+  }
+  streamOff() {
+    return this.$.streamOff();
+  }
+  getNextFrameBuffer() {
+    return this.$.getNextFrameBuffer();
+  }
+  reuseFrameBuffer(buffer_id) {
+    return this.$.reuseFrameBuffer(buffer_id);
+  }
+  getDeviceSupportedFormats(device_path) {
+    return this.$.getDeviceSupportedFormats(device_path);
+  }
+  getCameraDeviceInfos() {
+    return this.$.getCameraDeviceInfos();
+  }
 };
 
 arc.mojom.CameraServiceRemoteCallHandler = class {
@@ -674,6 +698,15 @@ arc.mojom.CameraHostRemote = class {
   close() {
     this.proxy.close();
   }
+  startCameraService() {
+    return this.$.startCameraService();
+  }
+  registerCameraHalClientLegacy(client) {
+    return this.$.registerCameraHalClientLegacy(client);
+  }
+  registerCameraHalClient(client) {
+    return this.$.registerCameraHalClient(client);
+  }
 };
 
 arc.mojom.CameraHostRemoteCallHandler = class {
@@ -896,6 +929,9 @@ arc.mojom.CameraInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

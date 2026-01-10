@@ -123,6 +123,12 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigRemote = class {
   close() {
     this.proxy.close();
   }
+  rollbackConfigImport(config) {
+    return this.$.rollbackConfigImport(config);
+  }
+  rollbackConfigExport() {
+    return this.$.rollbackConfigExport();
+  }
 };
 
 ash.rollback_network_config.mojom.RollbackNetworkConfigRemoteCallHandler = class {

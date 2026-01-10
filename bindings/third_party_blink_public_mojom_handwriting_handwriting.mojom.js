@@ -227,6 +227,9 @@ handwriting.mojom.HandwritingRecognizerRemote = class {
   close() {
     this.proxy.close();
   }
+  getPrediction(strokes, hints) {
+    return this.$.getPrediction(strokes, hints);
+  }
 };
 
 handwriting.mojom.HandwritingRecognizerRemoteCallHandler = class {
@@ -399,6 +402,12 @@ handwriting.mojom.HandwritingRecognitionServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createHandwritingRecognizer(constraint) {
+    return this.$.createHandwritingRecognizer(constraint);
+  }
+  queryHandwritingRecognizer(constraint) {
+    return this.$.queryHandwritingRecognizer(constraint);
   }
 };
 

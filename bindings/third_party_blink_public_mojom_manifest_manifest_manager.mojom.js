@@ -157,6 +157,18 @@ blink.mojom.ManifestManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  requestManifest() {
+    return this.$.requestManifest();
+  }
+  requestManifestAndErrors() {
+    return this.$.requestManifestAndErrors();
+  }
+  requestManifestDebugInfo() {
+    return this.$.requestManifestDebugInfo();
+  }
+  parseManifestFromString(document_url, manifest_url, manifest_content) {
+    return this.$.parseManifestFromString(document_url, manifest_url, manifest_content);
+  }
 };
 
 blink.mojom.ManifestManagerRemoteCallHandler = class {

@@ -108,6 +108,9 @@ webapps.mojom.WebPageMetadataAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  getWebPageMetadata() {
+    return this.$.getWebPageMetadata();
+  }
 };
 
 webapps.mojom.WebPageMetadataAgentRemoteCallHandler = class {

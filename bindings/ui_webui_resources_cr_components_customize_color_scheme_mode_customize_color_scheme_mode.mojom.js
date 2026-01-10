@@ -118,6 +118,9 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemote =
   close() {
     this.proxy.close();
   }
+  createCustomizeColorSchemeModeHandler(pending_client, pending_handler) {
+    return this.$.createCustomizeColorSchemeModeHandler(pending_client, pending_handler);
+  }
 };
 
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCallHandler = class {
@@ -270,6 +273,12 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote = class 
 
   close() {
     this.proxy.close();
+  }
+  setColorSchemeMode(colorSchemeMode) {
+    return this.$.setColorSchemeMode(colorSchemeMode);
+  }
+  initializeColorSchemeMode() {
+    return this.$.initializeColorSchemeMode();
   }
 };
 
@@ -447,6 +456,9 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setColorSchemeMode(colorSchemeMode) {
+    return this.$.setColorSchemeMode(colorSchemeMode);
   }
 };
 

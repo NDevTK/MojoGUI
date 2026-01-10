@@ -109,6 +109,9 @@ tracing.mojom.SystemTracingServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  openProducerSocket() {
+    return this.$.openProducerSocket();
+  }
 };
 
 tracing.mojom.SystemTracingServiceRemoteCallHandler = class {

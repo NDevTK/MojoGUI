@@ -153,6 +153,12 @@ blink.mojom.ControllerServiceWorkerRemote = class {
   close() {
     this.proxy.close();
   }
+  dispatchFetchEventForSubresource(params, response_callback) {
+    return this.$.dispatchFetchEventForSubresource(params, response_callback);
+  }
+  clone(receiver, cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter) {
+    return this.$.clone(receiver, cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter);
+  }
 };
 
 blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
@@ -335,6 +341,9 @@ blink.mojom.ControllerServiceWorkerConnectorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateController(controller) {
+    return this.$.updateController(controller);
   }
 };
 

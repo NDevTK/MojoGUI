@@ -110,6 +110,9 @@ ash.common.mojom.AcceleratorFetcherObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onAcceleratorsUpdated(actionId, accelerators) {
+    return this.$.onAcceleratorsUpdated(actionId, accelerators);
+  }
 };
 
 ash.common.mojom.AcceleratorFetcherObserverRemoteCallHandler = class {
@@ -269,6 +272,12 @@ ash.common.mojom.AcceleratorFetcherRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  observeAcceleratorChanges(actionIds, observer) {
+    return this.$.observeAcceleratorChanges(actionIds, observer);
+  }
+  getMetaKeyToDisplay() {
+    return this.$.getMetaKeyToDisplay();
   }
 };
 

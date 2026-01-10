@@ -242,6 +242,15 @@ cros.mojom.KioskVisionObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onFrameProcessed(detection) {
+    return this.$.onFrameProcessed(detection);
+  }
+  onTrackCompleted(track) {
+    return this.$.onTrackCompleted(track);
+  }
+  onError(error) {
+    return this.$.onError(error);
+  }
 };
 
 cros.mojom.KioskVisionObserverRemoteCallHandler = class {
@@ -456,6 +465,9 @@ cros.mojom.CameraHalDispatcherRemote = class {
   close() {
     this.proxy.close();
   }
+  registerClientWithToken(client, type, auth_token) {
+    return this.$.registerClientWithToken(client, type, auth_token);
+  }
 };
 
 cros.mojom.CameraHalDispatcherRemoteCallHandler = class {
@@ -636,6 +648,21 @@ cros.mojom.CrosCameraServiceObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  cameraDeviceActivityChange(camera_id, opened, type) {
+    return this.$.cameraDeviceActivityChange(camera_id, opened, type);
+  }
+  cameraPrivacySwitchStateChange(state, camera_id) {
+    return this.$.cameraPrivacySwitchStateChange(state, camera_id);
+  }
+  cameraSWPrivacySwitchStateChange(state) {
+    return this.$.cameraSWPrivacySwitchStateChange(state);
+  }
+  cameraEffectChange(config) {
+    return this.$.cameraEffectChange(config);
+  }
+  autoFramingStateChange(state) {
+    return this.$.autoFramingStateChange(state);
   }
 };
 
@@ -971,6 +998,33 @@ cros.mojom.CrosCameraServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getCameraModule(type) {
+    return this.$.getCameraModule(type);
+  }
+  setTracingEnabled(enabled) {
+    return this.$.setTracingEnabled(enabled);
+  }
+  setAutoFramingState(state) {
+    return this.$.setAutoFramingState(state);
+  }
+  getCameraSWPrivacySwitchState() {
+    return this.$.getCameraSWPrivacySwitchState();
+  }
+  setCameraSWPrivacySwitchState(state) {
+    return this.$.setCameraSWPrivacySwitchState(state);
+  }
+  getAutoFramingSupported() {
+    return this.$.getAutoFramingSupported();
+  }
+  setCameraEffect(config) {
+    return this.$.setCameraEffect(config);
+  }
+  addCrosCameraServiceObserver(observer) {
+    return this.$.addCrosCameraServiceObserver(observer);
+  }
+  startKioskVisionDetection(dlc_path, observer) {
+    return this.$.startKioskVisionDetection(dlc_path, observer);
   }
 };
 

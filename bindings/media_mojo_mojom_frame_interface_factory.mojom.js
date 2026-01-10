@@ -113,6 +113,9 @@ media.mojom.MuteStateObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onMuteStateChange(muted) {
+    return this.$.onMuteStateChange(muted);
+  }
 };
 
 media.mojom.MuteStateObserverRemoteCallHandler = class {
@@ -295,6 +298,24 @@ media.mojom.FrameInterfaceFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createProvisionFetcher(provision_fetcher) {
+    return this.$.createProvisionFetcher(provision_fetcher);
+  }
+  createCdmStorage(cdm_storage) {
+    return this.$.createCdmStorage(cdm_storage);
+  }
+  registerMuteStateObserver(site_mute_observer) {
+    return this.$.registerMuteStateObserver(site_mute_observer);
+  }
+  createDCOMPSurfaceRegistry(registry) {
+    return this.$.createDCOMPSurfaceRegistry(registry);
+  }
+  getCdmOrigin() {
+    return this.$.getCdmOrigin();
+  }
+  bindEmbedderReceiver(receiver) {
+    return this.$.bindEmbedderReceiver(receiver);
   }
 };
 

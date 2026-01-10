@@ -107,6 +107,9 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemoteCallHandler = class {
@@ -259,6 +262,12 @@ ash.mojom.demo_mode.UntrustedPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  toggleFullscreen() {
+    return this.$.toggleFullscreen();
+  }
+  launchApp(app_id) {
+    return this.$.launchApp(app_id);
   }
 };
 

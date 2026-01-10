@@ -137,6 +137,12 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemote = class {
   close() {
     this.proxy.close();
   }
+  onAtomicPreferenceValidation(pref_path, value, value_state, external_validation_value_state, is_personal) {
+    return this.$.onAtomicPreferenceValidation(pref_path, value, value_state, external_validation_value_state, is_personal);
+  }
+  onSplitPreferenceValidation(pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal) {
+    return this.$.onSplitPreferenceValidation(pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal);
+  }
 };
 
 prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {

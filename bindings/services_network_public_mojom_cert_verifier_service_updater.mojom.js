@@ -156,6 +156,15 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemote = class {
   close() {
     this.proxy.close();
   }
+  updateAdditionalCertificates(certificates) {
+    return this.$.updateAdditionalCertificates(certificates);
+  }
+  waitUntilNextUpdateForTesting() {
+    return this.$.waitUntilNextUpdateForTesting();
+  }
+  setCTPolicy(ct_policy) {
+    return this.$.setCTPolicy(ct_policy);
+  }
 };
 
 cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {

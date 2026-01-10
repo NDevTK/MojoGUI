@@ -161,6 +161,12 @@ translate.mojom.TranslateAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  translateFrame(translate_script, source_lang, target_lang) {
+    return this.$.translateFrame(translate_script, source_lang, target_lang);
+  }
+  revertTranslation() {
+    return this.$.revertTranslation();
+  }
 };
 
 translate.mojom.TranslateAgentRemoteCallHandler = class {
@@ -345,6 +351,9 @@ translate.mojom.ContentTranslateDriverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  registerPage(translate_agent, details, translation_critiera_met) {
+    return this.$.registerPage(translate_agent, details, translation_critiera_met);
   }
 };
 

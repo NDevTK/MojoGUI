@@ -180,6 +180,9 @@ tab_strip.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 tab_strip.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -451,6 +454,57 @@ tab_strip.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getGroupVisualData() {
+    return this.$.getGroupVisualData();
+  }
+  getTabs() {
+    return this.$.getTabs();
+  }
+  closeTab(tab_id, tab_was_swiped) {
+    return this.$.closeTab(tab_id, tab_was_swiped);
+  }
+  groupTab(tab_id, group_id) {
+    return this.$.groupTab(tab_id, group_id);
+  }
+  moveGroup(group_id, to_index) {
+    return this.$.moveGroup(group_id, to_index);
+  }
+  moveTab(tab_id, to_index) {
+    return this.$.moveTab(tab_id, to_index);
+  }
+  setThumbnailTracked(tab_id, thumbnail_tracked) {
+    return this.$.setThumbnailTracked(tab_id, thumbnail_tracked);
+  }
+  ungroupTab(tab_id) {
+    return this.$.ungroupTab(tab_id);
+  }
+  getLayout() {
+    return this.$.getLayout();
+  }
+  showEditDialogForGroup(group_id, location_x, location_y, width, height) {
+    return this.$.showEditDialogForGroup(group_id, location_x, location_y, width, height);
+  }
+  showTabContextMenu(tab_id, location_x, location_y) {
+    return this.$.showTabContextMenu(tab_id, location_x, location_y);
+  }
+  showBackgroundContextMenu(location_x, location_y) {
+    return this.$.showBackgroundContextMenu(location_x, location_y);
+  }
+  closeContainer() {
+    return this.$.closeContainer();
+  }
+  reportTabActivationDuration(duration_ms) {
+    return this.$.reportTabActivationDuration(duration_ms);
+  }
+  reportTabDataReceivedDuration(tab_count, duration_ms) {
+    return this.$.reportTabDataReceivedDuration(tab_count, duration_ms);
+  }
+  reportTabCreationDuration(tab_count, duration_ms) {
+    return this.$.reportTabCreationDuration(tab_count, duration_ms);
+  }
+  activateTab(tab_id) {
+    return this.$.activateTab(tab_id);
   }
 };
 
@@ -1186,6 +1240,60 @@ tab_strip.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  layoutChanged(layout) {
+    return this.$.layoutChanged(layout);
+  }
+  receivedKeyboardFocus() {
+    return this.$.receivedKeyboardFocus();
+  }
+  contextMenuClosed() {
+    return this.$.contextMenuClosed();
+  }
+  longPress() {
+    return this.$.longPress();
+  }
+  tabGroupVisualsChanged(group_id, tab_group) {
+    return this.$.tabGroupVisualsChanged(group_id, tab_group);
+  }
+  tabGroupMoved(group_id, index) {
+    return this.$.tabGroupMoved(group_id, index);
+  }
+  tabGroupClosed(group_id) {
+    return this.$.tabGroupClosed(group_id);
+  }
+  tabGroupStateChanged(tab_id, index, group_id) {
+    return this.$.tabGroupStateChanged(tab_id, index, group_id);
+  }
+  tabCloseCancelled(tab_id) {
+    return this.$.tabCloseCancelled(tab_id);
+  }
+  tabCreated(tab) {
+    return this.$.tabCreated(tab);
+  }
+  tabRemoved(tab_id) {
+    return this.$.tabRemoved(tab_id);
+  }
+  tabMoved(tab_id, to_index, in_pinned) {
+    return this.$.tabMoved(tab_id, to_index, in_pinned);
+  }
+  tabReplaced(tab_id, new_tab_id) {
+    return this.$.tabReplaced(tab_id, new_tab_id);
+  }
+  tabActiveChanged(tab_id) {
+    return this.$.tabActiveChanged(tab_id);
+  }
+  tabUpdated(tab) {
+    return this.$.tabUpdated(tab);
+  }
+  tabThumbnailUpdated(tab_id, data_uri) {
+    return this.$.tabThumbnailUpdated(tab_id, data_uri);
+  }
+  showContextMenu() {
+    return this.$.showContextMenu();
+  }
+  themeChanged() {
+    return this.$.themeChanged();
   }
 };
 

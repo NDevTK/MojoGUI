@@ -124,6 +124,12 @@ chrome.mojom.OfflinePageAutoFetcherRemote = class {
   close() {
     this.proxy.close();
   }
+  trySchedule(user_requested) {
+    return this.$.trySchedule(user_requested);
+  }
+  cancelSchedule() {
+    return this.$.cancelSchedule();
+  }
 };
 
 chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {

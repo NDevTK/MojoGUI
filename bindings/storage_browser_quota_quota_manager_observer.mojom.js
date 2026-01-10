@@ -109,6 +109,12 @@ storage.mojom.QuotaManagerObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onCreateOrUpdateBucket(bucket_info) {
+    return this.$.onCreateOrUpdateBucket(bucket_info);
+  }
+  onDeleteBucket(bucket_locator) {
+    return this.$.onDeleteBucket(bucket_locator);
+  }
 };
 
 storage.mojom.QuotaManagerObserverRemoteCallHandler = class {

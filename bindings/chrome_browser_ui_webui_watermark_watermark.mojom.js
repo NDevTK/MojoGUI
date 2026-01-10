@@ -116,6 +116,9 @@ watermark.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 watermark.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -268,6 +271,12 @@ watermark.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setWatermarkStyle(style) {
+    return this.$.setWatermarkStyle(style);
+  }
+  showNotificationToast() {
+    return this.$.showNotificationToast();
   }
 };
 

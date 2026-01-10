@@ -169,6 +169,27 @@ video_capture.mojom.VideoSourceProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getSourceInfos() {
+    return this.$.getSourceInfos();
+  }
+  getVideoSource(source_id, stream) {
+    return this.$.getVideoSource(source_id, stream);
+  }
+  addSharedMemoryVirtualDevice(device_info, producer, virtual_device_receiver) {
+    return this.$.addSharedMemoryVirtualDevice(device_info, producer, virtual_device_receiver);
+  }
+  addTextureVirtualDevice(device_info, virtual_device_receiver) {
+    return this.$.addTextureVirtualDevice(device_info, virtual_device_receiver);
+  }
+  registerVirtualDevicesChangedObserver(observer, raise_event_if_virtual_devices_already_present) {
+    return this.$.registerVirtualDevicesChangedObserver(observer, raise_event_if_virtual_devices_already_present);
+  }
+  registerDevicesChangedObserver(observer) {
+    return this.$.registerDevicesChangedObserver(observer);
+  }
+  close() {
+    return this.$.close();
+  }
 };
 
 video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {

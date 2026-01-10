@@ -146,6 +146,21 @@ ash.camera_app.mojom.PdfBuilderRemote = class {
   close() {
     this.proxy.close();
   }
+  addPage(jpeg, page_index) {
+    return this.$.addPage(jpeg, page_index);
+  }
+  addPageInline(jpeg, page_index) {
+    return this.$.addPageInline(jpeg, page_index);
+  }
+  deletePage(page_index) {
+    return this.$.deletePage(page_index);
+  }
+  save() {
+    return this.$.save();
+  }
+  saveInline() {
+    return this.$.saveInline();
+  }
 };
 
 ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {

@@ -129,6 +129,12 @@ arc.mojom.ObbMounterHostRemote = class {
   close() {
     this.proxy.close();
   }
+  mountObb(obb_file, target_path, owner_gid) {
+    return this.$.mountObb(obb_file, target_path, owner_gid);
+  }
+  unmountObb(target_path) {
+    return this.$.unmountObb(target_path);
+  }
 };
 
 arc.mojom.ObbMounterHostRemoteCallHandler = class {
@@ -322,6 +328,9 @@ arc.mojom.ObbMounterInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

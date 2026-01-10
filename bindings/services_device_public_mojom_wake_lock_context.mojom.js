@@ -105,6 +105,9 @@ device.mojom.WakeLockContextRemote = class {
   close() {
     this.proxy.close();
   }
+  getWakeLock(type, reason, description, wake_lock) {
+    return this.$.getWakeLock(type, reason, description, wake_lock);
+  }
 };
 
 device.mojom.WakeLockContextRemoteCallHandler = class {

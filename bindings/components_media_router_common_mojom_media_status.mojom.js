@@ -130,6 +130,9 @@ media_router.mojom.MediaStatusObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onMediaStatusUpdated(status) {
+    return this.$.onMediaStatusUpdated(status);
+  }
 };
 
 media_router.mojom.MediaStatusObserverRemoteCallHandler = class {

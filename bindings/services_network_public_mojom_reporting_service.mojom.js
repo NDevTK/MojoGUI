@@ -161,6 +161,15 @@ network.mojom.ReportingApiObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onReportAdded(report) {
+    return this.$.onReportAdded(report);
+  }
+  onReportUpdated(report) {
+    return this.$.onReportUpdated(report);
+  }
+  onEndpointsUpdatedForOrigin(endpoints) {
+    return this.$.onEndpointsUpdatedForOrigin(endpoints);
+  }
 };
 
 network.mojom.ReportingApiObserverRemoteCallHandler = class {

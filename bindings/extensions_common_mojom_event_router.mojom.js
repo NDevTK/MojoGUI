@@ -238,6 +238,42 @@ extensions.mojom.EventRouterRemote = class {
   close() {
     this.proxy.close();
   }
+  addListenerForMainThread(event_listener) {
+    return this.$.addListenerForMainThread(event_listener);
+  }
+  addListenerForServiceWorker(event_listener) {
+    return this.$.addListenerForServiceWorker(event_listener);
+  }
+  addLazyListenerForMainThread(extension_id, event_name) {
+    return this.$.addLazyListenerForMainThread(extension_id, event_name);
+  }
+  addLazyListenerForServiceWorker(extension_id, worker_scope_url, event_name) {
+    return this.$.addLazyListenerForServiceWorker(extension_id, worker_scope_url, event_name);
+  }
+  addFilteredListenerForMainThread(listener_owner, event_name, filter, add_lazy_listener) {
+    return this.$.addFilteredListenerForMainThread(listener_owner, event_name, filter, add_lazy_listener);
+  }
+  addFilteredListenerForServiceWorker(extension_id, event_name, service_worker_context, filter, add_lazy_listener) {
+    return this.$.addFilteredListenerForServiceWorker(extension_id, event_name, service_worker_context, filter, add_lazy_listener);
+  }
+  removeListenerForMainThread(event_listener) {
+    return this.$.removeListenerForMainThread(event_listener);
+  }
+  removeListenerForServiceWorker(event_listener) {
+    return this.$.removeListenerForServiceWorker(event_listener);
+  }
+  removeLazyListenerForMainThread(extension_id, event_name) {
+    return this.$.removeLazyListenerForMainThread(extension_id, event_name);
+  }
+  removeLazyListenerForServiceWorker(extension_id, worker_scope_url, event_name) {
+    return this.$.removeLazyListenerForServiceWorker(extension_id, worker_scope_url, event_name);
+  }
+  removeFilteredListenerForMainThread(listener_owner, event_name, filter, remove_lazy_listener) {
+    return this.$.removeFilteredListenerForMainThread(listener_owner, event_name, filter, remove_lazy_listener);
+  }
+  removeFilteredListenerForServiceWorker(extension_id, event_name, service_worker_context, filter, remove_lazy_listener) {
+    return this.$.removeFilteredListenerForServiceWorker(extension_id, event_name, service_worker_context, filter, remove_lazy_listener);
+  }
 };
 
 extensions.mojom.EventRouterRemoteCallHandler = class {

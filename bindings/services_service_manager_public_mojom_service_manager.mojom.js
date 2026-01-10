@@ -160,6 +160,24 @@ service_manager.mojom.ServiceManagerListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onInit(running_services) {
+    return this.$.onInit(running_services);
+  }
+  onServiceCreated(service) {
+    return this.$.onServiceCreated(service);
+  }
+  onServiceStarted(identity, pid_deprecated) {
+    return this.$.onServiceStarted(identity, pid_deprecated);
+  }
+  onServicePIDReceived(identity, pid) {
+    return this.$.onServicePIDReceived(identity, pid);
+  }
+  onServiceFailedToStart(identity) {
+    return this.$.onServiceFailedToStart(identity);
+  }
+  onServiceStopped(identity) {
+    return this.$.onServiceStopped(identity);
+  }
 };
 
 service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
@@ -452,6 +470,9 @@ service_manager.mojom.ServiceManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addListener(listener) {
+    return this.$.addListener(listener);
   }
 };
 

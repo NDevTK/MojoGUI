@@ -125,6 +125,9 @@ blink.mojom.AppBannerControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  bannerPromptRequest(service, event_receiver, platform) {
+    return this.$.bannerPromptRequest(service, event_receiver, platform);
+  }
 };
 
 blink.mojom.AppBannerControllerRemoteCallHandler = class {
@@ -283,6 +286,12 @@ blink.mojom.AppBannerEventRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bannerAccepted(platform) {
+    return this.$.bannerAccepted(platform);
+  }
+  bannerDismissed() {
+    return this.$.bannerDismissed();
   }
 };
 
@@ -459,6 +468,9 @@ blink.mojom.AppBannerServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  displayAppBanner() {
+    return this.$.displayAppBanner();
   }
 };
 

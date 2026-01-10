@@ -209,6 +209,21 @@ blink.mojom.HidServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  registerClient(client) {
+    return this.$.registerClient(client);
+  }
+  getDevices() {
+    return this.$.getDevices();
+  }
+  requestDevice(filters, exclusion_filters) {
+    return this.$.requestDevice(filters, exclusion_filters);
+  }
+  connect(device_guid, client) {
+    return this.$.connect(device_guid, client);
+  }
+  forget(device_info) {
+    return this.$.forget(device_info);
+  }
 };
 
 blink.mojom.HidServiceRemoteCallHandler = class {

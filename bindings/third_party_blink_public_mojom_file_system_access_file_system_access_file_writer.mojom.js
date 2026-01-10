@@ -151,6 +151,18 @@ blink.mojom.FileSystemAccessFileWriterRemote = class {
   close() {
     this.proxy.close();
   }
+  write(offset, stream) {
+    return this.$.write(offset, stream);
+  }
+  truncate(length) {
+    return this.$.truncate(length);
+  }
+  close() {
+    return this.$.close();
+  }
+  abort() {
+    return this.$.abort();
+  }
 };
 
 blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {

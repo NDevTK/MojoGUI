@@ -229,6 +229,21 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemote = class {
   close() {
     this.proxy.close();
   }
+  onPotentialHostExistsForNewUser() {
+    return this.$.onPotentialHostExistsForNewUser();
+  }
+  onNoLongerNewUser() {
+    return this.$.onNoLongerNewUser();
+  }
+  onConnectedHostSwitchedForExistingUser(new_host_device_name) {
+    return this.$.onConnectedHostSwitchedForExistingUser(new_host_device_name);
+  }
+  onNewChromebookAddedForExistingUser(new_host_device_name) {
+    return this.$.onNewChromebookAddedForExistingUser(new_host_device_name);
+  }
+  onBecameEligibleForWifiSync() {
+    return this.$.onBecameEligibleForWifiSync();
+  }
 };
 
 ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class {
@@ -494,6 +509,9 @@ ash.multidevice_setup.mojom.HostStatusObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onHostStatusChanged(host_status, host_device) {
+    return this.$.onHostStatusChanged(host_status, host_device);
+  }
 };
 
 ash.multidevice_setup.mojom.HostStatusObserverRemoteCallHandler = class {
@@ -641,6 +659,9 @@ ash.multidevice_setup.mojom.FeatureStateObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onFeatureStatesChanged(feature_states_map) {
+    return this.$.onFeatureStatesChanged(feature_states_map);
   }
 };
 
@@ -918,6 +939,48 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setAccountStatusChangeDelegate(delegate) {
+    return this.$.setAccountStatusChangeDelegate(delegate);
+  }
+  addHostStatusObserver(observer) {
+    return this.$.addHostStatusObserver(observer);
+  }
+  addFeatureStateObserver(observer) {
+    return this.$.addFeatureStateObserver(observer);
+  }
+  getEligibleHostDevices() {
+    return this.$.getEligibleHostDevices();
+  }
+  getEligibleActiveHostDevices() {
+    return this.$.getEligibleActiveHostDevices();
+  }
+  setHostDevice(instance_id_or_legacy_device_id, auth_token) {
+    return this.$.setHostDevice(instance_id_or_legacy_device_id, auth_token);
+  }
+  removeHostDevice() {
+    return this.$.removeHostDevice();
+  }
+  getHostStatus() {
+    return this.$.getHostStatus();
+  }
+  setFeatureEnabledState(feature, enabled, auth_token) {
+    return this.$.setFeatureEnabledState(feature, enabled, auth_token);
+  }
+  getFeatureStates() {
+    return this.$.getFeatureStates();
+  }
+  retrySetHostNow() {
+    return this.$.retrySetHostNow();
+  }
+  triggerEventForDebugging(type) {
+    return this.$.triggerEventForDebugging(type);
+  }
+  setQuickStartPhoneInstanceID(qs_phone_instance_id) {
+    return this.$.setQuickStartPhoneInstanceID(qs_phone_instance_id);
+  }
+  getQuickStartPhoneInstanceID() {
+    return this.$.getQuickStartPhoneInstanceID();
   }
 };
 
@@ -1503,6 +1566,9 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setHostDevice(instance_id_or_legacy_device_id) {
+    return this.$.setHostDevice(instance_id_or_legacy_device_id);
   }
 };
 

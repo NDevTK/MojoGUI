@@ -194,6 +194,15 @@ blink.mojom.OneShotBackgroundSyncServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  register(options, service_worker_registration_id) {
+    return this.$.register(options, service_worker_registration_id);
+  }
+  didResolveRegistration(registration_info) {
+    return this.$.didResolveRegistration(registration_info);
+  }
+  getRegistrations(service_worker_registration_id) {
+    return this.$.getRegistrations(service_worker_registration_id);
+  }
 };
 
 blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
@@ -445,6 +454,15 @@ blink.mojom.PeriodicBackgroundSyncServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  register(options, service_worker_registration_id) {
+    return this.$.register(options, service_worker_registration_id);
+  }
+  unregister(service_worker_registration_id, tag) {
+    return this.$.unregister(service_worker_registration_id, tag);
+  }
+  getRegistrations(service_worker_registration_id) {
+    return this.$.getRegistrations(service_worker_registration_id);
   }
 };
 

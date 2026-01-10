@@ -178,6 +178,15 @@ blink.mojom.CredentialManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  store(credential) {
+    return this.$.store(credential);
+  }
+  preventSilentAccess() {
+    return this.$.preventSilentAccess();
+  }
+  get(mediation, include_passwords, federations) {
+    return this.$.get(mediation, include_passwords, federations);
+  }
 };
 
 blink.mojom.CredentialManagerRemoteCallHandler = class {

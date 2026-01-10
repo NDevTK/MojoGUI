@@ -109,6 +109,9 @@ commerce_web_extractor.mojom.CommerceWebExtractorRemote = class {
   close() {
     this.proxy.close();
   }
+  extractMetaInfo() {
+    return this.$.extractMetaInfo();
+  }
 };
 
 commerce_web_extractor.mojom.CommerceWebExtractorRemoteCallHandler = class {

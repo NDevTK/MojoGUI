@@ -245,6 +245,18 @@ chromeos.mojo_service_manager.mojom.ServiceManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  register(service_name, service_provider) {
+    return this.$.register(service_name, service_provider);
+  }
+  request(service_name, timeout, receiver) {
+    return this.$.request(service_name, timeout, receiver);
+  }
+  query(service_name) {
+    return this.$.query(service_name);
+  }
+  addServiceObserver(observer) {
+    return this.$.addServiceObserver(observer);
+  }
 };
 
 chromeos.mojo_service_manager.mojom.ServiceManagerRemoteCallHandler = class {
@@ -487,6 +499,9 @@ chromeos.mojo_service_manager.mojom.ServiceProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  request(client_identity, receiver) {
+    return this.$.request(client_identity, receiver);
+  }
 };
 
 chromeos.mojo_service_manager.mojom.ServiceProviderRemoteCallHandler = class {
@@ -634,6 +649,9 @@ chromeos.mojo_service_manager.mojom.ServiceObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onServiceEvent(event) {
+    return this.$.onServiceEvent(event);
   }
 };
 

@@ -180,6 +180,9 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createCustomizeToolbarHandler(client, handler) {
+    return this.$.createCustomizeToolbarHandler(client, handler);
+  }
 };
 
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemoteCallHandler = class {
@@ -366,6 +369,21 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  listActions() {
+    return this.$.listActions();
+  }
+  listCategories() {
+    return this.$.listCategories();
+  }
+  pinAction(action_id, pinned) {
+    return this.$.pinAction(action_id, pinned);
+  }
+  getIsCustomized() {
+    return this.$.getIsCustomized();
+  }
+  resetToDefault() {
+    return this.$.resetToDefault();
   }
 };
 
@@ -654,6 +672,12 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setActionPinned(action_id, pinned) {
+    return this.$.setActionPinned(action_id, pinned);
+  }
+  notifyActionsUpdated() {
+    return this.$.notifyActionsUpdated();
   }
 };
 

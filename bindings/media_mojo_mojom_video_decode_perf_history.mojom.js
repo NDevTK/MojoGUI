@@ -110,6 +110,9 @@ media.mojom.VideoDecodePerfHistoryRemote = class {
   close() {
     this.proxy.close();
   }
+  getPerfInfo(features) {
+    return this.$.getPerfInfo(features);
+  }
 };
 
 media.mojom.VideoDecodePerfHistoryRemoteCallHandler = class {

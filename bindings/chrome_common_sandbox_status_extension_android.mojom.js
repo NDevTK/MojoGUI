@@ -101,6 +101,9 @@ chrome.mojom.SandboxStatusExtensionRemote = class {
   close() {
     this.proxy.close();
   }
+  addSandboxStatusExtension() {
+    return this.$.addSandboxStatusExtension();
+  }
 };
 
 chrome.mojom.SandboxStatusExtensionRemoteCallHandler = class {

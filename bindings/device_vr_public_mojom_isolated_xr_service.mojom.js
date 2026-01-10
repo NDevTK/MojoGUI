@@ -182,6 +182,9 @@ device.mojom.XRSessionControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  setFrameDataRestricted(restricted) {
+    return this.$.setFrameDataRestricted(restricted);
+  }
 };
 
 device.mojom.XRSessionControllerRemoteCallHandler = class {
@@ -334,6 +337,12 @@ device.mojom.XRRuntimeEventListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onVisibilityStateChanged(visibility_state) {
+    return this.$.onVisibilityStateChanged(visibility_state);
+  }
+  onExitPresent() {
+    return this.$.onExitPresent();
   }
 };
 
@@ -533,6 +542,15 @@ device.mojom.XRRuntimeRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestSession(options) {
+    return this.$.requestSession(options);
+  }
+  shutdownSession() {
+    return this.$.shutdownSession();
+  }
+  listenToDeviceChanges(listener) {
+    return this.$.listenToDeviceChanges(listener);
   }
 };
 
@@ -789,6 +807,18 @@ device.mojom.ImmersiveOverlayRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestNextOverlayPose() {
+    return this.$.requestNextOverlayPose();
+  }
+  submitOverlayTexture(frame_id, texture, sync_token, left_bounds, right_bounds) {
+    return this.$.submitOverlayTexture(frame_id, texture, sync_token, left_bounds, right_bounds);
+  }
+  setOverlayAndWebXRVisibility(overlay_visible, webxr_visible) {
+    return this.$.setOverlayAndWebXRVisibility(overlay_visible, webxr_visible);
+  }
+  requestNotificationOnWebXrSubmitted() {
+    return this.$.requestNotificationOnWebXrSubmitted();
   }
 };
 
@@ -1056,6 +1086,15 @@ device.mojom.IsolatedXRRuntimeProviderClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onDeviceAdded(runtime, device_data, device_id) {
+    return this.$.onDeviceAdded(runtime, device_data, device_id);
+  }
+  onDeviceRemoved(device_index) {
+    return this.$.onDeviceRemoved(device_index);
+  }
+  onDevicesEnumerated() {
+    return this.$.onDevicesEnumerated();
+  }
 };
 
 device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
@@ -1262,6 +1301,9 @@ device.mojom.IsolatedXRRuntimeProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  requestDevices(client) {
+    return this.$.requestDevices(client);
+  }
 };
 
 device.mojom.IsolatedXRRuntimeProviderRemoteCallHandler = class {
@@ -1416,6 +1458,12 @@ device.mojom.XRDeviceServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindRuntimeProvider(receiver, host) {
+    return this.$.bindRuntimeProvider(receiver, host);
+  }
+  bindTestHook(receiver) {
+    return this.$.bindTestHook(receiver);
   }
 };
 
@@ -1593,6 +1641,9 @@ device.mojom.XRDeviceServiceHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindGpu(receiver) {
+    return this.$.bindGpu(receiver);
   }
 };
 

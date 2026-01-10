@@ -103,6 +103,9 @@ new_window_proxy.mojom.NewWindowProxyRemote = class {
   close() {
     this.proxy.close();
   }
+  openUrl(url) {
+    return this.$.openUrl(url);
+  }
 };
 
 new_window_proxy.mojom.NewWindowProxyRemoteCallHandler = class {

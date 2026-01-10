@@ -156,6 +156,18 @@ printing.mojom.PdfNupConverterRemote = class {
   close() {
     this.proxy.close();
   }
+  nupPageConvert(pages_per_sheet, page_size, printable_area, pdf_page_regions) {
+    return this.$.nupPageConvert(pages_per_sheet, page_size, printable_area, pdf_page_regions);
+  }
+  nupDocumentConvert(pages_per_sheet, page_size, printable_area, src_pdf_region) {
+    return this.$.nupDocumentConvert(pages_per_sheet, page_size, printable_area, src_pdf_region);
+  }
+  setWebContentsURL(url) {
+    return this.$.setWebContentsURL(url);
+  }
+  setUseSkiaRendererPolicy(use_skia) {
+    return this.$.setUseSkiaRendererPolicy(use_skia);
+  }
 };
 
 printing.mojom.PdfNupConverterRemoteCallHandler = class {

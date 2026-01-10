@@ -130,6 +130,9 @@ ash.settings.google_drive.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 ash.settings.google_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -302,6 +305,18 @@ ash.settings.google_drive.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  calculateRequiredSpace() {
+    return this.$.calculateRequiredSpace();
+  }
+  getContentCacheSize() {
+    return this.$.getContentCacheSize();
+  }
+  clearPinnedFiles() {
+    return this.$.clearPinnedFiles();
+  }
+  recordBulkPinningEnabledMetric() {
+    return this.$.recordBulkPinningEnabledMetric();
   }
 };
 
@@ -554,6 +569,12 @@ ash.settings.google_drive.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onServiceUnavailable() {
+    return this.$.onServiceUnavailable();
+  }
+  onProgress(status) {
+    return this.$.onProgress(status);
   }
 };
 

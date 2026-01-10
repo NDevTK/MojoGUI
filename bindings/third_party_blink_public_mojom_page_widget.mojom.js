@@ -340,6 +340,66 @@ blink.mojom.FrameWidgetRemote = class {
   close() {
     this.proxy.close();
   }
+  dragTargetDragEnter(drag_data, point_in_viewport, screen_point, operations_allowed, key_modifiers) {
+    return this.$.dragTargetDragEnter(drag_data, point_in_viewport, screen_point, operations_allowed, key_modifiers);
+  }
+  dragTargetDragOver(point_in_viewport, screen_point, operations_allowed, key_modifiers) {
+    return this.$.dragTargetDragOver(point_in_viewport, screen_point, operations_allowed, key_modifiers);
+  }
+  dragTargetDragLeave(point_in_viewport, screen_point) {
+    return this.$.dragTargetDragLeave(point_in_viewport, screen_point);
+  }
+  dragTargetDrop(drag_data, point_in_viewport, screen_point, key_modifiers) {
+    return this.$.dragTargetDrop(drag_data, point_in_viewport, screen_point, key_modifiers);
+  }
+  dragSourceEndedAt(point_in_viewport, screen_point, drag_operation) {
+    return this.$.dragSourceEndedAt(point_in_viewport, screen_point, drag_operation);
+  }
+  dragSourceSystemDragEnded() {
+    return this.$.dragSourceSystemDragEnded();
+  }
+  onStartStylusWriting(focus_widget_rect_in_dips) {
+    return this.$.onStartStylusWriting(focus_widget_rect_in_dips);
+  }
+  passImeRenderWidgetHost(remote) {
+    return this.$.passImeRenderWidgetHost(remote);
+  }
+  setBackgroundOpaque(opaque) {
+    return this.$.setBackgroundOpaque(opaque);
+  }
+  setTextDirection(direction) {
+    return this.$.setTextDirection(direction);
+  }
+  setActive(active) {
+    return this.$.setActive(active);
+  }
+  setInheritedEffectiveTouchActionForSubFrame(touch_action) {
+    return this.$.setInheritedEffectiveTouchActionForSubFrame(touch_action);
+  }
+  updateRenderThrottlingStatusForSubFrame(is_throttled, subtree_throttled, display_locked) {
+    return this.$.updateRenderThrottlingStatusForSubFrame(is_throttled, subtree_throttled, display_locked);
+  }
+  setIsInertForSubFrame(inert) {
+    return this.$.setIsInertForSubFrame(inert);
+  }
+  getStringAtPoint(point_in_local_root) {
+    return this.$.getStringAtPoint(point_in_local_root);
+  }
+  enableDeviceEmulation(parameters, cache_behavior) {
+    return this.$.enableDeviceEmulation(parameters, cache_behavior);
+  }
+  disableDeviceEmulation() {
+    return this.$.disableDeviceEmulation();
+  }
+  bindWidgetCompositor(host) {
+    return this.$.bindWidgetCompositor(host);
+  }
+  setViewportIntersection(intersection_state, visual_properties) {
+    return this.$.setViewportIntersection(intersection_state, visual_properties);
+  }
+  notifyClearedDisplayedGraphics() {
+    return this.$.notifyClearedDisplayedGraphics();
+  }
 };
 
 blink.mojom.FrameWidgetRemoteCallHandler = class {
@@ -1111,6 +1171,27 @@ blink.mojom.FrameWidgetHostRemote = class {
   close() {
     this.proxy.close();
   }
+  animateDoubleTapZoomInMainFrame(tap_point, rect_to_zoom) {
+    return this.$.animateDoubleTapZoomInMainFrame(tap_point, rect_to_zoom);
+  }
+  zoomToFindInPageRectInMainFrame(rect_to_zoom) {
+    return this.$.zoomToFindInPageRectInMainFrame(rect_to_zoom);
+  }
+  setHasTouchEventConsumers(touch_event_consumers) {
+    return this.$.setHasTouchEventConsumers(touch_event_consumers);
+  }
+  intrinsicSizingInfoChanged(sizing_info) {
+    return this.$.intrinsicSizingInfoChanged(sizing_info);
+  }
+  autoscrollStart(position) {
+    return this.$.autoscrollStart(position);
+  }
+  autoscrollFling(velocity) {
+    return this.$.autoscrollFling(velocity);
+  }
+  autoscrollEnd() {
+    return this.$.autoscrollEnd();
+  }
 };
 
 blink.mojom.FrameWidgetHostRemoteCallHandler = class {
@@ -1454,6 +1535,15 @@ blink.mojom.PopupWidgetHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestClosePopup() {
+    return this.$.requestClosePopup();
+  }
+  showPopup(initial_rect, anchor_rect) {
+    return this.$.showPopup(initial_rect, anchor_rect);
+  }
+  setPopupBounds(bounds) {
+    return this.$.setPopupBounds(bounds);
   }
 };
 

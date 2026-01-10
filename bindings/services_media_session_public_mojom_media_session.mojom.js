@@ -350,6 +350,21 @@ media_session.mojom.MediaSessionObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  mediaSessionInfoChanged(info) {
+    return this.$.mediaSessionInfoChanged(info);
+  }
+  mediaSessionMetadataChanged(metadata) {
+    return this.$.mediaSessionMetadataChanged(metadata);
+  }
+  mediaSessionActionsChanged(action) {
+    return this.$.mediaSessionActionsChanged(action);
+  }
+  mediaSessionImagesChanged(images) {
+    return this.$.mediaSessionImagesChanged(images);
+  }
+  mediaSessionPositionChanged(position) {
+    return this.$.mediaSessionPositionChanged(position);
+  }
 };
 
 media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
@@ -783,6 +798,90 @@ media_session.mojom.MediaSessionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getMediaSessionInfo() {
+    return this.$.getMediaSessionInfo();
+  }
+  getDebugInfo() {
+    return this.$.getDebugInfo();
+  }
+  startDucking() {
+    return this.$.startDucking();
+  }
+  stopDucking() {
+    return this.$.stopDucking();
+  }
+  suspend(suspend_type) {
+    return this.$.suspend(suspend_type);
+  }
+  resume(suspend_type) {
+    return this.$.resume(suspend_type);
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  previousTrack() {
+    return this.$.previousTrack();
+  }
+  nextTrack() {
+    return this.$.nextTrack();
+  }
+  seek(seek_time) {
+    return this.$.seek(seek_time);
+  }
+  stop(suspend_type) {
+    return this.$.stop(suspend_type);
+  }
+  skipAd() {
+    return this.$.skipAd();
+  }
+  getMediaImageBitmap(image, minimum_size_px, desired_size_px) {
+    return this.$.getMediaImageBitmap(image, minimum_size_px, desired_size_px);
+  }
+  seekTo(seek_time) {
+    return this.$.seekTo(seek_time);
+  }
+  scrubTo(seek_time) {
+    return this.$.scrubTo(seek_time);
+  }
+  enterPictureInPicture() {
+    return this.$.enterPictureInPicture();
+  }
+  exitPictureInPicture() {
+    return this.$.exitPictureInPicture();
+  }
+  setAudioSinkId(id) {
+    return this.$.setAudioSinkId(id);
+  }
+  toggleMicrophone() {
+    return this.$.toggleMicrophone();
+  }
+  toggleCamera() {
+    return this.$.toggleCamera();
+  }
+  hangUp() {
+    return this.$.hangUp();
+  }
+  raise() {
+    return this.$.raise();
+  }
+  setMute(mute) {
+    return this.$.setMute(mute);
+  }
+  requestMediaRemoting() {
+    return this.$.requestMediaRemoting();
+  }
+  previousSlide() {
+    return this.$.previousSlide();
+  }
+  nextSlide() {
+    return this.$.nextSlide();
+  }
+  enterAutoPictureInPicture() {
+    return this.$.enterAutoPictureInPicture();
+  }
+  getVisibility() {
+    return this.$.getVisibility();
   }
 };
 

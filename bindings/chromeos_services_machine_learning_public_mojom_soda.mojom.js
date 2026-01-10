@@ -322,6 +322,15 @@ chromeos.machine_learning.mojom.SodaClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onStart() {
+    return this.$.onStart();
+  }
+  onStop() {
+    return this.$.onStop();
+  }
+  onSpeechRecognizerEvent(event) {
+    return this.$.onSpeechRecognizerEvent(event);
+  }
 };
 
 chromeos.machine_learning.mojom.SodaClientRemoteCallHandler = class {
@@ -542,6 +551,18 @@ chromeos.machine_learning.mojom.SodaRecognizerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addAudio(audio) {
+    return this.$.addAudio(audio);
+  }
+  stop() {
+    return this.$.stop();
+  }
+  start() {
+    return this.$.start();
+  }
+  markDone() {
+    return this.$.markDone();
   }
 };
 

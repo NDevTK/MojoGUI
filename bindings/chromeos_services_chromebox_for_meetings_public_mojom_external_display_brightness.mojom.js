@@ -136,6 +136,18 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessRemote = class {
   close() {
     this.proxy.close();
   }
+  setExternalDisplayALSBrightness(enabled) {
+    return this.$.setExternalDisplayALSBrightness(enabled);
+  }
+  getExternalDisplayALSBrightness() {
+    return this.$.getExternalDisplayALSBrightness();
+  }
+  setExternalDisplayBrightnessPercent(percent) {
+    return this.$.setExternalDisplayBrightnessPercent(percent);
+  }
+  getExternalDisplayBrightnessPercent() {
+    return this.$.getExternalDisplayBrightnessPercent();
+  }
 };
 
 chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHandler = class {

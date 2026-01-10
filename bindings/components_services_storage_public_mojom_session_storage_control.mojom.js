@@ -210,6 +210,39 @@ storage.mojom.SessionStorageControlRemote = class {
   close() {
     this.proxy.close();
   }
+  bindNamespace(namespace_id, receiver) {
+    return this.$.bindNamespace(namespace_id, receiver);
+  }
+  bindStorageArea(storage_key, namespace_id, receiver) {
+    return this.$.bindStorageArea(storage_key, namespace_id, receiver);
+  }
+  getUsage() {
+    return this.$.getUsage();
+  }
+  deleteStorage(storage_key, namespace_id) {
+    return this.$.deleteStorage(storage_key, namespace_id);
+  }
+  cleanUpStorage() {
+    return this.$.cleanUpStorage();
+  }
+  scavengeUnusedNamespaces() {
+    return this.$.scavengeUnusedNamespaces();
+  }
+  flush() {
+    return this.$.flush();
+  }
+  purgeMemory() {
+    return this.$.purgeMemory();
+  }
+  createNamespace(namespace_id) {
+    return this.$.createNamespace(namespace_id);
+  }
+  cloneNamespace(namespace_id_to_clone, clone_namespace_id, clone_type) {
+    return this.$.cloneNamespace(namespace_id_to_clone, clone_namespace_id, clone_type);
+  }
+  deleteNamespace(namespace_id, should_persist) {
+    return this.$.deleteNamespace(namespace_id, should_persist);
+  }
 };
 
 storage.mojom.SessionStorageControlRemoteCallHandler = class {

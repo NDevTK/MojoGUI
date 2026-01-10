@@ -124,6 +124,12 @@ blink.mojom.AIProofreaderRemote = class {
   close() {
     this.proxy.close();
   }
+  proofread(input, pending_responder) {
+    return this.$.proofread(input, pending_responder);
+  }
+  getCorrectionType(input, corrected_input, correction_instruction, pending_responder) {
+    return this.$.getCorrectionType(input, corrected_input, correction_instruction, pending_responder);
+  }
 };
 
 blink.mojom.AIProofreaderRemoteCallHandler = class {

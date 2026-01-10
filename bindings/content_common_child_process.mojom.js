@@ -144,6 +144,12 @@ content.mojom.ChildProcessHostRemote = class {
   close() {
     this.proxy.close();
   }
+  ping() {
+    return this.$.ping();
+  }
+  bindHostReceiver(receiver) {
+    return this.$.bindHostReceiver(receiver);
+  }
 };
 
 content.mojom.ChildProcessHostRemoteCallHandler = class {
@@ -411,6 +417,48 @@ content.mojom.ChildProcessRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  processShutdown() {
+    return this.$.processShutdown();
+  }
+  getTaskPort() {
+    return this.$.getTaskPort();
+  }
+  setIPCLoggingEnabled(on) {
+    return this.$.setIPCLoggingEnabled(on);
+  }
+  getBackgroundTracingAgentProvider(receiver) {
+    return this.$.getBackgroundTracingAgentProvider(receiver);
+  }
+  enableSystemTracingService(remote) {
+    return this.$.enableSystemTracingService(remote);
+  }
+  crashHungProcess() {
+    return this.$.crashHungProcess();
+  }
+  bindServiceInterface(receiver) {
+    return this.$.bindServiceInterface(receiver);
+  }
+  bindReceiver(receiver) {
+    return this.$.bindReceiver(receiver);
+  }
+  setProfilingFile(file) {
+    return this.$.setProfilingFile(file);
+  }
+  writeClangProfilingProfile() {
+    return this.$.writeClangProfilingProfile();
+  }
+  setPseudonymizationSalt(salt) {
+    return this.$.setPseudonymizationSalt(salt);
+  }
+  reinitializeLogging(settings) {
+    return this.$.reinitializeLogging(settings);
+  }
+  onMemoryPressure(memory_pressure_level) {
+    return this.$.onMemoryPressure(memory_pressure_level);
+  }
+  setBatterySaverMode(battery_saver_mode_enabled) {
+    return this.$.setBatterySaverMode(battery_saver_mode_enabled);
   }
 };
 

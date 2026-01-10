@@ -141,6 +141,27 @@ media_router.mojom.MediaControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  play() {
+    return this.$.play();
+  }
+  pause() {
+    return this.$.pause();
+  }
+  setMute(mute) {
+    return this.$.setMute(mute);
+  }
+  setVolume(volume) {
+    return this.$.setVolume(volume);
+  }
+  seek(time) {
+    return this.$.seek(time);
+  }
+  nextTrack() {
+    return this.$.nextTrack();
+  }
+  previousTrack() {
+    return this.$.previousTrack();
+  }
 };
 
 media_router.mojom.MediaControllerRemoteCallHandler = class {

@@ -131,6 +131,12 @@ chrome.mojom.RemovableStorageWriterRemote = class {
   close() {
     this.proxy.close();
   }
+  write(source, target, client) {
+    return this.$.write(source, target, client);
+  }
+  verify(source, target, client) {
+    return this.$.verify(source, target, client);
+  }
 };
 
 chrome.mojom.RemovableStorageWriterRemoteCallHandler = class {
@@ -313,6 +319,12 @@ chrome.mojom.RemovableStorageWriterClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  progress(progress) {
+    return this.$.progress(progress);
+  }
+  complete(error) {
+    return this.$.complete(error);
   }
 };
 

@@ -128,6 +128,12 @@ blink.mojom.NoStatePrefetchProcessorRemote = class {
   close() {
     this.proxy.close();
   }
+  start(prerender_attribute) {
+    return this.$.start(prerender_attribute);
+  }
+  cancel() {
+    return this.$.cancel();
+  }
 };
 
 blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {

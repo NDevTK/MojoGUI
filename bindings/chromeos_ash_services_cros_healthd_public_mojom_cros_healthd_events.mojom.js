@@ -644,6 +644,24 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onAdapterAdded() {
+    return this.$.onAdapterAdded();
+  }
+  onAdapterRemoved() {
+    return this.$.onAdapterRemoved();
+  }
+  onAdapterPropertyChanged() {
+    return this.$.onAdapterPropertyChanged();
+  }
+  onDeviceAdded() {
+    return this.$.onDeviceAdded();
+  }
+  onDeviceRemoved() {
+    return this.$.onDeviceRemoved();
+  }
+  onDevicePropertyChanged() {
+    return this.$.onDevicePropertyChanged();
+  }
 };
 
 ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
@@ -941,6 +959,12 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onLidClosed() {
+    return this.$.onLidClosed();
+  }
+  onLidOpened() {
+    return this.$.onLidOpened();
+  }
 };
 
 ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
@@ -1131,6 +1155,18 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onAcInserted() {
+    return this.$.onAcInserted();
+  }
+  onAcRemoved() {
+    return this.$.onAcRemoved();
+  }
+  onOsSuspend() {
+    return this.$.onOsSuspend();
+  }
+  onOsResume() {
+    return this.$.onOsResume();
   }
 };
 
@@ -1371,6 +1407,12 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onUnderrun() {
+    return this.$.onUnderrun();
+  }
+  onSevereUnderrun() {
+    return this.$.onSevereUnderrun();
+  }
 };
 
 ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
@@ -1561,6 +1603,18 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onAdd() {
+    return this.$.onAdd();
+  }
+  onRemove() {
+    return this.$.onRemove();
+  }
+  onAuthorized() {
+    return this.$.onAuthorized();
+  }
+  onUnAuthorized() {
+    return this.$.onUnAuthorized();
   }
 };
 
@@ -1803,6 +1857,12 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onAdd(info) {
+    return this.$.onAdd(info);
+  }
+  onRemove(info) {
+    return this.$.onRemove(info);
+  }
 };
 
 ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler = class {
@@ -1984,6 +2044,12 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onAdd() {
+    return this.$.onAdd();
+  }
+  onRemove() {
+    return this.$.onRemove();
+  }
 };
 
 ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
@@ -2160,6 +2226,9 @@ ash.cros_healthd.mojom.EventObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onEvent(info) {
+    return this.$.onEvent(info);
   }
 };
 

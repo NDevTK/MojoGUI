@@ -102,6 +102,9 @@ cros.mojom.CameraHalClientRemote = class {
   close() {
     this.proxy.close();
   }
+  setUpChannel(camera_module) {
+    return this.$.setUpChannel(camera_module);
+  }
 };
 
 cros.mojom.CameraHalClientRemoteCallHandler = class {

@@ -791,6 +791,153 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getAvailableRoutines() {
+    return this.$.getAvailableRoutines();
+  }
+  getRoutineUpdate(id, command, include_output) {
+    return this.$.getRoutineUpdate(id, command, include_output);
+  }
+  runUrandomRoutine(length_seconds) {
+    return this.$.runUrandomRoutine(length_seconds);
+  }
+  runBatteryCapacityRoutine() {
+    return this.$.runBatteryCapacityRoutine();
+  }
+  runBatteryHealthRoutine() {
+    return this.$.runBatteryHealthRoutine();
+  }
+  runSmartctlCheckRoutine(percentage_used_threshold) {
+    return this.$.runSmartctlCheckRoutine(percentage_used_threshold);
+  }
+  runAcPowerRoutine(expected_status, expected_power_type) {
+    return this.$.runAcPowerRoutine(expected_status, expected_power_type);
+  }
+  runCpuCacheRoutine(length_seconds) {
+    return this.$.runCpuCacheRoutine(length_seconds);
+  }
+  runCpuStressRoutine(length_seconds) {
+    return this.$.runCpuStressRoutine(length_seconds);
+  }
+  runFloatingPointAccuracyRoutine(length_seconds) {
+    return this.$.runFloatingPointAccuracyRoutine(length_seconds);
+  }
+  dEPRECATED_RunNvmeWearLevelRoutineWithThreshold(wear_level_threshold) {
+    return this.$.dEPRECATED_RunNvmeWearLevelRoutineWithThreshold(wear_level_threshold);
+  }
+  dEPRECATED_RunNvmeWearLevelRoutine(wear_level_threshold) {
+    return this.$.dEPRECATED_RunNvmeWearLevelRoutine(wear_level_threshold);
+  }
+  runNvmeSelfTestRoutine(nvme_self_test_type) {
+    return this.$.runNvmeSelfTestRoutine(nvme_self_test_type);
+  }
+  runDiskReadRoutine(type, length_seconds, file_size_mb) {
+    return this.$.runDiskReadRoutine(type, length_seconds, file_size_mb);
+  }
+  runPrimeSearchRoutine(length_seconds) {
+    return this.$.runPrimeSearchRoutine(length_seconds);
+  }
+  runBatteryDischargeRoutine(length_seconds, maximum_discharge_percent_allowed) {
+    return this.$.runBatteryDischargeRoutine(length_seconds, maximum_discharge_percent_allowed);
+  }
+  runBatteryChargeRoutine(length_seconds, minimum_charge_percent_required) {
+    return this.$.runBatteryChargeRoutine(length_seconds, minimum_charge_percent_required);
+  }
+  runMemoryRoutine(max_testing_mem_kib) {
+    return this.$.runMemoryRoutine(max_testing_mem_kib);
+  }
+  runLanConnectivityRoutine() {
+    return this.$.runLanConnectivityRoutine();
+  }
+  runSignalStrengthRoutine() {
+    return this.$.runSignalStrengthRoutine();
+  }
+  runGatewayCanBePingedRoutine() {
+    return this.$.runGatewayCanBePingedRoutine();
+  }
+  runHasSecureWiFiConnectionRoutine() {
+    return this.$.runHasSecureWiFiConnectionRoutine();
+  }
+  runDnsResolverPresentRoutine() {
+    return this.$.runDnsResolverPresentRoutine();
+  }
+  runDnsLatencyRoutine() {
+    return this.$.runDnsLatencyRoutine();
+  }
+  runDnsResolutionRoutine() {
+    return this.$.runDnsResolutionRoutine();
+  }
+  runCaptivePortalRoutine() {
+    return this.$.runCaptivePortalRoutine();
+  }
+  runHttpFirewallRoutine() {
+    return this.$.runHttpFirewallRoutine();
+  }
+  runHttpsFirewallRoutine() {
+    return this.$.runHttpsFirewallRoutine();
+  }
+  runHttpsLatencyRoutine() {
+    return this.$.runHttpsLatencyRoutine();
+  }
+  runVideoConferencingRoutine(stun_server_hostname) {
+    return this.$.runVideoConferencingRoutine(stun_server_hostname);
+  }
+  runArcHttpRoutine() {
+    return this.$.runArcHttpRoutine();
+  }
+  runArcPingRoutine() {
+    return this.$.runArcPingRoutine();
+  }
+  runArcDnsResolutionRoutine() {
+    return this.$.runArcDnsResolutionRoutine();
+  }
+  runSensitiveSensorRoutine() {
+    return this.$.runSensitiveSensorRoutine();
+  }
+  runFingerprintRoutine() {
+    return this.$.runFingerprintRoutine();
+  }
+  runFingerprintAliveRoutine() {
+    return this.$.runFingerprintAliveRoutine();
+  }
+  runPrivacyScreenRoutine(target_state) {
+    return this.$.runPrivacyScreenRoutine(target_state);
+  }
+  dEPRECATED_RunLedLitUpRoutine(name, color, replier) {
+    return this.$.dEPRECATED_RunLedLitUpRoutine(name, color, replier);
+  }
+  runEmmcLifetimeRoutine() {
+    return this.$.runEmmcLifetimeRoutine();
+  }
+  dEPRECATED_RunAudioSetVolumeRoutine(node_id, volume, mute_on) {
+    return this.$.dEPRECATED_RunAudioSetVolumeRoutine(node_id, volume, mute_on);
+  }
+  dEPRECATED_RunAudioSetGainRoutine(node_id, gain, deprecated_mute_on) {
+    return this.$.dEPRECATED_RunAudioSetGainRoutine(node_id, gain, deprecated_mute_on);
+  }
+  runBluetoothPowerRoutine() {
+    return this.$.runBluetoothPowerRoutine();
+  }
+  runBluetoothDiscoveryRoutine() {
+    return this.$.runBluetoothDiscoveryRoutine();
+  }
+  runBluetoothScanningRoutine(length_seconds) {
+    return this.$.runBluetoothScanningRoutine(length_seconds);
+  }
+  runBluetoothPairingRoutine(peripheral_id) {
+    return this.$.runBluetoothPairingRoutine(peripheral_id);
+  }
+  runPowerButtonRoutine(timeout_seconds) {
+    return this.$.runPowerButtonRoutine(timeout_seconds);
+  }
+  runAudioDriverRoutine() {
+    return this.$.runAudioDriverRoutine();
+  }
+  runUfsLifetimeRoutine() {
+    return this.$.runUfsLifetimeRoutine();
+  }
+  runFanRoutine() {
+    return this.$.runFanRoutine();
+  }
 };
 
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
@@ -2680,6 +2827,33 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  dEPRECATED_AddBluetoothObserver(observer) {
+    return this.$.dEPRECATED_AddBluetoothObserver(observer);
+  }
+  dEPRECATED_AddLidObserver(observer) {
+    return this.$.dEPRECATED_AddLidObserver(observer);
+  }
+  dEPRECATED_AddPowerObserver(observer) {
+    return this.$.dEPRECATED_AddPowerObserver(observer);
+  }
+  addNetworkObserver(observer) {
+    return this.$.addNetworkObserver(observer);
+  }
+  dEPRECATED_AddAudioObserver(observer) {
+    return this.$.dEPRECATED_AddAudioObserver(observer);
+  }
+  dEPRECATED_AddThunderboltObserver(observer) {
+    return this.$.dEPRECATED_AddThunderboltObserver(observer);
+  }
+  dEPRECATED_AddUsbObserver(observer) {
+    return this.$.dEPRECATED_AddUsbObserver(observer);
+  }
+  addEventObserver(category, observer) {
+    return this.$.addEventObserver(category, observer);
+  }
+  isEventSupported(category) {
+    return this.$.isEventSupported(category);
+  }
 };
 
 ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
@@ -3096,6 +3270,15 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  probeProcessInfo(process_id) {
+    return this.$.probeProcessInfo(process_id);
+  }
+  probeTelemetryInfo(categories) {
+    return this.$.probeTelemetryInfo(categories);
+  }
+  probeMultipleProcessInfo(process_ids, ignore_single_process_error) {
+    return this.$.probeMultipleProcessInfo(process_ids, ignore_single_process_error);
   }
 };
 

@@ -268,6 +268,18 @@ crosapi.mojom.AccountManagerObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onTokenUpserted(account) {
+    return this.$.onTokenUpserted(account);
+  }
+  onAccountRemoved(account) {
+    return this.$.onAccountRemoved(account);
+  }
+  onAuthErrorChanged(account, error) {
+    return this.$.onAuthErrorChanged(account, error);
+  }
+  onSigninDialogClosed() {
+    return this.$.onSigninDialogClosed();
+  }
 };
 
 crosapi.mojom.AccountManagerObserverRemoteCallHandler = class {
@@ -590,6 +602,33 @@ crosapi.mojom.AccountManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  isInitialized() {
+    return this.$.isInitialized();
+  }
+  addObserver() {
+    return this.$.addObserver();
+  }
+  getAccounts() {
+    return this.$.getAccounts();
+  }
+  showAddAccountDialog(add_account_options) {
+    return this.$.showAddAccountDialog(add_account_options);
+  }
+  showReauthAccountDialog(email) {
+    return this.$.showReauthAccountDialog(email);
+  }
+  showManageAccountsSettings() {
+    return this.$.showManageAccountsSettings();
+  }
+  getPersistentErrorForAccount(account) {
+    return this.$.getPersistentErrorForAccount(account);
+  }
+  createAccessTokenFetcher(account_key, oauth_consumer_name) {
+    return this.$.createAccessTokenFetcher(account_key, oauth_consumer_name);
+  }
+  reportAuthError(account, error) {
+    return this.$.reportAuthError(account, error);
   }
 };
 
@@ -1018,6 +1057,9 @@ crosapi.mojom.AccessTokenFetcherRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  start(scopes) {
+    return this.$.start(scopes);
   }
 };
 

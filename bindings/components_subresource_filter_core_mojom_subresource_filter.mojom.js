@@ -160,6 +160,9 @@ subresource_filter.mojom.SubresourceFilterRulesetObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  setRulesetForProcess(ruleset_file) {
+    return this.$.setRulesetForProcess(ruleset_file);
+  }
 };
 
 subresource_filter.mojom.SubresourceFilterRulesetObserverRemoteCallHandler = class {

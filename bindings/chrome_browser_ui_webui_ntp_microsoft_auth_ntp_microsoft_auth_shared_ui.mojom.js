@@ -120,6 +120,15 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote = class {
   close() {
     this.proxy.close();
   }
+  acquireTokenPopup() {
+    return this.$.acquireTokenPopup();
+  }
+  acquireTokenSilent() {
+    return this.$.acquireTokenSilent();
+  }
+  signOut() {
+    return this.$.signOut();
+  }
 };
 
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCallHandler = class {

@@ -109,6 +109,9 @@ metrics.mojom.CallStackProfileCollectorTestRemote = class {
   close() {
     this.proxy.close();
   }
+  bounceSampledProfile(in) {
+    return this.$.bounceSampledProfile(in);
+  }
 };
 
 metrics.mojom.CallStackProfileCollectorTestRemoteCallHandler = class {

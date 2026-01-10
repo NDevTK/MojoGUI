@@ -280,6 +280,78 @@ media.mojom.MediaMetricsProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize(is_mse, url_scheme, stream_type) {
+    return this.$.initialize(is_mse, url_scheme, stream_type);
+  }
+  onStarted(status) {
+    return this.$.onStarted(status);
+  }
+  onError(status) {
+    return this.$.onError(status);
+  }
+  onFallback(status) {
+    return this.$.onFallback(status);
+  }
+  setHasPlayed() {
+    return this.$.setHasPlayed();
+  }
+  setHaveEnough() {
+    return this.$.setHaveEnough();
+  }
+  setIsEME() {
+    return this.$.setIsEME();
+  }
+  setTimeToMetadata(elapsed) {
+    return this.$.setTimeToMetadata(elapsed);
+  }
+  setTimeToFirstFrame(elapsed) {
+    return this.$.setTimeToFirstFrame(elapsed);
+  }
+  setTimeToPlayReady(elapsed) {
+    return this.$.setTimeToPlayReady(elapsed);
+  }
+  setRendererType(renderer_type) {
+    return this.$.setRendererType(renderer_type);
+  }
+  setDemuxerType(demuxer_type) {
+    return this.$.setDemuxerType(demuxer_type);
+  }
+  setKeySystem(key_system) {
+    return this.$.setKeySystem(key_system);
+  }
+  setHasWaitingForKey() {
+    return this.$.setHasWaitingForKey();
+  }
+  setIsHardwareSecure() {
+    return this.$.setIsHardwareSecure();
+  }
+  setHasTrackChange() {
+    return this.$.setHasTrackChange();
+  }
+  setContainerName(container_name) {
+    return this.$.setContainerName(container_name);
+  }
+  acquireWatchTimeRecorder(properties, recorder) {
+    return this.$.acquireWatchTimeRecorder(properties, recorder);
+  }
+  acquireVideoDecodeStatsRecorder(recorder) {
+    return this.$.acquireVideoDecodeStatsRecorder(recorder);
+  }
+  acquirePlaybackEventsRecorder(receiver) {
+    return this.$.acquirePlaybackEventsRecorder(receiver);
+  }
+  setHasAudio(codec) {
+    return this.$.setHasAudio(codec);
+  }
+  setHasVideo(codec) {
+    return this.$.setHasVideo(codec);
+  }
+  setVideoPipelineInfo(info) {
+    return this.$.setVideoPipelineInfo(info);
+  }
+  setAudioPipelineInfo(info) {
+    return this.$.setAudioPipelineInfo(info);
+  }
 };
 
 media.mojom.MediaMetricsProviderRemoteCallHandler = class {

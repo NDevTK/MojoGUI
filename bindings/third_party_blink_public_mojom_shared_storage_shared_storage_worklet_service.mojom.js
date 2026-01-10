@@ -181,6 +181,9 @@ blink.mojom.SharedStorageEntriesListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  didReadEntries(success, error_message, entries, has_more_entries, total_queued_to_send) {
+    return this.$.didReadEntries(success, error_message, entries, has_more_entries, total_queued_to_send);
+  }
 };
 
 blink.mojom.SharedStorageEntriesListenerRemoteCallHandler = class {
@@ -424,6 +427,36 @@ blink.mojom.SharedStorageWorkletServiceClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sharedStorageUpdate(method_with_options) {
+    return this.$.sharedStorageUpdate(method_with_options);
+  }
+  sharedStorageBatchUpdate(methods_with_options, with_lock) {
+    return this.$.sharedStorageBatchUpdate(methods_with_options, with_lock);
+  }
+  sharedStorageGet(key) {
+    return this.$.sharedStorageGet(key);
+  }
+  sharedStorageKeys(listener) {
+    return this.$.sharedStorageKeys(listener);
+  }
+  sharedStorageEntries(listener, values_only) {
+    return this.$.sharedStorageEntries(listener, values_only);
+  }
+  sharedStorageLength() {
+    return this.$.sharedStorageLength();
+  }
+  sharedStorageRemainingBudget() {
+    return this.$.sharedStorageRemainingBudget();
+  }
+  getInterestGroups() {
+    return this.$.getInterestGroups();
+  }
+  didAddMessageToConsole(log_level, message) {
+    return this.$.didAddMessageToConsole(log_level, message);
+  }
+  recordUseCounters(features) {
+    return this.$.recordUseCounters(features);
   }
 };
 
@@ -923,6 +956,18 @@ blink.mojom.SharedStorageWorkletServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  initialize(client, permissions_policy_state, embedder_context) {
+    return this.$.initialize(client, permissions_policy_state, embedder_context);
+  }
+  addModule(url_loader_factory, script_source_url) {
+    return this.$.addModule(url_loader_factory, script_source_url);
+  }
+  runURLSelectionOperation(name, urls, serialized_data, pa_operation_details) {
+    return this.$.runURLSelectionOperation(name, urls, serialized_data, pa_operation_details);
+  }
+  runOperation(name, serialized_data, pa_operation_details) {
+    return this.$.runOperation(name, serialized_data, pa_operation_details);
   }
 };
 

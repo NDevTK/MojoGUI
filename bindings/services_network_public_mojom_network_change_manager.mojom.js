@@ -177,6 +177,12 @@ network.mojom.NetworkChangeManagerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onInitialConnectionType(type) {
+    return this.$.onInitialConnectionType(type);
+  }
+  onNetworkChanged(type) {
+    return this.$.onNetworkChanged(type);
+  }
 };
 
 network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
@@ -370,6 +376,15 @@ network.mojom.NetworkChangeManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestNotifications(client_remote) {
+    return this.$.requestNotifications(client_remote);
+  }
+  onNetworkChanged(dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype) {
+    return this.$.onNetworkChanged(dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype);
+  }
+  bindNetworkInterfaceChangeListener(notifier) {
+    return this.$.bindNetworkInterfaceChangeListener(notifier);
   }
 };
 

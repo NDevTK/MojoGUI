@@ -231,6 +231,9 @@ crosapi.mojom.SearchResultsPublisherRemote = class {
   close() {
     this.proxy.close();
   }
+  onSearchResultsReceived(status, result) {
+    return this.$.onSearchResultsReceived(status, result);
+  }
 };
 
 crosapi.mojom.SearchResultsPublisherRemoteCallHandler = class {
@@ -385,6 +388,9 @@ crosapi.mojom.SearchControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  search(query) {
+    return this.$.search(query);
+  }
 };
 
 crosapi.mojom.SearchControllerRemoteCallHandler = class {
@@ -538,6 +544,9 @@ crosapi.mojom.SearchResultConsumerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onFaviconReceived(favicon) {
+    return this.$.onFaviconReceived(favicon);
   }
 };
 

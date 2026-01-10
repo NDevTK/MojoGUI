@@ -163,6 +163,9 @@ ash.secure_channel.mojom.NearbyConnectionStateListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onNearbyConnectionStateChanged(step, result) {
+    return this.$.onNearbyConnectionStateChanged(step, result);
+  }
 };
 
 ash.secure_channel.mojom.NearbyConnectionStateListenerRemoteCallHandler = class {
@@ -317,6 +320,9 @@ ash.secure_channel.mojom.NearbyMessageSenderRemote = class {
   close() {
     this.proxy.close();
   }
+  sendMessage(message) {
+    return this.$.sendMessage(message);
+  }
 };
 
 ash.secure_channel.mojom.NearbyMessageSenderRemoteCallHandler = class {
@@ -470,6 +476,9 @@ ash.secure_channel.mojom.NearbyMessageReceiverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onMessageReceived(message) {
+    return this.$.onMessageReceived(message);
   }
 };
 
@@ -626,6 +635,9 @@ ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  registerPayloadFile(payload_id, payload_files, listener) {
+    return this.$.registerPayloadFile(payload_id, payload_files, listener);
   }
 };
 
@@ -790,6 +802,9 @@ ash.secure_channel.mojom.NearbyConnectorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  connect(bluetooth_public_address, eid, message_receiver, nearby_connection_state_listener) {
+    return this.$.connect(bluetooth_public_address, eid, message_receiver, nearby_connection_state_listener);
   }
 };
 

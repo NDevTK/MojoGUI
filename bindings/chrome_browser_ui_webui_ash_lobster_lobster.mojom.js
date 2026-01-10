@@ -284,6 +284,36 @@ lobster.mojom.UntrustedLobsterPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  requestCandidates(query, num_candidates) {
+    return this.$.requestCandidates(query, num_candidates);
+  }
+  downloadCandidate(candidate_id) {
+    return this.$.downloadCandidate(candidate_id);
+  }
+  commitAsInsert(candidate_id) {
+    return this.$.commitAsInsert(candidate_id);
+  }
+  commitAsDownload(candidate_id) {
+    return this.$.commitAsDownload(candidate_id);
+  }
+  previewFeedback(candidate_id) {
+    return this.$.previewFeedback(candidate_id);
+  }
+  submitFeedback(candidate_id, description) {
+    return this.$.submitFeedback(candidate_id, description);
+  }
+  showUI() {
+    return this.$.showUI();
+  }
+  closeUI() {
+    return this.$.closeUI();
+  }
+  emitMetricEvent(metric_event) {
+    return this.$.emitMetricEvent(metric_event);
+  }
+  openUrlInNewWindow(url) {
+    return this.$.openUrlInNewWindow(url);
+  }
 };
 
 lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {

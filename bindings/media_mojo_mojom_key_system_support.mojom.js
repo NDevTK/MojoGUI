@@ -156,6 +156,9 @@ media.mojom.KeySystemSupportObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onKeySystemSupportUpdated(key_systems) {
+    return this.$.onKeySystemSupportUpdated(key_systems);
+  }
 };
 
 media.mojom.KeySystemSupportObserverRemoteCallHandler = class {
@@ -303,6 +306,9 @@ media.mojom.KeySystemSupportRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setObserver(observer) {
+    return this.$.setObserver(observer);
   }
 };
 

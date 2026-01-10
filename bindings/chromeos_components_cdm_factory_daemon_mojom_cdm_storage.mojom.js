@@ -169,6 +169,21 @@ chromeos.cdm.mojom.CdmStorageRemote = class {
   close() {
     this.proxy.close();
   }
+  read(file_name) {
+    return this.$.read(file_name);
+  }
+  write(file_name, data) {
+    return this.$.write(file_name, data);
+  }
+  exists(file_name) {
+    return this.$.exists(file_name);
+  }
+  getSize(file_name) {
+    return this.$.getSize(file_name);
+  }
+  remove(file_name) {
+    return this.$.remove(file_name);
+  }
 };
 
 chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {

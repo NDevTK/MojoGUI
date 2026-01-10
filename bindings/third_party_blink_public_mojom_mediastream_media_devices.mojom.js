@@ -321,6 +321,39 @@ blink.mojom.MediaDevicesDispatcherHostRemote = class {
   close() {
     this.proxy.close();
   }
+  enumerateDevices(request_audio_input, request_video_input, request_audio_output, request_video_input_capabilities, request_audio_input_capabilities) {
+    return this.$.enumerateDevices(request_audio_input, request_video_input, request_audio_output, request_video_input_capabilities, request_audio_input_capabilities);
+  }
+  getVideoInputCapabilities() {
+    return this.$.getVideoInputCapabilities();
+  }
+  getAllVideoInputDeviceFormats(device_id) {
+    return this.$.getAllVideoInputDeviceFormats(device_id);
+  }
+  getAvailableVideoInputDeviceFormats(device_id) {
+    return this.$.getAvailableVideoInputDeviceFormats(device_id);
+  }
+  getAudioInputCapabilities() {
+    return this.$.getAudioInputCapabilities();
+  }
+  addMediaDevicesListener(subscribe_audio_input, subscribe_video_input, subscribe_audio_output, listener) {
+    return this.$.addMediaDevicesListener(subscribe_audio_input, subscribe_video_input, subscribe_audio_output, listener);
+  }
+  setCaptureHandleConfig(config) {
+    return this.$.setCaptureHandleConfig(config);
+  }
+  closeFocusWindowOfOpportunity(label) {
+    return this.$.closeFocusWindowOfOpportunity(label);
+  }
+  produceSubCaptureTargetId(type) {
+    return this.$.produceSubCaptureTargetId(type);
+  }
+  setPreferredSinkId(sink_id) {
+    return this.$.setPreferredSinkId(sink_id);
+  }
+  selectAudioOutput(device_id) {
+    return this.$.selectAudioOutput(device_id);
+  }
 };
 
 blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
@@ -807,6 +840,9 @@ blink.mojom.MediaDevicesListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onDevicesChanged(type, device_infos) {
+    return this.$.onDevicesChanged(type, device_infos);
   }
 };
 

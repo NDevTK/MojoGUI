@@ -275,6 +275,9 @@ coral.mojom.TitleObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  titleUpdated(group_id, title) {
+    return this.$.titleUpdated(group_id, title);
+  }
 };
 
 coral.mojom.TitleObserverRemoteCallHandler = class {
@@ -441,6 +444,12 @@ coral.mojom.CoralProcessorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  group(request, observer) {
+    return this.$.group(request, observer);
+  }
+  cacheEmbeddings(request) {
+    return this.$.cacheEmbeddings(request);
   }
 };
 
@@ -662,6 +671,18 @@ coral.mojom.CoralServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  groupDeprecated(request, observer) {
+    return this.$.groupDeprecated(request, observer);
+  }
+  cacheEmbeddingsDeprecated(request) {
+    return this.$.cacheEmbeddingsDeprecated(request);
+  }
+  prepareResource() {
+    return this.$.prepareResource();
+  }
+  initialize(ml_service, processor, language_code) {
+    return this.$.initialize(ml_service, processor, language_code);
   }
 };
 

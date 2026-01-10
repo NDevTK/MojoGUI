@@ -108,6 +108,9 @@ ash.file_manager.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 ash.file_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {

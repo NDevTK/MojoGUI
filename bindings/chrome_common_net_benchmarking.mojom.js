@@ -143,6 +143,18 @@ chrome.mojom.NetBenchmarkingRemote = class {
   close() {
     this.proxy.close();
   }
+  closeCurrentConnections() {
+    return this.$.closeCurrentConnections();
+  }
+  clearCache() {
+    return this.$.clearCache();
+  }
+  clearHostResolverCache() {
+    return this.$.clearHostResolverCache();
+  }
+  clearPredictorCache() {
+    return this.$.clearPredictorCache();
+  }
 };
 
 chrome.mojom.NetBenchmarkingRemoteCallHandler = class {

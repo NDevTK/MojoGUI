@@ -145,6 +145,15 @@ content.mojom.GinJavaBridgeRemote = class {
   close() {
     this.proxy.close();
   }
+  addNamedObject(name, object_id, origin_matcher) {
+    return this.$.addNamedObject(name, object_id, origin_matcher);
+  }
+  removeNamedObject(name) {
+    return this.$.removeNamedObject(name);
+  }
+  setHost(host) {
+    return this.$.setHost(host);
+  }
 };
 
 content.mojom.GinJavaBridgeRemoteCallHandler = class {
@@ -382,6 +391,15 @@ content.mojom.GinJavaBridgeRemoteObjectRemote = class {
   close() {
     this.proxy.close();
   }
+  getMethods() {
+    return this.$.getMethods();
+  }
+  hasMethod(method_name) {
+    return this.$.hasMethod(method_name);
+  }
+  invokeMethod(method_name, arguments) {
+    return this.$.invokeMethod(method_name, arguments);
+  }
 };
 
 content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
@@ -612,6 +630,12 @@ content.mojom.GinJavaBridgeHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getObject(object_id, receiver) {
+    return this.$.getObject(object_id, receiver);
+  }
+  objectWrapperDeleted(object_id) {
+    return this.$.objectWrapperDeleted(object_id);
   }
 };
 

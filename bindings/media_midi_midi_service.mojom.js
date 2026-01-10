@@ -184,6 +184,27 @@ midi.mojom.MidiSessionClientRemote = class {
   close() {
     this.proxy.close();
   }
+  addInputPort(info) {
+    return this.$.addInputPort(info);
+  }
+  addOutputPort(info) {
+    return this.$.addOutputPort(info);
+  }
+  setInputPortState(port, state) {
+    return this.$.setInputPortState(port, state);
+  }
+  setOutputPortState(port, state) {
+    return this.$.setOutputPortState(port, state);
+  }
+  sessionStarted(result) {
+    return this.$.sessionStarted(result);
+  }
+  acknowledgeSentData(bytes) {
+    return this.$.acknowledgeSentData(bytes);
+  }
+  dataReceived(port, data, timestamp) {
+    return this.$.dataReceived(port, data, timestamp);
+  }
 };
 
 midi.mojom.MidiSessionClientRemoteCallHandler = class {
@@ -507,6 +528,9 @@ midi.mojom.MidiSessionProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  startSession(receiver, client) {
+    return this.$.startSession(receiver, client);
+  }
 };
 
 midi.mojom.MidiSessionProviderRemoteCallHandler = class {
@@ -656,6 +680,9 @@ midi.mojom.MidiSessionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sendData(port, data, timestamp) {
+    return this.$.sendData(port, data, timestamp);
   }
 };
 

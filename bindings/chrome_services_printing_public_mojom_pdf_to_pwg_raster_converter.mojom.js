@@ -145,6 +145,12 @@ printing.mojom.PdfToPwgRasterConverterRemote = class {
   close() {
     this.proxy.close();
   }
+  convert(pdf_region, pdf_settings, pwg_raster_settings) {
+    return this.$.convert(pdf_region, pdf_settings, pwg_raster_settings);
+  }
+  setUseSkiaRendererPolicy(use_skia) {
+    return this.$.setUseSkiaRendererPolicy(use_skia);
+  }
 };
 
 printing.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {

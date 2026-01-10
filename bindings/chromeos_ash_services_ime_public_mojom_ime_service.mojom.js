@@ -139,6 +139,12 @@ ash.ime.mojom.InputEngineManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  connectToImeEngine(ime_spec, to_engine_request, from_engine, extra) {
+    return this.$.connectToImeEngine(ime_spec, to_engine_request, from_engine, extra);
+  }
+  initializeConnectionFactory(connection_factory) {
+    return this.$.initializeConnectionFactory(connection_factory);
+  }
 };
 
 ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
@@ -335,6 +341,9 @@ ash.ime.mojom.PlatformAccessProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  downloadImeFileTo(url, file_path) {
+    return this.$.downloadImeFileTo(url, file_path);
+  }
 };
 
 ash.ime.mojom.PlatformAccessProviderRemoteCallHandler = class {
@@ -500,6 +509,15 @@ ash.ime.mojom.ImeServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setPlatformAccessProvider(provider) {
+    return this.$.setPlatformAccessProvider(provider);
+  }
+  bindInputEngineManager(receiver) {
+    return this.$.bindInputEngineManager(receiver);
+  }
+  bindInputMethodUserDataService(receiver) {
+    return this.$.bindInputMethodUserDataService(receiver);
   }
 };
 

@@ -127,6 +127,9 @@ on_device_translation_internals.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 on_device_translation_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -280,6 +283,12 @@ on_device_translation_internals.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  installLanguagePackage(package_index) {
+    return this.$.installLanguagePackage(package_index);
+  }
+  uninstallLanguagePackage(package_index) {
+    return this.$.uninstallLanguagePackage(package_index);
   }
 };
 
@@ -457,6 +466,9 @@ on_device_translation_internals.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLanguagePackStatus(status) {
+    return this.$.onLanguagePackStatus(status);
   }
 };
 

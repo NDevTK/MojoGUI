@@ -165,6 +165,12 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorRemote = class {
   close() {
     this.proxy.close();
   }
+  annotateRawImage(rgb_bytes, width, height, line_stride) {
+    return this.$.annotateRawImage(rgb_bytes, width, height, line_stride);
+  }
+  annotateEncodedImage(encoded_image) {
+    return this.$.annotateEncodedImage(encoded_image);
+  }
 };
 
 chromeos.machine_learning.mojom.ImageContentAnnotatorRemoteCallHandler = class {

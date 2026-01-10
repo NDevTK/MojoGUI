@@ -121,6 +121,9 @@ viz.mojom.CopyOutputResultSenderRemote = class {
   close() {
     this.proxy.close();
   }
+  sendResult(result) {
+    return this.$.sendResult(result);
+  }
 };
 
 viz.mojom.CopyOutputResultSenderRemoteCallHandler = class {

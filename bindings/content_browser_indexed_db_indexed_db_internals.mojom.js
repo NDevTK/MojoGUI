@@ -190,6 +190,24 @@ storage.mojom.IdbInternalsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getAllBucketsAcrossAllStorageKeys() {
+    return this.$.getAllBucketsAcrossAllStorageKeys();
+  }
+  downloadBucketData(bucketId) {
+    return this.$.downloadBucketData(bucketId);
+  }
+  forceClose(bucketId) {
+    return this.$.forceClose(bucketId);
+  }
+  startMetadataRecording(bucket_id) {
+    return this.$.startMetadataRecording(bucket_id);
+  }
+  stopMetadataRecording(bucket_id) {
+    return this.$.stopMetadataRecording(bucket_id);
+  }
+  inspectClient(client_info) {
+    return this.$.inspectClient(client_info);
+  }
 };
 
 storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {

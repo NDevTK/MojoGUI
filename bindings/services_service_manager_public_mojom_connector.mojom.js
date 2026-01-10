@@ -148,6 +148,9 @@ service_manager.mojom.ProcessMetadataRemote = class {
   close() {
     this.proxy.close();
   }
+  setPID(pid) {
+    return this.$.setPID(pid);
+  }
 };
 
 service_manager.mojom.ProcessMetadataRemoteCallHandler = class {
@@ -350,6 +353,21 @@ service_manager.mojom.ConnectorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindInterface(filter, interface_name, interface_pipe, priority) {
+    return this.$.bindInterface(filter, interface_name, interface_pipe, priority);
+  }
+  queryService(service_name) {
+    return this.$.queryService(service_name);
+  }
+  warmService(filter) {
+    return this.$.warmService(filter);
+  }
+  registerServiceInstance(identity, service, metadata_receiver) {
+    return this.$.registerServiceInstance(identity, service, metadata_receiver);
+  }
+  clone(receiver) {
+    return this.$.clone(receiver);
   }
 };
 

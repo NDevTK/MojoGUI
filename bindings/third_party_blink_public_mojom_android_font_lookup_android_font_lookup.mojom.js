@@ -136,6 +136,15 @@ blink.mojom.AndroidFontLookupRemote = class {
   close() {
     this.proxy.close();
   }
+  getUniqueNameLookupTable() {
+    return this.$.getUniqueNameLookupTable();
+  }
+  matchLocalFontByUniqueName(font_unique_name) {
+    return this.$.matchLocalFontByUniqueName(font_unique_name);
+  }
+  fetchAllFontFiles() {
+    return this.$.fetchAllFontFiles();
+  }
 };
 
 blink.mojom.AndroidFontLookupRemoteCallHandler = class {

@@ -130,6 +130,12 @@ language_detection.mojom.ContentLanguageDetectionDriverRemote = class {
   close() {
     this.proxy.close();
   }
+  getLanguageDetectionModel() {
+    return this.$.getLanguageDetectionModel();
+  }
+  getLanguageDetectionModelStatus() {
+    return this.$.getLanguageDetectionModelStatus();
+  }
 };
 
 language_detection.mojom.ContentLanguageDetectionDriverRemoteCallHandler = class {

@@ -108,6 +108,12 @@ content_settings.mojom.ContentSettingsAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  setAllowRunningInsecureContent() {
+    return this.$.setAllowRunningInsecureContent();
+  }
+  sendRendererContentSettingRules(renderer_settings) {
+    return this.$.sendRendererContentSettingRules(renderer_settings);
+  }
 };
 
 content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {

@@ -128,6 +128,15 @@ chromeos.network_health.mojom.NetworkEventsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onConnectionStateChanged(guid, state) {
+    return this.$.onConnectionStateChanged(guid, state);
+  }
+  onSignalStrengthChanged(guid, signal_strength) {
+    return this.$.onSignalStrengthChanged(guid, signal_strength);
+  }
+  onNetworkListChanged(networks) {
+    return this.$.onNetworkListChanged(networks);
+  }
 };
 
 chromeos.network_health.mojom.NetworkEventsObserverRemoteCallHandler = class {
@@ -366,6 +375,18 @@ chromeos.network_health.mojom.NetworkHealthServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  getNetworkList() {
+    return this.$.getNetworkList();
+  }
+  getHealthSnapshot() {
+    return this.$.getHealthSnapshot();
+  }
+  getRecentlyActiveNetworks() {
+    return this.$.getRecentlyActiveNetworks();
   }
 };
 

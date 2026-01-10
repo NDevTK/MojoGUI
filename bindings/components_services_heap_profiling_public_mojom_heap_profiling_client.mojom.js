@@ -165,6 +165,12 @@ heap_profiling.mojom.ProfilingClientRemote = class {
   close() {
     this.proxy.close();
   }
+  startProfiling(params) {
+    return this.$.startProfiling(params);
+  }
+  retrieveHeapProfile() {
+    return this.$.retrieveHeapProfile();
+  }
 };
 
 heap_profiling.mojom.ProfilingClientRemoteCallHandler = class {

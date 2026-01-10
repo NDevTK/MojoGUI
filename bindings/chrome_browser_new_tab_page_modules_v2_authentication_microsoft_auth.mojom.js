@@ -121,6 +121,15 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  dismissModule() {
+    return this.$.dismissModule();
+  }
+  restoreModule() {
+    return this.$.restoreModule();
+  }
+  shouldShowModule() {
+    return this.$.shouldShowModule();
+  }
 };
 
 ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {

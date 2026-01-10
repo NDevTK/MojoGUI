@@ -113,6 +113,12 @@ spellcheck.mojom.SpellCheckPanelRemote = class {
   close() {
     this.proxy.close();
   }
+  toggleSpellPanel(visible) {
+    return this.$.toggleSpellPanel(visible);
+  }
+  advanceToNextMisspelling() {
+    return this.$.advanceToNextMisspelling();
+  }
 };
 
 spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class {
@@ -295,6 +301,12 @@ spellcheck.mojom.SpellCheckPanelHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  showSpellingPanel(show) {
+    return this.$.showSpellingPanel(show);
+  }
+  updateSpellingPanelWithMisspelledWord(word) {
+    return this.$.updateSpellingPanelWithMisspelledWord(word);
   }
 };
 

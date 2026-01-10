@@ -178,6 +178,12 @@ mahi.mojom.ContentExtractionServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  extractContent(extraction_request) {
+    return this.$.extractContent(extraction_request);
+  }
+  getContentSize(extraction_request) {
+    return this.$.getContentSize(extraction_request);
+  }
 };
 
 mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
@@ -372,6 +378,12 @@ mahi.mojom.ContentExtractionServiceFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindContentExtractionService(content_extraction_service) {
+    return this.$.bindContentExtractionService(content_extraction_service);
+  }
+  onScreen2xReady(extractor) {
+    return this.$.onScreen2xReady(extractor);
   }
 };
 

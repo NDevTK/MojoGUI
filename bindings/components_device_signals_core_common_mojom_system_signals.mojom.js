@@ -206,6 +206,15 @@ device_signals.mojom.SystemSignalsServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getFileSystemSignals(requests) {
+    return this.$.getFileSystemSignals(requests);
+  }
+  getAntiVirusSignals() {
+    return this.$.getAntiVirusSignals();
+  }
+  getHotfixSignals() {
+    return this.$.getHotfixSignals();
+  }
 };
 
 device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {

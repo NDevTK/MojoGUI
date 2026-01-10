@@ -127,6 +127,15 @@ arc.mojom.WallpaperHostRemote = class {
   close() {
     this.proxy.close();
   }
+  getWallpaper() {
+    return this.$.getWallpaper();
+  }
+  setWallpaper(data, wallpaper_id) {
+    return this.$.setWallpaper(data, wallpaper_id);
+  }
+  setDefaultWallpaper() {
+    return this.$.setDefaultWallpaper();
+  }
 };
 
 arc.mojom.WallpaperHostRemoteCallHandler = class {
@@ -349,6 +358,12 @@ arc.mojom.WallpaperInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  onWallpaperChanged(wallpaper_id) {
+    return this.$.onWallpaperChanged(wallpaper_id);
   }
 };
 

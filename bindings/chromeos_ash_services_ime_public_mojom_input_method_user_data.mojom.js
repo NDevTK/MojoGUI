@@ -268,6 +268,36 @@ ash.ime.mojom.InputMethodUserDataServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  fetchJapaneseDictionary() {
+    return this.$.fetchJapaneseDictionary();
+  }
+  addJapaneseDictionaryEntry(dict_id, entry) {
+    return this.$.addJapaneseDictionaryEntry(dict_id, entry);
+  }
+  editJapaneseDictionaryEntry(dict_id, entry_index, entry) {
+    return this.$.editJapaneseDictionaryEntry(dict_id, entry_index, entry);
+  }
+  deleteJapaneseDictionaryEntry(dict_id, entry_index) {
+    return this.$.deleteJapaneseDictionaryEntry(dict_id, entry_index);
+  }
+  createJapaneseDictionary(dictionary_name) {
+    return this.$.createJapaneseDictionary(dictionary_name);
+  }
+  renameJapaneseDictionary(dict_id, dictionary_name) {
+    return this.$.renameJapaneseDictionary(dict_id, dictionary_name);
+  }
+  deleteJapaneseDictionary(dict_id) {
+    return this.$.deleteJapaneseDictionary(dict_id);
+  }
+  exportJapaneseDictionary(dict_id) {
+    return this.$.exportJapaneseDictionary(dict_id);
+  }
+  importJapaneseDictionary(dict_id, tsv_data) {
+    return this.$.importJapaneseDictionary(dict_id, tsv_data);
+  }
+  clearJapanesePersonalizationData(clear_conversion_history, clear_suggestion_history) {
+    return this.$.clearJapanesePersonalizationData(clear_conversion_history, clear_suggestion_history);
+  }
 };
 
 ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {

@@ -110,6 +110,12 @@ blink.mojom.TextInputHostRemote = class {
   close() {
     this.proxy.close();
   }
+  gotCharacterIndexAtPoint(index) {
+    return this.$.gotCharacterIndexAtPoint(index);
+  }
+  gotFirstRectForRange(rect) {
+    return this.$.gotFirstRectForRange(rect);
+  }
 };
 
 blink.mojom.TextInputHostRemoteCallHandler = class {

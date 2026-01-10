@@ -115,6 +115,15 @@ device.mojom.NFCProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getNFCForHost(host_id, receiver) {
+    return this.$.getNFCForHost(host_id, receiver);
+  }
+  suspendNFCOperations() {
+    return this.$.suspendNFCOperations();
+  }
+  resumeNFCOperations() {
+    return this.$.resumeNFCOperations();
+  }
 };
 
 device.mojom.NFCProviderRemoteCallHandler = class {

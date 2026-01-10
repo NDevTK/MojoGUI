@@ -147,6 +147,18 @@ blink.mojom.WorkerContentSettingsProxyRemote = class {
   close() {
     this.proxy.close();
   }
+  allowIndexedDB() {
+    return this.$.allowIndexedDB();
+  }
+  allowCacheStorage() {
+    return this.$.allowCacheStorage();
+  }
+  allowWebLocks() {
+    return this.$.allowWebLocks();
+  }
+  requestFileSystemAccessSync() {
+    return this.$.requestFileSystemAccessSync();
+  }
 };
 
 blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {

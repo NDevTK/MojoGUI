@@ -109,6 +109,9 @@ media_router.mojom.MediaRouterTraitsTestServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  echoMediaSink(s) {
+    return this.$.echoMediaSink(s);
+  }
 };
 
 media_router.mojom.MediaRouterTraitsTestServiceRemoteCallHandler = class {

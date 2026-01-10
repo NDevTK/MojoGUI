@@ -190,6 +190,9 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createCertificateManagerPageHandler(page, handler) {
+    return this.$.createCertificateManagerPageHandler(page, handler);
+  }
 };
 
 certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemoteCallHandler = class {
@@ -416,6 +419,33 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getCertificates(source) {
+    return this.$.getCertificates(source);
+  }
+  getCertManagementMetadata() {
+    return this.$.getCertManagementMetadata();
+  }
+  viewCertificate(source, sha256_hash_hex) {
+    return this.$.viewCertificate(source, sha256_hash_hex);
+  }
+  exportCertificates(source) {
+    return this.$.exportCertificates(source);
+  }
+  importCertificate(source) {
+    return this.$.importCertificate(source);
+  }
+  importAndBindCertificate(source) {
+    return this.$.importAndBindCertificate(source);
+  }
+  deleteCertificate(source, display_name, sha256_hash_hex) {
+    return this.$.deleteCertificate(source, display_name, sha256_hash_hex);
+  }
+  showNativeManageCertificates() {
+    return this.$.showNativeManageCertificates();
+  }
+  setIncludeSystemTrustStore(include) {
+    return this.$.setIncludeSystemTrustStore(include);
   }
 };
 
@@ -855,6 +885,18 @@ certificate_manager.mojom.CertificateManagerPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  askForImportPassword() {
+    return this.$.askForImportPassword();
+  }
+  askForConfirmation(title, message) {
+    return this.$.askForConfirmation(title, message);
+  }
+  triggerReload(sources) {
+    return this.$.triggerReload(sources);
+  }
+  triggerMetadataUpdate() {
+    return this.$.triggerMetadataUpdate();
   }
 };
 

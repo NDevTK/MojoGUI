@@ -146,6 +146,12 @@ arc.mojom.MemoryInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  dropCaches() {
+    return this.$.dropCaches();
+  }
+  reclaim(request) {
+    return this.$.reclaim(request);
+  }
 };
 
 arc.mojom.MemoryInstanceRemoteCallHandler = class {

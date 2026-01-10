@@ -201,6 +201,12 @@ cast_streaming.mojom.AudioBufferRequesterRemote = class {
   close() {
     this.proxy.close();
   }
+  getBuffer() {
+    return this.$.getBuffer();
+  }
+  enableBitstreamConverter() {
+    return this.$.enableBitstreamConverter();
+  }
 };
 
 cast_streaming.mojom.AudioBufferRequesterRemoteCallHandler = class {
@@ -406,6 +412,12 @@ cast_streaming.mojom.VideoBufferRequesterRemote = class {
   close() {
     this.proxy.close();
   }
+  getBuffer() {
+    return this.$.getBuffer();
+  }
+  enableBitstreamConverter() {
+    return this.$.enableBitstreamConverter();
+  }
 };
 
 cast_streaming.mojom.VideoBufferRequesterRemoteCallHandler = class {
@@ -605,6 +617,12 @@ cast_streaming.mojom.DemuxerConnectorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  enableReceiver() {
+    return this.$.enableReceiver();
+  }
+  onStreamsInitialized(audio_buffer_requester, video_buffer_requester) {
+    return this.$.onStreamsInitialized(audio_buffer_requester, video_buffer_requester);
   }
 };
 

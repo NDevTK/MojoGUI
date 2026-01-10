@@ -188,6 +188,15 @@ blink.mojom.BytesProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  requestAsReply() {
+    return this.$.requestAsReply();
+  }
+  requestAsStream(pipe) {
+    return this.$.requestAsStream(pipe);
+  }
+  requestAsFile(source_offset, source_size, file, file_offset) {
+    return this.$.requestAsFile(source_offset, source_size, file, file_offset);
+  }
 };
 
 blink.mojom.BytesProviderRemoteCallHandler = class {

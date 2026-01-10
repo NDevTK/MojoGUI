@@ -111,6 +111,9 @@ blink.mojom.WebSensorProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getSensor(type) {
+    return this.$.getSensor(type);
+  }
 };
 
 blink.mojom.WebSensorProviderRemoteCallHandler = class {

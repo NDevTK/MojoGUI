@@ -127,6 +127,9 @@ media.mojom.AndroidOverlayProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  createOverlay(overlay, client, config) {
+    return this.$.createOverlay(overlay, client, config);
+  }
 };
 
 media.mojom.AndroidOverlayProviderRemoteCallHandler = class {
@@ -274,6 +277,9 @@ media.mojom.AndroidOverlayRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  scheduleLayout(rect) {
+    return this.$.scheduleLayout(rect);
   }
 };
 
@@ -443,6 +449,18 @@ media.mojom.AndroidOverlayClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onSurfaceReady(surface_key) {
+    return this.$.onSurfaceReady(surface_key);
+  }
+  onDestroyed() {
+    return this.$.onDestroyed();
+  }
+  onSynchronouslyDestroyed() {
+    return this.$.onSynchronouslyDestroyed();
+  }
+  onPowerEfficientState(is_power_efficient) {
+    return this.$.onPowerEfficientState(is_power_efficient);
   }
 };
 

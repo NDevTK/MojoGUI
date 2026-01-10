@@ -109,6 +109,9 @@ ui.mojom.IMEStructTraitsTestRemote = class {
   close() {
     this.proxy.close();
   }
+  echoTextInputType(in) {
+    return this.$.echoTextInputType(in);
+  }
 };
 
 ui.mojom.IMEStructTraitsTestRemoteCallHandler = class {

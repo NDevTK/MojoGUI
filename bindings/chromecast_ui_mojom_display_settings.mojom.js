@@ -162,6 +162,33 @@ chromecast.mojom.DisplaySettingsRemote = class {
   close() {
     this.proxy.close();
   }
+  setColorTemperature(kelvin) {
+    return this.$.setColorTemperature(kelvin);
+  }
+  setColorTemperatureSmooth(kelvin, duration) {
+    return this.$.setColorTemperatureSmooth(kelvin, duration);
+  }
+  resetColorTemperature() {
+    return this.$.resetColorTemperature();
+  }
+  setBrightness(brightness) {
+    return this.$.setBrightness(brightness);
+  }
+  setBrightnessSmooth(brightness, duration) {
+    return this.$.setBrightnessSmooth(brightness, duration);
+  }
+  resetBrightness() {
+    return this.$.resetBrightness();
+  }
+  setScreenOn(display_on) {
+    return this.$.setScreenOn(display_on);
+  }
+  setAllowScreenPowerOff(allow_power_off) {
+    return this.$.setAllowScreenPowerOff(allow_power_off);
+  }
+  addDisplaySettingsObserver(observer) {
+    return this.$.addDisplaySettingsObserver(observer);
+  }
 };
 
 chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
@@ -541,6 +568,9 @@ chromecast.mojom.DisplaySettingsObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onDisplayBrightnessChanged(brightness) {
+    return this.$.onDisplayBrightnessChanged(brightness);
   }
 };
 

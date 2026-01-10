@@ -115,6 +115,9 @@ ash.office_fallback.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -262,6 +265,9 @@ ash.office_fallback.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  close(choice) {
+    return this.$.close(choice);
   }
 };
 

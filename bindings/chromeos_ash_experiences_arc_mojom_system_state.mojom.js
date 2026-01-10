@@ -118,6 +118,9 @@ arc.mojom.SystemStateHostRemote = class {
   close() {
     this.proxy.close();
   }
+  updateAppRunningState(state) {
+    return this.$.updateAppRunningState(state);
+  }
 };
 
 arc.mojom.SystemStateHostRemoteCallHandler = class {
@@ -270,6 +273,9 @@ arc.mojom.SystemStateInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

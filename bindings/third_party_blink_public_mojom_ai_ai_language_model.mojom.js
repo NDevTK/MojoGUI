@@ -221,6 +221,12 @@ blink.mojom.AIManagerCreateLanguageModelClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onResult(language_model_remote, info) {
+    return this.$.onResult(language_model_remote, info);
+  }
+  onError(error, quota_error_info) {
+    return this.$.onError(error, quota_error_info);
+  }
 };
 
 blink.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
@@ -430,6 +436,21 @@ blink.mojom.AILanguageModelRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  prompt(prompts, constraint, pending_responder) {
+    return this.$.prompt(prompts, constraint, pending_responder);
+  }
+  append(prompts, client) {
+    return this.$.append(prompts, client);
+  }
+  fork(client) {
+    return this.$.fork(client);
+  }
+  destroy() {
+    return this.$.destroy();
+  }
+  measureInputUsage(input) {
+    return this.$.measureInputUsage(input);
   }
 };
 

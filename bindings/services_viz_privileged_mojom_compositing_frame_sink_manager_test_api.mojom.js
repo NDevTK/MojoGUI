@@ -149,6 +149,18 @@ viz.mojom.FrameSinkManagerTestApiRemote = class {
   close() {
     this.proxy.close();
   }
+  hasUnclaimedViewTransitionResources() {
+    return this.$.hasUnclaimedViewTransitionResources();
+  }
+  setSameDocNavigationScreenshotSize(result_size) {
+    return this.$.setSameDocNavigationScreenshotSize(result_size);
+  }
+  getForceEnableZoomState(frame_sink_id) {
+    return this.$.getForceEnableZoomState(frame_sink_id);
+  }
+  waitForSurfaceAnimationManager(frame_sink_id) {
+    return this.$.waitForSurfaceAnimationManager(frame_sink_id);
+  }
 };
 
 viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {

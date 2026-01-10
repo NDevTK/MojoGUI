@@ -104,6 +104,9 @@ viz.mojom.VSyncParameterObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onUpdateVSyncParameters(timebase, interval) {
+    return this.$.onUpdateVSyncParameters(timebase, interval);
+  }
 };
 
 viz.mojom.VSyncParameterObserverRemoteCallHandler = class {

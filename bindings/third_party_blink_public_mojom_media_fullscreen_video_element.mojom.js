@@ -101,6 +101,9 @@ blink.mojom.FullscreenVideoElementHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  requestFullscreenVideoElement() {
+    return this.$.requestFullscreenVideoElement();
+  }
 };
 
 blink.mojom.FullscreenVideoElementHandlerRemoteCallHandler = class {

@@ -158,6 +158,12 @@ blink.mojom.AIRewriterRemote = class {
   close() {
     this.proxy.close();
   }
+  rewrite(input, context, pending_responder) {
+    return this.$.rewrite(input, context, pending_responder);
+  }
+  measureUsage(input, context) {
+    return this.$.measureUsage(input, context);
+  }
 };
 
 blink.mojom.AIRewriterRemoteCallHandler = class {

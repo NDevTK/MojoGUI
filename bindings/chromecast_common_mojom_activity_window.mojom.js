@@ -107,6 +107,12 @@ chromecast.mojom.ActivityWindowRemote = class {
   close() {
     this.proxy.close();
   }
+  show() {
+    return this.$.show();
+  }
+  hide() {
+    return this.$.hide();
+  }
 };
 
 chromecast.mojom.ActivityWindowRemoteCallHandler = class {

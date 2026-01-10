@@ -110,6 +110,9 @@ blink.mojom.GpuDataManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  are3DAPIsBlockedForUrl(url) {
+    return this.$.are3DAPIsBlockedForUrl(url);
+  }
 };
 
 blink.mojom.GpuDataManagerRemoteCallHandler = class {

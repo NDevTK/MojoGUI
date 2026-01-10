@@ -178,6 +178,24 @@ media.mojom.VideoCaptureObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onStateChanged(result) {
+    return this.$.onStateChanged(result);
+  }
+  onNewBuffer(buffer_id, buffer_handle) {
+    return this.$.onNewBuffer(buffer_id, buffer_handle);
+  }
+  onBufferReady(buffer) {
+    return this.$.onBufferReady(buffer);
+  }
+  onBufferDestroyed(buffer_id) {
+    return this.$.onBufferDestroyed(buffer_id);
+  }
+  onFrameDropped(reason) {
+    return this.$.onFrameDropped(reason);
+  }
+  onNewCaptureVersion(capture_version) {
+    return this.$.onNewCaptureVersion(capture_version);
+  }
 };
 
 media.mojom.VideoCaptureObserverRemoteCallHandler = class {
@@ -540,6 +558,33 @@ media.mojom.VideoCaptureHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  start(device_id, session_id, params, observer) {
+    return this.$.start(device_id, session_id, params, observer);
+  }
+  stop(device_id) {
+    return this.$.stop(device_id);
+  }
+  pause(device_id) {
+    return this.$.pause(device_id);
+  }
+  resume(device_id, session_id, params) {
+    return this.$.resume(device_id, session_id, params);
+  }
+  requestRefreshFrame(device_id) {
+    return this.$.requestRefreshFrame(device_id);
+  }
+  releaseBuffer(device_id, buffer_id, feedback) {
+    return this.$.releaseBuffer(device_id, buffer_id, feedback);
+  }
+  getDeviceSupportedFormats(device_id, session_id) {
+    return this.$.getDeviceSupportedFormats(device_id, session_id);
+  }
+  getDeviceFormatsInUse(device_id, session_id) {
+    return this.$.getDeviceFormatsInUse(device_id, session_id);
+  }
+  onLog(device_id, message) {
+    return this.$.onLog(device_id, message);
   }
 };
 

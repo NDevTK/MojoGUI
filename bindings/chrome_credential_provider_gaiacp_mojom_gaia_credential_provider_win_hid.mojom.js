@@ -110,6 +110,9 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemote = class {
   close() {
     this.proxy.close();
   }
+  openDevice(device_path) {
+    return this.$.openDevice(device_path);
+  }
 };
 
 gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemoteCallHandler = class {

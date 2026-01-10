@@ -127,6 +127,9 @@ mantis.mojom.PlatformModelProgressObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  progress(progress) {
+    return this.$.progress(progress);
+  }
 };
 
 mantis.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
@@ -294,6 +297,12 @@ mantis.mojom.MantisServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getMantisFeatureStatus() {
+    return this.$.getMantisFeatureStatus();
+  }
+  initialize(progress_observer, processor, dlc_uuid, text_classifier) {
+    return this.$.initialize(progress_observer, processor, dlc_uuid, text_classifier);
   }
 };
 

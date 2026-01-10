@@ -139,6 +139,12 @@ remote_cocoa.mojom.AlertBridgeRemote = class {
   close() {
     this.proxy.close();
   }
+  show(params) {
+    return this.$.show(params);
+  }
+  dismiss() {
+    return this.$.dismiss();
+  }
 };
 
 remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {

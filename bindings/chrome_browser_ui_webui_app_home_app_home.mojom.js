@@ -172,6 +172,9 @@ app_home.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 app_home.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -390,6 +393,36 @@ app_home.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getApps() {
+    return this.$.getApps();
+  }
+  getDeprecationLinkString() {
+    return this.$.getDeprecationLinkString();
+  }
+  uninstallApp(app_id) {
+    return this.$.uninstallApp(app_id);
+  }
+  showAppSettings(app_id) {
+    return this.$.showAppSettings(app_id);
+  }
+  createAppShortcut(app_id) {
+    return this.$.createAppShortcut(app_id);
+  }
+  launchApp(app_id, click_event) {
+    return this.$.launchApp(app_id, click_event);
+  }
+  setRunOnOsLoginMode(app_id, run_on_os_login_mode) {
+    return this.$.setRunOnOsLoginMode(app_id, run_on_os_login_mode);
+  }
+  launchDeprecatedAppDialog() {
+    return this.$.launchDeprecatedAppDialog();
+  }
+  installAppLocally(app_id) {
+    return this.$.installAppLocally(app_id);
+  }
+  setUserDisplayMode(app_id, display_mode) {
+    return this.$.setUserDisplayMode(app_id, display_mode);
   }
 };
 
@@ -829,6 +862,15 @@ app_home.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addApp(app_info) {
+    return this.$.addApp(app_info);
+  }
+  removeApp(app_info) {
+    return this.$.removeApp(app_info);
+  }
+  updateApp(app_info) {
+    return this.$.updateApp(app_info);
   }
 };
 

@@ -225,6 +225,12 @@ crosapi.mojom.PasskeyAuthenticatorRemote = class {
   close() {
     this.proxy.close();
   }
+  create(account, request) {
+    return this.$.create(account, request);
+  }
+  assert(account, request) {
+    return this.$.assert(account, request);
+  }
 };
 
 crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = class {

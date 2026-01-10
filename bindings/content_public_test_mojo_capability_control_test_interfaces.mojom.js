@@ -116,6 +116,9 @@ content.mojom.TestInterfaceForDeferRemote = class {
   close() {
     this.proxy.close();
   }
+  ping() {
+    return this.$.ping();
+  }
 };
 
 content.mojom.TestInterfaceForDeferRemoteCallHandler = class {
@@ -607,6 +610,9 @@ content.mojom.MojoContextProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  grantAll() {
+    return this.$.grantAll();
   }
 };
 

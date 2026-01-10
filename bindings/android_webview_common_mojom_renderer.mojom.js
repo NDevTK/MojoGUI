@@ -108,6 +108,12 @@ android_webview.mojom.RendererRemote = class {
   close() {
     this.proxy.close();
   }
+  clearCache() {
+    return this.$.clearCache();
+  }
+  setJsOnlineProperty(network_up) {
+    return this.$.setJsOnlineProperty(network_up);
+  }
 };
 
 android_webview.mojom.RendererRemoteCallHandler = class {

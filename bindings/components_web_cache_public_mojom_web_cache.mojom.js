@@ -102,6 +102,9 @@ web_cache.mojom.WebCacheRemote = class {
   close() {
     this.proxy.close();
   }
+  clearCache(on_navigation) {
+    return this.$.clearCache(on_navigation);
+  }
 };
 
 web_cache.mojom.WebCacheRemoteCallHandler = class {

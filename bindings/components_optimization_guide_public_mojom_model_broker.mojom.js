@@ -170,6 +170,15 @@ optimization_guide.mojom.ModelSolutionRemote = class {
   close() {
     this.proxy.close();
   }
+  createSession(session, params) {
+    return this.$.createSession(session, params);
+  }
+  createTextSafetySession(session) {
+    return this.$.createTextSafetySession(session);
+  }
+  reportHealthyCompletion() {
+    return this.$.reportHealthyCompletion();
+  }
 };
 
 optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
@@ -383,6 +392,12 @@ optimization_guide.mojom.ModelSubscriberRemote = class {
   close() {
     this.proxy.close();
   }
+  unavailable(reason) {
+    return this.$.unavailable(reason);
+  }
+  available(config, solution) {
+    return this.$.available(config, solution);
+  }
 };
 
 optimization_guide.mojom.ModelSubscriberRemoteCallHandler = class {
@@ -560,6 +575,9 @@ optimization_guide.mojom.ModelBrokerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  subscribe(options, subcriber) {
+    return this.$.subscribe(options, subcriber);
   }
 };
 

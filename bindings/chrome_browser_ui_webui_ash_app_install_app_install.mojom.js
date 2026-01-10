@@ -187,6 +187,12 @@ ash.app_install.mojom.AppInfoActionsRemote = class {
   close() {
     this.proxy.close();
   }
+  installApp() {
+    return this.$.installApp();
+  }
+  launchApp() {
+    return this.$.launchApp();
+  }
 };
 
 ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
@@ -369,6 +375,9 @@ ash.app_install.mojom.ConnectionErrorActionsRemote = class {
   close() {
     this.proxy.close();
   }
+  tryAgain() {
+    return this.$.tryAgain();
+  }
 };
 
 ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler = class {
@@ -516,6 +525,9 @@ ash.app_install.mojom.PageHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
   }
 };
 
@@ -674,6 +686,12 @@ ash.app_install.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDialogArgs() {
+    return this.$.getDialogArgs();
+  }
+  closeDialog() {
+    return this.$.closeDialog();
   }
 };
 

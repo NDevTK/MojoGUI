@@ -394,6 +394,12 @@ media.mojom.VideoEncodeAcceleratorProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  createVideoEncodeAccelerator(command_buffer_id, receiver) {
+    return this.$.createVideoEncodeAccelerator(command_buffer_id, receiver);
+  }
+  getVideoEncodeAcceleratorSupportedProfiles() {
+    return this.$.getVideoEncodeAcceleratorSupportedProfiles();
+  }
 };
 
 media.mojom.VideoEncodeAcceleratorProviderRemoteCallHandler = class {
@@ -576,6 +582,9 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createVideoEncodeAcceleratorProvider(receiver) {
+    return this.$.createVideoEncodeAcceleratorProvider(receiver);
   }
 };
 
@@ -789,6 +798,27 @@ media.mojom.VideoEncodeAcceleratorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  initialize(config, client, media_log) {
+    return this.$.initialize(config, client, media_log);
+  }
+  encode(frame, options) {
+    return this.$.encode(frame, options);
+  }
+  useOutputBitstreamBuffer(bitstream_buffer_id, region) {
+    return this.$.useOutputBitstreamBuffer(bitstream_buffer_id, region);
+  }
+  requestEncodingParametersChangeWithLayers(bitrate_allocation, framerate, size) {
+    return this.$.requestEncodingParametersChangeWithLayers(bitrate_allocation, framerate, size);
+  }
+  requestEncodingParametersChangeWithBitrate(bitrate, framerate, size) {
+    return this.$.requestEncodingParametersChangeWithBitrate(bitrate, framerate, size);
+  }
+  isFlushSupported() {
+    return this.$.isFlushSupported();
+  }
+  flush() {
+    return this.$.flush();
   }
 };
 
@@ -1156,6 +1186,18 @@ media.mojom.VideoEncodeAcceleratorClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requireBitstreamBuffers(input_count, input_coded_size, output_buffer_size) {
+    return this.$.requireBitstreamBuffers(input_count, input_coded_size, output_buffer_size);
+  }
+  bitstreamBufferReady(bitstream_buffer_id, metadata) {
+    return this.$.bitstreamBufferReady(bitstream_buffer_id, metadata);
+  }
+  notifyErrorStatus(status) {
+    return this.$.notifyErrorStatus(status);
+  }
+  notifyEncoderInfoChange(info) {
+    return this.$.notifyEncoderInfoChange(info);
   }
 };
 

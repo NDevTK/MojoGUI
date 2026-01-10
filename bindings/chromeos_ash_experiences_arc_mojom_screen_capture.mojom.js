@@ -147,6 +147,15 @@ arc.mojom.ScreenCaptureHostRemote = class {
   close() {
     this.proxy.close();
   }
+  requestPermission(display_name, package_name) {
+    return this.$.requestPermission(display_name, package_name);
+  }
+  testModeAcceptPermission(package_name) {
+    return this.$.testModeAcceptPermission(package_name);
+  }
+  openSession(notifier, package_name, size) {
+    return this.$.openSession(notifier, package_name, size);
+  }
 };
 
 arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
@@ -385,6 +394,12 @@ arc.mojom.ScreenCaptureSessionRemote = class {
   close() {
     this.proxy.close();
   }
+  setOutputBufferDeprecated(graphics_buffer, stride) {
+    return this.$.setOutputBufferDeprecated(graphics_buffer, stride);
+  }
+  setOutputBuffer(graphics_buffer, buffer_format, buffer_format_modifier, stride) {
+    return this.$.setOutputBuffer(graphics_buffer, buffer_format, buffer_format_modifier, stride);
+  }
 };
 
 arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
@@ -579,6 +594,9 @@ arc.mojom.ScreenCaptureInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
 };
 
 arc.mojom.ScreenCaptureInstanceRemoteCallHandler = class {
@@ -731,6 +749,9 @@ arc.mojom.ScreenCaptureSessionNotifierRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  forceUpdate() {
+    return this.$.forceUpdate();
   }
 };
 

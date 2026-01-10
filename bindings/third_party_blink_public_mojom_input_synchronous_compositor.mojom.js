@@ -275,6 +275,45 @@ blink.mojom.SynchronousCompositorRemote = class {
   close() {
     this.proxy.close();
   }
+  demandDrawHwAsync(draw_params) {
+    return this.$.demandDrawHwAsync(draw_params);
+  }
+  demandDrawHw(draw_params) {
+    return this.$.demandDrawHw(draw_params);
+  }
+  setSharedMemory(shm_region) {
+    return this.$.setSharedMemory(shm_region);
+  }
+  demandDrawSw(draw_params) {
+    return this.$.demandDrawSw(draw_params);
+  }
+  willSkipDraw() {
+    return this.$.willSkipDraw();
+  }
+  zeroSharedMemory() {
+    return this.$.zeroSharedMemory();
+  }
+  zoomBy(delta, anchor) {
+    return this.$.zoomBy(delta, anchor);
+  }
+  setMemoryPolicy(bytes_limit) {
+    return this.$.setMemoryPolicy(bytes_limit);
+  }
+  reclaimResources(layer_tree_frame_sink_id, resources) {
+    return this.$.reclaimResources(layer_tree_frame_sink_id, resources);
+  }
+  onCompositorFrameTransitionDirectiveProcessed(layer_tree_frame_sink_id, sequence_id) {
+    return this.$.onCompositorFrameTransitionDirectiveProcessed(layer_tree_frame_sink_id, sequence_id);
+  }
+  setScroll(offset) {
+    return this.$.setScroll(offset);
+  }
+  beginFrame(args, timing_details) {
+    return this.$.beginFrame(args, timing_details);
+  }
+  setBeginFrameSourcePaused(paused) {
+    return this.$.setBeginFrameSourcePaused(paused);
+  }
 };
 
 blink.mojom.SynchronousCompositorRemoteCallHandler = class {
@@ -812,6 +851,18 @@ blink.mojom.SynchronousCompositorHostRemote = class {
   close() {
     this.proxy.close();
   }
+  layerTreeFrameSinkCreated() {
+    return this.$.layerTreeFrameSinkCreated();
+  }
+  updateState(params) {
+    return this.$.updateState(params);
+  }
+  setNeedsBeginFrames(needs_begin_frames) {
+    return this.$.setNeedsBeginFrames(needs_begin_frames);
+  }
+  setThreads(threads) {
+    return this.$.setThreads(threads);
+  }
 };
 
 blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
@@ -1056,6 +1107,12 @@ blink.mojom.SynchronousCompositorControlHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  returnFrame(layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list) {
+    return this.$.returnFrame(layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list);
+  }
+  beginFrameResponse(params) {
+    return this.$.beginFrameResponse(params);
   }
 };
 

@@ -269,6 +269,24 @@ remote_cocoa.mojom.ApplicationRemote = class {
   close() {
     this.proxy.close();
   }
+  createAlert(alert_bridge_receiver) {
+    return this.$.createAlert(alert_bridge_receiver);
+  }
+  createNativeWidgetNSWindow(bridge_id, window_receiver, host, text_input_host) {
+    return this.$.createNativeWidgetNSWindow(bridge_id, window_receiver, host, text_input_host);
+  }
+  createRenderWidgetHostNSView(view_id, host, view_receiver) {
+    return this.$.createRenderWidgetHostNSView(view_id, host, view_receiver);
+  }
+  createSystemMediaControlsBridge(receiver, host) {
+    return this.$.createSystemMediaControlsBridge(receiver, host);
+  }
+  createWebContentsNSView(view_id, host, view_receiver) {
+    return this.$.createWebContentsNSView(view_id, host, view_receiver);
+  }
+  forwardCutCopyPaste(command) {
+    return this.$.forwardCutCopyPaste(command);
+  }
 };
 
 remote_cocoa.mojom.ApplicationRemoteCallHandler = class {

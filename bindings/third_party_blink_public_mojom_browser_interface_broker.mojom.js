@@ -103,6 +103,9 @@ blink.mojom.BrowserInterfaceBrokerRemote = class {
   close() {
     this.proxy.close();
   }
+  getInterface(receiver) {
+    return this.$.getInterface(receiver);
+  }
 };
 
 blink.mojom.BrowserInterfaceBrokerRemoteCallHandler = class {

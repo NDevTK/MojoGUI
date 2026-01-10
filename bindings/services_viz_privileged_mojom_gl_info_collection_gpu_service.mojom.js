@@ -125,6 +125,12 @@ viz.mojom.InfoCollectionGpuServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getGpuSupportedDirectXVersionAndDevicePerfInfo() {
+    return this.$.getGpuSupportedDirectXVersionAndDevicePerfInfo();
+  }
+  getGpuSupportedVulkanVersionInfo() {
+    return this.$.getGpuSupportedVulkanVersionInfo();
+  }
 };
 
 viz.mojom.InfoCollectionGpuServiceRemoteCallHandler = class {

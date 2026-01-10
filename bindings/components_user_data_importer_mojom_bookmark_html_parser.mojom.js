@@ -157,6 +157,9 @@ user_data_importer.mojom.BookmarkHtmlParserRemote = class {
   close() {
     this.proxy.close();
   }
+  parse(raw_html) {
+    return this.$.parse(raw_html);
+  }
 };
 
 user_data_importer.mojom.BookmarkHtmlParserRemoteCallHandler = class {

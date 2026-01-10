@@ -448,6 +448,51 @@ blink.mojom.RemoteFrameHostRemote = class {
   close() {
     this.proxy.close();
   }
+  setInheritedEffectiveTouchAction(touch_action) {
+    return this.$.setInheritedEffectiveTouchAction(touch_action);
+  }
+  updateRenderThrottlingStatus(is_throttled, subtree_throttled, display_locked) {
+    return this.$.updateRenderThrottlingStatus(is_throttled, subtree_throttled, display_locked);
+  }
+  visibilityChanged(visibility) {
+    return this.$.visibilityChanged(visibility);
+  }
+  didFocusFrame() {
+    return this.$.didFocusFrame();
+  }
+  checkCompleted() {
+    return this.$.checkCompleted();
+  }
+  capturePaintPreviewOfCrossProcessSubframe(clip_rect, guid) {
+    return this.$.capturePaintPreviewOfCrossProcessSubframe(clip_rect, guid);
+  }
+  setIsInert(inert) {
+    return this.$.setIsInert(inert);
+  }
+  didChangeOpener(opener_frame) {
+    return this.$.didChangeOpener(opener_frame);
+  }
+  advanceFocus(focus_type, source_frame_token) {
+    return this.$.advanceFocus(focus_type, source_frame_token);
+  }
+  routeMessageEvent(source_frame_token, source_origin, target_origin, message) {
+    return this.$.routeMessageEvent(source_frame_token, source_origin, target_origin, message);
+  }
+  printCrossProcessSubframe(frame_content_rect, document_cookie) {
+    return this.$.printCrossProcessSubframe(frame_content_rect, document_cookie);
+  }
+  detach() {
+    return this.$.detach();
+  }
+  updateViewportIntersection(intersection_state, visual_properties) {
+    return this.$.updateViewportIntersection(intersection_state, visual_properties);
+  }
+  synchronizeVisualProperties(properties) {
+    return this.$.synchronizeVisualProperties(properties);
+  }
+  openURL(params) {
+    return this.$.openURL(params);
+  }
 };
 
 blink.mojom.RemoteFrameHostRemoteCallHandler = class {
@@ -1207,6 +1252,108 @@ blink.mojom.RemoteFrameRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  willEnterFullscreen(options) {
+    return this.$.willEnterFullscreen(options);
+  }
+  enforceInsecureNavigationsSet(set) {
+    return this.$.enforceInsecureNavigationsSet(set);
+  }
+  setFrameOwnerProperties(properties) {
+    return this.$.setFrameOwnerProperties(properties);
+  }
+  enforceInsecureRequestPolicy(policy) {
+    return this.$.enforceInsecureRequestPolicy(policy);
+  }
+  setReplicatedOrigin(origin, is_potentially_trustworthy_unique_origin) {
+    return this.$.setReplicatedOrigin(origin, is_potentially_trustworthy_unique_origin);
+  }
+  setReplicatedIsAdFrame(is_ad_frame) {
+    return this.$.setReplicatedIsAdFrame(is_ad_frame);
+  }
+  setReplicatedName(name, unique_name) {
+    return this.$.setReplicatedName(name, unique_name);
+  }
+  dispatchLoadEventForFrameOwner() {
+    return this.$.dispatchLoadEventForFrameOwner();
+  }
+  setNeedsOcclusionTracking(needs_tracking) {
+    return this.$.setNeedsOcclusionTracking(needs_tracking);
+  }
+  collapse(collapsed) {
+    return this.$.collapse(collapsed);
+  }
+  focus() {
+    return this.$.focus();
+  }
+  setHadStickyUserActivationBeforeNavigation(has_gesture) {
+    return this.$.setHadStickyUserActivationBeforeNavigation(has_gesture);
+  }
+  bubbleLogicalScroll(direction, granularity) {
+    return this.$.bubbleLogicalScroll(direction, granularity);
+  }
+  updateUserActivationState(state_update_type, notification_type) {
+    return this.$.updateUserActivationState(state_update_type, notification_type);
+  }
+  setEmbeddingToken(embedding_token) {
+    return this.$.setEmbeddingToken(embedding_token);
+  }
+  setPageFocus(is_focused) {
+    return this.$.setPageFocus(is_focused);
+  }
+  renderFallbackContent() {
+    return this.$.renderFallbackContent();
+  }
+  addResourceTimingFromChild(timing) {
+    return this.$.addResourceTimingFromChild(timing);
+  }
+  scrollRectToVisible(rect, params) {
+    return this.$.scrollRectToVisible(rect, params);
+  }
+  didStartLoading() {
+    return this.$.didStartLoading();
+  }
+  didStopLoading() {
+    return this.$.didStopLoading();
+  }
+  intrinsicSizingInfoOfChildChanged(sizing_info) {
+    return this.$.intrinsicSizingInfoOfChildChanged(sizing_info);
+  }
+  didSetFramePolicyHeaders(sandbox_flags, parsed_permissions_policy) {
+    return this.$.didSetFramePolicyHeaders(sandbox_flags, parsed_permissions_policy);
+  }
+  didUpdateFramePolicy(frame_policy) {
+    return this.$.didUpdateFramePolicy(frame_policy);
+  }
+  updateOpener(opener_frame_token) {
+    return this.$.updateOpener(opener_frame_token);
+  }
+  detachAndDispose() {
+    return this.$.detachAndDispose();
+  }
+  enableAutoResize(min_size, max_size) {
+    return this.$.enableAutoResize(min_size, max_size);
+  }
+  disableAutoResize() {
+    return this.$.disableAutoResize();
+  }
+  didUpdateVisualProperties(metadata) {
+    return this.$.didUpdateVisualProperties(metadata);
+  }
+  setFrameSinkId(frame_sink_id, allow_paint_holding) {
+    return this.$.setFrameSinkId(frame_sink_id, allow_paint_holding);
+  }
+  childProcessGone() {
+    return this.$.childProcessGone();
+  }
+  createRemoteChild(token, opener_frame_token, tree_scope_type, replication_state, owner_properties, is_loading, devtools_frame_token, remote_frame_interfaces) {
+    return this.$.createRemoteChild(token, opener_frame_token, tree_scope_type, replication_state, owner_properties, is_loading, devtools_frame_token, remote_frame_interfaces);
+  }
+  createRemoteChildren(params, navigation_metrics_token) {
+    return this.$.createRemoteChildren(params, navigation_metrics_token);
+  }
+  forwardFencedFrameEventToEmbedder(event_type) {
+    return this.$.forwardFencedFrameEventToEmbedder(event_type);
   }
 };
 
@@ -2313,6 +2460,9 @@ blink.mojom.RemoteMainFrameRemote = class {
   close() {
     this.proxy.close();
   }
+  updateTextAutosizerPageInfo(page_info) {
+    return this.$.updateTextAutosizerPageInfo(page_info);
+  }
 };
 
 blink.mojom.RemoteMainFrameRemoteCallHandler = class {
@@ -2481,6 +2631,18 @@ blink.mojom.RemoteMainFrameHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  focusPage() {
+    return this.$.focusPage();
+  }
+  takeFocus(reverse) {
+    return this.$.takeFocus(reverse);
+  }
+  updateTargetURL(url) {
+    return this.$.updateTargetURL(url);
+  }
+  routeCloseEvent() {
+    return this.$.routeCloseEvent();
   }
 };
 

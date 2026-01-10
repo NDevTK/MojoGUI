@@ -193,6 +193,9 @@ ash.recorder_app.mojom.ModelStateMonitorRemote = class {
   close() {
     this.proxy.close();
   }
+  update(state) {
+    return this.$.update(state);
+  }
 };
 
 ash.recorder_app.mojom.ModelStateMonitorRemoteCallHandler = class {
@@ -340,6 +343,9 @@ ash.recorder_app.mojom.QuietModeMonitorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  update(in_quiet_mode) {
+    return this.$.update(in_quiet_mode);
   }
 };
 
@@ -674,6 +680,57 @@ ash.recorder_app.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getModelInfo(feature) {
+    return this.$.getModelInfo(feature);
+  }
+  loadModel(model_id, model) {
+    return this.$.loadModel(model_id, model);
+  }
+  formatModelInput(uuid, feature, fields) {
+    return this.$.formatModelInput(uuid, feature, fields);
+  }
+  validateSafetyResult(safety_feature, text, safety_info) {
+    return this.$.validateSafetyResult(safety_feature, text, safety_info);
+  }
+  addModelMonitor(model_id, monitor) {
+    return this.$.addModelMonitor(model_id, monitor);
+  }
+  getAvailableLangPacks() {
+    return this.$.getAvailableLangPacks();
+  }
+  getDefaultLanguage() {
+    return this.$.getDefaultLanguage();
+  }
+  addSodaMonitor(language, monitor) {
+    return this.$.addSodaMonitor(language, monitor);
+  }
+  installSoda(language) {
+    return this.$.installSoda(language);
+  }
+  loadSpeechRecognizer(language, soda_client, soda_recognizer) {
+    return this.$.loadSpeechRecognizer(language, soda_client, soda_recognizer);
+  }
+  openAiFeedbackDialog(description_template) {
+    return this.$.openAiFeedbackDialog(description_template);
+  }
+  getMicrophoneInfo(source_id) {
+    return this.$.getMicrophoneInfo(source_id);
+  }
+  addQuietModeMonitor(monitor) {
+    return this.$.addQuietModeMonitor(monitor);
+  }
+  setQuietMode(quiet_mode) {
+    return this.$.setQuietMode(quiet_mode);
+  }
+  canUseSpeakerLabel() {
+    return this.$.canUseSpeakerLabel();
+  }
+  recordSpeakerLabelConsent(consent_given, consent_description_names, consent_confirmation_name) {
+    return this.$.recordSpeakerLabelConsent(consent_given, consent_description_names, consent_confirmation_name);
+  }
+  canCaptureSystemAudioWithLoopback() {
+    return this.$.canCaptureSystemAudioWithLoopback();
   }
 };
 

@@ -180,6 +180,24 @@ media.mojom.CdmDocumentServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  challengePlatform(service_id, challenge) {
+    return this.$.challengePlatform(service_id, challenge);
+  }
+  getStorageId(version) {
+    return this.$.getStorageId(version);
+  }
+  isVerifiedAccessEnabled() {
+    return this.$.isVerifiedAccessEnabled();
+  }
+  getMediaFoundationCdmData() {
+    return this.$.getMediaFoundationCdmData();
+  }
+  setCdmClientToken(client_token) {
+    return this.$.setCdmClientToken(client_token);
+  }
+  onCdmEvent(event, hresult) {
+    return this.$.onCdmEvent(event, hresult);
+  }
 };
 
 media.mojom.CdmDocumentServiceRemoteCallHandler = class {

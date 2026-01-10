@@ -137,6 +137,15 @@ webnn.mojom.WebNNGraphBuilderRemote = class {
   close() {
     this.proxy.close();
   }
+  createPendingConstant(constant_handle, data_type, data) {
+    return this.$.createPendingConstant(constant_handle, data_type, data);
+  }
+  createGraph(graph_info) {
+    return this.$.createGraph(graph_info);
+  }
+  isValidGraphForTesting(context_properties, graph_info) {
+    return this.$.isValidGraphForTesting(context_properties, graph_info);
+  }
 };
 
 webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {

@@ -193,6 +193,12 @@ chromeos.machine_learning.mojom.ModelRemote = class {
   close() {
     this.proxy.close();
   }
+  rEMOVED_0(receiver) {
+    return this.$.rEMOVED_0(receiver);
+  }
+  createGraphExecutor(options, receiver) {
+    return this.$.createGraphExecutor(options, receiver);
+  }
 };
 
 chromeos.machine_learning.mojom.ModelRemoteCallHandler = class {

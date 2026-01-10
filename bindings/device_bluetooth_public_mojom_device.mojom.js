@@ -314,6 +314,33 @@ bluetooth.mojom.DeviceRemote = class {
   close() {
     this.proxy.close();
   }
+  disconnect() {
+    return this.$.disconnect();
+  }
+  getInfo() {
+    return this.$.getInfo();
+  }
+  getServices() {
+    return this.$.getServices();
+  }
+  getCharacteristics(service_id) {
+    return this.$.getCharacteristics(service_id);
+  }
+  readValueForCharacteristic(service_id, characteristic_id) {
+    return this.$.readValueForCharacteristic(service_id, characteristic_id);
+  }
+  writeValueForCharacteristic(service_id, characteristic_id, value) {
+    return this.$.writeValueForCharacteristic(service_id, characteristic_id, value);
+  }
+  getDescriptors(service_id, characteristic_id) {
+    return this.$.getDescriptors(service_id, characteristic_id);
+  }
+  readValueForDescriptor(service_id, characteristic_id, descriptor_id) {
+    return this.$.readValueForDescriptor(service_id, characteristic_id, descriptor_id);
+  }
+  writeValueForDescriptor(service_id, characteristic_id, descriptor_id, value) {
+    return this.$.writeValueForDescriptor(service_id, characteristic_id, descriptor_id, value);
+  }
 };
 
 bluetooth.mojom.DeviceRemoteCallHandler = class {

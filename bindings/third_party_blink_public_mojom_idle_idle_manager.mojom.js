@@ -126,6 +126,9 @@ blink.mojom.IdleMonitorRemote = class {
   close() {
     this.proxy.close();
   }
+  update(state, is_overridden_by_devtools) {
+    return this.$.update(state, is_overridden_by_devtools);
+  }
 };
 
 blink.mojom.IdleMonitorRemoteCallHandler = class {
@@ -280,6 +283,9 @@ blink.mojom.IdleManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addMonitor(monitor) {
+    return this.$.addMonitor(monitor);
   }
 };
 

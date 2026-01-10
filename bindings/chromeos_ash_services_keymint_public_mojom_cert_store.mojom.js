@@ -147,6 +147,12 @@ arc.keymint.mojom.CertStoreInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  updatePlaceholderKeys(keys) {
+    return this.$.updatePlaceholderKeys(keys);
+  }
+  setSerialNumber(serial_number) {
+    return this.$.setSerialNumber(serial_number);
+  }
 };
 
 arc.keymint.mojom.CertStoreInstanceRemoteCallHandler = class {

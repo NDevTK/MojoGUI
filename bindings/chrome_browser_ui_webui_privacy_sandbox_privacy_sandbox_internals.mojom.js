@@ -177,6 +177,21 @@ privacy_sandbox_internals.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  readPrefsWithPrefixes(pref_prefixes) {
+    return this.$.readPrefsWithPrefixes(pref_prefixes);
+  }
+  readContentSettings(type) {
+    return this.$.readContentSettings(type);
+  }
+  getTpcdMetadataGrants() {
+    return this.$.getTpcdMetadataGrants();
+  }
+  contentSettingsPatternToString(pattern) {
+    return this.$.contentSettingsPatternToString(pattern);
+  }
+  stringToContentSettingsPattern(s) {
+    return this.$.stringToContentSettingsPattern(s);
+  }
 };
 
 privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {

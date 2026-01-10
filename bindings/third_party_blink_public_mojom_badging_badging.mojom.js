@@ -124,6 +124,12 @@ blink.mojom.BadgeServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  setBadge(value) {
+    return this.$.setBadge(value);
+  }
+  clearBadge() {
+    return this.$.clearBadge();
+  }
 };
 
 blink.mojom.BadgeServiceRemoteCallHandler = class {

@@ -301,6 +301,9 @@ ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote = class {
   close() {
     this.proxy.close();
   }
+  getColorMatched() {
+    return this.$.getColorMatched();
+  }
 };
 
 ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemoteCallHandler = class {

@@ -170,6 +170,9 @@ network.mojom.ObliviousHttpClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onCompleted(response) {
+    return this.$.onCompleted(response);
+  }
 };
 
 network.mojom.ObliviousHttpClientRemoteCallHandler = class {

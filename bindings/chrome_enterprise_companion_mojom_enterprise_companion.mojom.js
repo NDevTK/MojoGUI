@@ -132,6 +132,12 @@ enterprise_companion.mojom.EnterpriseCompanionRemote = class {
   close() {
     this.proxy.close();
   }
+  shutdown() {
+    return this.$.shutdown();
+  }
+  fetchPolicies(reason) {
+    return this.$.fetchPolicies(reason);
+  }
 };
 
 enterprise_companion.mojom.EnterpriseCompanionRemoteCallHandler = class {

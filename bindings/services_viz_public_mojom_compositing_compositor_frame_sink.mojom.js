@@ -190,6 +190,27 @@ viz.mojom.CompositorFrameSinkRemote = class {
   close() {
     this.proxy.close();
   }
+  setParams(params) {
+    return this.$.setParams(params);
+  }
+  setNeedsBeginFrame(needs_begin_frame) {
+    return this.$.setNeedsBeginFrame(needs_begin_frame);
+  }
+  submitCompositorFrame(local_surface_id, frame, hit_test_region_list, submit_time) {
+    return this.$.submitCompositorFrame(local_surface_id, frame, hit_test_region_list, submit_time);
+  }
+  didNotProduceFrame(ack) {
+    return this.$.didNotProduceFrame(ack);
+  }
+  notifyNewLocalSurfaceIdExpectedWhilePaused() {
+    return this.$.notifyNewLocalSurfaceIdExpectedWhilePaused();
+  }
+  bindLayerContext(context, settings) {
+    return this.$.bindLayerContext(context, settings);
+  }
+  setThreads(threads) {
+    return this.$.setThreads(threads);
+  }
 };
 
 viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
@@ -543,6 +564,24 @@ viz.mojom.CompositorFrameSinkClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  didReceiveCompositorFrameAck(resources) {
+    return this.$.didReceiveCompositorFrameAck(resources);
+  }
+  onBeginFrame(args, details, resources) {
+    return this.$.onBeginFrame(args, details, resources);
+  }
+  onBeginFramePausedChanged(paused) {
+    return this.$.onBeginFramePausedChanged(paused);
+  }
+  reclaimResources(resources) {
+    return this.$.reclaimResources(resources);
+  }
+  onCompositorFrameTransitionDirectiveProcessed(sequence_id) {
+    return this.$.onCompositorFrameTransitionDirectiveProcessed(sequence_id);
+  }
+  onSurfaceEvicted(local_surface_id) {
+    return this.$.onSurfaceEvicted(local_surface_id);
   }
 };
 

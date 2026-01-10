@@ -125,6 +125,12 @@ arc.mojom.WakeLockHostRemote = class {
   close() {
     this.proxy.close();
   }
+  acquirePartialWakeLock() {
+    return this.$.acquirePartialWakeLock();
+  }
+  releasePartialWakeLock() {
+    return this.$.releasePartialWakeLock();
+  }
 };
 
 arc.mojom.WakeLockHostRemoteCallHandler = class {
@@ -318,6 +324,9 @@ arc.mojom.WakeLockInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

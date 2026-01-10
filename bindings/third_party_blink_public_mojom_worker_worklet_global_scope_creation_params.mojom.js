@@ -120,6 +120,9 @@ blink.mojom.WorkletDevToolsHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onReadyForInspection(agent, agent_host) {
+    return this.$.onReadyForInspection(agent, agent_host);
+  }
 };
 
 blink.mojom.WorkletDevToolsHostRemoteCallHandler = class {

@@ -158,6 +158,12 @@ chromeos.tts.mojom.TtsServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  bindGoogleTtsStream(receiver, stream_factory) {
+    return this.$.bindGoogleTtsStream(receiver, stream_factory);
+  }
+  bindPlaybackTtsStream(receiver, stream_factory, desired_audio_parameters) {
+    return this.$.bindPlaybackTtsStream(receiver, stream_factory, desired_audio_parameters);
+  }
 };
 
 chromeos.tts.mojom.TtsServiceRemoteCallHandler = class {
@@ -393,6 +399,27 @@ chromeos.tts.mojom.GoogleTtsStreamRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  installVoice(voice_name, voice_bytes) {
+    return this.$.installVoice(voice_name, voice_bytes);
+  }
+  selectVoice(voice_name) {
+    return this.$.selectVoice(voice_name);
+  }
+  speak(text_jspb, speaker_params_jspb) {
+    return this.$.speak(text_jspb, speaker_params_jspb);
+  }
+  stop() {
+    return this.$.stop();
+  }
+  setVolume(volume) {
+    return this.$.setVolume(volume);
+  }
+  pause() {
+    return this.$.pause();
+  }
+  resume() {
+    return this.$.resume();
   }
 };
 
@@ -768,6 +795,24 @@ chromeos.tts.mojom.PlaybackTtsStreamRemote = class {
   close() {
     this.proxy.close();
   }
+  play() {
+    return this.$.play();
+  }
+  sendAudioBuffer(frames_buffer, char_index, last_buffer) {
+    return this.$.sendAudioBuffer(frames_buffer, char_index, last_buffer);
+  }
+  stop() {
+    return this.$.stop();
+  }
+  setVolume(volume) {
+    return this.$.setVolume(volume);
+  }
+  pause() {
+    return this.$.pause();
+  }
+  resume() {
+    return this.$.resume();
+  }
 };
 
 chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
@@ -1081,6 +1126,18 @@ chromeos.tts.mojom.TtsEventObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onStart() {
+    return this.$.onStart();
+  }
+  onTimepoint(char_index) {
+    return this.$.onTimepoint(char_index);
+  }
+  onEnd() {
+    return this.$.onEnd();
+  }
+  onError() {
+    return this.$.onError();
   }
 };
 

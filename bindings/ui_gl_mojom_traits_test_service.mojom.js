@@ -123,6 +123,12 @@ gl.mojom.TraitsTestServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  echoGpuPreference(g) {
+    return this.$.echoGpuPreference(g);
+  }
+  echoGLImplementationParts(impl) {
+    return this.$.echoGLImplementationParts(impl);
+  }
 };
 
 gl.mojom.TraitsTestServiceRemoteCallHandler = class {

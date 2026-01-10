@@ -206,6 +206,30 @@ audio.mojom.SystemInfoRemote = class {
   close() {
     this.proxy.close();
   }
+  getInputStreamParameters(device_id) {
+    return this.$.getInputStreamParameters(device_id);
+  }
+  getOutputStreamParameters(device_id) {
+    return this.$.getOutputStreamParameters(device_id);
+  }
+  hasInputDevices() {
+    return this.$.hasInputDevices();
+  }
+  hasOutputDevices() {
+    return this.$.hasOutputDevices();
+  }
+  getInputDeviceDescriptions() {
+    return this.$.getInputDeviceDescriptions();
+  }
+  getOutputDeviceDescriptions() {
+    return this.$.getOutputDeviceDescriptions();
+  }
+  getAssociatedOutputDeviceID(input_device_id) {
+    return this.$.getAssociatedOutputDeviceID(input_device_id);
+  }
+  getInputDeviceInfo(input_device_id) {
+    return this.$.getInputDeviceInfo(input_device_id);
+  }
 };
 
 audio.mojom.SystemInfoRemoteCallHandler = class {

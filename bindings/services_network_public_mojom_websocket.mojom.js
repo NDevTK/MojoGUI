@@ -171,6 +171,9 @@ network.mojom.WebSocketAuthenticationHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onAuthRequired(info, headers, remote_endpoint) {
+    return this.$.onAuthRequired(info, headers, remote_endpoint);
+  }
 };
 
 network.mojom.WebSocketAuthenticationHandlerRemoteCallHandler = class {
@@ -342,6 +345,15 @@ network.mojom.WebSocketHandshakeClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onOpeningHandshakeStarted(request) {
+    return this.$.onOpeningHandshakeStarted(request);
+  }
+  onFailure(message, net_error, response_code) {
+    return this.$.onFailure(message, net_error, response_code);
+  }
+  onConnectionEstablished(socket, client_receiver, response, readable, writable) {
+    return this.$.onConnectionEstablished(socket, client_receiver, response, readable, writable);
   }
 };
 
@@ -564,6 +576,15 @@ network.mojom.WebSocketClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onDataFrame(fin, type, data_length) {
+    return this.$.onDataFrame(fin, type, data_length);
+  }
+  onDropChannel(was_clean, code, reason) {
+    return this.$.onDropChannel(was_clean, code, reason);
+  }
+  onClosingHandshake() {
+    return this.$.onClosingHandshake();
+  }
 };
 
 network.mojom.WebSocketClientRemoteCallHandler = class {
@@ -782,6 +803,15 @@ network.mojom.WebSocketRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sendMessage(type, data_length) {
+    return this.$.sendMessage(type, data_length);
+  }
+  startReceiving() {
+    return this.$.startReceiving();
+  }
+  startClosingHandshake(code, reason) {
+    return this.$.startClosingHandshake(code, reason);
   }
 };
 

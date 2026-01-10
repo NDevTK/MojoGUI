@@ -115,6 +115,9 @@ mirroring.mojom.CastMessageChannelRemote = class {
   close() {
     this.proxy.close();
   }
+  onMessage(message) {
+    return this.$.onMessage(message);
+  }
 };
 
 mirroring.mojom.CastMessageChannelRemoteCallHandler = class {

@@ -261,6 +261,27 @@ device.mojom.NFCRemote = class {
   close() {
     this.proxy.close();
   }
+  setClient(client) {
+    return this.$.setClient(client);
+  }
+  push(message, options) {
+    return this.$.push(message, options);
+  }
+  cancelPush() {
+    return this.$.cancelPush();
+  }
+  makeReadOnly() {
+    return this.$.makeReadOnly();
+  }
+  cancelMakeReadOnly() {
+    return this.$.cancelMakeReadOnly();
+  }
+  watch(id) {
+    return this.$.watch(id);
+  }
+  cancelWatch(id) {
+    return this.$.cancelWatch(id);
+  }
 };
 
 device.mojom.NFCRemoteCallHandler = class {
@@ -609,6 +630,12 @@ device.mojom.NFCClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onWatch(watch_ids, serial_number, message) {
+    return this.$.onWatch(watch_ids, serial_number, message);
+  }
+  onError(error) {
+    return this.$.onError(error);
+  }
 };
 
 device.mojom.NFCClientRemoteCallHandler = class {
@@ -792,6 +819,12 @@ device.mojom.RawNFCClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onWatch(watch_ids, message) {
+    return this.$.onWatch(watch_ids, message);
+  }
+  onError(error) {
+    return this.$.onError(error);
   }
 };
 

@@ -108,6 +108,9 @@ content.mojom.WebTestBluetoothFakeAdapterSetterRemote = class {
   close() {
     this.proxy.close();
   }
+  set(adapter_name) {
+    return this.$.set(adapter_name);
+  }
 };
 
 content.mojom.WebTestBluetoothFakeAdapterSetterRemoteCallHandler = class {

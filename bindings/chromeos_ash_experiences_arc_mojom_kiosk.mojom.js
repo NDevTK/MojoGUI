@@ -114,6 +114,12 @@ arc.mojom.KioskHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onMaintenanceSessionCreated(session_id) {
+    return this.$.onMaintenanceSessionCreated(session_id);
+  }
+  onMaintenanceSessionFinished(session_id, succeeded) {
+    return this.$.onMaintenanceSessionFinished(session_id, succeeded);
+  }
 };
 
 arc.mojom.KioskHostRemoteCallHandler = class {
@@ -295,6 +301,9 @@ arc.mojom.KioskInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

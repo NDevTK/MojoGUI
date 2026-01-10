@@ -104,6 +104,9 @@ ash.quick_pair.mojom.QuickPairServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(fast_pair_data_parser) {
+    return this.$.connect(fast_pair_data_parser);
+  }
 };
 
 ash.quick_pair.mojom.QuickPairServiceRemoteCallHandler = class {

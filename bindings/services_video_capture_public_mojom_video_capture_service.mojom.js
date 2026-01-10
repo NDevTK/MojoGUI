@@ -119,6 +119,9 @@ video_capture.mojom.AcceleratorFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createJpegDecodeAccelerator(jda) {
+    return this.$.createJpegDecodeAccelerator(jda);
+  }
 };
 
 video_capture.mojom.AcceleratorFactoryRemoteCallHandler = class {
@@ -296,6 +299,24 @@ video_capture.mojom.VideoCaptureServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  injectGpuDependencies(accelerator_factory) {
+    return this.$.injectGpuDependencies(accelerator_factory);
+  }
+  connectToCameraAppDeviceBridge(receiver) {
+    return this.$.connectToCameraAppDeviceBridge(receiver);
+  }
+  bindVideoCaptureDeviceFactory(receiver) {
+    return this.$.bindVideoCaptureDeviceFactory(receiver);
+  }
+  connectToVideoSourceProvider(receiver) {
+    return this.$.connectToVideoSourceProvider(receiver);
+  }
+  bindControlsForTesting(receiver) {
+    return this.$.bindControlsForTesting(receiver);
+  }
+  onGpuInfoUpdate(luid) {
+    return this.$.onGpuInfoUpdate(luid);
   }
 };
 

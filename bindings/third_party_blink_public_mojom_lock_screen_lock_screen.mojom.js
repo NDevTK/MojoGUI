@@ -131,6 +131,12 @@ blink.mojom.LockScreenServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getKeys() {
+    return this.$.getKeys();
+  }
+  setData(key, data) {
+    return this.$.setData(key, data);
+  }
 };
 
 blink.mojom.LockScreenServiceRemoteCallHandler = class {

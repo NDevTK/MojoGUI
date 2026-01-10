@@ -187,6 +187,30 @@ blink.mojom.PeerConnectionManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  onSuspend() {
+    return this.$.onSuspend();
+  }
+  onThermalStateChange(thermal_state) {
+    return this.$.onThermalStateChange(thermal_state);
+  }
+  startEventLog(peer_connection_local_id, output_period_ms) {
+    return this.$.startEventLog(peer_connection_local_id, output_period_ms);
+  }
+  stopEventLog(peer_connection_local_id) {
+    return this.$.stopEventLog(peer_connection_local_id);
+  }
+  startDataChannelLog(peer_connection_local_id) {
+    return this.$.startDataChannelLog(peer_connection_local_id);
+  }
+  stopDataChannelLog(peer_connection_local_id) {
+    return this.$.stopDataChannelLog(peer_connection_local_id);
+  }
+  getStandardStats() {
+    return this.$.getStandardStats();
+  }
+  getCurrentState() {
+    return this.$.getCurrentState();
+  }
 };
 
 blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
@@ -633,6 +657,45 @@ blink.mojom.PeerConnectionTrackerHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addPeerConnection(info) {
+    return this.$.addPeerConnection(info);
+  }
+  removePeerConnection(lid) {
+    return this.$.removePeerConnection(lid);
+  }
+  updatePeerConnection(lid, type, value) {
+    return this.$.updatePeerConnection(lid, type, value);
+  }
+  onPeerConnectionSessionIdSet(lid, session_id) {
+    return this.$.onPeerConnectionSessionIdSet(lid, session_id);
+  }
+  getUserMedia(request_id, audio, video, audio_constraints, video_constraints) {
+    return this.$.getUserMedia(request_id, audio, video, audio_constraints, video_constraints);
+  }
+  getUserMediaSuccess(request_id, stream_id, audio_track_info, video_track_info) {
+    return this.$.getUserMediaSuccess(request_id, stream_id, audio_track_info, video_track_info);
+  }
+  getUserMediaFailure(request_id, error, error_message) {
+    return this.$.getUserMediaFailure(request_id, error, error_message);
+  }
+  getDisplayMedia(request_id, audio, video, audio_constraints, video_constraints) {
+    return this.$.getDisplayMedia(request_id, audio, video, audio_constraints, video_constraints);
+  }
+  getDisplayMediaSuccess(request_id, stream_id, audio_track_info, video_track_info) {
+    return this.$.getDisplayMediaSuccess(request_id, stream_id, audio_track_info, video_track_info);
+  }
+  getDisplayMediaFailure(request_id, error, error_message) {
+    return this.$.getDisplayMediaFailure(request_id, error, error_message);
+  }
+  webRtcEventLogWrite(lid, output) {
+    return this.$.webRtcEventLogWrite(lid, output);
+  }
+  webRtcDataChannelLogWrite(lid, output) {
+    return this.$.webRtcDataChannelLogWrite(lid, output);
+  }
+  addStandardStats(lid, value) {
+    return this.$.addStandardStats(lid, value);
   }
 };
 

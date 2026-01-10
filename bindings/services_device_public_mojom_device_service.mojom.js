@@ -236,6 +236,66 @@ device.mojom.DeviceServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  bindFingerprint(receiver) {
+    return this.$.bindFingerprint(receiver);
+  }
+  bindGeolocationContext(receiver) {
+    return this.$.bindGeolocationContext(receiver);
+  }
+  bindGeolocationControl(receiver) {
+    return this.$.bindGeolocationControl(receiver);
+  }
+  bindGeolocationInternals(receiver) {
+    return this.$.bindGeolocationInternals(receiver);
+  }
+  bindInputDeviceManager(receiver) {
+    return this.$.bindInputDeviceManager(receiver);
+  }
+  bindBatteryMonitor(receiver) {
+    return this.$.bindBatteryMonitor(receiver);
+  }
+  bindPressureManager(receiver) {
+    return this.$.bindPressureManager(receiver);
+  }
+  bindNFCProvider(receiver) {
+    return this.$.bindNFCProvider(receiver);
+  }
+  bindVibrationManager(receiver, listener) {
+    return this.$.bindVibrationManager(receiver, listener);
+  }
+  bindHidManager(receiver) {
+    return this.$.bindHidManager(receiver);
+  }
+  bindMtpManager(receiver) {
+    return this.$.bindMtpManager(receiver);
+  }
+  bindPowerMonitor(receiver) {
+    return this.$.bindPowerMonitor(receiver);
+  }
+  bindPublicIpAddressGeolocationProvider(receiver) {
+    return this.$.bindPublicIpAddressGeolocationProvider(receiver);
+  }
+  bindScreenOrientationListener(receiver) {
+    return this.$.bindScreenOrientationListener(receiver);
+  }
+  bindSensorProvider(receiver) {
+    return this.$.bindSensorProvider(receiver);
+  }
+  bindSerialPortManager(receiver) {
+    return this.$.bindSerialPortManager(receiver);
+  }
+  bindTimeZoneMonitor(receiver) {
+    return this.$.bindTimeZoneMonitor(receiver);
+  }
+  bindWakeLockProvider(receiver) {
+    return this.$.bindWakeLockProvider(receiver);
+  }
+  bindUsbDeviceManager(receiver) {
+    return this.$.bindUsbDeviceManager(receiver);
+  }
+  bindUsbDeviceManagerTest(receiver) {
+    return this.$.bindUsbDeviceManagerTest(receiver);
+  }
 };
 
 device.mojom.DeviceServiceRemoteCallHandler = class {

@@ -109,6 +109,12 @@ blink.mojom.SharedWorkerRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(connection_id, message_port) {
+    return this.$.connect(connection_id, message_port);
+  }
+  terminate() {
+    return this.$.terminate();
+  }
 };
 
 blink.mojom.SharedWorkerRemoteCallHandler = class {

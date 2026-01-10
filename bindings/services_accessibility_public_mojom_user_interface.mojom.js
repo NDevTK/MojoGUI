@@ -179,6 +179,24 @@ ax.mojom.UserInterfaceRemote = class {
   close() {
     this.proxy.close();
   }
+  darkenScreen(darken) {
+    return this.$.darkenScreen(darken);
+  }
+  openSettingsSubpage(subpage) {
+    return this.$.openSettingsSubpage(subpage);
+  }
+  showConfirmationDialog(title, description, cancelName) {
+    return this.$.showConfirmationDialog(title, description, cancelName);
+  }
+  setFocusRings(focus_rings, at_type) {
+    return this.$.setFocusRings(focus_rings, at_type);
+  }
+  setHighlights(rects, color) {
+    return this.$.setHighlights(rects, color);
+  }
+  setVirtualKeyboardVisible(is_visible) {
+    return this.$.setVirtualKeyboardVisible(is_visible);
+  }
 };
 
 ax.mojom.UserInterfaceRemoteCallHandler = class {

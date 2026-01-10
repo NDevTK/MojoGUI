@@ -151,6 +151,9 @@ ash.focus_mode.mojom.MediaClientRemote = class {
   close() {
     this.proxy.close();
   }
+  startPlay(track) {
+    return this.$.startPlay(track);
+  }
 };
 
 ash.focus_mode.mojom.MediaClientRemoteCallHandler = class {
@@ -320,6 +323,18 @@ ash.focus_mode.mojom.TrackProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getTrack() {
+    return this.$.getTrack();
+  }
+  setMediaClient(client) {
+    return this.$.setMediaClient(client);
+  }
+  reportPlayback(data) {
+    return this.$.reportPlayback(data);
+  }
+  reportPlayerError() {
+    return this.$.reportPlayerError();
   }
 };
 

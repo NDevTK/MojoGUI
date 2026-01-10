@@ -609,6 +609,21 @@ blink.mojom.IDBFactoryClientRemote = class {
   close() {
     this.proxy.close();
   }
+  error(code, message) {
+    return this.$.error(code, message);
+  }
+  blocked(existing_version) {
+    return this.$.blocked(existing_version);
+  }
+  upgradeNeeded(pending_database, old_version, data_loss, data_loss_message, db_metadata) {
+    return this.$.upgradeNeeded(pending_database, old_version, data_loss, data_loss_message, db_metadata);
+  }
+  openSuccess(pending_database, metadata) {
+    return this.$.openSuccess(pending_database, metadata);
+  }
+  deleteSuccess(old_version) {
+    return this.$.deleteSuccess(old_version);
+  }
 };
 
 blink.mojom.IDBFactoryClientRemoteCallHandler = class {
@@ -893,6 +908,18 @@ blink.mojom.IDBDatabaseCallbacksRemote = class {
   close() {
     this.proxy.close();
   }
+  forcedClose() {
+    return this.$.forcedClose();
+  }
+  versionChange(old_version, new_version) {
+    return this.$.versionChange(old_version, new_version);
+  }
+  abort(transaction_id, code, message) {
+    return this.$.abort(transaction_id, code, message);
+  }
+  complete(transaction_id) {
+    return this.$.complete(transaction_id);
+  }
 };
 
 blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class {
@@ -1164,6 +1191,18 @@ blink.mojom.IDBCursorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  advance(count) {
+    return this.$.advance(count);
+  }
+  continue(key, primary_key) {
+    return this.$.continue(key, primary_key);
+  }
+  prefetch(count) {
+    return this.$.prefetch(count);
+  }
+  prefetchReset(used_prefetches) {
+    return this.$.prefetchReset(used_prefetches);
   }
 };
 
@@ -1461,6 +1500,24 @@ blink.mojom.IDBTransactionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createObjectStore(object_store_id, name, key_path, auto_increment) {
+    return this.$.createObjectStore(object_store_id, name, key_path, auto_increment);
+  }
+  deleteObjectStore(object_store_id) {
+    return this.$.deleteObjectStore(object_store_id);
+  }
+  put(object_store_id, value, key, mode, index_keys) {
+    return this.$.put(object_store_id, value, key, mode, index_keys);
+  }
+  setIndexKeys(object_store_id, primary_key, index_keys) {
+    return this.$.setIndexKeys(object_store_id, primary_key, index_keys);
+  }
+  setIndexKeysDone() {
+    return this.$.setIndexKeysDone();
+  }
+  commit(num_errors_handled) {
+    return this.$.commit(num_errors_handled);
   }
 };
 
@@ -1767,6 +1824,12 @@ blink.mojom.IDBDatabaseGetAllResultSinkRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  receiveResults(records, done) {
+    return this.$.receiveResults(records, done);
+  }
+  onError(error) {
+    return this.$.onError(error);
   }
 };
 
@@ -2112,6 +2175,54 @@ blink.mojom.IDBDatabaseRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  renameObjectStore(transaction_id, object_store_id, new_name) {
+    return this.$.renameObjectStore(transaction_id, object_store_id, new_name);
+  }
+  createTransaction(transaction_receiver, transaction_id, object_store_ids, mode, durability) {
+    return this.$.createTransaction(transaction_receiver, transaction_id, object_store_ids, mode, durability);
+  }
+  versionChangeIgnored() {
+    return this.$.versionChangeIgnored();
+  }
+  get(transaction_id, object_store_id, index_id, key_range, key_only) {
+    return this.$.get(transaction_id, object_store_id, index_id, key_range, key_only);
+  }
+  getAll(transaction_id, object_store_id, index_id, key_range, result_type, max_count, direction) {
+    return this.$.getAll(transaction_id, object_store_id, index_id, key_range, result_type, max_count, direction);
+  }
+  openCursor(transaction_id, object_store_id, index_id, key_range, direction, key_only, task_type) {
+    return this.$.openCursor(transaction_id, object_store_id, index_id, key_range, direction, key_only, task_type);
+  }
+  count(transaction_id, object_store_id, index_id, key_range) {
+    return this.$.count(transaction_id, object_store_id, index_id, key_range);
+  }
+  deleteRange(transaction_id, object_store_id, key_range) {
+    return this.$.deleteRange(transaction_id, object_store_id, key_range);
+  }
+  getKeyGeneratorCurrentNumber(transaction_id, object_store_id) {
+    return this.$.getKeyGeneratorCurrentNumber(transaction_id, object_store_id);
+  }
+  clear(transaction_id, object_store_id) {
+    return this.$.clear(transaction_id, object_store_id);
+  }
+  createIndex(transaction_id, object_store_id, index) {
+    return this.$.createIndex(transaction_id, object_store_id, index);
+  }
+  deleteIndex(transaction_id, object_store_id, index_id) {
+    return this.$.deleteIndex(transaction_id, object_store_id, index_id);
+  }
+  renameIndex(transaction_id, object_store_id, index_id, new_name) {
+    return this.$.renameIndex(transaction_id, object_store_id, index_id, new_name);
+  }
+  abort(transaction_id) {
+    return this.$.abort(transaction_id);
+  }
+  didBecomeInactive() {
+    return this.$.didBecomeInactive();
+  }
+  updatePriority(new_priority) {
+    return this.$.updatePriority(new_priority);
   }
 };
 
@@ -2763,6 +2874,15 @@ blink.mojom.IDBFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDatabaseInfo() {
+    return this.$.getDatabaseInfo();
+  }
+  open(client, database_callbacks, name, version, version_change_transaction_receiver, transaction_id, priority) {
+    return this.$.open(client, database_callbacks, name, version, version_change_transaction_receiver, transaction_id, priority);
+  }
+  deleteDatabase(client, name, force_close) {
+    return this.$.deleteDatabase(client, name, force_close);
   }
 };
 

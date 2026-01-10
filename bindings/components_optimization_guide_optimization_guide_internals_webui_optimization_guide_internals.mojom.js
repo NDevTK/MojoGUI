@@ -174,6 +174,18 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page) {
+    return this.$.createPageHandler(page);
+  }
+  requestDownloadedModelsInfo() {
+    return this.$.requestDownloadedModelsInfo();
+  }
+  requestLoggedModelQualityClientIds() {
+    return this.$.requestLoggedModelQualityClientIds();
+  }
+  requestMqlsLogs() {
+    return this.$.requestMqlsLogs();
+  }
 };
 
 optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -430,6 +442,9 @@ optimization_guide_internals.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLogMessageAdded(event_time, log_source, source_file, source_line, message) {
+    return this.$.onLogMessageAdded(event_time, log_source, source_file, source_line, message);
   }
 };
 

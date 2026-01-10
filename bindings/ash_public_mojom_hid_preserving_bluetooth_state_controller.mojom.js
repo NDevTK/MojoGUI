@@ -110,6 +110,9 @@ ash.mojom.HidPreservingBluetoothStateControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  tryToSetBluetoothEnabledState(enabled, source) {
+    return this.$.tryToSetBluetoothEnabledState(enabled, source);
+  }
 };
 
 ash.mojom.HidPreservingBluetoothStateControllerRemoteCallHandler = class {

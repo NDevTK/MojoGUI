@@ -180,6 +180,15 @@ viz.mojom.FrameSinkBundleRemote = class {
   close() {
     this.proxy.close();
   }
+  setNeedsBeginFrame(sink_id, needs_begin_frame) {
+    return this.$.setNeedsBeginFrame(sink_id, needs_begin_frame);
+  }
+  submit(submissions) {
+    return this.$.submit(submissions);
+  }
+  setThreads(sink_id, threads) {
+    return this.$.setThreads(sink_id, threads);
+  }
 };
 
 viz.mojom.FrameSinkBundleRemoteCallHandler = class {
@@ -401,6 +410,15 @@ viz.mojom.FrameSinkBundleClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  flushNotifications(acks, begin_frames, reclaimed_resources) {
+    return this.$.flushNotifications(acks, begin_frames, reclaimed_resources);
+  }
+  onBeginFramePausedChanged(sink_id, paused) {
+    return this.$.onBeginFramePausedChanged(sink_id, paused);
+  }
+  onCompositorFrameTransitionDirectiveProcessed(sink_id, sequence_id) {
+    return this.$.onCompositorFrameTransitionDirectiveProcessed(sink_id, sequence_id);
   }
 };
 

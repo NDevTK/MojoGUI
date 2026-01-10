@@ -169,6 +169,18 @@ arc.mojom.PolicyHostRemote = class {
   close() {
     this.proxy.close();
   }
+  getPolicies() {
+    return this.$.getPolicies();
+  }
+  reportCompliance(request) {
+    return this.$.reportCompliance(request);
+  }
+  reportDPCVersion(version) {
+    return this.$.reportDPCVersion(version);
+  }
+  reportPlayStoreLocalPolicySet(time, package_names) {
+    return this.$.reportPlayStoreLocalPolicySet(time, package_names);
+  }
 };
 
 arc.mojom.PolicyHostRemoteCallHandler = class {
@@ -437,6 +449,15 @@ arc.mojom.PolicyInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  onPolicyUpdated() {
+    return this.$.onPolicyUpdated();
+  }
+  onCommandReceived(command) {
+    return this.$.onCommandReceived(command);
   }
 };
 

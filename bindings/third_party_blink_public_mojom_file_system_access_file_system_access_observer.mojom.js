@@ -200,6 +200,9 @@ blink.mojom.FileSystemAccessObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onFileChanges(changes) {
+    return this.$.onFileChanges(changes);
+  }
 };
 
 blink.mojom.FileSystemAccessObserverRemoteCallHandler = class {

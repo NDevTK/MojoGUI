@@ -113,6 +113,12 @@ tabs_api.mojom.TabStripExperimentServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  updateTabGroupVisual(id, visual_data) {
+    return this.$.updateTabGroupVisual(id, visual_data);
+  }
+  showTabContextMenu(tab_id, location) {
+    return this.$.showTabContextMenu(tab_id, location);
+  }
 };
 
 tabs_api.mojom.TabStripExperimentServiceRemoteCallHandler = class {

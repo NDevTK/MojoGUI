@@ -144,6 +144,9 @@ chrome.mojom.PluginHostRemote = class {
   close() {
     this.proxy.close();
   }
+  openPDF(url) {
+    return this.$.openPDF(url);
+  }
 };
 
 chrome.mojom.PluginHostRemoteCallHandler = class {
@@ -292,6 +295,9 @@ chrome.mojom.PluginAuthHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  blockedUnauthorizedPlugin(name, group_id) {
+    return this.$.blockedUnauthorizedPlugin(name, group_id);
   }
 };
 
@@ -448,6 +454,9 @@ chrome.mojom.PluginInfoHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getPluginInfo(url, origin, mime_type) {
+    return this.$.getPluginInfo(url, origin, mime_type);
   }
 };
 

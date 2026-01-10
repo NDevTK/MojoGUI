@@ -195,6 +195,33 @@ media.mojom.WatchTimeRecorderRemote = class {
   close() {
     this.proxy.close();
   }
+  recordWatchTime(key, watch_time) {
+    return this.$.recordWatchTime(key, watch_time);
+  }
+  finalizeWatchTime(watch_time_keys) {
+    return this.$.finalizeWatchTime(watch_time_keys);
+  }
+  onError(status) {
+    return this.$.onError(status);
+  }
+  updateSecondaryProperties(secondary_properties) {
+    return this.$.updateSecondaryProperties(secondary_properties);
+  }
+  setAutoplayInitiated(value) {
+    return this.$.setAutoplayInitiated(value);
+  }
+  onDurationChanged(duration) {
+    return this.$.onDurationChanged(duration);
+  }
+  updateVideoDecodeStats(frames_decoded, frames_dropped) {
+    return this.$.updateVideoDecodeStats(frames_decoded, frames_dropped);
+  }
+  updateUnderflowCount(total_count) {
+    return this.$.updateUnderflowCount(total_count);
+  }
+  updateUnderflowDuration(total_completed_count, total_duration) {
+    return this.$.updateUnderflowDuration(total_completed_count, total_duration);
+  }
 };
 
 media.mojom.WatchTimeRecorderRemoteCallHandler = class {

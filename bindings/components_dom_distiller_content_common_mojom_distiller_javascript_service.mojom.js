@@ -122,6 +122,18 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  handleDistillerOpenSettingsCall() {
+    return this.$.handleDistillerOpenSettingsCall();
+  }
+  handleStoreThemePref(theme) {
+    return this.$.handleStoreThemePref(theme);
+  }
+  handleStoreFontFamilyPref(font_family) {
+    return this.$.handleStoreFontFamilyPref(font_family);
+  }
+  handleStoreFontScalingPref(font_scale) {
+    return this.$.handleStoreFontScalingPref(font_scale);
+  }
 };
 
 dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {

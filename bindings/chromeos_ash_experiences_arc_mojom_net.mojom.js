@@ -809,6 +809,75 @@ arc.mojom.NetHostRemote = class {
   close() {
     this.proxy.close();
   }
+  getWifiEnabledState() {
+    return this.$.getWifiEnabledState();
+  }
+  startScan() {
+    return this.$.startScan();
+  }
+  setWifiEnabledState(is_enabled) {
+    return this.$.setWifiEnabledState(is_enabled);
+  }
+  createNetwork(cfg) {
+    return this.$.createNetwork(cfg);
+  }
+  forgetNetwork(guid) {
+    return this.$.forgetNetwork(guid);
+  }
+  updateWifiNetwork(guid, cfg) {
+    return this.$.updateWifiNetwork(guid, cfg);
+  }
+  startConnect(guid) {
+    return this.$.startConnect(guid);
+  }
+  startDisconnect(guid) {
+    return this.$.startDisconnect(guid);
+  }
+  getNetworks(type) {
+    return this.$.getNetworks(type);
+  }
+  androidVpnConnected(cfg) {
+    return this.$.androidVpnConnected(cfg);
+  }
+  androidVpnUpdated(cfg) {
+    return this.$.androidVpnUpdated(cfg);
+  }
+  dEPRECATED_AndroidVpnStateChanged(state) {
+    return this.$.dEPRECATED_AndroidVpnStateChanged(state);
+  }
+  androidVpnDisconnected() {
+    return this.$.androidVpnDisconnected();
+  }
+  setAlwaysOnVpn(vpnPackage, lockdown) {
+    return this.$.setAlwaysOnVpn(vpnPackage, lockdown);
+  }
+  requestPasspointAppApproval(request) {
+    return this.$.requestPasspointAppApproval(request);
+  }
+  addPasspointCredentials(credentials) {
+    return this.$.addPasspointCredentials(credentials);
+  }
+  removePasspointCredentials(properties) {
+    return this.$.removePasspointCredentials(properties);
+  }
+  disconnectHostVpn() {
+    return this.$.disconnectHostVpn();
+  }
+  startLohs(config) {
+    return this.$.startLohs(config);
+  }
+  stopLohs() {
+    return this.$.stopLohs();
+  }
+  notifyAndroidWifiMulticastLockChange(is_held) {
+    return this.$.notifyAndroidWifiMulticastLockChange(is_held);
+  }
+  notifySocketConnectionEvent(msg) {
+    return this.$.notifySocketConnectionEvent(msg);
+  }
+  notifyARCVPNSocketConnectionEvent(msg) {
+    return this.$.notifyARCVPNSocketConnectionEvent(msg);
+  }
 };
 
 arc.mojom.NetHostRemoteCallHandler = class {
@@ -1732,6 +1801,36 @@ arc.mojom.NetInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  scanCompleted() {
+    return this.$.scanCompleted();
+  }
+  wifiEnabledStateChanged(is_enabled) {
+    return this.$.wifiEnabledStateChanged(is_enabled);
+  }
+  disconnectAndroidVpn() {
+    return this.$.disconnectAndroidVpn();
+  }
+  configureAndroidVpn() {
+    return this.$.configureAndroidVpn();
+  }
+  activeNetworksChanged(network) {
+    return this.$.activeNetworksChanged(network);
+  }
+  dnsResolutionTest(transport_name, host_name) {
+    return this.$.dnsResolutionTest(transport_name, host_name);
+  }
+  httpTest(transport_name, url) {
+    return this.$.httpTest(transport_name, url);
+  }
+  pingTest(transport_name, ip_address) {
+    return this.$.pingTest(transport_name, ip_address);
+  }
+  setUpFlag(flag, value) {
+    return this.$.setUpFlag(flag, value);
   }
 };
 

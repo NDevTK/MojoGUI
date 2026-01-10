@@ -117,6 +117,12 @@ video_capture.mojom.ProducerRemote = class {
   close() {
     this.proxy.close();
   }
+  onNewBuffer(buffer_id, buffer_handle) {
+    return this.$.onNewBuffer(buffer_id, buffer_handle);
+  }
+  onBufferRetired(buffer_id) {
+    return this.$.onBufferRetired(buffer_id);
+  }
 };
 
 video_capture.mojom.ProducerRemoteCallHandler = class {

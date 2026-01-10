@@ -126,6 +126,9 @@ blink.mojom.LeakDetectorRemote = class {
   close() {
     this.proxy.close();
   }
+  performLeakDetection() {
+    return this.$.performLeakDetection();
+  }
 };
 
 blink.mojom.LeakDetectorRemoteCallHandler = class {

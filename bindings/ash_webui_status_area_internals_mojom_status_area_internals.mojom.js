@@ -192,6 +192,42 @@ ash.mojom.status_area_internals.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  toggleImeTray(visible) {
+    return this.$.toggleImeTray(visible);
+  }
+  togglePaletteTray(visible) {
+    return this.$.togglePaletteTray(visible);
+  }
+  toggleLogoutTray(visible) {
+    return this.$.toggleLogoutTray(visible);
+  }
+  toggleVirtualKeyboardTray(visible) {
+    return this.$.toggleVirtualKeyboardTray(visible);
+  }
+  toggleDictationTray(visible) {
+    return this.$.toggleDictationTray(visible);
+  }
+  toggleVideoConferenceTray(visible) {
+    return this.$.toggleVideoConferenceTray(visible);
+  }
+  toggleAnnotationTray(visible) {
+    return this.$.toggleAnnotationTray(visible);
+  }
+  setIsInUserChildSession(in_child_session) {
+    return this.$.setIsInUserChildSession(in_child_session);
+  }
+  triggerPrivacyIndicators(app_id, app_name, is_camera_used, is_microphone_used) {
+    return this.$.triggerPrivacyIndicators(app_id, app_name, is_camera_used, is_microphone_used);
+  }
+  resetHmrConsentStatus() {
+    return this.$.resetHmrConsentStatus();
+  }
+  setBatteryIcon(icon) {
+    return this.$.setBatteryIcon(icon);
+  }
+  setBatteryPercent(percent) {
+    return this.$.setBatteryPercent(percent);
+  }
 };
 
 ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {

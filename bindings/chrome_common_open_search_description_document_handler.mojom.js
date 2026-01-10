@@ -104,6 +104,9 @@ chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  pageHasOpenSearchDescriptionDocument(page_url, osdd_url) {
+    return this.$.pageHasOpenSearchDescriptionDocument(page_url, osdd_url);
+  }
 };
 
 chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class {

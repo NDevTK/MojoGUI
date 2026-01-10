@@ -123,6 +123,9 @@ ash.mojom.sample_swa.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler, page) {
+    return this.$.createPageHandler(handler, page);
+  }
 };
 
 ash.mojom.sample_swa.PageHandlerFactoryRemoteCallHandler = class {
@@ -286,6 +289,15 @@ ash.mojom.sample_swa.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getPreferences() {
+    return this.$.getPreferences();
+  }
+  send(message) {
+    return this.$.send(message);
+  }
+  doSomething() {
+    return this.$.doSomething();
   }
 };
 
@@ -505,6 +517,12 @@ ash.mojom.sample_swa.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onEventOccurred(name) {
+    return this.$.onEventOccurred(name);
+  }
+  createParentPage(child_untrusted_page, parent_trusted_page) {
+    return this.$.createParentPage(child_untrusted_page, parent_trusted_page);
   }
 };
 

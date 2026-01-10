@@ -166,6 +166,12 @@ chromeos.cfm.mojom.CfmBrowserRemote = class {
   close() {
     this.proxy.close();
   }
+  getVariationsData() {
+    return this.$.getVariationsData();
+  }
+  getMemoryDetails() {
+    return this.$.getMemoryDetails();
+  }
 };
 
 chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {

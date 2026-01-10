@@ -144,6 +144,21 @@ attribution_reporting.mojom.DataHostRemote = class {
   close() {
     this.proxy.close();
   }
+  sourceDataAvailable(reporting_origin, data, was_fetched_via_service_worker) {
+    return this.$.sourceDataAvailable(reporting_origin, data, was_fetched_via_service_worker);
+  }
+  triggerDataAvailable(reporting_origin, data, was_fetched_via_service_worker) {
+    return this.$.triggerDataAvailable(reporting_origin, data, was_fetched_via_service_worker);
+  }
+  osSourceDataAvailable(registration, was_fetched_via_service_worker) {
+    return this.$.osSourceDataAvailable(registration, was_fetched_via_service_worker);
+  }
+  osTriggerDataAvailable(registration, was_fetched_via_service_worker) {
+    return this.$.osTriggerDataAvailable(registration, was_fetched_via_service_worker);
+  }
+  reportRegistrationHeaderError(reporting_origin, error) {
+    return this.$.reportRegistrationHeaderError(reporting_origin, error);
+  }
 };
 
 attribution_reporting.mojom.DataHostRemoteCallHandler = class {

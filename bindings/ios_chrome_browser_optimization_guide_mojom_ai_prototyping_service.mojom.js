@@ -125,6 +125,12 @@ ai.mojom.AIPrototypingServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  executeServerQuery(request) {
+    return this.$.executeServerQuery(request);
+  }
+  executeOnDeviceQuery(request) {
+    return this.$.executeOnDeviceQuery(request);
+  }
 };
 
 ai.mojom.AIPrototypingServiceRemoteCallHandler = class {

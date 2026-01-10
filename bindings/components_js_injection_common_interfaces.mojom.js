@@ -177,6 +177,12 @@ js_injection.mojom.JsToBrowserMessagingRemote = class {
   close() {
     this.proxy.close();
   }
+  postMessage(message, ports) {
+    return this.$.postMessage(message, ports);
+  }
+  setBrowserToJsMessaging(browser_to_js_messaging) {
+    return this.$.setBrowserToJsMessaging(browser_to_js_messaging);
+  }
 };
 
 js_injection.mojom.JsToBrowserMessagingRemoteCallHandler = class {
@@ -353,6 +359,9 @@ js_injection.mojom.JsObjectsClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onWindowObjectCleared() {
+    return this.$.onWindowObjectCleared();
+  }
 };
 
 js_injection.mojom.JsObjectsClientRemoteCallHandler = class {
@@ -501,6 +510,9 @@ js_injection.mojom.BrowserToJsMessagingFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  sendBrowserToJsMessaging(browser_to_js_messaging) {
+    return this.$.sendBrowserToJsMessaging(browser_to_js_messaging);
+  }
 };
 
 js_injection.mojom.BrowserToJsMessagingFactoryRemoteCallHandler = class {
@@ -648,6 +660,9 @@ js_injection.mojom.BrowserToJsMessagingRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPostMessage(message) {
+    return this.$.onPostMessage(message);
   }
 };
 
@@ -809,6 +824,15 @@ js_injection.mojom.JsCommunicationRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setJsObjects(js_objects, client) {
+    return this.$.setJsObjects(js_objects, client);
+  }
+  addPersistentJavaScript(script) {
+    return this.$.addPersistentJavaScript(script);
+  }
+  removePersistentJavaScript(script_id) {
+    return this.$.removePersistentJavaScript(script_id);
   }
 };
 

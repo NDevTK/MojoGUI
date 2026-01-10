@@ -155,6 +155,12 @@ sharing.mojom.SharingRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(deps, nearby_connections, nearby_presence, decoder, quick_start_decoder) {
+    return this.$.connect(deps, nearby_connections, nearby_presence, decoder, quick_start_decoder);
+  }
+  shutDown() {
+    return this.$.shutDown();
+  }
 };
 
 sharing.mojom.SharingRemoteCallHandler = class {

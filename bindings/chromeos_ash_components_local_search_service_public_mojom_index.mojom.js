@@ -192,6 +192,27 @@ ash.local_search_service.mojom.IndexRemote = class {
   close() {
     this.proxy.close();
   }
+  getSize() {
+    return this.$.getSize();
+  }
+  addOrUpdate(data) {
+    return this.$.addOrUpdate(data);
+  }
+  delete(ids) {
+    return this.$.delete(ids);
+  }
+  updateDocuments(data) {
+    return this.$.updateDocuments(data);
+  }
+  find(query, max_results) {
+    return this.$.find(query, max_results);
+  }
+  clearIndex() {
+    return this.$.clearIndex();
+  }
+  setSearchParams(search_params) {
+    return this.$.setSearchParams(search_params);
+  }
 };
 
 ash.local_search_service.mojom.IndexRemoteCallHandler = class {

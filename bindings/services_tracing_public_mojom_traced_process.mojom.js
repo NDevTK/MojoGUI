@@ -116,6 +116,9 @@ tracing.mojom.TracedProcessRemote = class {
   close() {
     this.proxy.close();
   }
+  connectToTracingService(request) {
+    return this.$.connectToTracingService(request);
+  }
 };
 
 tracing.mojom.TracedProcessRemoteCallHandler = class {

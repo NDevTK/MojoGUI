@@ -146,6 +146,15 @@ updater.mojom.PostRequestObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onResponseStarted(http_status_code, content_length) {
+    return this.$.onResponseStarted(http_status_code, content_length);
+  }
+  onProgress(current) {
+    return this.$.onProgress(current);
+  }
+  onRequestComplete(response_body, net_error, header_etag, header_x_cup_server_proof, header_set_cookie, xheader_retry_after_sec) {
+    return this.$.onRequestComplete(response_body, net_error, header_etag, header_x_cup_server_proof, header_set_cookie, xheader_retry_after_sec);
+  }
 };
 
 updater.mojom.PostRequestObserverRemoteCallHandler = class {
@@ -367,6 +376,15 @@ updater.mojom.FileDownloadObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onResponseStarted(http_status_code, content_length) {
+    return this.$.onResponseStarted(http_status_code, content_length);
+  }
+  onProgress(current) {
+    return this.$.onProgress(current);
+  }
+  onDownloadComplete(net_error, content_size) {
+    return this.$.onDownloadComplete(net_error, content_size);
   }
 };
 
@@ -595,6 +613,12 @@ updater.mojom.FetchServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  postRequest(url, post_data, content_type, additional_headers) {
+    return this.$.postRequest(url, post_data, content_type, additional_headers);
+  }
+  downloadToFile(url, output_file) {
+    return this.$.downloadToFile(url, output_file);
   }
 };
 

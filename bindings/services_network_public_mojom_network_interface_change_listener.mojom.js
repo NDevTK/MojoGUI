@@ -148,6 +148,9 @@ network.mojom.NetworkInterfaceChangeListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onNetworkInterfacesChanged(params) {
+    return this.$.onNetworkInterfacesChanged(params);
+  }
 };
 
 network.mojom.NetworkInterfaceChangeListenerRemoteCallHandler = class {

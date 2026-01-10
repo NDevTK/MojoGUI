@@ -104,6 +104,9 @@ content.mojom.RouteProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getRoute(frame_token, receiver) {
+    return this.$.getRoute(frame_token, receiver);
+  }
 };
 
 content.mojom.RouteProviderRemoteCallHandler = class {

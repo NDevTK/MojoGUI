@@ -109,6 +109,9 @@ updater_ui.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 updater_ui.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -261,6 +264,9 @@ updater_ui.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getAllUpdaterEvents() {
+    return this.$.getAllUpdaterEvents();
   }
 };
 

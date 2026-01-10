@@ -116,6 +116,9 @@ test.mojom.FooRemote = class {
   close() {
     this.proxy.close();
   }
+  getFoo() {
+    return this.$.getFoo();
+  }
 };
 
 test.mojom.FooRemoteCallHandler = class {
@@ -275,6 +278,9 @@ test.mojom.BarRemote = class {
   close() {
     this.proxy.close();
   }
+  getBar() {
+    return this.$.getBar();
+  }
 };
 
 test.mojom.BarRemoteCallHandler = class {
@@ -433,6 +439,9 @@ test.mojom.BazRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getBaz() {
+    return this.$.getBaz();
   }
 };
 

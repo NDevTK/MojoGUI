@@ -398,6 +398,57 @@ ash.ime.mojom.InputMethodHostRemote = class {
   close() {
     this.proxy.close();
   }
+  commitText(text, cursor_behavior) {
+    return this.$.commitText(text, cursor_behavior);
+  }
+  dEPRECATED_SetComposition(text, spans) {
+    return this.$.dEPRECATED_SetComposition(text, spans);
+  }
+  setComposition(text, spans, new_cursor_position) {
+    return this.$.setComposition(text, spans, new_cursor_position);
+  }
+  setCompositionRange(start_index, end_index) {
+    return this.$.setCompositionRange(start_index, end_index);
+  }
+  finishComposition() {
+    return this.$.finishComposition();
+  }
+  deleteSurroundingText(num_before_cursor, num_after_cursor) {
+    return this.$.deleteSurroundingText(num_before_cursor, num_after_cursor);
+  }
+  replaceSurroundingText(num_before_cursor, num_after_cursor, text) {
+    return this.$.replaceSurroundingText(num_before_cursor, num_after_cursor, text);
+  }
+  handleAutocorrect(autocorrect_span) {
+    return this.$.handleAutocorrect(autocorrect_span);
+  }
+  displaySuggestions(suggestions, context) {
+    return this.$.displaySuggestions(suggestions, context);
+  }
+  updateCandidatesWindow(window) {
+    return this.$.updateCandidatesWindow(window);
+  }
+  requestSuggestions(request) {
+    return this.$.requestSuggestions(request);
+  }
+  updateQuickSettings(settings) {
+    return this.$.updateQuickSettings(settings);
+  }
+  recordUkm(entry) {
+    return this.$.recordUkm(entry);
+  }
+  dEPRECATED_ReportKoreanAction(action) {
+    return this.$.dEPRECATED_ReportKoreanAction(action);
+  }
+  dEPRECATED_ReportKoreanSettings(settings) {
+    return this.$.dEPRECATED_ReportKoreanSettings(settings);
+  }
+  dEPRECATED_ReportSuggestionOpportunity(mode) {
+    return this.$.dEPRECATED_ReportSuggestionOpportunity(mode);
+  }
+  dEPRECATED_ReportHistogramSample(histogram, value) {
+    return this.$.dEPRECATED_ReportHistogramSample(histogram, value);
+  }
 };
 
 ash.ime.mojom.InputMethodHostRemoteCallHandler = class {

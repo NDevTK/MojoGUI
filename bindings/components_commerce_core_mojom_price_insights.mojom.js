@@ -111,6 +111,12 @@ commerce.price_insights.mojom.PriceInsightsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  showSidePanelUI() {
+    return this.$.showSidePanelUI();
+  }
+  showFeedback() {
+    return this.$.showFeedback();
+  }
 };
 
 commerce.price_insights.mojom.PriceInsightsHandlerRemoteCallHandler = class {
@@ -287,6 +293,9 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createPriceInsightsHandler(handler) {
+    return this.$.createPriceInsightsHandler(handler);
   }
 };
 

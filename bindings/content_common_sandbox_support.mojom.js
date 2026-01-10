@@ -200,6 +200,21 @@ content.mojom.SandboxSupportRemote = class {
   close() {
     this.proxy.close();
   }
+  getSystemColors() {
+    return this.$.getSystemColors();
+  }
+  lcidAndFirstDayOfWeek(locale, default_language, defaults) {
+    return this.$.lcidAndFirstDayOfWeek(locale, default_language, defaults);
+  }
+  digitsAndSigns(lcid, defaults) {
+    return this.$.digitsAndSigns(lcid, defaults);
+  }
+  localeString(lcid, defaults, type) {
+    return this.$.localeString(lcid, defaults, type);
+  }
+  localeStrings(lcid, defaults, collection) {
+    return this.$.localeStrings(lcid, defaults, collection);
+  }
 };
 
 content.mojom.SandboxSupportRemoteCallHandler = class {

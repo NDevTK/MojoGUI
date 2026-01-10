@@ -143,6 +143,21 @@ blink.mojom.AnchorElementInteractionHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onPointerDown(target) {
+    return this.$.onPointerDown(target);
+  }
+  onPointerHoverEager(target, mouse_data) {
+    return this.$.onPointerHoverEager(target, mouse_data);
+  }
+  onPointerHoverModerate(target, mouse_data) {
+    return this.$.onPointerHoverModerate(target, mouse_data);
+  }
+  onModerateViewportHeuristicTriggered(target) {
+    return this.$.onModerateViewportHeuristicTriggered(target);
+  }
+  onEagerViewportHeuristicTriggered(targets) {
+    return this.$.onEagerViewportHeuristicTriggered(targets);
+  }
 };
 
 blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {

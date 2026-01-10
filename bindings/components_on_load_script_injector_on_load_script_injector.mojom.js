@@ -109,6 +109,12 @@ on_load_script_injector.mojom.OnLoadScriptInjectorRemote = class {
   close() {
     this.proxy.close();
   }
+  addOnLoadScript(script) {
+    return this.$.addOnLoadScript(script);
+  }
+  clearOnLoadScripts() {
+    return this.$.clearOnLoadScripts();
+  }
 };
 
 on_load_script_injector.mojom.OnLoadScriptInjectorRemoteCallHandler = class {

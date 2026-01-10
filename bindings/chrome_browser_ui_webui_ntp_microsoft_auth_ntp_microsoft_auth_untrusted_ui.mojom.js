@@ -126,6 +126,12 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote = class
   close() {
     this.proxy.close();
   }
+  connectToParentDocument(child_document) {
+    return this.$.connectToParentDocument(child_document);
+  }
+  createPageHandler(handler, document) {
+    return this.$.createPageHandler(handler, document);
+  }
 };
 
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHandler = class {
@@ -319,6 +325,18 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  clearAuthData() {
+    return this.$.clearAuthData();
+  }
+  maybeAcquireTokenSilent() {
+    return this.$.maybeAcquireTokenSilent();
+  }
+  setAccessToken(access_token) {
+    return this.$.setAccessToken(access_token);
+  }
+  setAuthStateError(error_code, error_message) {
+    return this.$.setAuthStateError(error_code, error_message);
   }
 };
 

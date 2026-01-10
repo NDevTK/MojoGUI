@@ -168,6 +168,15 @@ payments.mojom.PaymentHandlerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  changePaymentMethod(method_data) {
+    return this.$.changePaymentMethod(method_data);
+  }
+  changeShippingOption(shipping_option_id) {
+    return this.$.changeShippingOption(shipping_option_id);
+  }
+  changeShippingAddress(shipping_address) {
+    return this.$.changeShippingAddress(shipping_address);
+  }
 };
 
 payments.mojom.PaymentHandlerHostRemoteCallHandler = class {

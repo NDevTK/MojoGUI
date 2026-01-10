@@ -124,6 +124,9 @@ mojom.DebugLogsChangeHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  changeDebugLogsState(should_debug_logs_be_enabled) {
+    return this.$.changeDebugLogsState(should_debug_logs_be_enabled);
+  }
 };
 
 mojom.DebugLogsChangeHandlerRemoteCallHandler = class {
@@ -354,6 +357,30 @@ mojom.BluetoothInternalsHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getAdapter() {
+    return this.$.getAdapter();
+  }
+  getDebugLogsChangeHandler() {
+    return this.$.getDebugLogsChangeHandler();
+  }
+  checkSystemPermissions() {
+    return this.$.checkSystemPermissions();
+  }
+  requestSystemPermissions() {
+    return this.$.requestSystemPermissions();
+  }
+  requestLocationServices() {
+    return this.$.requestLocationServices();
+  }
+  restartSystemBluetooth() {
+    return this.$.restartSystemBluetooth();
+  }
+  startBtsnoop() {
+    return this.$.startBtsnoop();
+  }
+  isBtsnoopFeatureEnabled() {
+    return this.$.isBtsnoopFeatureEnabled();
   }
 };
 
@@ -758,6 +785,9 @@ mojom.BluetoothBtsnoopRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  stop() {
+    return this.$.stop();
   }
 };
 

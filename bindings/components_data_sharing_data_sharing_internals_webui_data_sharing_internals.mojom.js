@@ -115,6 +115,9 @@ data_sharing_internals.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 data_sharing_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -279,6 +282,12 @@ data_sharing_internals.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  isEmptyService() {
+    return this.$.isEmptyService();
+  }
+  getAllGroups() {
+    return this.$.getAllGroups();
   }
 };
 
@@ -472,6 +481,9 @@ data_sharing_internals.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLogMessageAdded(event_time, log_source, source_file, source_line, message) {
+    return this.$.onLogMessageAdded(event_time, log_source, source_file, source_line, message);
   }
 };
 

@@ -131,6 +131,9 @@ media.mojom.CdmStorageRemote = class {
   close() {
     this.proxy.close();
   }
+  open(file_name) {
+    return this.$.open(file_name);
+  }
 };
 
 media.mojom.CdmStorageRemoteCallHandler = class {
@@ -302,6 +305,12 @@ media.mojom.CdmFileRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  read() {
+    return this.$.read();
+  }
+  write(data) {
+    return this.$.write(data);
   }
 };
 

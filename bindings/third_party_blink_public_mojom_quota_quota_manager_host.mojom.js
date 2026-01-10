@@ -111,6 +111,9 @@ blink.mojom.QuotaManagerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  queryStorageUsageAndQuota() {
+    return this.$.queryStorageUsageAndQuota();
+  }
 };
 
 blink.mojom.QuotaManagerHostRemoteCallHandler = class {

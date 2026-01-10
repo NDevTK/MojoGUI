@@ -110,6 +110,9 @@ blink.mojom.HyphenationRemote = class {
   close() {
     this.proxy.close();
   }
+  openDictionary(locale) {
+    return this.$.openDictionary(locale);
+  }
 };
 
 blink.mojom.HyphenationRemoteCallHandler = class {

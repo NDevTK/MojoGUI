@@ -135,6 +135,12 @@ pdf.mojom.PdfThumbnailerRemote = class {
   close() {
     this.proxy.close();
   }
+  getThumbnail(params, pdf_region) {
+    return this.$.getThumbnail(params, pdf_region);
+  }
+  setUseSkiaRendererPolicy(use_skia) {
+    return this.$.setUseSkiaRendererPolicy(use_skia);
+  }
 };
 
 pdf.mojom.PdfThumbnailerRemoteCallHandler = class {

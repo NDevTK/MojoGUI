@@ -205,6 +205,9 @@ ash.auth.mojom.FactorObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onFactorChanged(factor) {
+    return this.$.onFactorChanged(factor);
+  }
 };
 
 ash.auth.mojom.FactorObserverRemoteCallHandler = class {
@@ -410,6 +413,24 @@ ash.auth.mojom.AuthFactorConfigRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  observeFactorChanges(observer) {
+    return this.$.observeFactorChanges(observer);
+  }
+  isSupported(auth_token, factor) {
+    return this.$.isSupported(auth_token, factor);
+  }
+  isConfigured(auth_token, factor) {
+    return this.$.isConfigured(auth_token, factor);
+  }
+  getManagementType(auth_token, factor) {
+    return this.$.getManagementType(auth_token, factor);
+  }
+  isEditable(auth_token, factor) {
+    return this.$.isEditable(auth_token, factor);
+  }
+  getLocalAuthFactorsComplexity(auth_token) {
+    return this.$.getLocalAuthFactorsComplexity(auth_token);
   }
 };
 
@@ -735,6 +756,9 @@ ash.auth.mojom.RecoveryFactorEditorRemote = class {
   close() {
     this.proxy.close();
   }
+  configure(auth_token, enabled) {
+    return this.$.configure(auth_token, enabled);
+  }
 };
 
 ash.auth.mojom.RecoveryFactorEditorRemoteCallHandler = class {
@@ -945,6 +969,21 @@ ash.auth.mojom.PinFactorEditorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setPin(auth_token, pin) {
+    return this.$.setPin(auth_token, pin);
+  }
+  updatePin(auth_token, pin) {
+    return this.$.updatePin(auth_token, pin);
+  }
+  removePin(auth_token) {
+    return this.$.removePin(auth_token);
+  }
+  getConfiguredPinFactor(auth_token) {
+    return this.$.getConfiguredPinFactor(auth_token);
+  }
+  checkPinComplexity(auth_token, pin) {
+    return this.$.checkPinComplexity(auth_token, pin);
   }
 };
 
@@ -1309,6 +1348,24 @@ ash.auth.mojom.PasswordFactorEditorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateOrSetLocalPassword(auth_token, new_password) {
+    return this.$.updateOrSetLocalPassword(auth_token, new_password);
+  }
+  updateOrSetOnlinePassword(auth_token, new_password) {
+    return this.$.updateOrSetOnlinePassword(auth_token, new_password);
+  }
+  setLocalPassword(auth_token, new_password) {
+    return this.$.setLocalPassword(auth_token, new_password);
+  }
+  setOnlinePassword(auth_token, new_password) {
+    return this.$.setOnlinePassword(auth_token, new_password);
+  }
+  checkLocalPasswordComplexity(password) {
+    return this.$.checkLocalPasswordComplexity(password);
+  }
+  removePassword(auth_token) {
+    return this.$.removePassword(auth_token);
   }
 };
 

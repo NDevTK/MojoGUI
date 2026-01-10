@@ -191,6 +191,27 @@ tabs_api.mojom.TabStripServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getTabs() {
+    return this.$.getTabs();
+  }
+  getTab(id) {
+    return this.$.getTab(id);
+  }
+  createTabAt(pos, url) {
+    return this.$.createTabAt(pos, url);
+  }
+  closeTabs(id) {
+    return this.$.closeTabs(id);
+  }
+  activateTab(id) {
+    return this.$.activateTab(id);
+  }
+  setSelectedTabs(selection, tab_to_activate) {
+    return this.$.setSelectedTabs(selection, tab_to_activate);
+  }
+  moveNode(id, position) {
+    return this.$.moveNode(id, position);
+  }
 };
 
 tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
@@ -512,6 +533,9 @@ tabs_api.mojom.TabsObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onTabEvents(events) {
+    return this.$.onTabEvents(events);
   }
 };
 

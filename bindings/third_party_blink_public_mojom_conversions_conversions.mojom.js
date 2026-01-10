@@ -133,6 +133,15 @@ blink.mojom.AttributionHostRemote = class {
   close() {
     this.proxy.close();
   }
+  registerDataHost(data_host, registration_eligibility, is_for_background_requests, reporting_origins) {
+    return this.$.registerDataHost(data_host, registration_eligibility, is_for_background_requests, reporting_origins);
+  }
+  registerNavigationDataHost(data_host, attribution_src_token) {
+    return this.$.registerNavigationDataHost(data_host, attribution_src_token);
+  }
+  notifyNavigationWithBackgroundRegistrationsWillStart(attribution_src_token, expected_registrations) {
+    return this.$.notifyNavigationWithBackgroundRegistrationsWillStart(attribution_src_token, expected_registrations);
+  }
 };
 
 blink.mojom.AttributionHostRemoteCallHandler = class {

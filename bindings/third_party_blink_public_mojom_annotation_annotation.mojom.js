@@ -157,6 +157,9 @@ blink.mojom.AnnotationAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  scrollIntoView(applies_focus) {
+    return this.$.scrollIntoView(applies_focus);
+  }
 };
 
 blink.mojom.AnnotationAgentRemoteCallHandler = class {
@@ -305,6 +308,9 @@ blink.mojom.AnnotationAgentHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  didFinishAttachment(document_relative_rect, attachment_result) {
+    return this.$.didFinishAttachment(document_relative_rect, attachment_result);
   }
 };
 
@@ -478,6 +484,15 @@ blink.mojom.AnnotationAgentContainerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createAgent(host_remote, agent_receiver, type, selector, search_range_start_node_id) {
+    return this.$.createAgent(host_remote, agent_receiver, type, selector, search_range_start_node_id);
+  }
+  createAgentFromSelection(type) {
+    return this.$.createAgentFromSelection(type);
+  }
+  removeAgentsOfType(type) {
+    return this.$.removeAgentsOfType(type);
   }
 };
 

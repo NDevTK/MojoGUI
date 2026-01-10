@@ -323,6 +323,33 @@ device_test.mojom.XRTestHookRemote = class {
   close() {
     this.proxy.close();
   }
+  onFrameSubmitted(frame_data) {
+    return this.$.onFrameSubmitted(frame_data);
+  }
+  waitGetDeviceConfig() {
+    return this.$.waitGetDeviceConfig();
+  }
+  waitGetPresentingPose() {
+    return this.$.waitGetPresentingPose();
+  }
+  waitGetMagicWindowPose() {
+    return this.$.waitGetMagicWindowPose();
+  }
+  waitGetControllerRoleForTrackedDeviceIndex(index) {
+    return this.$.waitGetControllerRoleForTrackedDeviceIndex(index);
+  }
+  waitGetControllerData(index) {
+    return this.$.waitGetControllerData(index);
+  }
+  waitGetEventData() {
+    return this.$.waitGetEventData();
+  }
+  waitGetCanCreateSession() {
+    return this.$.waitGetCanCreateSession();
+  }
+  waitGetVisibilityMask(view_index) {
+    return this.$.waitGetVisibilityMask(view_index);
+  }
 };
 
 device_test.mojom.XRTestHookRemoteCallHandler = class {
@@ -771,6 +798,12 @@ device_test.mojom.XRServiceTestHookRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setTestHook(hook) {
+    return this.$.setTestHook(hook);
+  }
+  terminateDeviceServiceProcessForTesting() {
+    return this.$.terminateDeviceServiceProcessForTesting();
   }
 };
 

@@ -162,6 +162,9 @@ chrome.mojom.BoundSessionRequestThrottledHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  handleRequestBlockedOnCookie(untrusted_request_url) {
+    return this.$.handleRequestBlockedOnCookie(untrusted_request_url);
+  }
 };
 
 chrome.mojom.BoundSessionRequestThrottledHandlerRemoteCallHandler = class {
@@ -314,6 +317,9 @@ chrome.mojom.ChromeOSListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  mergeSessionComplete() {
+    return this.$.mergeSessionComplete();
   }
 };
 
@@ -477,6 +483,15 @@ chrome.mojom.RendererConfigurationRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setInitialConfiguration(is_incognito_process, chromeos_listener, content_settings_manager, bound_session_request_throttled_handler) {
+    return this.$.setInitialConfiguration(is_incognito_process, chromeos_listener, content_settings_manager, bound_session_request_throttled_handler);
+  }
+  setConfiguration(params) {
+    return this.$.setConfiguration(params);
+  }
+  setConfigurationOnProcessLockUpdate(params) {
+    return this.$.setConfigurationOnProcessLockUpdate(params);
   }
 };
 

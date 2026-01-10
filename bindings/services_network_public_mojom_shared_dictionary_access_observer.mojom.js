@@ -125,6 +125,12 @@ network.mojom.SharedDictionaryAccessObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onSharedDictionaryAccessed(details) {
+    return this.$.onSharedDictionaryAccessed(details);
+  }
+  clone(observer) {
+    return this.$.clone(observer);
+  }
 };
 
 network.mojom.SharedDictionaryAccessObserverRemoteCallHandler = class {

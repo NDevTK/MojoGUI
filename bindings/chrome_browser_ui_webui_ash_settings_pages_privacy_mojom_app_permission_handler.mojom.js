@@ -181,6 +181,27 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  getApps() {
+    return this.$.getApps();
+  }
+  getSystemAppsThatUseCamera() {
+    return this.$.getSystemAppsThatUseCamera();
+  }
+  getSystemAppsThatUseMicrophone() {
+    return this.$.getSystemAppsThatUseMicrophone();
+  }
+  openBrowserPermissionSettings(permission_type) {
+    return this.$.openBrowserPermissionSettings(permission_type);
+  }
+  openNativeSettings(app_id) {
+    return this.$.openNativeSettings(app_id);
+  }
+  setPermission(app_id, permission) {
+    return this.$.setPermission(app_id, permission);
+  }
 };
 
 ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class {
@@ -526,6 +547,12 @@ ash.settings.app_permission.mojom.AppPermissionsObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onAppRemoved(app_id) {
+    return this.$.onAppRemoved(app_id);
+  }
+  onAppUpdated(app) {
+    return this.$.onAppUpdated(app);
   }
 };
 

@@ -118,6 +118,15 @@ components.media_control.mojom.MediaPlaybackOptionsRemote = class {
   close() {
     this.proxy.close();
   }
+  setMediaLoadingBlocked(blocked) {
+    return this.$.setMediaLoadingBlocked(blocked);
+  }
+  setBackgroundVideoPlaybackEnabled(enabled) {
+    return this.$.setBackgroundVideoPlaybackEnabled(enabled);
+  }
+  setRendererType(type) {
+    return this.$.setRendererType(type);
+  }
 };
 
 components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {

@@ -217,6 +217,36 @@ remoting.mojom.SupportHostObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onHostStateStarting() {
+    return this.$.onHostStateStarting();
+  }
+  onHostStateRequestedAccessCode() {
+    return this.$.onHostStateRequestedAccessCode();
+  }
+  onHostStateReceivedAccessCode(access_code, lifetime) {
+    return this.$.onHostStateReceivedAccessCode(access_code, lifetime);
+  }
+  onHostStateConnecting() {
+    return this.$.onHostStateConnecting();
+  }
+  onHostStateConnected(remote_username) {
+    return this.$.onHostStateConnected(remote_username);
+  }
+  onHostStateDisconnected(disconnect_reason) {
+    return this.$.onHostStateDisconnected(disconnect_reason);
+  }
+  onNatPolicyChanged(nat_policy_state) {
+    return this.$.onNatPolicyChanged(nat_policy_state);
+  }
+  onHostStateError(error_code) {
+    return this.$.onHostStateError(error_code);
+  }
+  onPolicyError() {
+    return this.$.onPolicyError();
+  }
+  onInvalidDomainError() {
+    return this.$.onInvalidDomainError();
+  }
 };
 
 remoting.mojom.SupportHostObserverRemoteCallHandler = class {

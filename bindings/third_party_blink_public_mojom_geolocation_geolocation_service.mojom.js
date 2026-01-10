@@ -111,6 +111,9 @@ blink.mojom.GeolocationServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  createGeolocation(receiver, user_gesture) {
+    return this.$.createGeolocation(receiver, user_gesture);
+  }
 };
 
 blink.mojom.GeolocationServiceRemoteCallHandler = class {

@@ -109,6 +109,9 @@ webui_examples.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 webui_examples.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -269,6 +272,15 @@ webui_examples.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  navigate(guest_contents_id, src) {
+    return this.$.navigate(guest_contents_id, src);
+  }
+  goBack(guest_contents_id) {
+    return this.$.goBack(guest_contents_id);
+  }
+  goForward(guest_contents_id) {
+    return this.$.goForward(guest_contents_id);
   }
 };
 

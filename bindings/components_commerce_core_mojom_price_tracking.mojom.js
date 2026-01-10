@@ -185,6 +185,30 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  trackPriceForBookmark(bookmark_id) {
+    return this.$.trackPriceForBookmark(bookmark_id);
+  }
+  untrackPriceForBookmark(bookmark_id) {
+    return this.$.untrackPriceForBookmark(bookmark_id);
+  }
+  setPriceTrackingStatusForCurrentUrl(track) {
+    return this.$.setPriceTrackingStatusForCurrentUrl(track);
+  }
+  getAllShoppingBookmarkProductInfo() {
+    return this.$.getAllShoppingBookmarkProductInfo();
+  }
+  getAllPriceTrackedBookmarkProductInfo() {
+    return this.$.getAllPriceTrackedBookmarkProductInfo();
+  }
+  getShoppingCollectionBookmarkFolderId() {
+    return this.$.getShoppingCollectionBookmarkFolderId();
+  }
+  getParentBookmarkFolderNameForCurrentUrl() {
+    return this.$.getParentBookmarkFolderNameForCurrentUrl();
+  }
+  showBookmarkEditorForCurrentUrl() {
+    return this.$.showBookmarkEditorForCurrentUrl();
+  }
 };
 
 commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
@@ -579,6 +603,18 @@ commerce.price_tracking.mojom.PageRemote = class {
   close() {
     this.proxy.close();
   }
+  priceTrackedForBookmark(bookmark_product) {
+    return this.$.priceTrackedForBookmark(bookmark_product);
+  }
+  priceUntrackedForBookmark(bookmark_product) {
+    return this.$.priceUntrackedForBookmark(bookmark_product);
+  }
+  operationFailedForBookmark(bookmark_product, attempted_track) {
+    return this.$.operationFailedForBookmark(bookmark_product, attempted_track);
+  }
+  onProductBookmarkMoved(bookmark_product) {
+    return this.$.onProductBookmarkMoved(bookmark_product);
+  }
 };
 
 commerce.price_tracking.mojom.PageRemoteCallHandler = class {
@@ -814,6 +850,9 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createPriceTrackingHandler(page, handler) {
+    return this.$.createPriceTrackingHandler(page, handler);
   }
 };
 

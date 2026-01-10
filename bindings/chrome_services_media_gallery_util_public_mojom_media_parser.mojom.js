@@ -235,6 +235,18 @@ chrome.mojom.MediaParserRemote = class {
   close() {
     this.proxy.close();
   }
+  parseMediaMetadata(mime_type, total_size, get_attached_images, media_data_source) {
+    return this.$.parseMediaMetadata(mime_type, total_size, get_attached_images, media_data_source);
+  }
+  extractVideoFrame(mime_type, total_size, media_data_source) {
+    return this.$.extractVideoFrame(mime_type, total_size, media_data_source);
+  }
+  checkMediaFile(decode_time, file) {
+    return this.$.checkMediaFile(decode_time, file);
+  }
+  getCpuInfo() {
+    return this.$.getCpuInfo();
+  }
 };
 
 chrome.mojom.MediaParserRemoteCallHandler = class {
@@ -501,6 +513,9 @@ chrome.mojom.MediaParserFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createMediaParser(libyuv_cpu_flags, libavutil_cpu_flags) {
+    return this.$.createMediaParser(libyuv_cpu_flags, libavutil_cpu_flags);
+  }
 };
 
 chrome.mojom.MediaParserFactoryRemoteCallHandler = class {
@@ -661,6 +676,9 @@ chrome.mojom.MediaDataSourceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  read(position, length) {
+    return this.$.read(position, length);
   }
 };
 

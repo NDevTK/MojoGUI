@@ -1056,6 +1056,12 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  createRoutine(routine_argument, routine_receiver, routine_observer) {
+    return this.$.createRoutine(routine_argument, routine_receiver, routine_observer);
+  }
+  isRoutineArgumentSupported(routine_argument) {
+    return this.$.isRoutineArgumentSupported(routine_argument);
+  }
 };
 
 ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler = class {
@@ -1254,6 +1260,15 @@ ash.cros_healthd.mojom.RoutineControlRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getState() {
+    return this.$.getState();
+  }
+  start() {
+    return this.$.start();
+  }
+  replyInquiry(reply) {
+    return this.$.replyInquiry(reply);
   }
 };
 
@@ -1466,6 +1481,9 @@ ash.cros_healthd.mojom.RoutineObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onRoutineStateChange(state) {
+    return this.$.onRoutineStateChange(state);
   }
 };
 

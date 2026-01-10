@@ -220,6 +220,15 @@ blink.mojom.PresentationConnectionRemote = class {
   close() {
     this.proxy.close();
   }
+  onMessage(message) {
+    return this.$.onMessage(message);
+  }
+  didChangeState(state) {
+    return this.$.didChangeState(state);
+  }
+  didClose(reason) {
+    return this.$.didClose(reason);
+  }
 };
 
 blink.mojom.PresentationConnectionRemoteCallHandler = class {
@@ -490,6 +499,33 @@ blink.mojom.PresentationServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setController(controller) {
+    return this.$.setController(controller);
+  }
+  setReceiver(receiver) {
+    return this.$.setReceiver(receiver);
+  }
+  setDefaultPresentationUrls(presentation_urls) {
+    return this.$.setDefaultPresentationUrls(presentation_urls);
+  }
+  listenForScreenAvailability(availability_url) {
+    return this.$.listenForScreenAvailability(availability_url);
+  }
+  stopListeningForScreenAvailability(availability_url) {
+    return this.$.stopListeningForScreenAvailability(availability_url);
+  }
+  startPresentation(presentation_urls) {
+    return this.$.startPresentation(presentation_urls);
+  }
+  reconnectPresentation(presentation_urls, presentation_id) {
+    return this.$.reconnectPresentation(presentation_urls, presentation_id);
+  }
+  closeConnection(presentation_url, presentation_id) {
+    return this.$.closeConnection(presentation_url, presentation_id);
+  }
+  terminate(presentation_url, presentation_id) {
+    return this.$.terminate(presentation_url, presentation_id);
   }
 };
 
@@ -905,6 +941,18 @@ blink.mojom.PresentationControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  onScreenAvailabilityUpdated(url, availability) {
+    return this.$.onScreenAvailabilityUpdated(url, availability);
+  }
+  onDefaultPresentationStarted(result) {
+    return this.$.onDefaultPresentationStarted(result);
+  }
+  onConnectionStateChanged(presentation_info, newState) {
+    return this.$.onConnectionStateChanged(presentation_info, newState);
+  }
+  onConnectionClosed(presentation_info, reason, message) {
+    return this.$.onConnectionClosed(presentation_info, reason, message);
+  }
 };
 
 blink.mojom.PresentationControllerRemoteCallHandler = class {
@@ -1139,6 +1187,9 @@ blink.mojom.PresentationReceiverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onReceiverConnectionAvailable(result) {
+    return this.$.onReceiverConnectionAvailable(result);
   }
 };
 

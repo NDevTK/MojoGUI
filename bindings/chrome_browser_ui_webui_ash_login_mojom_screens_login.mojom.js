@@ -171,6 +171,21 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onResumeClicked() {
+    return this.$.onResumeClicked();
+  }
+  onUpdateClicked() {
+    return this.$.onUpdateClicked();
+  }
+  onFinishClicked() {
+    return this.$.onFinishClicked();
+  }
+  onSkipClicked() {
+    return this.$.onSkipClicked();
+  }
+  onReportClicked() {
+    return this.$.onReportClicked();
+  }
 };
 
 ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
@@ -465,6 +480,24 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setUIState(state) {
+    return this.$.setUIState(state);
+  }
+  setRequiredFreeDiskSpace(required_space) {
+    return this.$.setRequiredFreeDiskSpace(required_space);
+  }
+  setMinimumBatteryPercent(percent) {
+    return this.$.setMinimumBatteryPercent(percent);
+  }
+  setBatteryState(enough, connected) {
+    return this.$.setBatteryState(enough, connected);
+  }
+  setMigrationProgress(progress) {
+    return this.$.setMigrationProgress(progress);
+  }
+  setEstimatedRemainingTime(remaining_time) {
+    return this.$.setEstimatedRemainingTime(remaining_time);
   }
 };
 
@@ -778,6 +811,21 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onStartMigration() {
+    return this.$.onStartMigration();
+  }
+  onSkipMigration() {
+    return this.$.onSkipMigration();
+  }
+  onRequestRestartOnLowStorage() {
+    return this.$.onRequestRestartOnLowStorage();
+  }
+  onRequestRestartOnFailure() {
+    return this.$.onRequestRestartOnFailure();
+  }
+  onOpenFeedbackDialog() {
+    return this.$.onOpenFeedbackDialog();
+  }
 };
 
 ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class {
@@ -1074,6 +1122,24 @@ ash.screens_login.mojom.EncryptionMigrationPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setUIState(state) {
+    return this.$.setUIState(state);
+  }
+  setMigrationProgress(progress) {
+    return this.$.setMigrationProgress(progress);
+  }
+  setIsResuming(is_resuming) {
+    return this.$.setIsResuming(is_resuming);
+  }
+  setBatteryState(percent, is_enough, is_charging) {
+    return this.$.setBatteryState(percent, is_enough, is_charging);
+  }
+  setNecessaryBatteryPercent(percent) {
+    return this.$.setNecessaryBatteryPercent(percent);
+  }
+  setSpaceInfoInString(available_space, required_space) {
+    return this.$.setSpaceInfoInString(available_space, required_space);
   }
 };
 

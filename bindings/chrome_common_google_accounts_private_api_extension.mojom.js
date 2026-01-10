@@ -102,6 +102,9 @@ chrome.mojom.GoogleAccountsPrivateApiExtensionRemote = class {
   close() {
     this.proxy.close();
   }
+  setConsentResult(consent_result) {
+    return this.$.setConsentResult(consent_result);
+  }
 };
 
 chrome.mojom.GoogleAccountsPrivateApiExtensionRemoteCallHandler = class {

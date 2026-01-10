@@ -137,6 +137,9 @@ ash.help_app.mojom.SearchResultsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onSearchResultAvailabilityChanged() {
+    return this.$.onSearchResultAvailabilityChanged();
+  }
 };
 
 ash.help_app.mojom.SearchResultsObserverRemoteCallHandler = class {
@@ -308,6 +311,15 @@ ash.help_app.mojom.SearchHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  search(query, max_num_results) {
+    return this.$.search(query, max_num_results);
+  }
+  update(concepts) {
+    return this.$.update(concepts);
+  }
+  observe(observer) {
+    return this.$.observe(observer);
   }
 };
 

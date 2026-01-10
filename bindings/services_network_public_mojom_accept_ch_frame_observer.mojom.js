@@ -118,6 +118,12 @@ network.mojom.AcceptCHFrameObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onAcceptCHFrameReceived(origin, accept_ch_frame) {
+    return this.$.onAcceptCHFrameReceived(origin, accept_ch_frame);
+  }
+  clone(listener) {
+    return this.$.clone(listener);
+  }
 };
 
 network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {

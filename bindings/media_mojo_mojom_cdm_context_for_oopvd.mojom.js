@@ -133,6 +133,9 @@ media.mojom.CdmContextEventCallbackRemote = class {
   close() {
     this.proxy.close();
   }
+  eventCallback(event) {
+    return this.$.eventCallback(event);
+  }
 };
 
 media.mojom.CdmContextEventCallbackRemoteCallHandler = class {
@@ -359,6 +362,27 @@ media.mojom.CdmContextForOOPVDRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getHwKeyData(decrypt_config, hw_identifier) {
+    return this.$.getHwKeyData(decrypt_config, hw_identifier);
+  }
+  registerEventCallback(callback) {
+    return this.$.registerEventCallback(callback);
+  }
+  getHwConfigData() {
+    return this.$.getHwConfigData();
+  }
+  getScreenResolutions() {
+    return this.$.getScreenResolutions();
+  }
+  allocateSecureBuffer(size) {
+    return this.$.allocateSecureBuffer(size);
+  }
+  parseEncryptedSliceHeader(secure_handle, offset, stream_data) {
+    return this.$.parseEncryptedSliceHeader(secure_handle, offset, stream_data);
+  }
+  decryptVideoBuffer(buffer, bytes) {
+    return this.$.decryptVideoBuffer(buffer, bytes);
   }
 };
 

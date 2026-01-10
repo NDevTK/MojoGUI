@@ -107,6 +107,9 @@ remoting.mojom.ChromotingHostServicesRemote = class {
   close() {
     this.proxy.close();
   }
+  bindSessionServices(receiver) {
+    return this.$.bindSessionServices(receiver);
+  }
 };
 
 remoting.mojom.ChromotingHostServicesRemoteCallHandler = class {
@@ -266,6 +269,15 @@ remoting.mojom.ChromotingSessionServicesRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindWebAuthnProxy(receiver) {
+    return this.$.bindWebAuthnProxy(receiver);
+  }
+  bindRemoteUrlOpener(receiver) {
+    return this.$.bindRemoteUrlOpener(receiver);
+  }
+  bindSecurityKeyForwarder(receiver) {
+    return this.$.bindSecurityKeyForwarder(receiver);
   }
 };
 

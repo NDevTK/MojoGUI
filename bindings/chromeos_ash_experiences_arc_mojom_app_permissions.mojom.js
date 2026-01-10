@@ -141,6 +141,12 @@ arc.mojom.AppPermissionsInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  grantPermission(package_name, permission) {
+    return this.$.grantPermission(package_name, permission);
+  }
+  revokePermission(package_name, permission) {
+    return this.$.revokePermission(package_name, permission);
+  }
 };
 
 arc.mojom.AppPermissionsInstanceRemoteCallHandler = class {

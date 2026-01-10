@@ -123,6 +123,15 @@ shape_detection.mojom.ShapeDetectionServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  bindBarcodeDetectionProvider(receiver) {
+    return this.$.bindBarcodeDetectionProvider(receiver);
+  }
+  bindFaceDetectionProvider(receiver) {
+    return this.$.bindFaceDetectionProvider(receiver);
+  }
+  bindTextDetection(receiver) {
+    return this.$.bindTextDetection(receiver);
+  }
 };
 
 shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {

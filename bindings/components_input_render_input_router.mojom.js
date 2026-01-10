@@ -173,6 +173,24 @@ input.mojom.RenderInputRouterDelegateRemote = class {
   close() {
     this.proxy.close();
   }
+  stateOnTouchTransfer(state) {
+    return this.$.stateOnTouchTransfer(state);
+  }
+  forceEnableZoomStateChanged(force_enable_zoom, frame_sink_id) {
+    return this.$.forceEnableZoomStateChanged(force_enable_zoom, frame_sink_id);
+  }
+  stopFlingingOnViz(frame_sink_id) {
+    return this.$.stopFlingingOnViz(frame_sink_id);
+  }
+  restartInputEventAckTimeoutIfNecessary(frame_sink_id) {
+    return this.$.restartInputEventAckTimeoutIfNecessary(frame_sink_id);
+  }
+  notifyVisibilityChanged(frame_sink_id, is_hidden) {
+    return this.$.notifyVisibilityChanged(frame_sink_id, is_hidden);
+  }
+  resetGestureDetection(root_widget_frame_sink_id) {
+    return this.$.resetGestureDetection(root_widget_frame_sink_id);
+  }
 };
 
 input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
@@ -492,6 +510,21 @@ input.mojom.RenderInputRouterDelegateClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  notifyObserversOfInputEvent(event, dispatched_to_renderer) {
+    return this.$.notifyObserversOfInputEvent(event, dispatched_to_renderer);
+  }
+  notifyObserversOfInputEventAcks(ack_source, ack_result, event) {
+    return this.$.notifyObserversOfInputEventAcks(ack_source, ack_result, event);
+  }
+  onInvalidInputEventSource() {
+    return this.$.onInvalidInputEventSource();
+  }
+  stateOnOverscrollTransfer(overscroll) {
+    return this.$.stateOnOverscrollTransfer(overscroll);
+  }
+  rendererInputResponsivenessChanged(is_responsive, ack_timeout_ts) {
+    return this.$.rendererInputResponsivenessChanged(is_responsive, ack_timeout_ts);
   }
 };
 

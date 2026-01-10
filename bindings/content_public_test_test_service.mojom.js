@@ -262,6 +262,45 @@ content.mojom.TestServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  doSomething() {
+    return this.$.doSomething();
+  }
+  doTerminateProcess() {
+    return this.$.doTerminateProcess();
+  }
+  doCrashImmediately() {
+    return this.$.doCrashImmediately();
+  }
+  createFolder() {
+    return this.$.createFolder();
+  }
+  getRequestorName() {
+    return this.$.getRequestorName();
+  }
+  createReadOnlySharedMemoryRegion(message) {
+    return this.$.createReadOnlySharedMemoryRegion(message);
+  }
+  createWritableSharedMemoryRegion(message) {
+    return this.$.createWritableSharedMemoryRegion(message);
+  }
+  createUnsafeSharedMemoryRegion(message) {
+    return this.$.createUnsafeSharedMemoryRegion(message);
+  }
+  cloneSharedMemoryContents(region) {
+    return this.$.cloneSharedMemoryContents(region);
+  }
+  isProcessSandboxed() {
+    return this.$.isProcessSandboxed();
+  }
+  pseudonymizeString(value) {
+    return this.$.pseudonymizeString(value);
+  }
+  passWriteableFile(file) {
+    return this.$.passWriteableFile(file);
+  }
+  writeToPreloadedPipe() {
+    return this.$.writeToPreloadedPipe();
+  }
 };
 
 content.mojom.TestServiceRemoteCallHandler = class {

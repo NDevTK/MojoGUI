@@ -102,6 +102,9 @@ ui.mojom.ScenicGpuServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize(scenic_gpu_host) {
+    return this.$.initialize(scenic_gpu_host);
+  }
 };
 
 ui.mojom.ScenicGpuServiceRemoteCallHandler = class {

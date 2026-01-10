@@ -163,6 +163,9 @@ commerce.mojom.CommerceInternalsHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createCommerceInternalsHandler(page, handler) {
+    return this.$.createCommerceInternalsHandler(page, handler);
+  }
 };
 
 commerce.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler = class {
@@ -370,6 +373,27 @@ commerce.mojom.CommerceInternalsHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getIsShoppingListEligible() {
+    return this.$.getIsShoppingListEligible();
+  }
+  resetPriceTrackingEmailPref() {
+    return this.$.resetPriceTrackingEmailPref();
+  }
+  getProductInfoForUrl(url) {
+    return this.$.getProductInfoForUrl(url);
+  }
+  getSubscriptionDetails() {
+    return this.$.getSubscriptionDetails();
+  }
+  getProductSpecificationsDetails() {
+    return this.$.getProductSpecificationsDetails();
+  }
+  resetProductSpecifications() {
+    return this.$.resetProductSpecifications();
+  }
+  getShoppingEligibilityDetails() {
+    return this.$.getShoppingEligibilityDetails();
   }
 };
 
@@ -722,6 +746,9 @@ commerce.mojom.CommerceInternalsPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onShoppingListEligibilityChanged(eligible) {
+    return this.$.onShoppingListEligibilityChanged(eligible);
   }
 };
 

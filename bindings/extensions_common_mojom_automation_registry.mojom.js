@@ -103,6 +103,9 @@ extensions.mojom.RendererAutomationRegistryRemote = class {
   close() {
     this.proxy.close();
   }
+  bindAutomation(automation) {
+    return this.$.bindAutomation(automation);
+  }
 };
 
 extensions.mojom.RendererAutomationRegistryRemoteCallHandler = class {

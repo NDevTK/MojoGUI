@@ -104,6 +104,9 @@ network.mojom.ProxyLookupClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onProxyLookupComplete(net_error, proxy_info) {
+    return this.$.onProxyLookupComplete(net_error, proxy_info);
+  }
 };
 
 network.mojom.ProxyLookupClientRemoteCallHandler = class {

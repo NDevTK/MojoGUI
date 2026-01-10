@@ -178,6 +178,27 @@ echo.mojom.EchoServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  echoString(input) {
+    return this.$.echoString(input);
+  }
+  echoStringToSharedMemory(input, region) {
+    return this.$.echoStringToSharedMemory(input, region);
+  }
+  quit() {
+    return this.$.quit();
+  }
+  crash() {
+    return this.$.crash();
+  }
+  delayLoad() {
+    return this.$.delayLoad();
+  }
+  loadNativeLibrary(library, call_winmm_delayload) {
+    return this.$.loadNativeLibrary(library, call_winmm_delayload);
+  }
+  decryptEncrypt(encryptor, input) {
+    return this.$.decryptEncrypt(encryptor, input);
+  }
 };
 
 echo.mojom.EchoServiceRemoteCallHandler = class {

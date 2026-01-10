@@ -101,6 +101,9 @@ blink.mojom.CloseListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  signal() {
+    return this.$.signal();
+  }
 };
 
 blink.mojom.CloseListenerRemoteCallHandler = class {

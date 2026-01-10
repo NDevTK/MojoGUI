@@ -152,6 +152,27 @@ blink.mojom.ResourceLoadInfoNotifierRemote = class {
   close() {
     this.proxy.close();
   }
+  notifyUpdateUserGestureCarryoverInfo() {
+    return this.$.notifyUpdateUserGestureCarryoverInfo();
+  }
+  notifyResourceRedirectReceived(redirect_info, redirect_response) {
+    return this.$.notifyResourceRedirectReceived(redirect_info, redirect_response);
+  }
+  notifyResourceResponseReceived(request_id, final_response_url, head, request_destination, is_ad_resource) {
+    return this.$.notifyResourceResponseReceived(request_id, final_response_url, head, request_destination, is_ad_resource);
+  }
+  notifyResourceTransferSizeUpdated(request_id, transfer_size_diff) {
+    return this.$.notifyResourceTransferSizeUpdated(request_id, transfer_size_diff);
+  }
+  notifyResourceLoadCompleted(resource_load_info, status) {
+    return this.$.notifyResourceLoadCompleted(resource_load_info, status);
+  }
+  notifyResourceLoadCanceled(request_id) {
+    return this.$.notifyResourceLoadCanceled(request_id);
+  }
+  clone(pending_resource_load_info_notifier) {
+    return this.$.clone(pending_resource_load_info_notifier);
+  }
 };
 
 blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {

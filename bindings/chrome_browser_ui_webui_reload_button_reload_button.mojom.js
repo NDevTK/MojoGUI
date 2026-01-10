@@ -119,6 +119,9 @@ reload_button.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 reload_button.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -279,6 +282,15 @@ reload_button.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  reload(ignore_cache, flags) {
+    return this.$.reload(ignore_cache, flags);
+  }
+  stopReload() {
+    return this.$.stopReload();
+  }
+  showContextMenu(offset_x, offset_y) {
+    return this.$.showContextMenu(offset_x, offset_y);
   }
 };
 
@@ -486,6 +498,9 @@ reload_button.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setReloadButtonState(is_loading, is_menu_enabled) {
+    return this.$.setReloadButtonState(is_loading, is_menu_enabled);
   }
 };
 

@@ -106,6 +106,9 @@ chromeos.sensors.mojom.SensorHalServerRemote = class {
   close() {
     this.proxy.close();
   }
+  createChannel(sensor_service_request) {
+    return this.$.createChannel(sensor_service_request);
+  }
 };
 
 chromeos.sensors.mojom.SensorHalServerRemoteCallHandler = class {
@@ -253,6 +256,9 @@ chromeos.sensors.mojom.SensorHalClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setUpChannel(sensor_service_ptr) {
+    return this.$.setUpChannel(sensor_service_ptr);
   }
 };
 

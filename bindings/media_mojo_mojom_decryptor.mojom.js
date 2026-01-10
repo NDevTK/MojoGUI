@@ -203,6 +203,33 @@ media.mojom.DecryptorRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize(audio_pipe, video_pipe, decrypt_pipe, decrypted_pipe) {
+    return this.$.initialize(audio_pipe, video_pipe, decrypt_pipe, decrypted_pipe);
+  }
+  decrypt(stream_type, encrypted) {
+    return this.$.decrypt(stream_type, encrypted);
+  }
+  cancelDecrypt(stream_type) {
+    return this.$.cancelDecrypt(stream_type);
+  }
+  initializeAudioDecoder(config) {
+    return this.$.initializeAudioDecoder(config);
+  }
+  initializeVideoDecoder(config) {
+    return this.$.initializeVideoDecoder(config);
+  }
+  decryptAndDecodeAudio(encrypted) {
+    return this.$.decryptAndDecodeAudio(encrypted);
+  }
+  decryptAndDecodeVideo(encrypted) {
+    return this.$.decryptAndDecodeVideo(encrypted);
+  }
+  resetDecoder(stream_type) {
+    return this.$.resetDecoder(stream_type);
+  }
+  deinitializeDecoder(stream_type) {
+    return this.$.deinitializeDecoder(stream_type);
+  }
 };
 
 media.mojom.DecryptorRemoteCallHandler = class {

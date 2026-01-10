@@ -128,6 +128,18 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemote = class {
   close() {
     this.proxy.close();
   }
+  clear() {
+    return this.$.clear();
+  }
+  undo() {
+    return this.$.undo();
+  }
+  redo() {
+    return this.$.redo();
+  }
+  setTool(tool) {
+    return this.$.setTool(tool);
+  }
 };
 
 ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
@@ -370,6 +382,12 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onUndoRedoAvailabilityChanged(undo_available, redo_available) {
+    return this.$.onUndoRedoAvailabilityChanged(undo_available, redo_available);
+  }
+  onCanvasInitialized(success) {
+    return this.$.onCanvasInitialized(success);
+  }
 };
 
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
@@ -547,6 +565,9 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  create(handler, annotator) {
+    return this.$.create(handler, annotator);
   }
 };
 

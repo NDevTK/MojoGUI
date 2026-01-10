@@ -191,6 +191,30 @@ extensions.mojom.ServiceWorkerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  didInitializeServiceWorkerContext(extension_id, service_worker_version_id, worker_thread_id, service_worker_token, event_dispatcher) {
+    return this.$.didInitializeServiceWorkerContext(extension_id, service_worker_version_id, worker_thread_id, service_worker_token, event_dispatcher);
+  }
+  didStartServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id) {
+    return this.$.didStartServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id);
+  }
+  didStopServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id) {
+    return this.$.didStopServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id);
+  }
+  requestWorker(params) {
+    return this.$.requestWorker(params);
+  }
+  workerResponseAck(request_uuid) {
+    return this.$.workerResponseAck(request_uuid);
+  }
+  openChannelToExtension(info, channel_type, channel_name, port_id, port, port_host) {
+    return this.$.openChannelToExtension(info, channel_type, channel_name, port_id, port, port_host);
+  }
+  openChannelToNativeApp(native_app_name, port_id, port, port_host) {
+    return this.$.openChannelToNativeApp(native_app_name, port_id, port, port_host);
+  }
+  openChannelToTab(tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host) {
+    return this.$.openChannelToTab(tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host);
+  }
 };
 
 extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {

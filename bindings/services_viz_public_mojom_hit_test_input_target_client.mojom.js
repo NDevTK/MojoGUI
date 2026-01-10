@@ -112,6 +112,9 @@ viz.mojom.InputTargetClientRemote = class {
   close() {
     this.proxy.close();
   }
+  frameSinkIdAt(point, trace_id) {
+    return this.$.frameSinkIdAt(point, trace_id);
+  }
 };
 
 viz.mojom.InputTargetClientRemoteCallHandler = class {

@@ -249,6 +249,12 @@ nearby_share.mojom.ShareTargetListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onShareTargetDiscovered(share_target) {
+    return this.$.onShareTargetDiscovered(share_target);
+  }
+  onShareTargetLost(share_target) {
+    return this.$.onShareTargetLost(share_target);
+  }
 };
 
 nearby_share.mojom.ShareTargetListenerRemoteCallHandler = class {
@@ -427,6 +433,9 @@ nearby_share.mojom.TransferUpdateListenerRemote = class {
   close() {
     this.proxy.close();
   }
+  onTransferUpdate(status, token) {
+    return this.$.onTransferUpdate(status, token);
+  }
 };
 
 nearby_share.mojom.TransferUpdateListenerRemoteCallHandler = class {
@@ -579,6 +588,12 @@ nearby_share.mojom.DiscoveryObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onNearbyProcessStopped() {
+    return this.$.onNearbyProcessStopped();
+  }
+  onStartDiscoveryResult(success) {
+    return this.$.onStartDiscoveryResult(success);
   }
 };
 
@@ -803,6 +818,21 @@ nearby_share.mojom.DiscoveryManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addDiscoveryObserver(observer) {
+    return this.$.addDiscoveryObserver(observer);
+  }
+  startDiscovery(listener) {
+    return this.$.startDiscovery(listener);
+  }
+  stopDiscovery() {
+    return this.$.stopDiscovery();
+  }
+  selectShareTarget(share_target_id) {
+    return this.$.selectShareTarget(share_target_id);
+  }
+  getPayloadPreview() {
+    return this.$.getPayloadPreview();
   }
 };
 
@@ -1119,6 +1149,15 @@ nearby_share.mojom.ConfirmationManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  accept() {
+    return this.$.accept();
+  }
+  reject() {
+    return this.$.reject();
+  }
+  cancel() {
+    return this.$.cancel();
+  }
 };
 
 nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
@@ -1359,6 +1398,18 @@ nearby_share.mojom.ReceiveObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onHighVisibilityChanged(in_high_visibility) {
+    return this.$.onHighVisibilityChanged(in_high_visibility);
+  }
+  onTransferUpdate(share_target, metadata) {
+    return this.$.onTransferUpdate(share_target, metadata);
+  }
+  onNearbyProcessStopped() {
+    return this.$.onNearbyProcessStopped();
+  }
+  onStartAdvertisingFailure() {
+    return this.$.onStartAdvertisingFailure();
   }
 };
 
@@ -1657,6 +1708,27 @@ nearby_share.mojom.ReceiveManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addReceiveObserver(observer) {
+    return this.$.addReceiveObserver(observer);
+  }
+  isInHighVisibility() {
+    return this.$.isInHighVisibility();
+  }
+  registerForegroundReceiveSurface() {
+    return this.$.registerForegroundReceiveSurface();
+  }
+  unregisterForegroundReceiveSurface() {
+    return this.$.unregisterForegroundReceiveSurface();
+  }
+  accept(share_target_id) {
+    return this.$.accept(share_target_id);
+  }
+  reject(share_target_id) {
+    return this.$.reject(share_target_id);
+  }
+  recordFastInitiationNotificationUsage(success) {
+    return this.$.recordFastInitiationNotificationUsage(success);
   }
 };
 

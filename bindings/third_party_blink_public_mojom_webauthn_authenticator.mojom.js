@@ -678,6 +678,27 @@ blink.mojom.AuthenticatorRemote = class {
   close() {
     this.proxy.close();
   }
+  makeCredential(options) {
+    return this.$.makeCredential(options);
+  }
+  getCredential(options) {
+    return this.$.getCredential(options);
+  }
+  isUserVerifyingPlatformAuthenticatorAvailable() {
+    return this.$.isUserVerifyingPlatformAuthenticatorAvailable();
+  }
+  isConditionalMediationAvailable() {
+    return this.$.isConditionalMediationAvailable();
+  }
+  report(options) {
+    return this.$.report(options);
+  }
+  getClientCapabilities() {
+    return this.$.getClientCapabilities();
+  }
+  cancel() {
+    return this.$.cancel();
+  }
 };
 
 blink.mojom.AuthenticatorRemoteCallHandler = class {

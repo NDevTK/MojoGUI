@@ -173,6 +173,9 @@ blink.mojom.TranslationManagerCreateTranslatorClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onResult(result, source_lang, target_lang) {
+    return this.$.onResult(result, source_lang, target_lang);
+  }
 };
 
 blink.mojom.TranslationManagerCreateTranslatorClientRemoteCallHandler = class {
@@ -334,6 +337,12 @@ blink.mojom.TranslationManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createTranslator(client, options) {
+    return this.$.createTranslator(client, options);
+  }
+  translationAvailable(source_lang, target_lang) {
+    return this.$.translationAvailable(source_lang, target_lang);
   }
 };
 

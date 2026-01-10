@@ -115,6 +115,12 @@ device.mojom.GeolocationRemote = class {
   close() {
     this.proxy.close();
   }
+  setHighAccuracyHint(high_accuracy) {
+    return this.$.setHighAccuracyHint(high_accuracy);
+  }
+  queryNextPosition() {
+    return this.$.queryNextPosition();
+  }
 };
 
 device.mojom.GeolocationRemoteCallHandler = class {

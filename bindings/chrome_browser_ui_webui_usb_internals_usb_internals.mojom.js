@@ -109,6 +109,12 @@ mojom.UsbInternalsPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  bindUsbDeviceManagerInterface(receiver) {
+    return this.$.bindUsbDeviceManagerInterface(receiver);
+  }
+  bindTestInterface(receiver) {
+    return this.$.bindTestInterface(receiver);
+  }
 };
 
 mojom.UsbInternalsPageHandlerRemoteCallHandler = class {

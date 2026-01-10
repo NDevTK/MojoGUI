@@ -187,6 +187,24 @@ storage.mojom.QuotaInternalsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getDiskAvailabilityAndTempPoolSize() {
+    return this.$.getDiskAvailabilityAndTempPoolSize();
+  }
+  getStatistics() {
+    return this.$.getStatistics();
+  }
+  simulateStoragePressure(origin_url) {
+    return this.$.simulateStoragePressure(origin_url);
+  }
+  retrieveBucketsTable() {
+    return this.$.retrieveBucketsTable();
+  }
+  getGlobalUsageForInternals() {
+    return this.$.getGlobalUsageForInternals();
+  }
+  isSimulateStoragePressureAvailable() {
+    return this.$.isSimulateStoragePressureAvailable();
+  }
 };
 
 storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {

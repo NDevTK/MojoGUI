@@ -106,6 +106,9 @@ chromecast.mojom.FeatureUpdateObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onFeaturesUpdated(features) {
+    return this.$.onFeaturesUpdated(features);
+  }
 };
 
 chromecast.mojom.FeatureUpdateObserverRemoteCallHandler = class {
@@ -253,6 +256,9 @@ chromecast.mojom.FeatureUpdateServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  registerFeatureUpdateObserver(observer) {
+    return this.$.registerFeatureUpdateObserver(observer);
   }
 };
 

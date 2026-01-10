@@ -138,6 +138,9 @@ auction_worklet.mojom.LoadSellerWorkletClientRemote = class {
   close() {
     this.proxy.close();
   }
+  sellerWorkletLoaded(trusted_signals_url_allowed) {
+    return this.$.sellerWorkletLoaded(trusted_signals_url_allowed);
+  }
 };
 
 auction_worklet.mojom.LoadSellerWorkletClientRemoteCallHandler = class {
@@ -324,6 +327,15 @@ auction_worklet.mojom.AuctionWorkletServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setTrustedSignalsCache(trusted_signals_cache) {
+    return this.$.setTrustedSignalsCache(trusted_signals_cache);
+  }
+  loadBidderWorklet(bidder_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, wasm_helper_load, trusted_bidding_signals_url, trusted_bidding_signals_slot_size_param, top_window_origin, permissions_policy_state, experiment_group_id, public_key) {
+    return this.$.loadBidderWorklet(bidder_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, wasm_helper_load, trusted_bidding_signals_url, trusted_bidding_signals_slot_size_param, top_window_origin, permissions_policy_state, experiment_group_id, public_key);
+  }
+  loadSellerWorklet(seller_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, trusted_scoring_signals_url, top_window_origin, permissions_policy_state, experiment_group_id, send_creative_scanning_metadata, public_key, load_seller_worklet_client) {
+    return this.$.loadSellerWorklet(seller_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, trusted_scoring_signals_url, top_window_origin, permissions_policy_state, experiment_group_id, send_creative_scanning_metadata, public_key, load_seller_worklet_client);
   }
 };
 

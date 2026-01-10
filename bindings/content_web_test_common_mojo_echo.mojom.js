@@ -534,6 +534,93 @@ content.mojom.MojoEchoRemote = class {
   close() {
     this.proxy.close();
   }
+  echoBoolFromUnion(test_union) {
+    return this.$.echoBoolFromUnion(test_union);
+  }
+  echoInt32FromUnion(test_union) {
+    return this.$.echoInt32FromUnion(test_union);
+  }
+  echoStringFromUnion(test_union) {
+    return this.$.echoStringFromUnion(test_union);
+  }
+  echoBoolAsUnion(value) {
+    return this.$.echoBoolAsUnion(value);
+  }
+  echoInt32AsUnion(value) {
+    return this.$.echoInt32AsUnion(value);
+  }
+  echoStringAsUnion(value) {
+    return this.$.echoStringAsUnion(value);
+  }
+  echoNullFromOptionalUnion(test_union) {
+    return this.$.echoNullFromOptionalUnion(test_union);
+  }
+  echoBoolFromOptionalUnion(test_union) {
+    return this.$.echoBoolFromOptionalUnion(test_union);
+  }
+  echoInt32FromOptionalUnion(test_union) {
+    return this.$.echoInt32FromOptionalUnion(test_union);
+  }
+  echoStringFromOptionalUnion(test_union) {
+    return this.$.echoStringFromOptionalUnion(test_union);
+  }
+  echoNullAsOptionalUnion() {
+    return this.$.echoNullAsOptionalUnion();
+  }
+  echoBoolAsOptionalUnion(value) {
+    return this.$.echoBoolAsOptionalUnion(value);
+  }
+  echoInt32AsOptionalUnion(value) {
+    return this.$.echoInt32AsOptionalUnion(value);
+  }
+  echoStringAsOptionalUnion(value) {
+    return this.$.echoStringAsOptionalUnion(value);
+  }
+  echoInt8FromNestedUnion(test_union) {
+    return this.$.echoInt8FromNestedUnion(test_union);
+  }
+  echoBoolFromNestedUnion(test_union) {
+    return this.$.echoBoolFromNestedUnion(test_union);
+  }
+  echoStringFromNestedUnion(test_union) {
+    return this.$.echoStringFromNestedUnion(test_union);
+  }
+  echoInt8AsNestedUnion(value) {
+    return this.$.echoInt8AsNestedUnion(value);
+  }
+  echoBoolAsNestedUnion(value) {
+    return this.$.echoBoolAsNestedUnion(value);
+  }
+  echoStringAsNestedUnion(value) {
+    return this.$.echoStringAsNestedUnion(value);
+  }
+  echoNullFromOptionalNestedUnion(test_union) {
+    return this.$.echoNullFromOptionalNestedUnion(test_union);
+  }
+  echoInt8FromOptionalNestedUnion(test_union) {
+    return this.$.echoInt8FromOptionalNestedUnion(test_union);
+  }
+  echoBoolFromOptionalNestedUnion(test_union) {
+    return this.$.echoBoolFromOptionalNestedUnion(test_union);
+  }
+  echoStringFromOptionalNestedUnion(test_union) {
+    return this.$.echoStringFromOptionalNestedUnion(test_union);
+  }
+  echoNullAsOptionalNestedUnion() {
+    return this.$.echoNullAsOptionalNestedUnion();
+  }
+  echoInt8AsOptionalNestedUnion(value) {
+    return this.$.echoInt8AsOptionalNestedUnion(value);
+  }
+  echoBoolAsOptionalNestedUnion(value) {
+    return this.$.echoBoolAsOptionalNestedUnion(value);
+  }
+  echoStringAsOptionalNestedUnion(value) {
+    return this.$.echoStringAsOptionalNestedUnion(value);
+  }
+  echoBoolArray(values) {
+    return this.$.echoBoolArray(values);
+  }
 };
 
 content.mojom.MojoEchoRemoteCallHandler = class {

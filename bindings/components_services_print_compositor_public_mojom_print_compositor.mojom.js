@@ -238,6 +238,42 @@ printing.mojom.PrintCompositorRemote = class {
   close() {
     this.proxy.close();
   }
+  notifyUnavailableSubframe(frame_guid) {
+    return this.$.notifyUnavailableSubframe(frame_guid);
+  }
+  addSubframeContent(frame_guid, serialized_content, subframe_content_info) {
+    return this.$.addSubframeContent(frame_guid, serialized_content, subframe_content_info);
+  }
+  setAccessibilityTree(accessibility_tree) {
+    return this.$.setAccessibilityTree(accessibility_tree);
+  }
+  compositePage(frame_guid, sk_region, subframe_content_info) {
+    return this.$.compositePage(frame_guid, sk_region, subframe_content_info);
+  }
+  compositeDocument(frame_guid, sk_region, subframe_content_info, document_type) {
+    return this.$.compositeDocument(frame_guid, sk_region, subframe_content_info, document_type);
+  }
+  prepareToCompositeDocument(document_type) {
+    return this.$.prepareToCompositeDocument(document_type);
+  }
+  finishDocumentComposition(pages_count) {
+    return this.$.finishDocumentComposition(pages_count);
+  }
+  setWebContentsURL(url) {
+    return this.$.setWebContentsURL(url);
+  }
+  setUserAgent(user_agent) {
+    return this.$.setUserAgent(user_agent);
+  }
+  setGenerateDocumentOutline(generate_document_outline) {
+    return this.$.setGenerateDocumentOutline(generate_document_outline);
+  }
+  setTitle(title) {
+    return this.$.setTitle(title);
+  }
+  setWatermarkBlock(watermark_block) {
+    return this.$.setWatermarkBlock(watermark_block);
+  }
 };
 
 printing.mojom.PrintCompositorRemoteCallHandler = class {

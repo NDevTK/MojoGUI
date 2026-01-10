@@ -121,6 +121,12 @@ arc.mojom.SystemUiInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  setDarkThemeStatus(active) {
+    return this.$.setDarkThemeStatus(active);
+  }
+  setOverlayColor(source_color, theme_style) {
+    return this.$.setOverlayColor(source_color, theme_style);
+  }
 };
 
 arc.mojom.SystemUiInstanceRemoteCallHandler = class {

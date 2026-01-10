@@ -126,6 +126,12 @@ crosapi.mojom.TelemetryManagementServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  setAudioGain(node_id, gain) {
+    return this.$.setAudioGain(node_id, gain);
+  }
+  setAudioVolume(node_id, volume, is_muted) {
+    return this.$.setAudioVolume(node_id, volume, is_muted);
+  }
 };
 
 crosapi.mojom.TelemetryManagementServiceRemoteCallHandler = class {

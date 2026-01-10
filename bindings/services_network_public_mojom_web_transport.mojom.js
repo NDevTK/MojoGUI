@@ -261,6 +261,36 @@ network.mojom.WebTransportRemote = class {
   close() {
     this.proxy.close();
   }
+  sendDatagram(data) {
+    return this.$.sendDatagram(data);
+  }
+  createStream(readable, writable) {
+    return this.$.createStream(readable, writable);
+  }
+  acceptBidirectionalStream() {
+    return this.$.acceptBidirectionalStream();
+  }
+  acceptUnidirectionalStream() {
+    return this.$.acceptUnidirectionalStream();
+  }
+  sendFin(stream_id) {
+    return this.$.sendFin(stream_id);
+  }
+  abortStream(stream_id, code) {
+    return this.$.abortStream(stream_id, code);
+  }
+  stopSending(stream_id, code) {
+    return this.$.stopSending(stream_id, code);
+  }
+  setOutgoingDatagramExpirationDuration(duration) {
+    return this.$.setOutgoingDatagramExpirationDuration(duration);
+  }
+  getStats() {
+    return this.$.getStats();
+  }
+  close(close_info) {
+    return this.$.close(close_info);
+  }
 };
 
 network.mojom.WebTransportRemoteCallHandler = class {
@@ -734,6 +764,24 @@ network.mojom.WebTransportClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onDatagramReceived(data) {
+    return this.$.onDatagramReceived(data);
+  }
+  onIncomingStreamClosed(stream_id, fin_received) {
+    return this.$.onIncomingStreamClosed(stream_id, fin_received);
+  }
+  onOutgoingStreamClosed(stream_id) {
+    return this.$.onOutgoingStreamClosed(stream_id);
+  }
+  onReceivedStopSending(stream_id, stream_error_code) {
+    return this.$.onReceivedStopSending(stream_id, stream_error_code);
+  }
+  onReceivedResetStream(stream_id, stream_error_code) {
+    return this.$.onReceivedResetStream(stream_id, stream_error_code);
+  }
+  onClosed(close_info, final_stats) {
+    return this.$.onClosed(close_info, final_stats);
+  }
 };
 
 network.mojom.WebTransportClientRemoteCallHandler = class {
@@ -1042,6 +1090,15 @@ network.mojom.WebTransportHandshakeClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onBeforeConnect(server_address) {
+    return this.$.onBeforeConnect(server_address);
+  }
+  onConnectionEstablished(transport, client, response_headers, selected_application_protocol, initial_stats) {
+    return this.$.onConnectionEstablished(transport, client, response_headers, selected_application_protocol, initial_stats);
+  }
+  onHandshakeFailed(error) {
+    return this.$.onHandshakeFailed(error);
   }
 };
 

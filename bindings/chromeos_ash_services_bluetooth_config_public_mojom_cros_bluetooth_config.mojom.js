@@ -285,6 +285,9 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onPropertiesUpdated(properties) {
+    return this.$.onPropertiesUpdated(properties);
+  }
 };
 
 ash.bluetooth_config.mojom.SystemPropertiesObserverRemoteCallHandler = class {
@@ -444,6 +447,15 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onDevicePaired(device) {
+    return this.$.onDevicePaired(device);
+  }
+  onDeviceConnected(device) {
+    return this.$.onDeviceConnected(device);
+  }
+  onDeviceDisconnected(device) {
+    return this.$.onDeviceDisconnected(device);
   }
 };
 
@@ -651,6 +663,9 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onHasAtLeastOneDiscoverySessionChanged(has_at_least_one_discovery_session) {
+    return this.$.onHasAtLeastOneDiscoverySessionChanged(has_at_least_one_discovery_session);
+  }
 };
 
 ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemoteCallHandler = class {
@@ -798,6 +813,9 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  handleKeyEntered(num_keys_entered) {
+    return this.$.handleKeyEntered(num_keys_entered);
   }
 };
 
@@ -999,6 +1017,24 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestPinCode() {
+    return this.$.requestPinCode();
+  }
+  requestPasskey() {
+    return this.$.requestPasskey();
+  }
+  displayPinCode(pin_code, handler) {
+    return this.$.displayPinCode(pin_code, handler);
+  }
+  displayPasskey(passkey, handler) {
+    return this.$.displayPasskey(passkey, handler);
+  }
+  confirmPasskey(passkey) {
+    return this.$.confirmPasskey(passkey);
+  }
+  authorizePairing() {
+    return this.$.authorizePairing();
   }
 };
 
@@ -1336,6 +1372,12 @@ ash.bluetooth_config.mojom.DevicePairingHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  pairDevice(device_id, delegate) {
+    return this.$.pairDevice(device_id, delegate);
+  }
+  fetchDevice(device_address) {
+    return this.$.fetchDevice(device_address);
+  }
 };
 
 ash.bluetooth_config.mojom.DevicePairingHandlerRemoteCallHandler = class {
@@ -1535,6 +1577,15 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onBluetoothDiscoveryStarted(handler) {
+    return this.$.onBluetoothDiscoveryStarted(handler);
+  }
+  onBluetoothDiscoveryStopped() {
+    return this.$.onBluetoothDiscoveryStopped();
+  }
+  onDiscoveredDevicesListChanged(discovered_devices) {
+    return this.$.onDiscoveredDevicesListChanged(discovered_devices);
   }
 };
 
@@ -1819,6 +1870,39 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  observeSystemProperties(observer) {
+    return this.$.observeSystemProperties(observer);
+  }
+  observeDeviceStatusChanges(observer) {
+    return this.$.observeDeviceStatusChanges(observer);
+  }
+  observeDiscoverySessionStatusChanges(observer) {
+    return this.$.observeDiscoverySessionStatusChanges(observer);
+  }
+  setBluetoothEnabledState(enabled) {
+    return this.$.setBluetoothEnabledState(enabled);
+  }
+  setBluetoothEnabledWithoutPersistence() {
+    return this.$.setBluetoothEnabledWithoutPersistence();
+  }
+  setBluetoothHidDetectionInactive(is_using_bluetooth) {
+    return this.$.setBluetoothHidDetectionInactive(is_using_bluetooth);
+  }
+  startDiscovery(delegate) {
+    return this.$.startDiscovery(delegate);
+  }
+  connect(device_id) {
+    return this.$.connect(device_id);
+  }
+  disconnect(device_id) {
+    return this.$.disconnect(device_id);
+  }
+  forget(device_id) {
+    return this.$.forget(device_id);
+  }
+  setDeviceNickname(device_id, nickname) {
+    return this.$.setDeviceNickname(device_id, nickname);
   }
 };
 

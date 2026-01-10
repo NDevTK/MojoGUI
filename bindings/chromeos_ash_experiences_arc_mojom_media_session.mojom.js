@@ -109,6 +109,12 @@ arc.mojom.MediaSessionInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  enableAudioFocus(service) {
+    return this.$.enableAudioFocus(service);
+  }
+  disableAudioFocus() {
+    return this.$.disableAudioFocus();
+  }
 };
 
 arc.mojom.MediaSessionInstanceRemoteCallHandler = class {

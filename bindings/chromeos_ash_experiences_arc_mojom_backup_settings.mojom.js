@@ -103,6 +103,9 @@ arc.mojom.BackupSettingsInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  setBackupEnabled(enabled, managed) {
+    return this.$.setBackupEnabled(enabled, managed);
+  }
 };
 
 arc.mojom.BackupSettingsInstanceRemoteCallHandler = class {

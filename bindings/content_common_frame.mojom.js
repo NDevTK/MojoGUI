@@ -382,6 +382,12 @@ content.mojom.FrameHTMLSerializerHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  didReceiveData(data_buffer) {
+    return this.$.didReceiveData(data_buffer);
+  }
+  done() {
+    return this.$.done();
+  }
 };
 
 content.mojom.FrameHTMLSerializerHandlerRemoteCallHandler = class {
@@ -630,6 +636,33 @@ content.mojom.FrameRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  commitSameDocumentNavigation(common_params, request_params) {
+    return this.$.commitSameDocumentNavigation(common_params, request_params);
+  }
+  updateSubresourceLoaderFactories(subresource_loader_factories) {
+    return this.$.updateSubresourceLoaderFactories(subresource_loader_factories);
+  }
+  setWantErrorMessageStackTrace() {
+    return this.$.setWantErrorMessageStackTrace();
+  }
+  unload(is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces, devtools_frame_token) {
+    return this.$.unload(is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces, devtools_frame_token);
+  }
+  delete(intention) {
+    return this.$.delete(intention);
+  }
+  undoCommitNavigation(is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces) {
+    return this.$.undoCommitNavigation(is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces);
+  }
+  getInterfaceProvider(interfaces) {
+    return this.$.getInterfaceProvider(interfaces);
+  }
+  snapshotAccessibilityTree(params) {
+    return this.$.snapshotAccessibilityTree(params);
+  }
+  getSerializedHtmlWithLocalLinks(url_map, frame_token_map, save_with_empty_url, handler_remote) {
+    return this.$.getSerializedHtmlWithLocalLinks(url_map, frame_token_map, save_with_empty_url, handler_remote);
   }
 };
 
@@ -1042,6 +1075,18 @@ content.mojom.FrameBindingsControlRemote = class {
   close() {
     this.proxy.close();
   }
+  allowBindings(enabled_bindings_flags) {
+    return this.$.allowBindings(enabled_bindings_flags);
+  }
+  enableMojoJsBindings(features) {
+    return this.$.enableMojoJsBindings(features);
+  }
+  enableMojoJsBindingsWithBroker(broker) {
+    return this.$.enableMojoJsBindingsWithBroker(broker);
+  }
+  bindWebUI(receiver, remote) {
+    return this.$.bindWebUI(receiver, remote);
+  }
 };
 
 content.mojom.FrameBindingsControlRemoteCallHandler = class {
@@ -1275,6 +1320,9 @@ content.mojom.NavigationRendererCancellationListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  rendererCancellationWindowEnded() {
+    return this.$.rendererCancellationWindowEnded();
   }
 };
 
@@ -1532,6 +1580,51 @@ content.mojom.FrameHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createNewWindow(params) {
+    return this.$.createNewWindow(params);
+  }
+  createChildFrame(child_frame_token, frame, browser_interface_broker, policy_container_bind_params, associated_interface_provider, scope, frame_name, frame_unique_name, is_created_by_script, frame_policy, frame_owner_properties, child_frame_owner_element_type, document_ukm_source_id) {
+    return this.$.createChildFrame(child_frame_token, frame, browser_interface_broker, policy_container_bind_params, associated_interface_provider, scope, frame_name, frame_unique_name, is_created_by_script, frame_policy, frame_owner_properties, child_frame_owner_element_type, document_ukm_source_id);
+  }
+  didCommitProvisionalLoad(params, interface_params) {
+    return this.$.didCommitProvisionalLoad(params, interface_params);
+  }
+  didCommitSameDocumentNavigation(params, same_document_params) {
+    return this.$.didCommitSameDocumentNavigation(params, same_document_params);
+  }
+  didOpenDocumentInputStream(url) {
+    return this.$.didOpenDocumentInputStream(url);
+  }
+  beginNavigation(common_params, begin_params, blob_url_token, navigation_client, initiator_navigation_state_keep_alive_handle, renderer_cancellation_listener) {
+    return this.$.beginNavigation(common_params, begin_params, blob_url_token, navigation_client, initiator_navigation_state_keep_alive_handle, renderer_cancellation_listener);
+  }
+  subresourceResponseStarted(final_response_url, cert_status) {
+    return this.$.subresourceResponseStarted(final_response_url, cert_status);
+  }
+  resourceLoadComplete(url_load_info) {
+    return this.$.resourceLoadComplete(url_load_info);
+  }
+  didChangeName(name, unique_name) {
+    return this.$.didChangeName(name, unique_name);
+  }
+  cancelInitialHistoryLoad() {
+    return this.$.cancelInitialHistoryLoad();
+  }
+  updateEncoding(encoding_name) {
+    return this.$.updateEncoding(encoding_name);
+  }
+  updateUserGestureCarryoverInfo() {
+    return this.$.updateUserGestureCarryoverInfo();
+  }
+  updateState(state) {
+    return this.$.updateState(state);
+  }
+  openURL(params) {
+    return this.$.openURL(params);
+  }
+  didStopLoading() {
+    return this.$.didStopLoading();
   }
 };
 

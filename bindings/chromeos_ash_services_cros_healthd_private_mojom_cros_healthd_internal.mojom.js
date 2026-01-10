@@ -181,6 +181,18 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemote = class {
   close() {
     this.proxy.close();
   }
+  getTouchscreenDevices() {
+    return this.$.getTouchscreenDevices();
+  }
+  getTouchpadLibraryName() {
+    return this.$.getTouchpadLibraryName();
+  }
+  setPrivacyScreenState(state) {
+    return this.$.setPrivacyScreenState(state);
+  }
+  dEPRECATED_SetAudioOutputMute(mute_on) {
+    return this.$.dEPRECATED_SetAudioOutputMute(mute_on);
+  }
 };
 
 ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {

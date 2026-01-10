@@ -693,6 +693,105 @@ arc.mojom.MetricsHostRemote = class {
   close() {
     this.proxy.close();
   }
+  reportBootProgress(events, boot_type) {
+    return this.$.reportBootProgress(events, boot_type);
+  }
+  reportNativeBridge(native_bridge_type) {
+    return this.$.reportNativeBridge(native_bridge_type);
+  }
+  reportCompanionLibApiUsage(api_id) {
+    return this.$.reportCompanionLibApiUsage(api_id);
+  }
+  reportAppKill(app_kill) {
+    return this.$.reportAppKill(app_kill);
+  }
+  reportArcCorePriAbiMigEvent(event) {
+    return this.$.reportArcCorePriAbiMigEvent(event);
+  }
+  reportArcCorePriAbiMigFailedTries(failed_attempts) {
+    return this.$.reportArcCorePriAbiMigFailedTries(failed_attempts);
+  }
+  reportArcCorePriAbiMigDowngradeDelay(delay) {
+    return this.$.reportArcCorePriAbiMigDowngradeDelay(delay);
+  }
+  reportArcCorePriAbiMigBootTime(duration) {
+    return this.$.reportArcCorePriAbiMigBootTime(duration);
+  }
+  reportAnr(anr) {
+    return this.$.reportAnr(anr);
+  }
+  reportArcSystemHealthUpgrade(duration, packages_deleted) {
+    return this.$.reportArcSystemHealthUpgrade(duration, packages_deleted);
+  }
+  reportLowLatencyStylusLibApiUsage(api_id) {
+    return this.$.reportLowLatencyStylusLibApiUsage(api_id);
+  }
+  reportLowLatencyStylusLibPredictionTarget(prediction_target) {
+    return this.$.reportLowLatencyStylusLibPredictionTarget(prediction_target);
+  }
+  reportDnsQueryResult(query, success) {
+    return this.$.reportDnsQueryResult(query, success);
+  }
+  reportMainAccountHashMigrationMetrics(status) {
+    return this.$.reportMainAccountHashMigrationMetrics(status);
+  }
+  reportArcNetworkEvent(event) {
+    return this.$.reportArcNetworkEvent(event);
+  }
+  reportArcNetworkError(error) {
+    return this.$.reportArcNetworkError(error);
+  }
+  reportAppPrimaryAbi(abi) {
+    return this.$.reportAppPrimaryAbi(abi);
+  }
+  reportDataRestore(status, duration_ms) {
+    return this.$.reportDataRestore(status, duration_ms);
+  }
+  reportMemoryPressure(psi_file_contents) {
+    return this.$.reportMemoryPressure(psi_file_contents);
+  }
+  reportProvisioningPreSignIn() {
+    return this.$.reportProvisioningPreSignIn();
+  }
+  reportWaylandLateTimingEvent(event, duration) {
+    return this.$.reportWaylandLateTimingEvent(event, duration);
+  }
+  reportWebViewProcessStarted() {
+    return this.$.reportWebViewProcessStarted();
+  }
+  reportVpnServiceBuilderCompatApiUsage(api_id) {
+    return this.$.reportVpnServiceBuilderCompatApiUsage(api_id);
+  }
+  reportNewQosSocketCount(count) {
+    return this.$.reportNewQosSocketCount(count);
+  }
+  reportQosSocketPercentage(perc) {
+    return this.$.reportQosSocketPercentage(perc);
+  }
+  reportArcKeyMintError(error) {
+    return this.$.reportArcKeyMintError(error);
+  }
+  reportDragResizeLatency(durations) {
+    return this.$.reportDragResizeLatency(durations);
+  }
+  reportAppErrorDialogType(type) {
+    return this.$.reportAppErrorDialogType(type);
+  }
+  reportApkCacheHit(hit) {
+    return this.$.reportApkCacheHit(hit);
+  }
+  reportAppCategoryDataSizeList(list) {
+    return this.$.reportAppCategoryDataSizeList(list);
+  }
+  reportDataDirectorySizeList(list) {
+    return this.$.reportDataDirectorySizeList(list);
+  }
+  reportArcKeyMintErrorForOperation(error, operation) {
+    return this.$.reportArcKeyMintErrorForOperation(error, operation);
+  }
+  reportCertificateSigningResult(result) {
+    return this.$.reportCertificateSigningResult(result);
+  }
 };
 
 arc.mojom.MetricsHostRemoteCallHandler = class {
@@ -1785,6 +1884,12 @@ arc.mojom.MetricsInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  getGfxMetrics(packageName) {
+    return this.$.getGfxMetrics(packageName);
   }
 };
 

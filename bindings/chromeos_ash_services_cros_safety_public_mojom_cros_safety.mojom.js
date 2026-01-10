@@ -159,6 +159,12 @@ ash.cros_safety.mojom.CloudSafetySessionRemote = class {
   close() {
     this.proxy.close();
   }
+  classifyTextSafety(rules, text) {
+    return this.$.classifyTextSafety(rules, text);
+  }
+  classifyImageSafety(rules, prompt, image) {
+    return this.$.classifyImageSafety(rules, prompt, image);
+  }
 };
 
 ash.cros_safety.mojom.CloudSafetySessionRemoteCallHandler = class {
@@ -367,6 +373,12 @@ ash.cros_safety.mojom.OnDeviceSafetySessionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  classifyTextSafety(rules, text) {
+    return this.$.classifyTextSafety(rules, text);
+  }
+  classifyImageSafety(rules, image) {
+    return this.$.classifyImageSafety(rules, image);
   }
 };
 

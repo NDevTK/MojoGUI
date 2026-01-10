@@ -327,6 +327,9 @@ printing.mojom.PrintRendererRemote = class {
   close() {
     this.proxy.close();
   }
+  createPreviewDocument(job_settings) {
+    return this.$.createPreviewDocument(job_settings);
+  }
 };
 
 printing.mojom.PrintRendererRemoteCallHandler = class {
@@ -540,6 +543,33 @@ printing.mojom.PrintPreviewUIRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setOptionsFromDocument(params, request_id) {
+    return this.$.setOptionsFromDocument(params, request_id);
+  }
+  didPrepareDocumentForPreview(document_cookie, request_id) {
+    return this.$.didPrepareDocumentForPreview(document_cookie, request_id);
+  }
+  didPreviewPage(params, request_id) {
+    return this.$.didPreviewPage(params, request_id);
+  }
+  metafileReadyForPrinting(params, request_id) {
+    return this.$.metafileReadyForPrinting(params, request_id);
+  }
+  printPreviewFailed(document_cookie, request_id) {
+    return this.$.printPreviewFailed(document_cookie, request_id);
+  }
+  printPreviewCancelled(document_cookie, request_id) {
+    return this.$.printPreviewCancelled(document_cookie, request_id);
+  }
+  printerSettingsInvalid(document_cookie, request_id) {
+    return this.$.printerSettingsInvalid(document_cookie, request_id);
+  }
+  didGetDefaultPageLayout(page_layout_in_points, printable_area_in_points, all_pages_have_custom_size, all_pages_have_custom_orientation, request_id) {
+    return this.$.didGetDefaultPageLayout(page_layout_in_points, printable_area_in_points, all_pages_have_custom_size, all_pages_have_custom_orientation, request_id);
+  }
+  didStartPreview(params, request_id) {
+    return this.$.didStartPreview(params, request_id);
   }
 };
 
@@ -983,6 +1013,39 @@ printing.mojom.PrintRenderFrameRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  printRequestedPages() {
+    return this.$.printRequestedPages();
+  }
+  printWithParams(params) {
+    return this.$.printWithParams(params);
+  }
+  printForSystemDialog() {
+    return this.$.printForSystemDialog();
+  }
+  initiatePrintPreview(print_renderer, has_selection) {
+    return this.$.initiatePrintPreview(print_renderer, has_selection);
+  }
+  setPrintPreviewUI(preview) {
+    return this.$.setPrintPreviewUI(preview);
+  }
+  printPreview(settings) {
+    return this.$.printPreview(settings);
+  }
+  onPrintPreviewDialogClosed() {
+    return this.$.onPrintPreviewDialogClosed();
+  }
+  printFrameContent(params) {
+    return this.$.printFrameContent(params);
+  }
+  connectToPdfRenderer() {
+    return this.$.connectToPdfRenderer();
+  }
+  printingDone(success) {
+    return this.$.printingDone(success);
+  }
+  printNodeUnderContextMenu() {
+    return this.$.printNodeUnderContextMenu();
   }
 };
 
@@ -1540,6 +1603,45 @@ printing.mojom.PrintManagerHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  didGetPrintedPagesCount(cookie, number_pages) {
+    return this.$.didGetPrintedPagesCount(cookie, number_pages);
+  }
+  getDefaultPrintSettings() {
+    return this.$.getDefaultPrintSettings();
+  }
+  didShowPrintDialog() {
+    return this.$.didShowPrintDialog();
+  }
+  didPrintDocument(params) {
+    return this.$.didPrintDocument(params);
+  }
+  isPrintingEnabled() {
+    return this.$.isPrintingEnabled();
+  }
+  scriptedPrint(params) {
+    return this.$.scriptedPrint(params);
+  }
+  printingFailed(cookie, reason) {
+    return this.$.printingFailed(cookie, reason);
+  }
+  updatePrintSettings(job_settings) {
+    return this.$.updatePrintSettings(job_settings);
+  }
+  setupScriptedPrintPreview() {
+    return this.$.setupScriptedPrintPreview();
+  }
+  showScriptedPrintPreview(is_modifiable) {
+    return this.$.showScriptedPrintPreview(is_modifiable);
+  }
+  requestPrintPreview(params) {
+    return this.$.requestPrintPreview(params);
+  }
+  checkForCancel(preview_ui_id, request_id) {
+    return this.$.checkForCancel(preview_ui_id, request_id);
+  }
+  setAccessibilityTree(cookie, accessibility_tree) {
+    return this.$.setAccessibilityTree(cookie, accessibility_tree);
   }
 };
 

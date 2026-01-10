@@ -205,6 +205,24 @@ chrome.mojom.SafeArchiveAnalyzerRemote = class {
   close() {
     this.proxy.close();
   }
+  analyzeZipFile(zip_file, password, temp_file_getter) {
+    return this.$.analyzeZipFile(zip_file, password, temp_file_getter);
+  }
+  analyzeDmgFile(dmg_file, temp_file_getter) {
+    return this.$.analyzeDmgFile(dmg_file, temp_file_getter);
+  }
+  analyzeRarFile(rar_file, password, temp_file_getter) {
+    return this.$.analyzeRarFile(rar_file, password, temp_file_getter);
+  }
+  analyzeSevenZipFile(seven_zip_file, temp_file_getter) {
+    return this.$.analyzeSevenZipFile(seven_zip_file, temp_file_getter);
+  }
+  analyzeObfuscatedZipFile(zip_file, password, header_data, temp_file_getter) {
+    return this.$.analyzeObfuscatedZipFile(zip_file, password, header_data, temp_file_getter);
+  }
+  analyzeObfuscatedRarFile(rar_file, password, header_data, temp_file_getter) {
+    return this.$.analyzeObfuscatedRarFile(rar_file, password, header_data, temp_file_getter);
+  }
 };
 
 chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
@@ -538,6 +556,9 @@ chrome.mojom.TemporaryFileGetterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestTemporaryFile() {
+    return this.$.requestTemporaryFile();
   }
 };
 

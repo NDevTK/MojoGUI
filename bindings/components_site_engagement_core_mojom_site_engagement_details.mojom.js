@@ -128,6 +128,12 @@ site_engagement.mojom.SiteEngagementDetailsProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getSiteEngagementDetails() {
+    return this.$.getSiteEngagementDetails();
+  }
+  setSiteEngagementBaseScoreForUrl(url, score) {
+    return this.$.setSiteEngagementBaseScoreForUrl(url, score);
+  }
 };
 
 site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {

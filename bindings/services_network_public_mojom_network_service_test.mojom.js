@@ -278,6 +278,21 @@ network.mojom.SimpleCacheEntryRemote = class {
   close() {
     this.proxy.close();
   }
+  writeData(index, offset, data, truncate) {
+    return this.$.writeData(index, offset, data, truncate);
+  }
+  readData(index, offset, length) {
+    return this.$.readData(index, offset, length);
+  }
+  writeSparseData(offset, data) {
+    return this.$.writeSparseData(offset, data);
+  }
+  readSparseData(offset, length) {
+    return this.$.readSparseData(offset, length);
+  }
+  close() {
+    return this.$.close();
+  }
 };
 
 network.mojom.SimpleCacheEntryRemoteCallHandler = class {
@@ -577,6 +592,9 @@ network.mojom.SimpleCacheEntryEnumeratorRemote = class {
   close() {
     this.proxy.close();
   }
+  getNext() {
+    return this.$.getNext();
+  }
 };
 
 network.mojom.SimpleCacheEntryEnumeratorRemoteCallHandler = class {
@@ -789,6 +807,24 @@ network.mojom.SimpleCacheRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createEntry(key) {
+    return this.$.createEntry(key);
+  }
+  openEntry(key) {
+    return this.$.openEntry(key);
+  }
+  doomEntry(key) {
+    return this.$.doomEntry(key);
+  }
+  doomAllEntries() {
+    return this.$.doomAllEntries();
+  }
+  enumerateEntries(receiver) {
+    return this.$.enumerateEntries(receiver);
+  }
+  detach() {
+    return this.$.detach();
   }
 };
 
@@ -1416,6 +1452,93 @@ network.mojom.NetworkServiceTestRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addRules(rules) {
+    return this.$.addRules(rules);
+  }
+  simulateNetworkChange(type) {
+    return this.$.simulateNetworkChange(type);
+  }
+  simulateNetworkQualityChange(type) {
+    return this.$.simulateNetworkQualityChange(type);
+  }
+  forceNetworkQualityEstimatorReportWifiAsSlow2G() {
+    return this.$.forceNetworkQualityEstimatorReportWifiAsSlow2G();
+  }
+  simulateCrash() {
+    return this.$.simulateCrash();
+  }
+  mockCertVerifierSetDefaultResult(default_result) {
+    return this.$.mockCertVerifierSetDefaultResult(default_result);
+  }
+  mockCertVerifierAddResultForCertAndHost(cert, host_pattern, verify_result, rv) {
+    return this.$.mockCertVerifierAddResultForCertAndHost(cert, host_pattern, verify_result, rv);
+  }
+  setTransportSecurityStateTestSource(enable_unittest_source) {
+    return this.$.setTransportSecurityStateTestSource(enable_unittest_source);
+  }
+  setAllowNetworkAccessToHostResolutions() {
+    return this.$.setAllowNetworkAccessToHostResolutions();
+  }
+  replaceSystemDnsConfig() {
+    return this.$.replaceSystemDnsConfig();
+  }
+  setTestDohConfig(secure_dns_mode, doh_config) {
+    return this.$.setTestDohConfig(secure_dns_mode, doh_config);
+  }
+  crashOnResolveHost(host) {
+    return this.$.crashOnResolveHost(host);
+  }
+  crashOnGetCookieList() {
+    return this.$.crashOnGetCookieList();
+  }
+  getLatestMemoryPressureLevel() {
+    return this.$.getLatestMemoryPressureLevel();
+  }
+  getPeerToPeerConnectionsCountChange() {
+    return this.$.getPeerToPeerConnectionsCountChange();
+  }
+  getEnvironmentVariableValue(name) {
+    return this.$.getEnvironmentVariableValue(name);
+  }
+  log(message) {
+    return this.$.log(message);
+  }
+  activateFieldTrial(field_trial_name) {
+    return this.$.activateFieldTrial(field_trial_name);
+  }
+  setSCTAuditingRetryDelay(delay) {
+    return this.$.setSCTAuditingRetryDelay(delay);
+  }
+  openFile(path) {
+    return this.$.openFile(path);
+  }
+  enumerateFiles(path, factory) {
+    return this.$.enumerateFiles(path, factory);
+  }
+  createSimpleCache(factory, path, reset) {
+    return this.$.createSimpleCache(factory, path, reset);
+  }
+  makeRequestToServer(s, endpoint) {
+    return this.$.makeRequestToServer(s, endpoint);
+  }
+  resolveOwnHostnameWithSystemDns() {
+    return this.$.resolveOwnHostnameWithSystemDns();
+  }
+  setIPv6ProbeResult(success) {
+    return this.$.setIPv6ProbeResult(success);
+  }
+  getAddressMapCacheLinux() {
+    return this.$.getAddressMapCacheLinux();
+  }
+  allowsGSSAPILibraryLoad() {
+    return this.$.allowsGSSAPILibraryLoad();
+  }
+  disableExclusiveCookieDatabaseLockingForTesting() {
+    return this.$.disableExclusiveCookieDatabaseLockingForTesting();
+  }
+  isHappyEyeballsV3Enabled() {
+    return this.$.isHappyEyeballsV3Enabled();
   }
 };
 

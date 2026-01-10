@@ -107,6 +107,9 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -253,6 +256,9 @@ ash.settings.magic_boost_handler.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  showNotice() {
+    return this.$.showNotice();
   }
 };
 

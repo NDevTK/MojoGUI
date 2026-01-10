@@ -129,6 +129,9 @@ aim_eligibility.mojom.PageRemote = class {
   close() {
     this.proxy.close();
   }
+  onEligibilityStateChanged(state) {
+    return this.$.onEligibilityStateChanged(state);
+  }
 };
 
 aim_eligibility.mojom.PageRemoteCallHandler = class {
@@ -298,6 +301,15 @@ aim_eligibility.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getEligibilityState() {
+    return this.$.getEligibilityState();
+  }
+  requestServerEligibilityForDebugging() {
+    return this.$.requestServerEligibilityForDebugging();
+  }
+  setEligibilityResponseForDebugging(base64_encoded_response) {
+    return this.$.setEligibilityResponseForDebugging(base64_encoded_response);
   }
 };
 
@@ -517,6 +529,9 @@ aim_eligibility.mojom.PageHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
   }
 };
 

@@ -357,6 +357,84 @@ viz.mojom.FrameSinkManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  registerFrameSinkId(frame_sink_id, report_activation) {
+    return this.$.registerFrameSinkId(frame_sink_id, report_activation);
+  }
+  invalidateFrameSinkId(frame_sink_id) {
+    return this.$.invalidateFrameSinkId(frame_sink_id);
+  }
+  setFrameSinkDebugLabel(frame_sink_id, debug_label) {
+    return this.$.setFrameSinkDebugLabel(frame_sink_id, debug_label);
+  }
+  createRootCompositorFrameSink(params) {
+    return this.$.createRootCompositorFrameSink(params);
+  }
+  createCompositorDisplayLink(params) {
+    return this.$.createCompositorDisplayLink(params);
+  }
+  createFrameSinkBundle(bundle_id, receiver, client) {
+    return this.$.createFrameSinkBundle(bundle_id, receiver, client);
+  }
+  createCompositorFrameSink(frame_sink_id, bundle_id, compositor_frame_sink, compositor_frame_sink_client, config) {
+    return this.$.createCompositorFrameSink(frame_sink_id, bundle_id, compositor_frame_sink, compositor_frame_sink_client, config);
+  }
+  destroyCompositorFrameSink(frame_sink_id) {
+    return this.$.destroyCompositorFrameSink(frame_sink_id);
+  }
+  registerFrameSinkHierarchy(parent_frame_sink_id, child_frame_sink_id) {
+    return this.$.registerFrameSinkHierarchy(parent_frame_sink_id, child_frame_sink_id);
+  }
+  unregisterFrameSinkHierarchy(parent_frame_sink_id, child_frame_sink_id) {
+    return this.$.unregisterFrameSinkHierarchy(parent_frame_sink_id, child_frame_sink_id);
+  }
+  addVideoDetectorObserver(observer) {
+    return this.$.addVideoDetectorObserver(observer);
+  }
+  createVideoCapturer(receiver, capture_version_source) {
+    return this.$.createVideoCapturer(receiver, capture_version_source);
+  }
+  evictSurfaces(surface_ids) {
+    return this.$.evictSurfaces(surface_ids);
+  }
+  throttle(frame_sink_ids, interval) {
+    return this.$.throttle(frame_sink_ids, interval);
+  }
+  startThrottlingAllFrameSinks(interval) {
+    return this.$.startThrottlingAllFrameSinks(interval);
+  }
+  stopThrottlingAllFrameSinks() {
+    return this.$.stopThrottlingAllFrameSinks();
+  }
+  requestCopyOfOutput(surface_id, request, capture_exact_surface_id) {
+    return this.$.requestCopyOfOutput(surface_id, request, capture_exact_surface_id);
+  }
+  cacheBackBuffer(cache_id, root_frame_sink_id) {
+    return this.$.cacheBackBuffer(cache_id, root_frame_sink_id);
+  }
+  evictBackBuffer(cache_id) {
+    return this.$.evictBackBuffer(cache_id);
+  }
+  updateDebugRendererSettings(debug_settings) {
+    return this.$.updateDebugRendererSettings(debug_settings);
+  }
+  clearUnclaimedViewTransitionResources(transition_token) {
+    return this.$.clearUnclaimedViewTransitionResources(transition_token);
+  }
+  createMetricsRecorderForTest(receiver) {
+    return this.$.createMetricsRecorderForTest(receiver);
+  }
+  enableFrameSinkManagerTestApi(receiver) {
+    return this.$.enableFrameSinkManagerTestApi(receiver);
+  }
+  setupRendererInputRouterDelegateRegistry(receiver) {
+    return this.$.setupRendererInputRouterDelegateRegistry(receiver);
+  }
+  notifyRendererBlockStateChanged(blocked, render_input_routers) {
+    return this.$.notifyRendererBlockStateChanged(blocked, render_input_routers);
+  }
+  requestInputBack() {
+    return this.$.requestInputBack();
+  }
 };
 
 viz.mojom.FrameSinkManagerRemoteCallHandler = class {
@@ -1294,6 +1372,27 @@ viz.mojom.FrameSinkManagerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onFirstSurfaceActivation(surface_info) {
+    return this.$.onFirstSurfaceActivation(surface_info);
+  }
+  onAggregatedHitTestRegionListUpdated(frame_sink_id, hit_test_data) {
+    return this.$.onAggregatedHitTestRegionListUpdated(frame_sink_id, hit_test_data);
+  }
+  onFrameTokenChanged(frame_sink_id, frame_token, activation_time) {
+    return this.$.onFrameTokenChanged(frame_sink_id, frame_token, activation_time);
+  }
+  verifyThreadIdsDoNotBelongToHost(thread_ids) {
+    return this.$.verifyThreadIdsDoNotBelongToHost(thread_ids);
+  }
+  onScreenshotCaptured(destination_token, copy_output_result) {
+    return this.$.onScreenshotCaptured(destination_token, copy_output_result);
+  }
+  onVizTouchStateAvailable(region) {
+    return this.$.onVizTouchStateAvailable(region);
+  }
+  onViewTransitionResourcesCaptured(transition_token) {
+    return this.$.onViewTransitionResourcesCaptured(transition_token);
+  }
 };
 
 viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
@@ -1623,6 +1722,9 @@ viz.mojom.RendererInputRouterDelegateRegistryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setupRenderInputRouterDelegateConnection(id, rir_delegate_client_remote, rir_delegate_receiver) {
+    return this.$.setupRenderInputRouterDelegateConnection(id, rir_delegate_client_remote, rir_delegate_receiver);
   }
 };
 

@@ -108,6 +108,9 @@ device.mojom.BatteryMonitorRemote = class {
   close() {
     this.proxy.close();
   }
+  queryNextStatus() {
+    return this.$.queryNextStatus();
+  }
 };
 
 device.mojom.BatteryMonitorRemoteCallHandler = class {

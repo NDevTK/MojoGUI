@@ -138,6 +138,21 @@ storage.mojom.StorageServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  enableAggressiveDomStorageFlushing() {
+    return this.$.enableAggressiveDomStorageFlushing();
+  }
+  setDataDirectory(path, directory) {
+    return this.$.setDataDirectory(path, directory);
+  }
+  bindSessionStorageControl(path, receiver) {
+    return this.$.bindSessionStorageControl(path, receiver);
+  }
+  bindLocalStorageControl(path, receiver) {
+    return this.$.bindLocalStorageControl(path, receiver);
+  }
+  bindTestApi(test_api_receiver) {
+    return this.$.bindTestApi(test_api_receiver);
+  }
 };
 
 storage.mojom.StorageServiceRemoteCallHandler = class {

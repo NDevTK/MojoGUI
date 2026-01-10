@@ -126,6 +126,12 @@ tracing.mojom.BackgroundTracingAgentClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onInitialized() {
+    return this.$.onInitialized();
+  }
+  onTriggerBackgroundTrace(rule, histogram_value, flow_id) {
+    return this.$.onTriggerBackgroundTrace(rule, histogram_value, flow_id);
+  }
 };
 
 tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
@@ -312,6 +318,12 @@ tracing.mojom.BackgroundTracingAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  setUMACallback(rule, histogram_name, histogram_lower_value, histogram_upper_value) {
+    return this.$.setUMACallback(rule, histogram_name, histogram_lower_value, histogram_upper_value);
+  }
+  clearUMACallback(rule) {
+    return this.$.clearUMACallback(rule);
+  }
 };
 
 tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
@@ -490,6 +502,9 @@ tracing.mojom.BackgroundTracingAgentProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  create(tracing_process_id, client, agent) {
+    return this.$.create(tracing_process_id, client, agent);
   }
 };
 

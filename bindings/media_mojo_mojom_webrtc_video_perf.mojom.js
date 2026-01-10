@@ -128,6 +128,9 @@ media.mojom.WebrtcVideoPerfRecorderRemote = class {
   close() {
     this.proxy.close();
   }
+  updateRecord(features, video_stats) {
+    return this.$.updateRecord(features, video_stats);
+  }
 };
 
 media.mojom.WebrtcVideoPerfRecorderRemoteCallHandler = class {
@@ -282,6 +285,9 @@ media.mojom.WebrtcVideoPerfHistoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getPerfInfo(features, frames_per_second) {
+    return this.$.getPerfInfo(features, frames_per_second);
   }
 };
 

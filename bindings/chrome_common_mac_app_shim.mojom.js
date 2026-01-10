@@ -275,6 +275,33 @@ chrome.mojom.AppShimRemote = class {
   close() {
     this.proxy.close();
   }
+  createRemoteCocoaApplication(application) {
+    return this.$.createRemoteCocoaApplication(application);
+  }
+  createCommandDispatcherForWidget(widget_id) {
+    return this.$.createCommandDispatcherForWidget(widget_id);
+  }
+  setUserAttention(attention_type) {
+    return this.$.setUserAttention(attention_type);
+  }
+  setBadgeLabel(badge_label) {
+    return this.$.setBadgeLabel(badge_label);
+  }
+  updateProfileMenu(profile_menu_items) {
+    return this.$.updateProfileMenu(profile_menu_items);
+  }
+  updateApplicationDockMenu(dock_menu_items) {
+    return this.$.updateApplicationDockMenu(dock_menu_items);
+  }
+  bindNotificationProvider(provider) {
+    return this.$.bindNotificationProvider(provider);
+  }
+  requestNotificationPermission() {
+    return this.$.requestNotificationPermission();
+  }
+  bindChildHistogramFetcherFactory(receiver) {
+    return this.$.bindChildHistogramFetcherFactory(receiver);
+  }
 };
 
 chrome.mojom.AppShimRemoteCallHandler = class {
@@ -711,6 +738,36 @@ chrome.mojom.AppShimHostRemote = class {
   close() {
     this.proxy.close();
   }
+  focusApp() {
+    return this.$.focusApp();
+  }
+  reopenApp() {
+    return this.$.reopenApp();
+  }
+  filesOpened(files) {
+    return this.$.filesOpened(files);
+  }
+  profileSelectedFromMenu(profile_path) {
+    return this.$.profileSelectedFromMenu(profile_path);
+  }
+  openAppSettings() {
+    return this.$.openAppSettings();
+  }
+  urlsOpened(urls) {
+    return this.$.urlsOpened(urls);
+  }
+  openAppWithOverrideUrl(override_url) {
+    return this.$.openAppWithOverrideUrl(override_url);
+  }
+  enableAccessibilitySupport(mode) {
+    return this.$.enableAccessibilitySupport(mode);
+  }
+  applicationWillTerminate() {
+    return this.$.applicationWillTerminate();
+  }
+  notificationPermissionStatusChanged(status) {
+    return this.$.notificationPermissionStatusChanged(status);
+  }
 };
 
 chrome.mojom.AppShimHostRemoteCallHandler = class {
@@ -1128,6 +1185,9 @@ chrome.mojom.AppShimHostBootstrapRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onShimConnected(host_receiver, app_shim_info) {
+    return this.$.onShimConnected(host_receiver, app_shim_info);
   }
 };
 

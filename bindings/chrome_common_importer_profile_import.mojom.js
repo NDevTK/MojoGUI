@@ -226,6 +226,51 @@ chrome.mojom.ProfileImportObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onImportStart() {
+    return this.$.onImportStart();
+  }
+  onImportFinished(succeeded, error_msg) {
+    return this.$.onImportFinished(succeeded, error_msg);
+  }
+  onImportItemStart(item) {
+    return this.$.onImportItemStart(item);
+  }
+  onImportItemFinished(item) {
+    return this.$.onImportItemFinished(item);
+  }
+  onHistoryImportStart(total_history_rows_count) {
+    return this.$.onHistoryImportStart(total_history_rows_count);
+  }
+  onHistoryImportGroup(history_rows_group, visit_source) {
+    return this.$.onHistoryImportGroup(history_rows_group, visit_source);
+  }
+  onHomePageImportReady(home_page) {
+    return this.$.onHomePageImportReady(home_page);
+  }
+  onBookmarksImportStart(first_folder_name, total_bookmarks_count) {
+    return this.$.onBookmarksImportStart(first_folder_name, total_bookmarks_count);
+  }
+  onBookmarksImportGroup(bookmarks_group) {
+    return this.$.onBookmarksImportGroup(bookmarks_group);
+  }
+  onFaviconsImportStart(total_favicons_count) {
+    return this.$.onFaviconsImportStart(total_favicons_count);
+  }
+  onFaviconsImportGroup(favicons_group) {
+    return this.$.onFaviconsImportGroup(favicons_group);
+  }
+  onPasswordFormImportReady(form) {
+    return this.$.onPasswordFormImportReady(form);
+  }
+  onKeywordsImportReady(search_engines, unique_on_host_and_path) {
+    return this.$.onKeywordsImportReady(search_engines, unique_on_host_and_path);
+  }
+  onAutofillFormDataImportStart(total_autofill_form_data_entry_count) {
+    return this.$.onAutofillFormDataImportStart(total_autofill_form_data_entry_count);
+  }
+  onAutofillFormDataImportGroup(autofill_form_data_entry_group) {
+    return this.$.onAutofillFormDataImportGroup(autofill_form_data_entry_group);
+  }
 };
 
 chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
@@ -793,6 +838,15 @@ chrome.mojom.ProfileImportRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startImport(source_profile, items, localized_strings, observer) {
+    return this.$.startImport(source_profile, items, localized_strings, observer);
+  }
+  cancelImport() {
+    return this.$.cancelImport();
+  }
+  reportImportItemFinished(item) {
+    return this.$.reportImportItemFinished(item);
   }
 };
 

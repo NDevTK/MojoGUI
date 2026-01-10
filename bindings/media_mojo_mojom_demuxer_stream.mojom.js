@@ -134,6 +134,15 @@ media.mojom.DemuxerStreamRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize() {
+    return this.$.initialize();
+  }
+  read(count) {
+    return this.$.read(count);
+  }
+  enableBitstreamConverter() {
+    return this.$.enableBitstreamConverter();
+  }
 };
 
 media.mojom.DemuxerStreamRemoteCallHandler = class {

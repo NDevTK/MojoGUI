@@ -128,6 +128,12 @@ content.mojom.ChildMemoryConsumerRemote = class {
   close() {
     this.proxy.close();
   }
+  notifyReleaseMemory() {
+    return this.$.notifyReleaseMemory();
+  }
+  notifyUpdateMemoryLimit(percentage) {
+    return this.$.notifyUpdateMemoryLimit(percentage);
+  }
 };
 
 content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
@@ -306,6 +312,9 @@ content.mojom.BrowserMemoryConsumerRegistryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  registerChildMemoryConsumer(consumer_id, traits, child_consumer) {
+    return this.$.registerChildMemoryConsumer(consumer_id, traits, child_consumer);
   }
 };
 

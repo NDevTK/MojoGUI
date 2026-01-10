@@ -122,6 +122,12 @@ auction_worklet.mojom.AuctionSharedStorageHostRemote = class {
   close() {
     this.proxy.close();
   }
+  sharedStorageUpdate(method_with_options, source_auction_worklet_function) {
+    return this.$.sharedStorageUpdate(method_with_options, source_auction_worklet_function);
+  }
+  sharedStorageBatchUpdate(methods_with_options, with_lock, source_auction_worklet_function) {
+    return this.$.sharedStorageBatchUpdate(methods_with_options, with_lock, source_auction_worklet_function);
+  }
 };
 
 auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {

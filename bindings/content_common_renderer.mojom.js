@@ -282,6 +282,63 @@ content.mojom.RendererRemote = class {
   close() {
     this.proxy.close();
   }
+  createAgentSchedulingGroup(bootstrap) {
+    return this.$.createAgentSchedulingGroup(bootstrap);
+  }
+  createAssociatedAgentSchedulingGroup(agent_scheduling_group) {
+    return this.$.createAssociatedAgentSchedulingGroup(agent_scheduling_group);
+  }
+  transferSharedLastForegroundTime(last_foreground_time_region) {
+    return this.$.transferSharedLastForegroundTime(last_foreground_time_region);
+  }
+  onNetworkConnectionChanged(connection_type, max_bandwidth_mbps) {
+    return this.$.onNetworkConnectionChanged(connection_type, max_bandwidth_mbps);
+  }
+  onNetworkQualityChanged(effective_connection_type, http_rtt, transport_rtt, bandwidth_kbps) {
+    return this.$.onNetworkQualityChanged(effective_connection_type, http_rtt, transport_rtt, bandwidth_kbps);
+  }
+  setWebKitSharedTimersSuspended(suspend) {
+    return this.$.setWebKitSharedTimersSuspended(suspend);
+  }
+  updateScrollbarTheme(params) {
+    return this.$.updateScrollbarTheme(params);
+  }
+  onSystemColorsChanged(aqua_color_variant) {
+    return this.$.onSystemColorsChanged(aqua_color_variant);
+  }
+  updateSystemColorInfo(params) {
+    return this.$.updateSystemColorInfo(params);
+  }
+  purgePluginListCache() {
+    return this.$.purgePluginListCache();
+  }
+  purgeResourceCache() {
+    return this.$.purgeResourceCache();
+  }
+  setProcessState(process_priority, visible_state) {
+    return this.$.setProcessState(process_priority, visible_state);
+  }
+  setIsLockedToSite() {
+    return this.$.setIsLockedToSite();
+  }
+  writeClangProfilingProfile() {
+    return this.$.writeClangProfilingProfile();
+  }
+  setIsCrossOriginIsolated(value) {
+    return this.$.setIsCrossOriginIsolated(value);
+  }
+  setIsWebSecurityDisabled(value) {
+    return this.$.setIsWebSecurityDisabled(value);
+  }
+  setIsIsolatedContext(value) {
+    return this.$.setIsIsolatedContext(value);
+  }
+  setWebUIResourceUrlToCodeCacheMap(resource_map) {
+    return this.$.setWebUIResourceUrlToCodeCacheMap(resource_map);
+  }
+  initializeRenderer(user_agent, metadata, cors_exempt_header_list, origin_trials_settings, cpu_performance_tier, trace_id) {
+    return this.$.initializeRenderer(user_agent, metadata, cors_exempt_header_list, origin_trials_settings, cpu_performance_tier, trace_id);
+  }
 };
 
 content.mojom.RendererRemoteCallHandler = class {

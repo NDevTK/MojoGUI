@@ -110,6 +110,9 @@ ax.mojom.AccessibilityFileLoaderRemote = class {
   close() {
     this.proxy.close();
   }
+  load(path) {
+    return this.$.load(path);
+  }
 };
 
 ax.mojom.AccessibilityFileLoaderRemoteCallHandler = class {

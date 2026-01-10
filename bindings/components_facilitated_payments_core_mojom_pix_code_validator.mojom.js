@@ -118,6 +118,9 @@ payments.facilitated.mojom.PixCodeValidatorRemote = class {
   close() {
     this.proxy.close();
   }
+  validatePixCode(input_text) {
+    return this.$.validatePixCode(input_text);
+  }
 };
 
 payments.facilitated.mojom.PixCodeValidatorRemoteCallHandler = class {

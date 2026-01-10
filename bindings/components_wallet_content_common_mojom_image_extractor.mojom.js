@@ -109,6 +109,9 @@ wallet.mojom.ImageExtractorRemote = class {
   close() {
     this.proxy.close();
   }
+  extractImages() {
+    return this.$.extractImages();
+  }
 };
 
 wallet.mojom.ImageExtractorRemoteCallHandler = class {

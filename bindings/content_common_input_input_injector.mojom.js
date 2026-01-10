@@ -289,6 +289,21 @@ content.mojom.InputInjectorRemote = class {
   close() {
     this.proxy.close();
   }
+  queueSyntheticSmoothDrag(drag) {
+    return this.$.queueSyntheticSmoothDrag(drag);
+  }
+  queueSyntheticSmoothScroll(scroll) {
+    return this.$.queueSyntheticSmoothScroll(scroll);
+  }
+  queueSyntheticPinch(pinch) {
+    return this.$.queueSyntheticPinch(pinch);
+  }
+  queueSyntheticTap(tap) {
+    return this.$.queueSyntheticTap(tap);
+  }
+  queueSyntheticPointerAction(pointer_action) {
+    return this.$.queueSyntheticPointerAction(pointer_action);
+  }
 };
 
 content.mojom.InputInjectorRemoteCallHandler = class {

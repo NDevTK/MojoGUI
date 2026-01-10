@@ -305,6 +305,15 @@ bluetooth.mojom.FakeBluetoothRemote = class {
   close() {
     this.proxy.close();
   }
+  setLESupported(available) {
+    return this.$.setLESupported(available);
+  }
+  simulateCentral(state) {
+    return this.$.simulateCentral(state);
+  }
+  allResponsesConsumed() {
+    return this.$.allResponsesConsumed();
+  }
 };
 
 bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
@@ -889,6 +898,84 @@ bluetooth.mojom.FakeCentralRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  simulatePreconnectedPeripheral(address, name, manufacturer_data, known_service_uuids) {
+    return this.$.simulatePreconnectedPeripheral(address, name, manufacturer_data, known_service_uuids);
+  }
+  simulateAdvertisementReceived(result) {
+    return this.$.simulateAdvertisementReceived(result);
+  }
+  setState(state) {
+    return this.$.setState(state);
+  }
+  setNextGATTConnectionResponse(address, code) {
+    return this.$.setNextGATTConnectionResponse(address, code);
+  }
+  setNextGATTDiscoveryResponse(address, code) {
+    return this.$.setNextGATTDiscoveryResponse(address, code);
+  }
+  simulateGATTOperationResponse(type, address, code) {
+    return this.$.simulateGATTOperationResponse(type, address, code);
+  }
+  simulateGATTDisconnection(address) {
+    return this.$.simulateGATTDisconnection(address);
+  }
+  simulateGATTServicesChanged(address) {
+    return this.$.simulateGATTServicesChanged(address);
+  }
+  simulateCharacteristicOperationResponse(type, characteristic_id, service_id, peripheral_address, code, data) {
+    return this.$.simulateCharacteristicOperationResponse(type, characteristic_id, service_id, peripheral_address, code, data);
+  }
+  simulateDescriptorOperationResponse(type, descriptor_id, characteristic_id, service_id, peripheral_address, code, data) {
+    return this.$.simulateDescriptorOperationResponse(type, descriptor_id, characteristic_id, service_id, peripheral_address, code, data);
+  }
+  addFakeService(peripheral_address, service_uuid) {
+    return this.$.addFakeService(peripheral_address, service_uuid);
+  }
+  removeFakeService(service_id, peripheral_address) {
+    return this.$.removeFakeService(service_id, peripheral_address);
+  }
+  addFakeCharacteristic(characteristic_uuid, properties, service_id, peripheral_address) {
+    return this.$.addFakeCharacteristic(characteristic_uuid, properties, service_id, peripheral_address);
+  }
+  removeFakeCharacteristic(identifier, service_id, peripheral_address) {
+    return this.$.removeFakeCharacteristic(identifier, service_id, peripheral_address);
+  }
+  addFakeDescriptor(descriptor_uuid, characteristic_id, service_id, peripheral_address) {
+    return this.$.addFakeDescriptor(descriptor_uuid, characteristic_id, service_id, peripheral_address);
+  }
+  removeFakeDescriptor(descriptor_id, characteristic_id, service_id, peripheral_address) {
+    return this.$.removeFakeDescriptor(descriptor_id, characteristic_id, service_id, peripheral_address);
+  }
+  setNextReadCharacteristicResponse(gatt_code, value, characteristic_id, service_id, peripheral_address) {
+    return this.$.setNextReadCharacteristicResponse(gatt_code, value, characteristic_id, service_id, peripheral_address);
+  }
+  setNextWriteCharacteristicResponse(gatt_code, characteristic_id, service_id, peripheral_address) {
+    return this.$.setNextWriteCharacteristicResponse(gatt_code, characteristic_id, service_id, peripheral_address);
+  }
+  setNextSubscribeToNotificationsResponse(gatt_code, characteristic_id, service_id, peripheral_address) {
+    return this.$.setNextSubscribeToNotificationsResponse(gatt_code, characteristic_id, service_id, peripheral_address);
+  }
+  setNextUnsubscribeFromNotificationsResponse(gatt_code, characteristic_id, service_id, peripheral_address) {
+    return this.$.setNextUnsubscribeFromNotificationsResponse(gatt_code, characteristic_id, service_id, peripheral_address);
+  }
+  isNotifying(characteristic_id, service_id, peripheral_address) {
+    return this.$.isNotifying(characteristic_id, service_id, peripheral_address);
+  }
+  getLastWrittenCharacteristicValue(characteristic_id, service_id, peripheral_address) {
+    return this.$.getLastWrittenCharacteristicValue(characteristic_id, service_id, peripheral_address);
+  }
+  setNextReadDescriptorResponse(gatt_code, value, descriptor_id, characteristic_id, service_id, peripheral_address) {
+    return this.$.setNextReadDescriptorResponse(gatt_code, value, descriptor_id, characteristic_id, service_id, peripheral_address);
+  }
+  setNextWriteDescriptorResponse(gatt_code, descriptor_id, characteristic_id, service_id, peripheral_address) {
+    return this.$.setNextWriteDescriptorResponse(gatt_code, descriptor_id, characteristic_id, service_id, peripheral_address);
+  }
+  getLastWrittenDescriptorValue(descriptor_id, characteristic_id, service_id, peripheral_address) {
+    return this.$.getLastWrittenDescriptorValue(descriptor_id, characteristic_id, service_id, peripheral_address);
+  }
+  setClient(client) {
+    return this.$.setClient(client);
   }
 };
 
@@ -1930,6 +2017,15 @@ bluetooth.mojom.FakeCentralClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  dispatchGATTOperationEvent(type, peripheral_address) {
+    return this.$.dispatchGATTOperationEvent(type, peripheral_address);
+  }
+  dispatchCharacteristicOperationEvent(type, data, write_type, characteristic_id) {
+    return this.$.dispatchCharacteristicOperationEvent(type, data, write_type, characteristic_id);
+  }
+  dispatchDescriptorOperationEvent(type, data, descriptor_id) {
+    return this.$.dispatchDescriptorOperationEvent(type, data, descriptor_id);
   }
 };
 

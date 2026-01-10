@@ -166,6 +166,18 @@ viz.mojom.FrameSinksMetricsRecorderRemote = class {
   close() {
     this.proxy.close();
   }
+  startFrameCounting(start_time, bucket_size) {
+    return this.$.startFrameCounting(start_time, bucket_size);
+  }
+  stopFrameCounting() {
+    return this.$.stopFrameCounting();
+  }
+  startOverdrawTracking(root_frame_sink_id, bucket_size) {
+    return this.$.startOverdrawTracking(root_frame_sink_id, bucket_size);
+  }
+  stopOverdrawTracking(root_frame_sink_id) {
+    return this.$.stopOverdrawTracking(root_frame_sink_id);
+  }
 };
 
 viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {

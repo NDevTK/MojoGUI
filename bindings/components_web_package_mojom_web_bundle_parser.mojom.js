@@ -312,6 +312,12 @@ web_package.mojom.WebBundleParserFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  getParserForDataSource(receiver, base_url, data_source) {
+    return this.$.getParserForDataSource(receiver, base_url, data_source);
+  }
+  bindFileDataSource(data_source, file) {
+    return this.$.bindFileDataSource(data_source, file);
+  }
 };
 
 web_package.mojom.WebBundleParserFactoryRemoteCallHandler = class {
@@ -532,6 +538,18 @@ web_package.mojom.WebBundleParserRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  parseIntegrityBlock() {
+    return this.$.parseIntegrityBlock();
+  }
+  parseMetadata(offset) {
+    return this.$.parseMetadata(offset);
+  }
+  parseResponse(response_offset, response_length) {
+    return this.$.parseResponse(response_offset, response_length);
+  }
+  close() {
+    return this.$.close();
   }
 };
 
@@ -830,6 +848,18 @@ web_package.mojom.BundleDataSourceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  read(offset, length) {
+    return this.$.read(offset, length);
+  }
+  length() {
+    return this.$.length();
+  }
+  isRandomAccessContext() {
+    return this.$.isRandomAccessContext();
+  }
+  close() {
+    return this.$.close();
   }
 };
 

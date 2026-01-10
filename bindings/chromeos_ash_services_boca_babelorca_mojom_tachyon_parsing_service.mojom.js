@@ -155,6 +155,9 @@ ash.babelorca.mojom.TachyonParsingServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  parse(stream_data) {
+    return this.$.parse(stream_data);
+  }
 };
 
 ash.babelorca.mojom.TachyonParsingServiceRemoteCallHandler = class {

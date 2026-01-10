@@ -129,6 +129,9 @@ glic.mojom.FrePageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(receiver) {
+    return this.$.createPageHandler(receiver);
+  }
 };
 
 glic.mojom.FrePageHandlerFactoryRemoteCallHandler = class {
@@ -324,6 +327,33 @@ glic.mojom.FrePageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  acceptFre() {
+    return this.$.acceptFre();
+  }
+  rejectFre() {
+    return this.$.rejectFre();
+  }
+  dismissFre(panel) {
+    return this.$.dismissFre(panel);
+  }
+  freReloaded() {
+    return this.$.freReloaded();
+  }
+  prepareForClient() {
+    return this.$.prepareForClient();
+  }
+  validateAndOpenLinkInNewTab(url) {
+    return this.$.validateAndOpenLinkInNewTab(url);
+  }
+  webUiStateChanged(new_state) {
+    return this.$.webUiStateChanged(new_state);
+  }
+  exceededTimeoutError() {
+    return this.$.exceededTimeoutError();
+  }
+  logWebUiLoadComplete() {
+    return this.$.logWebUiLoadComplete();
   }
 };
 

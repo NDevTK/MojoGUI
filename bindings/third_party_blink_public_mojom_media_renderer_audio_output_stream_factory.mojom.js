@@ -115,6 +115,9 @@ blink.mojom.RendererAudioOutputStreamFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  requestDeviceAuthorization(stream_provider_receiver, session_id, device_id) {
+    return this.$.requestDeviceAuthorization(stream_provider_receiver, session_id, device_id);
+  }
 };
 
 blink.mojom.RendererAudioOutputStreamFactoryRemoteCallHandler = class {

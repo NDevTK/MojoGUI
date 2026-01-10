@@ -106,6 +106,9 @@ chromecast.mojom.BluetoothDeviceAccessProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  requestDeviceAccess(client) {
+    return this.$.requestDeviceAccess(client);
+  }
 };
 
 chromecast.mojom.BluetoothDeviceAccessProviderRemoteCallHandler = class {
@@ -258,6 +261,12 @@ chromecast.mojom.BluetoothDeviceAccessProviderClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  grantAccess(address) {
+    return this.$.grantAccess(address);
+  }
+  grantAccessToAllDevices() {
+    return this.$.grantAccessToAllDevices();
   }
 };
 

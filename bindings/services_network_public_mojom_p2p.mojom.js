@@ -151,6 +151,9 @@ network.mojom.P2PNetworkNotificationClientRemote = class {
   close() {
     this.proxy.close();
   }
+  networkListChanged(networks, default_ipv4_local_address, default_ipv6_local_address) {
+    return this.$.networkListChanged(networks, default_ipv4_local_address, default_ipv6_local_address);
+  }
 };
 
 network.mojom.P2PNetworkNotificationClientRemoteCallHandler = class {
@@ -325,6 +328,15 @@ network.mojom.P2PSocketManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startNetworkNotifications(client) {
+    return this.$.startNetworkNotifications(client);
+  }
+  getHostAddress(host_name, address_family, enable_mdns) {
+    return this.$.getHostAddress(host_name, address_family, enable_mdns);
+  }
+  createSocket(type, local_address, port_range, remote_address, traffic_annotation, devtools_token, client, socket) {
+    return this.$.createSocket(type, local_address, port_range, remote_address, traffic_annotation, devtools_token, client, socket);
   }
 };
 
@@ -552,6 +564,15 @@ network.mojom.P2PSocketRemote = class {
   close() {
     this.proxy.close();
   }
+  send(data, packet_info) {
+    return this.$.send(data, packet_info);
+  }
+  sendBatch(packet_batch) {
+    return this.$.sendBatch(packet_batch);
+  }
+  setOption(option, value) {
+    return this.$.setOption(option, value);
+  }
 };
 
 network.mojom.P2PSocketRemoteCallHandler = class {
@@ -776,6 +797,18 @@ network.mojom.P2PSocketClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  socketCreated(local_address, remote_address) {
+    return this.$.socketCreated(local_address, remote_address);
+  }
+  sendComplete(send_metrics) {
+    return this.$.sendComplete(send_metrics);
+  }
+  sendBatchComplete(send_metrics_batch) {
+    return this.$.sendBatchComplete(send_metrics_batch);
+  }
+  dataReceived(packets) {
+    return this.$.dataReceived(packets);
   }
 };
 

@@ -140,6 +140,18 @@ media.mojom.VideoEncoderMetricsProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize(encoder_id, encoder_use_case, profile, encode_size, is_hardware_encoder, svc_mode) {
+    return this.$.initialize(encoder_id, encoder_use_case, profile, encode_size, is_hardware_encoder, svc_mode);
+  }
+  setEncodedFrameCount(encoder_id, num_encoded_frames) {
+    return this.$.setEncodedFrameCount(encoder_id, num_encoded_frames);
+  }
+  setError(encoder_id, status) {
+    return this.$.setError(encoder_id, status);
+  }
+  complete(encoder_id) {
+    return this.$.complete(encoder_id);
+  }
 };
 
 media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {

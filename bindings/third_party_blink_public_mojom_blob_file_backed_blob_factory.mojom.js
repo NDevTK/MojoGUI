@@ -121,6 +121,12 @@ blink.mojom.FileBackedBlobFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  registerBlob(blob, uuid, content_type, file) {
+    return this.$.registerBlob(blob, uuid, content_type, file);
+  }
+  registerBlobSync(blob, uuid, content_type, file) {
+    return this.$.registerBlobSync(blob, uuid, content_type, file);
+  }
 };
 
 blink.mojom.FileBackedBlobFactoryRemoteCallHandler = class {

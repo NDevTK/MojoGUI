@@ -117,6 +117,9 @@ composebox.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler, searchbox_page, searchbox_handler) {
+    return this.$.createPageHandler(page, handler, searchbox_page, searchbox_handler);
+  }
 };
 
 composebox.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -294,6 +297,24 @@ composebox.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  focusChanged(focused) {
+    return this.$.focusChanged(focused);
+  }
+  setDeepSearchMode(enabled) {
+    return this.$.setDeepSearchMode(enabled);
+  }
+  setCreateImageMode(enabled, image_present) {
+    return this.$.setCreateImageMode(enabled, image_present);
+  }
+  handleLensButtonClick() {
+    return this.$.handleLensButtonClick();
+  }
+  handleFileUpload(is_image) {
+    return this.$.handleFileUpload(is_image);
+  }
+  navigateUrl(url) {
+    return this.$.navigateUrl(url);
   }
 };
 

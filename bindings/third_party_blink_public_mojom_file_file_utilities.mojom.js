@@ -110,6 +110,9 @@ blink.mojom.FileUtilitiesHostRemote = class {
   close() {
     this.proxy.close();
   }
+  getFileInfo(path) {
+    return this.$.getFileInfo(path);
+  }
 };
 
 blink.mojom.FileUtilitiesHostRemoteCallHandler = class {

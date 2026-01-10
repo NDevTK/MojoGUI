@@ -104,6 +104,9 @@ content.mojom.ThreadTypeSwitcherRemote = class {
   close() {
     this.proxy.close();
   }
+  setThreadType(platform_thread_id, thread_type) {
+    return this.$.setThreadType(platform_thread_id, thread_type);
+  }
 };
 
 content.mojom.ThreadTypeSwitcherRemoteCallHandler = class {

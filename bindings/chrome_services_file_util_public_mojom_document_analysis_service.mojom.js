@@ -104,6 +104,9 @@ chrome.mojom.DocumentAnalysisServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  bindSafeDocumentAnalyzer(receiver) {
+    return this.$.bindSafeDocumentAnalyzer(receiver);
+  }
 };
 
 chrome.mojom.DocumentAnalysisServiceRemoteCallHandler = class {

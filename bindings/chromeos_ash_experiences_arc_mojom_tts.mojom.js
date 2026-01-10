@@ -153,6 +153,12 @@ arc.mojom.TtsHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onVoicesChanged(voices) {
+    return this.$.onVoicesChanged(voices);
+  }
+  onTtsEvent(utteranceId, event_type, char_index, length, error_msg) {
+    return this.$.onTtsEvent(utteranceId, event_type, char_index, length, error_msg);
+  }
 };
 
 arc.mojom.TtsHostRemoteCallHandler = class {
@@ -350,6 +356,18 @@ arc.mojom.TtsInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  speak(utterance) {
+    return this.$.speak(utterance);
+  }
+  stop() {
+    return this.$.stop();
+  }
+  refreshVoices() {
+    return this.$.refreshVoices();
   }
 };
 

@@ -127,6 +127,12 @@ blink.mojom.PopupMenuClientRemote = class {
   close() {
     this.proxy.close();
   }
+  didAcceptIndices(indices) {
+    return this.$.didAcceptIndices(indices);
+  }
+  didCancel() {
+    return this.$.didCancel();
+  }
 };
 
 blink.mojom.PopupMenuClientRemoteCallHandler = class {

@@ -111,6 +111,9 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  shuttingDownOnIdle() {
+    return this.$.shuttingDownOnIdle();
+  }
 };
 
 screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
@@ -286,6 +289,15 @@ screen_ai.mojom.ScreenAIServiceFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  initializeOCR(library_path, model_files, ocr_service_receiver) {
+    return this.$.initializeOCR(library_path, model_files, ocr_service_receiver);
+  }
+  initializeMainContentExtraction(library_path, model_files, main_content_extractor_service) {
+    return this.$.initializeMainContentExtraction(library_path, model_files, main_content_extractor_service);
+  }
+  bindShutdownHandler(shutdown_handler) {
+    return this.$.bindShutdownHandler(shutdown_handler);
   }
 };
 

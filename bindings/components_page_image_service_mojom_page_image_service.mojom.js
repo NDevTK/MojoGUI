@@ -141,6 +141,9 @@ page_image_service.mojom.PageImageServiceHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getPageImageUrl(client_id, page_url, options) {
+    return this.$.getPageImageUrl(client_id, page_url, options);
+  }
 };
 
 page_image_service.mojom.PageImageServiceHandlerRemoteCallHandler = class {

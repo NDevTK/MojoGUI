@@ -109,6 +109,9 @@ blink.mojom.SmartCardServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  createContext() {
+    return this.$.createContext();
+  }
 };
 
 blink.mojom.SmartCardServiceRemoteCallHandler = class {

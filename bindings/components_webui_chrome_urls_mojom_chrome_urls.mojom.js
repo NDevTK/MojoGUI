@@ -132,6 +132,9 @@ chrome_urls.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 chrome_urls.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -295,6 +298,12 @@ chrome_urls.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getUrls() {
+    return this.$.getUrls();
+  }
+  setDebugPagesEnabled(enabled) {
+    return this.$.setDebugPagesEnabled(enabled);
   }
 };
 

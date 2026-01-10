@@ -110,6 +110,12 @@ cros.mojom.JpegAcceleratorProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getJpegEncodeAccelerator(jea) {
+    return this.$.getJpegEncodeAccelerator(jea);
+  }
+  getMjpegDecodeAccelerator(jda) {
+    return this.$.getMjpegDecodeAccelerator(jda);
+  }
 };
 
 cros.mojom.JpegAcceleratorProviderRemoteCallHandler = class {

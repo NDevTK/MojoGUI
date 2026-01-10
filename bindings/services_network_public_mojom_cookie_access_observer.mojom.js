@@ -125,6 +125,12 @@ network.mojom.CookieAccessObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onCookiesAccessed(details) {
+    return this.$.onCookiesAccessed(details);
+  }
+  clone(listener) {
+    return this.$.clone(listener);
+  }
 };
 
 network.mojom.CookieAccessObserverRemoteCallHandler = class {

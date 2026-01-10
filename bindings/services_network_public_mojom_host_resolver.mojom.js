@@ -254,6 +254,9 @@ network.mojom.ResolveHostHandleRemote = class {
   close() {
     this.proxy.close();
   }
+  cancel(result) {
+    return this.$.cancel(result);
+  }
 };
 
 network.mojom.ResolveHostHandleRemoteCallHandler = class {
@@ -416,6 +419,15 @@ network.mojom.ResolveHostClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onComplete(result, resolve_error_info, resolved_addresses, alternative_endpoints) {
+    return this.$.onComplete(result, resolve_error_info, resolved_addresses, alternative_endpoints);
+  }
+  onTextResults(text_results) {
+    return this.$.onTextResults(text_results);
+  }
+  onHostnameResults(hosts) {
+    return this.$.onHostnameResults(hosts);
   }
 };
 
@@ -647,6 +659,18 @@ network.mojom.MdnsListenClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onAddressResult(update_type, query_type, endpoint) {
+    return this.$.onAddressResult(update_type, query_type, endpoint);
+  }
+  onTextResult(update_type, query_type, text_records) {
+    return this.$.onTextResult(update_type, query_type, text_records);
+  }
+  onHostnameResult(update_type, query_type, host) {
+    return this.$.onHostnameResult(update_type, query_type, host);
+  }
+  onUnhandledResult(update_type, query_type) {
+    return this.$.onUnhandledResult(update_type, query_type);
   }
 };
 
@@ -900,6 +924,12 @@ network.mojom.HostResolverRemote = class {
   close() {
     this.proxy.close();
   }
+  resolveHost(host, network_anonymization_key, optional_parameters, response_client) {
+    return this.$.resolveHost(host, network_anonymization_key, optional_parameters, response_client);
+  }
+  mdnsListen(host, query_type, response_client) {
+    return this.$.mdnsListen(host, query_type, response_client);
+  }
 };
 
 network.mojom.HostResolverRemoteCallHandler = class {
@@ -1082,6 +1112,9 @@ network.mojom.DnsConfigChangeManagerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onDnsConfigChanged() {
+    return this.$.onDnsConfigChanged();
+  }
 };
 
 network.mojom.DnsConfigChangeManagerClientRemoteCallHandler = class {
@@ -1229,6 +1262,9 @@ network.mojom.DnsConfigChangeManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestNotifications(client) {
+    return this.$.requestNotifications(client);
   }
 };
 

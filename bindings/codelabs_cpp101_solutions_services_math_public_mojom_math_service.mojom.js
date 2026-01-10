@@ -110,6 +110,9 @@ math.mojom.MathServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  divide(dividend, divisor) {
+    return this.$.divide(dividend, divisor);
+  }
 };
 
 math.mojom.MathServiceRemoteCallHandler = class {

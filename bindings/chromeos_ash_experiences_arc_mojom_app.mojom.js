@@ -531,6 +531,63 @@ arc.mojom.AppHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onAppAddedDeprecated(app) {
+    return this.$.onAppAddedDeprecated(app);
+  }
+  onAppListRefreshed(apps) {
+    return this.$.onAppListRefreshed(apps);
+  }
+  onPackageAdded(arcPackageInfo) {
+    return this.$.onPackageAdded(arcPackageInfo);
+  }
+  onPackageAppListRefreshed(package_name, apps) {
+    return this.$.onPackageAppListRefreshed(package_name, apps);
+  }
+  onPackageListRefreshed(packages) {
+    return this.$.onPackageListRefreshed(packages);
+  }
+  onPackageModified(arcPackageInfo) {
+    return this.$.onPackageModified(arcPackageInfo);
+  }
+  onPackageRemoved(package_name) {
+    return this.$.onPackageRemoved(package_name);
+  }
+  onTaskCreated(task_id, package_name, activity, name, intent, session_id) {
+    return this.$.onTaskCreated(task_id, package_name, activity, name, intent, session_id);
+  }
+  onTaskDescriptionUpdated(task_id, label, icon_png_data) {
+    return this.$.onTaskDescriptionUpdated(task_id, label, icon_png_data);
+  }
+  onTaskDescriptionChanged(task_id, label, icon, primary_color, status_bar_color) {
+    return this.$.onTaskDescriptionChanged(task_id, label, icon, primary_color, status_bar_color);
+  }
+  onTaskDestroyed(task_id) {
+    return this.$.onTaskDestroyed(task_id);
+  }
+  onTaskSetActive(task_id) {
+    return this.$.onTaskSetActive(task_id);
+  }
+  onNotificationsEnabledChanged(package_name, enabled) {
+    return this.$.onNotificationsEnabledChanged(package_name, enabled);
+  }
+  onInstallShortcut(shortcut) {
+    return this.$.onInstallShortcut(shortcut);
+  }
+  onInstallationStarted(package_name) {
+    return this.$.onInstallationStarted(package_name);
+  }
+  onInstallationFinished(result) {
+    return this.$.onInstallationFinished(result);
+  }
+  onUninstallShortcut(package_name, intent_uri) {
+    return this.$.onUninstallShortcut(package_name, intent_uri);
+  }
+  onInstallationProgressChanged(package_name, progress) {
+    return this.$.onInstallationProgressChanged(package_name, progress);
+  }
+  onInstallationActiveChanged(package_name, active) {
+    return this.$.onInstallationActiveChanged(package_name, active);
+  }
 };
 
 arc.mojom.AppHostRemoteCallHandler = class {
@@ -1480,6 +1537,96 @@ arc.mojom.AppInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  closeTask(task_id) {
+    return this.$.closeTask(task_id);
+  }
+  installPackage(arcPackageInfo) {
+    return this.$.installPackage(arcPackageInfo);
+  }
+  launchAppWithWindowInfo(package_name, activity, window_info) {
+    return this.$.launchAppWithWindowInfo(package_name, activity, window_info);
+  }
+  launchAppShortcutItem(package_name, shortcut_id, display_id) {
+    return this.$.launchAppShortcutItem(package_name, shortcut_id, display_id);
+  }
+  launchIntentWithWindowInfo(intent_uri, window_info) {
+    return this.$.launchIntentWithWindowInfo(intent_uri, window_info);
+  }
+  updateWindowInfo(window_info) {
+    return this.$.updateWindowInfo(window_info);
+  }
+  requestAppIcon(package_name, activity, pixel_size) {
+    return this.$.requestAppIcon(package_name, activity, pixel_size);
+  }
+  getAppIcon(package_name, activity, pixel_size) {
+    return this.$.getAppIcon(package_name, activity, pixel_size);
+  }
+  requestShortcutIcon(icon_resource_id, pixel_size) {
+    return this.$.requestShortcutIcon(icon_resource_id, pixel_size);
+  }
+  getAppShortcutIcon(icon_resource_id, pixel_size) {
+    return this.$.getAppShortcutIcon(icon_resource_id, pixel_size);
+  }
+  requestPackageIcon(package_name, pixel_size, normalize) {
+    return this.$.requestPackageIcon(package_name, pixel_size, normalize);
+  }
+  getPackageIcon(package_name, pixel_size, normalize) {
+    return this.$.getPackageIcon(package_name, pixel_size, normalize);
+  }
+  removeCachedIcon(icon_resource_id) {
+    return this.$.removeCachedIcon(icon_resource_id);
+  }
+  setTaskActive(task_id) {
+    return this.$.setTaskActive(task_id);
+  }
+  showPackageInfoDeprecated(package_name, dimension_on_screen) {
+    return this.$.showPackageInfoDeprecated(package_name, dimension_on_screen);
+  }
+  showPackageInfoOnPageDeprecated(package_name, page, dimension_on_screen) {
+    return this.$.showPackageInfoOnPageDeprecated(package_name, page, dimension_on_screen);
+  }
+  showPackageInfoOnPage(package_name, page, display_id) {
+    return this.$.showPackageInfoOnPage(package_name, page, display_id);
+  }
+  setNotificationsEnabled(package_name, enabled) {
+    return this.$.setNotificationsEnabled(package_name, enabled);
+  }
+  startPaiFlow() {
+    return this.$.startPaiFlow();
+  }
+  startFastAppReinstallFlow(arc_package_names) {
+    return this.$.startFastAppReinstallFlow(arc_package_names);
+  }
+  uninstallPackage(package_name) {
+    return this.$.uninstallPackage(package_name);
+  }
+  updateAppDetails(package_name) {
+    return this.$.updateAppDetails(package_name);
+  }
+  getAndroidId() {
+    return this.$.getAndroidId();
+  }
+  getAppShortcutGlobalQueryItems(query, max_results) {
+    return this.$.getAppShortcutGlobalQueryItems(query, max_results);
+  }
+  getAppShortcutItems(package_name) {
+    return this.$.getAppShortcutItems(package_name);
+  }
+  getRecentAndSuggestedAppsFromPlayStore(query, max_results) {
+    return this.$.getRecentAndSuggestedAppsFromPlayStore(query, max_results);
+  }
+  isInstallable(package_name) {
+    return this.$.isInstallable(package_name);
+  }
+  getAppCategory(package_name) {
+    return this.$.getAppCategory(package_name);
+  }
+  setAppLocale(package_name, locale_tag) {
+    return this.$.setAppLocale(package_name, locale_tag);
   }
 };
 

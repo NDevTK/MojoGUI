@@ -112,6 +112,9 @@ guest_contents.mojom.GuestContentsHostRemote = class {
   close() {
     this.proxy.close();
   }
+  attach(frame_to_swap, guest_contents_id) {
+    return this.$.attach(frame_to_swap, guest_contents_id);
+  }
 };
 
 guest_contents.mojom.GuestContentsHostRemoteCallHandler = class {

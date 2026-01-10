@@ -728,6 +728,60 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemote = class {
   close() {
     this.proxy.close();
   }
+  getResult(routine) {
+    return this.$.getResult(routine);
+  }
+  getAllResults() {
+    return this.$.getAllResults();
+  }
+  runLanConnectivity(source) {
+    return this.$.runLanConnectivity(source);
+  }
+  runSignalStrength(source) {
+    return this.$.runSignalStrength(source);
+  }
+  runGatewayCanBePinged(source) {
+    return this.$.runGatewayCanBePinged(source);
+  }
+  runHasSecureWiFiConnection(source) {
+    return this.$.runHasSecureWiFiConnection(source);
+  }
+  runDnsResolverPresent(source) {
+    return this.$.runDnsResolverPresent(source);
+  }
+  runDnsLatency(source) {
+    return this.$.runDnsLatency(source);
+  }
+  runDnsResolution(source) {
+    return this.$.runDnsResolution(source);
+  }
+  runCaptivePortal(source) {
+    return this.$.runCaptivePortal(source);
+  }
+  runHttpFirewall(source) {
+    return this.$.runHttpFirewall(source);
+  }
+  runHttpsFirewall(source) {
+    return this.$.runHttpsFirewall(source);
+  }
+  runHttpsLatency(source) {
+    return this.$.runHttpsLatency(source);
+  }
+  runVideoConferencing(stun_server_hostname, source) {
+    return this.$.runVideoConferencing(stun_server_hostname, source);
+  }
+  runArcHttp(source) {
+    return this.$.runArcHttp(source);
+  }
+  runArcPing(source) {
+    return this.$.runArcPing(source);
+  }
+  runArcDnsResolution(source) {
+    return this.$.runArcDnsResolution(source);
+  }
+  runGoogleServicesConnectivity(source) {
+    return this.$.runGoogleServicesConnectivity(source);
+  }
 };
 
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler = class {

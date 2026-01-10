@@ -138,6 +138,12 @@ storage.mojom.IndexedDBObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onIndexedDBListChanged(bucket_locator) {
+    return this.$.onIndexedDBListChanged(bucket_locator);
+  }
+  onIndexedDBContentChanged(bucket_locator, database_name, object_store_name) {
+    return this.$.onIndexedDBContentChanged(bucket_locator, database_name, object_store_name);
+  }
 };
 
 storage.mojom.IndexedDBObserverRemoteCallHandler = class {
@@ -401,6 +407,36 @@ storage.mojom.IndexedDBControlRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindIndexedDB(bucket_locator, client_info, client_state_checker_remote, receiver) {
+    return this.$.bindIndexedDB(bucket_locator, client_info, client_state_checker_remote, receiver);
+  }
+  forceClose(bucket_id, reason) {
+    return this.$.forceClose(bucket_id, reason);
+  }
+  downloadBucketData(bucket_id) {
+    return this.$.downloadBucketData(bucket_id);
+  }
+  getAllBucketsDetails() {
+    return this.$.getAllBucketsDetails();
+  }
+  startMetadataRecording(bucket_id) {
+    return this.$.startMetadataRecording(bucket_id);
+  }
+  stopMetadataRecording(bucket_id) {
+    return this.$.stopMetadataRecording(bucket_id);
+  }
+  setForceKeepSessionState() {
+    return this.$.setForceKeepSessionState();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  applyPolicyUpdates(policy_updates) {
+    return this.$.applyPolicyUpdates(policy_updates);
+  }
+  bindTestInterfaceForTesting(receiver) {
+    return this.$.bindTestInterfaceForTesting(receiver);
   }
 };
 

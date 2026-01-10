@@ -124,6 +124,9 @@ media.mojom.AudioSourceSpeechRecognitionContextRemote = class {
   close() {
     this.proxy.close();
   }
+  bindAudioSourceFetcher(fetcher_receiver, client, options) {
+    return this.$.bindAudioSourceFetcher(fetcher_receiver, client, options);
+  }
 };
 
 media.mojom.AudioSourceSpeechRecognitionContextRemoteCallHandler = class {
@@ -303,6 +306,21 @@ media.mojom.SpeechRecognitionServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindSpeechRecognitionContext(context) {
+    return this.$.bindSpeechRecognitionContext(context);
+  }
+  bindAudioSourceSpeechRecognitionContext(context) {
+    return this.$.bindAudioSourceSpeechRecognitionContext(context);
+  }
+  setSodaPaths(binary_path, config_paths, primary_language_name) {
+    return this.$.setSodaPaths(binary_path, config_paths, primary_language_name);
+  }
+  setSodaParams(mask_offensive_words) {
+    return this.$.setSodaParams(mask_offensive_words);
+  }
+  setSodaConfigPaths(config_paths) {
+    return this.$.setSodaConfigPaths(config_paths);
   }
 };
 
@@ -574,6 +592,12 @@ media.mojom.AudioSourceFetcherRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  start(factory, device_id, audio_parameters) {
+    return this.$.start(factory, device_id, audio_parameters);
+  }
+  stop() {
+    return this.$.stop();
   }
 };
 

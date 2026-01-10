@@ -190,6 +190,9 @@ ax.mojom.TtsUtteranceClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onEvent(event) {
+    return this.$.onEvent(event);
+  }
 };
 
 ax.mojom.TtsUtteranceClientRemoteCallHandler = class {
@@ -381,6 +384,24 @@ ax.mojom.TtsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  speak(utterance, options) {
+    return this.$.speak(utterance, options);
+  }
+  stop() {
+    return this.$.stop();
+  }
+  pause() {
+    return this.$.pause();
+  }
+  resume() {
+    return this.$.resume();
+  }
+  isSpeaking() {
+    return this.$.isSpeaking();
+  }
+  getVoices() {
+    return this.$.getVoices();
   }
 };
 

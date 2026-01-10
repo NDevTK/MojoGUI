@@ -154,6 +154,12 @@ media.mojom.MediaEngagementScoreDetailsProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getMediaEngagementScoreDetails() {
+    return this.$.getMediaEngagementScoreDetails();
+  }
+  getMediaEngagementConfig() {
+    return this.$.getMediaEngagementConfig();
+  }
 };
 
 media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {

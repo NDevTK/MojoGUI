@@ -233,6 +233,15 @@ ash.eche_app.mojom.SignalingMessageExchangerRemote = class {
   close() {
     this.proxy.close();
   }
+  sendSignalingMessage(signal) {
+    return this.$.sendSignalingMessage(signal);
+  }
+  setSignalingMessageObserver(observer) {
+    return this.$.setSignalingMessageObserver(observer);
+  }
+  tearDownSignaling() {
+    return this.$.tearDownSignaling();
+  }
 };
 
 ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
@@ -439,6 +448,9 @@ ash.eche_app.mojom.SignalingMessageObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onReceivedSignalingMessage(signal) {
+    return this.$.onReceivedSignalingMessage(signal);
+  }
 };
 
 ash.eche_app.mojom.SignalingMessageObserverRemoteCallHandler = class {
@@ -597,6 +609,12 @@ ash.eche_app.mojom.SystemInfoProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getSystemInfo() {
+    return this.$.getSystemInfo();
+  }
+  setSystemInfoObserver(observer) {
+    return this.$.setSystemInfoObserver(observer);
   }
 };
 
@@ -793,6 +811,15 @@ ash.eche_app.mojom.SystemInfoObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onScreenBacklightStateChanged(state) {
+    return this.$.onScreenBacklightStateChanged(state);
+  }
+  onReceivedTabletModeChanged(is_tablet_mode) {
+    return this.$.onReceivedTabletModeChanged(is_tablet_mode);
+  }
+  onAndroidDeviceNetworkInfoChanged(is_different_network, android_device_on_cellular) {
+    return this.$.onAndroidDeviceNetworkInfoChanged(is_different_network, android_device_on_cellular);
   }
 };
 
@@ -1016,6 +1043,15 @@ ash.eche_app.mojom.AccessibilityProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  handleAccessibilityEventReceived(serialized_proto) {
+    return this.$.handleAccessibilityEventReceived(serialized_proto);
+  }
+  setAccessibilityObserver(observer) {
+    return this.$.setAccessibilityObserver(observer);
+  }
+  isAccessibilityEnabled() {
+    return this.$.isAccessibilityEnabled();
   }
 };
 
@@ -1258,6 +1294,18 @@ ash.eche_app.mojom.AccessibilityObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  enableAccessibilityTreeStreaming(enable) {
+    return this.$.enableAccessibilityTreeStreaming(enable);
+  }
+  enableExploreByTouch(enable) {
+    return this.$.enableExploreByTouch(enable);
+  }
+  performAction(serialized_proto) {
+    return this.$.performAction(serialized_proto);
+  }
+  refreshWithExtraData(refresh_data_proto) {
+    return this.$.refreshWithExtraData(refresh_data_proto);
   }
 };
 
@@ -1511,6 +1559,9 @@ ash.eche_app.mojom.UidGeneratorRemote = class {
   close() {
     this.proxy.close();
   }
+  getUid() {
+    return this.$.getUid();
+  }
 };
 
 ash.eche_app.mojom.UidGeneratorRemoteCallHandler = class {
@@ -1672,6 +1723,12 @@ ash.eche_app.mojom.NotificationGeneratorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  showNotification(title, message, type) {
+    return this.$.showNotification(title, message, type);
+  }
+  showToast(text) {
+    return this.$.showToast(text);
   }
 };
 
@@ -1860,6 +1917,15 @@ ash.eche_app.mojom.DisplayStreamHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startStreaming() {
+    return this.$.startStreaming();
+  }
+  onStreamStatusChanged(status) {
+    return this.$.onStreamStatusChanged(status);
+  }
+  setStreamActionObserver(observer) {
+    return this.$.setStreamActionObserver(observer);
   }
 };
 
@@ -2067,6 +2133,9 @@ ash.eche_app.mojom.StreamActionObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onStreamAction(action) {
+    return this.$.onStreamAction(action);
+  }
 };
 
 ash.eche_app.mojom.StreamActionObserverRemoteCallHandler = class {
@@ -2215,6 +2284,9 @@ ash.eche_app.mojom.StreamOrientationObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onStreamOrientationChanged(isLandscape) {
+    return this.$.onStreamOrientationChanged(isLandscape);
+  }
 };
 
 ash.eche_app.mojom.StreamOrientationObserverRemoteCallHandler = class {
@@ -2362,6 +2434,9 @@ ash.eche_app.mojom.ConnectionStatusObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onConnectionStatusChanged(status) {
+    return this.$.onConnectionStatusChanged(status);
   }
 };
 
@@ -2515,6 +2590,12 @@ ash.eche_app.mojom.KeyboardLayoutHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestCurrentKeyboardLayout() {
+    return this.$.requestCurrentKeyboardLayout();
+  }
+  setKeyboardLayoutObserver(observer) {
+    return this.$.setKeyboardLayoutObserver(observer);
   }
 };
 
@@ -2695,6 +2776,9 @@ ash.eche_app.mojom.KeyboardLayoutObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onKeyboardLayoutChanged(id, longName, shortName, layoutTag) {
+    return this.$.onKeyboardLayoutChanged(id, longName, shortName, layoutTag);
   }
 };
 

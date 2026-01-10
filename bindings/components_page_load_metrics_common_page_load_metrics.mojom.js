@@ -413,6 +413,15 @@ page_load_metrics.mojom.PageLoadMetricsRemote = class {
   close() {
     this.proxy.close();
   }
+  updateTiming(page_load_timing, frame_metadata, new_features, resources, render_data, cpu_load_timing, input_timing_delta, subresource_load_metrics, soft_navigation_metrics) {
+    return this.$.updateTiming(page_load_timing, frame_metadata, new_features, resources, render_data, cpu_load_timing, input_timing_delta, subresource_load_metrics, soft_navigation_metrics);
+  }
+  setUpSharedMemoryForDroppedFrames(dropped_frames_memory) {
+    return this.$.setUpSharedMemoryForDroppedFrames(dropped_frames_memory);
+  }
+  addCustomUserTiming(custom_user_timing) {
+    return this.$.addCustomUserTiming(custom_user_timing);
+  }
 };
 
 page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {

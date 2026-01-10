@@ -206,6 +206,30 @@ arc.mojom.InputConnectionRemote = class {
   close() {
     this.proxy.close();
   }
+  commitText(text, new_cursor_pos) {
+    return this.$.commitText(text, new_cursor_pos);
+  }
+  deleteSurroundingText(before, after) {
+    return this.$.deleteSurroundingText(before, after);
+  }
+  finishComposingText() {
+    return this.$.finishComposingText();
+  }
+  requestTextInputState() {
+    return this.$.requestTextInputState();
+  }
+  setComposingText(text, new_cursor_pos, new_selection_range) {
+    return this.$.setComposingText(text, new_cursor_pos, new_selection_range);
+  }
+  setSelection(new_selection_range) {
+    return this.$.setSelection(new_selection_range);
+  }
+  sendKeyEvent(key_event_data) {
+    return this.$.sendKeyEvent(key_event_data);
+  }
+  setCompositionRange(new_range) {
+    return this.$.setCompositionRange(new_range);
+  }
 };
 
 arc.mojom.InputConnectionRemoteCallHandler = class {
@@ -575,6 +599,15 @@ arc.mojom.InputMethodManagerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onActiveImeChanged(ime_id) {
+    return this.$.onActiveImeChanged(ime_id);
+  }
+  onImeDisabled(ime_id) {
+    return this.$.onImeDisabled(ime_id);
+  }
+  onImeInfoChanged(ime_infos) {
+    return this.$.onImeInfoChanged(ime_infos);
+  }
 };
 
 arc.mojom.InputMethodManagerHostRemoteCallHandler = class {
@@ -833,6 +866,27 @@ arc.mojom.InputMethodManagerInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  enableIme(ime_id, enable) {
+    return this.$.enableIme(ime_id, enable);
+  }
+  switchImeTo(ime_id) {
+    return this.$.switchImeTo(ime_id);
+  }
+  focus(connection, initial_state) {
+    return this.$.focus(connection, initial_state);
+  }
+  updateTextInputState(state) {
+    return this.$.updateTextInputState(state);
+  }
+  showVirtualKeyboard() {
+    return this.$.showVirtualKeyboard();
+  }
+  hideVirtualKeyboard() {
+    return this.$.hideVirtualKeyboard();
   }
 };
 

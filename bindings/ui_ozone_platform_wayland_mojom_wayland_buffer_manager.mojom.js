@@ -164,6 +164,24 @@ ui.ozone.mojom.WaylandBufferManagerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  setWaylandBufferManagerGpu(buffer_manager_gpu_associated) {
+    return this.$.setWaylandBufferManagerGpu(buffer_manager_gpu_associated);
+  }
+  createDmabufBasedBuffer(dmabuf_fd, size, strides, offsets, modifiers, format, planes_count, color_space, hdr_metadata, buffer_id) {
+    return this.$.createDmabufBasedBuffer(dmabuf_fd, size, strides, offsets, modifiers, format, planes_count, color_space, hdr_metadata, buffer_id);
+  }
+  createShmBasedBuffer(shm_fd, length, size, buffer_id) {
+    return this.$.createShmBasedBuffer(shm_fd, length, size, buffer_id);
+  }
+  createSinglePixelBuffer(color, buffer_id) {
+    return this.$.createSinglePixelBuffer(color, buffer_id);
+  }
+  destroyBuffer(buffer_id) {
+    return this.$.destroyBuffer(buffer_id);
+  }
+  commitOverlays(widget, frame_id, data, overlays) {
+    return this.$.commitOverlays(widget, frame_id, data, overlays);
+  }
 };
 
 ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler = class {
@@ -479,6 +497,15 @@ ui.ozone.mojom.WaylandBufferManagerGpuRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  initialize(remote_host, shared_image_formats_with_modifiers, supports_dma_buf, supports_viewporter, supports_acquire_fence, supports_overlays, supports_single_pixel_buffer) {
+    return this.$.initialize(remote_host, shared_image_formats_with_modifiers, supports_dma_buf, supports_viewporter, supports_acquire_fence, supports_overlays, supports_single_pixel_buffer);
+  }
+  onSubmission(widget, frame_id, swap_result, release_fence_handle, presentation_infos) {
+    return this.$.onSubmission(widget, frame_id, swap_result, release_fence_handle, presentation_infos);
+  }
+  onPresentation(widget, presentation_infos) {
+    return this.$.onPresentation(widget, presentation_infos);
   }
 };
 

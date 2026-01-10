@@ -149,6 +149,12 @@ data_decoder.mojom.ImageDecoderRemote = class {
   close() {
     this.proxy.close();
   }
+  decodeImage(encoded_data, codec, shrink_to_fit, max_size_in_bytes, desired_image_frame_size) {
+    return this.$.decodeImage(encoded_data, codec, shrink_to_fit, max_size_in_bytes, desired_image_frame_size);
+  }
+  decodeAnimation(encoded_data, shrink_to_fit, max_size_in_bytes) {
+    return this.$.decodeAnimation(encoded_data, shrink_to_fit, max_size_in_bytes);
+  }
 };
 
 data_decoder.mojom.ImageDecoderRemoteCallHandler = class {

@@ -446,6 +446,18 @@ cros.mojom.Camera3CallbackOpsRemote = class {
   close() {
     this.proxy.close();
   }
+  processCaptureResult(result) {
+    return this.$.processCaptureResult(result);
+  }
+  notify(msg) {
+    return this.$.notify(msg);
+  }
+  requestStreamBuffers(buffer_reqs) {
+    return this.$.requestStreamBuffers(buffer_reqs);
+  }
+  returnStreamBuffers(buffers) {
+    return this.$.returnStreamBuffers(buffers);
+  }
 };
 
 cros.mojom.Camera3CallbackOpsRemoteCallHandler = class {
@@ -815,6 +827,42 @@ cros.mojom.Camera3DeviceOpsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  initialize(callback_ops) {
+    return this.$.initialize(callback_ops);
+  }
+  configureStreams(config) {
+    return this.$.configureStreams(config);
+  }
+  constructDefaultRequestSettings(type) {
+    return this.$.constructDefaultRequestSettings(type);
+  }
+  processCaptureRequest(request) {
+    return this.$.processCaptureRequest(request);
+  }
+  dump(fd) {
+    return this.$.dump(fd);
+  }
+  flush() {
+    return this.$.flush();
+  }
+  registerBuffer(buffer_id, type, fds, drm_format, hal_pixel_format, width, height, strides, offsets) {
+    return this.$.registerBuffer(buffer_id, type, fds, drm_format, hal_pixel_format, width, height, strides, offsets);
+  }
+  close() {
+    return this.$.close();
+  }
+  configureStreamsAndGetAllocatedBuffers(config) {
+    return this.$.configureStreamsAndGetAllocatedBuffers(config);
+  }
+  signalStreamFlush(stream_ids) {
+    return this.$.signalStreamFlush(stream_ids);
+  }
+  onNewBuffer(buffer) {
+    return this.$.onNewBuffer(buffer);
+  }
+  onBufferRetired(buffer_id) {
+    return this.$.onBufferRetired(buffer_id);
   }
 };
 

@@ -160,6 +160,27 @@ mirroring.mojom.SessionObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onError(error) {
+    return this.$.onError(error);
+  }
+  didStart() {
+    return this.$.didStart();
+  }
+  didStop() {
+    return this.$.didStop();
+  }
+  logInfoMessage(message) {
+    return this.$.logInfoMessage(message);
+  }
+  logErrorMessage(message) {
+    return this.$.logErrorMessage(message);
+  }
+  onSourceChanged() {
+    return this.$.onSourceChanged();
+  }
+  onRemotingStateChanged(is_remoting) {
+    return this.$.onRemotingStateChanged(is_remoting);
+  }
 };
 
 mirroring.mojom.SessionObserverRemoteCallHandler = class {

@@ -283,6 +283,12 @@ read_anything.mojom.UntrustedPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createUntrustedPageHandler(page, handler) {
+    return this.$.createUntrustedPageHandler(page, handler);
+  }
+  shouldShowUI() {
+    return this.$.shouldShowUI();
+  }
 };
 
 read_anything.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
@@ -650,6 +656,102 @@ read_anything.mojom.UntrustedPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDependencyParserModel() {
+    return this.$.getDependencyParserModel();
+  }
+  getPresentationState() {
+    return this.$.getPresentationState();
+  }
+  getVoicePackInfo(language) {
+    return this.$.getVoicePackInfo(language);
+  }
+  installVoicePack(language) {
+    return this.$.installVoicePack(language);
+  }
+  uninstallVoice(language) {
+    return this.$.uninstallVoice(language);
+  }
+  onCopy() {
+    return this.$.onCopy();
+  }
+  onLineSpaceChange(line_spacing) {
+    return this.$.onLineSpaceChange(line_spacing);
+  }
+  onLetterSpaceChange(letter_spacing) {
+    return this.$.onLetterSpaceChange(letter_spacing);
+  }
+  onFontChange(font) {
+    return this.$.onFontChange(font);
+  }
+  onFontSizeChange(font_size) {
+    return this.$.onFontSizeChange(font_size);
+  }
+  onLinksEnabledChanged(enabled) {
+    return this.$.onLinksEnabledChanged(enabled);
+  }
+  onImagesEnabledChanged(enabled) {
+    return this.$.onImagesEnabledChanged(enabled);
+  }
+  onColorChange(color) {
+    return this.$.onColorChange(color);
+  }
+  onSpeechRateChange(rate) {
+    return this.$.onSpeechRateChange(rate);
+  }
+  onVoiceChange(voice, lang) {
+    return this.$.onVoiceChange(voice, lang);
+  }
+  onLanguagePrefChange(lang, enabled) {
+    return this.$.onLanguagePrefChange(lang, enabled);
+  }
+  logExtensionState() {
+    return this.$.logExtensionState();
+  }
+  onHighlightGranularityChanged(granularity) {
+    return this.$.onHighlightGranularityChanged(granularity);
+  }
+  onLineFocusChanged(granularity) {
+    return this.$.onLineFocusChanged(granularity);
+  }
+  onReadAloudAudioStateChange(playing) {
+    return this.$.onReadAloudAudioStateChange(playing);
+  }
+  onLinkClicked(target_tree_id, target_node_id) {
+    return this.$.onLinkClicked(target_tree_id, target_node_id);
+  }
+  onImageDataRequested(target_tree_id, target_node_id) {
+    return this.$.onImageDataRequested(target_tree_id, target_node_id);
+  }
+  onSelectionChange(target_tree_id, anchor_node_id, anchor_offset, focus_node_id, focus_offset) {
+    return this.$.onSelectionChange(target_tree_id, anchor_node_id, anchor_offset, focus_node_id, focus_offset);
+  }
+  onCollapseSelection() {
+    return this.$.onCollapseSelection();
+  }
+  onScreenshotRequested() {
+    return this.$.onScreenshotRequested();
+  }
+  onDistillationStatus(status, word_count) {
+    return this.$.onDistillationStatus(status, word_count);
+  }
+  scrollToTargetNode(target_tree_id, target_node_id) {
+    return this.$.scrollToTargetNode(target_tree_id, target_node_id);
+  }
+  closeUI() {
+    return this.$.closeUI();
+  }
+  togglePinState() {
+    return this.$.togglePinState();
+  }
+  sendPinStateRequest() {
+    return this.$.sendPinStateRequest();
+  }
+  togglePresentation() {
+    return this.$.togglePresentation();
+  }
+  ackReadingModeHidden() {
+    return this.$.ackReadingModeHidden();
   }
 };
 
@@ -1813,6 +1915,57 @@ read_anything.mojom.UntrustedPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  accessibilityEventReceived(tree_id, updates, events) {
+    return this.$.accessibilityEventReceived(tree_id, updates, events);
+  }
+  onGetPresentationState(presentation_state) {
+    return this.$.onGetPresentationState(presentation_state);
+  }
+  onGetVoicePackInfo(voice_pack_info) {
+    return this.$.onGetVoicePackInfo(voice_pack_info);
+  }
+  accessibilityLocationChangesReceived(tree_id, details) {
+    return this.$.accessibilityLocationChangesReceived(tree_id, details);
+  }
+  onActiveAXTreeIDChanged(tree_id, ukm_source_id, is_pdf) {
+    return this.$.onActiveAXTreeIDChanged(tree_id, ukm_source_id, is_pdf);
+  }
+  onAXTreeDestroyed(tree_id) {
+    return this.$.onAXTreeDestroyed(tree_id);
+  }
+  setLanguageCode(code) {
+    return this.$.setLanguageCode(code);
+  }
+  onDeviceLocked() {
+    return this.$.onDeviceLocked();
+  }
+  onTtsEngineInstalled() {
+    return this.$.onTtsEngineInstalled();
+  }
+  setDefaultLanguageCode(code) {
+    return this.$.setDefaultLanguageCode(code);
+  }
+  onSettingsRestoredFromPrefs(line_spacing, letter_spacing, font, font_size, links_enabled, images_enabled, color, speech_rate, voices, languages_enabled_in_pref, granularity, line_focus) {
+    return this.$.onSettingsRestoredFromPrefs(line_spacing, letter_spacing, font, font_size, links_enabled, images_enabled, color, speech_rate, voices, languages_enabled_in_pref, granularity, line_focus);
+  }
+  screenAIServiceReady() {
+    return this.$.screenAIServiceReady();
+  }
+  onReadingModeHidden(tab_active) {
+    return this.$.onReadingModeHidden(tab_active);
+  }
+  onTabWillDetach() {
+    return this.$.onTabWillDetach();
+  }
+  onTabMuteStateChange(muted) {
+    return this.$.onTabMuteStateChange(muted);
+  }
+  onImageDataDownloaded(tree_id, node_id, image) {
+    return this.$.onImageDataDownloaded(tree_id, node_id, image);
+  }
+  onPinStatusReceived(new_pin_state) {
+    return this.$.onPinStatusReceived(new_pin_state);
   }
 };
 

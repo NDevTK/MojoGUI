@@ -105,6 +105,9 @@ arc.mojom.BootPhaseMonitorHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onBootCompleted() {
+    return this.$.onBootCompleted();
+  }
 };
 
 arc.mojom.BootPhaseMonitorHostRemoteCallHandler = class {
@@ -257,6 +260,9 @@ arc.mojom.BootPhaseMonitorInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

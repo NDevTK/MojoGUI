@@ -193,6 +193,27 @@ chromeos.cdm.mojom.BrowserCdmFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createFactory(key_system) {
+    return this.$.createFactory(key_system);
+  }
+  getOutputProtection(output_protection) {
+    return this.$.getOutputProtection(output_protection);
+  }
+  getHwConfigData() {
+    return this.$.getHwConfigData();
+  }
+  getScreenResolutions() {
+    return this.$.getScreenResolutions();
+  }
+  getAndroidHwKeyData(key_id, hw_identifier) {
+    return this.$.getAndroidHwKeyData(key_id, hw_identifier);
+  }
+  allocateSecureBuffer(size) {
+    return this.$.allocateSecureBuffer(size);
+  }
+  parseEncryptedSliceHeader(secure_handle, offset, stream_data) {
+    return this.$.parseEncryptedSliceHeader(secure_handle, offset, stream_data);
+  }
 };
 
 chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = class {

@@ -109,6 +109,9 @@ chromecast.mojom.JsChannelRemote = class {
   close() {
     this.proxy.close();
   }
+  postMessage(message) {
+    return this.$.postMessage(message);
+  }
 };
 
 chromecast.mojom.JsChannelRemoteCallHandler = class {
@@ -263,6 +266,12 @@ chromecast.mojom.JsChannelClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createChannel(channel, pipe) {
+    return this.$.createChannel(channel, pipe);
+  }
+  removeChannel(channel) {
+    return this.$.removeChannel(channel);
   }
 };
 
@@ -441,6 +450,9 @@ chromecast.mojom.JsChannelBindingProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  register(routing_id, client) {
+    return this.$.register(routing_id, client);
   }
 };
 

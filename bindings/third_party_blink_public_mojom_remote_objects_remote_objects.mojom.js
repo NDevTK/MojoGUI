@@ -254,6 +254,15 @@ blink.mojom.RemoteObjectHostRemote = class {
   close() {
     this.proxy.close();
   }
+  getObject(object_id, receiver) {
+    return this.$.getObject(object_id, receiver);
+  }
+  acquireObject(object_id) {
+    return this.$.acquireObject(object_id);
+  }
+  releaseObject(object_id) {
+    return this.$.releaseObject(object_id);
+  }
 };
 
 blink.mojom.RemoteObjectHostRemoteCallHandler = class {
@@ -494,6 +503,18 @@ blink.mojom.RemoteObjectRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  hasMethod(name) {
+    return this.$.hasMethod(name);
+  }
+  getMethods() {
+    return this.$.getMethods();
+  }
+  invokeMethod(name, arguments) {
+    return this.$.invokeMethod(name, arguments);
+  }
+  notifyReleasedObject() {
+    return this.$.notifyReleasedObject();
   }
 };
 
@@ -749,6 +770,9 @@ blink.mojom.RemoteObjectGatewayFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createRemoteObjectGateway(host, gateway) {
+    return this.$.createRemoteObjectGateway(host, gateway);
+  }
 };
 
 blink.mojom.RemoteObjectGatewayFactoryRemoteCallHandler = class {
@@ -903,6 +927,12 @@ blink.mojom.RemoteObjectGatewayRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addNamedObject(name, object_id) {
+    return this.$.addNamedObject(name, object_id);
+  }
+  removeNamedObject(name) {
+    return this.$.removeNamedObject(name);
   }
 };
 

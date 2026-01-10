@@ -227,6 +227,15 @@ chromeos.machine_learning.mojom.TextClassifierRemote = class {
   close() {
     this.proxy.close();
   }
+  annotate(request) {
+    return this.$.annotate(request);
+  }
+  findLanguages(text) {
+    return this.$.findLanguages(text);
+  }
+  rEMOVED_1(request) {
+    return this.$.rEMOVED_1(request);
+  }
 };
 
 chromeos.machine_learning.mojom.TextClassifierRemoteCallHandler = class {

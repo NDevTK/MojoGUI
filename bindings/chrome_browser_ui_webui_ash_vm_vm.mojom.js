@@ -110,6 +110,9 @@ ash.vm.mojom.VmDiagnosticsProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getPluginVmDiagnostics() {
+    return this.$.getPluginVmDiagnostics();
+  }
 };
 
 ash.vm.mojom.VmDiagnosticsProviderRemoteCallHandler = class {

@@ -157,6 +157,21 @@ device.mojom.WakeLockRemote = class {
   close() {
     this.proxy.close();
   }
+  requestWakeLock() {
+    return this.$.requestWakeLock();
+  }
+  cancelWakeLock() {
+    return this.$.cancelWakeLock();
+  }
+  addClient(wake_lock) {
+    return this.$.addClient(wake_lock);
+  }
+  changeType(type) {
+    return this.$.changeType(type);
+  }
+  hasWakeLockForTests() {
+    return this.$.hasWakeLockForTests();
+  }
 };
 
 device.mojom.WakeLockRemoteCallHandler = class {

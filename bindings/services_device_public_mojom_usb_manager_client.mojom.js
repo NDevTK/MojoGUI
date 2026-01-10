@@ -109,6 +109,12 @@ device.mojom.UsbDeviceManagerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onDeviceAdded(device_info) {
+    return this.$.onDeviceAdded(device_info);
+  }
+  onDeviceRemoved(device_info) {
+    return this.$.onDeviceRemoved(device_info);
+  }
 };
 
 device.mojom.UsbDeviceManagerClientRemoteCallHandler = class {

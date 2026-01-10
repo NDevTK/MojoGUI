@@ -149,6 +149,9 @@ password_manager.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 password_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -407,6 +410,45 @@ password_manager.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  extendAuthValidity() {
+    return this.$.extendAuthValidity();
+  }
+  deleteAllPasswordManagerData() {
+    return this.$.deleteAllPasswordManagerData();
+  }
+  copyPlaintextBackupPassword(id) {
+    return this.$.copyPlaintextBackupPassword(id);
+  }
+  removeBackupPassword(id) {
+    return this.$.removeBackupPassword(id);
+  }
+  getActorLoginPermissions() {
+    return this.$.getActorLoginPermissions();
+  }
+  revokeActorLoginPermission(site) {
+    return this.$.revokeActorLoginPermission(site);
+  }
+  changePasswordManagerPin() {
+    return this.$.changePasswordManagerPin();
+  }
+  showAddShortcutDialog() {
+    return this.$.showAddShortcutDialog();
+  }
+  isAccountStorageEnabled() {
+    return this.$.isAccountStorageEnabled();
+  }
+  setAccountStorageEnabled(enabled) {
+    return this.$.setAccountStorageEnabled(enabled);
+  }
+  shouldShowAccountStorageSettingToggle() {
+    return this.$.shouldShowAccountStorageSettingToggle();
+  }
+  isPasswordManagerPinAvailable() {
+    return this.$.isPasswordManagerPinAvailable();
+  }
+  switchBiometricAuthBeforeFillingState() {
+    return this.$.switchBiometricAuthBeforeFillingState();
   }
 };
 

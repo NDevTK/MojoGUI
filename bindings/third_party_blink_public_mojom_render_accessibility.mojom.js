@@ -139,6 +139,12 @@ blink.mojom.RenderAccessibilityHostRemote = class {
   close() {
     this.proxy.close();
   }
+  handleAXEvents(events_and_updates, location_and_scroll_updates, reset_token) {
+    return this.$.handleAXEvents(events_and_updates, location_and_scroll_updates, reset_token);
+  }
+  handleAXLocationChanges(changes, reset_token) {
+    return this.$.handleAXLocationChanges(changes, reset_token);
+  }
 };
 
 blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
@@ -353,6 +359,21 @@ blink.mojom.RenderAccessibilityRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setMode(ax_mode, reset_token) {
+    return this.$.setMode(ax_mode, reset_token);
+  }
+  fatalError() {
+    return this.$.fatalError();
+  }
+  hitTest(point, event_to_fire, request_id) {
+    return this.$.hitTest(point, event_to_fire, request_id);
+  }
+  performAction(action_data) {
+    return this.$.performAction(action_data);
+  }
+  reset(reset_token) {
+    return this.$.reset(reset_token);
   }
 };
 

@@ -134,6 +134,9 @@ blink.mojom.ManagedConfigurationObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onConfigurationChanged() {
+    return this.$.onConfigurationChanged();
+  }
 };
 
 blink.mojom.ManagedConfigurationObserverRemoteCallHandler = class {
@@ -330,6 +333,21 @@ blink.mojom.DeviceAPIServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDirectoryId() {
+    return this.$.getDirectoryId();
+  }
+  getHostname() {
+    return this.$.getHostname();
+  }
+  getSerialNumber() {
+    return this.$.getSerialNumber();
+  }
+  getAnnotatedAssetId() {
+    return this.$.getAnnotatedAssetId();
+  }
+  getAnnotatedLocation() {
+    return this.$.getAnnotatedLocation();
   }
 };
 
@@ -636,6 +654,12 @@ blink.mojom.ManagedConfigurationServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getManagedConfiguration(keys) {
+    return this.$.getManagedConfiguration(keys);
+  }
+  subscribeToManagedConfiguration(observer) {
+    return this.$.subscribeToManagedConfiguration(observer);
   }
 };
 

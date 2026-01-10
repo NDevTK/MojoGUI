@@ -109,6 +109,9 @@ network.mojom.DhcpWpadUrlClientRemote = class {
   close() {
     this.proxy.close();
   }
+  getPacUrl() {
+    return this.$.getPacUrl();
+  }
 };
 
 network.mojom.DhcpWpadUrlClientRemoteCallHandler = class {

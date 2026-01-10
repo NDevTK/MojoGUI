@@ -134,6 +134,9 @@ media.mojom.FlingingRendererClientExtensionRemote = class {
   close() {
     this.proxy.close();
   }
+  onRemotePlayStateChange(state) {
+    return this.$.onRemotePlayStateChange(state);
+  }
 };
 
 media.mojom.FlingingRendererClientExtensionRemoteCallHandler = class {
@@ -305,6 +308,15 @@ media.mojom.MediaFoundationRendererExtensionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDCOMPSurface() {
+    return this.$.getDCOMPSurface();
+  }
+  setVideoStreamEnabled(enabled) {
+    return this.$.setVideoStreamEnabled(enabled);
+  }
+  setOutputRect(rect) {
+    return this.$.setOutputRect(rect);
   }
 };
 
@@ -636,6 +648,9 @@ media.mojom.MediaFoundationRendererNotifierRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  mediaFoundationRendererCreated(observer) {
+    return this.$.mediaFoundationRendererCreated(observer);
   }
 };
 

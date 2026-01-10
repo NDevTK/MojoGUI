@@ -117,6 +117,9 @@ search.mojom.EmbeddedSearchConnectorRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(embedded_search, client) {
+    return this.$.connect(embedded_search, client);
+  }
 };
 
 search.mojom.EmbeddedSearchConnectorRemoteCallHandler = class {
@@ -285,6 +288,18 @@ search.mojom.EmbeddedSearchRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  focusOmnibox(page_seq_no, focus) {
+    return this.$.focusOmnibox(page_seq_no, focus);
+  }
+  deleteMostVisitedItem(page_seq_no, url) {
+    return this.$.deleteMostVisitedItem(page_seq_no, url);
+  }
+  undoAllMostVisitedDeletions(page_seq_no) {
+    return this.$.undoAllMostVisitedDeletions(page_seq_no);
+  }
+  undoMostVisitedDeletion(page_seq_no, url) {
+    return this.$.undoMostVisitedDeletion(page_seq_no, url);
   }
 };
 
@@ -545,6 +560,21 @@ search.mojom.EmbeddedSearchClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setPageSequenceNumber(page_seq_no) {
+    return this.$.setPageSequenceNumber(page_seq_no);
+  }
+  focusChanged(new_focus_state, reason) {
+    return this.$.focusChanged(new_focus_state, reason);
+  }
+  mostVisitedInfoChanged(most_visited_info) {
+    return this.$.mostVisitedInfoChanged(most_visited_info);
+  }
+  setInputInProgress(input_in_progress) {
+    return this.$.setInputInProgress(input_in_progress);
+  }
+  themeChanged(theme) {
+    return this.$.themeChanged(theme);
   }
 };
 

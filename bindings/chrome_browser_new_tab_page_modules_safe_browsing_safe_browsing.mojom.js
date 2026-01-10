@@ -127,6 +127,18 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  canShowModule() {
+    return this.$.canShowModule();
+  }
+  processModuleClick() {
+    return this.$.processModuleClick();
+  }
+  dismissModule() {
+    return this.$.dismissModule();
+  }
+  restoreModule() {
+    return this.$.restoreModule();
+  }
 };
 
 ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {

@@ -209,6 +209,18 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createOcrUntrustedService(receiver, page) {
+    return this.$.createOcrUntrustedService(receiver, page);
+  }
+  createMahiUntrustedService(receiver, page, file_name) {
+    return this.$.createMahiUntrustedService(receiver, page, file_name);
+  }
+  isMantisAvailable() {
+    return this.$.isMantisAvailable();
+  }
+  createMantisUntrustedService(page, dlc_uuid) {
+    return this.$.createMantisUntrustedService(page, dlc_uuid);
+  }
 };
 
 ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
@@ -469,6 +481,15 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  pageMetadataUpdated(page_metadata) {
+    return this.$.pageMetadataUpdated(page_metadata);
+  }
+  pageContentsUpdated(dirty_page_id) {
+    return this.$.pageContentsUpdated(dirty_page_id);
+  }
+  viewportUpdated(viewport_box, scale_factor) {
+    return this.$.viewportUpdated(viewport_box, scale_factor);
+  }
 };
 
 ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
@@ -692,6 +713,15 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestBitmap(requestedPageId) {
+    return this.$.requestBitmap(requestedPageId);
+  }
+  setViewport(viewport_box) {
+    return this.$.setViewport(viewport_box);
+  }
+  setPdfOcrEnabled(enabled) {
+    return this.$.setPdfOcrEnabled(enabled);
   }
 };
 
@@ -921,6 +951,18 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPdfLoaded() {
+    return this.$.onPdfLoaded();
+  }
+  onPdfFileNameUpdated(new_name) {
+    return this.$.onPdfFileNameUpdated(new_name);
+  }
+  onPdfContextMenuShow(anchor, selected_text) {
+    return this.$.onPdfContextMenuShow(anchor, selected_text);
+  }
+  onPdfContextMenuHide() {
+    return this.$.onPdfContextMenuHide();
   }
 };
 
@@ -1167,6 +1209,12 @@ ash.media_app_ui.mojom.MahiUntrustedPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  hidePdfContextMenu() {
+    return this.$.hidePdfContextMenu();
+  }
+  getPdfContent(limit) {
+    return this.$.getPdfContent(limit);
   }
 };
 
@@ -1424,6 +1472,24 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  segmentImage(image, selection) {
+    return this.$.segmentImage(image, selection);
+  }
+  generativeFillImage(image, mask, text, seed) {
+    return this.$.generativeFillImage(image, mask, text, seed);
+  }
+  inpaintImage(image, mask, seed) {
+    return this.$.inpaintImage(image, mask, seed);
+  }
+  outpaintImage(image, mask, seed) {
+    return this.$.outpaintImage(image, mask, seed);
+  }
+  classifyImageSafety(image) {
+    return this.$.classifyImageSafety(image);
+  }
+  inferSegmentationMode(gesture) {
+    return this.$.inferSegmentationMode(gesture);
   }
 };
 
@@ -1753,6 +1819,9 @@ ash.media_app_ui.mojom.MantisUntrustedPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  reportMantisProgress(progress) {
+    return this.$.reportMantisProgress(progress);
   }
 };
 

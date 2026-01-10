@@ -218,6 +218,27 @@ history_embeddings.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  setPage(page) {
+    return this.$.setPage(page);
+  }
+  search(query) {
+    return this.$.search(query);
+  }
+  sendQualityLog(selected_indices, num_entered_chars) {
+    return this.$.sendQualityLog(selected_indices, num_entered_chars);
+  }
+  recordSearchResultsMetrics(nonEmptyResults, userClickedResult, answerShown, answerCitationClicked, otherHistoryResultClicked, queryWordCount) {
+    return this.$.recordSearchResultsMetrics(nonEmptyResults, userClickedResult, answerShown, answerCitationClicked, otherHistoryResultClicked, queryWordCount);
+  }
+  setUserFeedback(feedback) {
+    return this.$.setUserFeedback(feedback);
+  }
+  maybeShowFeaturePromo() {
+    return this.$.maybeShowFeaturePromo();
+  }
+  openSettingsPage() {
+    return this.$.openSettingsPage();
+  }
 };
 
 history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
@@ -539,6 +560,9 @@ history_embeddings.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  searchResultChanged(result) {
+    return this.$.searchResultChanged(result);
   }
 };
 

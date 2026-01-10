@@ -160,6 +160,12 @@ network.mojom.TrustTokenAccessObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onTrustTokensAccessed(details) {
+    return this.$.onTrustTokensAccessed(details);
+  }
+  clone(listener) {
+    return this.$.clone(listener);
+  }
 };
 
 network.mojom.TrustTokenAccessObserverRemoteCallHandler = class {

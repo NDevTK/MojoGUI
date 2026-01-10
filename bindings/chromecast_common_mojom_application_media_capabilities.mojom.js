@@ -115,6 +115,9 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onSupportedBitstreamAudioCodecsChanged(info) {
+    return this.$.onSupportedBitstreamAudioCodecsChanged(info);
+  }
 };
 
 chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemoteCallHandler = class {
@@ -262,6 +265,9 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
   }
 };
 

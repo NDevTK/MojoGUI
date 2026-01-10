@@ -147,6 +147,9 @@ storage.mojom.MockFailureInjectorRemote = class {
   close() {
     this.proxy.close();
   }
+  failOperation(failure_class, failure_method, instance_num, call_num) {
+    return this.$.failOperation(failure_class, failure_method, instance_num, call_num);
+  }
 };
 
 storage.mojom.MockFailureInjectorRemoteCallHandler = class {
@@ -385,6 +388,33 @@ storage.mojom.IndexedDBControlTestRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getBaseDataPathForTesting() {
+    return this.$.getBaseDataPathForTesting();
+  }
+  getFilePathForTesting(bucket_locator, for_sqlite) {
+    return this.$.getFilePathForTesting(bucket_locator, for_sqlite);
+  }
+  resetCachesForTesting() {
+    return this.$.resetCachesForTesting();
+  }
+  getPathForBlobForTesting(bucket_locator, database_id, blob_number) {
+    return this.$.getPathForBlobForTesting(bucket_locator, database_id, blob_number);
+  }
+  flushBackingStoreForTesting(bucket_locator) {
+    return this.$.flushBackingStoreForTesting(bucket_locator);
+  }
+  flushBucketSequenceForTesting(bucket_locator) {
+    return this.$.flushBucketSequenceForTesting(bucket_locator);
+  }
+  getUsageForTesting() {
+    return this.$.getUsageForTesting();
+  }
+  bindMockFailureSingletonForTesting(receiver) {
+    return this.$.bindMockFailureSingletonForTesting(receiver);
+  }
+  forceInitializeFromFilesForTesting() {
+    return this.$.forceInitializeFromFilesForTesting();
   }
 };
 

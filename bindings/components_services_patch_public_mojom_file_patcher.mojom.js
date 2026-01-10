@@ -145,6 +145,12 @@ patch.mojom.FilePatcherRemote = class {
   close() {
     this.proxy.close();
   }
+  patchFilePuffPatch(input_file, patch_file, output_file) {
+    return this.$.patchFilePuffPatch(input_file, patch_file, output_file);
+  }
+  patchFileZucchini(input_file, patch_file, output_file) {
+    return this.$.patchFileZucchini(input_file, patch_file, output_file);
+  }
 };
 
 patch.mojom.FilePatcherRemoteCallHandler = class {

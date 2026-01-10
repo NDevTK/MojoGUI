@@ -270,6 +270,42 @@ network.mojom.UDPSocketRemote = class {
   close() {
     this.proxy.close();
   }
+  bind(local_addr, socket_options) {
+    return this.$.bind(local_addr, socket_options);
+  }
+  connect(remote_addr, socket_options) {
+    return this.$.connect(remote_addr, socket_options);
+  }
+  setBroadcast(broadcast) {
+    return this.$.setBroadcast(broadcast);
+  }
+  setSendBufferSize(send_buffer_size) {
+    return this.$.setSendBufferSize(send_buffer_size);
+  }
+  setReceiveBufferSize(receive_buffer_size) {
+    return this.$.setReceiveBufferSize(receive_buffer_size);
+  }
+  joinGroup(group_address) {
+    return this.$.joinGroup(group_address);
+  }
+  leaveGroup(group_address) {
+    return this.$.leaveGroup(group_address);
+  }
+  receiveMore(num_additional_datagrams) {
+    return this.$.receiveMore(num_additional_datagrams);
+  }
+  receiveMoreWithBufferSize(num_additional_datagrams, buffer_size) {
+    return this.$.receiveMoreWithBufferSize(num_additional_datagrams, buffer_size);
+  }
+  sendTo(dest_addr, data, traffic_annotation) {
+    return this.$.sendTo(dest_addr, data, traffic_annotation);
+  }
+  send(data, traffic_annotation) {
+    return this.$.send(data, traffic_annotation);
+  }
+  close() {
+    return this.$.close();
+  }
 };
 
 network.mojom.UDPSocketRemoteCallHandler = class {
@@ -792,6 +828,9 @@ network.mojom.UDPSocketListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onReceived(result, src_addr, data) {
+    return this.$.onReceived(result, src_addr, data);
   }
 };
 

@@ -108,6 +108,9 @@ comments.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 comments.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -254,6 +257,9 @@ comments.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  showUI() {
+    return this.$.showUI();
   }
 };
 

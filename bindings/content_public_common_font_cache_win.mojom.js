@@ -115,6 +115,12 @@ content.mojom.FontCacheWinRemote = class {
   close() {
     this.proxy.close();
   }
+  preCacheFont(log_font) {
+    return this.$.preCacheFont(log_font);
+  }
+  releaseCachedFonts() {
+    return this.$.releaseCachedFonts();
+  }
 };
 
 content.mojom.FontCacheWinRemoteCallHandler = class {

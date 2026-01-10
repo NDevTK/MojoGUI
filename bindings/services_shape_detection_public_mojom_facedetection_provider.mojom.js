@@ -103,6 +103,9 @@ shape_detection.mojom.FaceDetectionProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  createFaceDetection(receiver, options) {
+    return this.$.createFaceDetection(receiver, options);
+  }
 };
 
 shape_detection.mojom.FaceDetectionProviderRemoteCallHandler = class {

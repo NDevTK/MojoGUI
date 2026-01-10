@@ -152,6 +152,18 @@ blink.mojom.ModelStreamingResponderRemote = class {
   close() {
     this.proxy.close();
   }
+  onCompletion(context_info) {
+    return this.$.onCompletion(context_info);
+  }
+  onError(status, quota_error_info) {
+    return this.$.onError(status, quota_error_info);
+  }
+  onStreaming(text) {
+    return this.$.onStreaming(text);
+  }
+  onQuotaOverflow() {
+    return this.$.onQuotaOverflow();
+  }
 };
 
 blink.mojom.ModelStreamingResponderRemoteCallHandler = class {

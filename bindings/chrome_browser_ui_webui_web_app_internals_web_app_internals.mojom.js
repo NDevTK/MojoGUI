@@ -405,6 +405,54 @@ mojom.WebAppInternalsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getDebugInfoAsJsonString() {
+    return this.$.getDebugInfoAsJsonString();
+  }
+  installIsolatedWebAppFromDevProxy(url) {
+    return this.$.installIsolatedWebAppFromDevProxy(url);
+  }
+  selectFileAndInstallIsolatedWebAppFromDevBundle() {
+    return this.$.selectFileAndInstallIsolatedWebAppFromDevBundle();
+  }
+  parseUpdateManifestFromUrl(update_manifest_url) {
+    return this.$.parseUpdateManifestFromUrl(update_manifest_url);
+  }
+  installIsolatedWebAppFromBundleUrl(params) {
+    return this.$.installIsolatedWebAppFromBundleUrl(params);
+  }
+  updateDevProxyIsolatedWebApp(app_id) {
+    return this.$.updateDevProxyIsolatedWebApp(app_id);
+  }
+  selectFileAndUpdateIsolatedWebAppFromDevBundle(app_id) {
+    return this.$.selectFileAndUpdateIsolatedWebAppFromDevBundle(app_id);
+  }
+  updateManifestInstalledIsolatedWebApp(app_id) {
+    return this.$.updateManifestInstalledIsolatedWebApp(app_id);
+  }
+  deleteIsolatedWebApp(app_id) {
+    return this.$.deleteIsolatedWebApp(app_id);
+  }
+  setUpdateChannelForIsolatedWebApp(app_id, update_channel) {
+    return this.$.setUpdateChannelForIsolatedWebApp(app_id, update_channel);
+  }
+  setPinnedVersionForIsolatedWebApp(app_id, pinned_version) {
+    return this.$.setPinnedVersionForIsolatedWebApp(app_id, pinned_version);
+  }
+  resetPinnedVersionForIsolatedWebApp(app_id) {
+    return this.$.resetPinnedVersionForIsolatedWebApp(app_id);
+  }
+  setAllowDowngradesForIsolatedWebApp(allow_downgrades, app_id) {
+    return this.$.setAllowDowngradesForIsolatedWebApp(allow_downgrades, app_id);
+  }
+  searchForIsolatedWebAppUpdates() {
+    return this.$.searchForIsolatedWebAppUpdates();
+  }
+  getIsolatedWebAppDevModeAppInfo() {
+    return this.$.getIsolatedWebAppDevModeAppInfo();
+  }
+  rotateKey(web_bundle_id, rotated_key) {
+    return this.$.rotateKey(web_bundle_id, rotated_key);
+  }
 };
 
 mojom.WebAppInternalsHandlerRemoteCallHandler = class {

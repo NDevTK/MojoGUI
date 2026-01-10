@@ -125,6 +125,18 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemote = class {
   close() {
     this.proxy.close();
   }
+  updateVisitedLinks(table_region) {
+    return this.$.updateVisitedLinks(table_region);
+  }
+  addVisitedLinks(link_hashes) {
+    return this.$.addVisitedLinks(link_hashes);
+  }
+  resetVisitedLinks(invalidate_cached_hashes) {
+    return this.$.resetVisitedLinks(invalidate_cached_hashes);
+  }
+  updateOriginSalts(origin_salts) {
+    return this.$.updateOriginSalts(origin_salts);
+  }
 };
 
 visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {

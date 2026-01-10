@@ -197,6 +197,18 @@ ui.ozone.mojom.GesturePropertiesServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  listDevices() {
+    return this.$.listDevices();
+  }
+  listProperties(device_id) {
+    return this.$.listProperties(device_id);
+  }
+  getProperty(device_id, name) {
+    return this.$.getProperty(device_id, name);
+  }
+  setProperty(device_id, name, value) {
+    return this.$.setProperty(device_id, name, value);
+  }
 };
 
 ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {

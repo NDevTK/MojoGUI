@@ -111,6 +111,9 @@ ash.mall.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getMallEmbedUrl(path) {
+    return this.$.getMallEmbedUrl(path);
+  }
 };
 
 ash.mall.mojom.PageHandlerRemoteCallHandler = class {

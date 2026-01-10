@@ -282,6 +282,24 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemote = class {
   close() {
     this.proxy.close();
   }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  observeEnabledStateChanges(observer) {
+    return this.$.observeEnabledStateChanges(observer);
+  }
+  getHotspotInfo() {
+    return this.$.getHotspotInfo();
+  }
+  setHotspotConfig(config) {
+    return this.$.setHotspotConfig(config);
+  }
+  enableHotspot() {
+    return this.$.enableHotspot();
+  }
+  disableHotspot() {
+    return this.$.disableHotspot();
+  }
 };
 
 ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
@@ -598,6 +616,9 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onHotspotInfoChanged() {
+    return this.$.onHotspotInfoChanged();
+  }
 };
 
 ash.hotspot_config.mojom.CrosHotspotConfigObserverRemoteCallHandler = class {
@@ -750,6 +771,12 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onHotspotTurnedOn() {
+    return this.$.onHotspotTurnedOn();
+  }
+  onHotspotTurnedOff(reason) {
+    return this.$.onHotspotTurnedOff(reason);
   }
 };
 

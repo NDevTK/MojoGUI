@@ -156,6 +156,18 @@ payments.mojom.DigitalGoodsRemote = class {
   close() {
     this.proxy.close();
   }
+  getDetails(item_ids) {
+    return this.$.getDetails(item_ids);
+  }
+  listPurchases() {
+    return this.$.listPurchases();
+  }
+  listPurchaseHistory() {
+    return this.$.listPurchaseHistory();
+  }
+  consume(purchase_token) {
+    return this.$.consume(purchase_token);
+  }
 };
 
 payments.mojom.DigitalGoodsRemoteCallHandler = class {
@@ -421,6 +433,9 @@ payments.mojom.DigitalGoodsFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createDigitalGoods(payment_method) {
+    return this.$.createDigitalGoods(payment_method);
   }
 };
 

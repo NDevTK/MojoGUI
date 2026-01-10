@@ -145,6 +145,15 @@ legion_internals.mojom.LegionInternalsPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(url, api_key) {
+    return this.$.connect(url, api_key);
+  }
+  close() {
+    return this.$.close();
+  }
+  sendRequest(feature_name, request) {
+    return this.$.sendRequest(feature_name, request);
+  }
 };
 
 legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {

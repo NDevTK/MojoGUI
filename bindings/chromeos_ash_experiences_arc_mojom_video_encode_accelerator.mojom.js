@@ -279,6 +279,27 @@ arc.mojom.VideoEncodeAcceleratorRemote = class {
   close() {
     this.proxy.close();
   }
+  getSupportedProfiles() {
+    return this.$.getSupportedProfiles();
+  }
+  initialize(config, client) {
+    return this.$.initialize(config, client);
+  }
+  encode(format, frame_fd, planes, timestamp, force_keyframe) {
+    return this.$.encode(format, frame_fd, planes, timestamp, force_keyframe);
+  }
+  useBitstreamBuffer(shmem_fd, offset, size) {
+    return this.$.useBitstreamBuffer(shmem_fd, offset, size);
+  }
+  requestEncodingParametersChange(bitrate, framerate) {
+    return this.$.requestEncodingParametersChange(bitrate, framerate);
+  }
+  requestEncodingParametersChangeDeprecated(bitrate, framerate) {
+    return this.$.requestEncodingParametersChangeDeprecated(bitrate, framerate);
+  }
+  flush() {
+    return this.$.flush();
+  }
 };
 
 arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
@@ -638,6 +659,12 @@ arc.mojom.VideoEncodeClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requireBitstreamBuffers(input_count, input_coded_size, output_buffer_size) {
+    return this.$.requireBitstreamBuffers(input_count, input_coded_size, output_buffer_size);
+  }
+  notifyError(error) {
+    return this.$.notifyError(error);
   }
 };
 

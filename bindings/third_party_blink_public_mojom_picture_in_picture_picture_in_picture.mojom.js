@@ -122,6 +122,12 @@ blink.mojom.PictureInPictureSessionObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onWindowSizeChanged(size) {
+    return this.$.onWindowSizeChanged(size);
+  }
+  onStopped() {
+    return this.$.onStopped();
+  }
 };
 
 blink.mojom.PictureInPictureSessionObserverRemoteCallHandler = class {
@@ -318,6 +324,15 @@ blink.mojom.PictureInPictureSessionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  update(player_id, player_remote, surface_id, natural_size, show_play_pause_button) {
+    return this.$.update(player_id, player_remote, surface_id, natural_size, show_play_pause_button);
+  }
+  stop() {
+    return this.$.stop();
+  }
+  updateMediaPosition(media_position) {
+    return this.$.updateMediaPosition(media_position);
   }
 };
 
@@ -543,6 +558,9 @@ blink.mojom.PictureInPictureServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startSession(player_id, player_remote, surface_id, natural_size, show_play_pause_button, observer, source_bounds) {
+    return this.$.startSession(player_id, player_remote, surface_id, natural_size, show_play_pause_button, observer, source_bounds);
   }
 };
 

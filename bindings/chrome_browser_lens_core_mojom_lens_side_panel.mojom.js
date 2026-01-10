@@ -139,6 +139,9 @@ lens.mojom.LensSidePanelPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createSidePanelPageHandler(handler, page) {
+    return this.$.createSidePanelPageHandler(handler, page);
+  }
 };
 
 lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler = class {
@@ -319,6 +322,24 @@ lens.mojom.LensSidePanelPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  popAndLoadQueryFromHistory() {
+    return this.$.popAndLoadQueryFromHistory();
+  }
+  getIsContextualSearchbox() {
+    return this.$.getIsContextualSearchbox();
+  }
+  onScrollToMessage(text_fragments, pdf_page_number) {
+    return this.$.onScrollToMessage(text_fragments, pdf_page_number);
+  }
+  requestSendFeedback() {
+    return this.$.requestSendFeedback();
+  }
+  onAimMessage(message) {
+    return this.$.onAimMessage(message);
+  }
+  onImageQueryWithEmptyText() {
+    return this.$.onImageQueryWithEmptyText();
   }
 };
 
@@ -693,6 +714,48 @@ lens.mojom.LensSidePanelPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  loadResultsInFrame(results_url) {
+    return this.$.loadResultsInFrame(results_url);
+  }
+  setIsLoadingResults(is_loading) {
+    return this.$.setIsLoadingResults(is_loading);
+  }
+  setPageContentUploadProgress(progress) {
+    return this.$.setPageContentUploadProgress(progress);
+  }
+  setBackArrowVisible(visible) {
+    return this.$.setBackArrowVisible(visible);
+  }
+  setShowErrorPage(should_show_error_page, status) {
+    return this.$.setShowErrorPage(should_show_error_page, status);
+  }
+  suppressGhostLoader() {
+    return this.$.suppressGhostLoader();
+  }
+  pageContentTypeChanged(new_page_content_type) {
+    return this.$.pageContentTypeChanged(new_page_content_type);
+  }
+  showToast(message) {
+    return this.$.showToast(message);
+  }
+  sendClientMessageToAim(serialized_message) {
+    return this.$.sendClientMessageToAim(serialized_message);
+  }
+  aimHandshakeReceived() {
+    return this.$.aimHandshakeReceived();
+  }
+  aimResultsChanged(on_aim) {
+    return this.$.aimResultsChanged(on_aim);
+  }
+  focusResultsFrame() {
+    return this.$.focusResultsFrame();
+  }
+  setIsOverlayShowing(is_showing) {
+    return this.$.setIsOverlayShowing(is_showing);
+  }
+  focusSearchbox() {
+    return this.$.focusSearchbox();
   }
 };
 

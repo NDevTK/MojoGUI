@@ -120,6 +120,18 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onPowerwash() {
+    return this.$.onPowerwash();
+  }
+  onRecreateUser() {
+    return this.$.onRecreateUser();
+  }
+  onCancel() {
+    return this.$.onCancel();
+  }
+  onBack() {
+    return this.$.onBack();
+  }
 };
 
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = class {

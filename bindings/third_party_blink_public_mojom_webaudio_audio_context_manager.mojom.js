@@ -123,6 +123,18 @@ blink.mojom.AudioContextManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  audioContextAudiblePlaybackStarted(id) {
+    return this.$.audioContextAudiblePlaybackStarted(id);
+  }
+  audioContextAudiblePlaybackStopped(id) {
+    return this.$.audioContextAudiblePlaybackStopped(id);
+  }
+  audioContextCreated(id) {
+    return this.$.audioContextCreated(id);
+  }
+  audioContextClosed(id) {
+    return this.$.audioContextClosed(id);
+  }
 };
 
 blink.mojom.AudioContextManagerRemoteCallHandler = class {

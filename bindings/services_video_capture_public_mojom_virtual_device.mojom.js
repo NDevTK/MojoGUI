@@ -133,6 +133,12 @@ video_capture.mojom.SharedMemoryVirtualDeviceRemote = class {
   close() {
     this.proxy.close();
   }
+  requestFrameBuffer(dimension, pixel_format, strides) {
+    return this.$.requestFrameBuffer(dimension, pixel_format, strides);
+  }
+  onFrameReadyInBuffer(buffer_id, frame_info) {
+    return this.$.onFrameReadyInBuffer(buffer_id, frame_info);
+  }
 };
 
 video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
@@ -335,6 +341,18 @@ video_capture.mojom.TextureVirtualDeviceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onNewSharedImageBufferHandle(buffer_id, shared_image_handle) {
+    return this.$.onNewSharedImageBufferHandle(buffer_id, shared_image_handle);
+  }
+  onFrameAccessHandlerReady(frame_access_handler) {
+    return this.$.onFrameAccessHandlerReady(frame_access_handler);
+  }
+  onFrameReadyInBuffer(buffer_id, frame_info) {
+    return this.$.onFrameReadyInBuffer(buffer_id, frame_info);
+  }
+  onBufferRetired(buffer_id) {
+    return this.$.onBufferRetired(buffer_id);
   }
 };
 
@@ -590,6 +608,18 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onNewGpuMemoryBufferHandle(buffer_id, gmb_handle) {
+    return this.$.onNewGpuMemoryBufferHandle(buffer_id, gmb_handle);
+  }
+  onFrameAccessHandlerReady(frame_access_handler) {
+    return this.$.onFrameAccessHandlerReady(frame_access_handler);
+  }
+  onFrameReadyInBuffer(buffer_id, frame_info) {
+    return this.$.onFrameReadyInBuffer(buffer_id, frame_info);
+  }
+  onBufferRetired(buffer_id) {
+    return this.$.onBufferRetired(buffer_id);
   }
 };
 

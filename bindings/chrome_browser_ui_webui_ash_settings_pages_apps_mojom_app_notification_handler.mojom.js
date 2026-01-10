@@ -182,6 +182,24 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  setQuietMode(enabled) {
+    return this.$.setQuietMode(enabled);
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  setNotificationPermission(app_id, permission) {
+    return this.$.setNotificationPermission(app_id, permission);
+  }
+  getApps() {
+    return this.$.getApps();
+  }
+  getQuietMode() {
+    return this.$.getQuietMode();
+  }
+  openBrowserNotificationSettings() {
+    return this.$.openBrowserNotificationSettings();
+  }
 };
 
 ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = class {
@@ -492,6 +510,12 @@ ash.settings.app_notification.mojom.AppNotificationsObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onNotificationAppChanged(app) {
+    return this.$.onNotificationAppChanged(app);
+  }
+  onQuietModeChanged(enabled) {
+    return this.$.onQuietModeChanged(enabled);
   }
 };
 

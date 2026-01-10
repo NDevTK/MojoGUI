@@ -148,6 +148,24 @@ ax.mojom.AutomationRemote = class {
   close() {
     this.proxy.close();
   }
+  dispatchTreeDestroyedEvent(tree_id) {
+    return this.$.dispatchTreeDestroyedEvent(tree_id);
+  }
+  dispatchActionResult(data, result) {
+    return this.$.dispatchActionResult(data, result);
+  }
+  dispatchAccessibilityEvents(tree_id, updates, mouse_location, events) {
+    return this.$.dispatchAccessibilityEvents(tree_id, updates, mouse_location, events);
+  }
+  dispatchAccessibilityLocationChange(tree_id, node_id, bounds) {
+    return this.$.dispatchAccessibilityLocationChange(tree_id, node_id, bounds);
+  }
+  dispatchAccessibilityScrollChange(tree_id, node_id, scroll_x, scroll_y) {
+    return this.$.dispatchAccessibilityScrollChange(tree_id, node_id, scroll_x, scroll_y);
+  }
+  dispatchGetTextLocationResult(data, rect) {
+    return this.$.dispatchGetTextLocationResult(data, rect);
+  }
 };
 
 ax.mojom.AutomationRemoteCallHandler = class {

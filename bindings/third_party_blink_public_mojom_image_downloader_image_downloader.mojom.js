@@ -137,6 +137,12 @@ blink.mojom.ImageDownloaderRemote = class {
   close() {
     this.proxy.close();
   }
+  downloadImage(url, is_favicon, preferred_size, max_bitmap_size, bypass_cache) {
+    return this.$.downloadImage(url, is_favicon, preferred_size, max_bitmap_size, bypass_cache);
+  }
+  downloadImageFromAxNode(ax_node_id, preferred_size, max_bitmap_size, bypass_cache) {
+    return this.$.downloadImageFromAxNode(ax_node_id, preferred_size, max_bitmap_size, bypass_cache);
+  }
 };
 
 blink.mojom.ImageDownloaderRemoteCallHandler = class {

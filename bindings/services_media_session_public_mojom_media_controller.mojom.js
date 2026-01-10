@@ -152,6 +152,15 @@ media_session.mojom.MediaControllerManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  createMediaControllerForSession(receiver, request_id) {
+    return this.$.createMediaControllerForSession(receiver, request_id);
+  }
+  createActiveMediaController(receiver) {
+    return this.$.createActiveMediaController(receiver);
+  }
+  suspendAllSessions() {
+    return this.$.suspendAllSessions();
+  }
 };
 
 media_session.mojom.MediaControllerManagerRemoteCallHandler = class {
@@ -471,6 +480,72 @@ media_session.mojom.MediaControllerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  suspend() {
+    return this.$.suspend();
+  }
+  resume() {
+    return this.$.resume();
+  }
+  stop() {
+    return this.$.stop();
+  }
+  toggleSuspendResume() {
+    return this.$.toggleSuspendResume();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  previousTrack() {
+    return this.$.previousTrack();
+  }
+  nextTrack() {
+    return this.$.nextTrack();
+  }
+  seek(seek_time) {
+    return this.$.seek(seek_time);
+  }
+  observeImages(type, minimum_size_px, desired_size_px, observer) {
+    return this.$.observeImages(type, minimum_size_px, desired_size_px, observer);
+  }
+  seekTo(seek_time) {
+    return this.$.seekTo(seek_time);
+  }
+  scrubTo(seek_time) {
+    return this.$.scrubTo(seek_time);
+  }
+  enterPictureInPicture() {
+    return this.$.enterPictureInPicture();
+  }
+  exitPictureInPicture() {
+    return this.$.exitPictureInPicture();
+  }
+  setAudioSinkId(id) {
+    return this.$.setAudioSinkId(id);
+  }
+  toggleMicrophone() {
+    return this.$.toggleMicrophone();
+  }
+  toggleCamera() {
+    return this.$.toggleCamera();
+  }
+  hangUp() {
+    return this.$.hangUp();
+  }
+  raise() {
+    return this.$.raise();
+  }
+  setMute(mute) {
+    return this.$.setMute(mute);
+  }
+  requestMediaRemoting() {
+    return this.$.requestMediaRemoting();
+  }
+  enterAutoPictureInPicture() {
+    return this.$.enterAutoPictureInPicture();
+  }
+  skipAd() {
+    return this.$.skipAd();
   }
 };
 
@@ -1253,6 +1328,21 @@ media_session.mojom.MediaControllerObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  mediaSessionInfoChanged(info) {
+    return this.$.mediaSessionInfoChanged(info);
+  }
+  mediaSessionMetadataChanged(metadata) {
+    return this.$.mediaSessionMetadataChanged(metadata);
+  }
+  mediaSessionActionsChanged(action) {
+    return this.$.mediaSessionActionsChanged(action);
+  }
+  mediaSessionChanged(request_id) {
+    return this.$.mediaSessionChanged(request_id);
+  }
+  mediaSessionPositionChanged(position) {
+    return this.$.mediaSessionPositionChanged(position);
+  }
 };
 
 media_session.mojom.MediaControllerObserverRemoteCallHandler = class {
@@ -1524,6 +1614,12 @@ media_session.mojom.MediaControllerImageObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  mediaControllerImageChanged(type, bitmap) {
+    return this.$.mediaControllerImageChanged(type, bitmap);
+  }
+  mediaControllerChapterImageChanged(index, bitmap) {
+    return this.$.mediaControllerChapterImageChanged(index, bitmap);
   }
 };
 

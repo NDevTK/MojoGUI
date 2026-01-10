@@ -155,6 +155,9 @@ autofill_ml_internals.mojom.PageRemote = class {
   close() {
     this.proxy.close();
   }
+  onLogAdded(log) {
+    return this.$.onLogAdded(log);
+  }
 };
 
 autofill_ml_internals.mojom.PageRemoteCallHandler = class {
@@ -302,6 +305,9 @@ autofill_ml_internals.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setPage(page) {
+    return this.$.setPage(page);
   }
 };
 

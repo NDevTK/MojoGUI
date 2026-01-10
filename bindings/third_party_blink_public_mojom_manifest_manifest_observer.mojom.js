@@ -103,6 +103,9 @@ blink.mojom.ManifestUrlChangeObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  manifestUrlChanged(manifest_url) {
+    return this.$.manifestUrlChanged(manifest_url);
+  }
 };
 
 blink.mojom.ManifestUrlChangeObserverRemoteCallHandler = class {

@@ -165,6 +165,12 @@ storage.mojom.BlobDataItemReaderRemote = class {
   close() {
     this.proxy.close();
   }
+  read(offset, length, pipe) {
+    return this.$.read(offset, length, pipe);
+  }
+  readSideData() {
+    return this.$.readSideData();
+  }
 };
 
 storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
@@ -384,6 +390,18 @@ storage.mojom.BlobStorageContextRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  registerFromDataItem(blob, uuid, item) {
+    return this.$.registerFromDataItem(blob, uuid, item);
+  }
+  registerFromMemory(blob, uuid, data) {
+    return this.$.registerFromMemory(blob, uuid, data);
+  }
+  writeBlobToFile(blob, path, flush_on_write, last_modified) {
+    return this.$.writeBlobToFile(blob, path, flush_on_write, last_modified);
+  }
+  clone(receiver) {
+    return this.$.clone(receiver);
   }
 };
 

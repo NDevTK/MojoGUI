@@ -544,6 +544,168 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemote = class {
   close() {
     this.proxy.close();
   }
+  createWindow(params) {
+    return this.$.createWindow(params);
+  }
+  setParent(parent_id) {
+    return this.$.setParent(parent_id);
+  }
+  createSelectFileDialog(dialog) {
+    return this.$.createSelectFileDialog(dialog);
+  }
+  showCertificateViewer(certificate) {
+    return this.$.showCertificateViewer(certificate);
+  }
+  stackAbove(sibling_id) {
+    return this.$.stackAbove(sibling_id);
+  }
+  stackAtTop() {
+    return this.$.stackAtTop();
+  }
+  showEmojiPanel() {
+    return this.$.showEmojiPanel();
+  }
+  initWindow(params) {
+    return this.$.initWindow(params);
+  }
+  initCompositorView() {
+    return this.$.initCompositorView();
+  }
+  createContentView(ns_view_id, bounds, corner_radius) {
+    return this.$.createContentView(ns_view_id, bounds, corner_radius);
+  }
+  destroyContentView() {
+    return this.$.destroyContentView();
+  }
+  closeWindow() {
+    return this.$.closeWindow();
+  }
+  closeWindowNow() {
+    return this.$.closeWindowNow();
+  }
+  setInitialBounds(new_bounds, minimum_content_size) {
+    return this.$.setInitialBounds(new_bounds, minimum_content_size);
+  }
+  setBounds(new_bounds, minimum_content_size, maximum_content_size) {
+    return this.$.setBounds(new_bounds, minimum_content_size, maximum_content_size);
+  }
+  setSize(new_size, minimum_content_size) {
+    return this.$.setSize(new_size, minimum_content_size);
+  }
+  setSizeAndCenter(content_size, minimum_content_size) {
+    return this.$.setSizeAndCenter(content_size, minimum_content_size);
+  }
+  setVisibilityState(new_state) {
+    return this.$.setVisibilityState(new_state);
+  }
+  setAnimationEnabled(animation_enabled) {
+    return this.$.setAnimationEnabled(animation_enabled);
+  }
+  setTransitionsToAnimate(transitions) {
+    return this.$.setTransitionsToAnimate(transitions);
+  }
+  setVisibleOnAllSpaces(always_visible) {
+    return this.$.setVisibleOnAllSpaces(always_visible);
+  }
+  enterFullscreen(target_display_id) {
+    return this.$.enterFullscreen(target_display_id);
+  }
+  exitFullscreen() {
+    return this.$.exitFullscreen();
+  }
+  setCanAppearInExistingFullscreenSpaces(can_appear_in_existing_fullscreen_spaces) {
+    return this.$.setCanAppearInExistingFullscreenSpaces(can_appear_in_existing_fullscreen_spaces);
+  }
+  setMiniaturized(miniaturized) {
+    return this.$.setMiniaturized(miniaturized);
+  }
+  setZoomed(zoomed) {
+    return this.$.setZoomed(zoomed);
+  }
+  setSizeConstraints(min_size, max_size, is_resizable, is_maximizable) {
+    return this.$.setSizeConstraints(min_size, max_size, is_resizable, is_maximizable);
+  }
+  setOpacity(opacity) {
+    return this.$.setOpacity(opacity);
+  }
+  setWindowLevel(level) {
+    return this.$.setWindowLevel(level);
+  }
+  setActivationIndependence(independence) {
+    return this.$.setActivationIndependence(independence);
+  }
+  setAspectRatio(aspect_ratio, excluded_margin) {
+    return this.$.setAspectRatio(aspect_ratio, excluded_margin);
+  }
+  setCALayerParams(ca_layer_params) {
+    return this.$.setCALayerParams(ca_layer_params);
+  }
+  setWindowTitle(title) {
+    return this.$.setWindowTitle(title);
+  }
+  setIgnoresMouseEvents(ignores_mouse_events) {
+    return this.$.setIgnoresMouseEvents(ignores_mouse_events);
+  }
+  makeFirstResponder() {
+    return this.$.makeFirstResponder();
+  }
+  sortSubviews(attached_subview_ids) {
+    return this.$.sortSubviews(attached_subview_ids);
+  }
+  clearTouchBar() {
+    return this.$.clearTouchBar();
+  }
+  updateTooltip() {
+    return this.$.updateTooltip();
+  }
+  acquireCapture() {
+    return this.$.acquireCapture();
+  }
+  releaseCapture() {
+    return this.$.releaseCapture();
+  }
+  redispatchKeyEvent(native_event_data) {
+    return this.$.redispatchKeyEvent(native_event_data);
+  }
+  setLocalEventMonitorEnabled(enabled) {
+    return this.$.setLocalEventMonitorEnabled(enabled);
+  }
+  setCursor(cursor) {
+    return this.$.setCursor(cursor);
+  }
+  enableImmersiveFullscreen(fullscreen_overlay_widget_id, tab_widget_id) {
+    return this.$.enableImmersiveFullscreen(fullscreen_overlay_widget_id, tab_widget_id);
+  }
+  disableImmersiveFullscreen() {
+    return this.$.disableImmersiveFullscreen();
+  }
+  updateToolbarVisibility(style) {
+    return this.$.updateToolbarVisibility(style);
+  }
+  onTopContainerViewBoundsChanged(bounds) {
+    return this.$.onTopContainerViewBoundsChanged(bounds);
+  }
+  immersiveFullscreenRevealLock() {
+    return this.$.immersiveFullscreenRevealLock();
+  }
+  immersiveFullscreenRevealUnlock() {
+    return this.$.immersiveFullscreenRevealUnlock();
+  }
+  setCanGoBack(can_go_back) {
+    return this.$.setCanGoBack(can_go_back);
+  }
+  setCanGoForward(can_go_forward) {
+    return this.$.setCanGoForward(can_go_forward);
+  }
+  displayContextMenu(menu, host, receiver) {
+    return this.$.displayContextMenu(menu, host, receiver);
+  }
+  setAllowScreenshots(allow) {
+    return this.$.setAllowScreenshots(allow);
+  }
+  setColorMode(color_mode) {
+    return this.$.setColorMode(color_mode);
+  }
 };
 
 remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {

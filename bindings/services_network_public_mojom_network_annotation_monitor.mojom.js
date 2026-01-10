@@ -102,6 +102,9 @@ network.mojom.NetworkAnnotationMonitorRemote = class {
   close() {
     this.proxy.close();
   }
+  report(hash_code) {
+    return this.$.report(hash_code);
+  }
 };
 
 network.mojom.NetworkAnnotationMonitorRemoteCallHandler = class {

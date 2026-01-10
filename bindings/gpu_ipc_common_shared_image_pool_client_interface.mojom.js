@@ -101,6 +101,9 @@ gpu.mojom.SharedImagePoolClientInterfaceRemote = class {
   close() {
     this.proxy.close();
   }
+  onClearPool() {
+    return this.$.onClearPool();
+  }
 };
 
 gpu.mojom.SharedImagePoolClientInterfaceRemoteCallHandler = class {

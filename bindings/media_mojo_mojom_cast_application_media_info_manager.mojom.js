@@ -118,6 +118,9 @@ media.mojom.CastApplicationMediaInfoManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  getCastApplicationMediaInfo() {
+    return this.$.getCastApplicationMediaInfo();
+  }
 };
 
 media.mojom.CastApplicationMediaInfoManagerRemoteCallHandler = class {

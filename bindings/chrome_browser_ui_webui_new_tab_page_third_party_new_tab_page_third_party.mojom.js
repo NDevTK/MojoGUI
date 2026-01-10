@@ -126,6 +126,9 @@ new_tab_page_third_party.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 new_tab_page_third_party.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -272,6 +275,9 @@ new_tab_page_third_party.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateTheme() {
+    return this.$.updateTheme();
   }
 };
 
@@ -420,6 +426,9 @@ new_tab_page_third_party.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setTheme(theme) {
+    return this.$.setTheme(theme);
   }
 };
 

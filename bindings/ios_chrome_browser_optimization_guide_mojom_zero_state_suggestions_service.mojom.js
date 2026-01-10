@@ -125,6 +125,9 @@ ai.mojom.ZeroStateSuggestionsServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  fetchZeroStateSuggestions() {
+    return this.$.fetchZeroStateSuggestions();
+  }
 };
 
 ai.mojom.ZeroStateSuggestionsServiceRemoteCallHandler = class {

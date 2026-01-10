@@ -119,6 +119,9 @@ ash.crostini_installer.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 ash.crostini_installer.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -295,6 +298,21 @@ ash.crostini_installer.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  install(disk_size, username) {
+    return this.$.install(disk_size, username);
+  }
+  cancel() {
+    return this.$.cancel();
+  }
+  cancelBeforeStart() {
+    return this.$.cancelBeforeStart();
+  }
+  onPageClosed() {
+    return this.$.onPageClosed();
+  }
+  requestAmountOfFreeDiskSpace() {
+    return this.$.requestAmountOfFreeDiskSpace();
   }
 };
 
@@ -582,6 +600,18 @@ ash.crostini_installer.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onProgressUpdate(install_state, progress_fraction) {
+    return this.$.onProgressUpdate(install_state, progress_fraction);
+  }
+  onInstallFinished(error) {
+    return this.$.onInstallFinished(error);
+  }
+  onCanceled() {
+    return this.$.onCanceled();
+  }
+  requestClose() {
+    return this.$.requestClose();
   }
 };
 

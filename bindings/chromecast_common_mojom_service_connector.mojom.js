@@ -104,6 +104,9 @@ chromecast.mojom.ServiceConnectorRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(service_name, receiver) {
+    return this.$.connect(service_name, receiver);
+  }
 };
 
 chromecast.mojom.ServiceConnectorRemoteCallHandler = class {

@@ -261,6 +261,15 @@ ash.secure_channel.mojom.ChannelRemote = class {
   close() {
     this.proxy.close();
   }
+  sendMessage(message) {
+    return this.$.sendMessage(message);
+  }
+  registerPayloadFile(payload_id, payload_files, listener) {
+    return this.$.registerPayloadFile(payload_id, payload_files, listener);
+  }
+  getConnectionMetadata() {
+    return this.$.getConnectionMetadata();
+  }
 };
 
 ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
@@ -485,6 +494,9 @@ ash.secure_channel.mojom.MessageReceiverRemote = class {
   close() {
     this.proxy.close();
   }
+  onMessageReceived(message) {
+    return this.$.onMessageReceived(message);
+  }
 };
 
 ash.secure_channel.mojom.MessageReceiverRemoteCallHandler = class {
@@ -640,6 +652,12 @@ ash.secure_channel.mojom.ConnectionDelegateRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onConnectionAttemptFailure(reason) {
+    return this.$.onConnectionAttemptFailure(reason);
+  }
+  onConnection(channel, message_receiver_receiver, nearby_connection_state_listener_receiver) {
+    return this.$.onConnection(channel, message_receiver_receiver, nearby_connection_state_listener_receiver);
   }
 };
 
@@ -831,6 +849,15 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  logDiscoveryAttempt(result, error_code) {
+    return this.$.logDiscoveryAttempt(result, error_code);
+  }
+  logNearbyConnectionState(step, status) {
+    return this.$.logNearbyConnectionState(step, status);
+  }
+  logSecureChannelState(state) {
+    return this.$.logSecureChannelState(state);
   }
 };
 
@@ -1072,6 +1099,18 @@ ash.secure_channel.mojom.SecureChannelRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  listenForConnectionFromDevice(device_to_connect, local_device, feature, connection_medium, connection_priority, delegate) {
+    return this.$.listenForConnectionFromDevice(device_to_connect, local_device, feature, connection_medium, connection_priority, delegate);
+  }
+  initiateConnectionToDevice(device_to_connect, local_device, feature, connection_medium, connection_priority, delegate, secure_channel_structured_metrics_logger) {
+    return this.$.initiateConnectionToDevice(device_to_connect, local_device, feature, connection_medium, connection_priority, delegate, secure_channel_structured_metrics_logger);
+  }
+  setNearbyConnector(nearby_connector) {
+    return this.$.setNearbyConnector(nearby_connector);
+  }
+  getLastSeenTimestamp(remote_device_id) {
+    return this.$.getLastSeenTimestamp(remote_device_id);
   }
 };
 

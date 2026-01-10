@@ -150,6 +150,15 @@ device.mojom.UsbDeviceManagerTestRemote = class {
   close() {
     this.proxy.close();
   }
+  addDeviceForTesting(name, serial_number, landing_page) {
+    return this.$.addDeviceForTesting(name, serial_number, landing_page);
+  }
+  removeDeviceForTesting(guid) {
+    return this.$.removeDeviceForTesting(guid);
+  }
+  getTestDevices() {
+    return this.$.getTestDevices();
+  }
 };
 
 device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {

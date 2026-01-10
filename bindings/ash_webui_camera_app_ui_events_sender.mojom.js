@@ -618,6 +618,45 @@ ash.camera_app.mojom.EventsSenderRemote = class {
   close() {
     this.proxy.close();
   }
+  sendStartSessionEvent(params) {
+    return this.$.sendStartSessionEvent(params);
+  }
+  sendCaptureEvent(params) {
+    return this.$.sendCaptureEvent(params);
+  }
+  sendAndroidIntentEvent(params) {
+    return this.$.sendAndroidIntentEvent(params);
+  }
+  sendOpenPTZPanelEvent(params) {
+    return this.$.sendOpenPTZPanelEvent(params);
+  }
+  sendDocScanActionEvent(params) {
+    return this.$.sendDocScanActionEvent(params);
+  }
+  sendDocScanResultEvent(params) {
+    return this.$.sendDocScanResultEvent(params);
+  }
+  sendOpenCameraEvent(params) {
+    return this.$.sendOpenCameraEvent(params);
+  }
+  sendLowStorageActionEvent(params) {
+    return this.$.sendLowStorageActionEvent(params);
+  }
+  sendBarcodeDetectedEvent(params) {
+    return this.$.sendBarcodeDetectedEvent(params);
+  }
+  sendPerfEvent(params) {
+    return this.$.sendPerfEvent(params);
+  }
+  sendUnsupportedProtocolEvent() {
+    return this.$.sendUnsupportedProtocolEvent();
+  }
+  updateMemoryUsageEventParams(params) {
+    return this.$.updateMemoryUsageEventParams(params);
+  }
+  sendOcrEvent(params) {
+    return this.$.sendOcrEvent(params);
+  }
 };
 
 ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {

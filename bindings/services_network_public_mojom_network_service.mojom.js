@@ -236,6 +236,9 @@ network.mojom.GssapiLibraryLoadObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onBeforeGssapiLibraryLoad() {
+    return this.$.onBeforeGssapiLibraryLoad();
+  }
 };
 
 network.mojom.GssapiLibraryLoadObserverRemoteCallHandler = class {
@@ -679,6 +682,129 @@ network.mojom.NetworkServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setParams(params) {
+    return this.$.setParams(params);
+  }
+  startNetLog(file, max_total_size, capture_mode, constants, duration) {
+    return this.$.startNetLog(file, max_total_size, capture_mode, constants, duration);
+  }
+  attachNetLogProxy(proxy_source, proxy_sink) {
+    return this.$.attachNetLogProxy(proxy_source, proxy_sink);
+  }
+  setSSLKeyLogFile(file) {
+    return this.$.setSSLKeyLogFile(file);
+  }
+  createNetworkContext(context, params) {
+    return this.$.createNetworkContext(context, params);
+  }
+  configureStubHostResolver(insecure_dns_client_enabled, happy_eyeballs_v3_enabled, secure_dns_mode, dns_over_https_config, additional_dns_types_enabled, fallback_doh_nameservers) {
+    return this.$.configureStubHostResolver(insecure_dns_client_enabled, happy_eyeballs_v3_enabled, secure_dns_mode, dns_over_https_config, additional_dns_types_enabled, fallback_doh_nameservers);
+  }
+  disableQuic() {
+    return this.$.disableQuic();
+  }
+  setUpHttpAuth(http_auth_static_params) {
+    return this.$.setUpHttpAuth(http_auth_static_params);
+  }
+  configureHttpAuthPrefs(http_auth_dynamic_params) {
+    return this.$.configureHttpAuthPrefs(http_auth_dynamic_params);
+  }
+  setRawHeadersAccess(process_id, origins) {
+    return this.$.setRawHeadersAccess(process_id, origins);
+  }
+  setMaxConnectionsPerProxyChain(max_connections) {
+    return this.$.setMaxConnectionsPerProxyChain(max_connections);
+  }
+  getNetworkChangeManager(network_change_manager) {
+    return this.$.getNetworkChangeManager(network_change_manager);
+  }
+  getNetworkQualityEstimatorManager(receiver) {
+    return this.$.getNetworkQualityEstimatorManager(receiver);
+  }
+  getDnsConfigChangeManager(receiver) {
+    return this.$.getDnsConfigChangeManager(receiver);
+  }
+  getNetworkList(policy) {
+    return this.$.getNetworkList(policy);
+  }
+  onTrustStoreChanged() {
+    return this.$.onTrustStoreChanged();
+  }
+  onClientCertStoreChanged() {
+    return this.$.onClientCertStoreChanged();
+  }
+  setEncryptionKey(encryption_key) {
+    return this.$.setEncryptionKey(encryption_key);
+  }
+  onPeerToPeerConnectionsCountChange(count) {
+    return this.$.onPeerToPeerConnectionsCountChange(count);
+  }
+  onApplicationStateChange(state) {
+    return this.$.onApplicationStateChange(state);
+  }
+  setTrustTokenKeyCommitments(raw_commitments) {
+    return this.$.setTrustTokenKeyCommitments(raw_commitments);
+  }
+  clearSCTAuditingCache() {
+    return this.$.clearSCTAuditingCache();
+  }
+  configureSCTAuditing(configuration) {
+    return this.$.configureSCTAuditing(configuration);
+  }
+  updateCtLogList(log_list) {
+    return this.$.updateCtLogList(log_list);
+  }
+  updateCtKnownPopularSCTs(sct_hashes) {
+    return this.$.updateCtKnownPopularSCTs(sct_hashes);
+  }
+  setCtEnforcementEnabled(enabled) {
+    return this.$.setCtEnforcementEnabled(enabled);
+  }
+  updateKeyPinsList(pin_list, update_time) {
+    return this.$.updateKeyPinsList(pin_list, update_time);
+  }
+  dumpWithoutCrashing(dump_request_time) {
+    return this.$.dumpWithoutCrashing(dump_request_time);
+  }
+  bindTestInterfaceForTesting(receiver) {
+    return this.$.bindTestInterfaceForTesting(receiver);
+  }
+  setFirstPartySets(sets) {
+    return this.$.setFirstPartySets(sets);
+  }
+  setExplicitlyAllowedPorts(ports) {
+    return this.$.setExplicitlyAllowedPorts(ports);
+  }
+  parseHeaders(url, headers) {
+    return this.$.parseHeaders(url, headers);
+  }
+  enableDataUseUpdates(enable) {
+    return this.$.enableDataUseUpdates(enable);
+  }
+  setIPv6ReachabilityOverride(reachability_override) {
+    return this.$.setIPv6ReachabilityOverride(reachability_override);
+  }
+  setGssapiLibraryLoadObserver(gssapi_library_load_observer) {
+    return this.$.setGssapiLibraryLoadObserver(gssapi_library_load_observer);
+  }
+  setNetworkAnnotationMonitor(remote) {
+    return this.$.setNetworkAnnotationMonitor(remote);
+  }
+  setTpcdMetadataGrants(settings) {
+    return this.$.setTpcdMetadataGrants(settings);
+  }
+  interceptUrlLoaderForBodyDecoding(content_encoding_types, source_body, dest_body, source_url_loader, source_url_loader_client, dest_url_loader, dest_url_loader_client) {
+    return this.$.interceptUrlLoaderForBodyDecoding(content_encoding_types, source_body, dest_body, source_url_loader, source_url_loader_client, dest_url_loader, dest_url_loader_client);
+  }
+  decodeContentEncoding(content_encoding_types, source_body, dest_body) {
+    return this.$.decodeContentEncoding(content_encoding_types, source_body, dest_body);
+  }
+  setTLS13EarlyDataEnabled(enabled) {
+    return this.$.setTLS13EarlyDataEnabled(enabled);
+  }
+  addDurableMessageCollector(receiver) {
+    return this.$.addDurableMessageCollector(receiver);
   }
 };
 
@@ -2068,6 +2194,18 @@ network.mojom.DurableMessageCollectorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  configure(config) {
+    return this.$.configure(config);
+  }
+  enableForProfile(throttling_profile_id) {
+    return this.$.enableForProfile(throttling_profile_id);
+  }
+  disableForProfile(throttling_profile_id) {
+    return this.$.disableForProfile(throttling_profile_id);
+  }
+  retrieve(devtools_request_id) {
+    return this.$.retrieve(devtools_request_id);
   }
 };
 

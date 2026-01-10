@@ -148,6 +148,12 @@ suggest_internals.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  setPage(page) {
+    return this.$.setPage(page);
+  }
+  hardcodeResponse(response, delay) {
+    return this.$.hardcodeResponse(response, delay);
+  }
 };
 
 suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
@@ -342,6 +348,15 @@ suggest_internals.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onRequestCreated(request) {
+    return this.$.onRequestCreated(request);
+  }
+  onRequestStarted(request) {
+    return this.$.onRequestStarted(request);
+  }
+  onRequestCompleted(request) {
+    return this.$.onRequestCompleted(request);
   }
 };
 

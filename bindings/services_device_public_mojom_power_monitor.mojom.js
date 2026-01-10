@@ -108,6 +108,9 @@ device.mojom.PowerMonitorRemote = class {
   close() {
     this.proxy.close();
   }
+  addClient(client) {
+    return this.$.addClient(client);
+  }
 };
 
 device.mojom.PowerMonitorRemoteCallHandler = class {
@@ -265,6 +268,15 @@ device.mojom.PowerMonitorClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  powerStateChange(battery_power_status) {
+    return this.$.powerStateChange(battery_power_status);
+  }
+  suspend() {
+    return this.$.suspend();
+  }
+  resume() {
+    return this.$.resume();
   }
 };
 

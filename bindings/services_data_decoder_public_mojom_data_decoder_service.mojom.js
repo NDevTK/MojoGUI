@@ -147,6 +147,27 @@ data_decoder.mojom.DataDecoderServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  bindImageDecoder(receiver) {
+    return this.$.bindImageDecoder(receiver);
+  }
+  bindXmlParser(reciever) {
+    return this.$.bindXmlParser(reciever);
+  }
+  bindWebBundleParserFactory(receiver) {
+    return this.$.bindWebBundleParserFactory(receiver);
+  }
+  bindGzipper(receiver) {
+    return this.$.bindGzipper(receiver);
+  }
+  bindStructuredHeadersParser(receiver) {
+    return this.$.bindStructuredHeadersParser(receiver);
+  }
+  bindCborParser(receiver) {
+    return this.$.bindCborParser(receiver);
+  }
+  bindPixCodeValidator(receiver) {
+    return this.$.bindPixCodeValidator(receiver);
+  }
 };
 
 data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {

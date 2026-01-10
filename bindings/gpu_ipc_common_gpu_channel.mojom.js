@@ -696,6 +696,54 @@ gpu.mojom.GpuChannelRemote = class {
   close() {
     this.proxy.close();
   }
+  crashForTesting() {
+    return this.$.crashForTesting();
+  }
+  terminateForTesting() {
+    return this.$.terminateForTesting();
+  }
+  getChannelToken() {
+    return this.$.getChannelToken();
+  }
+  flush() {
+    return this.$.flush();
+  }
+  getSharedMemoryForFlushId() {
+    return this.$.getSharedMemoryForFlushId();
+  }
+  createCommandBuffer(params, routing_id, shared_state, receiver, client) {
+    return this.$.createCommandBuffer(params, routing_id, shared_state, receiver, client);
+  }
+  destroyCommandBuffer(routing_id) {
+    return this.$.destroyCommandBuffer(routing_id);
+  }
+  flushDeferredRequests(requests, flushed_deferred_message_id) {
+    return this.$.flushDeferredRequests(requests, flushed_deferred_message_id);
+  }
+  createGpuMemoryBuffer(size, format, buffer_usage) {
+    return this.$.createGpuMemoryBuffer(size, format, buffer_usage);
+  }
+  createDCOMPTexture(route_id, receiver) {
+    return this.$.createDCOMPTexture(route_id, receiver);
+  }
+  registerOverlayStateObserver(promotion_hint_observer, mailbox) {
+    return this.$.registerOverlayStateObserver(promotion_hint_observer, mailbox);
+  }
+  waitForTokenInRange(routing_id, start, end) {
+    return this.$.waitForTokenInRange(routing_id, start, end);
+  }
+  waitForGetOffsetInRange(routing_id, set_get_buffer_count, start, end) {
+    return this.$.waitForGetOffsetInRange(routing_id, set_get_buffer_count, start, end);
+  }
+  registerSysmemBufferCollection(service_handle, sysmem_token, format, usage, register_with_image_pipe) {
+    return this.$.registerSysmemBufferCollection(service_handle, sysmem_token, format, usage, register_with_image_pipe);
+  }
+  copyToGpuMemoryBufferAsync(mailbox, sync_token_dependencies, release_count) {
+    return this.$.copyToGpuMemoryBufferAsync(mailbox, sync_token_dependencies, release_count);
+  }
+  copyNativeGmbToSharedMemoryAsync(buffer_handle, shared_memory) {
+    return this.$.copyNativeGmbToSharedMemoryAsync(buffer_handle, shared_memory);
+  }
 };
 
 gpu.mojom.GpuChannelRemoteCallHandler = class {
@@ -1391,6 +1439,24 @@ gpu.mojom.CommandBufferRemote = class {
   close() {
     this.proxy.close();
   }
+  setGetBuffer(shm_id) {
+    return this.$.setGetBuffer(shm_id);
+  }
+  registerTransferBuffer(id, buffer) {
+    return this.$.registerTransferBuffer(id, buffer);
+  }
+  createGpuFenceFromHandle(gpu_fence_id, fence_handle) {
+    return this.$.createGpuFenceFromHandle(gpu_fence_id, fence_handle);
+  }
+  getGpuFenceHandle(id) {
+    return this.$.getGpuFenceHandle(id);
+  }
+  signalSyncToken(sync_token, signal_id) {
+    return this.$.signalSyncToken(sync_token, signal_id);
+  }
+  signalQuery(query, signal_id) {
+    return this.$.signalQuery(query, signal_id);
+  }
 };
 
 gpu.mojom.CommandBufferRemoteCallHandler = class {
@@ -1715,6 +1781,21 @@ gpu.mojom.CommandBufferClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onConsoleMessage(message) {
+    return this.$.onConsoleMessage(message);
+  }
+  onGpuSwitched() {
+    return this.$.onGpuSwitched();
+  }
+  onDestroyed(reason, error) {
+    return this.$.onDestroyed(reason, error);
+  }
+  onReturnData(data) {
+    return this.$.onReturnData(data);
+  }
+  onSignalAck(signal_id, state) {
+    return this.$.onSignalAck(signal_id, state);
+  }
 };
 
 gpu.mojom.CommandBufferClientRemoteCallHandler = class {
@@ -1997,6 +2078,15 @@ gpu.mojom.DCOMPTextureRemote = class {
   close() {
     this.proxy.close();
   }
+  startListening(client) {
+    return this.$.startListening(client);
+  }
+  setTextureSize(size) {
+    return this.$.setTextureSize(size);
+  }
+  setDCOMPSurfaceHandle(token) {
+    return this.$.setDCOMPSurfaceHandle(token);
+  }
 };
 
 gpu.mojom.DCOMPTextureRemoteCallHandler = class {
@@ -2215,6 +2305,12 @@ gpu.mojom.DCOMPTextureClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onSharedImageMailboxBound(mailbox) {
+    return this.$.onSharedImageMailboxBound(mailbox);
+  }
+  onOutputRectChange(output_rect) {
+    return this.$.onOutputRectChange(output_rect);
+  }
 };
 
 gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
@@ -2391,6 +2487,9 @@ gpu.mojom.OverlayStateObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onStateChanged(promoted) {
+    return this.$.onStateChanged(promoted);
   }
 };
 

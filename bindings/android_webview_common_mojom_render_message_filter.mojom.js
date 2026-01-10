@@ -104,6 +104,9 @@ android_webview.mojom.RenderMessageFilterRemote = class {
   close() {
     this.proxy.close();
   }
+  subFrameCreated(parent_frame_token, child_frame_token) {
+    return this.$.subFrameCreated(parent_frame_token, child_frame_token);
+  }
 };
 
 android_webview.mojom.RenderMessageFilterRemoteCallHandler = class {

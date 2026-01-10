@@ -128,6 +128,15 @@ heap_profiling.mojom.TestConnectorRemote = class {
   close() {
     this.proxy.close();
   }
+  connectSnapshotController(controller) {
+    return this.$.connectSnapshotController(controller);
+  }
+  connectProfileCollector(collector) {
+    return this.$.connectProfileCollector(collector);
+  }
+  disconnect() {
+    return this.$.disconnect();
+  }
 };
 
 heap_profiling.mojom.TestConnectorRemoteCallHandler = class {

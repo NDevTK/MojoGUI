@@ -205,6 +205,9 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onAcceleratorsUpdated(config) {
+    return this.$.onAcceleratorsUpdated(config);
+  }
 };
 
 ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemoteCallHandler = class {
@@ -351,6 +354,9 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onCustomizationPolicyUpdated() {
+    return this.$.onCustomizationPolicyUpdated();
   }
 };
 
@@ -701,6 +707,66 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemote = class 
 
   close() {
     this.proxy.close();
+  }
+  isMutable(source) {
+    return this.$.isMutable(source);
+  }
+  isCustomizationAllowedByPolicy() {
+    return this.$.isCustomizationAllowedByPolicy();
+  }
+  getMetaKeyToDisplay() {
+    return this.$.getMetaKeyToDisplay();
+  }
+  getConflictAccelerator(source, action_id, accelerator) {
+    return this.$.getConflictAccelerator(source, action_id, accelerator);
+  }
+  getDefaultAcceleratorsForId(action_id) {
+    return this.$.getDefaultAcceleratorsForId(action_id);
+  }
+  getAccelerators() {
+    return this.$.getAccelerators();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  addPolicyObserver(observer) {
+    return this.$.addPolicyObserver(observer);
+  }
+  getAcceleratorLayoutInfos() {
+    return this.$.getAcceleratorLayoutInfos();
+  }
+  preventProcessingAccelerators(prevent_processing_accelerators) {
+    return this.$.preventProcessingAccelerators(prevent_processing_accelerators);
+  }
+  addAccelerator(source, action_id, accelerator) {
+    return this.$.addAccelerator(source, action_id, accelerator);
+  }
+  removeAccelerator(source, action_id, accelerator) {
+    return this.$.removeAccelerator(source, action_id, accelerator);
+  }
+  replaceAccelerator(source, action_id, old_accelerator, new_accelerator) {
+    return this.$.replaceAccelerator(source, action_id, old_accelerator, new_accelerator);
+  }
+  restoreDefault(source, action_id) {
+    return this.$.restoreDefault(source, action_id);
+  }
+  restoreAllDefaults() {
+    return this.$.restoreAllDefaults();
+  }
+  recordUserAction(user_action) {
+    return this.$.recordUserAction(user_action);
+  }
+  recordMainCategoryNavigation(category) {
+    return this.$.recordMainCategoryNavigation(category);
+  }
+  recordEditDialogCompletedActions(completed_actions) {
+    return this.$.recordEditDialogCompletedActions(completed_actions);
+  }
+  recordAddOrEditSubactions(is_add, subactions) {
+    return this.$.recordAddOrEditSubactions(is_add, subactions);
+  }
+  hasCustomAccelerators() {
+    return this.$.hasCustomAccelerators();
   }
 };
 

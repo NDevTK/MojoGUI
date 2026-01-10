@@ -167,6 +167,18 @@ chromeos.auth.mojom.InSessionAuthRemote = class {
   close() {
     this.proxy.close();
   }
+  requestToken(reason, prompt) {
+    return this.$.requestToken(reason, prompt);
+  }
+  checkToken(reason, token) {
+    return this.$.checkToken(reason, token);
+  }
+  invalidateToken(token) {
+    return this.$.invalidateToken(token);
+  }
+  requestLegacyWebAuthn(rp_id, window_id) {
+    return this.$.requestLegacyWebAuthn(rp_id, window_id);
+  }
 };
 
 chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {

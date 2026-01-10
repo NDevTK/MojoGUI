@@ -671,6 +671,9 @@ ash.shimless_rma.mojom.ErrorObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onError(error) {
+    return this.$.onError(error);
+  }
 };
 
 ash.shimless_rma.mojom.ErrorObserverRemoteCallHandler = class {
@@ -820,6 +823,9 @@ ash.shimless_rma.mojom.OsUpdateObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onOsUpdateProgressUpdated(operation, progress, update_error_code) {
+    return this.$.onOsUpdateProgressUpdated(operation, progress, update_error_code);
   }
 };
 
@@ -974,6 +980,12 @@ ash.shimless_rma.mojom.CalibrationObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onCalibrationUpdated(componentStatus) {
+    return this.$.onCalibrationUpdated(componentStatus);
+  }
+  onCalibrationStepComplete(status) {
+    return this.$.onCalibrationStepComplete(status);
   }
 };
 
@@ -1154,6 +1166,9 @@ ash.shimless_rma.mojom.ProvisioningObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onProvisioningUpdated(status, progress, error) {
+    return this.$.onProvisioningUpdated(status, progress, error);
+  }
 };
 
 ash.shimless_rma.mojom.ProvisioningObserverRemoteCallHandler = class {
@@ -1301,6 +1316,9 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onHardwareWriteProtectionStateChanged(enabled) {
+    return this.$.onHardwareWriteProtectionStateChanged(enabled);
   }
 };
 
@@ -1450,6 +1468,9 @@ ash.shimless_rma.mojom.PowerCableStateObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onPowerCableStateChanged(plugged_in) {
+    return this.$.onPowerCableStateChanged(plugged_in);
+  }
 };
 
 ash.shimless_rma.mojom.PowerCableStateObserverRemoteCallHandler = class {
@@ -1598,6 +1619,9 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onExternalDiskStateChanged(detected) {
+    return this.$.onExternalDiskStateChanged(detected);
+  }
 };
 
 ash.shimless_rma.mojom.ExternalDiskStateObserverRemoteCallHandler = class {
@@ -1745,6 +1769,9 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onHardwareVerificationResult(result) {
+    return this.$.onHardwareVerificationResult(result);
   }
 };
 
@@ -1896,6 +1923,9 @@ ash.shimless_rma.mojom.FinalizationObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onFinalizationUpdated(status, progress, error) {
+    return this.$.onFinalizationUpdated(status, progress, error);
+  }
 };
 
 ash.shimless_rma.mojom.FinalizationObserverRemoteCallHandler = class {
@@ -2043,6 +2073,9 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onUpdateRoFirmwareStatusChanged(status) {
+    return this.$.onUpdateRoFirmwareStatusChanged(status);
   }
 };
 
@@ -2946,6 +2979,228 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getCurrentState() {
+    return this.$.getCurrentState();
+  }
+  getStateProperties() {
+    return this.$.getStateProperties();
+  }
+  transitionPreviousState() {
+    return this.$.transitionPreviousState();
+  }
+  abortRma() {
+    return this.$.abortRma();
+  }
+  beginFinalization() {
+    return this.$.beginFinalization();
+  }
+  trackConfiguredNetworks() {
+    return this.$.trackConfiguredNetworks();
+  }
+  networkSelectionComplete() {
+    return this.$.networkSelectionComplete();
+  }
+  getCurrentOsVersion() {
+    return this.$.getCurrentOsVersion();
+  }
+  checkForOsUpdates() {
+    return this.$.checkForOsUpdates();
+  }
+  updateOs() {
+    return this.$.updateOs();
+  }
+  updateOsSkipped() {
+    return this.$.updateOsSkipped();
+  }
+  setSameOwner() {
+    return this.$.setSameOwner();
+  }
+  setDifferentOwner() {
+    return this.$.setDifferentOwner();
+  }
+  setWipeDevice(should_wipe_device) {
+    return this.$.setWipeDevice(should_wipe_device);
+  }
+  setManuallyDisableWriteProtect() {
+    return this.$.setManuallyDisableWriteProtect();
+  }
+  setRsuDisableWriteProtect() {
+    return this.$.setRsuDisableWriteProtect();
+  }
+  getRsuDisableWriteProtectChallenge() {
+    return this.$.getRsuDisableWriteProtectChallenge();
+  }
+  getRsuDisableWriteProtectHwid() {
+    return this.$.getRsuDisableWriteProtectHwid();
+  }
+  getRsuDisableWriteProtectChallengeQrCode() {
+    return this.$.getRsuDisableWriteProtectChallengeQrCode();
+  }
+  setRsuDisableWriteProtectCode(code) {
+    return this.$.setRsuDisableWriteProtectCode(code);
+  }
+  writeProtectManuallyDisabled() {
+    return this.$.writeProtectManuallyDisabled();
+  }
+  getWriteProtectDisableCompleteAction() {
+    return this.$.getWriteProtectDisableCompleteAction();
+  }
+  confirmManualWpDisableComplete() {
+    return this.$.confirmManualWpDisableComplete();
+  }
+  getComponentList() {
+    return this.$.getComponentList();
+  }
+  setComponentList(components) {
+    return this.$.setComponentList(components);
+  }
+  reworkMainboard() {
+    return this.$.reworkMainboard();
+  }
+  roFirmwareUpdateComplete() {
+    return this.$.roFirmwareUpdateComplete();
+  }
+  shutdownForRestock() {
+    return this.$.shutdownForRestock();
+  }
+  continueFinalizationAfterRestock() {
+    return this.$.continueFinalizationAfterRestock();
+  }
+  getRegionList() {
+    return this.$.getRegionList();
+  }
+  getSkuList() {
+    return this.$.getSkuList();
+  }
+  getCustomLabelList() {
+    return this.$.getCustomLabelList();
+  }
+  getSkuDescriptionList() {
+    return this.$.getSkuDescriptionList();
+  }
+  getOriginalSerialNumber() {
+    return this.$.getOriginalSerialNumber();
+  }
+  getOriginalRegion() {
+    return this.$.getOriginalRegion();
+  }
+  getOriginalSku() {
+    return this.$.getOriginalSku();
+  }
+  getOriginalCustomLabel() {
+    return this.$.getOriginalCustomLabel();
+  }
+  getOriginalDramPartNumber() {
+    return this.$.getOriginalDramPartNumber();
+  }
+  getOriginalFeatureLevel() {
+    return this.$.getOriginalFeatureLevel();
+  }
+  setDeviceInformation(serial_number, region_index, sku_index, custom_label_index, dram_part_number, is_chassis_branded, hw_compliance_version) {
+    return this.$.setDeviceInformation(serial_number, region_index, sku_index, custom_label_index, dram_part_number, is_chassis_branded, hw_compliance_version);
+  }
+  getCalibrationComponentList() {
+    return this.$.getCalibrationComponentList();
+  }
+  getCalibrationSetupInstructions() {
+    return this.$.getCalibrationSetupInstructions();
+  }
+  startCalibration(components) {
+    return this.$.startCalibration(components);
+  }
+  runCalibrationStep() {
+    return this.$.runCalibrationStep();
+  }
+  continueCalibration() {
+    return this.$.continueCalibration();
+  }
+  calibrationComplete() {
+    return this.$.calibrationComplete();
+  }
+  retryProvisioning() {
+    return this.$.retryProvisioning();
+  }
+  provisioningComplete() {
+    return this.$.provisioningComplete();
+  }
+  retryFinalization() {
+    return this.$.retryFinalization();
+  }
+  finalizationComplete() {
+    return this.$.finalizationComplete();
+  }
+  writeProtectManuallyEnabled() {
+    return this.$.writeProtectManuallyEnabled();
+  }
+  getLog() {
+    return this.$.getLog();
+  }
+  saveLog() {
+    return this.$.saveLog();
+  }
+  getPowerwashRequired() {
+    return this.$.getPowerwashRequired();
+  }
+  launchDiagnostics() {
+    return this.$.launchDiagnostics();
+  }
+  endRma(shutdown_method) {
+    return this.$.endRma(shutdown_method);
+  }
+  shutDownAfterHardwareError() {
+    return this.$.shutDownAfterHardwareError();
+  }
+  criticalErrorExitToLogin() {
+    return this.$.criticalErrorExitToLogin();
+  }
+  criticalErrorReboot() {
+    return this.$.criticalErrorReboot();
+  }
+  get3pDiagnosticsProvider() {
+    return this.$.get3pDiagnosticsProvider();
+  }
+  getInstallable3pDiagnosticsAppPath() {
+    return this.$.getInstallable3pDiagnosticsAppPath();
+  }
+  installLastFound3pDiagnosticsApp() {
+    return this.$.installLastFound3pDiagnosticsApp();
+  }
+  completeLast3pDiagnosticsInstallation(is_approved) {
+    return this.$.completeLast3pDiagnosticsInstallation(is_approved);
+  }
+  show3pDiagnosticsApp() {
+    return this.$.show3pDiagnosticsApp();
+  }
+  observeError(observer) {
+    return this.$.observeError(observer);
+  }
+  observeOsUpdateProgress(observer) {
+    return this.$.observeOsUpdateProgress(observer);
+  }
+  observeCalibrationProgress(observer) {
+    return this.$.observeCalibrationProgress(observer);
+  }
+  observeProvisioningProgress(observer) {
+    return this.$.observeProvisioningProgress(observer);
+  }
+  observeHardwareWriteProtectionState(observer) {
+    return this.$.observeHardwareWriteProtectionState(observer);
+  }
+  observePowerCableState(observer) {
+    return this.$.observePowerCableState(observer);
+  }
+  observeExternalDiskState(observer) {
+    return this.$.observeExternalDiskState(observer);
+  }
+  observeHardwareVerificationStatus(observer) {
+    return this.$.observeHardwareVerificationStatus(observer);
+  }
+  observeFinalizationStatus(observer) {
+    return this.$.observeFinalizationStatus(observer);
+  }
+  observeRoFirmwareUpdateProgress(observer) {
+    return this.$.observeRoFirmwareUpdateProgress(observer);
   }
 };
 

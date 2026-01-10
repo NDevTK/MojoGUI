@@ -104,6 +104,9 @@ content.mojom.FrameHostTestInterfaceRemote = class {
   close() {
     this.proxy.close();
   }
+  ping(source_url, source_event) {
+    return this.$.ping(source_url, source_event);
+  }
 };
 
 content.mojom.FrameHostTestInterfaceRemoteCallHandler = class {

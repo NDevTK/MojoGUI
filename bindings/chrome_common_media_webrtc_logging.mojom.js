@@ -122,6 +122,12 @@ chrome.mojom.WebRtcLoggingClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onAddMessages(messages) {
+    return this.$.onAddMessages(messages);
+  }
+  onStopped() {
+    return this.$.onStopped();
+  }
 };
 
 chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
@@ -303,6 +309,12 @@ chrome.mojom.WebRtcLoggingAgentRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  start(client) {
+    return this.$.start(client);
+  }
+  stop() {
+    return this.$.stop();
   }
 };
 

@@ -203,6 +203,18 @@ blink.mojom.ContentIndexServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getIconSizes(category) {
+    return this.$.getIconSizes(category);
+  }
+  add(service_worker_registration_id, description, icon, launchUrl) {
+    return this.$.add(service_worker_registration_id, description, icon, launchUrl);
+  }
+  delete(service_worker_registration_id, id) {
+    return this.$.delete(service_worker_registration_id, id);
+  }
+  getDescriptions(service_worker_registration_id) {
+    return this.$.getDescriptions(service_worker_registration_id);
+  }
 };
 
 blink.mojom.ContentIndexServiceRemoteCallHandler = class {

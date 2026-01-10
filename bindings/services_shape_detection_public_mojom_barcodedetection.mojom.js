@@ -141,6 +141,9 @@ shape_detection.mojom.BarcodeDetectionRemote = class {
   close() {
     this.proxy.close();
   }
+  detect(bitmap_data) {
+    return this.$.detect(bitmap_data);
+  }
 };
 
 shape_detection.mojom.BarcodeDetectionRemoteCallHandler = class {

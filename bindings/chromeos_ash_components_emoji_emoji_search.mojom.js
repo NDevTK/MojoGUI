@@ -127,6 +127,12 @@ emoji_search.mojom.EmojiSearchRemote = class {
   close() {
     this.proxy.close();
   }
+  searchEmoji(query, language_codes) {
+    return this.$.searchEmoji(query, language_codes);
+  }
+  loadEmojiLanguages(language_codes) {
+    return this.$.loadEmojiLanguages(language_codes);
+  }
 };
 
 emoji_search.mojom.EmojiSearchRemoteCallHandler = class {

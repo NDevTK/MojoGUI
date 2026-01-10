@@ -126,6 +126,12 @@ printing.mojom.PdfFlattenerRemote = class {
   close() {
     this.proxy.close();
   }
+  flattenPdf(src_pdf_region) {
+    return this.$.flattenPdf(src_pdf_region);
+  }
+  setUseSkiaRendererPolicy(use_skia) {
+    return this.$.setUseSkiaRendererPolicy(use_skia);
+  }
 };
 
 printing.mojom.PdfFlattenerRemoteCallHandler = class {

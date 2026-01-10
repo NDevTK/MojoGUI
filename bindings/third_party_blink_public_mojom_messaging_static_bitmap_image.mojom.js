@@ -132,6 +132,9 @@ blink.mojom.ImageReleaseCallbackRemote = class {
   close() {
     this.proxy.close();
   }
+  release(token) {
+    return this.$.release(token);
+  }
 };
 
 blink.mojom.ImageReleaseCallbackRemoteCallHandler = class {

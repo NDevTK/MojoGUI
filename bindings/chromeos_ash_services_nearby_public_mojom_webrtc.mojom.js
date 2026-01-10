@@ -134,6 +134,9 @@ sharing.mojom.IceConfigFetcherRemote = class {
   close() {
     this.proxy.close();
   }
+  getIceServers() {
+    return this.$.getIceServers();
+  }
 };
 
 sharing.mojom.IceConfigFetcherRemoteCallHandler = class {
@@ -287,6 +290,9 @@ sharing.mojom.MdnsResponderFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createMdnsResponder(responder_receiver) {
+    return this.$.createMdnsResponder(responder_receiver);
   }
 };
 

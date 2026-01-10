@@ -159,6 +159,18 @@ arc.mojom.ArcWifiHostRemote = class {
   close() {
     this.proxy.close();
   }
+  getWifiEnabledState() {
+    return this.$.getWifiEnabledState();
+  }
+  setWifiEnabledState(enabled) {
+    return this.$.setWifiEnabledState(enabled);
+  }
+  startScan() {
+    return this.$.startScan();
+  }
+  getScanResults() {
+    return this.$.getScanResults();
+  }
 };
 
 arc.mojom.ArcWifiHostRemoteCallHandler = class {
@@ -427,6 +439,15 @@ arc.mojom.ArcWifiInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  wifiEnabledStateChanged(enabled) {
+    return this.$.wifiEnabledStateChanged(enabled);
+  }
+  scanCompleted() {
+    return this.$.scanCompleted();
   }
 };
 

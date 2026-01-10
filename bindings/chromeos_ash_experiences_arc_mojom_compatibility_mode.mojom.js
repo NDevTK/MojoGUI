@@ -127,6 +127,12 @@ arc.mojom.CompatibilityModeInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  setResizeLockState(package_name, state) {
+    return this.$.setResizeLockState(package_name, state);
+  }
+  isOptimizedForCrosApp(package_name) {
+    return this.$.isOptimizedForCrosApp(package_name);
+  }
 };
 
 arc.mojom.CompatibilityModeInstanceRemoteCallHandler = class {

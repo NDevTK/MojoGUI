@@ -153,6 +153,9 @@ content.mojom.MhtmlFileWriterRemote = class {
   close() {
     this.proxy.close();
   }
+  serializeAsMHTML(params) {
+    return this.$.serializeAsMHTML(params);
+  }
 };
 
 content.mojom.MhtmlFileWriterRemoteCallHandler = class {

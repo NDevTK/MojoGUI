@@ -428,6 +428,33 @@ attribution_internals.mojom.ObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onSourcesChanged(sources) {
+    return this.$.onSourcesChanged(sources);
+  }
+  onReportsChanged(reports) {
+    return this.$.onReportsChanged(reports);
+  }
+  onSourceHandled(source) {
+    return this.$.onSourceHandled(source);
+  }
+  onReportHandled(report) {
+    return this.$.onReportHandled(report);
+  }
+  onDebugReportSent(report) {
+    return this.$.onDebugReportSent(report);
+  }
+  onAggregatableDebugReportSent(report) {
+    return this.$.onAggregatableDebugReportSent(report);
+  }
+  onTriggerHandled(trigger) {
+    return this.$.onTriggerHandled(trigger);
+  }
+  onOsRegistration(registration) {
+    return this.$.onOsRegistration(registration);
+  }
+  onDebugModeChanged(debug_mode) {
+    return this.$.onDebugModeChanged(debug_mode);
+  }
 };
 
 attribution_internals.mojom.ObserverRemoteCallHandler = class {
@@ -835,6 +862,15 @@ attribution_internals.mojom.HandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  isAttributionReportingEnabled() {
+    return this.$.isAttributionReportingEnabled();
+  }
+  sendReport(id) {
+    return this.$.sendReport(id);
+  }
+  clearStorage() {
+    return this.$.clearStorage();
+  }
 };
 
 attribution_internals.mojom.HandlerRemoteCallHandler = class {
@@ -1059,6 +1095,9 @@ attribution_internals.mojom.FactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  create(observer, handler) {
+    return this.$.create(observer, handler);
   }
 };
 

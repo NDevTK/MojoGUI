@@ -209,6 +209,21 @@ chromeos.remote_apps.mojom.RemoteAppsRemote = class {
   close() {
     this.proxy.close();
   }
+  addFolder(name, add_to_front) {
+    return this.$.addFolder(name, add_to_front);
+  }
+  addApp(source_id, name, folder_id, icon_url, add_to_front) {
+    return this.$.addApp(source_id, name, folder_id, icon_url, add_to_front);
+  }
+  deleteApp(app_id) {
+    return this.$.deleteApp(app_id);
+  }
+  sortLauncherWithRemoteAppsFirst() {
+    return this.$.sortLauncherWithRemoteAppsFirst();
+  }
+  setPinnedApps(app_ids) {
+    return this.$.setPinnedApps(app_ids);
+  }
 };
 
 chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = class {
@@ -505,6 +520,9 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  bindRemoteAppsAndAppLaunchObserver(source_id, remote_apps, observer) {
+    return this.$.bindRemoteAppsAndAppLaunchObserver(source_id, remote_apps, observer);
+  }
 };
 
 chromeos.remote_apps.mojom.RemoteAppsFactoryRemoteCallHandler = class {
@@ -653,6 +671,9 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onRemoteAppLaunched(app_id, source_id) {
+    return this.$.onRemoteAppLaunched(app_id, source_id);
   }
 };
 

@@ -136,6 +136,9 @@ network.mojom.SSLConfigClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onSSLConfigUpdated(ssl_config) {
+    return this.$.onSSLConfigUpdated(ssl_config);
+  }
 };
 
 network.mojom.SSLConfigClientRemoteCallHandler = class {

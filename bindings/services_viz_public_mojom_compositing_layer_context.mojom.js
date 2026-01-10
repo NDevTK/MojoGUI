@@ -211,6 +211,15 @@ viz.mojom.LayerContextRemote = class {
   close() {
     this.proxy.close();
   }
+  setVisible(visible) {
+    return this.$.setVisible(visible);
+  }
+  updateDisplayTree(update) {
+    return this.$.updateDisplayTree(update);
+  }
+  updateDisplayTiling(tiling) {
+    return this.$.updateDisplayTiling(tiling);
+  }
 };
 
 viz.mojom.LayerContextRemoteCallHandler = class {
@@ -423,6 +432,12 @@ viz.mojom.LayerContextClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onRequestCommitForFrame(args) {
+    return this.$.onRequestCommitForFrame(args);
+  }
+  onTilingsReadyForCleanup(layer_id, tiling_scales_to_clean_up) {
+    return this.$.onTilingsReadyForCleanup(layer_id, tiling_scales_to_clean_up);
   }
 };
 

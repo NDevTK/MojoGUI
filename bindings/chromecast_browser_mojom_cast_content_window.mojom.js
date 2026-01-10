@@ -141,6 +141,12 @@ chromecast.mojom.CastContentWindowObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onVisibilityChange(visibility_type) {
+    return this.$.onVisibilityChange(visibility_type);
+  }
+  onWindowDestroyed() {
+    return this.$.onWindowDestroyed();
+  }
 };
 
 chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
@@ -346,6 +352,24 @@ chromecast.mojom.CastContentWindowRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createWindow(z_order, priority) {
+    return this.$.createWindow(z_order, priority);
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  grantScreenAccess() {
+    return this.$.grantScreenAccess();
+  }
+  revokeScreenAccess() {
+    return this.$.revokeScreenAccess();
+  }
+  requestVisibility(priority) {
+    return this.$.requestVisibility(priority);
+  }
+  enableTouchInput(enabled) {
+    return this.$.enableTouchInput(enabled);
   }
 };
 

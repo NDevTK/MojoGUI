@@ -272,6 +272,54 @@ autofill.mojom.AutofillAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  triggerFormExtraction() {
+    return this.$.triggerFormExtraction();
+  }
+  triggerFormExtractionWithResponse() {
+    return this.$.triggerFormExtractionWithResponse();
+  }
+  applyFieldsAction(action_type, action_persistence, fields, fill_id, supports_refill) {
+    return this.$.applyFieldsAction(action_type, action_persistence, fields, fill_id, supports_refill);
+  }
+  applyFieldAction(action_type, action_persistence, field, value) {
+    return this.$.applyFieldAction(action_type, action_persistence, field, value);
+  }
+  extractFormWithField(field_id) {
+    return this.$.extractFormWithField(field_id);
+  }
+  extractLabeledTextNodeValue(value_regex, label_regex, number_of_ancestor_levels_to_search) {
+    return this.$.extractLabeledTextNodeValue(value_regex, label_regex, number_of_ancestor_levels_to_search);
+  }
+  fieldTypePredictionsAvailable(forms) {
+    return this.$.fieldTypePredictionsAvailable(forms);
+  }
+  exposeDomNodeIds() {
+    return this.$.exposeDomNodeIds();
+  }
+  clearPreviewedForm() {
+    return this.$.clearPreviewedForm();
+  }
+  triggerSuggestions(field, trigger_source) {
+    return this.$.triggerSuggestions(field, trigger_source);
+  }
+  setSuggestionAvailability(field, suggestion_availability) {
+    return this.$.setSuggestionAvailability(field, suggestion_availability);
+  }
+  acceptDataListSuggestion(field, value) {
+    return this.$.acceptDataListSuggestion(field, value);
+  }
+  previewPasswordSuggestion(username, password) {
+    return this.$.previewPasswordSuggestion(username, password);
+  }
+  previewPasswordGenerationSuggestion(password) {
+    return this.$.previewPasswordGenerationSuggestion(password);
+  }
+  getPotentialLastFourCombinationsForStandaloneCvc() {
+    return this.$.getPotentialLastFourCombinationsForStandaloneCvc();
+  }
+  dispatchEmailVerifiedEvent(field_id, presentation_token) {
+    return this.$.dispatchEmailVerifiedEvent(field_id, presentation_token);
+  }
 };
 
 autofill.mojom.AutofillAgentRemoteCallHandler = class {
@@ -990,6 +1038,45 @@ autofill.mojom.PasswordAutofillAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  applyFillDataOnParsingCompletion(form_data) {
+    return this.$.applyFillDataOnParsingCompletion(form_data);
+  }
+  fillPasswordSuggestion(username, password) {
+    return this.$.fillPasswordSuggestion(username, password);
+  }
+  fillPasswordSuggestionById(username_element_id, password_element_id, username, password, suggestion_source) {
+    return this.$.fillPasswordSuggestionById(username_element_id, password_element_id, username, password, suggestion_source);
+  }
+  previewPasswordSuggestionById(username_element_id, password_element_id, username, password) {
+    return this.$.previewPasswordSuggestionById(username_element_id, password_element_id, username, password);
+  }
+  informNoSavedCredentials(should_show_popup_without_passwords) {
+    return this.$.informNoSavedCredentials(should_show_popup_without_passwords);
+  }
+  fillIntoFocusedField(is_password, credential) {
+    return this.$.fillIntoFocusedField(is_password, credential);
+  }
+  previewField(field_id, value) {
+    return this.$.previewField(field_id, value);
+  }
+  fillField(field_id, value, field_properties) {
+    return this.$.fillField(field_id, value, field_properties);
+  }
+  fillChangePasswordForm(password_element_id, new_password_element_id, confirm_password_element_id, old_password, new_password) {
+    return this.$.fillChangePasswordForm(password_element_id, new_password_element_id, confirm_password_element_id, old_password, new_password);
+  }
+  setLoggingState(active) {
+    return this.$.setLoggingState(active);
+  }
+  triggerFormSubmission() {
+    return this.$.triggerFormSubmission();
+  }
+  annotateFieldsWithParsingResult(parsing_result) {
+    return this.$.annotateFieldsWithParsingResult(parsing_result);
+  }
+  checkViewAreaVisible(field_id) {
+    return this.$.checkViewAreaVisible(field_id);
+  }
 };
 
 autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
@@ -1536,6 +1623,21 @@ autofill.mojom.PasswordGenerationAgentRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  generatedPasswordAccepted(generated_password) {
+    return this.$.generatedPasswordAccepted(generated_password);
+  }
+  generatedPasswordRejected() {
+    return this.$.generatedPasswordRejected();
+  }
+  triggeredGeneratePassword() {
+    return this.$.triggeredGeneratePassword();
+  }
+  foundFormEligibleForGeneration(form) {
+    return this.$.foundFormEligibleForGeneration(form);
+  }
+  focusNextFieldAfterPasswords() {
+    return this.$.focusNextFieldAfterPasswords();
   }
 };
 

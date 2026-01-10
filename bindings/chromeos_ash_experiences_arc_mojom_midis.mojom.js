@@ -146,6 +146,12 @@ arc.mojom.MidisClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onDeviceAdded(device) {
+    return this.$.onDeviceAdded(device);
+  }
+  onDeviceRemoved(device) {
+    return this.$.onDeviceRemoved(device);
+  }
 };
 
 arc.mojom.MidisClientRemoteCallHandler = class {
@@ -345,6 +351,15 @@ arc.mojom.MidisServerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  listDevices() {
+    return this.$.listDevices();
+  }
+  requestPort(request) {
+    return this.$.requestPort(request);
+  }
+  closeDevice(request) {
+    return this.$.closeDevice(request);
   }
 };
 
@@ -565,6 +580,9 @@ arc.mojom.MidisHostRemote = class {
   close() {
     this.proxy.close();
   }
+  connect(server, client) {
+    return this.$.connect(server, client);
+  }
 };
 
 arc.mojom.MidisHostRemoteCallHandler = class {
@@ -717,6 +735,9 @@ arc.mojom.MidisInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

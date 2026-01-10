@@ -109,6 +109,9 @@ content.mojom.AgentSchedulingGroupHostRemote = class {
   close() {
     this.proxy.close();
   }
+  didUnloadRenderFrame(frame_token) {
+    return this.$.didUnloadRenderFrame(frame_token);
+  }
 };
 
 content.mojom.AgentSchedulingGroupHostRemoteCallHandler = class {
@@ -276,6 +279,18 @@ content.mojom.AgentSchedulingGroupRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindAssociatedInterfaces(remote_host, route_provider_receiver) {
+    return this.$.bindAssociatedInterfaces(remote_host, route_provider_receiver);
+  }
+  createView(params) {
+    return this.$.createView(params);
+  }
+  createFrame(params) {
+    return this.$.createFrame(params);
+  }
+  createSharedStorageWorkletService(receiver, global_scope_creation_params) {
+    return this.$.createSharedStorageWorkletService(receiver, global_scope_creation_params);
   }
 };
 

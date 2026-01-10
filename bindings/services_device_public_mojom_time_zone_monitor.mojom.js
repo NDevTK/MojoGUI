@@ -105,6 +105,9 @@ device.mojom.TimeZoneMonitorRemote = class {
   close() {
     this.proxy.close();
   }
+  addClient(client) {
+    return this.$.addClient(client);
+  }
 };
 
 device.mojom.TimeZoneMonitorRemoteCallHandler = class {
@@ -252,6 +255,9 @@ device.mojom.TimeZoneMonitorClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onTimeZoneChange(tz_info) {
+    return this.$.onTimeZoneChange(tz_info);
   }
 };
 

@@ -130,6 +130,12 @@ network.mojom.DocumentIsolationPolicyReporterRemote = class {
   close() {
     this.proxy.close();
   }
+  queueCorpViolationReport(blocked_url, destination, report_only) {
+    return this.$.queueCorpViolationReport(blocked_url, destination, report_only);
+  }
+  clone(receiver) {
+    return this.$.clone(receiver);
+  }
 };
 
 network.mojom.DocumentIsolationPolicyReporterRemoteCallHandler = class {

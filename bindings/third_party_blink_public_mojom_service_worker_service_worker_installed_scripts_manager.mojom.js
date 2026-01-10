@@ -130,6 +130,9 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote = class {
   close() {
     this.proxy.close();
   }
+  requestInstalledScript(script_url) {
+    return this.$.requestInstalledScript(script_url);
+  }
 };
 
 blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemoteCallHandler = class {
@@ -277,6 +280,9 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  transferInstalledScript(script_info) {
+    return this.$.transferInstalledScript(script_info);
   }
 };
 

@@ -230,6 +230,24 @@ arc.mojom.ImeHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onTextInputTypeChanged(type, is_personalized_learning_allowed, flags) {
+    return this.$.onTextInputTypeChanged(type, is_personalized_learning_allowed, flags);
+  }
+  onCursorRectChanged(rect, coordinateSpace) {
+    return this.$.onCursorRectChanged(rect, coordinateSpace);
+  }
+  onCancelComposition() {
+    return this.$.onCancelComposition();
+  }
+  showVirtualKeyboardIfEnabled() {
+    return this.$.showVirtualKeyboardIfEnabled();
+  }
+  onCursorRectChangedWithSurroundingText(rect, text_range, text_in_range, selection_range, coordinateSpace) {
+    return this.$.onCursorRectChangedWithSurroundingText(rect, text_range, text_in_range, selection_range, coordinateSpace);
+  }
+  sendKeyEvent(key_event_data) {
+    return this.$.sendKeyEvent(key_event_data);
+  }
 };
 
 arc.mojom.ImeHostRemoteCallHandler = class {
@@ -579,6 +597,30 @@ arc.mojom.ImeInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  setCompositionText(text, segments, selection_range) {
+    return this.$.setCompositionText(text, segments, selection_range);
+  }
+  setSelectionText(selection) {
+    return this.$.setSelectionText(selection);
+  }
+  confirmCompositionText() {
+    return this.$.confirmCompositionText();
+  }
+  insertText(text, new_cursor_position) {
+    return this.$.insertText(text, new_cursor_position);
+  }
+  onKeyboardAppearanceChanging(new_bounds, is_available) {
+    return this.$.onKeyboardAppearanceChanging(new_bounds, is_available);
+  }
+  extendSelectionAndDelete(before, after) {
+    return this.$.extendSelectionAndDelete(before, after);
+  }
+  setComposingRegion(range) {
+    return this.$.setComposingRegion(range);
   }
 };
 

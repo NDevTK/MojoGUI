@@ -141,6 +141,9 @@ enterprise_reporting.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 enterprise_reporting.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -310,6 +313,15 @@ enterprise_reporting.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  recordDebugState(state) {
+    return this.$.recordDebugState(state);
+  }
+  getDebugState() {
+    return this.$.getDebugState();
+  }
+  getErpHistoryData() {
+    return this.$.getErpHistoryData();
   }
 };
 
@@ -528,6 +540,9 @@ enterprise_reporting.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setErpHistoryData(history_data) {
+    return this.$.setErpHistoryData(history_data);
   }
 };
 

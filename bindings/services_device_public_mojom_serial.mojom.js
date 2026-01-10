@@ -296,6 +296,15 @@ device.mojom.SerialPortManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  setClient(client) {
+    return this.$.setClient(client);
+  }
+  getDevices() {
+    return this.$.getDevices();
+  }
+  openPort(token, use_alternate_path, options, client, watcher) {
+    return this.$.openPort(token, use_alternate_path, options, client, watcher);
+  }
 };
 
 device.mojom.SerialPortManagerRemoteCallHandler = class {
@@ -525,6 +534,15 @@ device.mojom.SerialPortManagerClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPortAdded(port_info) {
+    return this.$.onPortAdded(port_info);
+  }
+  onPortRemoved(port_info) {
+    return this.$.onPortRemoved(port_info);
+  }
+  onPortConnectedStateChanged(port_info) {
+    return this.$.onPortConnectedStateChanged(port_info);
   }
 };
 
@@ -815,6 +833,33 @@ device.mojom.SerialPortRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startWriting(consumer) {
+    return this.$.startWriting(consumer);
+  }
+  startReading(producer) {
+    return this.$.startReading(producer);
+  }
+  flush(mode) {
+    return this.$.flush(mode);
+  }
+  drain() {
+    return this.$.drain();
+  }
+  getControlSignals() {
+    return this.$.getControlSignals();
+  }
+  setControlSignals(signals) {
+    return this.$.setControlSignals(signals);
+  }
+  configurePort(options) {
+    return this.$.configurePort(options);
+  }
+  getPortInfo() {
+    return this.$.getPortInfo();
+  }
+  close(flush) {
+    return this.$.close(flush);
   }
 };
 
@@ -1243,6 +1288,12 @@ device.mojom.SerialPortClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onReadError(error) {
+    return this.$.onReadError(error);
+  }
+  onSendError(error) {
+    return this.$.onSendError(error);
   }
 };
 

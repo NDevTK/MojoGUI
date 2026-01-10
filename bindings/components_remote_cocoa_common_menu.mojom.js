@@ -188,6 +188,12 @@ remote_cocoa.mojom.MenuHostRemote = class {
   close() {
     this.proxy.close();
   }
+  commandActivated(command_id, event_flags) {
+    return this.$.commandActivated(command_id, event_flags);
+  }
+  menuClosed() {
+    return this.$.menuClosed();
+  }
 };
 
 remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
@@ -372,6 +378,12 @@ remote_cocoa.mojom.MenuRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  cancel() {
+    return this.$.cancel();
+  }
+  updateMenuItem(command_id, enabled, visible, label) {
+    return this.$.updateMenuItem(command_id, enabled, visible, label);
   }
 };
 

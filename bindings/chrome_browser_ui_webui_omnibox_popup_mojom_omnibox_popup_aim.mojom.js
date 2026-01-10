@@ -117,6 +117,9 @@ omnibox_popup_aim.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 omnibox_popup_aim.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -269,6 +272,12 @@ omnibox_popup_aim.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestClose() {
+    return this.$.requestClose();
+  }
+  navigateCurrentTab(url) {
+    return this.$.navigateCurrentTab(url);
   }
 };
 
@@ -469,6 +478,18 @@ omnibox_popup_aim.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPopupShown(context) {
+    return this.$.onPopupShown(context);
+  }
+  addContext(context) {
+    return this.$.addContext(context);
+  }
+  onPopupHidden() {
+    return this.$.onPopupHidden();
+  }
+  setPreserveContextOnClose(preserve_context_on_close) {
+    return this.$.setPreserveContextOnClose(preserve_context_on_close);
   }
 };
 

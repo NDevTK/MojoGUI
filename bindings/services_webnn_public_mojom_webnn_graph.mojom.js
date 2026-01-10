@@ -1210,6 +1210,9 @@ webnn.mojom.WebNNGraphRemote = class {
   close() {
     this.proxy.close();
   }
+  dispatch(named_inputs, named_outputs) {
+    return this.$.dispatch(named_inputs, named_outputs);
+  }
 };
 
 webnn.mojom.WebNNGraphRemoteCallHandler = class {

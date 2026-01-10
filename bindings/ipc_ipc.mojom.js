@@ -122,6 +122,12 @@ IPC.mojom.ChannelRemote = class {
   close() {
     this.proxy.close();
   }
+  setPeerPid(pid) {
+    return this.$.setPeerPid(pid);
+  }
+  getAssociatedInterface(receiver) {
+    return this.$.getAssociatedInterface(receiver);
+  }
 };
 
 IPC.mojom.ChannelRemoteCallHandler = class {

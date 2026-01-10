@@ -147,6 +147,12 @@ ash.cros_safety.mojom.CrosSafetyServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  createOnDeviceSafetySession(session) {
+    return this.$.createOnDeviceSafetySession(session);
+  }
+  createCloudSafetySession(session) {
+    return this.$.createCloudSafetySession(session);
+  }
 };
 
 ash.cros_safety.mojom.CrosSafetyServiceRemoteCallHandler = class {

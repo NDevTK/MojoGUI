@@ -144,6 +144,12 @@ media.mojom.OutputProtectionRemote = class {
   close() {
     this.proxy.close();
   }
+  queryStatus() {
+    return this.$.queryStatus();
+  }
+  enableProtection(desired_protection_mask) {
+    return this.$.enableProtection(desired_protection_mask);
+  }
 };
 
 media.mojom.OutputProtectionRemoteCallHandler = class {

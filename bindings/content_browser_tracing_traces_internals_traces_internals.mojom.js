@@ -223,6 +223,9 @@ traces_internals.mojom.TracesInternalsHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 traces_internals.mojom.TracesInternalsHandlerFactoryRemoteCallHandler = class {
@@ -591,6 +594,66 @@ traces_internals.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startTraceSession(config_pb, enable_privacy_filters) {
+    return this.$.startTraceSession(config_pb, enable_privacy_filters);
+  }
+  cloneTraceSession() {
+    return this.$.cloneTraceSession();
+  }
+  stopTraceSession() {
+    return this.$.stopTraceSession();
+  }
+  getTrackEventCategories() {
+    return this.$.getTrackEventCategories();
+  }
+  getBufferUsage() {
+    return this.$.getBufferUsage();
+  }
+  getAllTraceReports() {
+    return this.$.getAllTraceReports();
+  }
+  deleteSingleTrace(uuid) {
+    return this.$.deleteSingleTrace(uuid);
+  }
+  deleteAllTraces() {
+    return this.$.deleteAllTraces();
+  }
+  userUploadSingleTrace(uuid) {
+    return this.$.userUploadSingleTrace(uuid);
+  }
+  downloadTrace(uuid) {
+    return this.$.downloadTrace(uuid);
+  }
+  getAllScenarios() {
+    return this.$.getAllScenarios();
+  }
+  setEnabledScenarios(new_config) {
+    return this.$.setEnabledScenarios(new_config);
+  }
+  setScenariosConfigFromString(config_string) {
+    return this.$.setScenariosConfigFromString(config_string);
+  }
+  setScenariosConfigFromBuffer(config_pb) {
+    return this.$.setScenariosConfigFromBuffer(config_pb);
+  }
+  getPrivacyFilterEnabled() {
+    return this.$.getPrivacyFilterEnabled();
+  }
+  setPrivacyFilterEnabled(enable) {
+    return this.$.setPrivacyFilterEnabled(enable);
+  }
+  getSystemTracingState() {
+    return this.$.getSystemTracingState();
+  }
+  getSecurityShieldIconUrl() {
+    return this.$.getSecurityShieldIconUrl();
+  }
+  enableSystemTracing() {
+    return this.$.enableSystemTracing();
+  }
+  disableSystemTracing() {
+    return this.$.disableSystemTracing();
   }
 };
 
@@ -1405,6 +1468,9 @@ traces_internals.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onTraceComplete(trace, uuid) {
+    return this.$.onTraceComplete(trace, uuid);
   }
 };
 

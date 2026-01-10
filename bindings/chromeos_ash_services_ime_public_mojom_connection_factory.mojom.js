@@ -127,6 +127,12 @@ ash.ime.mojom.ConnectionFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  connectToInputMethod(ime_spec, input_method, input_method_host, settings) {
+    return this.$.connectToInputMethod(ime_spec, input_method, input_method_host, settings);
+  }
+  unused(unused) {
+    return this.$.unused(unused);
+  }
 };
 
 ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class {

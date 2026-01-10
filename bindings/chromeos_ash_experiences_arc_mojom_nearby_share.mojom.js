@@ -247,6 +247,9 @@ arc.mojom.NearbyShareSessionInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  onNearbyShareViewClosed() {
+    return this.$.onNearbyShareViewClosed();
+  }
 };
 
 arc.mojom.NearbyShareSessionInstanceRemoteCallHandler = class {
@@ -402,6 +405,9 @@ arc.mojom.NearbyShareHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startNearbyShare(task_id, info, instance) {
+    return this.$.startNearbyShare(task_id, info, instance);
   }
 };
 
@@ -561,6 +567,9 @@ arc.mojom.NearbyShareInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

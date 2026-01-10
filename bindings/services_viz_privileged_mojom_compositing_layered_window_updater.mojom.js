@@ -117,6 +117,12 @@ viz.mojom.LayeredWindowUpdaterRemote = class {
   close() {
     this.proxy.close();
   }
+  onAllocatedSharedMemory(pixel_size, region) {
+    return this.$.onAllocatedSharedMemory(pixel_size, region);
+  }
+  draw() {
+    return this.$.draw();
+  }
 };
 
 viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {

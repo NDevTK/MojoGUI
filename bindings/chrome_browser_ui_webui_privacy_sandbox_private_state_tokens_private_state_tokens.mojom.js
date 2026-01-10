@@ -117,6 +117,9 @@ private_state_tokens.mojom.PrivateStateTokensPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getIssuerTokenCounts() {
+    return this.$.getIssuerTokenCounts();
+  }
 };
 
 private_state_tokens.mojom.PrivateStateTokensPageHandlerRemoteCallHandler = class {

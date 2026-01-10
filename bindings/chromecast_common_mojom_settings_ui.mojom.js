@@ -133,6 +133,12 @@ chromecast.mojom.SettingsClientRemote = class {
   close() {
     this.proxy.close();
   }
+  handleSideSwipe(event, origin, touch_location) {
+    return this.$.handleSideSwipe(event, origin, touch_location);
+  }
+  sendPlatformInfo(platform_info_json) {
+    return this.$.sendPlatformInfo(platform_info_json);
+  }
 };
 
 chromecast.mojom.SettingsClientRemoteCallHandler = class {
@@ -315,6 +321,12 @@ chromecast.mojom.SettingsPlatformRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  connect(client) {
+    return this.$.connect(client);
+  }
+  requestVisible(visible) {
+    return this.$.requestVisible(visible);
   }
 };
 

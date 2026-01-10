@@ -177,6 +177,21 @@ network.mojom.RestrictedUDPSocketRemote = class {
   close() {
     this.proxy.close();
   }
+  joinGroup(group_address) {
+    return this.$.joinGroup(group_address);
+  }
+  leaveGroup(group_address) {
+    return this.$.leaveGroup(group_address);
+  }
+  receiveMore(num_additional_datagrams) {
+    return this.$.receiveMore(num_additional_datagrams);
+  }
+  send(data) {
+    return this.$.send(data);
+  }
+  sendTo(data, dest_addr, dns_query_type) {
+    return this.$.sendTo(data, dest_addr, dns_query_type);
+  }
 };
 
 network.mojom.RestrictedUDPSocketRemoteCallHandler = class {

@@ -110,6 +110,12 @@ audio.mojom.MlModelManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  setResidualEchoEstimationModel(tflite_file) {
+    return this.$.setResidualEchoEstimationModel(tflite_file);
+  }
+  stopServingResidualEchoEstimationModel() {
+    return this.$.stopServingResidualEchoEstimationModel();
+  }
 };
 
 audio.mojom.MlModelManagerRemoteCallHandler = class {

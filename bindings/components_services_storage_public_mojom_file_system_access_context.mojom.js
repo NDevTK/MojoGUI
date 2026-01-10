@@ -126,6 +126,15 @@ storage.mojom.FileSystemAccessContextRemote = class {
   close() {
     this.proxy.close();
   }
+  serializeHandle(token) {
+    return this.$.serializeHandle(token);
+  }
+  deserializeHandle(storage_key, bits, token) {
+    return this.$.deserializeHandle(storage_key, bits, token);
+  }
+  clone(receiever) {
+    return this.$.clone(receiever);
+  }
 };
 
 storage.mojom.FileSystemAccessContextRemoteCallHandler = class {

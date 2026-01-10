@@ -108,6 +108,9 @@ arc.mojom.IioSensorHostRemote = class {
   close() {
     this.proxy.close();
   }
+  registerSensorHalClient(client) {
+    return this.$.registerSensorHalClient(client);
+  }
 };
 
 arc.mojom.IioSensorHostRemoteCallHandler = class {
@@ -266,6 +269,12 @@ arc.mojom.IioSensorInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  onTabletModeChanged(is_tablet_mode_on) {
+    return this.$.onTabletModeChanged(is_tablet_mode_on);
   }
 };
 

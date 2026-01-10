@@ -618,6 +618,15 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlRemote = class {
   close() {
     this.proxy.close();
   }
+  getState() {
+    return this.$.getState();
+  }
+  start() {
+    return this.$.start();
+  }
+  replyToInquiry(reply) {
+    return this.$.replyToInquiry(reply);
+  }
 };
 
 crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler = class {
@@ -830,6 +839,9 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onRoutineStateChange(state) {
+    return this.$.onRoutineStateChange(state);
+  }
 };
 
 crosapi.mojom.TelemetryDiagnosticRoutineObserverRemoteCallHandler = class {
@@ -991,6 +1003,12 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createRoutine(routine_argument, routine_receiver, routine_observer) {
+    return this.$.createRoutine(routine_argument, routine_receiver, routine_observer);
+  }
+  isRoutineArgumentSupported(routine_argument) {
+    return this.$.isRoutineArgumentSupported(routine_argument);
   }
 };
 

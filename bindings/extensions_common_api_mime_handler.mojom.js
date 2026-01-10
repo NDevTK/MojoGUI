@@ -141,6 +141,12 @@ extensions.mime_handler.MimeHandlerServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getStreamInfo() {
+    return this.$.getStreamInfo();
+  }
+  setPdfPluginAttributes(pdf_plugin_attributes) {
+    return this.$.setPdfPluginAttributes(pdf_plugin_attributes);
+  }
 };
 
 extensions.mime_handler.MimeHandlerServiceRemoteCallHandler = class {
@@ -328,6 +334,9 @@ extensions.mime_handler.BeforeUnloadControlRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setShowBeforeUnloadDialog(show_dialog) {
+    return this.$.setShowBeforeUnloadDialog(show_dialog);
   }
 };
 

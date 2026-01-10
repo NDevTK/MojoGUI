@@ -138,6 +138,15 @@ data_decoder.mojom.StructuredHeadersParserRemote = class {
   close() {
     this.proxy.close();
   }
+  parseItem(header) {
+    return this.$.parseItem(header);
+  }
+  parseList(header) {
+    return this.$.parseList(header);
+  }
+  parseDictionary(header) {
+    return this.$.parseDictionary(header);
+  }
 };
 
 data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {

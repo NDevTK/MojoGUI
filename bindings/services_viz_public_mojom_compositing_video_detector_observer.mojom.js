@@ -107,6 +107,12 @@ viz.mojom.VideoDetectorObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onVideoActivityStarted() {
+    return this.$.onVideoActivityStarted();
+  }
+  onVideoActivityEnded() {
+    return this.$.onVideoActivityEnded();
+  }
 };
 
 viz.mojom.VideoDetectorObserverRemoteCallHandler = class {

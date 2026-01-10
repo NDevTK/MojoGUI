@@ -364,6 +364,33 @@ arc.mojom.NotificationsHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onDoNotDisturbStatusUpdated(status) {
+    return this.$.onDoNotDisturbStatusUpdated(status);
+  }
+  onNotificationPosted(notification_data) {
+    return this.$.onNotificationPosted(notification_data);
+  }
+  onNotificationRemoved(key) {
+    return this.$.onNotificationRemoved(key);
+  }
+  onNotificationUpdated(notification_data) {
+    return this.$.onNotificationUpdated(notification_data);
+  }
+  openMessageCenter() {
+    return this.$.openMessageCenter();
+  }
+  closeMessageCenter() {
+    return this.$.closeMessageCenter();
+  }
+  processUserAction(data) {
+    return this.$.processUserAction(data);
+  }
+  onLockScreenSettingUpdated(setting) {
+    return this.$.onLockScreenSettingUpdated(setting);
+  }
+  logInlineReplySent(key) {
+    return this.$.logInlineReplySent(key);
+  }
 };
 
 arc.mojom.NotificationsHostRemoteCallHandler = class {
@@ -835,6 +862,51 @@ arc.mojom.NotificationsInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  sendNotificationEventToAndroid(key, event) {
+    return this.$.sendNotificationEventToAndroid(key, event);
+  }
+  createNotificationWindow(key) {
+    return this.$.createNotificationWindow(key);
+  }
+  closeNotificationWindow(key) {
+    return this.$.closeNotificationWindow(key);
+  }
+  openNotificationSettings(key) {
+    return this.$.openNotificationSettings(key);
+  }
+  openNotificationSnoozeSettings(key) {
+    return this.$.openNotificationSnoozeSettings(key);
+  }
+  setDoNotDisturbStatusOnAndroid(status) {
+    return this.$.setDoNotDisturbStatusOnAndroid(status);
+  }
+  cancelPress(key) {
+    return this.$.cancelPress(key);
+  }
+  performDeferredUserAction(action_id) {
+    return this.$.performDeferredUserAction(action_id);
+  }
+  cancelDeferredUserAction(action_id) {
+    return this.$.cancelDeferredUserAction(action_id);
+  }
+  setLockScreenSettingOnAndroid(setting) {
+    return this.$.setLockScreenSettingOnAndroid(setting);
+  }
+  setNotificationConfiguration(configuration) {
+    return this.$.setNotificationConfiguration(configuration);
+  }
+  onMessageCenterVisibilityChanged(visibility) {
+    return this.$.onMessageCenterVisibilityChanged(visibility);
+  }
+  sendNotificationButtonClickToAndroid(key, action_button_index, input) {
+    return this.$.sendNotificationButtonClickToAndroid(key, action_button_index, input);
+  }
+  popUpAppNotificationSettings(key) {
+    return this.$.popUpAppNotificationSettings(key);
   }
 };
 

@@ -109,6 +109,9 @@ blink.mojom.PointerLockContextRemote = class {
   close() {
     this.proxy.close();
   }
+  requestMouseLockChange(unadjusted_movement) {
+    return this.$.requestMouseLockChange(unadjusted_movement);
+  }
 };
 
 blink.mojom.PointerLockContextRemoteCallHandler = class {

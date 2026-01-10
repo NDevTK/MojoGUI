@@ -262,6 +262,12 @@ media.mojom.SpeechRecognitionContextRemote = class {
   close() {
     this.proxy.close();
   }
+  bindRecognizer(receiver, client, options) {
+    return this.$.bindRecognizer(receiver, client, options);
+  }
+  bindWebSpeechRecognizer(session_receiver, session_client, audio_forwarder, channel_count, sample_rate, options, continuous) {
+    return this.$.bindWebSpeechRecognizer(session_receiver, session_client, audio_forwarder, channel_count, sample_rate, options, continuous);
+  }
 };
 
 media.mojom.SpeechRecognitionContextRemoteCallHandler = class {
@@ -468,6 +474,21 @@ media.mojom.SpeechRecognitionRecognizerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sendAudioToSpeechRecognitionService(buffer, media_start_pts) {
+    return this.$.sendAudioToSpeechRecognitionService(buffer, media_start_pts);
+  }
+  markDone() {
+    return this.$.markDone();
+  }
+  onLanguageChanged(language) {
+    return this.$.onLanguageChanged(language);
+  }
+  onMaskOffensiveWordsChanged(mask_offensive_words) {
+    return this.$.onMaskOffensiveWordsChanged(mask_offensive_words);
+  }
+  updateRecognitionContext(recognition_context) {
+    return this.$.updateRecognitionContext(recognition_context);
   }
 };
 
@@ -755,6 +776,18 @@ media.mojom.SpeechRecognitionRecognizerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onSpeechRecognitionRecognitionEvent(result) {
+    return this.$.onSpeechRecognitionRecognitionEvent(result);
+  }
+  onSpeechRecognitionStopped() {
+    return this.$.onSpeechRecognitionStopped();
+  }
+  onSpeechRecognitionError() {
+    return this.$.onSpeechRecognitionError();
+  }
+  onLanguageIdentificationEvent(event) {
+    return this.$.onLanguageIdentificationEvent(event);
+  }
 };
 
 media.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
@@ -1008,6 +1041,15 @@ media.mojom.SpeechRecognitionBrowserObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  speechRecognitionAvailabilityChanged(is_speech_recognition_available) {
+    return this.$.speechRecognitionAvailabilityChanged(is_speech_recognition_available);
+  }
+  speechRecognitionLanguageChanged(language) {
+    return this.$.speechRecognitionLanguageChanged(language);
+  }
+  speechRecognitionMaskOffensiveWordsChanged(mask_offensive_words) {
+    return this.$.speechRecognitionMaskOffensiveWordsChanged(mask_offensive_words);
+  }
 };
 
 media.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler = class {
@@ -1224,6 +1266,12 @@ media.mojom.SpeechRecognitionSurfaceRemote = class {
   close() {
     this.proxy.close();
   }
+  activate() {
+    return this.$.activate();
+  }
+  getBounds() {
+    return this.$.getBounds();
+  }
 };
 
 media.mojom.SpeechRecognitionSurfaceRemoteCallHandler = class {
@@ -1410,6 +1458,12 @@ media.mojom.SpeechRecognitionSurfaceClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onSessionEnded() {
+    return this.$.onSessionEnded();
+  }
+  onFullscreenToggled() {
+    return this.$.onFullscreenToggled();
   }
 };
 
@@ -1598,6 +1652,15 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindSpeechRecognitionBrowserObserver(observer) {
+    return this.$.bindSpeechRecognitionBrowserObserver(observer);
+  }
+  rEMOVED_1() {
+    return this.$.rEMOVED_1();
+  }
+  rEMOVED_2(observer) {
+    return this.$.rEMOVED_2(observer);
   }
 };
 

@@ -161,6 +161,15 @@ webnn.mojom.WebNNContextRemote = class {
   close() {
     this.proxy.close();
   }
+  createGraphBuilder(receiver) {
+    return this.$.createGraphBuilder(receiver);
+  }
+  createTensor(tensor_info, tensor_data) {
+    return this.$.createTensor(tensor_info, tensor_data);
+  }
+  createTensorFromMailbox(tensor_info, mailbox, fence) {
+    return this.$.createTensorFromMailbox(tensor_info, mailbox, fence);
+  }
 };
 
 webnn.mojom.WebNNContextRemoteCallHandler = class {

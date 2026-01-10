@@ -104,6 +104,9 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createParentPage(child_page, parent_page) {
+    return this.$.createParentPage(child_page, parent_page);
+  }
 };
 
 ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemoteCallHandler = class {

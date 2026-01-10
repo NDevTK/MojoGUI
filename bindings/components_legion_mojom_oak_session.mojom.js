@@ -160,6 +160,18 @@ legion.mojom.OakSessionRemote = class {
   close() {
     this.proxy.close();
   }
+  initiateHandshake() {
+    return this.$.initiateHandshake();
+  }
+  completeHandshake(response) {
+    return this.$.completeHandshake(response);
+  }
+  encrypt(input) {
+    return this.$.encrypt(input);
+  }
+  decrypt(input) {
+    return this.$.decrypt(input);
+  }
 };
 
 legion.mojom.OakSessionRemoteCallHandler = class {

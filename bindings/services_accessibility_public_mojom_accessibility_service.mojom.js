@@ -119,6 +119,9 @@ ax.mojom.AssistiveTechnologyControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  enableAssistiveTechnology(enabled_features) {
+    return this.$.enableAssistiveTechnology(enabled_features);
+  }
 };
 
 ax.mojom.AssistiveTechnologyControllerRemoteCallHandler = class {
@@ -280,6 +283,15 @@ ax.mojom.AccessibilityServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindAccessibilityServiceClient(accessibility_service_client) {
+    return this.$.bindAccessibilityServiceClient(accessibility_service_client);
+  }
+  bindAssistiveTechnologyController(at_controller, enabled_features) {
+    return this.$.bindAssistiveTechnologyController(at_controller, enabled_features);
+  }
+  connectDevToolsAgent(agent, type) {
+    return this.$.connectDevToolsAgent(agent, type);
   }
 };
 
@@ -528,6 +540,30 @@ ax.mojom.AccessibilityServiceClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindAutomation(automation) {
+    return this.$.bindAutomation(automation);
+  }
+  bindAutomationClient(automation_client) {
+    return this.$.bindAutomationClient(automation_client);
+  }
+  bindAutoclickClient(autoclick_client) {
+    return this.$.bindAutoclickClient(autoclick_client);
+  }
+  bindSpeechRecognition(sr_receiver) {
+    return this.$.bindSpeechRecognition(sr_receiver);
+  }
+  bindTts(tts_receiver) {
+    return this.$.bindTts(tts_receiver);
+  }
+  bindUserInput(user_input_receiver) {
+    return this.$.bindUserInput(user_input_receiver);
+  }
+  bindUserInterface(user_interface_receiver) {
+    return this.$.bindUserInterface(user_interface_receiver);
+  }
+  bindAccessibilityFileLoader(file_loader_receiver) {
+    return this.$.bindAccessibilityFileLoader(file_loader_receiver);
   }
 };
 

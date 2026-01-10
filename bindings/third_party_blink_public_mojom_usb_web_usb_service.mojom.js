@@ -160,6 +160,21 @@ blink.mojom.WebUsbServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  getDevices() {
+    return this.$.getDevices();
+  }
+  getDevice(guid, device_receiver) {
+    return this.$.getDevice(guid, device_receiver);
+  }
+  getPermission(options) {
+    return this.$.getPermission(options);
+  }
+  forgetDevice(guid) {
+    return this.$.forgetDevice(guid);
+  }
+  setClient(client) {
+    return this.$.setClient(client);
+  }
 };
 
 blink.mojom.WebUsbServiceRemoteCallHandler = class {

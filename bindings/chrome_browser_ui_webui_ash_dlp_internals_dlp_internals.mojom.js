@@ -256,6 +256,9 @@ dlp_internals.mojom.ReportingObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onReportEvent(event) {
+    return this.$.onReportEvent(event);
+  }
 };
 
 dlp_internals.mojom.ReportingObserverRemoteCallHandler = class {
@@ -448,6 +451,21 @@ dlp_internals.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getClipboardDataSource() {
+    return this.$.getClipboardDataSource();
+  }
+  getContentRestrictionsInfo() {
+    return this.$.getContentRestrictionsInfo();
+  }
+  observeReporting(observer) {
+    return this.$.observeReporting(observer);
+  }
+  getFilesDatabaseEntries() {
+    return this.$.getFilesDatabaseEntries();
+  }
+  getFileInode(file_name) {
+    return this.$.getFileInode(file_name);
   }
 };
 

@@ -154,6 +154,9 @@ chromeos.machine_learning.mojom.GrammarCheckerRemote = class {
   close() {
     this.proxy.close();
   }
+  check(query) {
+    return this.$.check(query);
+  }
 };
 
 chromeos.machine_learning.mojom.GrammarCheckerRemoteCallHandler = class {

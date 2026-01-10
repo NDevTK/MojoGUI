@@ -102,6 +102,9 @@ test.mojom.MojoFileSystemAccessTestRemote = class {
   close() {
     this.proxy.close();
   }
+  resolveTransferToken(h) {
+    return this.$.resolveTransferToken(h);
+  }
 };
 
 test.mojom.MojoFileSystemAccessTestRemoteCallHandler = class {

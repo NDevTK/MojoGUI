@@ -109,6 +109,9 @@ blink.mojom.CallStackGeneratorRemote = class {
   close() {
     this.proxy.close();
   }
+  collectJavaScriptCallStack() {
+    return this.$.collectJavaScriptCallStack();
+  }
 };
 
 blink.mojom.CallStackGeneratorRemoteCallHandler = class {

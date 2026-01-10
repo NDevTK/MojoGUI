@@ -195,6 +195,27 @@ blink.mojom.FindInPageRemote = class {
   close() {
     this.proxy.close();
   }
+  find(request_id, search_text, options) {
+    return this.$.find(request_id, search_text, options);
+  }
+  stopFinding(action) {
+    return this.$.stopFinding(action);
+  }
+  clearActiveFindMatch() {
+    return this.$.clearActiveFindMatch();
+  }
+  setClient(client) {
+    return this.$.setClient(client);
+  }
+  getNearestFindResult(point) {
+    return this.$.getNearestFindResult(point);
+  }
+  activateNearestFindResult(request_id, point) {
+    return this.$.activateNearestFindResult(request_id, point);
+  }
+  findMatchRects(current_version) {
+    return this.$.findMatchRects(current_version);
+  }
 };
 
 blink.mojom.FindInPageRemoteCallHandler = class {
@@ -539,6 +560,12 @@ blink.mojom.FindInPageClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setNumberOfMatches(request_id, number_of_matches, update_type) {
+    return this.$.setNumberOfMatches(request_id, number_of_matches, update_type);
+  }
+  setActiveMatch(request_id, active_match_rect, active_match_ordinal, update_type) {
+    return this.$.setActiveMatch(request_id, active_match_rect, active_match_ordinal, update_type);
   }
 };
 

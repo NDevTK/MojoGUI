@@ -159,6 +159,18 @@ ash.graduation_ui.mojom.GraduationUiHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  authenticateWebview() {
+    return this.$.authenticateWebview();
+  }
+  getProfileInfo() {
+    return this.$.getProfileInfo();
+  }
+  onScreenSwitched(screen) {
+    return this.$.onScreenSwitched(screen);
+  }
+  onTransferComplete() {
+    return this.$.onTransferComplete();
+  }
 };
 
 ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {

@@ -107,6 +107,9 @@ ash.mojom.sample_swa.ChildUntrustedPageRemote = class {
   close() {
     this.proxy.close();
   }
+  doSomethingForParent(task) {
+    return this.$.doSomethingForParent(task);
+  }
 };
 
 ash.mojom.sample_swa.ChildUntrustedPageRemoteCallHandler = class {
@@ -260,6 +263,9 @@ ash.mojom.sample_swa.ParentTrustedPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  doSomethingForChild(task) {
+    return this.$.doSomethingForChild(task);
   }
 };
 

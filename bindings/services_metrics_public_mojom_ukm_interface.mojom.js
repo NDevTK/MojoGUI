@@ -131,6 +131,9 @@ ukm.mojom.SingularUkmInterfaceRemote = class {
   close() {
     this.proxy.close();
   }
+  submit(entry) {
+    return this.$.submit(entry);
+  }
 };
 
 ukm.mojom.SingularUkmInterfaceRemoteCallHandler = class {
@@ -278,6 +281,9 @@ ukm.mojom.UkmRecorderClientInterfaceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setParameters(params) {
+    return this.$.setParameters(params);
   }
 };
 
@@ -433,6 +439,12 @@ ukm.mojom.UkmRecorderInterfaceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addEntry(entry) {
+    return this.$.addEntry(entry);
+  }
+  updateSourceURL(source_id, url) {
+    return this.$.updateSourceURL(source_id, url);
   }
 };
 
@@ -611,6 +623,9 @@ ukm.mojom.UkmRecorderFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createUkmRecorder(receiver, client_remote) {
+    return this.$.createUkmRecorder(receiver, client_remote);
   }
 };
 

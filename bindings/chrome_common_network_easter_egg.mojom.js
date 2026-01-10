@@ -121,6 +121,15 @@ chrome.mojom.NetworkEasterEggRemote = class {
   close() {
     this.proxy.close();
   }
+  getHighScore() {
+    return this.$.getHighScore();
+  }
+  updateHighScore(high_score) {
+    return this.$.updateHighScore(high_score);
+  }
+  resetHighScore() {
+    return this.$.resetHighScore();
+  }
 };
 
 chrome.mojom.NetworkEasterEggRemoteCallHandler = class {

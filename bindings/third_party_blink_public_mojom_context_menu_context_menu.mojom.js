@@ -227,6 +227,12 @@ blink.mojom.ContextMenuClientRemote = class {
   close() {
     this.proxy.close();
   }
+  customContextMenuAction(action) {
+    return this.$.customContextMenuAction(action);
+  }
+  contextMenuClosed(link_followed, impression) {
+    return this.$.contextMenuClosed(link_followed, impression);
+  }
 };
 
 blink.mojom.ContextMenuClientRemoteCallHandler = class {

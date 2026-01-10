@@ -145,6 +145,9 @@ browser_command.mojom.CommandHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createBrowserCommandHandler(handler) {
+    return this.$.createBrowserCommandHandler(handler);
+  }
 };
 
 browser_command.mojom.CommandHandlerFactoryRemoteCallHandler = class {
@@ -311,6 +314,12 @@ browser_command.mojom.CommandHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  canExecuteCommand(command_id) {
+    return this.$.canExecuteCommand(command_id);
+  }
+  executeCommand(command_id, click_info) {
+    return this.$.executeCommand(command_id, click_info);
   }
 };
 

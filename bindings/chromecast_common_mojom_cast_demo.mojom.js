@@ -124,6 +124,9 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  volumeChanged(level) {
+    return this.$.volumeChanged(level);
+  }
 };
 
 chromecast.shell.mojom.CastDemoVolumeChangeObserverRemoteCallHandler = class {
@@ -368,6 +371,45 @@ chromecast.shell.mojom.CastDemoRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  recordEvent(event_name, data) {
+    return this.$.recordEvent(event_name, data);
+  }
+  setRetailerName(retailer_name) {
+    return this.$.setRetailerName(retailer_name);
+  }
+  setStoreId(store_id) {
+    return this.$.setStoreId(store_id);
+  }
+  getRetailerName() {
+    return this.$.getRetailerName();
+  }
+  getStoreId() {
+    return this.$.getStoreId();
+  }
+  setDefaultVolumeLevel(level) {
+    return this.$.setDefaultVolumeLevel(level);
+  }
+  getDefaultVolumeLevel() {
+    return this.$.getDefaultVolumeLevel();
+  }
+  applyDefaultVolume() {
+    return this.$.applyDefaultVolume();
+  }
+  setWifiCredentials(ssid, psk) {
+    return this.$.setWifiCredentials(ssid, psk);
+  }
+  getAvailableWifiNetworks() {
+    return this.$.getAvailableWifiNetworks();
+  }
+  getConnectionStatus() {
+    return this.$.getConnectionStatus();
+  }
+  addVolumeChangeObserver(observer) {
+    return this.$.addVolumeChangeObserver(observer);
+  }
+  persistLocalStorage() {
+    return this.$.persistLocalStorage();
   }
 };
 

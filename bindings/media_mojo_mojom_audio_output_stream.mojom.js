@@ -144,6 +144,18 @@ media.mojom.AudioOutputStreamRemote = class {
   close() {
     this.proxy.close();
   }
+  play() {
+    return this.$.play();
+  }
+  pause() {
+    return this.$.pause();
+  }
+  flush() {
+    return this.$.flush();
+  }
+  setVolume(volume) {
+    return this.$.setVolume(volume);
+  }
 };
 
 media.mojom.AudioOutputStreamRemoteCallHandler = class {
@@ -389,6 +401,15 @@ media.mojom.AudioOutputStreamObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  didStartPlaying() {
+    return this.$.didStartPlaying();
+  }
+  didStopPlaying() {
+    return this.$.didStopPlaying();
+  }
+  didChangeAudibleState(is_audible) {
+    return this.$.didChangeAudibleState(is_audible);
+  }
 };
 
 media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
@@ -596,6 +617,9 @@ media.mojom.AudioOutputStreamProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  acquire(params, client) {
+    return this.$.acquire(params, client);
+  }
 };
 
 media.mojom.AudioOutputStreamProviderRemoteCallHandler = class {
@@ -745,6 +769,9 @@ media.mojom.AudioOutputStreamProviderClientRemote = class {
   close() {
     this.proxy.close();
   }
+  created(stream, data_pipe) {
+    return this.$.created(stream, data_pipe);
+  }
 };
 
 media.mojom.AudioOutputStreamProviderClientRemoteCallHandler = class {
@@ -892,6 +919,9 @@ media.mojom.DeviceSwitchInterfaceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  switchAudioOutputDeviceId(output_device_id) {
+    return this.$.switchAudioOutputDeviceId(output_device_id);
   }
 };
 

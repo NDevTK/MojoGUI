@@ -311,6 +311,24 @@ media.mojom.AudioStreamFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createInputStream(stream, client, observer, log, device_id, params, group_id, shared_memory_count, enable_agc, processing_config) {
+    return this.$.createInputStream(stream, client, observer, log, device_id, params, group_id, shared_memory_count, enable_agc, processing_config);
+  }
+  associateInputAndOutputForAec(input_stream_id, output_device_id) {
+    return this.$.associateInputAndOutputForAec(input_stream_id, output_device_id);
+  }
+  createOutputStream(stream, observer, log, device_id, params, group_id) {
+    return this.$.createOutputStream(stream, observer, log, device_id, params, group_id);
+  }
+  createSwitchableOutputStream(stream, device_switch_receiver, observer, log, device_id, params, group_id) {
+    return this.$.createSwitchableOutputStream(stream, device_switch_receiver, observer, log, device_id, params, group_id);
+  }
+  bindMuter(receiver, group_id) {
+    return this.$.bindMuter(receiver, group_id);
+  }
+  createLoopbackStream(receiver, client, observer, params, shared_memory_count, group_id) {
+    return this.$.createLoopbackStream(receiver, client, observer, params, shared_memory_count, group_id);
+  }
 };
 
 media.mojom.AudioStreamFactoryRemoteCallHandler = class {

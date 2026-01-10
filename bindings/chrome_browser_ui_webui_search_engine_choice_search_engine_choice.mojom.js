@@ -117,6 +117,9 @@ search_engine_choice.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 search_engine_choice.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -286,6 +289,21 @@ search_engine_choice.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  displayDialog() {
+    return this.$.displayDialog();
+  }
+  handleSearchEngineChoiceSelected(prepopulate_id, save_guest_mode_selection) {
+    return this.$.handleSearchEngineChoiceSelected(prepopulate_id, save_guest_mode_selection);
+  }
+  handleLearnMoreLinkClicked() {
+    return this.$.handleLearnMoreLinkClicked();
+  }
+  handleMoreButtonClicked() {
+    return this.$.handleMoreButtonClicked();
+  }
+  recordScrollState(scroll_state) {
+    return this.$.recordScrollState(scroll_state);
   }
 };
 

@@ -238,6 +238,39 @@ blink.mojom.AbortableAdAuctionRemote = class {
   close() {
     this.proxy.close();
   }
+  resolvedPromiseParam(auction, field, json_value) {
+    return this.$.resolvedPromiseParam(auction, field, json_value);
+  }
+  resolvedPerBuyerSignalsPromise(auction, per_buyer_signals) {
+    return this.$.resolvedPerBuyerSignalsPromise(auction, per_buyer_signals);
+  }
+  resolvedBuyerTkvSignalsPromise(auction, buyer, json_value) {
+    return this.$.resolvedBuyerTkvSignalsPromise(auction, buyer, json_value);
+  }
+  resolvedBuyerTimeoutsPromise(auction, field, buyer_timeouts) {
+    return this.$.resolvedBuyerTimeoutsPromise(auction, field, buyer_timeouts);
+  }
+  resolvedBuyerCurrenciesPromise(auction, per_buyer_currencies) {
+    return this.$.resolvedBuyerCurrenciesPromise(auction, per_buyer_currencies);
+  }
+  resolvedDirectFromSellerSignalsPromise(auction, direct_from_seller_signals) {
+    return this.$.resolvedDirectFromSellerSignalsPromise(auction, direct_from_seller_signals);
+  }
+  resolvedDirectFromSellerSignalsHeaderAdSlotPromise(auction, direct_from_seller_signals_header_ad_slot) {
+    return this.$.resolvedDirectFromSellerSignalsHeaderAdSlotPromise(auction, direct_from_seller_signals_header_ad_slot);
+  }
+  resolvedDeprecatedRenderURLReplacementsPromise(auction, deprecated_render_url_replacements) {
+    return this.$.resolvedDeprecatedRenderURLReplacementsPromise(auction, deprecated_render_url_replacements);
+  }
+  resolvedAuctionAdResponsePromise(auction, result) {
+    return this.$.resolvedAuctionAdResponsePromise(auction, result);
+  }
+  resolvedAdditionalBids(auction) {
+    return this.$.resolvedAdditionalBids(auction);
+  }
+  abort() {
+    return this.$.abort();
+  }
 };
 
 blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
@@ -795,6 +828,39 @@ blink.mojom.AdAuctionServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createAdRequest(config) {
+    return this.$.createAdRequest(config);
+  }
+  finalizeAd(ads_guid, config) {
+    return this.$.finalizeAd(ads_guid, config);
+  }
+  runAdAuction(config, abort_receiver) {
+    return this.$.runAdAuction(config, abort_receiver);
+  }
+  joinInterestGroup(group) {
+    return this.$.joinInterestGroup(group);
+  }
+  leaveInterestGroup(owner, name) {
+    return this.$.leaveInterestGroup(owner, name);
+  }
+  leaveInterestGroupForDocument() {
+    return this.$.leaveInterestGroupForDocument();
+  }
+  clearOriginJoinedInterestGroups(owner, interest_groups_to_keep) {
+    return this.$.clearOriginJoinedInterestGroups(owner, interest_groups_to_keep);
+  }
+  updateAdInterestGroups() {
+    return this.$.updateAdInterestGroups();
+  }
+  deprecatedGetURLFromURN(uuid_url, send_reports) {
+    return this.$.deprecatedGetURLFromURN(uuid_url, send_reports);
+  }
+  deprecatedReplaceInURN(uuid_url, replacements) {
+    return this.$.deprecatedReplaceInURN(uuid_url, replacements);
+  }
+  getInterestGroupAdAuctionData(sellers, config) {
+    return this.$.getInterestGroupAdAuctionData(sellers, config);
   }
 };
 

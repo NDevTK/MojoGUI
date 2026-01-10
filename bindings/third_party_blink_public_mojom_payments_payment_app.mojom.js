@@ -340,6 +340,33 @@ payments.mojom.PaymentManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  init(context_url, service_worker_scope) {
+    return this.$.init(context_url, service_worker_scope);
+  }
+  deletePaymentInstrument(instrument_key) {
+    return this.$.deletePaymentInstrument(instrument_key);
+  }
+  getPaymentInstrument(instrument_key) {
+    return this.$.getPaymentInstrument(instrument_key);
+  }
+  keysOfPaymentInstruments() {
+    return this.$.keysOfPaymentInstruments();
+  }
+  hasPaymentInstrument(instrument_key) {
+    return this.$.hasPaymentInstrument(instrument_key);
+  }
+  setPaymentInstrument(instrument_key, instrument) {
+    return this.$.setPaymentInstrument(instrument_key, instrument);
+  }
+  clearPaymentInstruments() {
+    return this.$.clearPaymentInstruments();
+  }
+  setUserHint(user_hint) {
+    return this.$.setUserHint(user_hint);
+  }
+  enableDelegations(delegations) {
+    return this.$.enableDelegations(delegations);
+  }
 };
 
 payments.mojom.PaymentManagerRemoteCallHandler = class {
@@ -773,6 +800,15 @@ payments.mojom.PaymentHandlerResponseCallbackRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onResponseForAbortPayment(payment_aborted) {
+    return this.$.onResponseForAbortPayment(payment_aborted);
+  }
+  onResponseForCanMakePayment(response) {
+    return this.$.onResponseForCanMakePayment(response);
+  }
+  onResponseForPaymentRequest(response) {
+    return this.$.onResponseForPaymentRequest(response);
   }
 };
 

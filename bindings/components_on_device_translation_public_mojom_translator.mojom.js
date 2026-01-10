@@ -123,6 +123,12 @@ on_device_translation.mojom.TranslatorRemote = class {
   close() {
     this.proxy.close();
   }
+  translate(input) {
+    return this.$.translate(input);
+  }
+  splitSentences(input) {
+    return this.$.splitSentences(input);
+  }
 };
 
 on_device_translation.mojom.TranslatorRemoteCallHandler = class {

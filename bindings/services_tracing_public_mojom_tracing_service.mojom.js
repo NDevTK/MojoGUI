@@ -130,6 +130,15 @@ tracing.mojom.TracingServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize(clients) {
+    return this.$.initialize(clients);
+  }
+  addClient(client) {
+    return this.$.addClient(client);
+  }
+  bindConsumerHost(receiver) {
+    return this.$.bindConsumerHost(receiver);
+  }
 };
 
 tracing.mojom.TracingServiceRemoteCallHandler = class {

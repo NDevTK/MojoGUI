@@ -232,6 +232,21 @@ paint_preview.mojom.PaintPreviewCompositorRemote = class {
   close() {
     this.proxy.close();
   }
+  beginSeparatedFrameComposite(request) {
+    return this.$.beginSeparatedFrameComposite(request);
+  }
+  bitmapForSeparatedFrame(frame_guid, clip_rect, scale_factor) {
+    return this.$.bitmapForSeparatedFrame(frame_guid, clip_rect, scale_factor);
+  }
+  beginMainFrameComposite(request) {
+    return this.$.beginMainFrameComposite(request);
+  }
+  bitmapForMainFrame(clip_rect, scale_factor) {
+    return this.$.bitmapForMainFrame(clip_rect, scale_factor);
+  }
+  setRootFrameUrl(url) {
+    return this.$.setRootFrameUrl(url);
+  }
 };
 
 paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
@@ -542,6 +557,15 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setDiscardableSharedMemoryManager(manager) {
+    return this.$.setDiscardableSharedMemoryManager(manager);
+  }
+  createCompositor(compositor) {
+    return this.$.createCompositor(compositor);
+  }
+  listCompositors() {
+    return this.$.listCompositors();
   }
 };
 

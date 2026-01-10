@@ -123,6 +123,12 @@ url.mojom.UrlTestRemote = class {
   close() {
     this.proxy.close();
   }
+  bounceUrl(in) {
+    return this.$.bounceUrl(in);
+  }
+  bounceOrigin(in) {
+    return this.$.bounceOrigin(in);
+  }
 };
 
 url.mojom.UrlTestRemoteCallHandler = class {

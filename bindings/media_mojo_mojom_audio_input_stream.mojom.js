@@ -127,6 +127,12 @@ media.mojom.AudioInputStreamRemote = class {
   close() {
     this.proxy.close();
   }
+  record() {
+    return this.$.record();
+  }
+  setVolume(volume) {
+    return this.$.setVolume(volume);
+  }
 };
 
 media.mojom.AudioInputStreamRemoteCallHandler = class {
@@ -310,6 +316,12 @@ media.mojom.AudioInputStreamClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onError(code) {
+    return this.$.onError(code);
+  }
+  onMutedStateChanged(is_muted) {
+    return this.$.onMutedStateChanged(is_muted);
+  }
 };
 
 media.mojom.AudioInputStreamClientRemoteCallHandler = class {
@@ -485,6 +497,9 @@ media.mojom.AudioInputStreamObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  didStartRecording() {
+    return this.$.didStartRecording();
   }
 };
 

@@ -109,6 +109,9 @@ network.mojom.NetworkQualityEstimatorManagerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onNetworkQualityChanged(type, http_rtt, transport_rtt, downlink_bandwidth_kbps) {
+    return this.$.onNetworkQualityChanged(type, http_rtt, transport_rtt, downlink_bandwidth_kbps);
+  }
 };
 
 network.mojom.NetworkQualityEstimatorManagerClientRemoteCallHandler = class {
@@ -256,6 +259,9 @@ network.mojom.NetworkQualityEstimatorManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestNotifications(client) {
+    return this.$.requestNotifications(client);
   }
 };
 

@@ -112,6 +112,12 @@ blink.mojom.AecDumpAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  start(file) {
+    return this.$.start(file);
+  }
+  stop() {
+    return this.$.stop();
+  }
 };
 
 blink.mojom.AecDumpAgentRemoteCallHandler = class {
@@ -288,6 +294,9 @@ blink.mojom.AecDumpManagerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  add(agent) {
+    return this.$.add(agent);
   }
 };
 

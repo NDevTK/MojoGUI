@@ -125,6 +125,12 @@ network.mojom.SocketBrokerRemote = class {
   close() {
     this.proxy.close();
   }
+  createTcpSocket(address_family) {
+    return this.$.createTcpSocket(address_family);
+  }
+  createUdpSocket(address_family) {
+    return this.$.createUdpSocket(address_family);
+  }
 };
 
 network.mojom.SocketBrokerRemoteCallHandler = class {

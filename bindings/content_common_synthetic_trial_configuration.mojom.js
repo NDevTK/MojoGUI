@@ -118,6 +118,12 @@ content.mojom.SyntheticTrialConfigurationRemote = class {
   close() {
     this.proxy.close();
   }
+  addOrUpdateSyntheticTrialGroups(groups) {
+    return this.$.addOrUpdateSyntheticTrialGroups(groups);
+  }
+  removeSyntheticTrialGroups(groups) {
+    return this.$.removeSyntheticTrialGroups(groups);
+  }
 };
 
 content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {

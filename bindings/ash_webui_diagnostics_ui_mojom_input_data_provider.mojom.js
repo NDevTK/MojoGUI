@@ -191,6 +191,15 @@ ash.diagnostics.mojom.KeyboardObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onKeyEvent(event) {
+    return this.$.onKeyEvent(event);
+  }
+  onKeyEventsPaused() {
+    return this.$.onKeyEventsPaused();
+  }
+  onKeyEventsResumed() {
+    return this.$.onKeyEventsResumed();
+  }
 };
 
 ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
@@ -397,6 +406,9 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onInternalDisplayPowerStateChanged(is_display_on) {
+    return this.$.onInternalDisplayPowerStateChanged(is_display_on);
+  }
 };
 
 ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemoteCallHandler = class {
@@ -545,6 +557,9 @@ ash.diagnostics.mojom.TabletModeObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onTabletModeChanged(is_tablet_mode) {
+    return this.$.onTabletModeChanged(is_tablet_mode);
+  }
 };
 
 ash.diagnostics.mojom.TabletModeObserverRemoteCallHandler = class {
@@ -692,6 +707,9 @@ ash.diagnostics.mojom.LidStateObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLidStateChanged(is_lid_open) {
+    return this.$.onLidStateChanged(is_lid_open);
   }
 };
 
@@ -858,6 +876,18 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onKeyboardConnected(new_keyboard) {
+    return this.$.onKeyboardConnected(new_keyboard);
+  }
+  onKeyboardDisconnected(id) {
+    return this.$.onKeyboardDisconnected(id);
+  }
+  onTouchDeviceConnected(new_touch_device) {
+    return this.$.onTouchDeviceConnected(new_touch_device);
+  }
+  onTouchDeviceDisconnected(id) {
+    return this.$.onTouchDeviceDisconnected(id);
   }
 };
 
@@ -1158,6 +1188,33 @@ ash.diagnostics.mojom.InputDataProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getConnectedDevices() {
+    return this.$.getConnectedDevices();
+  }
+  observeConnectedDevices(observer) {
+    return this.$.observeConnectedDevices(observer);
+  }
+  observeKeyEvents(id, observer) {
+    return this.$.observeKeyEvents(id, observer);
+  }
+  observeTabletMode(observer) {
+    return this.$.observeTabletMode(observer);
+  }
+  observeLidState(observer) {
+    return this.$.observeLidState(observer);
+  }
+  observeInternalDisplayPowerState(observer) {
+    return this.$.observeInternalDisplayPowerState(observer);
+  }
+  moveAppToTestingScreen(evdev_id) {
+    return this.$.moveAppToTestingScreen(evdev_id);
+  }
+  moveAppBackToPreviousScreen() {
+    return this.$.moveAppBackToPreviousScreen();
+  }
+  setA11yTouchPassthrough(enabled) {
+    return this.$.setA11yTouchPassthrough(enabled);
   }
 };
 

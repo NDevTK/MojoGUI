@@ -218,6 +218,9 @@ blink.mojom.AssociatedInterfaceProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getAssociatedInterface(name, receiver) {
+    return this.$.getAssociatedInterface(name, receiver);
+  }
 };
 
 blink.mojom.AssociatedInterfaceProviderRemoteCallHandler = class {

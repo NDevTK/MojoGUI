@@ -202,6 +202,42 @@ performance_manager.mojom.DocumentCoordinationUnitRemote = class {
   close() {
     this.proxy.close();
   }
+  setNetworkAlmostIdle() {
+    return this.$.setNetworkAlmostIdle();
+  }
+  setLifecycleState(state) {
+    return this.$.setLifecycleState(state);
+  }
+  setHasNonEmptyBeforeUnload(has_nonempty_beforeunload) {
+    return this.$.setHasNonEmptyBeforeUnload(has_nonempty_beforeunload);
+  }
+  setHadFormInteraction() {
+    return this.$.setHadFormInteraction();
+  }
+  setHadUserEdits() {
+    return this.$.setHadUserEdits();
+  }
+  onStartedUsingWebRTC() {
+    return this.$.onStartedUsingWebRTC();
+  }
+  onStoppedUsingWebRTC() {
+    return this.$.onStoppedUsingWebRTC();
+  }
+  setIsAdFrame(is_ad_frame) {
+    return this.$.setIsAdFrame(is_ad_frame);
+  }
+  onNonPersistentNotificationCreated() {
+    return this.$.onNonPersistentNotificationCreated();
+  }
+  onFirstContentfulPaint(time_since_navigation_start) {
+    return this.$.onFirstContentfulPaint(time_since_navigation_start);
+  }
+  onWebMemoryMeasurementRequested(mode) {
+    return this.$.onWebMemoryMeasurementRequested(mode);
+  }
+  onFreezingOriginTrialOptOut() {
+    return this.$.onFreezingOriginTrialOptOut();
+  }
 };
 
 performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
@@ -709,6 +745,24 @@ performance_manager.mojom.ProcessCoordinationUnitRemote = class {
   close() {
     this.proxy.close();
   }
+  setMainThreadTaskLoadIsLow(main_thread_task_load_is_low) {
+    return this.$.setMainThreadTaskLoadIsLow(main_thread_task_load_is_low);
+  }
+  onV8ContextCreated(description, iframe_attribution_data) {
+    return this.$.onV8ContextCreated(description, iframe_attribution_data);
+  }
+  onV8ContextDetached(v8_context_token) {
+    return this.$.onV8ContextDetached(v8_context_token);
+  }
+  onV8ContextDestroyed(v8_context_token) {
+    return this.$.onV8ContextDestroyed(v8_context_token);
+  }
+  onRemoteIframeAttached(parent_frame_token, remote_frame_token, iframe_attribution_data) {
+    return this.$.onRemoteIframeAttached(parent_frame_token, remote_frame_token, iframe_attribution_data);
+  }
+  onRemoteIframeDetached(parent_frame_token, remote_frame_token) {
+    return this.$.onRemoteIframeDetached(parent_frame_token, remote_frame_token);
+  }
 };
 
 performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
@@ -1007,6 +1061,9 @@ performance_manager.mojom.ChildProcessCoordinationUnitRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  initializeChildProcessCoordination() {
+    return this.$.initializeChildProcessCoordination();
   }
 };
 

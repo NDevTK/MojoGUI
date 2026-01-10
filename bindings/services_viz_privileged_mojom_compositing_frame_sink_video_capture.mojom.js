@@ -170,6 +170,12 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote = class {
   close() {
     this.proxy.close();
   }
+  done() {
+    return this.$.done();
+  }
+  provideFeedback(feedback) {
+    return this.$.provideFeedback(feedback);
+  }
 };
 
 viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler = class {
@@ -371,6 +377,21 @@ viz.mojom.FrameSinkVideoConsumerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onFrameCaptured(data, info, content_rect, callbacks) {
+    return this.$.onFrameCaptured(data, info, content_rect, callbacks);
+  }
+  onNewCaptureVersion(capture_version) {
+    return this.$.onNewCaptureVersion(capture_version);
+  }
+  onFrameWithEmptyRegionCapture() {
+    return this.$.onFrameWithEmptyRegionCapture();
+  }
+  onStopped() {
+    return this.$.onStopped();
+  }
+  onLog(message) {
+    return this.$.onLog(message);
   }
 };
 
@@ -699,6 +720,39 @@ viz.mojom.FrameSinkVideoCapturerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setFormat(format) {
+    return this.$.setFormat(format);
+  }
+  setMinCapturePeriod(min_period) {
+    return this.$.setMinCapturePeriod(min_period);
+  }
+  setMinSizeChangePeriod(min_period) {
+    return this.$.setMinSizeChangePeriod(min_period);
+  }
+  setResolutionConstraints(min_size, max_size, use_fixed_aspect_ratio) {
+    return this.$.setResolutionConstraints(min_size, max_size, use_fixed_aspect_ratio);
+  }
+  setAutoThrottlingEnabled(enabled) {
+    return this.$.setAutoThrottlingEnabled(enabled);
+  }
+  setAnimationFpsLockIn(enabled, majority_damaged_pixel_min_ratio) {
+    return this.$.setAnimationFpsLockIn(enabled, majority_damaged_pixel_min_ratio);
+  }
+  changeTarget(target, sub_capture_version) {
+    return this.$.changeTarget(target, sub_capture_version);
+  }
+  start(consumer, buffer_format_preference) {
+    return this.$.start(consumer, buffer_format_preference);
+  }
+  stop() {
+    return this.$.stop();
+  }
+  requestRefreshFrame() {
+    return this.$.requestRefreshFrame();
+  }
+  createOverlay(stacking_index, receiver) {
+    return this.$.createOverlay(stacking_index, receiver);
   }
 };
 
@@ -1150,6 +1204,15 @@ viz.mojom.FrameSinkVideoCaptureOverlayRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setImageAndBounds(image, bounds) {
+    return this.$.setImageAndBounds(image, bounds);
+  }
+  setBounds(bounds) {
+    return this.$.setBounds(bounds);
+  }
+  onCapturedMouseEvent(coordinates) {
+    return this.$.onCapturedMouseEvent(coordinates);
   }
 };
 

@@ -119,6 +119,12 @@ updater.mojom.UpdateServiceInternalRemote = class {
   close() {
     this.proxy.close();
   }
+  run() {
+    return this.$.run();
+  }
+  hello() {
+    return this.$.hello();
+  }
 };
 
 updater.mojom.UpdateServiceInternalRemoteCallHandler = class {

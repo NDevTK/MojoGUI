@@ -251,6 +251,21 @@ device.mojom.SensorProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getSensor(type) {
+    return this.$.getSensor(type);
+  }
+  createVirtualSensor(type, metadata) {
+    return this.$.createVirtualSensor(type, metadata);
+  }
+  updateVirtualSensor(type, reading) {
+    return this.$.updateVirtualSensor(type, reading);
+  }
+  removeVirtualSensor(type) {
+    return this.$.removeVirtualSensor(type);
+  }
+  getVirtualSensorInformation(type) {
+    return this.$.getVirtualSensorInformation(type);
+  }
 };
 
 device.mojom.SensorProviderRemoteCallHandler = class {

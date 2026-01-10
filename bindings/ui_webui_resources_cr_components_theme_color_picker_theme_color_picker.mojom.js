@@ -151,6 +151,9 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createThemeColorPickerHandler(handler, client) {
+    return this.$.createThemeColorPickerHandler(handler, client);
+  }
 };
 
 theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemoteCallHandler = class {
@@ -337,6 +340,27 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getChromeColors(is_dark_mode) {
+    return this.$.getChromeColors(is_dark_mode);
+  }
+  updateTheme() {
+    return this.$.updateTheme();
+  }
+  setDefaultColor() {
+    return this.$.setDefaultColor();
+  }
+  setGreyDefaultColor() {
+    return this.$.setGreyDefaultColor();
+  }
+  setSeedColor(seed_color, variant) {
+    return this.$.setSeedColor(seed_color, variant);
+  }
+  setSeedColorFromHue(hue) {
+    return this.$.setSeedColorFromHue(hue);
+  }
+  removeBackgroundImage() {
+    return this.$.removeBackgroundImage();
   }
 };
 
@@ -665,6 +689,9 @@ theme_color_picker.mojom.ThemeColorPickerClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setTheme(theme) {
+    return this.$.setTheme(theme);
   }
 };
 

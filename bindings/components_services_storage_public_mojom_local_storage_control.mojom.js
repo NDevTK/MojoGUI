@@ -167,6 +167,30 @@ storage.mojom.LocalStorageControlRemote = class {
   close() {
     this.proxy.close();
   }
+  bindStorageArea(storage_key, receiver) {
+    return this.$.bindStorageArea(storage_key, receiver);
+  }
+  getUsage() {
+    return this.$.getUsage();
+  }
+  deleteStorage(storage_key) {
+    return this.$.deleteStorage(storage_key);
+  }
+  cleanUpStorage() {
+    return this.$.cleanUpStorage();
+  }
+  flush() {
+    return this.$.flush();
+  }
+  purgeMemory() {
+    return this.$.purgeMemory();
+  }
+  applyPolicyUpdates(policy_updates) {
+    return this.$.applyPolicyUpdates(policy_updates);
+  }
+  forceKeepSessionState() {
+    return this.$.forceKeepSessionState();
+  }
 };
 
 storage.mojom.LocalStorageControlRemoteCallHandler = class {

@@ -107,6 +107,9 @@ content.mojom.WebUIHostRemote = class {
   close() {
     this.proxy.close();
   }
+  send(message, args) {
+    return this.$.send(message, args);
+  }
 };
 
 content.mojom.WebUIHostRemoteCallHandler = class {
@@ -255,6 +258,9 @@ content.mojom.WebUIRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setProperty(property_name, property_value_json) {
+    return this.$.setProperty(property_name, property_value_json);
   }
 };
 

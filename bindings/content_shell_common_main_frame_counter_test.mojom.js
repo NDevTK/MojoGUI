@@ -108,6 +108,9 @@ content.mojom.MainFrameCounterTestRemote = class {
   close() {
     this.proxy.close();
   }
+  hasMainFrame() {
+    return this.$.hasMainFrame();
+  }
 };
 
 content.mojom.MainFrameCounterTestRemoteCallHandler = class {

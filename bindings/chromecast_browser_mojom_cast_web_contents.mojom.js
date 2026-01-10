@@ -202,6 +202,39 @@ chromecast.mojom.CastWebContentsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  pageStateChanged(state) {
+    return this.$.pageStateChanged(state);
+  }
+  pageStopped(state, error_code) {
+    return this.$.pageStopped(state, error_code);
+  }
+  renderFrameCreated(render_process_id, render_frame_id) {
+    return this.$.renderFrameCreated(render_process_id, render_frame_id);
+  }
+  mainFrameFinishedNavigation() {
+    return this.$.mainFrameFinishedNavigation();
+  }
+  updateTitle(title) {
+    return this.$.updateTitle(title);
+  }
+  updateFaviconURL(url) {
+    return this.$.updateFaviconURL(url);
+  }
+  didFirstVisuallyNonEmptyPaint() {
+    return this.$.didFirstVisuallyNonEmptyPaint();
+  }
+  resourceLoadFailed() {
+    return this.$.resourceLoadFailed();
+  }
+  onRenderProcessReady(pid) {
+    return this.$.onRenderProcessReady(pid);
+  }
+  mediaPlaybackChanged(media_playing) {
+    return this.$.mediaPlaybackChanged(media_playing);
+  }
+  innerContentsCreated(web_contents) {
+    return this.$.innerContentsCreated(web_contents);
+  }
 };
 
 chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
@@ -728,6 +761,48 @@ chromecast.mojom.CastWebContentsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setAppProperties(app_id, session_id, is_audio_app, app_web_url, enforce_feature_permissions, feature_permissions, additional_feature_permission_origins) {
+    return this.$.setAppProperties(app_id, session_id, is_audio_app, app_web_url, enforce_feature_permissions, feature_permissions, additional_feature_permission_origins);
+  }
+  setGroupInfo(session_id, is_multizone_launch) {
+    return this.$.setGroupInfo(session_id, is_multizone_launch);
+  }
+  addRendererFeatures(features) {
+    return this.$.addRendererFeatures(features);
+  }
+  setInterfacesForRenderer(remote_interfaces) {
+    return this.$.setInterfacesForRenderer(remote_interfaces);
+  }
+  loadUrl(url) {
+    return this.$.loadUrl(url);
+  }
+  closePage() {
+    return this.$.closePage();
+  }
+  setWebVisibilityAndPaint(visible) {
+    return this.$.setWebVisibilityAndPaint(visible);
+  }
+  blockMediaLoading(blocked) {
+    return this.$.blockMediaLoading(blocked);
+  }
+  blockMediaStarting(blocked) {
+    return this.$.blockMediaStarting(blocked);
+  }
+  enableBackgroundVideoPlayback(enabled) {
+    return this.$.enableBackgroundVideoPlayback(enabled);
+  }
+  connectToBindingsService(api_bindings_remote) {
+    return this.$.connectToBindingsService(api_bindings_remote);
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  setEnabledForRemoteDebugging(enabled) {
+    return this.$.setEnabledForRemoteDebugging(enabled);
+  }
+  getMainFramePid() {
+    return this.$.getMainFramePid();
   }
 };
 

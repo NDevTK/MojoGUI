@@ -216,6 +216,12 @@ extensions.mojom.MessagePortRemote = class {
   close() {
     this.proxy.close();
   }
+  dispatchDisconnect(error) {
+    return this.$.dispatchDisconnect(error);
+  }
+  deliverMessage(message) {
+    return this.$.deliverMessage(message);
+  }
 };
 
 extensions.mojom.MessagePortRemoteCallHandler = class {
@@ -404,6 +410,15 @@ extensions.mojom.MessagePortHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  closePort(close_channel, error_message) {
+    return this.$.closePort(close_channel, error_message);
+  }
+  postMessage(message) {
+    return this.$.postMessage(message);
+  }
+  responsePending() {
+    return this.$.responsePending();
   }
 };
 

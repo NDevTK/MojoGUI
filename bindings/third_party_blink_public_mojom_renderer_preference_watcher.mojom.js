@@ -102,6 +102,9 @@ blink.mojom.RendererPreferenceWatcherRemote = class {
   close() {
     this.proxy.close();
   }
+  notifyUpdate(new_prefs) {
+    return this.$.notifyUpdate(new_prefs);
+  }
 };
 
 blink.mojom.RendererPreferenceWatcherRemoteCallHandler = class {

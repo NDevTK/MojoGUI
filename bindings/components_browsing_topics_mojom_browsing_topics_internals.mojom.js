@@ -247,6 +247,18 @@ browsing_topics.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getBrowsingTopicsConfiguration() {
+    return this.$.getBrowsingTopicsConfiguration();
+  }
+  getBrowsingTopicsState(calculate_now) {
+    return this.$.getBrowsingTopicsState(calculate_now);
+  }
+  getModelInfo() {
+    return this.$.getModelInfo();
+  }
+  classifyHosts(hosts) {
+    return this.$.classifyHosts(hosts);
+  }
 };
 
 browsing_topics.mojom.PageHandlerRemoteCallHandler = class {

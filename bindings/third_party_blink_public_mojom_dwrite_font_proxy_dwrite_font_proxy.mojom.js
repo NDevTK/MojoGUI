@@ -215,6 +215,24 @@ blink.mojom.DWriteFontProxyRemote = class {
   close() {
     this.proxy.close();
   }
+  findFamily(family_name) {
+    return this.$.findFamily(family_name);
+  }
+  getFamilyCount() {
+    return this.$.getFamilyCount();
+  }
+  getFamilyNames(family_index) {
+    return this.$.getFamilyNames(family_index);
+  }
+  getFontFileHandles(family_index) {
+    return this.$.getFontFileHandles(family_index);
+  }
+  matchUniqueFont(font_unique_name) {
+    return this.$.matchUniqueFont(font_unique_name);
+  }
+  mapCharacters(text, font_style, locale_name, reading_direction, base_family_name) {
+    return this.$.mapCharacters(text, font_style, locale_name, reading_direction, base_family_name);
+  }
 };
 
 blink.mojom.DWriteFontProxyRemoteCallHandler = class {

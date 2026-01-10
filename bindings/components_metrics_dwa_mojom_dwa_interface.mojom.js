@@ -232,6 +232,9 @@ metrics.dwa.mojom.DwaRecorderInterfaceRemote = class {
   close() {
     this.proxy.close();
   }
+  addEntry(entry) {
+    return this.$.addEntry(entry);
+  }
 };
 
 metrics.dwa.mojom.DwaRecorderInterfaceRemoteCallHandler = class {
@@ -380,6 +383,9 @@ metrics.dwa.mojom.DwaRecorderFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createDwaRecorder(receiver, client_remote) {
+    return this.$.createDwaRecorder(receiver, client_remote);
   }
 };
 

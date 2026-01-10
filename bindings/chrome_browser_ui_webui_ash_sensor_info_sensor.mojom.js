@@ -153,6 +153,9 @@ sensor.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 sensor.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -304,6 +307,12 @@ sensor.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startRecordingUpdate() {
+    return this.$.startRecordingUpdate();
+  }
+  stopRecordingUpdate() {
+    return this.$.stopRecordingUpdate();
   }
 };
 

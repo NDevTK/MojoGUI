@@ -140,6 +140,9 @@ arc.keymaster.mojom.CertStoreInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  updatePlaceholderKeys(keys) {
+    return this.$.updatePlaceholderKeys(keys);
+  }
 };
 
 arc.keymaster.mojom.CertStoreInstanceRemoteCallHandler = class {

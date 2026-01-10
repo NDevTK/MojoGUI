@@ -128,6 +128,12 @@ optimization_guide.mojom.PageTextConsumerRemote = class {
   close() {
     this.proxy.close();
   }
+  onTextDumpChunk(chunk) {
+    return this.$.onTextDumpChunk(chunk);
+  }
+  onChunksEnd() {
+    return this.$.onChunksEnd();
+  }
 };
 
 optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
@@ -305,6 +311,9 @@ optimization_guide.mojom.PageTextServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestPageTextDump(request, consumer) {
+    return this.$.requestPageTextDump(request, consumer);
   }
 };
 

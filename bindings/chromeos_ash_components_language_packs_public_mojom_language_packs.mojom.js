@@ -166,6 +166,9 @@ ash.language.mojom.LanguagePacksObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onPackStateChanged(info) {
+    return this.$.onPackStateChanged(info);
+  }
 };
 
 ash.language.mojom.LanguagePacksObserverRemoteCallHandler = class {
@@ -363,6 +366,21 @@ ash.language.mojom.LanguagePacksRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getPackInfo(feature_id, language) {
+    return this.$.getPackInfo(feature_id, language);
+  }
+  installPack(feature_id, language) {
+    return this.$.installPack(feature_id, language);
+  }
+  installBasePack(feature_id) {
+    return this.$.installBasePack(feature_id);
+  }
+  uninstallPack(feature_id, language) {
+    return this.$.uninstallPack(feature_id, language);
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
   }
 };
 

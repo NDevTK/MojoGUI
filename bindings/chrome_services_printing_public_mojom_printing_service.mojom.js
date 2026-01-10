@@ -128,6 +128,18 @@ printing.mojom.PrintingServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  bindPdfNupConverter(receiver) {
+    return this.$.bindPdfNupConverter(receiver);
+  }
+  bindPdfToPwgRasterConverter(receiver) {
+    return this.$.bindPdfToPwgRasterConverter(receiver);
+  }
+  bindPdfFlattener(receiver) {
+    return this.$.bindPdfFlattener(receiver);
+  }
+  bindPdfToEmfConverterFactory(receiver) {
+    return this.$.bindPdfToEmfConverterFactory(receiver);
+  }
 };
 
 printing.mojom.PrintingServiceRemoteCallHandler = class {

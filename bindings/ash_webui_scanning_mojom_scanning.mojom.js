@@ -246,6 +246,21 @@ ash.scanning.mojom.ScanJobObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onPageProgress(page_number, progress_percent) {
+    return this.$.onPageProgress(page_number, progress_percent);
+  }
+  onPageComplete(page_data, new_page_index) {
+    return this.$.onPageComplete(page_data, new_page_index);
+  }
+  onScanComplete(result, scanned_file_paths) {
+    return this.$.onScanComplete(result, scanned_file_paths);
+  }
+  onCancelComplete(success) {
+    return this.$.onCancelComplete(success);
+  }
+  onMultiPageScanFail(result) {
+    return this.$.onMultiPageScanFail(result);
+  }
 };
 
 ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
@@ -559,6 +574,21 @@ ash.scanning.mojom.ScanServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getScanners() {
+    return this.$.getScanners();
+  }
+  getScannerCapabilities(scanner_id) {
+    return this.$.getScannerCapabilities(scanner_id);
+  }
+  startScan(scanner_id, settings, observer) {
+    return this.$.startScan(scanner_id, settings, observer);
+  }
+  startMultiPageScan(scanner_id, settings, observer) {
+    return this.$.startMultiPageScan(scanner_id, settings, observer);
+  }
+  cancelScan() {
+    return this.$.cancelScan();
   }
 };
 
@@ -879,6 +909,18 @@ ash.scanning.mojom.MultiPageScanControllerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  scanNextPage(scanner_id, settings) {
+    return this.$.scanNextPage(scanner_id, settings);
+  }
+  removePage(page_index) {
+    return this.$.removePage(page_index);
+  }
+  rescanPage(scanner_id, settings, page_index) {
+    return this.$.rescanPage(scanner_id, settings, page_index);
+  }
+  completeMultiPageScan() {
+    return this.$.completeMultiPageScan();
   }
 };
 

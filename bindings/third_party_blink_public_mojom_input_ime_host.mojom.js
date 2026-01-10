@@ -134,6 +134,9 @@ blink.mojom.ImeRenderWidgetHostRemote = class {
   close() {
     this.proxy.close();
   }
+  updateCursorAnchorInfo(cursor_anchor_info) {
+    return this.$.updateCursorAnchorInfo(cursor_anchor_info);
+  }
 };
 
 blink.mojom.ImeRenderWidgetHostRemoteCallHandler = class {

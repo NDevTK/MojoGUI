@@ -125,6 +125,9 @@ actor_internals.mojom.PageRemote = class {
   close() {
     this.proxy.close();
   }
+  journalEntryAdded(entry) {
+    return this.$.journalEntryAdded(entry);
+  }
 };
 
 actor_internals.mojom.PageRemoteCallHandler = class {
@@ -276,6 +279,12 @@ actor_internals.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  startLogging() {
+    return this.$.startLogging();
+  }
+  stopLogging() {
+    return this.$.stopLogging();
   }
 };
 
@@ -454,6 +463,9 @@ actor_internals.mojom.PageHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
   }
 };
 

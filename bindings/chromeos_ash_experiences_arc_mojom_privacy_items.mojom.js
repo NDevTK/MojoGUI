@@ -139,6 +139,15 @@ arc.mojom.PrivacyItemsHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onPrivacyItemsChanged(privacy_items) {
+    return this.$.onPrivacyItemsChanged(privacy_items);
+  }
+  onMicCameraIndicatorRequirementChanged(flag) {
+    return this.$.onMicCameraIndicatorRequirementChanged(flag);
+  }
+  onLocationIndicatorRequirementChanged(flag) {
+    return this.$.onLocationIndicatorRequirementChanged(flag);
+  }
 };
 
 arc.mojom.PrivacyItemsHostRemoteCallHandler = class {
@@ -356,6 +365,12 @@ arc.mojom.PrivacyItemsInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  onStaticPrivacyIndicatorBoundsChanged(displayId, bounds) {
+    return this.$.onStaticPrivacyIndicatorBoundsChanged(displayId, bounds);
   }
 };
 

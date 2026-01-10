@@ -105,6 +105,9 @@ device.mojom.PublicIpAddressGeolocationProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  createGeolocation(tag, receiver, client_id) {
+    return this.$.createGeolocation(tag, receiver, client_id);
+  }
 };
 
 device.mojom.PublicIpAddressGeolocationProviderRemoteCallHandler = class {

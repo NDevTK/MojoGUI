@@ -294,6 +294,30 @@ discards.mojom.DetailsProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  getTabDiscardsInfo() {
+    return this.$.getTabDiscardsInfo();
+  }
+  setAutoDiscardable(tab_id, is_auto_discardable) {
+    return this.$.setAutoDiscardable(tab_id, is_auto_discardable);
+  }
+  discardById(tab_id, reason) {
+    return this.$.discardById(tab_id, reason);
+  }
+  freezeById(tab_id) {
+    return this.$.freezeById(tab_id);
+  }
+  loadById(tab_id) {
+    return this.$.loadById(tab_id);
+  }
+  discard() {
+    return this.$.discard();
+  }
+  toggleBatterySaverMode() {
+    return this.$.toggleBatterySaverMode();
+  }
+  refreshPerformanceTabCpuMeasurements() {
+    return this.$.refreshPerformanceTabCpuMeasurements();
+  }
 };
 
 discards.mojom.DetailsProviderRemoteCallHandler = class {
@@ -723,6 +747,36 @@ discards.mojom.GraphChangeStreamRemote = class {
   close() {
     this.proxy.close();
   }
+  frameCreated(frame) {
+    return this.$.frameCreated(frame);
+  }
+  pageCreated(pages) {
+    return this.$.pageCreated(pages);
+  }
+  processCreated(process) {
+    return this.$.processCreated(process);
+  }
+  workerCreated(worker) {
+    return this.$.workerCreated(worker);
+  }
+  frameChanged(frame) {
+    return this.$.frameChanged(frame);
+  }
+  pageChanged(page) {
+    return this.$.pageChanged(page);
+  }
+  processChanged(process) {
+    return this.$.processChanged(process);
+  }
+  workerChanged(worker) {
+    return this.$.workerChanged(worker);
+  }
+  favIconDataAvailable(favicon) {
+    return this.$.favIconDataAvailable(favicon);
+  }
+  nodeDeleted(node_id) {
+    return this.$.nodeDeleted(node_id);
+  }
 };
 
 discards.mojom.GraphChangeStreamRemoteCallHandler = class {
@@ -1143,6 +1197,12 @@ discards.mojom.GraphDumpRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  subscribeToChanges(change_subscriber) {
+    return this.$.subscribeToChanges(change_subscriber);
+  }
+  requestNodeDescriptions(node_ids) {
+    return this.$.requestNodeDescriptions(node_ids);
   }
 };
 

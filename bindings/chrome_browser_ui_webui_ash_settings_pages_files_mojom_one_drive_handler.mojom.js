@@ -119,6 +119,9 @@ ash.settings.one_drive.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 ash.settings.one_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -304,6 +307,18 @@ ash.settings.one_drive.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getUserEmailAddress() {
+    return this.$.getUserEmailAddress();
+  }
+  connectToOneDrive() {
+    return this.$.connectToOneDrive();
+  }
+  disconnectFromOneDrive() {
+    return this.$.disconnectFromOneDrive();
+  }
+  openOneDriveFolder() {
+    return this.$.openOneDriveFolder();
   }
 };
 
@@ -568,6 +583,12 @@ ash.settings.one_drive.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onODFSMountOrUnmount() {
+    return this.$.onODFSMountOrUnmount();
+  }
+  onAllowUserToRemoveODFSChanged(is_allowed) {
+    return this.$.onAllowUserToRemoveODFSChanged(is_allowed);
   }
 };
 

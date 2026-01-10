@@ -109,6 +109,9 @@ chromecast.mojom.AssistantMessagePipeRemote = class {
   close() {
     this.proxy.close();
   }
+  sendMessage(message) {
+    return this.$.sendMessage(message);
+  }
 };
 
 chromecast.mojom.AssistantMessagePipeRemoteCallHandler = class {
@@ -256,6 +259,9 @@ chromecast.mojom.AssistantMessageClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onMessage(message) {
+    return this.$.onMessage(message);
   }
 };
 
@@ -406,6 +412,9 @@ chromecast.mojom.AssistantMessageServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createMessagePipe(client_id, client, pipe) {
+    return this.$.createMessagePipe(client_id, client, pipe);
   }
 };
 

@@ -111,6 +111,9 @@ batch_upload_promo.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createBatchUploadPromoHandler(page, handler) {
+    return this.$.createBatchUploadPromoHandler(page, handler);
+  }
 };
 
 batch_upload_promo.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -268,6 +271,12 @@ batch_upload_promo.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getBatchUploadPromoLocalDataCount() {
+    return this.$.getBatchUploadPromoLocalDataCount();
+  }
+  onBatchUploadPromoClicked() {
+    return this.$.onBatchUploadPromoClicked();
   }
 };
 
@@ -451,6 +460,9 @@ batch_upload_promo.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLocalDataCountChanged(local_data_count) {
+    return this.$.onLocalDataCountChanged(local_data_count);
   }
 };
 

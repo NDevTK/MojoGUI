@@ -112,6 +112,9 @@ blink.mojom.InstalledAppProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  filterInstalledApps(related_apps, manifest_url, add_saved_related_applications) {
+    return this.$.filterInstalledApps(related_apps, manifest_url, add_saved_related_applications);
+  }
 };
 
 blink.mojom.InstalledAppProviderRemoteCallHandler = class {

@@ -117,6 +117,12 @@ ui.ozone.mojom.DeviceCursorRemote = class {
   close() {
     this.proxy.close();
   }
+  setCursor(window, bitmaps, point, frame_delay) {
+    return this.$.setCursor(window, bitmaps, point, frame_delay);
+  }
+  moveCursor(window, point) {
+    return this.$.moveCursor(window, point);
+  }
 };
 
 ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {

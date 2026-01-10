@@ -232,6 +232,9 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createComposeSessionUntrustedPageHandler(client_handler, handler, dialog) {
+    return this.$.createComposeSessionUntrustedPageHandler(client_handler, handler, dialog);
+  }
 };
 
 compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler = class {
@@ -501,6 +504,57 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  logCancelEdit() {
+    return this.$.logCancelEdit();
+  }
+  compose(input, mode, edited) {
+    return this.$.compose(input, mode, edited);
+  }
+  rewrite(style) {
+    return this.$.rewrite(style);
+  }
+  logEditInput() {
+    return this.$.logEditInput();
+  }
+  saveWebUIState(webui_state) {
+    return this.$.saveWebUIState(webui_state);
+  }
+  acceptComposeResult() {
+    return this.$.acceptComposeResult();
+  }
+  requestInitialState() {
+    return this.$.requestInitialState();
+  }
+  undo() {
+    return this.$.undo();
+  }
+  recoverFromErrorState() {
+    return this.$.recoverFromErrorState();
+  }
+  redo() {
+    return this.$.redo();
+  }
+  openBugReportingLink() {
+    return this.$.openBugReportingLink();
+  }
+  openComposeLearnMorePage() {
+    return this.$.openComposeLearnMorePage();
+  }
+  openEnterpriseComposeLearnMorePage() {
+    return this.$.openEnterpriseComposeLearnMorePage();
+  }
+  openFeedbackSurveyLink() {
+    return this.$.openFeedbackSurveyLink();
+  }
+  openSignInPage() {
+    return this.$.openSignInPage();
+  }
+  setUserFeedback(feedback) {
+    return this.$.setUserFeedback(feedback);
+  }
+  editResult(new_result) {
+    return this.$.editResult(new_result);
   }
 };
 
@@ -1165,6 +1219,18 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  showUI() {
+    return this.$.showUI();
+  }
+  closeUI(reason) {
+    return this.$.closeUI(reason);
+  }
+  completeFirstRun() {
+    return this.$.completeFirstRun();
+  }
+  openComposeSettings() {
+    return this.$.openComposeSettings();
+  }
 };
 
 compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
@@ -1405,6 +1471,12 @@ compose.mojom.ComposeUntrustedDialogRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  responseReceived(response) {
+    return this.$.responseReceived(response);
+  }
+  partialResponseReceived(partial_response) {
+    return this.$.partialResponseReceived(partial_response);
   }
 };
 

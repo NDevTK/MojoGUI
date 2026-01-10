@@ -107,6 +107,9 @@ media.mojom.VideoDecoderFactoryProcessRemote = class {
   close() {
     this.proxy.close();
   }
+  initializeVideoDecoderFactory(gpu_feature_info, receiver, gpu_remote) {
+    return this.$.initializeVideoDecoderFactory(gpu_feature_info, receiver, gpu_remote);
+  }
 };
 
 media.mojom.VideoDecoderFactoryProcessRemoteCallHandler = class {

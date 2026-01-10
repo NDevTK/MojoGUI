@@ -158,6 +158,15 @@ payments.mojom.SecurePaymentConfirmationServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  securePaymentConfirmationAvailability() {
+    return this.$.securePaymentConfirmationAvailability();
+  }
+  storePaymentCredential(credential_id, rp_id, user_id) {
+    return this.$.storePaymentCredential(credential_id, rp_id, user_id);
+  }
+  makePaymentCredential(options) {
+    return this.$.makePaymentCredential(options);
+  }
 };
 
 payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {

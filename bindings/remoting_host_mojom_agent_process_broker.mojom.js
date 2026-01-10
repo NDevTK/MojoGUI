@@ -117,6 +117,15 @@ remoting.mojom.AgentProcessRemote = class {
   close() {
     this.proxy.close();
   }
+  resumeProcess() {
+    return this.$.resumeProcess();
+  }
+  suspendProcess() {
+    return this.$.suspendProcess();
+  }
+  bindRemotingHostControl(receiver) {
+    return this.$.bindRemotingHostControl(receiver);
+  }
 };
 
 remoting.mojom.AgentProcessRemoteCallHandler = class {
@@ -322,6 +331,9 @@ remoting.mojom.AgentProcessBrokerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onAgentProcessLaunched(agent_process) {
+    return this.$.onAgentProcessLaunched(agent_process);
   }
 };
 

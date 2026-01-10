@@ -178,6 +178,15 @@ blink.mojom.PushMessagingRemote = class {
   close() {
     this.proxy.close();
   }
+  subscribe(service_worker_registration_id, options, user_gesture) {
+    return this.$.subscribe(service_worker_registration_id, options, user_gesture);
+  }
+  unsubscribe(service_worker_registration_id) {
+    return this.$.unsubscribe(service_worker_registration_id);
+  }
+  getSubscription(service_worker_registration_id) {
+    return this.$.getSubscription(service_worker_registration_id);
+  }
 };
 
 blink.mojom.PushMessagingRemoteCallHandler = class {

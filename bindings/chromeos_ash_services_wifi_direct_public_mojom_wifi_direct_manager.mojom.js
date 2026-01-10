@@ -196,6 +196,15 @@ ash.wifi_direct.mojom.WifiDirectManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  createWifiDirectGroup(credentials) {
+    return this.$.createWifiDirectGroup(credentials);
+  }
+  connectToWifiDirectGroup(credentials, frequency) {
+    return this.$.connectToWifiDirectGroup(credentials, frequency);
+  }
+  getWifiP2PCapabilities() {
+    return this.$.getWifiP2PCapabilities();
+  }
 };
 
 ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
@@ -436,6 +445,12 @@ ash.wifi_direct.mojom.WifiDirectConnectionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getProperties() {
+    return this.$.getProperties();
+  }
+  associateSocket(socket) {
+    return this.$.associateSocket(socket);
   }
 };
 

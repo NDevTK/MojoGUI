@@ -103,6 +103,9 @@ ui.mojom.ScenicGpuHostRemote = class {
   close() {
     this.proxy.close();
   }
+  attachSurfaceToWindow(window_id, view_holder_token) {
+    return this.$.attachSurfaceToWindow(window_id, view_holder_token);
+  }
 };
 
 ui.mojom.ScenicGpuHostRemoteCallHandler = class {

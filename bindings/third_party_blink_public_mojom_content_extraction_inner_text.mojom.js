@@ -161,6 +161,9 @@ blink.mojom.InnerTextAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  getInnerText(params) {
+    return this.$.getInnerText(params);
+  }
 };
 
 blink.mojom.InnerTextAgentRemoteCallHandler = class {

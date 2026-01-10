@@ -110,6 +110,9 @@ blink.mojom.PaidContentMetadataObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onPaidContentMetadataChanged(has_paid_content) {
+    return this.$.onPaidContentMetadataChanged(has_paid_content);
+  }
 };
 
 blink.mojom.PaidContentMetadataObserverRemoteCallHandler = class {
@@ -257,6 +260,9 @@ blink.mojom.MetaTagsObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onMetaTagsChanged(meta_tags) {
+    return this.$.onMetaTagsChanged(meta_tags);
   }
 };
 
@@ -412,6 +418,12 @@ blink.mojom.FrameMetadataObserverRegistryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addPaidContentMetadataObserver(observer) {
+    return this.$.addPaidContentMetadataObserver(observer);
+  }
+  addMetaTagsObserver(names, observer) {
+    return this.$.addMetaTagsObserver(names, observer);
   }
 };
 

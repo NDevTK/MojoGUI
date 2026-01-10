@@ -116,6 +116,12 @@ blink.mojom.ServiceWorkerStreamCallbackRemote = class {
   close() {
     this.proxy.close();
   }
+  onCompleted() {
+    return this.$.onCompleted();
+  }
+  onAborted() {
+    return this.$.onAborted();
+  }
 };
 
 blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler = class {

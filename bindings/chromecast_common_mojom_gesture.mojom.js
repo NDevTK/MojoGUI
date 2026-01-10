@@ -166,6 +166,33 @@ chromecast.mojom.GestureHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onBackGesture() {
+    return this.$.onBackGesture();
+  }
+  onBackGestureProgress(touch_location) {
+    return this.$.onBackGestureProgress(touch_location);
+  }
+  onTopDragGestureProgress(touch_location) {
+    return this.$.onTopDragGestureProgress(touch_location);
+  }
+  onTopDragGestureDone() {
+    return this.$.onTopDragGestureDone();
+  }
+  onRightDragGestureProgress(touch_location) {
+    return this.$.onRightDragGestureProgress(touch_location);
+  }
+  onRightDragGestureDone() {
+    return this.$.onRightDragGestureDone();
+  }
+  onBackGestureCancel() {
+    return this.$.onBackGestureCancel();
+  }
+  onTapGesture() {
+    return this.$.onTapGesture();
+  }
+  onTapDownGesture() {
+    return this.$.onTapDownGesture();
+  }
 };
 
 chromecast.mojom.GestureHandlerRemoteCallHandler = class {
@@ -569,6 +596,18 @@ chromecast.mojom.GestureSourceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  subscribe(handler) {
+    return this.$.subscribe(handler);
+  }
+  setCanGoBack(can_go_back) {
+    return this.$.setCanGoBack(can_go_back);
+  }
+  setCanTopDrag(can_top_drag) {
+    return this.$.setCanTopDrag(can_top_drag);
+  }
+  setCanRightDrag(can_top_drag) {
+    return this.$.setCanRightDrag(can_top_drag);
   }
 };
 

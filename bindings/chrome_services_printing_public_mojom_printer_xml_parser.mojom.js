@@ -103,6 +103,9 @@ printing.mojom.PrinterXmlParserRemote = class {
   close() {
     this.proxy.close();
   }
+  parseXmlForPrinterCapabilities(capabilities_xml) {
+    return this.$.parseXmlForPrinterCapabilities(capabilities_xml);
+  }
 };
 
 printing.mojom.PrinterXmlParserRemoteCallHandler = class {

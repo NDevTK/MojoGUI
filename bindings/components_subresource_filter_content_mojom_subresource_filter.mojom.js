@@ -112,6 +112,9 @@ subresource_filter.mojom.SubresourceFilterAgentRemote = class {
   close() {
     this.proxy.close();
   }
+  activateForNextCommittedLoad(activation_state, ad_evidence) {
+    return this.$.activateForNextCommittedLoad(activation_state, ad_evidence);
+  }
 };
 
 subresource_filter.mojom.SubresourceFilterAgentRemoteCallHandler = class {
@@ -286,6 +289,24 @@ subresource_filter.mojom.SubresourceFilterHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  didDisallowFirstSubresource() {
+    return this.$.didDisallowFirstSubresource();
+  }
+  frameIsAd() {
+    return this.$.frameIsAd();
+  }
+  frameWasCreatedByAdScript() {
+    return this.$.frameWasCreatedByAdScript();
+  }
+  adScriptDidCreateFencedFrame(fenced_frame_root_placeholder_token) {
+    return this.$.adScriptDidCreateFencedFrame(fenced_frame_root_placeholder_token);
+  }
+  setDocumentLoadStatistics(statistics) {
+    return this.$.setDocumentLoadStatistics(statistics);
+  }
+  onAdsViolationTriggered(violation) {
+    return this.$.onAdsViolationTriggered(violation);
   }
 };
 

@@ -272,6 +272,9 @@ side_panel.mojom.CustomizeChromePageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 side_panel.mojom.CustomizeChromePageHandlerFactoryRemoteCallHandler = class {
@@ -604,6 +607,93 @@ side_panel.mojom.CustomizeChromePageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setMostVisitedSettings(shortcuts_types, shortcuts_visible, personal_shortcuts_visible) {
+    return this.$.setMostVisitedSettings(shortcuts_types, shortcuts_visible, personal_shortcuts_visible);
+  }
+  updateMostVisitedSettings() {
+    return this.$.updateMostVisitedSettings();
+  }
+  getBackgroundCollections() {
+    return this.$.getBackgroundCollections();
+  }
+  getReplacementCollectionPreviewImage(collection_id) {
+    return this.$.getReplacementCollectionPreviewImage(collection_id);
+  }
+  getBackgroundImages(collection_id) {
+    return this.$.getBackgroundImages(collection_id);
+  }
+  updateModulesSettings() {
+    return this.$.updateModulesSettings();
+  }
+  updateTheme() {
+    return this.$.updateTheme();
+  }
+  updateThemeEditable(is_theme_editable) {
+    return this.$.updateThemeEditable(is_theme_editable);
+  }
+  setDefaultColor() {
+    return this.$.setDefaultColor();
+  }
+  setFollowDeviceTheme(follow) {
+    return this.$.setFollowDeviceTheme(follow);
+  }
+  removeBackgroundImage() {
+    return this.$.removeBackgroundImage();
+  }
+  chooseLocalCustomBackground() {
+    return this.$.chooseLocalCustomBackground();
+  }
+  setBackgroundImage(attribution_1, attribution_2, attribution_url, image_url, thumbnail_url, collection_id) {
+    return this.$.setBackgroundImage(attribution_1, attribution_2, attribution_url, image_url, thumbnail_url, collection_id);
+  }
+  setDailyRefreshCollectionId(collection_id) {
+    return this.$.setDailyRefreshCollectionId(collection_id);
+  }
+  openChromeWebStore() {
+    return this.$.openChromeWebStore();
+  }
+  openChromeWebStoreHomePage() {
+    return this.$.openChromeWebStoreHomePage();
+  }
+  openThirdPartyThemePage(theme_id) {
+    return this.$.openThirdPartyThemePage(theme_id);
+  }
+  openChromeWebStoreCategoryPage(category) {
+    return this.$.openChromeWebStoreCategoryPage(category);
+  }
+  openChromeWebStoreCollectionPage(collection) {
+    return this.$.openChromeWebStoreCollectionPage(collection);
+  }
+  openNtpManagedByPage() {
+    return this.$.openNtpManagedByPage();
+  }
+  setModulesVisible(visible) {
+    return this.$.setModulesVisible(visible);
+  }
+  setModuleDisabled(module_id, disabled) {
+    return this.$.setModuleDisabled(module_id, disabled);
+  }
+  setToolChipsVisible(visible) {
+    return this.$.setToolChipsVisible(visible);
+  }
+  updateToolChipsSettings() {
+    return this.$.updateToolChipsSettings();
+  }
+  updateScrollToSection() {
+    return this.$.updateScrollToSection();
+  }
+  updateAttachedTabState() {
+    return this.$.updateAttachedTabState();
+  }
+  updateNtpManagedByName() {
+    return this.$.updateNtpManagedByName();
+  }
+  setFooterVisible(visible) {
+    return this.$.setFooterVisible(visible);
+  }
+  updateFooterSettings() {
+    return this.$.updateFooterSettings();
   }
 };
 
@@ -1644,6 +1734,33 @@ side_panel.mojom.CustomizeChromePageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setModulesSettings(modules_settings, managed, visible) {
+    return this.$.setModulesSettings(modules_settings, managed, visible);
+  }
+  setMostVisitedSettings(shortcuts_types, visible, personal_shortcuts_visible, disabled_shortcuts) {
+    return this.$.setMostVisitedSettings(shortcuts_types, visible, personal_shortcuts_visible, disabled_shortcuts);
+  }
+  setToolsSettings(visible) {
+    return this.$.setToolsSettings(visible);
+  }
+  setFooterSettings(visible, extension_policy_enabled, management_notice_state) {
+    return this.$.setFooterSettings(visible, extension_policy_enabled, management_notice_state);
+  }
+  setTheme(theme) {
+    return this.$.setTheme(theme);
+  }
+  setThemeEditable(is_theme_editable) {
+    return this.$.setThemeEditable(is_theme_editable);
+  }
+  scrollToSection(section) {
+    return this.$.scrollToSection(section);
+  }
+  attachedTabStateUpdated(ntp_type) {
+    return this.$.attachedTabStateUpdated(ntp_type);
+  }
+  ntpManagedByNameUpdated(name, description) {
+    return this.$.ntpManagedByNameUpdated(name, description);
   }
 };
 

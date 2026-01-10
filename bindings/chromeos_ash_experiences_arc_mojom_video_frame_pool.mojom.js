@@ -133,6 +133,12 @@ arc.mojom.VideoFramePoolRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize(client) {
+    return this.$.initialize(client);
+  }
+  addVideoFrame(video_frame) {
+    return this.$.addVideoFrame(video_frame);
+  }
 };
 
 arc.mojom.VideoFramePoolRemoteCallHandler = class {
@@ -323,6 +329,9 @@ arc.mojom.VideoFramePoolClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestVideoFrames(format, coded_size, visible_rect, num_frames) {
+    return this.$.requestVideoFrames(format, coded_size, visible_rect, num_frames);
   }
 };
 

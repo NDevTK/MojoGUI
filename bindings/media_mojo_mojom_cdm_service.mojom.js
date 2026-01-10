@@ -113,6 +113,9 @@ media.mojom.CdmServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  createCdmFactory(factory, frame_interfaces) {
+    return this.$.createCdmFactory(factory, frame_interfaces);
+  }
 };
 
 media.mojom.CdmServiceRemoteCallHandler = class {
@@ -265,6 +268,9 @@ media.mojom.SeatbeltExtensionTokenProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getTokens() {
+    return this.$.getTokens();
   }
 };
 
@@ -421,6 +427,9 @@ media.mojom.CdmServiceBrokerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getService(cdm_path, token_provider, receiver) {
+    return this.$.getService(cdm_path, token_provider, receiver);
   }
 };
 

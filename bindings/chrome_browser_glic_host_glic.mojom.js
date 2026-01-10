@@ -1187,6 +1187,9 @@ glic.mojom.PreloadPageRemote = class {
   close() {
     this.proxy.close();
   }
+  setProfileReadyState(ready_state) {
+    return this.$.setProfileReadyState(ready_state);
+  }
 };
 
 glic.mojom.PreloadPageRemoteCallHandler = class {
@@ -1345,6 +1348,15 @@ glic.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  intentToShow() {
+    return this.$.intentToShow();
+  }
+  setProfileReadyState(ready_state) {
+    return this.$.setProfileReadyState(ready_state);
+  }
+  updatePageState(panelStateKind) {
+    return this.$.updatePageState(panelStateKind);
   }
 };
 
@@ -1557,6 +1569,9 @@ glic.mojom.GlicPreloadHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  prepareForClient() {
+    return this.$.prepareForClient();
+  }
 };
 
 glic.mojom.GlicPreloadHandlerRemoteCallHandler = class {
@@ -1712,6 +1727,9 @@ glic.mojom.GlicPreloadHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPreloadHandler(receiver, page) {
+    return this.$.createPreloadHandler(receiver, page);
+  }
 };
 
 glic.mojom.GlicPreloadHandlerFactoryRemoteCallHandler = class {
@@ -1860,6 +1878,9 @@ glic.mojom.PageHandlerFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createPageHandler(receiver, page) {
+    return this.$.createPageHandler(receiver, page);
   }
 };
 
@@ -2085,6 +2106,39 @@ glic.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createWebClient(web_client_receiver) {
+    return this.$.createWebClient(web_client_receiver);
+  }
+  prepareForClient() {
+    return this.$.prepareForClient();
+  }
+  webviewCommitted(url) {
+    return this.$.webviewCommitted(url);
+  }
+  closePanel() {
+    return this.$.closePanel();
+  }
+  openProfilePickerAndClosePanel() {
+    return this.$.openProfilePickerAndClosePanel();
+  }
+  openDisabledByAdminLinkAndClosePanel() {
+    return this.$.openDisabledByAdminLinkAndClosePanel();
+  }
+  signInAndClosePanel() {
+    return this.$.signInAndClosePanel();
+  }
+  resizeWidget(size, duration) {
+    return this.$.resizeWidget(size, duration);
+  }
+  enableDragResize(enabled) {
+    return this.$.enableDragResize(enabled);
+  }
+  webUiStateChanged(new_state) {
+    return this.$.webUiStateChanged(new_state);
+  }
+  getProfileEnablement() {
+    return this.$.getProfileEnablement();
   }
 };
 
@@ -2547,6 +2601,9 @@ glic.mojom.PinCandidatesObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPinCandidatesChanged(candidates) {
+    return this.$.onPinCandidatesChanged(candidates);
   }
 };
 
@@ -3429,6 +3486,264 @@ glic.mojom.WebClientHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  webClientCreated(web_client) {
+    return this.$.webClientCreated(web_client);
+  }
+  webClientInitialized() {
+    return this.$.webClientInitialized();
+  }
+  webClientInitializeFailed() {
+    return this.$.webClientInitializeFailed();
+  }
+  createTab(url, open_in_background, window_id) {
+    return this.$.createTab(url, open_in_background, window_id);
+  }
+  openLinkInPopup(url, popup_width, popup_height) {
+    return this.$.openLinkInPopup(url, popup_width, popup_height);
+  }
+  openGlicSettingsPage(options) {
+    return this.$.openGlicSettingsPage(options);
+  }
+  openPasswordManagerSettingsPage() {
+    return this.$.openPasswordManagerSettingsPage();
+  }
+  closePanel() {
+    return this.$.closePanel();
+  }
+  closePanelAndShutdown() {
+    return this.$.closePanelAndShutdown();
+  }
+  attachPanel() {
+    return this.$.attachPanel();
+  }
+  detachPanel() {
+    return this.$.detachPanel();
+  }
+  onModeChange(new_mode) {
+    return this.$.onModeChange(new_mode);
+  }
+  showProfilePicker() {
+    return this.$.showProfilePicker();
+  }
+  getModelQualityClientId() {
+    return this.$.getModelQualityClientId();
+  }
+  getContextFromFocusedTab(options) {
+    return this.$.getContextFromFocusedTab(options);
+  }
+  getContextFromTab(tab_id, options) {
+    return this.$.getContextFromTab(tab_id, options);
+  }
+  getContextForActorFromTab(tab_id, options) {
+    return this.$.getContextForActorFromTab(tab_id, options);
+  }
+  setMaximumNumberOfPinnedTabs(requested_max) {
+    return this.$.setMaximumNumberOfPinnedTabs(requested_max);
+  }
+  pinTabs(tab_ids, options) {
+    return this.$.pinTabs(tab_ids, options);
+  }
+  unpinTabs(tab_ids, options) {
+    return this.$.unpinTabs(tab_ids, options);
+  }
+  unpinAllTabs(options) {
+    return this.$.unpinAllTabs(options);
+  }
+  createSkill(request) {
+    return this.$.createSkill(request);
+  }
+  updateSkill(request) {
+    return this.$.updateSkill(request);
+  }
+  getSkill(id) {
+    return this.$.getSkill(id);
+  }
+  subscribeToPinCandidates(options, observer) {
+    return this.$.subscribeToPinCandidates(options, observer);
+  }
+  createTask(task_options) {
+    return this.$.createTask(task_options);
+  }
+  performActions(actions_proto) {
+    return this.$.performActions(actions_proto);
+  }
+  cancelActions(task_id) {
+    return this.$.cancelActions(task_id);
+  }
+  stopActorTask(task_id, stop_reason) {
+    return this.$.stopActorTask(task_id, stop_reason);
+  }
+  pauseActorTask(task_id, pause_reason, tab_id) {
+    return this.$.pauseActorTask(task_id, pause_reason, tab_id);
+  }
+  resumeActorTask(task_id, context_options) {
+    return this.$.resumeActorTask(task_id, context_options);
+  }
+  interruptActorTask(task_id) {
+    return this.$.interruptActorTask(task_id);
+  }
+  uninterruptActorTask(task_id) {
+    return this.$.uninterruptActorTask(task_id);
+  }
+  createActorTab(task_id, open_in_background, initiator_tab_id, initiator_window_id) {
+    return this.$.createActorTab(task_id, open_in_background, initiator_tab_id, initiator_window_id);
+  }
+  activateTab(task_id) {
+    return this.$.activateTab(task_id);
+  }
+  resizeWidget(size, duration) {
+    return this.$.resizeWidget(size, duration);
+  }
+  captureScreenshot() {
+    return this.$.captureScreenshot();
+  }
+  captureRegion(observer) {
+    return this.$.captureRegion(observer);
+  }
+  setAudioDucking(enable) {
+    return this.$.setAudioDucking(enable);
+  }
+  setPanelDraggableAreas(draggable_areas) {
+    return this.$.setPanelDraggableAreas(draggable_areas);
+  }
+  setMinimumPanelSize(size) {
+    return this.$.setMinimumPanelSize(size);
+  }
+  setMicrophonePermissionState(enabled) {
+    return this.$.setMicrophonePermissionState(enabled);
+  }
+  setLocationPermissionState(enabled) {
+    return this.$.setLocationPermissionState(enabled);
+  }
+  setTabContextPermissionState(enabled) {
+    return this.$.setTabContextPermissionState(enabled);
+  }
+  setClosedCaptioningSetting(enabled) {
+    return this.$.setClosedCaptioningSetting(enabled);
+  }
+  setActuationOnWebSetting(enabled) {
+    return this.$.setActuationOnWebSetting(enabled);
+  }
+  shouldAllowMediaPermissionRequest() {
+    return this.$.shouldAllowMediaPermissionRequest();
+  }
+  shouldAllowGeolocationPermissionRequest() {
+    return this.$.shouldAllowGeolocationPermissionRequest();
+  }
+  setContextAccessIndicator(enabled) {
+    return this.$.setContextAccessIndicator(enabled);
+  }
+  getUserProfileInfo() {
+    return this.$.getUserProfileInfo();
+  }
+  syncCookies() {
+    return this.$.syncCookies();
+  }
+  logBeginAsyncEvent(event_async_id, task_id, event, details) {
+    return this.$.logBeginAsyncEvent(event_async_id, task_id, event, details);
+  }
+  logEndAsyncEvent(event_async_id, details) {
+    return this.$.logEndAsyncEvent(event_async_id, details);
+  }
+  logInstantEvent(task_id, event, details) {
+    return this.$.logInstantEvent(task_id, event, details);
+  }
+  journalClear() {
+    return this.$.journalClear();
+  }
+  journalSnapshot(clear_journal) {
+    return this.$.journalSnapshot(clear_journal);
+  }
+  journalStart(max_bytes, capture_screenshots) {
+    return this.$.journalStart(max_bytes, capture_screenshots);
+  }
+  journalStop() {
+    return this.$.journalStop();
+  }
+  journalRecordFeedback(positive, reason) {
+    return this.$.journalRecordFeedback(positive, reason);
+  }
+  onUserInputSubmitted(mode) {
+    return this.$.onUserInputSubmitted(mode);
+  }
+  onContextUploadStarted() {
+    return this.$.onContextUploadStarted();
+  }
+  onContextUploadCompleted() {
+    return this.$.onContextUploadCompleted();
+  }
+  onReaction(reactionType) {
+    return this.$.onReaction(reactionType);
+  }
+  onResponseStarted() {
+    return this.$.onResponseStarted();
+  }
+  onResponseStopped(details) {
+    return this.$.onResponseStopped(details);
+  }
+  onSessionTerminated() {
+    return this.$.onSessionTerminated();
+  }
+  onTurnCompleted(model, duration) {
+    return this.$.onTurnCompleted(model, duration);
+  }
+  onModelChanged(model) {
+    return this.$.onModelChanged(model);
+  }
+  onRecordUseCounter(counter) {
+    return this.$.onRecordUseCounter(counter);
+  }
+  onResponseRated(positive) {
+    return this.$.onResponseRated(positive);
+  }
+  onClosedCaptionsShown() {
+    return this.$.onClosedCaptionsShown();
+  }
+  scrollTo(params) {
+    return this.$.scrollTo(params);
+  }
+  dropScrollToHighlight() {
+    return this.$.dropScrollToHighlight();
+  }
+  setSyntheticExperimentState(trial_name, group_name) {
+    return this.$.setSyntheticExperimentState(trial_name, group_name);
+  }
+  openOsPermissionSettingsMenu(type) {
+    return this.$.openOsPermissionSettingsMenu(type);
+  }
+  getOsMicrophonePermissionStatus() {
+    return this.$.getOsMicrophonePermissionStatus();
+  }
+  getZeroStateSuggestionsAndSubscribe(is_live, options) {
+    return this.$.getZeroStateSuggestionsAndSubscribe(is_live, options);
+  }
+  getZeroStateSuggestionsForFocusedTab(is_first_run) {
+    return this.$.getZeroStateSuggestionsForFocusedTab(is_first_run);
+  }
+  maybeRefreshUserStatus() {
+    return this.$.maybeRefreshUserStatus();
+  }
+  isDebuggerAttached() {
+    return this.$.isDebuggerAttached();
+  }
+  onViewChanged(notification) {
+    return this.$.onViewChanged(notification);
+  }
+  subscribeToPageMetadata(tab_id, names) {
+    return this.$.subscribeToPageMetadata(tab_id, names);
+  }
+  switchConversation(info) {
+    return this.$.switchConversation(info);
+  }
+  registerConversation(info) {
+    return this.$.registerConversation(info);
+  }
+  setOnboardingCompleted() {
+    return this.$.setOnboardingCompleted();
+  }
+  subscribeToTabData(tab_id, receiver) {
+    return this.$.subscribeToTabData(tab_id, receiver);
   }
 };
 
@@ -6265,6 +6580,9 @@ glic.mojom.TabDataHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onTabDataChanged(tab_data) {
+    return this.$.onTabDataChanged(tab_data);
+  }
 };
 
 glic.mojom.TabDataHandlerRemoteCallHandler = class {
@@ -6641,6 +6959,105 @@ glic.mojom.WebClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  notifyPanelWillOpen(panel_opening_data) {
+    return this.$.notifyPanelWillOpen(panel_opening_data);
+  }
+  notifyPanelWasClosed() {
+    return this.$.notifyPanelWasClosed();
+  }
+  notifyPanelStateChange(panel_state) {
+    return this.$.notifyPanelStateChange(panel_state);
+  }
+  notifyPanelActiveChange(panel_active) {
+    return this.$.notifyPanelActiveChange(panel_active);
+  }
+  notifyPanelCanAttachChange(can_attach) {
+    return this.$.notifyPanelCanAttachChange(can_attach);
+  }
+  notifyMicrophonePermissionStateChanged(enabled) {
+    return this.$.notifyMicrophonePermissionStateChanged(enabled);
+  }
+  notifyLocationPermissionStateChanged(enabled) {
+    return this.$.notifyLocationPermissionStateChanged(enabled);
+  }
+  notifyTabContextPermissionStateChanged(enabled) {
+    return this.$.notifyTabContextPermissionStateChanged(enabled);
+  }
+  notifyOsLocationPermissionStateChanged(enabled) {
+    return this.$.notifyOsLocationPermissionStateChanged(enabled);
+  }
+  notifyFocusedTabChanged(focused_tab_data) {
+    return this.$.notifyFocusedTabChanged(focused_tab_data);
+  }
+  notifyManualResizeChanged(resizing) {
+    return this.$.notifyManualResizeChanged(resizing);
+  }
+  notifyOsHotkeyStateChanged(hotkey) {
+    return this.$.notifyOsHotkeyStateChanged(hotkey);
+  }
+  notifyBrowserIsOpenChanged(browser_is_open) {
+    return this.$.notifyBrowserIsOpenChanged(browser_is_open);
+  }
+  notifyInstanceActivationChanged(instance_active) {
+    return this.$.notifyInstanceActivationChanged(instance_active);
+  }
+  notifyClosedCaptioningSettingChanged(enabled) {
+    return this.$.notifyClosedCaptioningSettingChanged(enabled);
+  }
+  notifyPinnedTabsChanged(tab_data) {
+    return this.$.notifyPinnedTabsChanged(tab_data);
+  }
+  notifyPinnedTabDataChanged(tab_data) {
+    return this.$.notifyPinnedTabDataChanged(tab_data);
+  }
+  notifySkillPreviewsChanged(skill_previews) {
+    return this.$.notifySkillPreviewsChanged(skill_previews);
+  }
+  notifySkillPreviewChanged(skill_preview) {
+    return this.$.notifySkillPreviewChanged(skill_preview);
+  }
+  notifySkillToInvokeChanged(skill) {
+    return this.$.notifySkillToInvokeChanged(skill);
+  }
+  notifyZeroStateSuggestionsChanged(suggestions, options) {
+    return this.$.notifyZeroStateSuggestionsChanged(suggestions, options);
+  }
+  notifyActorTaskStateChanged(task_id, state) {
+    return this.$.notifyActorTaskStateChanged(task_id, state);
+  }
+  requestViewChange(request) {
+    return this.$.requestViewChange(request);
+  }
+  notifyPageMetadataChanged(tab_id, metadata) {
+    return this.$.notifyPageMetadataChanged(tab_id, metadata);
+  }
+  notifyDefaultTabContextPermissionStateChanged(enabled) {
+    return this.$.notifyDefaultTabContextPermissionStateChanged(enabled);
+  }
+  requestToShowCredentialSelectionDialog(request) {
+    return this.$.requestToShowCredentialSelectionDialog(request);
+  }
+  requestToShowAutofillSuggestionsDialog(request) {
+    return this.$.requestToShowAutofillSuggestionsDialog(request);
+  }
+  requestToShowUserConfirmationDialog(request) {
+    return this.$.requestToShowUserConfirmationDialog(request);
+  }
+  requestToConfirmNavigation(request) {
+    return this.$.requestToConfirmNavigation(request);
+  }
+  notifyAdditionalContext(context) {
+    return this.$.notifyAdditionalContext(context);
+  }
+  notifyActuationOnWebSettingChanged(enabled) {
+    return this.$.notifyActuationOnWebSettingChanged(enabled);
+  }
+  notifyActOnWebCapabilityChanged(can_act_on_web) {
+    return this.$.notifyActOnWebCapabilityChanged(can_act_on_web);
+  }
+  notifyOnboardingCompletedChanged(completed) {
+    return this.$.notifyOnboardingCompletedChanged(completed);
   }
 };
 
@@ -7754,6 +8171,9 @@ glic.mojom.CaptureRegionObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onUpdate(result, reason) {
+    return this.$.onUpdate(result, reason);
   }
 };
 

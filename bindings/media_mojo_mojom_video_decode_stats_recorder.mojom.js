@@ -109,6 +109,12 @@ media.mojom.VideoDecodeStatsRecorderRemote = class {
   close() {
     this.proxy.close();
   }
+  startNewRecord(features) {
+    return this.$.startNewRecord(features);
+  }
+  updateRecord(targets) {
+    return this.$.updateRecord(targets);
+  }
 };
 
 media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {

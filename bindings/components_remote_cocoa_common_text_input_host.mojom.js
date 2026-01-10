@@ -271,6 +271,51 @@ remote_cocoa.mojom.TextInputHostRemote = class {
   close() {
     this.proxy.close();
   }
+  hasClient() {
+    return this.$.hasClient();
+  }
+  hasInputContext() {
+    return this.$.hasInputContext();
+  }
+  isRTL() {
+    return this.$.isRTL();
+  }
+  getSelectionRange() {
+    return this.$.getSelectionRange();
+  }
+  getSelectionText() {
+    return this.$.getSelectionText();
+  }
+  insertText(text, as_character) {
+    return this.$.insertText(text, as_character);
+  }
+  deleteRange(range) {
+    return this.$.deleteRange(range);
+  }
+  setCompositionText(text, selected_range, replacement_range) {
+    return this.$.setCompositionText(text, selected_range, replacement_range);
+  }
+  confirmCompositionText() {
+    return this.$.confirmCompositionText();
+  }
+  hasCompositionText() {
+    return this.$.hasCompositionText();
+  }
+  getCompositionTextRange() {
+    return this.$.getCompositionTextRange();
+  }
+  getAttributedSubstringForRange(requested_range) {
+    return this.$.getAttributedSubstringForRange(requested_range);
+  }
+  getFirstRectForRange(requested_range) {
+    return this.$.getFirstRectForRange(requested_range);
+  }
+  isTextEditCommandEnabled(command) {
+    return this.$.isTextEditCommandEnabled(command);
+  }
+  setTextEditCommandForNextKeyEvent(command) {
+    return this.$.setTextEditCommandForNextKeyEvent(command);
+  }
 };
 
 remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {

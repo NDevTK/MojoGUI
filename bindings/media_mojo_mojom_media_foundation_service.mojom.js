@@ -115,6 +115,9 @@ media.mojom.GpuInfoObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onGpuInfoUpdate(gpu_info) {
+    return this.$.onGpuInfoUpdate(gpu_info);
+  }
 };
 
 media.mojom.GpuInfoObserverRemoteCallHandler = class {
@@ -276,6 +279,12 @@ media.mojom.MediaFoundationServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  isKeySystemSupported(key_system) {
+    return this.$.isKeySystemSupported(key_system);
+  }
+  createInterfaceFactory(factory, frame_interfaces) {
+    return this.$.createInterfaceFactory(factory, frame_interfaces);
   }
 };
 
@@ -472,6 +481,12 @@ media.mojom.MediaFoundationServiceBrokerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  updateGpuInfo(gpu_info) {
+    return this.$.updateGpuInfo(gpu_info);
+  }
+  getService(cdm_path, receiver) {
+    return this.$.getService(cdm_path, receiver);
   }
 };
 

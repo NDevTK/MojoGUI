@@ -316,6 +316,63 @@ ui.ozone.mojom.DrmDeviceRemote = class {
   close() {
     this.proxy.close();
   }
+  createWindow(widget, initial_bounds) {
+    return this.$.createWindow(widget, initial_bounds);
+  }
+  destroyWindow(widget) {
+    return this.$.destroyWindow(widget);
+  }
+  setWindowBounds(widget, bounds) {
+    return this.$.setWindowBounds(widget, bounds);
+  }
+  takeDisplayControl() {
+    return this.$.takeDisplayControl();
+  }
+  relinquishDisplayControl() {
+    return this.$.relinquishDisplayControl();
+  }
+  refreshNativeDisplays() {
+    return this.$.refreshNativeDisplays();
+  }
+  addGraphicsDevice(path, fd_mojo_handle) {
+    return this.$.addGraphicsDevice(path, fd_mojo_handle);
+  }
+  removeGraphicsDevice(path) {
+    return this.$.removeGraphicsDevice(path);
+  }
+  shouldDisplayEventTriggerConfiguration(event_props) {
+    return this.$.shouldDisplayEventTriggerConfiguration(event_props);
+  }
+  configureNativeDisplays(config_requests, modeset_flags) {
+    return this.$.configureNativeDisplays(config_requests, modeset_flags);
+  }
+  setHdcpKeyProp(display_id, key) {
+    return this.$.setHdcpKeyProp(display_id, key);
+  }
+  getHDCPState(display_id) {
+    return this.$.getHDCPState(display_id);
+  }
+  setHDCPState(display_id, state, protection_method) {
+    return this.$.setHDCPState(display_id, state, protection_method);
+  }
+  setColorTemperatureAdjustment(display_id, cta) {
+    return this.$.setColorTemperatureAdjustment(display_id, cta);
+  }
+  setColorCalibration(display_id, calibration) {
+    return this.$.setColorCalibration(display_id, calibration);
+  }
+  setGammaAdjustment(display_id, adjustment) {
+    return this.$.setGammaAdjustment(display_id, adjustment);
+  }
+  setPrivacyScreen(display_id, enabled) {
+    return this.$.setPrivacyScreen(display_id, enabled);
+  }
+  getSeamlessRefreshRates(display_id) {
+    return this.$.getSeamlessRefreshRates(display_id);
+  }
+  getDeviceCursor(cursor) {
+    return this.$.getDeviceCursor(cursor);
+  }
 };
 
 ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {

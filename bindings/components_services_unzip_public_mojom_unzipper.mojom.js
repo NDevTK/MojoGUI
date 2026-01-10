@@ -145,6 +145,9 @@ unzip.mojom.UnzipFilterRemote = class {
   close() {
     this.proxy.close();
   }
+  shouldUnzipFile(path) {
+    return this.$.shouldUnzipFile(path);
+  }
 };
 
 unzip.mojom.UnzipFilterRemoteCallHandler = class {
@@ -298,6 +301,9 @@ unzip.mojom.UnzipListenerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onProgress(bytes) {
+    return this.$.onProgress(bytes);
   }
 };
 
@@ -493,6 +499,18 @@ unzip.mojom.UnzipperRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  unzip(zip_file, output_dir, options, filter, listener) {
+    return this.$.unzip(zip_file, output_dir, options, filter, listener);
+  }
+  detectEncoding(zip_file) {
+    return this.$.detectEncoding(zip_file);
+  }
+  getExtractedInfo(zip_file) {
+    return this.$.getExtractedInfo(zip_file);
+  }
+  decodeXz(in_file, out_file) {
+    return this.$.decodeXz(in_file, out_file);
   }
 };
 

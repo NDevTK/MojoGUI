@@ -408,6 +408,9 @@ blink.mojom.WebPrintJobStateObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onWebPrintJobUpdate(update) {
+    return this.$.onWebPrintJobUpdate(update);
+  }
 };
 
 blink.mojom.WebPrintJobStateObserverRemoteCallHandler = class {
@@ -554,6 +557,9 @@ blink.mojom.WebPrintJobControllerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  cancel() {
+    return this.$.cancel();
   }
 };
 
@@ -720,6 +726,12 @@ blink.mojom.WebPrinterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  fetchAttributes() {
+    return this.$.fetchAttributes();
+  }
+  print(document, attributes) {
+    return this.$.print(document, attributes);
   }
 };
 
@@ -914,6 +926,9 @@ blink.mojom.WebPrintingServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getPrinters() {
+    return this.$.getPrinters();
   }
 };
 

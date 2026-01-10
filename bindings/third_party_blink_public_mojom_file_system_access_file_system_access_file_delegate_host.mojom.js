@@ -157,6 +157,18 @@ blink.mojom.FileSystemAccessFileDelegateHostRemote = class {
   close() {
     this.proxy.close();
   }
+  read(offset, bytes_to_read) {
+    return this.$.read(offset, bytes_to_read);
+  }
+  write(offset, data) {
+    return this.$.write(offset, data);
+  }
+  getLength() {
+    return this.$.getLength();
+  }
+  setLength(length) {
+    return this.$.setLength(length);
+  }
 };
 
 blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {

@@ -113,6 +113,12 @@ ash.settings.graduation.mojom.GraduationHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  launchGraduationApp() {
+    return this.$.launchGraduationApp();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
 };
 
 ash.settings.graduation.mojom.GraduationHandlerRemoteCallHandler = class {
@@ -289,6 +295,9 @@ ash.settings.graduation.mojom.GraduationObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onGraduationAppUpdated(is_app_enabled) {
+    return this.$.onGraduationAppUpdated(is_app_enabled);
   }
 };
 

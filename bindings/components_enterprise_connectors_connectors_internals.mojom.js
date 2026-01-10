@@ -295,6 +295,18 @@ connectors_internals.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  getDeviceTrustState() {
+    return this.$.getDeviceTrustState();
+  }
+  deleteDeviceTrustKey() {
+    return this.$.deleteDeviceTrustKey();
+  }
+  getClientCertificateState() {
+    return this.$.getClientCertificateState();
+  }
+  getSignalsReportingState() {
+    return this.$.getSignalsReportingState();
+  }
 };
 
 connectors_internals.mojom.PageHandlerRemoteCallHandler = class {

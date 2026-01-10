@@ -426,6 +426,9 @@ actor.mojom.JournalClientRemote = class {
   close() {
     this.proxy.close();
   }
+  addEntriesToJournal(entries) {
+    return this.$.addEntriesToJournal(entries);
+  }
 };
 
 actor.mojom.JournalClientRemoteCallHandler = class {
@@ -578,6 +581,9 @@ actor.mojom.PageStabilityMonitorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  notifyWhenStable(observation_delay) {
+    return this.$.notifyWhenStable(observation_delay);
   }
 };
 

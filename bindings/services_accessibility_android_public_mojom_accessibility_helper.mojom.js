@@ -618,6 +618,15 @@ ax.android.mojom.AccessibilityHelperHostRemote = class {
   close() {
     this.proxy.close();
   }
+  onAccessibilityEvent(event_data) {
+    return this.$.onAccessibilityEvent(event_data);
+  }
+  onNotificationStateChanged(notification_key, state) {
+    return this.$.onNotificationStateChanged(notification_key, state);
+  }
+  onToggleNativeChromeVoxArcSupport(enabled) {
+    return this.$.onToggleNativeChromeVoxArcSupport(enabled);
+  }
 };
 
 ax.android.mojom.AccessibilityHelperHostRemoteCallHandler = class {
@@ -882,6 +891,27 @@ ax.android.mojom.AccessibilityHelperInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
+  setFilter(filter_type) {
+    return this.$.setFilter(filter_type);
+  }
+  performAction(action_data) {
+    return this.$.performAction(action_data);
+  }
+  setExploreByTouchEnabled(enabled) {
+    return this.$.setExploreByTouchEnabled(enabled);
+  }
+  refreshWithExtraData(refresh_data) {
+    return this.$.refreshWithExtraData(refresh_data);
+  }
+  requestSendAccessibilityTree(window) {
+    return this.$.requestSendAccessibilityTree(window);
+  }
+  setNativeChromeVoxArcSupportForFocusedWindow(enabled) {
+    return this.$.setNativeChromeVoxArcSupportForFocusedWindow(enabled);
   }
 };
 

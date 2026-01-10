@@ -114,6 +114,9 @@ network.mojom.SystemDnsResolverRemote = class {
   close() {
     this.proxy.close();
   }
+  resolve(hostname, addr_family, flags, network) {
+    return this.$.resolve(hostname, addr_family, flags, network);
+  }
 };
 
 network.mojom.SystemDnsResolverRemoteCallHandler = class {

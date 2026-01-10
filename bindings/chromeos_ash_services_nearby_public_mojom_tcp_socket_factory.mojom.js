@@ -140,6 +140,12 @@ sharing.mojom.TcpSocketFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createTCPServerSocket(local_addr, port, backlog, traffic_annotation, socket) {
+    return this.$.createTCPServerSocket(local_addr, port, backlog, traffic_annotation, socket);
+  }
+  createTCPConnectedSocket(timeout, local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer) {
+    return this.$.createTCPConnectedSocket(timeout, local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer);
+  }
 };
 
 sharing.mojom.TcpSocketFactoryRemoteCallHandler = class {

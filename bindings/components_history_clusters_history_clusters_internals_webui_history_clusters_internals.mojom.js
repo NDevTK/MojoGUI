@@ -111,6 +111,9 @@ history_clusters_internals.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, page_handler) {
+    return this.$.createPageHandler(page, page_handler);
+  }
 };
 
 history_clusters_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -268,6 +271,12 @@ history_clusters_internals.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getContextClustersJson() {
+    return this.$.getContextClustersJson();
+  }
+  printKeywordBagStateToLogMessages() {
+    return this.$.printKeywordBagStateToLogMessages();
   }
 };
 
@@ -451,6 +460,9 @@ history_clusters_internals.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLogMessageAdded(message) {
+    return this.$.onLogMessageAdded(message);
   }
 };
 

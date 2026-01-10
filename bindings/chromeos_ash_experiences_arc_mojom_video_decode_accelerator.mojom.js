@@ -234,6 +234,27 @@ arc.mojom.VideoDecodeAcceleratorRemote = class {
   close() {
     this.proxy.close();
   }
+  initialize(config, client) {
+    return this.$.initialize(config, client);
+  }
+  decode(bitstream_buffer) {
+    return this.$.decode(bitstream_buffer);
+  }
+  assignPictureBuffers(count) {
+    return this.$.assignPictureBuffers(count);
+  }
+  importBufferForPicture(picture_buffer_id, format, handle_fd, planes, modifier) {
+    return this.$.importBufferForPicture(picture_buffer_id, format, handle_fd, planes, modifier);
+  }
+  reusePictureBuffer(picture_buffer_id) {
+    return this.$.reusePictureBuffer(picture_buffer_id);
+  }
+  reset() {
+    return this.$.reset();
+  }
+  flush() {
+    return this.$.flush();
+  }
 };
 
 arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
@@ -592,6 +613,18 @@ arc.mojom.VideoDecodeClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  pictureReady(picture) {
+    return this.$.pictureReady(picture);
+  }
+  notifyEndOfBitstreamBuffer(bitstream_id) {
+    return this.$.notifyEndOfBitstreamBuffer(bitstream_id);
+  }
+  notifyError(error) {
+    return this.$.notifyError(error);
+  }
+  providePictureBuffers(format, visible_rect) {
+    return this.$.providePictureBuffers(format, visible_rect);
   }
 };
 

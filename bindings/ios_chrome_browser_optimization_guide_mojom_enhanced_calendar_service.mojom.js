@@ -136,6 +136,9 @@ ai.mojom.EnhancedCalendarServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  executeEnhancedCalendarRequest(request_params) {
+    return this.$.executeEnhancedCalendarRequest(request_params);
+  }
 };
 
 ai.mojom.EnhancedCalendarServiceRemoteCallHandler = class {

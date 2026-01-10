@@ -131,6 +131,12 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onSuccess(compression_scheme, compression_group_data) {
+    return this.$.onSuccess(compression_scheme, compression_group_data);
+  }
+  onError(error_message) {
+    return this.$.onError(error_message);
+  }
 };
 
 auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
@@ -308,6 +314,9 @@ auction_worklet.mojom.TrustedSignalsCacheRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getTrustedSignals(compression_group_token, client) {
+    return this.$.getTrustedSignals(compression_group_token, client);
   }
 };
 

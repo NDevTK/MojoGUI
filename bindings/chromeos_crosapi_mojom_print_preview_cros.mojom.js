@@ -230,6 +230,12 @@ crosapi.mojom.PrintPreviewCrosDelegateRemote = class {
   close() {
     this.proxy.close();
   }
+  requestPrintPreview(token, params) {
+    return this.$.requestPrintPreview(token, params);
+  }
+  printPreviewDone(token) {
+    return this.$.printPreviewDone(token);
+  }
 };
 
 crosapi.mojom.PrintPreviewCrosDelegateRemoteCallHandler = class {
@@ -437,6 +443,12 @@ crosapi.mojom.PrintPreviewCrosClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  generatePrintPreview(token, settings) {
+    return this.$.generatePrintPreview(token, settings);
+  }
+  handleDialogClosed(token) {
+    return this.$.handleDialogClosed(token);
   }
 };
 

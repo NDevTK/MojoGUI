@@ -171,6 +171,9 @@ proxy_resolver.mojom.HostResolverRequestClientRemote = class {
   close() {
     this.proxy.close();
   }
+  reportResult(error, result) {
+    return this.$.reportResult(error, result);
+  }
 };
 
 proxy_resolver.mojom.HostResolverRequestClientRemoteCallHandler = class {
@@ -320,6 +323,9 @@ proxy_resolver.mojom.ProxyResolverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getProxyForUrl(url, network_anonymization_key, client) {
+    return this.$.getProxyForUrl(url, network_anonymization_key, client);
   }
 };
 
@@ -491,6 +497,18 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  reportResult(error, proxy_info) {
+    return this.$.reportResult(error, proxy_info);
+  }
+  alert(error) {
+    return this.$.alert(error);
+  }
+  onError(line_number, error) {
+    return this.$.onError(line_number, error);
+  }
+  resolveDns(host, operation, network_anonymization_key, client) {
+    return this.$.resolveDns(host, operation, network_anonymization_key, client);
   }
 };
 
@@ -729,6 +747,9 @@ proxy_resolver.mojom.ProxyResolverFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createResolver(pac_script, receiver, client) {
+    return this.$.createResolver(pac_script, receiver, client);
+  }
 };
 
 proxy_resolver.mojom.ProxyResolverFactoryRemoteCallHandler = class {
@@ -898,6 +919,18 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  reportResult(error) {
+    return this.$.reportResult(error);
+  }
+  alert(error) {
+    return this.$.alert(error);
+  }
+  onError(line_number, error) {
+    return this.$.onError(line_number, error);
+  }
+  resolveDns(host, operation, network_anonymization_key, client) {
+    return this.$.resolveDns(host, operation, network_anonymization_key, client);
   }
 };
 
@@ -1140,6 +1173,9 @@ proxy_resolver.mojom.SystemProxyResolverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getProxyForUrl(url) {
+    return this.$.getProxyForUrl(url);
   }
 };
 

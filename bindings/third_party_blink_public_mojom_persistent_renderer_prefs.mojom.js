@@ -102,6 +102,9 @@ blink.mojom.PersistentRendererPrefsServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  setViewSourceLineWrapping(value) {
+    return this.$.setViewSourceLineWrapping(value);
+  }
 };
 
 blink.mojom.PersistentRendererPrefsServiceRemoteCallHandler = class {

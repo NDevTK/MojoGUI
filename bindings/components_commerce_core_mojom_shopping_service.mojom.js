@@ -262,6 +262,9 @@ shopping_service.mojom.ShoppingServiceHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createShoppingServiceHandler(handler) {
+    return this.$.createShoppingServiceHandler(handler);
+  }
 };
 
 shopping_service.mojom.ShoppingServiceHandlerFactoryRemoteCallHandler = class {
@@ -616,6 +619,66 @@ shopping_service.mojom.ShoppingServiceHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getProductInfoForCurrentUrl() {
+    return this.$.getProductInfoForCurrentUrl();
+  }
+  getProductInfoForUrl(url) {
+    return this.$.getProductInfoForUrl(url);
+  }
+  getProductInfoForUrls(urls) {
+    return this.$.getProductInfoForUrls(urls);
+  }
+  getPriceInsightsInfoForCurrentUrl() {
+    return this.$.getPriceInsightsInfoForCurrentUrl();
+  }
+  getPriceInsightsInfoForUrl(url) {
+    return this.$.getPriceInsightsInfoForUrl(url);
+  }
+  getProductSpecificationsForUrls(urls) {
+    return this.$.getProductSpecificationsForUrls(urls);
+  }
+  getUrlInfosForProductTabs() {
+    return this.$.getUrlInfosForProductTabs();
+  }
+  getUrlInfosForRecentlyViewedTabs() {
+    return this.$.getUrlInfosForRecentlyViewedTabs();
+  }
+  isShoppingListEligible() {
+    return this.$.isShoppingListEligible();
+  }
+  getPriceTrackingStatusForCurrentUrl() {
+    return this.$.getPriceTrackingStatusForCurrentUrl();
+  }
+  openUrlInNewTab(url) {
+    return this.$.openUrlInNewTab(url);
+  }
+  switchToOrOpenTab(url) {
+    return this.$.switchToOrOpenTab(url);
+  }
+  getAllProductSpecificationsSets() {
+    return this.$.getAllProductSpecificationsSets();
+  }
+  getProductSpecificationsSetByUuid(uuid) {
+    return this.$.getProductSpecificationsSetByUuid(uuid);
+  }
+  addProductSpecificationsSet(name, urls) {
+    return this.$.addProductSpecificationsSet(name, urls);
+  }
+  deleteProductSpecificationsSet(uuid) {
+    return this.$.deleteProductSpecificationsSet(uuid);
+  }
+  setNameForProductSpecificationsSet(uuid, name) {
+    return this.$.setNameForProductSpecificationsSet(uuid, name);
+  }
+  setUrlsForProductSpecificationsSet(uuid, urls) {
+    return this.$.setUrlsForProductSpecificationsSet(uuid, urls);
+  }
+  setProductSpecificationsUserFeedback(feedback) {
+    return this.$.setProductSpecificationsUserFeedback(feedback);
+  }
+  getProductSpecificationsFeatureState() {
+    return this.$.getProductSpecificationsFeatureState();
   }
 };
 

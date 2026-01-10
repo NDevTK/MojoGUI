@@ -110,6 +110,9 @@ media.mojom.MediaServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  createInterfaceFactory(factory, frame_interfaces) {
+    return this.$.createInterfaceFactory(factory, frame_interfaces);
+  }
 };
 
 media.mojom.MediaServiceRemoteCallHandler = class {

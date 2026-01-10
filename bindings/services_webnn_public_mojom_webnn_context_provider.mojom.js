@@ -154,6 +154,9 @@ webnn.mojom.WebNNContextProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  createWebNNContext(options) {
+    return this.$.createWebNNContext(options);
+  }
 };
 
 webnn.mojom.WebNNContextProviderRemoteCallHandler = class {

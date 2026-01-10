@@ -152,6 +152,12 @@ network.mojom.NetLogExporterRemote = class {
   close() {
     this.proxy.close();
   }
+  start(destination, extra_constants, capture_mode, max_file_size) {
+    return this.$.start(destination, extra_constants, capture_mode, max_file_size);
+  }
+  stop(polled_values) {
+    return this.$.stop(polled_values);
+  }
 };
 
 network.mojom.NetLogExporterRemoteCallHandler = class {
@@ -341,6 +347,9 @@ network.mojom.NetLogProxySourceRemote = class {
   close() {
     this.proxy.close();
   }
+  updateCaptureModes(modes) {
+    return this.$.updateCaptureModes(modes);
+  }
 };
 
 network.mojom.NetLogProxySourceRemoteCallHandler = class {
@@ -492,6 +501,9 @@ network.mojom.NetLogProxySinkRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addEntry(type, net_log_source, phase, time, params) {
+    return this.$.addEntry(type, net_log_source, phase, time, params);
   }
 };
 

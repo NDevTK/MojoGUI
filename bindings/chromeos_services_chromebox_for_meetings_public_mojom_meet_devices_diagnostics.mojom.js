@@ -124,6 +124,12 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsRemote = class {
   close() {
     this.proxy.close();
   }
+  getCrosHealthdTelemetry() {
+    return this.$.getCrosHealthdTelemetry();
+  }
+  getCrosHealthdProcessInfo(pid) {
+    return this.$.getCrosHealthdProcessInfo(pid);
+  }
 };
 
 chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandler = class {

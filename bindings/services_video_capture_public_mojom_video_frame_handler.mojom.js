@@ -128,6 +128,9 @@ video_capture.mojom.VideoFrameAccessHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  onFinishedConsumingBuffer(buffer_id) {
+    return this.$.onFinishedConsumingBuffer(buffer_id);
+  }
 };
 
 video_capture.mojom.VideoFrameAccessHandlerRemoteCallHandler = class {
@@ -343,6 +346,45 @@ video_capture.mojom.VideoFrameHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onCaptureConfigurationChanged() {
+    return this.$.onCaptureConfigurationChanged();
+  }
+  onNewBuffer(buffer_id, buffer_handle) {
+    return this.$.onNewBuffer(buffer_id, buffer_handle);
+  }
+  onFrameAccessHandlerReady(frame_access_handler) {
+    return this.$.onFrameAccessHandlerReady(frame_access_handler);
+  }
+  onFrameReadyInBuffer(buffer) {
+    return this.$.onFrameReadyInBuffer(buffer);
+  }
+  onBufferRetired(buffer_id) {
+    return this.$.onBufferRetired(buffer_id);
+  }
+  onError(error) {
+    return this.$.onError(error);
+  }
+  onFrameDropped(reason) {
+    return this.$.onFrameDropped(reason);
+  }
+  onNewCaptureVersion(capture_version) {
+    return this.$.onNewCaptureVersion(capture_version);
+  }
+  onFrameWithEmptyRegionCapture() {
+    return this.$.onFrameWithEmptyRegionCapture();
+  }
+  onLog(message) {
+    return this.$.onLog(message);
+  }
+  onStarted() {
+    return this.$.onStarted();
+  }
+  onStartedUsingGpuDecode() {
+    return this.$.onStartedUsingGpuDecode();
+  }
+  onStopped() {
+    return this.$.onStopped();
   }
 };
 

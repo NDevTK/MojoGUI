@@ -297,6 +297,39 @@ blink.mojom.AnchorElementMetricsHostRemote = class {
   close() {
     this.proxy.close();
   }
+  reportAnchorElementClick(clicked) {
+    return this.$.reportAnchorElementClick(clicked);
+  }
+  reportNewAnchorElements(metrics, removed_elements) {
+    return this.$.reportNewAnchorElements(metrics, removed_elements);
+  }
+  reportAnchorElementsEnteredViewport(elements) {
+    return this.$.reportAnchorElementsEnteredViewport(elements);
+  }
+  reportAnchorElementsLeftViewport(elements) {
+    return this.$.reportAnchorElementsLeftViewport(elements);
+  }
+  reportAnchorElementsPositionUpdate(elements) {
+    return this.$.reportAnchorElementsPositionUpdate(elements);
+  }
+  reportAnchorElementPointerOver(pointer_over_event) {
+    return this.$.reportAnchorElementPointerOver(pointer_over_event);
+  }
+  reportAnchorElementPointerOut(hover_event) {
+    return this.$.reportAnchorElementPointerOut(hover_event);
+  }
+  reportAnchorElementPointerDown(pointer_down_event) {
+    return this.$.reportAnchorElementPointerDown(pointer_down_event);
+  }
+  reportAnchorElementPointerDataOnHoverTimerFired(pointer_data) {
+    return this.$.reportAnchorElementPointerDataOnHoverTimerFired(pointer_data);
+  }
+  processPointerEventUsingMLModel(pointer_event) {
+    return this.$.processPointerEventUsingMLModel(pointer_event);
+  }
+  shouldSkipUpdateDelays() {
+    return this.$.shouldSkipUpdateDelays();
+  }
 };
 
 blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {

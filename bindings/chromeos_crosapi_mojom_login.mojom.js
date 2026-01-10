@@ -130,6 +130,9 @@ crosapi.mojom.ExternalLogoutRequestObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onRequestExternalLogout() {
+    return this.$.onRequestExternalLogout();
+  }
 };
 
 crosapi.mojom.ExternalLogoutRequestObserverRemoteCallHandler = class {
@@ -366,6 +369,33 @@ crosapi.mojom.LoginRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addExternalLogoutRequestObserver(observer) {
+    return this.$.addExternalLogoutRequestObserver(observer);
+  }
+  notifyOnExternalLogoutDone() {
+    return this.$.notifyOnExternalLogoutDone();
+  }
+  rEMOVED_0(password) {
+    return this.$.rEMOVED_0(password);
+  }
+  rEMOVED_4(password) {
+    return this.$.rEMOVED_4(password);
+  }
+  rEMOVED_5(password) {
+    return this.$.rEMOVED_5(password);
+  }
+  rEMOVED_6(password) {
+    return this.$.rEMOVED_6(password);
+  }
+  rEMOVED_7(password) {
+    return this.$.rEMOVED_7(password);
+  }
+  rEMOVED_10(properties) {
+    return this.$.rEMOVED_10(properties);
+  }
+  rEMOVED_12(password) {
+    return this.$.rEMOVED_12(password);
   }
 };
 

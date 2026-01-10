@@ -223,6 +223,9 @@ arc.mojom.SharesheetInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  init(host_remote) {
+    return this.$.init(host_remote);
+  }
 };
 
 arc.mojom.SharesheetInstanceRemoteCallHandler = class {

@@ -201,6 +201,30 @@ remote_cocoa.mojom.WebContentsNSViewRemote = class {
   close() {
     this.proxy.close();
   }
+  setParentNSView(parent_ns_view_id) {
+    return this.$.setParentNSView(parent_ns_view_id);
+  }
+  resetParentNSView() {
+    return this.$.resetParentNSView();
+  }
+  setBounds(bounds_in_superview) {
+    return this.$.setBounds(bounds_in_superview);
+  }
+  setVisible(visible) {
+    return this.$.setVisible(visible);
+  }
+  makeFirstResponder() {
+    return this.$.makeFirstResponder();
+  }
+  takeFocus(reverse) {
+    return this.$.takeFocus(reverse);
+  }
+  startDrag(drop_data, source_origin, operation_mask, image, image_offset, is_privileged) {
+    return this.$.startDrag(drop_data, source_origin, operation_mask, image, image_offset, is_privileged);
+  }
+  destroy() {
+    return this.$.destroy();
+  }
 };
 
 remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
@@ -633,6 +657,36 @@ remote_cocoa.mojom.WebContentsNSViewHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onMouseEvent(event) {
+    return this.$.onMouseEvent(event);
+  }
+  onBecameFirstResponder(direction) {
+    return this.$.onBecameFirstResponder(direction);
+  }
+  onWindowVisibilityChanged(visibility) {
+    return this.$.onWindowVisibilityChanged(visibility);
+  }
+  setDropData(drop_data) {
+    return this.$.setDropData(drop_data);
+  }
+  draggingEntered(dragging_info) {
+    return this.$.draggingEntered(dragging_info);
+  }
+  draggingExited() {
+    return this.$.draggingExited();
+  }
+  draggingUpdated(dragging_info) {
+    return this.$.draggingUpdated(dragging_info);
+  }
+  performDragOperation(dragging_info) {
+    return this.$.performDragOperation(dragging_info);
+  }
+  dragPromisedFileTo(file_path, drop_data, download_url, source_origin) {
+    return this.$.dragPromisedFileTo(file_path, drop_data, download_url, source_origin);
+  }
+  endDrag(drag_operation, local_point, screen_point) {
+    return this.$.endDrag(drag_operation, local_point, screen_point);
   }
 };
 

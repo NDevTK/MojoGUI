@@ -352,6 +352,45 @@ content.mojom.WebTestRenderFrameRemote = class {
   close() {
     this.proxy.close();
   }
+  synchronouslyCompositeAfterTest() {
+    return this.$.synchronouslyCompositeAfterTest();
+  }
+  dumpFrameLayout() {
+    return this.$.dumpFrameLayout();
+  }
+  setTestConfiguration(config, starting_test) {
+    return this.$.setTestConfiguration(config, starting_test);
+  }
+  onDeactivated() {
+    return this.$.onDeactivated();
+  }
+  onReactivated() {
+    return this.$.onReactivated();
+  }
+  blockTestUntilStart() {
+    return this.$.blockTestUntilStart();
+  }
+  startTest() {
+    return this.$.startTest();
+  }
+  setupRendererProcessForNonTestWindow() {
+    return this.$.setupRendererProcessForNonTestWindow();
+  }
+  replicateWebTestRuntimeFlagsChanges(changed_layout_test_runtime_flags) {
+    return this.$.replicateWebTestRuntimeFlagsChanges(changed_layout_test_runtime_flags);
+  }
+  testFinishedFromSecondaryRenderer() {
+    return this.$.testFinishedFromSecondaryRenderer();
+  }
+  resetRendererAfterWebTest() {
+    return this.$.resetRendererAfterWebTest();
+  }
+  processWorkItem(work_item) {
+    return this.$.processWorkItem(work_item);
+  }
+  replicateWorkQueueStates(work_queue_states) {
+    return this.$.replicateWorkQueueStates(work_queue_states);
+  }
 };
 
 content.mojom.WebTestRenderFrameRemoteCallHandler = class {
@@ -1126,6 +1165,126 @@ content.mojom.WebTestControlHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  initiateCaptureDump(result, capture_navigation_history, capture_pixels) {
+    return this.$.initiateCaptureDump(result, capture_navigation_history, capture_pixels);
+  }
+  testFinishedInSecondaryRenderer() {
+    return this.$.testFinishedInSecondaryRenderer();
+  }
+  printMessageToStderr(message) {
+    return this.$.printMessageToStderr(message);
+  }
+  printMessage(message) {
+    return this.$.printMessage(message);
+  }
+  overridePreferences(web_preferences) {
+    return this.$.overridePreferences(web_preferences);
+  }
+  reload() {
+    return this.$.reload();
+  }
+  checkForLeakedWindows() {
+    return this.$.checkForLeakedWindows();
+  }
+  setMainWindowHidden(hidden) {
+    return this.$.setMainWindowHidden(hidden);
+  }
+  setFrameWindowHidden(frame_token, hidden) {
+    return this.$.setFrameWindowHidden(frame_token, hidden);
+  }
+  goToOffset(offset) {
+    return this.$.goToOffset(offset);
+  }
+  sendBluetoothManualChooserEvent(event, argument) {
+    return this.$.sendBluetoothManualChooserEvent(event, argument);
+  }
+  setBluetoothManualChooser(enable) {
+    return this.$.setBluetoothManualChooser(enable);
+  }
+  getBluetoothManualChooserEvents() {
+    return this.$.getBluetoothManualChooserEvents();
+  }
+  setPopupBlockingEnabled(block_popups) {
+    return this.$.setPopupBlockingEnabled(block_popups);
+  }
+  loadURLForFrame(url, frame_name) {
+    return this.$.loadURLForFrame(url, frame_name);
+  }
+  simulateScreenOrientationChanged() {
+    return this.$.simulateScreenOrientationChanged();
+  }
+  setPermission(name, status, origin, embedding_origin) {
+    return this.$.setPermission(name, status, origin, embedding_origin);
+  }
+  blockThirdPartyCookies(block) {
+    return this.$.blockThirdPartyCookies(block);
+  }
+  getWritableDirectory() {
+    return this.$.getWritableDirectory();
+  }
+  setFilePathForMockFileDialog(path) {
+    return this.$.setFilePathForMockFileDialog(path);
+  }
+  createSubresourceFilterRulesetFile(disallowed_suffixes) {
+    return this.$.createSubresourceFilterRulesetFile(disallowed_suffixes);
+  }
+  focusDevtoolsSecondaryWindow() {
+    return this.$.focusDevtoolsSecondaryWindow();
+  }
+  setTrustTokenKeyCommitments(raw_commitments) {
+    return this.$.setTrustTokenKeyCommitments(raw_commitments);
+  }
+  clearTrustTokenState() {
+    return this.$.clearTrustTokenState();
+  }
+  simulateWebNotificationClick(title, action_index, reply) {
+    return this.$.simulateWebNotificationClick(title, action_index, reply);
+  }
+  simulateWebNotificationClose(title, by_user) {
+    return this.$.simulateWebNotificationClose(title, by_user);
+  }
+  simulateWebContentIndexDelete(id) {
+    return this.$.simulateWebContentIndexDelete(id);
+  }
+  webTestRuntimeFlagsChanged(changed_web_test_runtime_flags) {
+    return this.$.webTestRuntimeFlagsChanged(changed_web_test_runtime_flags);
+  }
+  registerIsolatedFileSystem(file_paths) {
+    return this.$.registerIsolatedFileSystem(file_paths);
+  }
+  dropPointerLock() {
+    return this.$.dropPointerLock();
+  }
+  setPointerLockWillFail() {
+    return this.$.setPointerLockWillFail();
+  }
+  setPointerLockWillRespondAsynchronously() {
+    return this.$.setPointerLockWillRespondAsynchronously();
+  }
+  allowPointerLock() {
+    return this.$.allowPointerLock();
+  }
+  workItemAdded(work_item) {
+    return this.$.workItemAdded(work_item);
+  }
+  requestWorkItem() {
+    return this.$.requestWorkItem();
+  }
+  workQueueStatesChanged(changed_work_queue_states) {
+    return this.$.workQueueStatesChanged(changed_work_queue_states);
+  }
+  setAcceptLanguages(accept_languages) {
+    return this.$.setAcceptLanguages(accept_languages);
+  }
+  setRegisterProtocolHandlerMode(mode) {
+    return this.$.setRegisterProtocolHandlerMode(mode);
+  }
+  enableAutoResize(min_size, max_size) {
+    return this.$.enableAutoResize(min_size, max_size);
+  }
+  disableAutoResize(new_size) {
+    return this.$.disableAutoResize(new_size);
   }
 };
 
@@ -2441,6 +2600,9 @@ content.mojom.NonAssociatedWebTestControlHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setLCPPNavigationHint(hint) {
+    return this.$.setLCPPNavigationHint(hint);
   }
 };
 

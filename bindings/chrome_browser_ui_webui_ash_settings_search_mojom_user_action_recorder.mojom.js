@@ -162,6 +162,27 @@ ash.settings.mojom.UserActionRecorderRemote = class {
   close() {
     this.proxy.close();
   }
+  recordPageFocus() {
+    return this.$.recordPageFocus();
+  }
+  recordPageBlur() {
+    return this.$.recordPageBlur();
+  }
+  recordClick() {
+    return this.$.recordClick();
+  }
+  recordNavigation() {
+    return this.$.recordNavigation();
+  }
+  recordSearch() {
+    return this.$.recordSearch();
+  }
+  recordSettingChange() {
+    return this.$.recordSettingChange();
+  }
+  recordSettingChangeWithDetails(setting, value) {
+    return this.$.recordSettingChangeWithDetails(setting, value);
+  }
 };
 
 ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {

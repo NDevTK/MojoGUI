@@ -392,6 +392,12 @@ on_device_model.mojom.StreamingResponderRemote = class {
   close() {
     this.proxy.close();
   }
+  onResponse(chunk) {
+    return this.$.onResponse(chunk);
+  }
+  onComplete(summary) {
+    return this.$.onComplete(summary);
+  }
 };
 
 on_device_model.mojom.StreamingResponderRemoteCallHandler = class {
@@ -568,6 +574,9 @@ on_device_model.mojom.ContextClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onComplete(tokens_processed) {
+    return this.$.onComplete(tokens_processed);
   }
 };
 
@@ -780,6 +789,30 @@ on_device_model.mojom.SessionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  append(options, client) {
+    return this.$.append(options, client);
+  }
+  generate(options, responder) {
+    return this.$.generate(options, responder);
+  }
+  getSizeInTokens(input) {
+    return this.$.getSizeInTokens(input);
+  }
+  score(text) {
+    return this.$.score(text);
+  }
+  clone(session) {
+    return this.$.clone(session);
+  }
+  getProbabilitiesBlocking(text) {
+    return this.$.getProbabilitiesBlocking(text);
+  }
+  setPriority(priority) {
+    return this.$.setPriority(priority);
+  }
+  asrStream(options, stream, responder) {
+    return this.$.asrStream(options, stream, responder);
   }
 };
 
@@ -1188,6 +1221,18 @@ on_device_model.mojom.OnDeviceModelRemote = class {
   close() {
     this.proxy.close();
   }
+  startSession(session, params) {
+    return this.$.startSession(session, params);
+  }
+  classifyTextSafety(text) {
+    return this.$.classifyTextSafety(text);
+  }
+  detectLanguage(text) {
+    return this.$.detectLanguage(text);
+  }
+  loadAdaptation(params, model) {
+    return this.$.loadAdaptation(params, model);
+  }
 };
 
 on_device_model.mojom.OnDeviceModelRemoteCallHandler = class {
@@ -1465,6 +1510,15 @@ on_device_model.mojom.TextSafetySessionRemote = class {
   close() {
     this.proxy.close();
   }
+  classifyTextSafety(text) {
+    return this.$.classifyTextSafety(text);
+  }
+  detectLanguage(text) {
+    return this.$.detectLanguage(text);
+  }
+  clone(session) {
+    return this.$.clone(session);
+  }
 };
 
 on_device_model.mojom.TextSafetySessionRemoteCallHandler = class {
@@ -1683,6 +1737,9 @@ on_device_model.mojom.TextSafetyModelRemote = class {
   close() {
     this.proxy.close();
   }
+  startSession(session) {
+    return this.$.startSession(session);
+  }
 };
 
 on_device_model.mojom.TextSafetyModelRemoteCallHandler = class {
@@ -1831,6 +1888,9 @@ on_device_model.mojom.AsrStreamResponderRemote = class {
   close() {
     this.proxy.close();
   }
+  onResponse(result) {
+    return this.$.onResponse(result);
+  }
 };
 
 on_device_model.mojom.AsrStreamResponderRemoteCallHandler = class {
@@ -1978,6 +2038,9 @@ on_device_model.mojom.AsrStreamInputRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addAudioChunk(data) {
+    return this.$.addAudioChunk(data);
   }
 };
 

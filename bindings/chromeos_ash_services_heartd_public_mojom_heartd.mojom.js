@@ -175,6 +175,15 @@ ash.heartd.mojom.HeartdControlRemote = class {
   close() {
     this.proxy.close();
   }
+  enableNormalRebootAction() {
+    return this.$.enableNormalRebootAction();
+  }
+  enableForceRebootAction() {
+    return this.$.enableForceRebootAction();
+  }
+  runAction(action) {
+    return this.$.runAction(action);
+  }
 };
 
 ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
@@ -395,6 +404,9 @@ ash.heartd.mojom.HeartbeatServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  register(name, argument, receiver) {
+    return this.$.register(name, argument, receiver);
+  }
 };
 
 ash.heartd.mojom.HeartbeatServiceRemoteCallHandler = class {
@@ -563,6 +575,12 @@ ash.heartd.mojom.PacemakerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  sendHeartbeat() {
+    return this.$.sendHeartbeat();
+  }
+  stopMonitor() {
+    return this.$.stopMonitor();
   }
 };
 

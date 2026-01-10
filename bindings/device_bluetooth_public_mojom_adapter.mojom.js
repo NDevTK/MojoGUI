@@ -250,6 +250,9 @@ bluetooth.mojom.AdvertisementRemote = class {
   close() {
     this.proxy.close();
   }
+  unregister() {
+    return this.$.unregister();
+  }
 };
 
 bluetooth.mojom.AdvertisementRemoteCallHandler = class {
@@ -419,6 +422,12 @@ bluetooth.mojom.DiscoverySessionRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  isActive() {
+    return this.$.isActive();
+  }
+  stop() {
+    return this.$.stop();
   }
 };
 
@@ -613,6 +622,9 @@ bluetooth.mojom.SocketRemote = class {
   close() {
     this.proxy.close();
   }
+  disconnect() {
+    return this.$.disconnect();
+  }
 };
 
 bluetooth.mojom.SocketRemoteCallHandler = class {
@@ -781,6 +793,12 @@ bluetooth.mojom.ServerSocketRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  accept() {
+    return this.$.accept();
+  }
+  disconnect() {
+    return this.$.disconnect();
   }
 };
 
@@ -990,6 +1008,12 @@ bluetooth.mojom.GattServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  createCharacteristic(characteristic_uuid, permissions, properties) {
+    return this.$.createCharacteristic(characteristic_uuid, permissions, properties);
+  }
+  register() {
+    return this.$.register();
+  }
 };
 
 bluetooth.mojom.GattServiceRemoteCallHandler = class {
@@ -1187,6 +1211,9 @@ bluetooth.mojom.GattServiceObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLocalCharacteristicRead(remote_device, characteristic_uuid, service_uuid, offset) {
+    return this.$.onLocalCharacteristicRead(remote_device, characteristic_uuid, service_uuid, offset);
   }
 };
 
@@ -1483,6 +1510,42 @@ bluetooth.mojom.AdapterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  connectToDevice(address) {
+    return this.$.connectToDevice(address);
+  }
+  getDevices() {
+    return this.$.getDevices();
+  }
+  getInfo() {
+    return this.$.getInfo();
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  registerAdvertisement(service_id, service_data, use_scan_response, connectable) {
+    return this.$.registerAdvertisement(service_id, service_data, use_scan_response, connectable);
+  }
+  setDiscoverable(discoverable) {
+    return this.$.setDiscoverable(discoverable);
+  }
+  setName(name) {
+    return this.$.setName(name);
+  }
+  startDiscoverySession(client_name) {
+    return this.$.startDiscoverySession(client_name);
+  }
+  connectToServiceInsecurely(address, service_uuid, should_unbond_on_error) {
+    return this.$.connectToServiceInsecurely(address, service_uuid, should_unbond_on_error);
+  }
+  createRfcommServiceInsecurely(service_name, service_uuid) {
+    return this.$.createRfcommServiceInsecurely(service_name, service_uuid);
+  }
+  createLocalGattService(service_id, observer) {
+    return this.$.createLocalGattService(service_id, observer);
+  }
+  isLeScatternetDualRoleSupported() {
+    return this.$.isLeScatternetDualRoleSupported();
   }
 };
 
@@ -2058,6 +2121,27 @@ bluetooth.mojom.AdapterObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  presentChanged(present) {
+    return this.$.presentChanged(present);
+  }
+  poweredChanged(powered) {
+    return this.$.poweredChanged(powered);
+  }
+  discoverableChanged(discoverable) {
+    return this.$.discoverableChanged(discoverable);
+  }
+  discoveringChanged(discovering) {
+    return this.$.discoveringChanged(discovering);
+  }
+  deviceAdded(device) {
+    return this.$.deviceAdded(device);
+  }
+  deviceChanged(device) {
+    return this.$.deviceChanged(device);
+  }
+  deviceRemoved(device) {
+    return this.$.deviceRemoved(device);
   }
 };
 

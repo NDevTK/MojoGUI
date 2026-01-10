@@ -143,6 +143,15 @@ service_manager.mojom.ServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  onStart(identity) {
+    return this.$.onStart(identity);
+  }
+  onBindInterface(source, interface_name, interface_pipe) {
+    return this.$.onBindInterface(source, interface_name, interface_pipe);
+  }
+  createPackagedServiceInstance(identity, receiver, metadata) {
+    return this.$.createPackagedServiceInstance(identity, receiver, metadata);
+  }
 };
 
 service_manager.mojom.ServiceRemoteCallHandler = class {

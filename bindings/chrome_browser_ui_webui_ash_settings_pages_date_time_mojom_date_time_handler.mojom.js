@@ -115,6 +115,9 @@ ash.settings.date_time.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(page, handler) {
+    return this.$.createPageHandler(page, handler);
+  }
 };
 
 ash.settings.date_time.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -277,6 +280,15 @@ ash.settings.date_time.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  showParentAccessForTimezone() {
+    return this.$.showParentAccessForTimezone();
+  }
+  getTimezones() {
+    return this.$.getTimezones();
+  }
+  showSetDateTimeUI() {
+    return this.$.showSetDateTimeUI();
   }
 };
 
@@ -495,6 +507,12 @@ ash.settings.date_time.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onSystemClockCanSetTimeChanged(is_allowed) {
+    return this.$.onSystemClockCanSetTimeChanged(is_allowed);
+  }
+  onParentAccessValidationComplete(success) {
+    return this.$.onParentAccessValidationComplete(success);
   }
 };
 

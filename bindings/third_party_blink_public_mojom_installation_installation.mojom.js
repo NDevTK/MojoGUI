@@ -101,6 +101,9 @@ blink.mojom.InstallationServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  onInstall() {
+    return this.$.onInstall();
+  }
 };
 
 blink.mojom.InstallationServiceRemoteCallHandler = class {

@@ -161,6 +161,24 @@ add_supervision.mojom.AddSupervisionHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  requestClose() {
+    return this.$.requestClose();
+  }
+  getInstalledArcApps() {
+    return this.$.getInstalledArcApps();
+  }
+  getOAuthToken() {
+    return this.$.getOAuthToken();
+  }
+  logOut() {
+    return this.$.logOut();
+  }
+  notifySupervisionEnabled() {
+    return this.$.notifySupervisionEnabled();
+  }
+  setCloseOnEscape(enabled) {
+    return this.$.setCloseOnEscape(enabled);
+  }
 };
 
 add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {

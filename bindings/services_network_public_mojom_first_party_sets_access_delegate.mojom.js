@@ -126,6 +126,12 @@ network.mojom.FirstPartySetsAccessDelegateRemote = class {
   close() {
     this.proxy.close();
   }
+  notifyReady(ready_event) {
+    return this.$.notifyReady(ready_event);
+  }
+  setEnabled(enabled) {
+    return this.$.setEnabled(enabled);
+  }
 };
 
 network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {

@@ -106,6 +106,9 @@ cros.mojom.VideoCaptureDeviceInfoObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onGetCameraIdToDeviceIdMapping(camera_id, device_id) {
+    return this.$.onGetCameraIdToDeviceIdMapping(camera_id, device_id);
+  }
 };
 
 cros.mojom.VideoCaptureDeviceInfoObserverRemoteCallHandler = class {
@@ -253,6 +256,9 @@ cros.mojom.VideoCaptureDeviceInfoMonitorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addVideoCaptureDeviceInfoObserver(observer) {
+    return this.$.addVideoCaptureDeviceInfoObserver(observer);
   }
 };
 

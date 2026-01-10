@@ -102,6 +102,9 @@ viz.mojom.BeginFrameObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onStandaloneBeginFrame(args) {
+    return this.$.onStandaloneBeginFrame(args);
+  }
 };
 
 viz.mojom.BeginFrameObserverRemoteCallHandler = class {

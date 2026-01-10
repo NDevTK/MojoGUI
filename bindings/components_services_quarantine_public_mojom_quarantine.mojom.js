@@ -128,6 +128,9 @@ quarantine.mojom.QuarantineRemote = class {
   close() {
     this.proxy.close();
   }
+  quarantineFile(full_path, source_url, referrer_url, request_initiator, client_guid) {
+    return this.$.quarantineFile(full_path, source_url, referrer_url, request_initiator, client_guid);
+  }
 };
 
 quarantine.mojom.QuarantineRemoteCallHandler = class {

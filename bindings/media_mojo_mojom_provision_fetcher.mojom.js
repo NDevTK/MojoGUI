@@ -112,6 +112,9 @@ media.mojom.ProvisionFetcherRemote = class {
   close() {
     this.proxy.close();
   }
+  retrieve(default_url, request_data) {
+    return this.$.retrieve(default_url, request_data);
+  }
 };
 
 media.mojom.ProvisionFetcherRemoteCallHandler = class {

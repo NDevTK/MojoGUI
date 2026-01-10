@@ -225,6 +225,18 @@ crosapi.mojom.VideoConferenceManagerClientRemote = class {
   close() {
     this.proxy.close();
   }
+  getMediaApps() {
+    return this.$.getMediaApps();
+  }
+  returnToApp(id) {
+    return this.$.returnToApp(id);
+  }
+  setSystemMediaDeviceStatus(device, enabled) {
+    return this.$.setSystemMediaDeviceStatus(device, enabled);
+  }
+  stopAllScreenShare() {
+    return this.$.stopAllScreenShare();
+  }
 };
 
 crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {

@@ -170,6 +170,12 @@ on_device_translation.mojom.FileOperationProxyRemote = class {
   close() {
     this.proxy.close();
   }
+  fileExists(package_index, relative_path) {
+    return this.$.fileExists(package_index, relative_path);
+  }
+  open(package_index, relative_path) {
+    return this.$.open(package_index, relative_path);
+  }
 };
 
 on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
@@ -385,6 +391,15 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  setServiceConfig(config) {
+    return this.$.setServiceConfig(config);
+  }
+  createTranslator(source_lang, target_lang, receiver) {
+    return this.$.createTranslator(source_lang, target_lang, receiver);
+  }
+  canTranslate(source_lang, target_lang) {
+    return this.$.canTranslate(source_lang, target_lang);
   }
 };
 

@@ -173,6 +173,12 @@ blink.mojom.EmbeddedWorkerInstanceClientRemote = class {
   close() {
     this.proxy.close();
   }
+  startWorker(params) {
+    return this.$.startWorker(params);
+  }
+  stopWorker() {
+    return this.$.stopWorker();
+  }
 };
 
 blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler = class {
@@ -412,6 +418,33 @@ blink.mojom.EmbeddedWorkerInstanceHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestTermination() {
+    return this.$.requestTermination();
+  }
+  countFeature(feature) {
+    return this.$.countFeature(feature);
+  }
+  onReadyForInspection(agent, agent_host) {
+    return this.$.onReadyForInspection(agent, agent_host);
+  }
+  onScriptLoaded() {
+    return this.$.onScriptLoaded();
+  }
+  onScriptEvaluationStart() {
+    return this.$.onScriptEvaluationStart();
+  }
+  onStarted(status, fetch_handler_type, has_hid_event_handlers, has_usb_event_handlers, thread_id, start_timing) {
+    return this.$.onStarted(status, fetch_handler_type, has_hid_event_handlers, has_usb_event_handlers, thread_id, start_timing);
+  }
+  onReportException(error_message, line_number, column_number, source_url) {
+    return this.$.onReportException(error_message, line_number, column_number, source_url);
+  }
+  onReportConsoleMessage(source, message_level, message, line_number, source_url) {
+    return this.$.onReportConsoleMessage(source, message_level, message, line_number, source_url);
+  }
+  onStopped() {
+    return this.$.onStopped();
   }
 };
 

@@ -105,6 +105,9 @@ color_change_listener.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  setPage(page) {
+    return this.$.setPage(page);
+  }
 };
 
 color_change_listener.mojom.PageHandlerRemoteCallHandler = class {
@@ -251,6 +254,9 @@ color_change_listener.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onColorProviderChanged() {
+    return this.$.onColorProviderChanged();
   }
 };
 

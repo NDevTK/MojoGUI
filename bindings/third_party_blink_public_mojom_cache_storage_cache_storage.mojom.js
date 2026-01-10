@@ -274,6 +274,24 @@ blink.mojom.CacheStorageCacheRemote = class {
   close() {
     this.proxy.close();
   }
+  match(request, query_options, in_related_fetch_event, in_range_fetch_event, trace_id) {
+    return this.$.match(request, query_options, in_related_fetch_event, in_range_fetch_event, trace_id);
+  }
+  matchAll(request, query_options, trace_id) {
+    return this.$.matchAll(request, query_options, trace_id);
+  }
+  getAllMatchedEntries(request, query_options, trace_id) {
+    return this.$.getAllMatchedEntries(request, query_options, trace_id);
+  }
+  keys(request, query_options, trace_id) {
+    return this.$.keys(request, query_options, trace_id);
+  }
+  batch(batch_operations, trace_id) {
+    return this.$.batch(batch_operations, trace_id);
+  }
+  writeSideData(url, expected_response_time, data, trace_id) {
+    return this.$.writeSideData(url, expected_response_time, data, trace_id);
+  }
 };
 
 blink.mojom.CacheStorageCacheRemoteCallHandler = class {
@@ -627,6 +645,21 @@ blink.mojom.CacheStorageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  has(cache_name, trace_id) {
+    return this.$.has(cache_name, trace_id);
+  }
+  delete(cache_name, trace_id) {
+    return this.$.delete(cache_name, trace_id);
+  }
+  keys(trace_id) {
+    return this.$.keys(trace_id);
+  }
+  match(request, match_options, in_related_fetch_event, in_range_fetch_event, trace_id) {
+    return this.$.match(request, match_options, in_related_fetch_event, in_range_fetch_event, trace_id);
+  }
+  open(cache_name, trace_id) {
+    return this.$.open(cache_name, trace_id);
   }
 };
 

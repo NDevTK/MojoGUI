@@ -169,6 +169,30 @@ video_capture.mojom.DeviceRemote = class {
   close() {
     this.proxy.close();
   }
+  start(requested_settings, handler) {
+    return this.$.start(requested_settings, handler);
+  }
+  maybeSuspend() {
+    return this.$.maybeSuspend();
+  }
+  resume() {
+    return this.$.resume();
+  }
+  getPhotoState() {
+    return this.$.getPhotoState();
+  }
+  setPhotoOptions(settings) {
+    return this.$.setPhotoOptions(settings);
+  }
+  takePhoto() {
+    return this.$.takePhoto();
+  }
+  processFeedback(feedback) {
+    return this.$.processFeedback(feedback);
+  }
+  requestRefreshFrame() {
+    return this.$.requestRefreshFrame();
+  }
 };
 
 video_capture.mojom.DeviceRemoteCallHandler = class {

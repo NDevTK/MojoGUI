@@ -400,6 +400,42 @@ payments.mojom.PaymentRequestClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onPaymentMethodChange(method_name, stringified_details) {
+    return this.$.onPaymentMethodChange(method_name, stringified_details);
+  }
+  onShippingAddressChange(address) {
+    return this.$.onShippingAddressChange(address);
+  }
+  onShippingOptionChange(shipping_option_id) {
+    return this.$.onShippingOptionChange(shipping_option_id);
+  }
+  onPayerDetailChange(detail) {
+    return this.$.onPayerDetailChange(detail);
+  }
+  onPaymentResponse(response) {
+    return this.$.onPaymentResponse(response);
+  }
+  onError(error, error_message) {
+    return this.$.onError(error, error_message);
+  }
+  onComplete() {
+    return this.$.onComplete();
+  }
+  onAbort(aborted_successfully) {
+    return this.$.onAbort(aborted_successfully);
+  }
+  onCanMakePayment(result) {
+    return this.$.onCanMakePayment(result);
+  }
+  onHasEnrolledInstrument(result) {
+    return this.$.onHasEnrolledInstrument(result);
+  }
+  warnNoFavicon() {
+    return this.$.warnNoFavicon();
+  }
+  allowConnectToSource(url, url_before_redirects, did_follow_redirect) {
+    return this.$.allowConnectToSource(url, url_before_redirects, did_follow_redirect);
+  }
 };
 
 payments.mojom.PaymentRequestClientRemoteCallHandler = class {
@@ -920,6 +956,33 @@ payments.mojom.PaymentRequestRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  init(client, method_data, details, options) {
+    return this.$.init(client, method_data, details, options);
+  }
+  show(wait_for_updated_details, had_user_activation) {
+    return this.$.show(wait_for_updated_details, had_user_activation);
+  }
+  updateWith(details) {
+    return this.$.updateWith(details);
+  }
+  onPaymentDetailsNotUpdated() {
+    return this.$.onPaymentDetailsNotUpdated();
+  }
+  abort() {
+    return this.$.abort();
+  }
+  complete(result) {
+    return this.$.complete(result);
+  }
+  retry(errors) {
+    return this.$.retry(errors);
+  }
+  canMakePayment() {
+    return this.$.canMakePayment();
+  }
+  hasEnrolledInstrument() {
+    return this.$.hasEnrolledInstrument();
   }
 };
 

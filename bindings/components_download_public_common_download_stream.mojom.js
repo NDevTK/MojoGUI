@@ -126,6 +126,9 @@ download.mojom.DownloadStreamClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onStreamCompleted(status) {
+    return this.$.onStreamCompleted(status);
+  }
 };
 
 download.mojom.DownloadStreamClientRemoteCallHandler = class {

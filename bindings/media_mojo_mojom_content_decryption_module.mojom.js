@@ -274,6 +274,30 @@ media.mojom.ContentDecryptionModuleRemote = class {
   close() {
     this.proxy.close();
   }
+  setClient(client) {
+    return this.$.setClient(client);
+  }
+  setServerCertificate(certificate_data) {
+    return this.$.setServerCertificate(certificate_data);
+  }
+  getStatusForPolicy(min_hdcp_version) {
+    return this.$.getStatusForPolicy(min_hdcp_version);
+  }
+  createSessionAndGenerateRequest(session_type, init_data_type, init_data) {
+    return this.$.createSessionAndGenerateRequest(session_type, init_data_type, init_data);
+  }
+  loadSession(session_type, session_id) {
+    return this.$.loadSession(session_type, session_id);
+  }
+  updateSession(session_id, response) {
+    return this.$.updateSession(session_id, response);
+  }
+  closeSession(session_id) {
+    return this.$.closeSession(session_id);
+  }
+  removeSession(session_id) {
+    return this.$.removeSession(session_id);
+  }
 };
 
 media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
@@ -691,6 +715,18 @@ media.mojom.ContentDecryptionModuleClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onSessionMessage(session_id, message_type, message) {
+    return this.$.onSessionMessage(session_id, message_type, message);
+  }
+  onSessionClosed(session_id, reason) {
+    return this.$.onSessionClosed(session_id, reason);
+  }
+  onSessionKeysChange(session_id, has_additional_usable_key, keys_info) {
+    return this.$.onSessionKeysChange(session_id, has_additional_usable_key, keys_info);
+  }
+  onSessionExpirationUpdate(session_id, new_expiry_time_sec) {
+    return this.$.onSessionExpirationUpdate(session_id, new_expiry_time_sec);
+  }
 };
 
 media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
@@ -933,6 +969,9 @@ media.mojom.CdmFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createCdm(cdm_config) {
+    return this.$.createCdm(cdm_config);
   }
 };
 

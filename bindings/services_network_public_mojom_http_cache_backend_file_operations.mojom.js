@@ -163,6 +163,9 @@ network.mojom.FileEnumeratorRemote = class {
   close() {
     this.proxy.close();
   }
+  getNext(num_entries) {
+    return this.$.getNext(num_entries);
+  }
 };
 
 network.mojom.FileEnumeratorRemoteCallHandler = class {
@@ -417,6 +420,33 @@ network.mojom.HttpCacheBackendFileOperationsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createDirectory(path) {
+    return this.$.createDirectory(path);
+  }
+  pathExists(path) {
+    return this.$.pathExists(path);
+  }
+  directoryExists(path) {
+    return this.$.directoryExists(path);
+  }
+  openFile(path, flags) {
+    return this.$.openFile(path, flags);
+  }
+  deleteFile(path, mode) {
+    return this.$.deleteFile(path, mode);
+  }
+  renameFile(from_path, to_path) {
+    return this.$.renameFile(from_path, to_path);
+  }
+  getFileInfo(path) {
+    return this.$.getFileInfo(path);
+  }
+  enumerateFiles(path, receiver) {
+    return this.$.enumerateFiles(path, receiver);
+  }
+  cleanupDirectory(path) {
+    return this.$.cleanupDirectory(path);
   }
 };
 
@@ -845,6 +875,9 @@ network.mojom.HttpCacheBackendFileOperationsFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  create(receiver) {
+    return this.$.create(receiver);
   }
 };
 

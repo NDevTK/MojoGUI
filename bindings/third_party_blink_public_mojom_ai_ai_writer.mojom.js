@@ -157,6 +157,12 @@ blink.mojom.AIWriterRemote = class {
   close() {
     this.proxy.close();
   }
+  write(input, context, pending_responder) {
+    return this.$.write(input, context, pending_responder);
+  }
+  measureUsage(input, context) {
+    return this.$.measureUsage(input, context);
+  }
 };
 
 blink.mojom.AIWriterRemoteCallHandler = class {

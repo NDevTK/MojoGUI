@@ -540,6 +540,72 @@ searchbox.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  setPage(page) {
+    return this.$.setPage(page);
+  }
+  onFocusChanged(focused) {
+    return this.$.onFocusChanged(focused);
+  }
+  queryAutocomplete(input, prevent_inline_autocomplete) {
+    return this.$.queryAutocomplete(input, prevent_inline_autocomplete);
+  }
+  stopAutocomplete(clear_result) {
+    return this.$.stopAutocomplete(clear_result);
+  }
+  openAutocompleteMatch(line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
+    return this.$.openAutocompleteMatch(line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key);
+  }
+  onNavigationLikely(line, url, navigation_predictor) {
+    return this.$.onNavigationLikely(line, url, navigation_predictor);
+  }
+  deleteAutocompleteMatch(line, url) {
+    return this.$.deleteAutocompleteMatch(line, url);
+  }
+  activateKeyword(line, url, match_selection_timestamp, is_mouse_event) {
+    return this.$.activateKeyword(line, url, match_selection_timestamp, is_mouse_event);
+  }
+  showContextMenu(point) {
+    return this.$.showContextMenu(point);
+  }
+  executeAction(line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
+    return this.$.executeAction(line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key);
+  }
+  onThumbnailRemoved() {
+    return this.$.onThumbnailRemoved();
+  }
+  getPlaceholderConfig() {
+    return this.$.getPlaceholderConfig();
+  }
+  getRecentTabs() {
+    return this.$.getRecentTabs();
+  }
+  getTabPreview(tab_id) {
+    return this.$.getTabPreview(tab_id);
+  }
+  notifySessionStarted() {
+    return this.$.notifySessionStarted();
+  }
+  notifySessionAbandoned() {
+    return this.$.notifySessionAbandoned();
+  }
+  addFileContext(file_info, file_bytes) {
+    return this.$.addFileContext(file_info, file_bytes);
+  }
+  addTabContext(tab_id, delay_upload) {
+    return this.$.addTabContext(tab_id, delay_upload);
+  }
+  deleteContext(token, from_automatic_chip) {
+    return this.$.deleteContext(token, from_automatic_chip);
+  }
+  clearFiles() {
+    return this.$.clearFiles();
+  }
+  submitQuery(query_text, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
+    return this.$.submitQuery(query_text, mouse_button, alt_key, ctrl_key, meta_key, shift_key);
+  }
+  openLensSearch() {
+    return this.$.openLensSearch();
+  }
 };
 
 searchbox.mojom.PageHandlerRemoteCallHandler = class {
@@ -1407,6 +1473,48 @@ searchbox.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  autocompleteResultChanged(result) {
+    return this.$.autocompleteResultChanged(result);
+  }
+  updateSelection(old_selection, selection) {
+    return this.$.updateSelection(old_selection, selection);
+  }
+  setKeywordSelected(is_keyword_selected) {
+    return this.$.setKeywordSelected(is_keyword_selected);
+  }
+  onShow() {
+    return this.$.onShow();
+  }
+  setInputText(input) {
+    return this.$.setInputText(input);
+  }
+  setThumbnail(thumbnail_url, is_deletable) {
+    return this.$.setThumbnail(thumbnail_url, is_deletable);
+  }
+  onContextualInputStatusChanged(token, status, error_type) {
+    return this.$.onContextualInputStatusChanged(token, status, error_type);
+  }
+  onTabStripChanged() {
+    return this.$.onTabStripChanged();
+  }
+  addFileContext(token, file_info) {
+    return this.$.addFileContext(token, file_info);
+  }
+  updateAutoSuggestedTabContext(tab) {
+    return this.$.updateAutoSuggestedTabContext(tab);
+  }
+  updateLensSearchEligibility(eligible) {
+    return this.$.updateLensSearchEligibility(eligible);
+  }
+  updateContentSharingPolicy(enabled) {
+    return this.$.updateContentSharingPolicy(enabled);
+  }
+  updateAimEligibility(eligible) {
+    return this.$.updateAimEligibility(eligible);
+  }
+  onShowAiModePrefChanged(canShow) {
+    return this.$.onShowAiModePrefChanged(canShow);
   }
 };
 

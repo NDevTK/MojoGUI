@@ -107,6 +107,12 @@ prerender.mojom.NoStatePrefetchCancelerRemote = class {
   close() {
     this.proxy.close();
   }
+  cancelNoStatePrefetchForUnsupportedScheme() {
+    return this.$.cancelNoStatePrefetchForUnsupportedScheme();
+  }
+  cancelNoStatePrefetchAfterSubresourcesDiscovered() {
+    return this.$.cancelNoStatePrefetchAfterSubresourcesDiscovered();
+  }
 };
 
 prerender.mojom.NoStatePrefetchCancelerRemoteCallHandler = class {

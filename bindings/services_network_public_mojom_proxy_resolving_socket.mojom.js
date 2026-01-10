@@ -127,6 +127,9 @@ network.mojom.ProxyResolvingSocketRemote = class {
   close() {
     this.proxy.close();
   }
+  upgradeToTLS(host_port_pair, traffic_annotation, receiver, observer) {
+    return this.$.upgradeToTLS(host_port_pair, traffic_annotation, receiver, observer);
+  }
 };
 
 network.mojom.ProxyResolvingSocketRemoteCallHandler = class {
@@ -295,6 +298,9 @@ network.mojom.ProxyResolvingSocketFactoryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createProxyResolvingSocket(url, network_anonymization_key, options, traffic_annotation, socket, observer) {
+    return this.$.createProxyResolvingSocket(url, network_anonymization_key, options, traffic_annotation, socket, observer);
   }
 };
 

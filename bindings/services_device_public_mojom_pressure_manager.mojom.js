@@ -175,6 +175,18 @@ device.mojom.PressureManagerRemote = class {
   close() {
     this.proxy.close();
   }
+  addVirtualPressureSource(token, source, metadata) {
+    return this.$.addVirtualPressureSource(token, source, metadata);
+  }
+  removeVirtualPressureSource(token, source) {
+    return this.$.removeVirtualPressureSource(token, source);
+  }
+  updateVirtualPressureSourceData(token, source, state, own_contribution_estimate) {
+    return this.$.updateVirtualPressureSourceData(token, source, state, own_contribution_estimate);
+  }
+  addClient(source, token, client) {
+    return this.$.addClient(source, token, client);
+  }
 };
 
 device.mojom.PressureManagerRemoteCallHandler = class {
@@ -433,6 +445,9 @@ device.mojom.PressureClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onPressureUpdated(update) {
+    return this.$.onPressureUpdated(update);
   }
 };
 

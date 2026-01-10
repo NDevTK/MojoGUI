@@ -136,6 +136,15 @@ arc.mojom.TracingInstanceRemote = class {
   close() {
     this.proxy.close();
   }
+  queryAvailableCategories() {
+    return this.$.queryAvailableCategories();
+  }
+  startTracing(categories, socket) {
+    return this.$.startTracing(categories, socket);
+  }
+  stopTracing() {
+    return this.$.stopTracing();
+  }
 };
 
 arc.mojom.TracingInstanceRemoteCallHandler = class {

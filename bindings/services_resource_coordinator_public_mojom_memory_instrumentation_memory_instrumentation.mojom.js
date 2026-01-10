@@ -414,6 +414,12 @@ memory_instrumentation.mojom.ClientProcessRemote = class {
   close() {
     this.proxy.close();
   }
+  requestChromeMemoryDump(args) {
+    return this.$.requestChromeMemoryDump(args);
+  }
+  requestOSMemoryDump(option, flags, pids) {
+    return this.$.requestOSMemoryDump(option, flags, pids);
+  }
 };
 
 memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
@@ -610,6 +616,9 @@ memory_instrumentation.mojom.HeapProfilerRemote = class {
   close() {
     this.proxy.close();
   }
+  dumpProcessesForTracing(strip_path_from_mapped_files, write_proto) {
+    return this.$.dumpProcessesForTracing(strip_path_from_mapped_files, write_proto);
+  }
 };
 
 memory_instrumentation.mojom.HeapProfilerRemoteCallHandler = class {
@@ -769,6 +778,9 @@ memory_instrumentation.mojom.HeapProfilerHelperRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getVmRegionsForHeapProfiler(pids) {
+    return this.$.getVmRegionsForHeapProfiler(pids);
   }
 };
 
@@ -975,6 +987,18 @@ memory_instrumentation.mojom.CoordinatorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  requestGlobalMemoryDump(dump_type, level_of_detail, determinism, allocator_dump_names) {
+    return this.$.requestGlobalMemoryDump(dump_type, level_of_detail, determinism, allocator_dump_names);
+  }
+  requestGlobalMemoryDumpForPid(pid, allocator_dump_names) {
+    return this.$.requestGlobalMemoryDumpForPid(pid, allocator_dump_names);
+  }
+  requestPrivateMemoryFootprint(pid) {
+    return this.$.requestPrivateMemoryFootprint(pid);
+  }
+  requestGlobalMemoryDumpAndAppendToTrace(dump_type, level_of_detail, determinism) {
+    return this.$.requestGlobalMemoryDumpAndAppendToTrace(dump_type, level_of_detail, determinism);
   }
 };
 
@@ -1235,6 +1259,9 @@ memory_instrumentation.mojom.CoordinatorConnectorRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  registerCoordinatorClient(receiver, client_process) {
+    return this.$.registerCoordinatorClient(receiver, client_process);
   }
 };
 

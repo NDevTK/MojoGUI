@@ -519,6 +519,12 @@ crosapi.mojom.PrintServerObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onPrintServersChanged(config) {
+    return this.$.onPrintServersChanged(config);
+  }
+  onServerPrintersChanged() {
+    return this.$.onServerPrintersChanged();
+  }
 };
 
 crosapi.mojom.PrintServerObserverRemoteCallHandler = class {
@@ -706,6 +712,12 @@ crosapi.mojom.PrintJobObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onPrintJobUpdateDeprecated(printer_id, job_id, status) {
+    return this.$.onPrintJobUpdateDeprecated(printer_id, job_id, status);
+  }
+  onPrintJobUpdate(printer_id, job_id, update) {
+    return this.$.onPrintJobUpdate(printer_id, job_id, update);
+  }
 };
 
 crosapi.mojom.PrintJobObserverRemoteCallHandler = class {
@@ -882,6 +894,9 @@ crosapi.mojom.LocalPrintersObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onLocalPrintersUpdated(printers) {
+    return this.$.onLocalPrintersUpdated(printers);
   }
 };
 
@@ -1219,6 +1234,57 @@ crosapi.mojom.LocalPrinterRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getPrinters() {
+    return this.$.getPrinters();
+  }
+  getCapability(printer_id) {
+    return this.$.getCapability(printer_id);
+  }
+  getEulaUrl(printer_id) {
+    return this.$.getEulaUrl(printer_id);
+  }
+  getStatus(printer_id) {
+    return this.$.getStatus(printer_id);
+  }
+  showSystemPrintSettings() {
+    return this.$.showSystemPrintSettings();
+  }
+  createPrintJob(job) {
+    return this.$.createPrintJob(job);
+  }
+  cancelPrintJob(printer_id, job_id) {
+    return this.$.cancelPrintJob(printer_id, job_id);
+  }
+  getPrintServersConfig() {
+    return this.$.getPrintServersConfig();
+  }
+  choosePrintServers(print_server_ids) {
+    return this.$.choosePrintServers(print_server_ids);
+  }
+  addPrintServerObserver(observer) {
+    return this.$.addPrintServerObserver(observer);
+  }
+  getPolicies() {
+    return this.$.getPolicies();
+  }
+  getUsernamePerPolicy() {
+    return this.$.getUsernamePerPolicy();
+  }
+  getPrinterTypeDenyList() {
+    return this.$.getPrinterTypeDenyList();
+  }
+  addPrintJobObserver(observer, source) {
+    return this.$.addPrintJobObserver(observer, source);
+  }
+  getOAuthAccessToken(printer_id) {
+    return this.$.getOAuthAccessToken(printer_id);
+  }
+  getIppClientInfo(printer_id) {
+    return this.$.getIppClientInfo(printer_id);
+  }
+  addLocalPrintersObserver(observer) {
+    return this.$.addLocalPrintersObserver(observer);
   }
 };
 

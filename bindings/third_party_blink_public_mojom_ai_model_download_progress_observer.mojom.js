@@ -103,6 +103,9 @@ blink.mojom.ModelDownloadProgressObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onDownloadProgressUpdate(downloaded_bytes, total_bytes) {
+    return this.$.onDownloadProgressUpdate(downloaded_bytes, total_bytes);
+  }
 };
 
 blink.mojom.ModelDownloadProgressObserverRemoteCallHandler = class {

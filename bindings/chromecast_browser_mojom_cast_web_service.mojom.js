@@ -200,6 +200,18 @@ chromecast.mojom.CastWebServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  createWebView(params, web_contents, window) {
+    return this.$.createWebView(params, web_contents, window);
+  }
+  registerWebUiClient(client, hosts) {
+    return this.$.registerWebUiClient(client, hosts);
+  }
+  flushDomLocalStorage() {
+    return this.$.flushDomLocalStorage();
+  }
+  clearLocalStorage() {
+    return this.$.clearLocalStorage();
+  }
 };
 
 chromecast.mojom.CastWebServiceRemoteCallHandler = class {

@@ -146,6 +146,12 @@ chromeos.cdm.mojom.OutputProtectionRemote = class {
   close() {
     this.proxy.close();
   }
+  queryStatus() {
+    return this.$.queryStatus();
+  }
+  enableProtection(desired_protection) {
+    return this.$.enableProtection(desired_protection);
+  }
 };
 
 chromeos.cdm.mojom.OutputProtectionRemoteCallHandler = class {

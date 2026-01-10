@@ -201,6 +201,24 @@ unexportable_keys.mojom.UnexportableKeyServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  generateSigningKey(acceptable_algorithms, priority) {
+    return this.$.generateSigningKey(acceptable_algorithms, priority);
+  }
+  fromWrappedSigningKey(wrapped_key, priority) {
+    return this.$.fromWrappedSigningKey(wrapped_key, priority);
+  }
+  sign(key_id, data, priority) {
+    return this.$.sign(key_id, data, priority);
+  }
+  getAllSigningKeysForGarbageCollection(priority) {
+    return this.$.getAllSigningKeysForGarbageCollection(priority);
+  }
+  deleteKey(key_id, priority) {
+    return this.$.deleteKey(key_id, priority);
+  }
+  deleteAllKeys(priority) {
+    return this.$.deleteAllKeys(priority);
+  }
 };
 
 unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {

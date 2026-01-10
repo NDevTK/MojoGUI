@@ -298,6 +298,54 @@ history_clusters.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  openHistoryUrl(url, click_modifiers) {
+    return this.$.openHistoryUrl(url, click_modifiers);
+  }
+  setPage(page) {
+    return this.$.setPage(page);
+  }
+  showContextMenuForSearchbox(query, point) {
+    return this.$.showContextMenuForSearchbox(query, point);
+  }
+  showContextMenuForURL(url, point) {
+    return this.$.showContextMenuForURL(url, point);
+  }
+  showSidePanelUI() {
+    return this.$.showSidePanelUI();
+  }
+  toggleVisibility(visible) {
+    return this.$.toggleVisibility(visible);
+  }
+  startQueryClusters(query, begin_time, recluster) {
+    return this.$.startQueryClusters(query, begin_time, recluster);
+  }
+  loadMoreClusters(query) {
+    return this.$.loadMoreClusters(query);
+  }
+  hideVisits(visits) {
+    return this.$.hideVisits(visits);
+  }
+  removeVisits(visits) {
+    return this.$.removeVisits(visits);
+  }
+  removeVisitByUrlAndTime(url, timestamp) {
+    return this.$.removeVisitByUrlAndTime(url, timestamp);
+  }
+  openVisitUrlsInTabGroup(visits, tab_group_name) {
+    return this.$.openVisitUrlsInTabGroup(visits, tab_group_name);
+  }
+  recordVisitAction(visit_action, visit_index, visit_type) {
+    return this.$.recordVisitAction(visit_action, visit_index, visit_type);
+  }
+  recordRelatedSearchAction(action, visit_index) {
+    return this.$.recordRelatedSearchAction(action, visit_index);
+  }
+  recordClusterAction(cluster_action, cluster_index) {
+    return this.$.recordClusterAction(cluster_action, cluster_index);
+  }
+  recordToggledVisibility(visible) {
+    return this.$.recordToggledVisibility(visible);
+  }
 };
 
 history_clusters.mojom.PageHandlerRemoteCallHandler = class {
@@ -934,6 +982,24 @@ history_clusters.mojom.PageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onClustersQueryResult(result) {
+    return this.$.onClustersQueryResult(result);
+  }
+  onClusterImageUpdated(cluster_index, image_url) {
+    return this.$.onClusterImageUpdated(cluster_index, image_url);
+  }
+  onVisitsHidden(hidden_visits) {
+    return this.$.onVisitsHidden(hidden_visits);
+  }
+  onVisitsRemoved(removed_visits) {
+    return this.$.onVisitsRemoved(removed_visits);
+  }
+  onHistoryDeleted() {
+    return this.$.onHistoryDeleted();
+  }
+  onQueryChangedByUser(query) {
+    return this.$.onQueryChangedByUser(query);
   }
 };
 

@@ -131,6 +131,15 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemote = class {
   close() {
     this.proxy.close();
   }
+  onResponse(response, timing) {
+    return this.$.onResponse(response, timing);
+  }
+  onResponseStream(response, body_as_stream, timing) {
+    return this.$.onResponseStream(response, body_as_stream, timing);
+  }
+  onFallback(request_body, timing) {
+    return this.$.onFallback(request_body, timing);
+  }
 };
 
 blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {

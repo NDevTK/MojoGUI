@@ -115,6 +115,9 @@ quick_answers.mojom.SpellCheckServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  createDictionary(dictionary_file) {
+    return this.$.createDictionary(dictionary_file);
+  }
 };
 
 quick_answers.mojom.SpellCheckServiceRemoteCallHandler = class {
@@ -274,6 +277,9 @@ quick_answers.mojom.SpellCheckDictionaryRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  checkSpelling(word) {
+    return this.$.checkSpelling(word);
   }
 };
 

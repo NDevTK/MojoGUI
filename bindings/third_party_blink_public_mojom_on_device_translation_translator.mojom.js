@@ -111,6 +111,12 @@ blink.mojom.TranslatorRemote = class {
   close() {
     this.proxy.close();
   }
+  translate(input, pending_responder) {
+    return this.$.translate(input, pending_responder);
+  }
+  translateStreaming(input, pending_responder) {
+    return this.$.translateStreaming(input, pending_responder);
+  }
 };
 
 blink.mojom.TranslatorRemoteCallHandler = class {

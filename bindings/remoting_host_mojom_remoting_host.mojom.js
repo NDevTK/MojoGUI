@@ -152,6 +152,15 @@ remoting.mojom.RemotingHostControlRemote = class {
   close() {
     this.proxy.close();
   }
+  applyHostConfig(config) {
+    return this.$.applyHostConfig(config);
+  }
+  initializePairingRegistry(privileged_handle, unprivileged_handle) {
+    return this.$.initializePairingRegistry(privileged_handle, unprivileged_handle);
+  }
+  bindChromotingHostServices(receiver, peer_pid) {
+    return this.$.bindChromotingHostServices(receiver, peer_pid);
+  }
 };
 
 remoting.mojom.RemotingHostControlRemoteCallHandler = class {
@@ -366,6 +375,12 @@ remoting.mojom.DesktopSessionConnectionEventsRemote = class {
   close() {
     this.proxy.close();
   }
+  onTerminalDisconnected(terminal_id) {
+    return this.$.onTerminalDisconnected(terminal_id);
+  }
+  onDesktopSessionAgentAttached(terminal_id, session_id, desktop_pipe) {
+    return this.$.onDesktopSessionAgentAttached(terminal_id, session_id, desktop_pipe);
+  }
 };
 
 remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
@@ -579,6 +594,27 @@ remoting.mojom.HostStatusObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onClientAccessDenied(signaling_id) {
+    return this.$.onClientAccessDenied(signaling_id);
+  }
+  onClientAuthenticated(signaling_id) {
+    return this.$.onClientAuthenticated(signaling_id);
+  }
+  onClientConnected(signaling_id) {
+    return this.$.onClientConnected(signaling_id);
+  }
+  onClientDisconnected(signaling_id) {
+    return this.$.onClientDisconnected(signaling_id);
+  }
+  onClientRouteChange(signaling_id, channel_name, route) {
+    return this.$.onClientRouteChange(signaling_id, channel_name, route);
+  }
+  onHostStarted(owner_email) {
+    return this.$.onHostStarted(owner_email);
+  }
+  onHostShutdown() {
+    return this.$.onHostShutdown();
   }
 };
 

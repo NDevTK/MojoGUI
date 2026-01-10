@@ -126,6 +126,9 @@ arc.mojom.OnDeviceSafetyHostRemote = class {
   close() {
     this.proxy.close();
   }
+  isCrosSafetyServiceEnabled() {
+    return this.$.isCrosSafetyServiceEnabled();
+  }
 };
 
 arc.mojom.OnDeviceSafetyHostRemoteCallHandler = class {
@@ -296,6 +299,12 @@ arc.mojom.OnDeviceSafetyInstanceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getArcSafetySession(session) {
+    return this.$.getArcSafetySession(session);
+  }
+  init(host_remote) {
+    return this.$.init(host_remote);
   }
 };
 

@@ -128,6 +128,18 @@ ax.mojom.AutomationClientRemote = class {
   close() {
     this.proxy.close();
   }
+  enable() {
+    return this.$.enable();
+  }
+  disable() {
+    return this.$.disable();
+  }
+  enableChildTree(tree_id) {
+    return this.$.enableChildTree(tree_id);
+  }
+  performAction(action_data) {
+    return this.$.performAction(action_data);
+  }
 };
 
 ax.mojom.AutomationClientRemoteCallHandler = class {

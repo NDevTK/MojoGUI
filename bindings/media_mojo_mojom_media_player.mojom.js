@@ -227,6 +227,51 @@ media.mojom.MediaPlayerRemote = class {
   close() {
     this.proxy.close();
   }
+  requestPlay() {
+    return this.$.requestPlay();
+  }
+  requestPause(triggered_by_user) {
+    return this.$.requestPause(triggered_by_user);
+  }
+  requestSeekForward(seek_time) {
+    return this.$.requestSeekForward(seek_time);
+  }
+  requestSeekBackward(seek_time) {
+    return this.$.requestSeekBackward(seek_time);
+  }
+  requestSeekTo(seek_time) {
+    return this.$.requestSeekTo(seek_time);
+  }
+  requestEnterPictureInPicture() {
+    return this.$.requestEnterPictureInPicture();
+  }
+  requestMute(mute) {
+    return this.$.requestMute(mute);
+  }
+  setVolumeMultiplier(multiplier) {
+    return this.$.setVolumeMultiplier(multiplier);
+  }
+  setPersistentState(persistent) {
+    return this.$.setPersistentState(persistent);
+  }
+  setPowerExperimentState(enabled) {
+    return this.$.setPowerExperimentState(enabled);
+  }
+  setAudioSinkId(sink_id) {
+    return this.$.setAudioSinkId(sink_id);
+  }
+  suspendForFrameClosed() {
+    return this.$.suspendForFrameClosed();
+  }
+  requestMediaRemoting() {
+    return this.$.requestMediaRemoting();
+  }
+  requestVisibility() {
+    return this.$.requestVisibility();
+  }
+  recordAutoPictureInPictureInfo(auto_picture_in_picture_info) {
+    return this.$.recordAutoPictureInPictureInfo(auto_picture_in_picture_info);
+  }
 };
 
 media.mojom.MediaPlayerRemoteCallHandler = class {
@@ -792,6 +837,9 @@ media.mojom.MediaPlayerObserverClientRemote = class {
   close() {
     this.proxy.close();
   }
+  getHasPlayedBefore() {
+    return this.$.getHasPlayedBefore();
+  }
 };
 
 media.mojom.MediaPlayerObserverClientRemoteCallHandler = class {
@@ -1017,6 +1065,45 @@ media.mojom.MediaPlayerObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onMediaPlaying() {
+    return this.$.onMediaPlaying();
+  }
+  onMediaPaused(stream_ended) {
+    return this.$.onMediaPaused(stream_ended);
+  }
+  onMutedStatusChanged(muted) {
+    return this.$.onMutedStatusChanged(muted);
+  }
+  onMediaMetadataChanged(has_audio, has_video, content_type) {
+    return this.$.onMediaMetadataChanged(has_audio, has_video, content_type);
+  }
+  onMediaPositionStateChanged(media_position) {
+    return this.$.onMediaPositionStateChanged(media_position);
+  }
+  onMediaEffectivelyFullscreenChanged(status) {
+    return this.$.onMediaEffectivelyFullscreenChanged(status);
+  }
+  onMediaSizeChanged(size) {
+    return this.$.onMediaSizeChanged(size);
+  }
+  onPictureInPictureAvailabilityChanged(available) {
+    return this.$.onPictureInPictureAvailabilityChanged(available);
+  }
+  onAudioOutputSinkChanged(hashed_device_id) {
+    return this.$.onAudioOutputSinkChanged(hashed_device_id);
+  }
+  onUseAudioServiceChanged(uses_audio_service) {
+    return this.$.onUseAudioServiceChanged(uses_audio_service);
+  }
+  onAudioOutputSinkChangingDisabled() {
+    return this.$.onAudioOutputSinkChangingDisabled();
+  }
+  onRemotePlaybackMetadataChange(remote_playback_metadata) {
+    return this.$.onRemotePlaybackMetadataChange(remote_playback_metadata);
+  }
+  onVideoVisibilityChanged(meets_visibility_threshold) {
+    return this.$.onVideoVisibilityChanged(meets_visibility_threshold);
   }
 };
 
@@ -1515,6 +1602,9 @@ media.mojom.MediaPlayerHostRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onMediaPlayerAdded(player_remote, observer, player_id) {
+    return this.$.onMediaPlayerAdded(player_remote, observer, player_id);
   }
 };
 

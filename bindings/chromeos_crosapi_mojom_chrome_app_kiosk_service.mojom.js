@@ -161,6 +161,12 @@ crosapi.mojom.ChromeKioskLaunchControllerRemote = class {
   close() {
     this.proxy.close();
   }
+  installKioskApp(params) {
+    return this.$.installKioskApp(params);
+  }
+  launchKioskApp(app_id, is_network_ready) {
+    return this.$.launchKioskApp(app_id, is_network_ready);
+  }
 };
 
 crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandler = class {
@@ -349,6 +355,9 @@ crosapi.mojom.ChromeAppKioskServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindLaunchController(controller) {
+    return this.$.bindLaunchController(controller);
   }
 };
 

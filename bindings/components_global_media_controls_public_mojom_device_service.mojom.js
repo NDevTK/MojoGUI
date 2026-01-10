@@ -154,6 +154,9 @@ global_media_controls.mojom.DeviceListHostRemote = class {
   close() {
     this.proxy.close();
   }
+  selectDevice(device_id) {
+    return this.$.selectDevice(device_id);
+  }
 };
 
 global_media_controls.mojom.DeviceListHostRemoteCallHandler = class {
@@ -306,6 +309,12 @@ global_media_controls.mojom.DeviceListClientRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onDevicesUpdated(devices) {
+    return this.$.onDevicesUpdated(devices);
+  }
+  onPermissionRejected() {
+    return this.$.onPermissionRejected();
   }
 };
 
@@ -498,6 +507,15 @@ global_media_controls.mojom.DeviceServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  getDeviceListHostForSession(session_id, host_receiver, client_remote) {
+    return this.$.getDeviceListHostForSession(session_id, host_receiver, client_remote);
+  }
+  getDeviceListHostForPresentation(host_receiver, client_remote) {
+    return this.$.getDeviceListHostForPresentation(host_receiver, client_remote);
+  }
+  setDevicePickerProvider(provider_remote) {
+    return this.$.setDevicePickerProvider(provider_remote);
   }
 };
 
@@ -748,6 +766,33 @@ global_media_controls.mojom.DevicePickerProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  createItem(source_id) {
+    return this.$.createItem(source_id);
+  }
+  deleteItem() {
+    return this.$.deleteItem();
+  }
+  showItem() {
+    return this.$.showItem();
+  }
+  hideItem() {
+    return this.$.hideItem();
+  }
+  onMetadataChanged(metadata) {
+    return this.$.onMetadataChanged(metadata);
+  }
+  onArtworkImageChanged(artwork_image) {
+    return this.$.onArtworkImageChanged(artwork_image);
+  }
+  onFaviconImageChanged(favicon_image) {
+    return this.$.onFaviconImageChanged(favicon_image);
+  }
+  addObserver(observer) {
+    return this.$.addObserver(observer);
+  }
+  hideMediaUI() {
+    return this.$.hideMediaUI();
   }
 };
 
@@ -1142,6 +1187,18 @@ global_media_controls.mojom.DevicePickerObserverRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onMediaUIOpened() {
+    return this.$.onMediaUIOpened();
+  }
+  onMediaUIClosed() {
+    return this.$.onMediaUIClosed();
+  }
+  onMediaUIUpdated() {
+    return this.$.onMediaUIUpdated();
+  }
+  onPickerDismissed() {
+    return this.$.onPickerDismissed();
   }
 };
 

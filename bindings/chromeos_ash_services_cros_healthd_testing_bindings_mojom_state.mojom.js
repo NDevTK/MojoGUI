@@ -132,6 +132,15 @@ ash.cros_healthd.connectivity.mojom.StateRemote = class {
   close() {
     this.proxy.close();
   }
+  lastCallHasNext() {
+    return this.$.lastCallHasNext();
+  }
+  waitLastCall() {
+    return this.$.waitLastCall();
+  }
+  fulfillLastCallCallback() {
+    return this.$.fulfillLastCallCallback();
+  }
 };
 
 ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
@@ -357,6 +366,12 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bindContext(remote, receiver) {
+    return this.$.bindContext(remote, receiver);
+  }
+  bindTestProvider(interface_name, receiver) {
+    return this.$.bindTestProvider(interface_name, receiver);
   }
 };
 

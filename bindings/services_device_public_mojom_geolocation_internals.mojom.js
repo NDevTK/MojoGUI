@@ -214,6 +214,15 @@ device.mojom.GeolocationInternalsObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  onDiagnosticsChanged(diagnostics) {
+    return this.$.onDiagnosticsChanged(diagnostics);
+  }
+  onNetworkLocationRequested(access_point_data) {
+    return this.$.onNetworkLocationRequested(access_point_data);
+  }
+  onNetworkLocationReceived(response) {
+    return this.$.onNetworkLocationReceived(response);
+  }
 };
 
 device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
@@ -425,6 +434,9 @@ device.mojom.GeolocationInternalsRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  addInternalsObserver(observer) {
+    return this.$.addInternalsObserver(observer);
   }
 };
 

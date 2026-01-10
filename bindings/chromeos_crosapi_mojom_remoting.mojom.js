@@ -123,6 +123,12 @@ crosapi.mojom.RemotingRemote = class {
   close() {
     this.proxy.close();
   }
+  getSupportHostDetails() {
+    return this.$.getSupportHostDetails();
+  }
+  startSupportSession(params) {
+    return this.$.startSupportSession(params);
+  }
 };
 
 crosapi.mojom.RemotingRemoteCallHandler = class {

@@ -106,6 +106,9 @@ chromecast.metrics.mojom.MetricsHelperRemote = class {
   close() {
     this.proxy.close();
   }
+  recordApplicationEvent(app_id, session_id, sdk_version, event) {
+    return this.$.recordApplicationEvent(app_id, session_id, sdk_version, event);
+  }
 };
 
 chromecast.metrics.mojom.MetricsHelperRemoteCallHandler = class {

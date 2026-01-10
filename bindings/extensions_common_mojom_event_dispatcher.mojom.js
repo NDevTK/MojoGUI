@@ -139,6 +139,9 @@ extensions.mojom.EventDispatcherRemote = class {
   close() {
     this.proxy.close();
   }
+  dispatchEvent(params, event_args) {
+    return this.$.dispatchEvent(params, event_args);
+  }
 };
 
 extensions.mojom.EventDispatcherRemoteCallHandler = class {

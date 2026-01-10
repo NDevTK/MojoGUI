@@ -185,6 +185,9 @@ side_panel.mojom.BookmarksPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createBookmarksPageHandler(page, handler) {
+    return this.$.createBookmarksPageHandler(page, handler);
+  }
 };
 
 side_panel.mojom.BookmarksPageHandlerFactoryRemoteCallHandler = class {
@@ -501,6 +504,75 @@ side_panel.mojom.BookmarksPageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  bookmarkCurrentTabInFolder(folder_id) {
+    return this.$.bookmarkCurrentTabInFolder(folder_id);
+  }
+  createFolder(folder_id, title) {
+    return this.$.createFolder(folder_id, title);
+  }
+  dropBookmarks(folder_id) {
+    return this.$.dropBookmarks(folder_id);
+  }
+  executeEditCommand(node_ids, source) {
+    return this.$.executeEditCommand(node_ids, source);
+  }
+  executeMoveCommand(node_ids, source) {
+    return this.$.executeMoveCommand(node_ids, source);
+  }
+  executeOpenInNewTabCommand(side_panel_ids, source) {
+    return this.$.executeOpenInNewTabCommand(side_panel_ids, source);
+  }
+  executeOpenInNewWindowCommand(side_panel_ids, source) {
+    return this.$.executeOpenInNewWindowCommand(side_panel_ids, source);
+  }
+  executeOpenInIncognitoWindowCommand(side_panel_ids, source) {
+    return this.$.executeOpenInIncognitoWindowCommand(side_panel_ids, source);
+  }
+  executeOpenInNewTabGroupCommand(side_panel_ids, source) {
+    return this.$.executeOpenInNewTabGroupCommand(side_panel_ids, source);
+  }
+  executeOpenInSplitViewCommand(node_ids, source) {
+    return this.$.executeOpenInSplitViewCommand(node_ids, source);
+  }
+  executeAddToBookmarksBarCommand(node_id, source) {
+    return this.$.executeAddToBookmarksBarCommand(node_id, source);
+  }
+  executeRemoveFromBookmarksBarCommand(node_id, source) {
+    return this.$.executeRemoveFromBookmarksBarCommand(node_id, source);
+  }
+  executeDeleteCommand(node_ids, source) {
+    return this.$.executeDeleteCommand(node_ids, source);
+  }
+  openBookmark(node_id, parent_folder_depth, click_modifiers, source) {
+    return this.$.openBookmark(node_id, parent_folder_depth, click_modifiers, source);
+  }
+  undo() {
+    return this.$.undo();
+  }
+  renameBookmark(node_id, new_title) {
+    return this.$.renameBookmark(node_id, new_title);
+  }
+  moveBookmark(node_id, folder_id) {
+    return this.$.moveBookmark(node_id, folder_id);
+  }
+  removeBookmarks(node_ids) {
+    return this.$.removeBookmarks(node_ids);
+  }
+  setSortOrder(sort_order) {
+    return this.$.setSortOrder(sort_order);
+  }
+  setViewType(view_type) {
+    return this.$.setViewType(view_type);
+  }
+  showContextMenu(id, point, source) {
+    return this.$.showContextMenu(id, point, source);
+  }
+  showUI() {
+    return this.$.showUI();
+  }
+  getAllBookmarks() {
+    return this.$.getAllBookmarks();
   }
 };
 
@@ -1341,6 +1413,21 @@ side_panel.mojom.BookmarksPageRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  onBookmarkNodeAdded(node) {
+    return this.$.onBookmarkNodeAdded(node);
+  }
+  onBookmarkNodesRemoved(node_ids) {
+    return this.$.onBookmarkNodesRemoved(node_ids);
+  }
+  onBookmarkParentFolderChildrenReordered(folder_id, children_ordered_ids) {
+    return this.$.onBookmarkParentFolderChildrenReordered(folder_id, children_ordered_ids);
+  }
+  onBookmarkNodeMoved(old_parent_index, old_node_index, new_parent_index, new_node_index) {
+    return this.$.onBookmarkNodeMoved(old_parent_index, old_node_index, new_parent_index, new_node_index);
+  }
+  onBookmarkNodeChanged(id, new_title, new_url) {
+    return this.$.onBookmarkNodeChanged(id, new_title, new_url);
   }
 };
 

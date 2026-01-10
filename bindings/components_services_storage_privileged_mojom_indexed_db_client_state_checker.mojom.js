@@ -129,6 +129,12 @@ storage.mojom.IndexedDBClientStateCheckerRemote = class {
   close() {
     this.proxy.close();
   }
+  disallowInactiveClient(connection_id, reason, keep_active) {
+    return this.$.disallowInactiveClient(connection_id, reason, keep_active);
+  }
+  makeClone(receiver) {
+    return this.$.makeClone(receiver);
+  }
 };
 
 storage.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {

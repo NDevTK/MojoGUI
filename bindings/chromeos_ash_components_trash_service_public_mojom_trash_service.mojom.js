@@ -114,6 +114,9 @@ ash.trash_service.mojom.TrashServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  parseTrashInfoFile(trash_info_file) {
+    return this.$.parseTrashInfoFile(trash_info_file);
+  }
 };
 
 ash.trash_service.mojom.TrashServiceRemoteCallHandler = class {

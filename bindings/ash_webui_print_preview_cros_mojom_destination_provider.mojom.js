@@ -113,6 +113,9 @@ ash.printing.print_preview.mojom.DestinationProviderRemote = class {
   close() {
     this.proxy.close();
   }
+  fetchCapabilities(destination_id, printer_type) {
+    return this.$.fetchCapabilities(destination_id, printer_type);
+  }
 };
 
 ash.printing.print_preview.mojom.DestinationProviderRemoteCallHandler = class {

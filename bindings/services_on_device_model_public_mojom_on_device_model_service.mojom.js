@@ -266,6 +266,9 @@ on_device_model.mojom.PlatformModelProgressObserverRemote = class {
   close() {
     this.proxy.close();
   }
+  progress(progress) {
+    return this.$.progress(progress);
+  }
 };
 
 on_device_model.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
@@ -451,6 +454,18 @@ on_device_model.mojom.OnDeviceModelServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  loadModel(params, model) {
+    return this.$.loadModel(params, model);
+  }
+  getCapabilities(weights) {
+    return this.$.getCapabilities(weights);
+  }
+  loadTextSafetyModel(params, model) {
+    return this.$.loadTextSafetyModel(params, model);
+  }
+  getDeviceAndPerformanceInfo() {
+    return this.$.getDeviceAndPerformanceInfo();
   }
 };
 
@@ -763,6 +778,21 @@ on_device_model.mojom.OnDeviceModelPlatformServiceRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  loadPlatformModel(uuid, model, progress_observer) {
+    return this.$.loadPlatformModel(uuid, model, progress_observer);
+  }
+  getPlatformModelState(uuid) {
+    return this.$.getPlatformModelState(uuid);
+  }
+  getEstimatedPerformanceClass() {
+    return this.$.getEstimatedPerformanceClass();
+  }
+  formatInput(uuid, feature, fields) {
+    return this.$.formatInput(uuid, feature, fields);
+  }
+  validateSafetyResult(safety_feature, text, safety_info) {
+    return this.$.validateSafetyResult(safety_feature, text, safety_info);
   }
 };
 

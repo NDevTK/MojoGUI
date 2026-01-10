@@ -126,6 +126,9 @@ zero_state_promo.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
+  createPageHandler(handler) {
+    return this.$.createPageHandler(handler);
+  }
 };
 
 zero_state_promo.mojom.PageHandlerFactoryRemoteCallHandler = class {
@@ -273,6 +276,9 @@ zero_state_promo.mojom.PageHandlerRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  launchWebStoreLink(link) {
+    return this.$.launchWebStoreLink(link);
   }
 };
 

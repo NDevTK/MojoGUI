@@ -265,6 +265,51 @@ chrome.mojom.ChromeRenderFrameRemote = class {
   close() {
     this.proxy.close();
   }
+  setWindowFeatures(window_features) {
+    return this.$.setWindowFeatures(window_features);
+  }
+  requestReloadImageForContextNode() {
+    return this.$.requestReloadImageForContextNode();
+  }
+  requestBitmapForContextNode() {
+    return this.$.requestBitmapForContextNode();
+  }
+  requestBitmapForContextNodeWithBoundsHint() {
+    return this.$.requestBitmapForContextNodeWithBoundsHint();
+  }
+  requestBoundsHintForAllImages() {
+    return this.$.requestBoundsHintForAllImages();
+  }
+  requestImageForContextNode(image_min_area_pixels, image_max_size_pixels, image_format, quality) {
+    return this.$.requestImageForContextNode(image_min_area_pixels, image_max_size_pixels, image_format, quality);
+  }
+  executeWebUIJavaScript(javascript) {
+    return this.$.executeWebUIJavaScript(javascript);
+  }
+  setCCTClientHeader(header) {
+    return this.$.setCCTClientHeader(header);
+  }
+  getMediaFeedURL() {
+    return this.$.getMediaFeedURL();
+  }
+  loadBlockedPlugins(identifier) {
+    return this.$.loadBlockedPlugins(identifier);
+  }
+  setShouldDeferMediaLoad(should_defer) {
+    return this.$.setShouldDeferMediaLoad(should_defer);
+  }
+  invokeTool(request) {
+    return this.$.invokeTool(request);
+  }
+  cancelTool(task_id) {
+    return this.$.cancelTool(task_id);
+  }
+  startActorJournal(client) {
+    return this.$.startActorJournal(client);
+  }
+  createPageStabilityMonitor(monitor, task_id, supports_paint_stability) {
+    return this.$.createPageStabilityMonitor(monitor, task_id, supports_paint_stability);
+  }
 };
 
 chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {

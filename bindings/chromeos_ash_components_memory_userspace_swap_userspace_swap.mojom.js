@@ -126,6 +126,9 @@ userspace_swap.mojom.UserspaceSwapInitializationRemote = class {
   close() {
     this.proxy.close();
   }
+  transferUserfaultFD(uffd_error, uffd_handle, mmap_error, swap_area) {
+    return this.$.transferUserfaultFD(uffd_error, uffd_handle, mmap_error, swap_area);
+  }
 };
 
 userspace_swap.mojom.UserspaceSwapInitializationRemoteCallHandler = class {
@@ -298,6 +301,15 @@ userspace_swap.mojom.UserspaceSwapRemote = class {
 
   close() {
     this.proxy.close();
+  }
+  movePTEsLeavingMapping(src, dest) {
+    return this.$.movePTEsLeavingMapping(src, dest);
+  }
+  mapArea(area) {
+    return this.$.mapArea(area);
+  }
+  getPartitionAllocSuperPagesUsed(max_superpages) {
+    return this.$.getPartitionAllocSuperPagesUsed(max_superpages);
   }
 };
 
