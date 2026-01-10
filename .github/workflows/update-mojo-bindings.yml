@@ -723,6 +723,10 @@ jobs:
                   if 'skia' in parts: js_code += "var skia = skia || {};\n"
                   if 'url' in parts: js_code += "var url = url || {};\n"
                   if 'content' in parts: js_code += "var content = content || {};\n"
+                  if 'ash' in parts: js_code += "var ash = ash || {};\n"
+                  if 'chromeos' in parts: js_code += "var chromeos = chromeos || {};\n"
+                  if 'components' in parts: js_code += "var components = components || {};\n"
+                  if 'services' in parts: js_code += "var services = services || {};\n"
               
               js_code += "\n"
               
@@ -762,7 +766,7 @@ jobs:
                       js_code += f"        'type': {f_type},\n"
                       if field.get('optional') or '?' in field.get('type', ''):
                           js_code += "        'nullable': true,\n"
-                      js_code += "      }},\n"
+                      js_code += "      },\n"
                       
                   js_code += "    })\n};\n"
 
