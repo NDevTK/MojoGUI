@@ -123,24 +123,63 @@
                                 message.header.flags = 2;
                             }
 
-                            try {
-                                // Try to find the send method
-                                if (typeof endpoint.router_.accept === 'function') {
+                            // Try-Catch-Cascade for sending
+                            let sent = false;
+
+                            // 1. Try router.accept (Standard)
+                            if (!sent && typeof endpoint.router_.accept === 'function') {
+                                try {
                                     endpoint.router_.accept(message);
-                                } else if (typeof endpoint.router_.send === 'function') {
+                                    sent = true;
+                                } catch (e) { console.warn('[Interceptor] router.accept failed:', e); }
+                            }
+
+                            // 2. Try router.send (Alternative)
+                            if (!sent && typeof endpoint.router_.send === 'function') {
+                                try {
                                     console.log('[Interceptor] using router_.send');
                                     endpoint.router_.send(message);
-                                } else if (endpoint.router_.pipe_) {
-                                    console.log('[Interceptor] using Mojo.writeMessage (Direct)');
-                                    const result = Mojo.writeMessage(endpoint.router_.pipe_, message.buffer, message.handles || []);
-                                    if (result !== Mojo.RESULT_OK) {
-                                        console.error('[Interceptor] Mojo.writeMessage failed with result:', result);
-                                    }
-                                } else {
-                                    console.error('[Interceptor] Could not find any method to send message on router!');
+                                    sent = true;
+                                } catch (e) {
+                                    console.warn('[Interceptor] router.send failed:', e);
+                                    // It might want raw buffer?
+                                    try {
+                                        endpoint.router_.send(message.buffer, message.handles || []);
+                                        sent = true;
+                                        console.log('[Interceptor] router.send(buffer) worked');
+                                    } catch (e2) { console.warn('[Interceptor] router.send(buffer) failed:', e2); }
                                 }
-                            } catch (sendErr) {
-                                console.error('[Interceptor] Failed to send response:', sendErr);
+                            }
+
+                            // 3. Fallback: Mojo.writeMessage (Direct Global)
+                            if (!sent && endpoint.router_.pipe_) {
+                                try {
+                                    if (typeof Mojo !== 'undefined' && Mojo.writeMessage) {
+                                        console.log('[Interceptor] using Mojo.writeMessage (Global)');
+                                        const result = Mojo.writeMessage(endpoint.router_.pipe_, message.buffer, message.handles || []);
+                                        if (result !== Mojo.RESULT_OK) {
+                                            console.error('[Interceptor] Mojo.writeMessage failed:', result);
+                                        } else {
+                                            sent = true;
+                                        }
+                                    }
+                                } catch (e) { console.warn('[Interceptor] Mojo.writeMessage threw:', e); }
+                            }
+
+                            // 4. Fallback: pipe.writeMessage (Instance Method)
+                            if (!sent && endpoint.router_.pipe_ && typeof endpoint.router_.pipe_.writeMessage === 'function') {
+                                try {
+                                    console.log('[Interceptor] using pipe.writeMessage (Instance)');
+                                    const result = endpoint.router_.pipe_.writeMessage(message.buffer, message.handles || []);
+                                    sent = true;
+                                    // Note: instance method might return undefined or result code, usually throws on error
+                                } catch (e) {
+                                    console.error('[Interceptor] pipe.writeMessage threw:', e);
+                                }
+                            }
+
+                            if (!sent) {
+                                console.error('[Interceptor] FAILED TO SEND RESPONSE. Method unavailable.');
                             }
                         }
                     };
