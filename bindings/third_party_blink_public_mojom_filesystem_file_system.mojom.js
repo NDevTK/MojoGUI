@@ -151,10 +151,13 @@ blink.mojom.FileSystemCancellableOperationReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -168,6 +171,7 @@ blink.mojom.FileSystemCancellableOperationReceiver = class {
           }
           break;
         }
+      }
       }
     }});
   }
@@ -282,10 +286,13 @@ blink.mojom.FileSystemOperationListenerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -303,6 +310,7 @@ blink.mojom.FileSystemOperationListenerReceiver = class {
           const result = this.impl.errorOccurred(params.error_code);
           break;
         }
+      }
       }
     }});
   }
@@ -382,10 +390,13 @@ blink.mojom.ReceivedSnapshotListenerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -393,6 +404,7 @@ blink.mojom.ReceivedSnapshotListenerReceiver = class {
           const result = this.impl.didReceiveSnapshotFile();
           break;
         }
+      }
       }
     }});
   }
@@ -851,10 +863,13 @@ blink.mojom.FileSystemManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -1032,6 +1047,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           }
           break;
         }
+      }
       }
     }});
   }

@@ -162,10 +162,13 @@ nearby.connections.mojom.EndpointDiscoveryListenerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -178,6 +181,7 @@ nearby.connections.mojom.EndpointDiscoveryListenerReceiver = class {
           const result = this.impl.onEndpointLost(params.endpoint_id);
           break;
         }
+      }
       }
     }});
   }
@@ -325,10 +329,13 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -356,6 +363,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
           const result = this.impl.onBandwidthChanged(params.endpoint_id, params.medium);
           break;
         }
+      }
       }
     }});
   }
@@ -454,10 +462,13 @@ nearby.connections.mojom.PayloadListenerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -470,6 +481,7 @@ nearby.connections.mojom.PayloadListenerReceiver = class {
           const result = this.impl.onPayloadTransferUpdate(params.endpoint_id, params.update);
           break;
         }
+      }
       }
     }});
   }
@@ -601,10 +613,13 @@ nearby.connections.mojom.ConnectionListenerV3Receiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -627,6 +642,7 @@ nearby.connections.mojom.ConnectionListenerV3Receiver = class {
           const result = this.impl.onBandwidthChangedV3(params.endpoint_id, params.bandwidth_info);
           break;
         }
+      }
       }
     }});
   }
@@ -725,10 +741,13 @@ nearby.connections.mojom.PayloadListenerV3Receiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -741,6 +760,7 @@ nearby.connections.mojom.PayloadListenerV3Receiver = class {
           const result = this.impl.onPayloadTransferUpdateV3(params.endpoint_id, params.update);
           break;
         }
+      }
       }
     }});
   }
@@ -1247,10 +1267,13 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -1456,6 +1479,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
           const result = this.impl.registerServiceWithPresenceDeviceProvider(params.service_id);
           break;
         }
+      }
       }
     }});
   }

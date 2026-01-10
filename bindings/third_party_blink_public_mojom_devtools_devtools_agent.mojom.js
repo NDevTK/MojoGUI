@@ -170,10 +170,13 @@ blink.mojom.DevToolsAgentReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -197,6 +200,7 @@ blink.mojom.DevToolsAgentReceiver = class {
           }
           break;
         }
+      }
       }
     }});
   }
@@ -328,10 +332,13 @@ blink.mojom.DevToolsAgentHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -354,6 +361,7 @@ blink.mojom.DevToolsAgentHostReceiver = class {
           const result = this.impl.bringToForeground();
           break;
         }
+      }
       }
     }});
   }
@@ -451,10 +459,13 @@ blink.mojom.DevToolsSessionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -467,6 +478,7 @@ blink.mojom.DevToolsSessionReceiver = class {
           const result = this.impl.unpauseAndTerminate();
           break;
         }
+      }
       }
     }});
   }
@@ -566,10 +578,13 @@ blink.mojom.DevToolsSessionHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -582,6 +597,7 @@ blink.mojom.DevToolsSessionHostReceiver = class {
           const result = this.impl.dispatchProtocolNotification(params.message, params.updates);
           break;
         }
+      }
       }
     }});
   }

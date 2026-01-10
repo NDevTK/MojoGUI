@@ -1166,10 +1166,13 @@ glic.mojom.PreloadPageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -1177,6 +1180,7 @@ glic.mojom.PreloadPageReceiver = class {
           const result = this.impl.setProfileReadyState(params.ready_state);
           break;
         }
+      }
       }
     }});
   }
@@ -1288,10 +1292,13 @@ glic.mojom.PageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -1309,6 +1316,7 @@ glic.mojom.PageReceiver = class {
           const result = this.impl.updatePageState(params.panelStateKind);
           break;
         }
+      }
       }
     }});
   }
@@ -1394,10 +1402,13 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -1411,6 +1422,7 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
           }
           break;
         }
+      }
       }
     }});
   }
@@ -1492,10 +1504,13 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -1503,6 +1518,7 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
           const result = this.impl.createPreloadHandler(params.receiver, params.page);
           break;
         }
+      }
       }
     }});
   }
@@ -1584,10 +1600,13 @@ glic.mojom.PageHandlerFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -1595,6 +1614,7 @@ glic.mojom.PageHandlerFactoryReceiver = class {
           const result = this.impl.createPageHandler(params.receiver, params.page);
           break;
         }
+      }
       }
     }});
   }
@@ -1852,10 +1872,13 @@ glic.mojom.PageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -1938,6 +1961,7 @@ glic.mojom.PageHandlerReceiver = class {
           break;
         }
       }
+      }
     }});
   }
 };
@@ -2017,10 +2041,13 @@ glic.mojom.PinCandidatesObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -2028,6 +2055,7 @@ glic.mojom.PinCandidatesObserverReceiver = class {
           const result = this.impl.onPinCandidatesChanged(params.candidates);
           break;
         }
+      }
       }
     }});
   }
@@ -3692,10 +3720,13 @@ glic.mojom.WebClientHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -4351,6 +4382,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
       }
+      }
     }});
   }
 };
@@ -4430,10 +4462,13 @@ glic.mojom.TabDataHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -4441,6 +4476,7 @@ glic.mojom.TabDataHandlerReceiver = class {
           const result = this.impl.onTabDataChanged(params.tab_data);
           break;
         }
+      }
       }
     }});
   }
@@ -5070,10 +5106,13 @@ glic.mojom.WebClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -5278,6 +5317,7 @@ glic.mojom.WebClientReceiver = class {
           break;
         }
       }
+      }
     }});
   }
 };
@@ -5358,10 +5398,13 @@ glic.mojom.CaptureRegionObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -5369,6 +5412,7 @@ glic.mojom.CaptureRegionObserverReceiver = class {
           const result = this.impl.onUpdate(params.result, params.reason);
           break;
         }
+      }
       }
     }});
   }

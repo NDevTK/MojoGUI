@@ -130,10 +130,13 @@ ash.screens_common.mojom.AiIntroPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -141,6 +144,7 @@ ash.screens_common.mojom.AiIntroPageHandlerReceiver = class {
           const result = this.impl.onNextClicked();
           break;
         }
+      }
       }
     }});
   }
@@ -221,10 +225,13 @@ ash.screens_common.mojom.AiIntroPageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -232,6 +239,7 @@ ash.screens_common.mojom.AiIntroPageReceiver = class {
           const result = this.impl.setAutoTransition(params.value);
           break;
         }
+      }
       }
     }});
   }
@@ -311,10 +319,13 @@ ash.screens_common.mojom.AppDownloadingPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -322,6 +333,7 @@ ash.screens_common.mojom.AppDownloadingPageHandlerReceiver = class {
           const result = this.impl.onContinueClicked();
           break;
         }
+      }
       }
     }});
   }
@@ -418,10 +430,13 @@ ash.screens_common.mojom.DrivePinningPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -434,6 +449,7 @@ ash.screens_common.mojom.DrivePinningPageHandlerReceiver = class {
           const result = this.impl.onNextClicked(params.enable_drive_pinning);
           break;
         }
+      }
       }
     }});
   }
@@ -515,10 +531,13 @@ ash.screens_common.mojom.DrivePinningPageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -526,6 +545,7 @@ ash.screens_common.mojom.DrivePinningPageReceiver = class {
           const result = this.impl.setRequiredSpaceInfo(params.required_space, params.free_space);
           break;
         }
+      }
       }
     }});
   }
@@ -605,10 +625,13 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -616,6 +639,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerReceiver = class {
           const result = this.impl.onSetupComplete();
           break;
         }
+      }
       }
     }});
   }
@@ -711,10 +735,13 @@ ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -727,6 +754,7 @@ ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = class {
           const result = this.impl.onNextClicked(params.user_flow);
           break;
         }
+      }
       }
     }});
   }
@@ -806,10 +834,13 @@ ash.screens_common.mojom.GaiaInfoPageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -817,6 +848,7 @@ ash.screens_common.mojom.GaiaInfoPageReceiver = class {
           const result = this.impl.setQuickStartVisible();
           break;
         }
+      }
       }
     }});
   }
@@ -927,10 +959,13 @@ ash.screens_common.mojom.GestureNavigationPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -948,6 +983,7 @@ ash.screens_common.mojom.GestureNavigationPageHandlerReceiver = class {
           const result = this.impl.onExitClicked();
           break;
         }
+      }
       }
     }});
   }
@@ -1042,10 +1078,13 @@ ash.screens_common.mojom.GeminiIntroPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -1058,6 +1097,7 @@ ash.screens_common.mojom.GeminiIntroPageHandlerReceiver = class {
           const result = this.impl.onNextClicked();
           break;
         }
+      }
       }
     }});
   }

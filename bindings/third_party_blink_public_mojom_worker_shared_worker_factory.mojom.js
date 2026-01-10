@@ -108,10 +108,13 @@ blink.mojom.SharedWorkerFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (message) => {
-      console.log('[GeneratedReceiver] Message received', message);
-      const header = message.header;
-      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] Args received:', args);
+      const message = args[0];
+      if (args.length > 1) { console.log('[GeneratedReceiver] 2nd Arg:', args[1]); }
+      const header = message && message.header;
+      if (!header) { console.warn('[GeneratedReceiver] No header in arg0'); }
+      if (header) {
       console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
@@ -119,6 +122,7 @@ blink.mojom.SharedWorkerFactoryReceiver = class {
           const result = this.impl.createSharedWorker(params.info, params.token, params.constructor_key, params.origin, params.is_constructor_secure_context, params.user_agent, params.ua_metadata, params.pause_on_start, params.devtools_worker_token, params.renderer_preferences, params.preference_watcher_receiver, params.content_settings, params.service_worker_container_info, params.main_script_load_params, params.subresource_loader_factories, params.controller_info, params.policy_container, params.host, params.shared_worker, params.browser_interface_broker, params.ukm_source_id, params.require_cross_site_request_for_cookies, params.coep_reporting_observer_receiver, params.dip_reporting_observer_receiver);
           break;
         }
+      }
       }
     }});
   }
