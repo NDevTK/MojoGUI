@@ -94,17 +94,20 @@ arc.mojom.NearbyShareSessionHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
         message = {
           header: args[1],
-          buffer: args[2],
+          payload: args[2],
           handles: args[3] || []
         };
       }
@@ -186,17 +189,20 @@ arc.mojom.NearbyShareSessionInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
         message = {
           header: args[1],
-          buffer: args[2],
+          payload: args[2],
           handles: args[3] || []
         };
       }
@@ -292,17 +298,20 @@ arc.mojom.NearbyShareHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
         message = {
           header: args[1],
-          buffer: args[2],
+          payload: args[2],
           handles: args[3] || []
         };
       }
@@ -401,17 +410,20 @@ arc.mojom.NearbyShareInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
         message = {
           header: args[1],
-          buffer: args[2],
+          payload: args[2],
           handles: args[3] || []
         };
       }
