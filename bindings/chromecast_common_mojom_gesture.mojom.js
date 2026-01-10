@@ -244,25 +244,111 @@ chromecast.mojom.GestureHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnBackGesture
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackGesture (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnBackGestureProgress
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackGestureProgress (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnTopDragGestureProgress
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTopDragGestureProgress (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnTopDragGestureDone
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTopDragGestureDone (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OnRightDragGestureProgress
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRightDragGestureProgress (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: OnRightDragGestureDone
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRightDragGestureDone (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: OnBackGestureCancel
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackGestureCancel (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: OnTapGesture
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTapGesture (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: OnTapDownGesture
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTapDownGesture (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBackGesture');
           const result = this.impl.onBackGesture();
           if (header.expectsResponse) {
@@ -273,58 +359,58 @@ chromecast.mojom.GestureHandlerReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBackGestureProgress');
           const result = this.impl.onBackGestureProgress(params.touch_location);
           break;
         }
-        case 2: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTopDragGestureProgress');
           const result = this.impl.onTopDragGestureProgress(params.touch_location);
           break;
         }
-        case 3: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTopDragGestureDone');
           const result = this.impl.onTopDragGestureDone();
           break;
         }
-        case 4: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onRightDragGestureProgress');
           const result = this.impl.onRightDragGestureProgress(params.touch_location);
           break;
         }
-        case 5: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onRightDragGestureDone');
           const result = this.impl.onRightDragGestureDone();
           break;
         }
-        case 6: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBackGestureCancel');
           const result = this.impl.onBackGestureCancel();
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTapGesture');
           const result = this.impl.onTapGesture();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTapDownGesture');
           const result = this.impl.onTapDownGesture();
           break;
@@ -474,46 +560,87 @@ chromecast.mojom.GestureSourceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Subscribe
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureSource_Subscribe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Subscribe (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: SetCanGoBack
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanGoBack (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetCanTopDrag
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanTopDrag (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SetCanRightDrag
+        try {
+             decoder.decodeStruct(chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanRightDrag (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureSource_Subscribe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureSource_Subscribe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.subscribe');
           const result = this.impl.subscribe(params.handler);
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setCanGoBack');
           const result = this.impl.setCanGoBack(params.can_go_back);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setCanTopDrag');
           const result = this.impl.setCanTopDrag(params.can_top_drag);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setCanRightDrag');
           const result = this.impl.setCanRightDrag(params.can_top_drag);
           break;

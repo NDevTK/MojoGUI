@@ -222,25 +222,39 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreateComposeSessionUntrustedPageHandler
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateComposeSessionUntrustedPageHandler (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createComposeSessionUntrustedPageHandler');
           const result = this.impl.createComposeSessionUntrustedPageHandler(params.client_handler, params.handler, params.dialog);
           break;
@@ -637,60 +651,218 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: LogCancelEdit
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogCancelEdit (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Compose
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Compose (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: Rewrite
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Rewrite (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: LogEditInput
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogEditInput (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SaveWebUIState
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveWebUIState (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: AcceptComposeResult
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptComposeResult (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: RequestInitialState
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestInitialState (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: Undo
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Undo (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: RecoverFromErrorState
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecoverFromErrorState (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: Redo
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Redo (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: OpenBugReportingLink
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenBugReportingLink (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: OpenComposeLearnMorePage
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenComposeLearnMorePage (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: OpenEnterpriseComposeLearnMorePage
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenEnterpriseComposeLearnMorePage (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: OpenFeedbackSurveyLink
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackSurveyLink (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: OpenSignInPage
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSignInPage (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: SetUserFeedback
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserFeedback (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: EditResult
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EditResult (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.logCancelEdit');
           const result = this.impl.logCancelEdit();
           break;
         }
-        case 1: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.compose');
           const result = this.impl.compose(params.input, params.mode, params.edited);
           break;
         }
-        case 2: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.rewrite');
           const result = this.impl.rewrite(params.style);
           break;
         }
-        case 3: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.logEditInput');
           const result = this.impl.logEditInput();
           break;
         }
-        case 4: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.saveWebUIState');
           const result = this.impl.saveWebUIState(params.webui_state);
           break;
         }
-        case 5: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.acceptComposeResult');
           const result = this.impl.acceptComposeResult();
           if (header.expectsResponse) {
@@ -701,9 +873,9 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestInitialState');
           const result = this.impl.requestInitialState();
           if (header.expectsResponse) {
@@ -714,9 +886,9 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.undo');
           const result = this.impl.undo();
           if (header.expectsResponse) {
@@ -727,9 +899,9 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.recoverFromErrorState');
           const result = this.impl.recoverFromErrorState();
           if (header.expectsResponse) {
@@ -740,9 +912,9 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.redo');
           const result = this.impl.redo();
           if (header.expectsResponse) {
@@ -753,51 +925,51 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openBugReportingLink');
           const result = this.impl.openBugReportingLink();
           break;
         }
-        case 11: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openComposeLearnMorePage');
           const result = this.impl.openComposeLearnMorePage();
           break;
         }
-        case 12: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openEnterpriseComposeLearnMorePage');
           const result = this.impl.openEnterpriseComposeLearnMorePage();
           break;
         }
-        case 13: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackSurveyLink');
           const result = this.impl.openFeedbackSurveyLink();
           break;
         }
-        case 14: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openSignInPage');
           const result = this.impl.openSignInPage();
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setUserFeedback');
           const result = this.impl.setUserFeedback(params.feedback);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.editResult');
           const result = this.impl.editResult(params.new_result);
           if (header.expectsResponse) {
@@ -950,46 +1122,87 @@ compose.mojom.ComposeClientUntrustedPageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ShowUI
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowUI (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CloseUI
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseUI (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: CompleteFirstRun
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompleteFirstRun (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OpenComposeSettings
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenComposeSettings (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI(params.reason);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.completeFirstRun');
           const result = this.impl.completeFirstRun();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openComposeSettings');
           const result = this.impl.openComposeSettings();
           break;
@@ -1105,32 +1318,55 @@ compose.mojom.ComposeUntrustedDialogReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ResponseReceived
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResponseReceived (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: PartialResponseReceived
+        try {
+             decoder.decodeStruct(compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PartialResponseReceived (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.responseReceived');
           const result = this.impl.responseReceived(params.response);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.partialResponseReceived');
           const result = this.impl.partialResponseReceived(params.partial_response);
           break;

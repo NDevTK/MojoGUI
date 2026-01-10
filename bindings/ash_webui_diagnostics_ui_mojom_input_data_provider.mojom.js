@@ -203,39 +203,71 @@ ash.diagnostics.mojom.KeyboardObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnKeyEvent
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyEvent (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnKeyEventsPaused
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyEventsPaused (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnKeyEventsResumed
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyEventsResumed (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onKeyEvent');
           const result = this.impl.onKeyEvent(params.event);
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onKeyEventsPaused');
           const result = this.impl.onKeyEventsPaused();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onKeyEventsResumed');
           const result = this.impl.onKeyEventsResumed();
           break;
@@ -334,25 +366,39 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnInternalDisplayPowerStateChanged
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInternalDisplayPowerStateChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onInternalDisplayPowerStateChanged');
           const result = this.impl.onInternalDisplayPowerStateChanged(params.is_display_on);
           break;
@@ -451,25 +497,39 @@ ash.diagnostics.mojom.TabletModeObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnTabletModeChanged
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabletModeChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTabletModeChanged');
           const result = this.impl.onTabletModeChanged(params.is_tablet_mode);
           break;
@@ -568,25 +628,39 @@ ash.diagnostics.mojom.LidStateObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnLidStateChanged
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLidStateChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLidStateChanged');
           const result = this.impl.onLidStateChanged(params.is_lid_open);
           break;
@@ -736,46 +810,87 @@ ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnKeyboardConnected
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardConnected (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnKeyboardDisconnected
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardDisconnected (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnTouchDeviceConnected
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTouchDeviceConnected (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnTouchDeviceDisconnected
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTouchDeviceDisconnected (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardConnected');
           const result = this.impl.onKeyboardConnected(params.new_keyboard);
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardDisconnected');
           const result = this.impl.onKeyboardDisconnected(params.id);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTouchDeviceConnected');
           const result = this.impl.onTouchDeviceConnected(params.new_touch_device);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTouchDeviceDisconnected');
           const result = this.impl.onTouchDeviceDisconnected(params.id);
           break;
@@ -1027,25 +1142,111 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetConnectedDevices
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetConnectedDevices (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ObserveConnectedDevices
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveConnectedDevices (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ObserveKeyEvents
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveKeyEvents (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ObserveTabletMode
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveTabletMode (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ObserveLidState
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveLidState (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ObserveInternalDisplayPowerState
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveInternalDisplayPowerState (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: MoveAppToTestingScreen
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveAppToTestingScreen (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: MoveAppBackToPreviousScreen
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveAppBackToPreviousScreen (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: SetA11yTouchPassthrough
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetA11yTouchPassthrough (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getConnectedDevices');
           const result = this.impl.getConnectedDevices();
           if (header.expectsResponse) {
@@ -1056,23 +1257,23 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeConnectedDevices');
           const result = this.impl.observeConnectedDevices(params.observer);
           break;
         }
-        case 2: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeKeyEvents');
           const result = this.impl.observeKeyEvents(params.id, params.observer);
           break;
         }
-        case 3: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeTabletMode');
           const result = this.impl.observeTabletMode(params.observer);
           if (header.expectsResponse) {
@@ -1083,9 +1284,9 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeLidState');
           const result = this.impl.observeLidState(params.observer);
           if (header.expectsResponse) {
@@ -1096,30 +1297,30 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeInternalDisplayPowerState');
           const result = this.impl.observeInternalDisplayPowerState(params.observer);
           break;
         }
-        case 6: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.moveAppToTestingScreen');
           const result = this.impl.moveAppToTestingScreen(params.evdev_id);
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.moveAppBackToPreviousScreen');
           const result = this.impl.moveAppBackToPreviousScreen();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setA11yTouchPassthrough');
           const result = this.impl.setA11yTouchPassthrough(params.enabled);
           break;

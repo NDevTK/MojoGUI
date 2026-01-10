@@ -197,25 +197,39 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnPropertiesUpdated
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPropertiesUpdated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPropertiesUpdated');
           const result = this.impl.onPropertiesUpdated(params.properties);
           break;
@@ -517,109 +531,231 @@ ash.audio_config.mojom.CrosAudioConfigReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ObserveAudioSystemProperties
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveAudioSystemProperties (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: SetOutputMuted
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutputMuted (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetOutputVolumePercent
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutputVolumePercent (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SetInputGainPercent
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInputGainPercent (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SetActiveDevice
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActiveDevice (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: SetInputMuted
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInputMuted (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: RecordVoiceIsolationEnabledChange
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordVoiceIsolationEnabledChange (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: RecordVoiceIsolationPreferredEffectChange
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordVoiceIsolationPreferredEffectChange (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: SetNoiseCancellationEnabled
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNoiseCancellationEnabled (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: SetStyleTransferEnabled
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetStyleTransferEnabled (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: SetForceRespectUiGainsEnabled
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetForceRespectUiGainsEnabled (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: SetHfpMicSrEnabled
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHfpMicSrEnabled (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: SetSpatialAudioEnabled
+        try {
+             decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSpatialAudioEnabled (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeAudioSystemProperties');
           const result = this.impl.observeAudioSystemProperties(params.observer);
           break;
         }
-        case 1: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setOutputMuted');
           const result = this.impl.setOutputMuted(params.muted);
           break;
         }
-        case 2: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setOutputVolumePercent');
           const result = this.impl.setOutputVolumePercent(params.volume);
           break;
         }
-        case 3: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setInputGainPercent');
           const result = this.impl.setInputGainPercent(params.gain);
           break;
         }
-        case 4: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setActiveDevice');
           const result = this.impl.setActiveDevice(params.device);
           break;
         }
-        case 5: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setInputMuted');
           const result = this.impl.setInputMuted(params.muted);
           break;
         }
-        case 6: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.recordVoiceIsolationEnabledChange');
           const result = this.impl.recordVoiceIsolationEnabledChange();
           break;
         }
-        case 7: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.recordVoiceIsolationPreferredEffectChange');
           const result = this.impl.recordVoiceIsolationPreferredEffectChange(params.preferred_effect);
           break;
         }
-        case 8: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setNoiseCancellationEnabled');
           const result = this.impl.setNoiseCancellationEnabled(params.enabled);
           break;
         }
-        case 9: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setStyleTransferEnabled');
           const result = this.impl.setStyleTransferEnabled(params.enabled);
           break;
         }
-        case 10: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setForceRespectUiGainsEnabled');
           const result = this.impl.setForceRespectUiGainsEnabled(params.enabled);
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setHfpMicSrEnabled');
           const result = this.impl.setHfpMicSrEnabled(params.enabled);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSpatialAudioEnabled');
           const result = this.impl.setSpatialAudioEnabled(params.enabled);
           break;

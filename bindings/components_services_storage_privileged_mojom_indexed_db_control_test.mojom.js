@@ -137,25 +137,39 @@ storage.mojom.MockFailureInjectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: FailOperation
+        try {
+             decoder.decodeStruct(storage.mojom.MockFailureInjector_FailOperation_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FailOperation (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.MockFailureInjector_FailOperation_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.MockFailureInjector_FailOperation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.failOperation');
           const result = this.impl.failOperation(params.failure_class, params.failure_method, params.instance_num, params.call_num);
           break;
@@ -433,25 +447,111 @@ storage.mojom.IndexedDBControlTestReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetBaseDataPathForTesting
+        try {
+             decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBaseDataPathForTesting (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetFilePathForTesting
+        try {
+             decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFilePathForTesting (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ResetCachesForTesting
+        try {
+             decoder.decodeStruct(storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetCachesForTesting (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetPathForBlobForTesting
+        try {
+             decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPathForBlobForTesting (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: FlushBackingStoreForTesting
+        try {
+             decoder.decodeStruct(storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushBackingStoreForTesting (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: FlushBucketSequenceForTesting
+        try {
+             decoder.decodeStruct(storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushBucketSequenceForTesting (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: GetUsageForTesting
+        try {
+             decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUsageForTesting (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: BindMockFailureSingletonForTesting
+        try {
+             decoder.decodeStruct(storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindMockFailureSingletonForTesting (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: ForceInitializeFromFilesForTesting
+        try {
+             decoder.decodeStruct(storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceInitializeFromFilesForTesting (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getBaseDataPathForTesting');
           const result = this.impl.getBaseDataPathForTesting();
           if (header.expectsResponse) {
@@ -462,9 +562,9 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFilePathForTesting');
           const result = this.impl.getFilePathForTesting(params.bucket_locator, params.for_sqlite);
           if (header.expectsResponse) {
@@ -475,9 +575,9 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resetCachesForTesting');
           const result = this.impl.resetCachesForTesting();
           if (header.expectsResponse) {
@@ -488,9 +588,9 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPathForBlobForTesting');
           const result = this.impl.getPathForBlobForTesting(params.bucket_locator, params.database_id, params.blob_number);
           if (header.expectsResponse) {
@@ -501,9 +601,9 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.flushBackingStoreForTesting');
           const result = this.impl.flushBackingStoreForTesting(params.bucket_locator);
           if (header.expectsResponse) {
@@ -514,9 +614,9 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.flushBucketSequenceForTesting');
           const result = this.impl.flushBucketSequenceForTesting(params.bucket_locator);
           if (header.expectsResponse) {
@@ -527,9 +627,9 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getUsageForTesting');
           const result = this.impl.getUsageForTesting();
           if (header.expectsResponse) {
@@ -540,16 +640,16 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindMockFailureSingletonForTesting');
           const result = this.impl.bindMockFailureSingletonForTesting(params.receiver);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.forceInitializeFromFilesForTesting');
           const result = this.impl.forceInitializeFromFilesForTesting();
           if (header.expectsResponse) {

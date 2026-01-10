@@ -319,53 +319,112 @@ blink.mojom.CacheStorageCacheReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Match
+        try {
+             decoder.decodeStruct(blink.mojom.CacheStorageCache_Match_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Match (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: MatchAll
+        try {
+             decoder.decodeStruct(blink.mojom.CacheStorageCache_MatchAll_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchAll (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetAllMatchedEntries
+        try {
+             decoder.decodeStruct(blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllMatchedEntries (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: Keys
+        try {
+             decoder.decodeStruct(blink.mojom.CacheStorageCache_Keys_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Keys (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: Batch
+        try {
+             decoder.decodeStruct(blink.mojom.CacheStorageCache_Batch_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Batch (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: WriteSideData
+        try {
+             decoder.decodeStruct(blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteSideData (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_Match_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_Match_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.match');
           const result = this.impl.match(params.request, params.query_options, params.in_related_fetch_event, params.in_range_fetch_event, params.trace_id);
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_MatchAll_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_MatchAll_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.matchAll');
           const result = this.impl.matchAll(params.request, params.query_options, params.trace_id);
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAllMatchedEntries');
           const result = this.impl.getAllMatchedEntries(params.request, params.query_options, params.trace_id);
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_Keys_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_Keys_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.keys');
           const result = this.impl.keys(params.request, params.query_options, params.trace_id);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_Batch_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_Batch_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.batch');
           const result = this.impl.batch(params.batch_operations, params.trace_id);
           if (header.expectsResponse) {
@@ -378,7 +437,7 @@ blink.mojom.CacheStorageCacheReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeSideData');
           const result = this.impl.writeSideData(params.url, params.expected_response_time, params.data, params.trace_id);
           if (header.expectsResponse) {
@@ -576,25 +635,75 @@ blink.mojom.CacheStorageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Has
+        try {
+             decoder.decodeStruct(blink.mojom.CacheStorage_Has_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Has (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Delete
+        try {
+             decoder.decodeStruct(blink.mojom.CacheStorage_Delete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Delete (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: Keys
+        try {
+             decoder.decodeStruct(blink.mojom.CacheStorage_Keys_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Keys (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: Match
+        try {
+             decoder.decodeStruct(blink.mojom.CacheStorage_Match_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Match (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: Open
+        try {
+             decoder.decodeStruct(blink.mojom.CacheStorage_Open_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Open (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CacheStorage_Has_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.CacheStorage_Has_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.has');
           const result = this.impl.has(params.cache_name, params.trace_id);
           if (header.expectsResponse) {
@@ -605,9 +714,9 @@ blink.mojom.CacheStorageReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CacheStorage_Delete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.CacheStorage_Delete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.cache_name, params.trace_id);
           if (header.expectsResponse) {
@@ -618,9 +727,9 @@ blink.mojom.CacheStorageReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CacheStorage_Keys_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.CacheStorage_Keys_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.keys');
           const result = this.impl.keys(params.trace_id);
           if (header.expectsResponse) {
@@ -631,16 +740,16 @@ blink.mojom.CacheStorageReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CacheStorage_Match_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.CacheStorage_Match_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.match');
           const result = this.impl.match(params.request, params.match_options, params.in_related_fetch_event, params.in_range_fetch_event, params.trace_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.CacheStorage_Open_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.CacheStorage_Open_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.open');
           const result = this.impl.open(params.cache_name, params.trace_id);
           break;

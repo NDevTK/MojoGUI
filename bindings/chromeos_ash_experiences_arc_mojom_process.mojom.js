@@ -338,32 +338,100 @@ arc.mojom.ProcessInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: KillProcess
+        try {
+             decoder.decodeStruct(arc.mojom.ProcessInstance_KillProcess_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> KillProcess (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: RequestProcessList
+        try {
+             decoder.decodeStruct(arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestProcessList (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: RequestApplicationProcessMemoryInfo
+        try {
+             decoder.decodeStruct(arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestApplicationProcessMemoryInfo (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: RequestSystemProcessMemoryInfo
+        try {
+             decoder.decodeStruct(arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSystemProcessMemoryInfo (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ApplyHostMemoryPressureDeprecated
+        try {
+             decoder.decodeStruct(arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyHostMemoryPressureDeprecated (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ApplyHostMemoryPressure
+        try {
+             decoder.decodeStruct(arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyHostMemoryPressure (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: RequestLowMemoryKillCounts
+        try {
+             decoder.decodeStruct(arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestLowMemoryKillCounts (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_KillProcess_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_KillProcess_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.killProcess');
           const result = this.impl.killProcess(params.pid, params.reason);
           break;
         }
-        case 1: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestProcessList');
           const result = this.impl.requestProcessList();
           if (header.expectsResponse) {
@@ -374,9 +442,9 @@ arc.mojom.ProcessInstanceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestApplicationProcessMemoryInfo');
           const result = this.impl.requestApplicationProcessMemoryInfo();
           if (header.expectsResponse) {
@@ -387,9 +455,9 @@ arc.mojom.ProcessInstanceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestSystemProcessMemoryInfo');
           const result = this.impl.requestSystemProcessMemoryInfo(params.nspids);
           if (header.expectsResponse) {
@@ -400,9 +468,9 @@ arc.mojom.ProcessInstanceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.applyHostMemoryPressureDeprecated');
           const result = this.impl.applyHostMemoryPressureDeprecated(params.level, params.reclaim_target);
           if (header.expectsResponse) {
@@ -413,9 +481,9 @@ arc.mojom.ProcessInstanceReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.applyHostMemoryPressure');
           const result = this.impl.applyHostMemoryPressure(params.level, params.reclaim_target);
           if (header.expectsResponse) {
@@ -426,9 +494,9 @@ arc.mojom.ProcessInstanceReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestLowMemoryKillCounts');
           const result = this.impl.requestLowMemoryKillCounts();
           if (header.expectsResponse) {

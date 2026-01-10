@@ -118,25 +118,39 @@ extensions_bar.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreatePageHandler
+        try {
+             decoder.decodeStruct(extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -269,39 +283,71 @@ extensions_bar.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ExecuteUserAction
+        try {
+             decoder.decodeStruct(extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteUserAction (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ShowContextMenu
+        try {
+             decoder.decodeStruct(extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ToggleExtensionsMenuFromWebUI
+        try {
+             decoder.decodeStruct(extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleExtensionsMenuFromWebUI (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.executeUserAction');
           const result = this.impl.executeUserAction(params.id);
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.source, params.id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.toggleExtensionsMenuFromWebUI');
           const result = this.impl.toggleExtensionsMenuFromWebUI();
           break;
@@ -438,39 +484,71 @@ extensions_bar.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ActionsAddedOrUpdated
+        try {
+             decoder.decodeStruct(extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActionsAddedOrUpdated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ActionRemoved
+        try {
+             decoder.decodeStruct(extensions_bar.mojom.Page_ActionRemoved_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActionRemoved (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ActionPoppedOut
+        try {
+             decoder.decodeStruct(extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActionPoppedOut (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.actionsAddedOrUpdated');
           const result = this.impl.actionsAddedOrUpdated(params.actions);
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions_bar.mojom.Page_ActionRemoved_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(extensions_bar.mojom.Page_ActionRemoved_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.actionRemoved');
           const result = this.impl.actionRemoved(params.id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.actionPoppedOut');
           const result = this.impl.actionPoppedOut();
           if (header.expectsResponse) {

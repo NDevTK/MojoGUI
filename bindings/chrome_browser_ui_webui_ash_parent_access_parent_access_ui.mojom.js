@@ -316,25 +316,84 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetOauthToken
+        try {
+             decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOauthToken (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnParentAccessCallbackReceived
+        try {
+             decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnParentAccessCallbackReceived (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetParentAccessParams
+        try {
+             decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetParentAccessParams (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetParentAccessUrl
+        try {
+             decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetParentAccessUrl (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OnParentAccessDone
+        try {
+             decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnParentAccessDone (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: OnBeforeScreenDone
+        try {
+             decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBeforeScreenDone (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getOauthToken');
           const result = this.impl.getOauthToken();
           if (header.expectsResponse) {
@@ -345,9 +404,9 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onParentAccessCallbackReceived');
           const result = this.impl.onParentAccessCallbackReceived(params.encoded_parent_access_callback_proto);
           if (header.expectsResponse) {
@@ -358,9 +417,9 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getParentAccessParams');
           const result = this.impl.getParentAccessParams();
           if (header.expectsResponse) {
@@ -371,9 +430,9 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getParentAccessUrl');
           const result = this.impl.getParentAccessUrl();
           if (header.expectsResponse) {
@@ -384,9 +443,9 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onParentAccessDone');
           const result = this.impl.onParentAccessDone(params.result);
           if (header.expectsResponse) {
@@ -399,7 +458,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBeforeScreenDone');
           const result = this.impl.onBeforeScreenDone();
           if (header.expectsResponse) {

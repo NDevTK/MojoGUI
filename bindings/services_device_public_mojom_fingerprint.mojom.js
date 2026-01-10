@@ -243,53 +243,103 @@ device.mojom.FingerprintObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnRestarted
+        try {
+             decoder.decodeStruct(device.mojom.FingerprintObserver_OnRestarted_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRestarted (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnStatusChanged
+        try {
+             decoder.decodeStruct(device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStatusChanged (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnEnrollScanDone
+        try {
+             decoder.decodeStruct(device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEnrollScanDone (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnAuthScanDone
+        try {
+             decoder.decodeStruct(device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthScanDone (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OnSessionFailed
+        try {
+             decoder.decodeStruct(device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionFailed (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.FingerprintObserver_OnRestarted_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.FingerprintObserver_OnRestarted_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onRestarted');
           const result = this.impl.onRestarted();
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onStatusChanged');
           const result = this.impl.onStatusChanged(params.status);
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onEnrollScanDone');
           const result = this.impl.onEnrollScanDone(params.scan_result, params.is_complete, params.percent_complete);
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAuthScanDone');
           const result = this.impl.onAuthScanDone(params.msg, params.matches);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSessionFailed');
           const result = this.impl.onSessionFailed();
           break;
@@ -604,25 +654,129 @@ device.mojom.FingerprintReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetRecordsForUser
+        try {
+             decoder.decodeStruct(device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRecordsForUser (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: StartEnrollSession
+        try {
+             decoder.decodeStruct(device.mojom.Fingerprint_StartEnrollSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartEnrollSession (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: CancelCurrentEnrollSession
+        try {
+             decoder.decodeStruct(device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelCurrentEnrollSession (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: RequestRecordLabel
+        try {
+             decoder.decodeStruct(device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestRecordLabel (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SetRecordLabel
+        try {
+             decoder.decodeStruct(device.mojom.Fingerprint_SetRecordLabel_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRecordLabel (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: RemoveRecord
+        try {
+             decoder.decodeStruct(device.mojom.Fingerprint_RemoveRecord_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveRecord (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: StartAuthSession
+        try {
+             decoder.decodeStruct(device.mojom.Fingerprint_StartAuthSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartAuthSession (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: EndCurrentAuthSession
+        try {
+             decoder.decodeStruct(device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EndCurrentAuthSession (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: DestroyAllRecords
+        try {
+             decoder.decodeStruct(device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyAllRecords (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: AddFingerprintObserver
+        try {
+             decoder.decodeStruct(device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFingerprintObserver (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: RequestType
+        try {
+             decoder.decodeStruct(device.mojom.Fingerprint_RequestType_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestType (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getRecordsForUser');
           const result = this.impl.getRecordsForUser(params.user_id);
           if (header.expectsResponse) {
@@ -633,16 +787,16 @@ device.mojom.FingerprintReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.Fingerprint_StartEnrollSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.Fingerprint_StartEnrollSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startEnrollSession');
           const result = this.impl.startEnrollSession(params.user_id, params.label);
           break;
         }
-        case 2: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.cancelCurrentEnrollSession');
           const result = this.impl.cancelCurrentEnrollSession();
           if (header.expectsResponse) {
@@ -653,9 +807,9 @@ device.mojom.FingerprintReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestRecordLabel');
           const result = this.impl.requestRecordLabel(params.record_path);
           if (header.expectsResponse) {
@@ -666,9 +820,9 @@ device.mojom.FingerprintReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.Fingerprint_SetRecordLabel_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.Fingerprint_SetRecordLabel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setRecordLabel');
           const result = this.impl.setRecordLabel(params.record_path, params.new_label);
           if (header.expectsResponse) {
@@ -679,9 +833,9 @@ device.mojom.FingerprintReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.Fingerprint_RemoveRecord_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.Fingerprint_RemoveRecord_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.removeRecord');
           const result = this.impl.removeRecord(params.record_path);
           if (header.expectsResponse) {
@@ -692,16 +846,16 @@ device.mojom.FingerprintReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.Fingerprint_StartAuthSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.Fingerprint_StartAuthSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startAuthSession');
           const result = this.impl.startAuthSession();
           break;
         }
-        case 7: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.endCurrentAuthSession');
           const result = this.impl.endCurrentAuthSession();
           if (header.expectsResponse) {
@@ -712,9 +866,9 @@ device.mojom.FingerprintReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.destroyAllRecords');
           const result = this.impl.destroyAllRecords();
           if (header.expectsResponse) {
@@ -725,16 +879,16 @@ device.mojom.FingerprintReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addFingerprintObserver');
           const result = this.impl.addFingerprintObserver(params.observer);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.Fingerprint_RequestType_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.Fingerprint_RequestType_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestType');
           const result = this.impl.requestType();
           if (header.expectsResponse) {

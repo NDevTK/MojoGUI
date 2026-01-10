@@ -234,25 +234,93 @@ echo.mojom.EchoServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: EchoString
+        try {
+             decoder.decodeStruct(echo.mojom.EchoService_EchoString_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoString (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: EchoStringToSharedMemory
+        try {
+             decoder.decodeStruct(echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoStringToSharedMemory (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: Quit
+        try {
+             decoder.decodeStruct(echo.mojom.EchoService_Quit_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Quit (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: Crash
+        try {
+             decoder.decodeStruct(echo.mojom.EchoService_Crash_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Crash (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: DelayLoad
+        try {
+             decoder.decodeStruct(echo.mojom.EchoService_DelayLoad_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DelayLoad (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: LoadNativeLibrary
+        try {
+             decoder.decodeStruct(echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadNativeLibrary (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: DecryptEncrypt
+        try {
+             decoder.decodeStruct(echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptEncrypt (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(echo.mojom.EchoService_EchoString_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_EchoString_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.echoString');
           const result = this.impl.echoString(params.input);
           if (header.expectsResponse) {
@@ -263,37 +331,37 @@ echo.mojom.EchoServiceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.echoStringToSharedMemory');
           const result = this.impl.echoStringToSharedMemory(params.input, params.region);
           break;
         }
-        case 2: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(echo.mojom.EchoService_Quit_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_Quit_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.quit');
           const result = this.impl.quit();
           break;
         }
-        case 3: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(echo.mojom.EchoService_Crash_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_Crash_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.crash');
           const result = this.impl.crash();
           break;
         }
-        case 4: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(echo.mojom.EchoService_DelayLoad_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_DelayLoad_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.delayLoad');
           const result = this.impl.delayLoad();
           break;
         }
-        case 5: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadNativeLibrary');
           const result = this.impl.loadNativeLibrary(params.library, params.call_winmm_delayload);
           if (header.expectsResponse) {
@@ -306,7 +374,7 @@ echo.mojom.EchoServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.decryptEncrypt');
           const result = this.impl.decryptEncrypt(params.encryptor, params.input);
           if (header.expectsResponse) {

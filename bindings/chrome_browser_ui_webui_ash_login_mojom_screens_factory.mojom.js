@@ -333,25 +333,138 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: EstablishAiIntroScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishAiIntroScreenPipe (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: EstablishAppDownloadingScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishAppDownloadingScreenPipe (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: EstablishDrivePinningScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishDrivePinningScreenPipe (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: EstablishFjordStationSetupScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishFjordStationSetupScreenPipe (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: EstablishGaiaInfoScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishGaiaInfoScreenPipe (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: EstablishGestureNavigationScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishGestureNavigationScreenPipe (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: EstablishGeminiIntroScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishGeminiIntroScreenPipe (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: EstablishConsumerUpdateScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishConsumerUpdateScreenPipe (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: EstablishPackagedLicenseScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishPackagedLicenseScreenPipe (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: EstablishArcVmDataMigrationScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishArcVmDataMigrationScreenPipe (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: EstablishEncryptionMigrationScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishEncryptionMigrationScreenPipe (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: EstablishLocalDataLossWarningScreenPipe
+        try {
+             decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishLocalDataLossWarningScreenPipe (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishAiIntroScreenPipe');
           const result = this.impl.establishAiIntroScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -362,16 +475,16 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishAppDownloadingScreenPipe');
           const result = this.impl.establishAppDownloadingScreenPipe(params.handler);
           break;
         }
-        case 2: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishDrivePinningScreenPipe');
           const result = this.impl.establishDrivePinningScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -382,16 +495,16 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishFjordStationSetupScreenPipe');
           const result = this.impl.establishFjordStationSetupScreenPipe(params.handler);
           break;
         }
-        case 4: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishGaiaInfoScreenPipe');
           const result = this.impl.establishGaiaInfoScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -402,23 +515,23 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishGestureNavigationScreenPipe');
           const result = this.impl.establishGestureNavigationScreenPipe(params.handler);
           break;
         }
-        case 6: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishGeminiIntroScreenPipe');
           const result = this.impl.establishGeminiIntroScreenPipe(params.handler);
           break;
         }
-        case 7: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishConsumerUpdateScreenPipe');
           const result = this.impl.establishConsumerUpdateScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -429,16 +542,16 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishPackagedLicenseScreenPipe');
           const result = this.impl.establishPackagedLicenseScreenPipe(params.handler);
           break;
         }
-        case 9: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishArcVmDataMigrationScreenPipe');
           const result = this.impl.establishArcVmDataMigrationScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -449,9 +562,9 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishEncryptionMigrationScreenPipe');
           const result = this.impl.establishEncryptionMigrationScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -464,7 +577,7 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishLocalDataLossWarningScreenPipe');
           const result = this.impl.establishLocalDataLossWarningScreenPipe(params.handler);
           break;

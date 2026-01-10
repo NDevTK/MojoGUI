@@ -146,32 +146,55 @@ arc.mojom.AudioHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ShowVolumeControls
+        try {
+             decoder.decodeStruct(arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowVolumeControls (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnSystemVolumeUpdateRequest
+        try {
+             decoder.decodeStruct(arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSystemVolumeUpdateRequest (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showVolumeControls');
           const result = this.impl.showVolumeControls();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSystemVolumeUpdateRequest');
           const result = this.impl.onSystemVolumeUpdateRequest(params.percent);
           break;
@@ -344,25 +367,75 @@ arc.mojom.AudioInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Init
+        try {
+             decoder.decodeStruct(arc.mojom.AudioInstance_Init_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: NotifySwitchState
+        try {
+             decoder.decodeStruct(arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySwitchState (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: NotifyVolumeState
+        try {
+             decoder.decodeStruct(arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyVolumeState (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: NotifySpatialAudioState
+        try {
+             decoder.decodeStruct(arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySpatialAudioState (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: NotifyOutputDeviceInfo
+        try {
+             decoder.decodeStruct(arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOutputDeviceInfo (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AudioInstance_Init_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AudioInstance_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -373,30 +446,30 @@ arc.mojom.AudioInstanceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifySwitchState');
           const result = this.impl.notifySwitchState(params.state);
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyVolumeState');
           const result = this.impl.notifyVolumeState(params.volume, params.muted);
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifySpatialAudioState');
           const result = this.impl.notifySpatialAudioState(params.enabled);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyOutputDeviceInfo');
           const result = this.impl.notifyOutputDeviceInfo(params.device_type);
           break;

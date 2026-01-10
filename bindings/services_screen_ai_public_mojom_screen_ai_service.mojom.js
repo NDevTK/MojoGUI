@@ -293,25 +293,84 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: PerformOcrAndReturnAXTreeUpdate
+        try {
+             decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcrAndReturnAXTreeUpdate (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: PerformOcrAndReturnAnnotation
+        try {
+             decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcrAndReturnAnnotation (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetClientType
+        try {
+             decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClientType (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetMaxImageDimension
+        try {
+             decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMaxImageDimension (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SetOCRLightMode
+        try {
+             decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOCRLightMode (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: IsOCRBusy
+        try {
+             decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsOCRBusy (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.performOcrAndReturnAXTreeUpdate');
           const result = this.impl.performOcrAndReturnAXTreeUpdate(params.image);
           if (header.expectsResponse) {
@@ -322,9 +381,9 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.performOcrAndReturnAnnotation');
           const result = this.impl.performOcrAndReturnAnnotation(params.image);
           if (header.expectsResponse) {
@@ -335,16 +394,16 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setClientType');
           const result = this.impl.setClientType(params.client_type);
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMaxImageDimension');
           const result = this.impl.getMaxImageDimension();
           if (header.expectsResponse) {
@@ -355,16 +414,16 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setOCRLightMode');
           const result = this.impl.setOCRLightMode(params.enabled);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isOCRBusy');
           const result = this.impl.isOCRBusy();
           if (header.expectsResponse) {
@@ -539,25 +598,66 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ExtractMainContent
+        try {
+             decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractMainContent (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ExtractMainNode
+        try {
+             decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractMainNode (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: IdentifyMainNode
+        try {
+             decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IdentifyMainNode (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SetClientType
+        try {
+             decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClientType (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.extractMainContent');
           const result = this.impl.extractMainContent(params.snapshot);
           if (header.expectsResponse) {
@@ -568,9 +668,9 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.extractMainNode');
           const result = this.impl.extractMainNode(params.snapshot);
           if (header.expectsResponse) {
@@ -581,9 +681,9 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.identifyMainNode');
           const result = this.impl.identifyMainNode(params.ax_tree);
           if (header.expectsResponse) {
@@ -596,7 +696,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setClientType');
           const result = this.impl.setClientType(params.client_type);
           break;
@@ -695,25 +795,39 @@ screen_ai.mojom.OCRServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: BindAnnotator
+        try {
+             decoder.decodeStruct(screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAnnotator (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindAnnotator');
           const result = this.impl.bindAnnotator(params.annotator);
           break;
@@ -812,25 +926,39 @@ screen_ai.mojom.MainContentExtractionServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: BindMainContentExtractor
+        try {
+             decoder.decodeStruct(screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindMainContentExtractor (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindMainContentExtractor');
           const result = this.impl.bindMainContentExtractor(params.main_content_extractor);
           break;

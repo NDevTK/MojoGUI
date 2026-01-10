@@ -251,25 +251,39 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = class 
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreateWallpaperSearchHandler
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWallpaperSearchHandler (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createWallpaperSearchHandler');
           const result = this.impl.createWallpaperSearchHandler(params.client, params.handler);
           break;
@@ -557,25 +571,129 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetDescriptors
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDescriptors (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetInspirations
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInspirations (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetWallpaperSearchResults
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWallpaperSearchResults (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SetResultRenderTime
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetResultRenderTime (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SetBackgroundToHistoryImage
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundToHistoryImage (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: SetBackgroundToInspirationImage
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundToInspirationImage (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: SetBackgroundToWallpaperSearchResult
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundToWallpaperSearchResult (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: UpdateHistory
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateHistory (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: SetUserFeedback
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserFeedback (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: OpenHelpArticle
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenHelpArticle (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: LaunchHatsSurvey
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchHatsSurvey (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDescriptors');
           const result = this.impl.getDescriptors();
           if (header.expectsResponse) {
@@ -586,9 +704,9 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getInspirations');
           const result = this.impl.getInspirations();
           if (header.expectsResponse) {
@@ -599,9 +717,9 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getWallpaperSearchResults');
           const result = this.impl.getWallpaperSearchResults(params.result_descriptors);
           if (header.expectsResponse) {
@@ -612,58 +730,58 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setResultRenderTime');
           const result = this.impl.setResultRenderTime(params.result_ids, params.time);
           break;
         }
-        case 4: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundToHistoryImage');
           const result = this.impl.setBackgroundToHistoryImage(params.result_id, params.descriptors);
           break;
         }
-        case 5: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundToInspirationImage');
           const result = this.impl.setBackgroundToInspirationImage(params.id, params.background_url);
           break;
         }
-        case 6: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundToWallpaperSearchResult');
           const result = this.impl.setBackgroundToWallpaperSearchResult(params.result_id, params.time, params.descriptors);
           break;
         }
-        case 7: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateHistory');
           const result = this.impl.updateHistory();
           break;
         }
-        case 8: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setUserFeedback');
           const result = this.impl.setUserFeedback(params.selected_option);
           break;
         }
-        case 9: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openHelpArticle');
           const result = this.impl.openHelpArticle();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.launchHatsSurvey');
           const result = this.impl.launchHatsSurvey();
           break;
@@ -762,25 +880,39 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetHistory
+        try {
+             decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHistory (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setHistory');
           const result = this.impl.setHistory(params.history);
           break;

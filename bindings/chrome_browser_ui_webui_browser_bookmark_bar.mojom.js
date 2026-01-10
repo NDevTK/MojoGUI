@@ -126,25 +126,39 @@ bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreatePageHandler
+        try {
+             decoder.decodeStruct(bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -265,25 +279,48 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetBookmarkBar
+        try {
+             decoder.decodeStruct(bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBookmarkBar (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OpenInNewTab
+        try {
+             decoder.decodeStruct(bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenInNewTab (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getBookmarkBar');
           const result = this.impl.getBookmarkBar();
           if (header.expectsResponse) {
@@ -296,7 +333,7 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openInNewTab');
           const result = this.impl.openInNewTab(params.node_id);
           break;
@@ -443,46 +480,87 @@ bookmark_bar.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: BookmarkLoaded
+        try {
+             decoder.decodeStruct(bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BookmarkLoaded (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: FavIconChanged
+        try {
+             decoder.decodeStruct(bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FavIconChanged (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: Show
+        try {
+             decoder.decodeStruct(bookmark_bar.mojom.Page_Show_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Show (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: Hide
+        try {
+             decoder.decodeStruct(bookmark_bar.mojom.Page_Hide_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Hide (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bookmarkLoaded');
           const result = this.impl.bookmarkLoaded();
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.favIconChanged');
           const result = this.impl.favIconChanged(params.bookmark_data);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_Show_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_Show_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.show');
           const result = this.impl.show();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_Hide_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_Hide_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hide');
           const result = this.impl.hide();
           break;

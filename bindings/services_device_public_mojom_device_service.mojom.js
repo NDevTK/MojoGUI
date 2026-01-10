@@ -435,158 +435,343 @@ device.mojom.DeviceServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: BindFingerprint
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindFingerprint_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindFingerprint (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: BindGeolocationContext
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindGeolocationContext_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGeolocationContext (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: BindGeolocationControl
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindGeolocationControl_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGeolocationControl (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: BindGeolocationInternals
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGeolocationInternals (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: BindInputDeviceManager
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindInputDeviceManager (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: BindBatteryMonitor
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindBatteryMonitor (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: BindPressureManager
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindPressureManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPressureManager (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: BindNFCProvider
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindNFCProvider_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindNFCProvider (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: BindVibrationManager
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindVibrationManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindVibrationManager (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: BindHidManager
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindHidManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindHidManager (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: BindMtpManager
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindMtpManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindMtpManager (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: BindPowerMonitor
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindPowerMonitor_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPowerMonitor (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: BindPublicIpAddressGeolocationProvider
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPublicIpAddressGeolocationProvider (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: BindScreenOrientationListener
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindScreenOrientationListener (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: BindSensorProvider
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindSensorProvider_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSensorProvider (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: BindSerialPortManager
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindSerialPortManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSerialPortManager (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: BindTimeZoneMonitor
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTimeZoneMonitor (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: BindWakeLockProvider
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindWakeLockProvider (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: BindUsbDeviceManager
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindUsbDeviceManager (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: BindUsbDeviceManagerTest
+        try {
+             decoder.decodeStruct(device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindUsbDeviceManagerTest (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindFingerprint_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindFingerprint_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindFingerprint');
           const result = this.impl.bindFingerprint(params.receiver);
           break;
         }
-        case 1: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindGeolocationContext_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindGeolocationContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindGeolocationContext');
           const result = this.impl.bindGeolocationContext(params.receiver);
           break;
         }
-        case 2: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindGeolocationControl_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindGeolocationControl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindGeolocationControl');
           const result = this.impl.bindGeolocationControl(params.receiver);
           break;
         }
-        case 3: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindGeolocationInternals');
           const result = this.impl.bindGeolocationInternals(params.receiver);
           break;
         }
-        case 4: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindInputDeviceManager');
           const result = this.impl.bindInputDeviceManager(params.receiver);
           break;
         }
-        case 5: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindBatteryMonitor');
           const result = this.impl.bindBatteryMonitor(params.receiver);
           break;
         }
-        case 6: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindPressureManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindPressureManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindPressureManager');
           const result = this.impl.bindPressureManager(params.receiver);
           break;
         }
-        case 7: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindNFCProvider_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindNFCProvider_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindNFCProvider');
           const result = this.impl.bindNFCProvider(params.receiver);
           break;
         }
-        case 8: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindVibrationManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindVibrationManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindVibrationManager');
           const result = this.impl.bindVibrationManager(params.receiver, params.listener);
           break;
         }
-        case 9: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindHidManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindHidManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindHidManager');
           const result = this.impl.bindHidManager(params.receiver);
           break;
         }
-        case 10: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindMtpManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindMtpManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindMtpManager');
           const result = this.impl.bindMtpManager(params.receiver);
           break;
         }
-        case 11: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindPowerMonitor_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindPowerMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindPowerMonitor');
           const result = this.impl.bindPowerMonitor(params.receiver);
           break;
         }
-        case 12: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindPublicIpAddressGeolocationProvider');
           const result = this.impl.bindPublicIpAddressGeolocationProvider(params.receiver);
           break;
         }
-        case 13: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindScreenOrientationListener');
           const result = this.impl.bindScreenOrientationListener(params.receiver);
           break;
         }
-        case 14: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindSensorProvider_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindSensorProvider_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindSensorProvider');
           const result = this.impl.bindSensorProvider(params.receiver);
           break;
         }
-        case 15: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindSerialPortManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindSerialPortManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindSerialPortManager');
           const result = this.impl.bindSerialPortManager(params.receiver);
           break;
         }
-        case 16: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindTimeZoneMonitor');
           const result = this.impl.bindTimeZoneMonitor(params.receiver);
           break;
         }
-        case 17: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindWakeLockProvider');
           const result = this.impl.bindWakeLockProvider(params.receiver);
           break;
         }
-        case 18: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindUsbDeviceManager');
           const result = this.impl.bindUsbDeviceManager(params.receiver);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindUsbDeviceManagerTest');
           const result = this.impl.bindUsbDeviceManagerTest(params.receiver);
           break;

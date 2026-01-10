@@ -124,25 +124,48 @@ on_device_translation.mojom.TranslatorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Translate
+        try {
+             decoder.decodeStruct(on_device_translation.mojom.Translator_Translate_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Translate (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: SplitSentences
+        try {
+             decoder.decodeStruct(on_device_translation.mojom.Translator_SplitSentences_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SplitSentences (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_translation.mojom.Translator_Translate_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(on_device_translation.mojom.Translator_Translate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.translate');
           const result = this.impl.translate(params.input);
           if (header.expectsResponse) {
@@ -155,7 +178,7 @@ on_device_translation.mojom.TranslatorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(on_device_translation.mojom.Translator_SplitSentences_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(on_device_translation.mojom.Translator_SplitSentences_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.splitSentences');
           const result = this.impl.splitSentences(params.input);
           if (header.expectsResponse) {

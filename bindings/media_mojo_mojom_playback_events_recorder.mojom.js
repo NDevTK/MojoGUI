@@ -231,81 +231,167 @@ media.mojom.PlaybackEventsRecorderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnPlaying
+        try {
+             decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPlaying (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnPaused
+        try {
+             decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaused (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnSeeking
+        try {
+             decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSeeking (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnEnded
+        try {
+             decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEnded (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OnError
+        try {
+             decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: OnBuffering
+        try {
+             decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBuffering (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: OnBufferingComplete
+        try {
+             decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBufferingComplete (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: OnNaturalSizeChanged
+        try {
+             decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNaturalSizeChanged (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: OnPipelineStatistics
+        try {
+             decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPipelineStatistics (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPlaying');
           const result = this.impl.onPlaying();
           break;
         }
-        case 1: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPaused');
           const result = this.impl.onPaused();
           break;
         }
-        case 2: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSeeking');
           const result = this.impl.onSeeking();
           break;
         }
-        case 3: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onEnded');
           const result = this.impl.onEnded();
           break;
         }
-        case 4: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.status);
           break;
         }
-        case 5: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBuffering');
           const result = this.impl.onBuffering();
           break;
         }
-        case 6: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBufferingComplete');
           const result = this.impl.onBufferingComplete();
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onNaturalSizeChanged');
           const result = this.impl.onNaturalSizeChanged(params.size);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPipelineStatistics');
           const result = this.impl.onPipelineStatistics(params.stats);
           break;

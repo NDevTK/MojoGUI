@@ -171,25 +171,39 @@ ash.settings.mojom.TabletModeObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnTabletModeChanged
+        try {
+             decoder.decodeStruct(ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabletModeChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTabletModeChanged');
           const result = this.impl.onTabletModeChanged(params.is_tablet_mode);
           break;
@@ -287,25 +301,39 @@ ash.settings.mojom.DisplayConfigurationObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnDisplayConfigurationChanged
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDisplayConfigurationChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDisplayConfigurationChanged');
           const result = this.impl.onDisplayConfigurationChanged();
           break;
@@ -405,25 +433,39 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnDisplayBrightnessChanged
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDisplayBrightnessChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDisplayBrightnessChanged');
           const result = this.impl.onDisplayBrightnessChanged(params.brightness_percent, params.triggered_by_als);
           break;
@@ -522,25 +564,39 @@ ash.settings.mojom.AmbientLightSensorObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnAmbientLightSensorEnabledChanged
+        try {
+             decoder.decodeStruct(ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAmbientLightSensorEnabledChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAmbientLightSensorEnabledChanged');
           const result = this.impl.onAmbientLightSensorEnabledChanged(params.is_ambient_light_sensor_enabled);
           break;
@@ -815,25 +871,120 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ObserveTabletMode
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveTabletMode (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ObserveDisplayConfiguration
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveDisplayConfiguration (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ObserveDisplayBrightnessSettings
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveDisplayBrightnessSettings (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ObserveAmbientLightSensor
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveAmbientLightSensor (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: RecordChangingDisplaySettings
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordChangingDisplaySettings (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: SetShinyPerformance
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetShinyPerformance (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: SetInternalDisplayScreenBrightness
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInternalDisplayScreenBrightness (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: SetInternalDisplayAmbientLightSensorEnabled
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInternalDisplayAmbientLightSensorEnabled (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: StartNativeTouchscreenMappingExperience
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartNativeTouchscreenMappingExperience (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: HasAmbientLightSensor
+        try {
+             decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasAmbientLightSensor (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeTabletMode');
           const result = this.impl.observeTabletMode(params.observer);
           if (header.expectsResponse) {
@@ -844,16 +995,16 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeDisplayConfiguration');
           const result = this.impl.observeDisplayConfiguration(params.observer);
           break;
         }
-        case 2: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeDisplayBrightnessSettings');
           const result = this.impl.observeDisplayBrightnessSettings(params.observer);
           if (header.expectsResponse) {
@@ -864,9 +1015,9 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeAmbientLightSensor');
           const result = this.impl.observeAmbientLightSensor(params.observer);
           if (header.expectsResponse) {
@@ -877,44 +1028,44 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.recordChangingDisplaySettings');
           const result = this.impl.recordChangingDisplaySettings(params.type, params.value);
           break;
         }
-        case 5: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setShinyPerformance');
           const result = this.impl.setShinyPerformance(params.enabled);
           break;
         }
-        case 6: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setInternalDisplayScreenBrightness');
           const result = this.impl.setInternalDisplayScreenBrightness(params.percent);
           break;
         }
-        case 7: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setInternalDisplayAmbientLightSensorEnabled');
           const result = this.impl.setInternalDisplayAmbientLightSensorEnabled(params.enabled);
           break;
         }
-        case 8: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startNativeTouchscreenMappingExperience');
           const result = this.impl.startNativeTouchscreenMappingExperience();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hasAmbientLightSensor');
           const result = this.impl.hasAmbientLightSensor();
           if (header.expectsResponse) {

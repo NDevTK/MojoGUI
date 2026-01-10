@@ -1163,53 +1163,517 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnVisibilityChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnVisibilityChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVisibilityChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnSpaceActivationChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSpaceActivationChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSpaceActivationChanged (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnWindowNativeThemeChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowNativeThemeChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowNativeThemeChanged (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnViewSizeChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnViewSizeChanged (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetSheetOffsetY
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSheetOffsetY (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: SetKeyboardAccessible
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_SetKeyboardAccessible_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeyboardAccessible (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: OnIsFirstResponderChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnIsFirstResponderChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIsFirstResponderChanged (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: OnMouseCaptureActiveChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseCaptureActiveChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMouseCaptureActiveChanged (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: OnScrollEvent
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScrollEvent (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: OnMouseEvent
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMouseEvent (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: OnGestureEvent
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGestureEvent (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: DispatchKeyEventRemote
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchKeyEventRemote (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: DispatchKeyEventToMenuControllerRemote
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchKeyEventToMenuControllerRemote (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: DispatchMonitorEvent
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchMonitorEvent (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: GetHasMenuController
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHasMenuController (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: GetHitTestResult
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHitTestResult (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: GetTooltipTextAt
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTooltipTextAt (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: GetWidgetIsModal
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWidgetIsModal (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: GetIsFocusedViewTextual
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsFocusedViewTextual (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: OnWindowGeometryChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowGeometryChanged (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 20: OnWindowWillStartLiveResize
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillStartLiveResize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowWillStartLiveResize (20)');
+             this.mapOrdinal(header.ordinal, 20);
+             dispatchId = 20;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 21: OnWindowDidEndLiveResize
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDidEndLiveResize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowDidEndLiveResize (21)');
+             this.mapOrdinal(header.ordinal, 21);
+             dispatchId = 21;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 22: OnWindowFullscreenTransitionStart
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionStart_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowFullscreenTransitionStart (22)');
+             this.mapOrdinal(header.ordinal, 22);
+             dispatchId = 22;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 23: OnWindowFullscreenTransitionComplete
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionComplete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowFullscreenTransitionComplete (23)');
+             this.mapOrdinal(header.ordinal, 23);
+             dispatchId = 23;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 24: OnWindowMiniaturizedChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowMiniaturizedChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowMiniaturizedChanged (24)');
+             this.mapOrdinal(header.ordinal, 24);
+             dispatchId = 24;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 25: OnWindowZoomedChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowZoomedChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowZoomedChanged (25)');
+             this.mapOrdinal(header.ordinal, 25);
+             dispatchId = 25;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 26: OnWindowDisplayChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowDisplayChanged (26)');
+             this.mapOrdinal(header.ordinal, 26);
+             dispatchId = 26;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 27: OnWindowWillClose
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillClose_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowWillClose (27)');
+             this.mapOrdinal(header.ordinal, 27);
+             dispatchId = 27;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 28: OnWindowHasClosed
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowHasClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowHasClosed (28)');
+             this.mapOrdinal(header.ordinal, 28);
+             dispatchId = 28;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 29: OnWindowKeyStatusChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowKeyStatusChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowKeyStatusChanged (29)');
+             this.mapOrdinal(header.ordinal, 29);
+             dispatchId = 29;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 30: OnWindowStateRestorationDataChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowStateRestorationDataChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowStateRestorationDataChanged (30)');
+             this.mapOrdinal(header.ordinal, 30);
+             dispatchId = 30;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 31: OnSheetModalShown
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalShown_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSheetModalShown (31)');
+             this.mapOrdinal(header.ordinal, 31);
+             dispatchId = 31;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 32: OnSheetModalClosed
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSheetModalClosed (32)');
+             this.mapOrdinal(header.ordinal, 32);
+             dispatchId = 32;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 33: OnImmersiveFullscreenToolbarRevealChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenToolbarRevealChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImmersiveFullscreenToolbarRevealChanged (33)');
+             this.mapOrdinal(header.ordinal, 33);
+             dispatchId = 33;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 34: OnImmersiveFullscreenMenuBarRevealChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenMenuBarRevealChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImmersiveFullscreenMenuBarRevealChanged (34)');
+             this.mapOrdinal(header.ordinal, 34);
+             dispatchId = 34;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 35: OnAutohidingMenuBarHeightChanged
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnAutohidingMenuBarHeightChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAutohidingMenuBarHeightChanged (35)');
+             this.mapOrdinal(header.ordinal, 35);
+             dispatchId = 35;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 36: DoDialogButtonAction
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoDialogButtonAction (36)');
+             this.mapOrdinal(header.ordinal, 36);
+             dispatchId = 36;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 37: GetDialogButtonInfo
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDialogButtonInfo (37)');
+             this.mapOrdinal(header.ordinal, 37);
+             dispatchId = 37;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 38: GetDoDialogButtonsExist
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDoDialogButtonsExist (38)');
+             this.mapOrdinal(header.ordinal, 38);
+             dispatchId = 38;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 39: GetShouldShowWindowTitle
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetShouldShowWindowTitle (39)');
+             this.mapOrdinal(header.ordinal, 39);
+             dispatchId = 39;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 40: GetCanWindowBecomeKey
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCanWindowBecomeKey (40)');
+             this.mapOrdinal(header.ordinal, 40);
+             dispatchId = 40;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 41: GetAlwaysRenderWindowAsKey
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAlwaysRenderWindowAsKey (41)');
+             this.mapOrdinal(header.ordinal, 41);
+             dispatchId = 41;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 42: OnWindowCloseRequested
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowCloseRequested (42)');
+             this.mapOrdinal(header.ordinal, 42);
+             dispatchId = 42;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 43: GetWindowFrameTitlebarHeight
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWindowFrameTitlebarHeight (43)');
+             this.mapOrdinal(header.ordinal, 43);
+             dispatchId = 43;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 44: OnFocusWindowToolbar
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnFocusWindowToolbar_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFocusWindowToolbar (44)');
+             this.mapOrdinal(header.ordinal, 44);
+             dispatchId = 44;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 45: SetRemoteAccessibilityTokens
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_SetRemoteAccessibilityTokens_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRemoteAccessibilityTokens (45)');
+             this.mapOrdinal(header.ordinal, 45);
+             dispatchId = 45;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 46: GetRootViewAccessibilityToken
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRootViewAccessibilityToken (46)');
+             this.mapOrdinal(header.ordinal, 46);
+             dispatchId = 46;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 47: ValidateUserInterfaceItem
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ValidateUserInterfaceItem (47)');
+             this.mapOrdinal(header.ordinal, 47);
+             dispatchId = 47;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 48: WillExecuteCommand
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WillExecuteCommand (48)');
+             this.mapOrdinal(header.ordinal, 48);
+             dispatchId = 48;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 49: ExecuteCommand
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteCommand (49)');
+             this.mapOrdinal(header.ordinal, 49);
+             dispatchId = 49;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 50: HandleAccelerator
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAccelerator (50)');
+             this.mapOrdinal(header.ordinal, 50);
+             dispatchId = 50;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnVisibilityChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnVisibilityChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onVisibilityChanged');
           const result = this.impl.onVisibilityChanged(params.visible);
           break;
         }
-        case 1: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSpaceActivationChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSpaceActivationChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSpaceActivationChanged');
           const result = this.impl.onSpaceActivationChanged(params.is_space_active);
           break;
         }
-        case 2: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowNativeThemeChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowNativeThemeChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowNativeThemeChanged');
           const result = this.impl.onWindowNativeThemeChanged();
           break;
         }
-        case 3: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onViewSizeChanged');
           const result = this.impl.onViewSizeChanged(params.new_size);
           break;
         }
-        case 4: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSheetOffsetY');
           const result = this.impl.getSheetOffsetY();
           if (header.expectsResponse) {
@@ -1220,51 +1684,51 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_SetKeyboardAccessible_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_SetKeyboardAccessible_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setKeyboardAccessible');
           const result = this.impl.setKeyboardAccessible(params.enabled);
           break;
         }
-        case 6: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnIsFirstResponderChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnIsFirstResponderChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onIsFirstResponderChanged');
           const result = this.impl.onIsFirstResponderChanged(params.is_first_responder);
           break;
         }
-        case 7: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseCaptureActiveChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseCaptureActiveChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMouseCaptureActiveChanged');
           const result = this.impl.onMouseCaptureActiveChanged(params.capture_is_active);
           break;
         }
-        case 8: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onScrollEvent');
           const result = this.impl.onScrollEvent(params.event);
           break;
         }
-        case 9: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMouseEvent');
           const result = this.impl.onMouseEvent(params.event);
           break;
         }
-        case 10: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onGestureEvent');
           const result = this.impl.onGestureEvent(params.event);
           break;
         }
-        case 11: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchKeyEventRemote');
           const result = this.impl.dispatchKeyEventRemote(params.event);
           if (header.expectsResponse) {
@@ -1275,9 +1739,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchKeyEventToMenuControllerRemote');
           const result = this.impl.dispatchKeyEventToMenuControllerRemote(params.event);
           if (header.expectsResponse) {
@@ -1288,9 +1752,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchMonitorEvent');
           const result = this.impl.dispatchMonitorEvent(params.event, params.target_is_this_window);
           if (header.expectsResponse) {
@@ -1301,9 +1765,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getHasMenuController');
           const result = this.impl.getHasMenuController();
           if (header.expectsResponse) {
@@ -1314,9 +1778,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getHitTestResult');
           const result = this.impl.getHitTestResult(params.location_in_content);
           if (header.expectsResponse) {
@@ -1327,9 +1791,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getTooltipTextAt');
           const result = this.impl.getTooltipTextAt(params.location_in_content);
           if (header.expectsResponse) {
@@ -1340,9 +1804,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 17: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getWidgetIsModal');
           const result = this.impl.getWidgetIsModal();
           if (header.expectsResponse) {
@@ -1353,9 +1817,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 18: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getIsFocusedViewTextual');
           const result = this.impl.getIsFocusedViewTextual();
           if (header.expectsResponse) {
@@ -1366,135 +1830,135 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowGeometryChanged');
           const result = this.impl.onWindowGeometryChanged(params.window_bounds_in_screen_dips, params.content_bounds_in_screen_dips);
           break;
         }
-        case 20: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillStartLiveResize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillStartLiveResize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowWillStartLiveResize');
           const result = this.impl.onWindowWillStartLiveResize();
           break;
         }
-        case 21: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDidEndLiveResize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDidEndLiveResize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowDidEndLiveResize');
           const result = this.impl.onWindowDidEndLiveResize();
           break;
         }
-        case 22: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionStart_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionStart_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowFullscreenTransitionStart');
           const result = this.impl.onWindowFullscreenTransitionStart(params.target_fullscreen_state);
           break;
         }
-        case 23: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionComplete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionComplete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowFullscreenTransitionComplete');
           const result = this.impl.onWindowFullscreenTransitionComplete(params.is_fullscreen);
           break;
         }
-        case 24: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowMiniaturizedChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowMiniaturizedChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowMiniaturizedChanged');
           const result = this.impl.onWindowMiniaturizedChanged(params.miniaturized);
           break;
         }
-        case 25: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowZoomedChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowZoomedChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowZoomedChanged');
           const result = this.impl.onWindowZoomedChanged(params.zoomed);
           break;
         }
-        case 26: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowDisplayChanged');
           const result = this.impl.onWindowDisplayChanged(params.display);
           break;
         }
-        case 27: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillClose_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillClose_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowWillClose');
           const result = this.impl.onWindowWillClose();
           break;
         }
-        case 28: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowHasClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowHasClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowHasClosed');
           const result = this.impl.onWindowHasClosed();
           break;
         }
-        case 29: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowKeyStatusChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowKeyStatusChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowKeyStatusChanged');
           const result = this.impl.onWindowKeyStatusChanged(params.is_key, params.is_content_first_responder, params.full_keyboard_access_enabled);
           break;
         }
-        case 30: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowStateRestorationDataChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowStateRestorationDataChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowStateRestorationDataChanged');
           const result = this.impl.onWindowStateRestorationDataChanged(params.data);
           break;
         }
-        case 31: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalShown_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalShown_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSheetModalShown');
           const result = this.impl.onSheetModalShown();
           break;
         }
-        case 32: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSheetModalClosed');
           const result = this.impl.onSheetModalClosed();
           break;
         }
-        case 33: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenToolbarRevealChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenToolbarRevealChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onImmersiveFullscreenToolbarRevealChanged');
           const result = this.impl.onImmersiveFullscreenToolbarRevealChanged(params.is_revealed);
           break;
         }
-        case 34: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenMenuBarRevealChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenMenuBarRevealChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onImmersiveFullscreenMenuBarRevealChanged');
           const result = this.impl.onImmersiveFullscreenMenuBarRevealChanged(params.reveal_amount);
           break;
         }
-        case 35: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnAutohidingMenuBarHeightChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnAutohidingMenuBarHeightChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAutohidingMenuBarHeightChanged');
           const result = this.impl.onAutohidingMenuBarHeightChanged(params.menu_bar_height);
           break;
         }
-        case 36: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.doDialogButtonAction');
           const result = this.impl.doDialogButtonAction(params.button);
           break;
         }
-        case 37: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDialogButtonInfo');
           const result = this.impl.getDialogButtonInfo(params.button);
           if (header.expectsResponse) {
@@ -1505,9 +1969,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 38: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDoDialogButtonsExist');
           const result = this.impl.getDoDialogButtonsExist();
           if (header.expectsResponse) {
@@ -1518,9 +1982,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 39: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getShouldShowWindowTitle');
           const result = this.impl.getShouldShowWindowTitle();
           if (header.expectsResponse) {
@@ -1531,9 +1995,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 40: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getCanWindowBecomeKey');
           const result = this.impl.getCanWindowBecomeKey();
           if (header.expectsResponse) {
@@ -1544,9 +2008,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 41: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAlwaysRenderWindowAsKey');
           const result = this.impl.getAlwaysRenderWindowAsKey();
           if (header.expectsResponse) {
@@ -1557,9 +2021,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 42: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowCloseRequested');
           const result = this.impl.onWindowCloseRequested();
           if (header.expectsResponse) {
@@ -1570,9 +2034,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 43: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getWindowFrameTitlebarHeight');
           const result = this.impl.getWindowFrameTitlebarHeight();
           if (header.expectsResponse) {
@@ -1583,23 +2047,23 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 44: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnFocusWindowToolbar_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_OnFocusWindowToolbar_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onFocusWindowToolbar');
           const result = this.impl.onFocusWindowToolbar();
           break;
         }
-        case 45: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_SetRemoteAccessibilityTokens_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_SetRemoteAccessibilityTokens_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setRemoteAccessibilityTokens');
           const result = this.impl.setRemoteAccessibilityTokens(params.window_token, params.view_token);
           break;
         }
-        case 46: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getRootViewAccessibilityToken');
           const result = this.impl.getRootViewAccessibilityToken();
           if (header.expectsResponse) {
@@ -1610,9 +2074,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 47: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.validateUserInterfaceItem');
           const result = this.impl.validateUserInterfaceItem(params.command);
           if (header.expectsResponse) {
@@ -1623,9 +2087,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 48: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.willExecuteCommand');
           const result = this.impl.willExecuteCommand(params.command, params.window_open_disposition, params.is_before_first_responder);
           if (header.expectsResponse) {
@@ -1636,9 +2100,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
           }
           break;
         }
-        case 49: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.executeCommand');
           const result = this.impl.executeCommand(params.command, params.window_open_disposition, params.is_before_first_responder);
           if (header.expectsResponse) {
@@ -1651,7 +2115,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = class {
         }
         case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleAccelerator');
           const result = this.impl.handleAccelerator(params.accelerator, params.require_priority_handler);
           if (header.expectsResponse) {

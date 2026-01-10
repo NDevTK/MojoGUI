@@ -152,32 +152,55 @@ device.mojom.InputDeviceManagerClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: InputDeviceAdded
+        try {
+             decoder.decodeStruct(device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InputDeviceAdded (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: InputDeviceRemoved
+        try {
+             decoder.decodeStruct(device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InputDeviceRemoved (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.inputDeviceAdded');
           const result = this.impl.inputDeviceAdded(params.device_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.inputDeviceRemoved');
           const result = this.impl.inputDeviceRemoved(params.id);
           break;
@@ -304,25 +327,48 @@ device.mojom.InputDeviceManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetDevicesAndSetClient
+        try {
+             decoder.decodeStruct(device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevicesAndSetClient (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetDevices
+        try {
+             decoder.decodeStruct(device.mojom.InputDeviceManager_GetDevices_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevices (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDevicesAndSetClient');
           const result = this.impl.getDevicesAndSetClient(params.client);
           if (header.expectsResponse) {
@@ -335,7 +381,7 @@ device.mojom.InputDeviceManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.InputDeviceManager_GetDevices_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.InputDeviceManager_GetDevices_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {

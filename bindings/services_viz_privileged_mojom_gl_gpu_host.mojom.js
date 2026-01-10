@@ -408,109 +408,267 @@ viz.mojom.GpuHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: DidInitialize
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DidInitialize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidInitialize (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: DidFailInitialize
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DidFailInitialize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidFailInitialize (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: DidCreateContextSuccessfully
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCreateContextSuccessfully (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: DidCreateOffscreenContext
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCreateOffscreenContext (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: DidDestroyOffscreenContext
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidDestroyOffscreenContext (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: DidDestroyChannel
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidDestroyChannel (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: DidDestroyAllChannels
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidDestroyAllChannels (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: DidLoseContext
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DidLoseContext_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidLoseContext (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: DidUpdateGPUInfo
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidUpdateGPUInfo (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: DidUpdateOverlayInfo
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidUpdateOverlayInfo (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: DidUpdateDXGIInfo
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidUpdateDXGIInfo (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: DisableGpuCompositing
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableGpuCompositing (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: GetIsolationKey
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_GetIsolationKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsolationKey (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: StoreBlobToDisk
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StoreBlobToDisk (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: ClearGrShaderDiskCache
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearGrShaderDiskCache (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: EnsureWebNNExecutionProvidersReady
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnsureWebNNExecutionProvidersReady (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: CreateWebNNWeightsFile
+        try {
+             decoder.decodeStruct(viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebNNWeightsFile (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidInitialize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidInitialize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didInitialize');
           const result = this.impl.didInitialize(params.gpu_info, params.gpu_feature_info, params.gpu_info_for_hardware_gpu, params.gpu_feature_info_for_hardware_gpu, params.gpu_extra_info);
           break;
         }
-        case 1: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidFailInitialize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidFailInitialize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didFailInitialize');
           const result = this.impl.didFailInitialize();
           break;
         }
-        case 2: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didCreateContextSuccessfully');
           const result = this.impl.didCreateContextSuccessfully();
           break;
         }
-        case 3: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didCreateOffscreenContext');
           const result = this.impl.didCreateOffscreenContext(params.url);
           break;
         }
-        case 4: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didDestroyOffscreenContext');
           const result = this.impl.didDestroyOffscreenContext(params.url);
           break;
         }
-        case 5: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didDestroyChannel');
           const result = this.impl.didDestroyChannel(params.client_id);
           break;
         }
-        case 6: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didDestroyAllChannels');
           const result = this.impl.didDestroyAllChannels();
           break;
         }
-        case 7: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidLoseContext_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidLoseContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didLoseContext');
           const result = this.impl.didLoseContext(params.reason, params.active_url);
           break;
         }
-        case 8: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didUpdateGPUInfo');
           const result = this.impl.didUpdateGPUInfo(params.gpu_info);
           break;
         }
-        case 9: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didUpdateOverlayInfo');
           const result = this.impl.didUpdateOverlayInfo(params.overlay_info);
           break;
         }
-        case 10: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didUpdateDXGIInfo');
           const result = this.impl.didUpdateDXGIInfo(params.dxgi_info);
           break;
         }
-        case 11: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.disableGpuCompositing');
           const result = this.impl.disableGpuCompositing();
           break;
         }
-        case 12: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_GetIsolationKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_GetIsolationKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getIsolationKey');
           const result = this.impl.getIsolationKey(params.client_id, params.wgpu_context_token);
           if (header.expectsResponse) {
@@ -521,23 +679,23 @@ viz.mojom.GpuHostReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.storeBlobToDisk');
           const result = this.impl.storeBlobToDisk(params.cache_handle, params.key, params.blob);
           break;
         }
-        case 14: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearGrShaderDiskCache');
           const result = this.impl.clearGrShaderDiskCache();
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.ensureWebNNExecutionProvidersReady');
           const result = this.impl.ensureWebNNExecutionProvidersReady();
           if (header.expectsResponse) {
@@ -550,7 +708,7 @@ viz.mojom.GpuHostReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createWebNNWeightsFile');
           const result = this.impl.createWebNNWeightsFile();
           if (header.expectsResponse) {

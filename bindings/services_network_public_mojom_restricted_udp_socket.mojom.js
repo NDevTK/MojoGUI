@@ -211,25 +211,75 @@ network.mojom.RestrictedUDPSocketReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: JoinGroup
+        try {
+             decoder.decodeStruct(network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JoinGroup (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: LeaveGroup
+        try {
+             decoder.decodeStruct(network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LeaveGroup (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ReceiveMore
+        try {
+             decoder.decodeStruct(network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReceiveMore (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: Send
+        try {
+             decoder.decodeStruct(network.mojom.RestrictedUDPSocket_Send_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Send (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SendTo
+        try {
+             decoder.decodeStruct(network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendTo (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.joinGroup');
           const result = this.impl.joinGroup(params.group_address);
           if (header.expectsResponse) {
@@ -240,9 +290,9 @@ network.mojom.RestrictedUDPSocketReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.leaveGroup');
           const result = this.impl.leaveGroup(params.group_address);
           if (header.expectsResponse) {
@@ -253,16 +303,16 @@ network.mojom.RestrictedUDPSocketReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.receiveMore');
           const result = this.impl.receiveMore(params.num_additional_datagrams);
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.RestrictedUDPSocket_Send_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.RestrictedUDPSocket_Send_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.send');
           const result = this.impl.send(params.data);
           if (header.expectsResponse) {
@@ -275,7 +325,7 @@ network.mojom.RestrictedUDPSocketReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sendTo');
           const result = this.impl.sendTo(params.data, params.dest_addr, params.dns_query_type);
           if (header.expectsResponse) {

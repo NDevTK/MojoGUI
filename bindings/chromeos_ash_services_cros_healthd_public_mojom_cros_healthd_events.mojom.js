@@ -689,60 +689,119 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnAdapterAdded
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdapterAdded (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnAdapterRemoved
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdapterRemoved (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnAdapterPropertyChanged
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdapterPropertyChanged (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnDeviceAdded
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceAdded (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OnDeviceRemoved
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceRemoved (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: OnDevicePropertyChanged
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDevicePropertyChanged (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAdapterAdded');
           const result = this.impl.onAdapterAdded();
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAdapterRemoved');
           const result = this.impl.onAdapterRemoved();
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAdapterPropertyChanged');
           const result = this.impl.onAdapterPropertyChanged();
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
           const result = this.impl.onDeviceAdded();
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
           const result = this.impl.onDeviceRemoved();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDevicePropertyChanged');
           const result = this.impl.onDevicePropertyChanged();
           break;
@@ -856,32 +915,55 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnLidClosed
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLidClosed (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnLidOpened
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLidOpened (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLidClosed');
           const result = this.impl.onLidClosed();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLidOpened');
           const result = this.impl.onLidOpened();
           break;
@@ -1027,46 +1109,87 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnAcInserted
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcInserted (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnAcRemoved
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcRemoved (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnOsSuspend
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOsSuspend (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnOsResume
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOsResume (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAcInserted');
           const result = this.impl.onAcInserted();
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAcRemoved');
           const result = this.impl.onAcRemoved();
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onOsSuspend');
           const result = this.impl.onOsSuspend();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onOsResume');
           const result = this.impl.onOsResume();
           break;
@@ -1180,32 +1303,55 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnUnderrun
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUnderrun (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnSevereUnderrun
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSevereUnderrun (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onUnderrun');
           const result = this.impl.onUnderrun();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSevereUnderrun');
           const result = this.impl.onSevereUnderrun();
           break;
@@ -1351,46 +1497,87 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnAdd
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdd (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnRemove
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemove (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnAuthorized
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthorized (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnUnAuthorized
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUnAuthorized (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAdd');
           const result = this.impl.onAdd();
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onRemove');
           const result = this.impl.onRemove();
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAuthorized');
           const result = this.impl.onAuthorized();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onUnAuthorized');
           const result = this.impl.onUnAuthorized();
           break;
@@ -1506,32 +1693,55 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnAdd
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdd (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnRemove
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemove (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAdd');
           const result = this.impl.onAdd(params.info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onRemove');
           const result = this.impl.onRemove(params.info);
           break;
@@ -1645,32 +1855,55 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnAdd
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdd (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnRemove
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemove (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAdd');
           const result = this.impl.onAdd();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onRemove');
           const result = this.impl.onRemove();
           break;
@@ -1769,25 +2002,39 @@ ash.cros_healthd.mojom.EventObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnEvent
+        try {
+             decoder.decodeStruct(ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEvent (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onEvent');
           const result = this.impl.onEvent(params.info);
           break;

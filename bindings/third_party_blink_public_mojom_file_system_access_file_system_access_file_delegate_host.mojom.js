@@ -180,25 +180,66 @@ blink.mojom.FileSystemAccessFileDelegateHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Read
+        try {
+             decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Write
+        try {
+             decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Write (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetLength
+        try {
+             decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLength (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SetLength
+        try {
+             decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLength (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.offset, params.bytes_to_read);
           if (header.expectsResponse) {
@@ -209,9 +250,9 @@ blink.mojom.FileSystemAccessFileDelegateHostReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.offset, params.data);
           if (header.expectsResponse) {
@@ -222,9 +263,9 @@ blink.mojom.FileSystemAccessFileDelegateHostReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getLength');
           const result = this.impl.getLength();
           if (header.expectsResponse) {
@@ -237,7 +278,7 @@ blink.mojom.FileSystemAccessFileDelegateHostReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setLength');
           const result = this.impl.setLength(params.length);
           if (header.expectsResponse) {

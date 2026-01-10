@@ -107,25 +107,39 @@ search.mojom.EmbeddedSearchConnectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Connect
+        try {
+             decoder.decodeStruct(search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.embedded_search, params.client);
           break;
@@ -278,46 +292,87 @@ search.mojom.EmbeddedSearchReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: FocusOmnibox
+        try {
+             decoder.decodeStruct(search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusOmnibox (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: DeleteMostVisitedItem
+        try {
+             decoder.decodeStruct(search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteMostVisitedItem (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: UndoAllMostVisitedDeletions
+        try {
+             decoder.decodeStruct(search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UndoAllMostVisitedDeletions (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: UndoMostVisitedDeletion
+        try {
+             decoder.decodeStruct(search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UndoMostVisitedDeletion (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.focusOmnibox');
           const result = this.impl.focusOmnibox(params.page_seq_no, params.focus);
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteMostVisitedItem');
           const result = this.impl.deleteMostVisitedItem(params.page_seq_no, params.url);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.undoAllMostVisitedDeletions');
           const result = this.impl.undoAllMostVisitedDeletions(params.page_seq_no);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.undoMostVisitedDeletion');
           const result = this.impl.undoMostVisitedDeletion(params.page_seq_no, params.url);
           break;
@@ -485,53 +540,103 @@ search.mojom.EmbeddedSearchClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetPageSequenceNumber
+        try {
+             decoder.decodeStruct(search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageSequenceNumber (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: FocusChanged
+        try {
+             decoder.decodeStruct(search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusChanged (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: MostVisitedInfoChanged
+        try {
+             decoder.decodeStruct(search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MostVisitedInfoChanged (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SetInputInProgress
+        try {
+             decoder.decodeStruct(search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInputInProgress (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ThemeChanged
+        try {
+             decoder.decodeStruct(search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ThemeChanged (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setPageSequenceNumber');
           const result = this.impl.setPageSequenceNumber(params.page_seq_no);
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.focusChanged');
           const result = this.impl.focusChanged(params.new_focus_state, params.reason);
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.mostVisitedInfoChanged');
           const result = this.impl.mostVisitedInfoChanged(params.most_visited_info);
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setInputInProgress');
           const result = this.impl.setInputInProgress(params.input_in_progress);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.themeChanged');
           const result = this.impl.themeChanged(params.theme);
           break;

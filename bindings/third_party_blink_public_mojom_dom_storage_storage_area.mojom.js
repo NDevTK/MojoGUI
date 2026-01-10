@@ -197,53 +197,103 @@ blink.mojom.StorageAreaObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: KeyChanged
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> KeyChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: KeyChangeFailed
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> KeyChangeFailed (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: KeyDeleted
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> KeyDeleted (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: AllDeleted
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllDeleted (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ShouldSendOldValueOnMutations
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldSendOldValueOnMutations (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.keyChanged');
           const result = this.impl.keyChanged(params.key, params.new_value, params.old_value, params.source);
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.keyChangeFailed');
           const result = this.impl.keyChangeFailed(params.key, params.source);
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.keyDeleted');
           const result = this.impl.keyDeleted(params.key, params.old_value, params.source);
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.allDeleted');
           const result = this.impl.allDeleted(params.was_nonempty, params.source);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.shouldSendOldValueOnMutations');
           const result = this.impl.shouldSendOldValueOnMutations(params.value);
           break;
@@ -464,32 +514,91 @@ blink.mojom.StorageAreaReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: AddObserver
+        try {
+             decoder.decodeStruct(blink.mojom.StorageArea_AddObserver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Put
+        try {
+             decoder.decodeStruct(blink.mojom.StorageArea_Put_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Put (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: Delete
+        try {
+             decoder.decodeStruct(blink.mojom.StorageArea_Delete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Delete (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: DeleteAll
+        try {
+             decoder.decodeStruct(blink.mojom.StorageArea_DeleteAll_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAll (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: Get
+        try {
+             decoder.decodeStruct(blink.mojom.StorageArea_Get_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Get (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: GetAll
+        try {
+             decoder.decodeStruct(blink.mojom.StorageArea_GetAll_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAll (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageArea_AddObserver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageArea_AddObserver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageArea_Put_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageArea_Put_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.put');
           const result = this.impl.put(params.key, params.value, params.client_old_value, params.source);
           if (header.expectsResponse) {
@@ -500,9 +609,9 @@ blink.mojom.StorageAreaReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageArea_Delete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageArea_Delete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.key, params.client_old_value, params.source);
           if (header.expectsResponse) {
@@ -513,9 +622,9 @@ blink.mojom.StorageAreaReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageArea_DeleteAll_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageArea_DeleteAll_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteAll');
           const result = this.impl.deleteAll(params.source, params.new_observer);
           if (header.expectsResponse) {
@@ -526,9 +635,9 @@ blink.mojom.StorageAreaReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageArea_Get_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageArea_Get_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.get');
           const result = this.impl.get(params.key);
           if (header.expectsResponse) {
@@ -541,7 +650,7 @@ blink.mojom.StorageAreaReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageArea_GetAll_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageArea_GetAll_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAll');
           const result = this.impl.getAll(params.new_observer);
           if (header.expectsResponse) {

@@ -135,25 +135,48 @@ arc.mojom.VideoHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnBootstrapVideoAcceleratorFactory
+        try {
+             decoder.decodeStruct(arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBootstrapVideoAcceleratorFactory (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CreateVideoAcceleratorFactory
+        try {
+             decoder.decodeStruct(arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoAcceleratorFactory (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBootstrapVideoAcceleratorFactory');
           const result = this.impl.onBootstrapVideoAcceleratorFactory();
           if (header.expectsResponse) {
@@ -164,9 +187,9 @@ arc.mojom.VideoHostReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createVideoAcceleratorFactory');
           const result = this.impl.createVideoAcceleratorFactory();
           if (header.expectsResponse) {
@@ -276,25 +299,39 @@ arc.mojom.VideoInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Init
+        try {
+             decoder.decodeStruct(arc.mojom.VideoInstance_Init_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoInstance_Init_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.VideoInstance_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -452,46 +489,87 @@ arc.mojom.VideoAcceleratorFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreateEncodeAccelerator
+        try {
+             decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateEncodeAccelerator (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CreateDecodeAccelerator
+        try {
+             decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDecodeAccelerator (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: CreateVideoDecoder
+        try {
+             decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoDecoder (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: CreateProtectedBufferAllocator
+        try {
+             decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProtectedBufferAllocator (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createEncodeAccelerator');
           const result = this.impl.createEncodeAccelerator(params.video_encoder);
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createDecodeAccelerator');
           const result = this.impl.createDecodeAccelerator(params.video_decoder, params.protected_buffer_manager, params.browser_cdm_factory);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoder');
           const result = this.impl.createVideoDecoder(params.video_decoder);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createProtectedBufferAllocator');
           const result = this.impl.createProtectedBufferAllocator(params.video_protected_buffer_allocator);
           break;

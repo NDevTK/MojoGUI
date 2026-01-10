@@ -232,39 +232,71 @@ blink.mojom.PresentationConnectionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnMessage
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessage (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: DidChangeState
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidChangeState (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: DidClose
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationConnection_DidClose_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidClose (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.message);
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didChangeState');
           const result = this.impl.didChangeState(params.state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationConnection_DidClose_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationConnection_DidClose_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didClose');
           const result = this.impl.didClose(params.reason);
           break;
@@ -516,60 +548,146 @@ blink.mojom.PresentationServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetController
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationService_SetController_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetController (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: SetReceiver
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationService_SetReceiver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetReceiver (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetDefaultPresentationUrls
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDefaultPresentationUrls (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ListenForScreenAvailability
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListenForScreenAvailability (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: StopListeningForScreenAvailability
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopListeningForScreenAvailability (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: StartPresentation
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationService_StartPresentation_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPresentation (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: ReconnectPresentation
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReconnectPresentation (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: CloseConnection
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationService_CloseConnection_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseConnection (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: Terminate
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationService_Terminate_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Terminate (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationService_SetController_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_SetController_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setController');
           const result = this.impl.setController(params.controller);
           break;
         }
-        case 1: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationService_SetReceiver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_SetReceiver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setReceiver');
           const result = this.impl.setReceiver(params.receiver);
           break;
         }
-        case 2: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setDefaultPresentationUrls');
           const result = this.impl.setDefaultPresentationUrls(params.presentation_urls);
           break;
         }
-        case 3: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.listenForScreenAvailability');
           const result = this.impl.listenForScreenAvailability(params.availability_url);
           break;
         }
-        case 4: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stopListeningForScreenAvailability');
           const result = this.impl.stopListeningForScreenAvailability(params.availability_url);
           break;
         }
-        case 5: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationService_StartPresentation_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_StartPresentation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startPresentation');
           const result = this.impl.startPresentation(params.presentation_urls);
           if (header.expectsResponse) {
@@ -580,9 +698,9 @@ blink.mojom.PresentationServiceReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reconnectPresentation');
           const result = this.impl.reconnectPresentation(params.presentation_urls, params.presentation_id);
           if (header.expectsResponse) {
@@ -593,16 +711,16 @@ blink.mojom.PresentationServiceReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationService_CloseConnection_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_CloseConnection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeConnection');
           const result = this.impl.closeConnection(params.presentation_url, params.presentation_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationService_Terminate_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_Terminate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.terminate');
           const result = this.impl.terminate(params.presentation_url, params.presentation_id);
           break;
@@ -756,46 +874,87 @@ blink.mojom.PresentationControllerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnScreenAvailabilityUpdated
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenAvailabilityUpdated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnDefaultPresentationStarted
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDefaultPresentationStarted (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnConnectionStateChanged
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionStateChanged (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnConnectionClosed
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionClosed (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onScreenAvailabilityUpdated');
           const result = this.impl.onScreenAvailabilityUpdated(params.url, params.availability);
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDefaultPresentationStarted');
           const result = this.impl.onDefaultPresentationStarted(params.result);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onConnectionStateChanged');
           const result = this.impl.onConnectionStateChanged(params.presentation_info, params.newState);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onConnectionClosed');
           const result = this.impl.onConnectionClosed(params.presentation_info, params.reason, params.message);
           break;
@@ -894,25 +1053,39 @@ blink.mojom.PresentationReceiverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnReceiverConnectionAvailable
+        try {
+             decoder.decodeStruct(blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceiverConnectionAvailable (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onReceiverConnectionAvailable');
           const result = this.impl.onReceiverConnectionAvailable(params.result);
           break;

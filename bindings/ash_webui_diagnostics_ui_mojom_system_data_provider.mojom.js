@@ -215,25 +215,39 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnBatteryChargeStatusUpdated
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBatteryChargeStatusUpdated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBatteryChargeStatusUpdated');
           const result = this.impl.onBatteryChargeStatusUpdated(params.battery_charge_status);
           break;
@@ -332,25 +346,39 @@ ash.diagnostics.mojom.BatteryHealthObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnBatteryHealthUpdated
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBatteryHealthUpdated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBatteryHealthUpdated');
           const result = this.impl.onBatteryHealthUpdated(params.battery_health);
           break;
@@ -449,25 +477,39 @@ ash.diagnostics.mojom.MemoryUsageObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnMemoryUsageUpdated
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMemoryUsageUpdated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMemoryUsageUpdated');
           const result = this.impl.onMemoryUsageUpdated(params.memory_usage);
           break;
@@ -566,25 +608,39 @@ ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnCpuUsageUpdated
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCpuUsageUpdated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onCpuUsageUpdated');
           const result = this.impl.onCpuUsageUpdated(params.cpu_usage);
           break;
@@ -778,25 +834,84 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetSystemInfo
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSystemInfo (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetBatteryInfo
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBatteryInfo (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ObserveBatteryChargeStatus
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveBatteryChargeStatus (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ObserveBatteryHealth
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveBatteryHealth (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ObserveMemoryUsage
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveMemoryUsage (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ObserveCpuUsage
+        try {
+             decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveCpuUsage (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSystemInfo');
           const result = this.impl.getSystemInfo();
           if (header.expectsResponse) {
@@ -807,9 +922,9 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getBatteryInfo');
           const result = this.impl.getBatteryInfo();
           if (header.expectsResponse) {
@@ -820,30 +935,30 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryChargeStatus');
           const result = this.impl.observeBatteryChargeStatus(params.observer);
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryHealth');
           const result = this.impl.observeBatteryHealth(params.observer);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeMemoryUsage');
           const result = this.impl.observeMemoryUsage(params.observer);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeCpuUsage');
           const result = this.impl.observeCpuUsage(params.observer);
           break;

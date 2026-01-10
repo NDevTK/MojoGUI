@@ -386,25 +386,156 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetSmbfsEnableVerboseLogging
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSmbfsEnableVerboseLogging (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: SetSmbfsEnableVerboseLogging
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSmbfsEnableVerboseLogging (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetOfficeFileHandlers
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOfficeFileHandlers (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ClearOfficeFileHandlers
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearOfficeFileHandlers (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetMoveConfirmationShownForDrive
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForDrive (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: GetMoveConfirmationShownForOneDrive
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForOneDrive (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: GetMoveConfirmationShownForLocalToDrive
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForLocalToDrive (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: GetMoveConfirmationShownForLocalToOneDrive
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForLocalToOneDrive (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: GetMoveConfirmationShownForCloudToDrive
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForCloudToDrive (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: GetMoveConfirmationShownForCloudToOneDrive
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMoveConfirmationShownForCloudToOneDrive (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: GetAlwaysMoveOfficeFilesToDrive
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAlwaysMoveOfficeFilesToDrive (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: SetAlwaysMoveOfficeFilesToDrive
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAlwaysMoveOfficeFilesToDrive (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: GetAlwaysMoveOfficeFilesToOneDrive
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAlwaysMoveOfficeFilesToOneDrive (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: SetAlwaysMoveOfficeFilesToOneDrive
+        try {
+             decoder.decodeStruct(ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAlwaysMoveOfficeFilesToOneDrive (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSmbfsEnableVerboseLogging');
           const result = this.impl.getSmbfsEnableVerboseLogging();
           if (header.expectsResponse) {
@@ -415,16 +546,16 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSmbfsEnableVerboseLogging');
           const result = this.impl.setSmbfsEnableVerboseLogging(params.enabled);
           break;
         }
-        case 2: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getOfficeFileHandlers');
           const result = this.impl.getOfficeFileHandlers();
           if (header.expectsResponse) {
@@ -435,16 +566,16 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearOfficeFileHandlers');
           const result = this.impl.clearOfficeFileHandlers();
           break;
         }
-        case 4: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForDrive');
           const result = this.impl.getMoveConfirmationShownForDrive();
           if (header.expectsResponse) {
@@ -455,9 +586,9 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForOneDrive');
           const result = this.impl.getMoveConfirmationShownForOneDrive();
           if (header.expectsResponse) {
@@ -468,9 +599,9 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForLocalToDrive');
           const result = this.impl.getMoveConfirmationShownForLocalToDrive();
           if (header.expectsResponse) {
@@ -481,9 +612,9 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForLocalToOneDrive');
           const result = this.impl.getMoveConfirmationShownForLocalToOneDrive();
           if (header.expectsResponse) {
@@ -494,9 +625,9 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForCloudToDrive');
           const result = this.impl.getMoveConfirmationShownForCloudToDrive();
           if (header.expectsResponse) {
@@ -507,9 +638,9 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForCloudToOneDrive');
           const result = this.impl.getMoveConfirmationShownForCloudToOneDrive();
           if (header.expectsResponse) {
@@ -520,9 +651,9 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAlwaysMoveOfficeFilesToDrive');
           const result = this.impl.getAlwaysMoveOfficeFilesToDrive();
           if (header.expectsResponse) {
@@ -533,16 +664,16 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setAlwaysMoveOfficeFilesToDrive');
           const result = this.impl.setAlwaysMoveOfficeFilesToDrive(params.always_move);
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAlwaysMoveOfficeFilesToOneDrive');
           const result = this.impl.getAlwaysMoveOfficeFilesToOneDrive();
           if (header.expectsResponse) {
@@ -555,7 +686,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setAlwaysMoveOfficeFilesToOneDrive');
           const result = this.impl.setAlwaysMoveOfficeFilesToOneDrive(params.always_move);
           break;

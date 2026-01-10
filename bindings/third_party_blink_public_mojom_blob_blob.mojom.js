@@ -127,32 +127,55 @@ blink.mojom.BlobReaderClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnCalculatedSize
+        try {
+             decoder.decodeStruct(blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCalculatedSize (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnComplete
+        try {
+             decoder.decodeStruct(blink.mojom.BlobReaderClient_OnComplete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onCalculatedSize');
           const result = this.impl.onCalculatedSize(params.total_size, params.expected_content_size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.BlobReaderClient_OnComplete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.BlobReaderClient_OnComplete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.status, params.data_length);
           break;
@@ -393,60 +416,137 @@ blink.mojom.BlobReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Clone
+        try {
+             decoder.decodeStruct(blink.mojom.Blob_Clone_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: AsDataPipeGetter
+        try {
+             decoder.decodeStruct(blink.mojom.Blob_AsDataPipeGetter_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AsDataPipeGetter (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ReadAll
+        try {
+             decoder.decodeStruct(blink.mojom.Blob_ReadAll_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadAll (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ReadRange
+        try {
+             decoder.decodeStruct(blink.mojom.Blob_ReadRange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadRange (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: Load
+        try {
+             decoder.decodeStruct(blink.mojom.Blob_Load_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Load (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ReadSideData
+        try {
+             decoder.decodeStruct(blink.mojom.Blob_ReadSideData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadSideData (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: CaptureSnapshot
+        try {
+             decoder.decodeStruct(blink.mojom.Blob_CaptureSnapshot_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CaptureSnapshot (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: GetInternalUUID
+        try {
+             decoder.decodeStruct(blink.mojom.Blob_GetInternalUUID_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInternalUUID (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Blob_Clone_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.Blob_Clone_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.blob);
           break;
         }
-        case 1: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Blob_AsDataPipeGetter_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.Blob_AsDataPipeGetter_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.asDataPipeGetter');
           const result = this.impl.asDataPipeGetter(params.data_pipe_getter);
           break;
         }
-        case 2: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Blob_ReadAll_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.Blob_ReadAll_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readAll');
           const result = this.impl.readAll(params.pipe, params.client);
           break;
         }
-        case 3: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Blob_ReadRange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.Blob_ReadRange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readRange');
           const result = this.impl.readRange(params.offset, params.length, params.pipe, params.client);
           break;
         }
-        case 4: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Blob_Load_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.Blob_Load_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.load');
           const result = this.impl.load(params.loader, params.request_method, params.headers, params.client);
           break;
         }
-        case 5: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Blob_ReadSideData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.Blob_ReadSideData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readSideData');
           const result = this.impl.readSideData();
           if (header.expectsResponse) {
@@ -457,9 +557,9 @@ blink.mojom.BlobReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Blob_CaptureSnapshot_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.Blob_CaptureSnapshot_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.captureSnapshot');
           const result = this.impl.captureSnapshot();
           if (header.expectsResponse) {
@@ -472,7 +572,7 @@ blink.mojom.BlobReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.Blob_GetInternalUUID_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.Blob_GetInternalUUID_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getInternalUUID');
           const result = this.impl.getInternalUUID();
           if (header.expectsResponse) {

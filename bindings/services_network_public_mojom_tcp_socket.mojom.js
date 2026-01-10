@@ -183,25 +183,48 @@ network.mojom.TCPBoundSocketReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Listen
+        try {
+             decoder.decodeStruct(network.mojom.TCPBoundSocket_Listen_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Listen (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Connect
+        try {
+             decoder.decodeStruct(network.mojom.TCPBoundSocket_Connect_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TCPBoundSocket_Listen_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TCPBoundSocket_Listen_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.listen');
           const result = this.impl.listen(params.backlog, params.socket);
           if (header.expectsResponse) {
@@ -214,7 +237,7 @@ network.mojom.TCPBoundSocketReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TCPBoundSocket_Connect_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TCPBoundSocket_Connect_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.remote_addr_list, params.tcp_connected_socket_options, params.socket, params.observer);
           if (header.expectsResponse) {
@@ -425,25 +448,75 @@ network.mojom.TCPConnectedSocketReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: UpgradeToTLS
+        try {
+             decoder.decodeStruct(network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpgradeToTLS (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: SetSendBufferSize
+        try {
+             decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSendBufferSize (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetReceiveBufferSize
+        try {
+             decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetReceiveBufferSize (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SetNoDelay
+        try {
+             decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNoDelay (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SetKeepAlive
+        try {
+             decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeepAlive (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.upgradeToTLS');
           const result = this.impl.upgradeToTLS(params.host_port_pair, params.options, params.traffic_annotation, params.receiver, params.observer);
           if (header.expectsResponse) {
@@ -454,9 +527,9 @@ network.mojom.TCPConnectedSocketReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSendBufferSize');
           const result = this.impl.setSendBufferSize(params.send_buffer_size);
           if (header.expectsResponse) {
@@ -467,9 +540,9 @@ network.mojom.TCPConnectedSocketReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setReceiveBufferSize');
           const result = this.impl.setReceiveBufferSize(params.receive_buffer_size);
           if (header.expectsResponse) {
@@ -480,9 +553,9 @@ network.mojom.TCPConnectedSocketReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setNoDelay');
           const result = this.impl.setNoDelay(params.no_delay);
           if (header.expectsResponse) {
@@ -495,7 +568,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setKeepAlive');
           const result = this.impl.setKeepAlive(params.enable, params.delay_secs);
           if (header.expectsResponse) {
@@ -617,32 +690,55 @@ network.mojom.SocketObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnReadError
+        try {
+             decoder.decodeStruct(network.mojom.SocketObserver_OnReadError_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadError (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnWriteError
+        try {
+             decoder.decodeStruct(network.mojom.SocketObserver_OnWriteError_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWriteError (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.SocketObserver_OnReadError_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.SocketObserver_OnReadError_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onReadError');
           const result = this.impl.onReadError(params.net_error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.SocketObserver_OnWriteError_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.SocketObserver_OnWriteError_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWriteError');
           const result = this.impl.onWriteError(params.net_error);
           break;
@@ -751,25 +847,39 @@ network.mojom.TCPServerSocketReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Accept
+        try {
+             decoder.decodeStruct(network.mojom.TCPServerSocket_Accept_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Accept (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TCPServerSocket_Accept_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TCPServerSocket_Accept_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept(params.observer);
           if (header.expectsResponse) {

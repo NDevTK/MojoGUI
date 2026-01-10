@@ -144,25 +144,39 @@ global_media_controls.mojom.DeviceListHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SelectDevice
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectDevice (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.selectDevice');
           const result = this.impl.selectDevice(params.device_id);
           break;
@@ -277,32 +291,55 @@ global_media_controls.mojom.DeviceListClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnDevicesUpdated
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDevicesUpdated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnPermissionRejected
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPermissionRejected (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDevicesUpdated');
           const result = this.impl.onDevicesUpdated(params.devices);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPermissionRejected');
           const result = this.impl.onPermissionRejected();
           break;
@@ -438,39 +475,71 @@ global_media_controls.mojom.DeviceServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetDeviceListHostForSession
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceListHostForSession (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetDeviceListHostForPresentation
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceListHostForPresentation (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetDevicePickerProvider
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDevicePickerProvider (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDeviceListHostForSession');
           const result = this.impl.getDeviceListHostForSession(params.session_id, params.host_receiver, params.client_remote);
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDeviceListHostForPresentation');
           const result = this.impl.getDeviceListHostForPresentation(params.host_receiver, params.client_remote);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setDevicePickerProvider');
           const result = this.impl.setDevicePickerProvider(params.provider_remote);
           break;
@@ -701,81 +770,167 @@ global_media_controls.mojom.DevicePickerProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreateItem
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateItem (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: DeleteItem
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteItem (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ShowItem
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowItem (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: HideItem
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HideItem (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OnMetadataChanged
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMetadataChanged (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: OnArtworkImageChanged
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnArtworkImageChanged (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: OnFaviconImageChanged
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFaviconImageChanged (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: AddObserver
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: HideMediaUI
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HideMediaUI (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createItem');
           const result = this.impl.createItem(params.source_id);
           break;
         }
-        case 1: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteItem');
           const result = this.impl.deleteItem();
           break;
         }
-        case 2: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showItem');
           const result = this.impl.showItem();
           break;
         }
-        case 3: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hideItem');
           const result = this.impl.hideItem();
           break;
         }
-        case 4: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMetadataChanged');
           const result = this.impl.onMetadataChanged(params.metadata);
           break;
         }
-        case 5: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onArtworkImageChanged');
           const result = this.impl.onArtworkImageChanged(params.artwork_image);
           break;
         }
-        case 6: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onFaviconImageChanged');
           const result = this.impl.onFaviconImageChanged(params.favicon_image);
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hideMediaUI');
           const result = this.impl.hideMediaUI();
           break;
@@ -921,46 +1076,87 @@ global_media_controls.mojom.DevicePickerObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnMediaUIOpened
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaUIOpened (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnMediaUIClosed
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaUIClosed (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnMediaUIUpdated
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaUIUpdated (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnPickerDismissed
+        try {
+             decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPickerDismissed (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMediaUIOpened');
           const result = this.impl.onMediaUIOpened();
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMediaUIClosed');
           const result = this.impl.onMediaUIClosed();
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMediaUIUpdated');
           const result = this.impl.onMediaUIUpdated();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPickerDismissed');
           const result = this.impl.onPickerDismissed();
           break;

@@ -147,25 +147,39 @@ blink.mojom.AnnotationAgentReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ScrollIntoView
+        try {
+             decoder.decodeStruct(blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScrollIntoView (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.scrollIntoView');
           const result = this.impl.scrollIntoView(params.applies_focus);
           break;
@@ -265,25 +279,39 @@ blink.mojom.AnnotationAgentHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: DidFinishAttachment
+        try {
+             decoder.decodeStruct(blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidFinishAttachment (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.didFinishAttachment');
           const result = this.impl.didFinishAttachment(params.document_relative_rect, params.attachment_result);
           break;
@@ -429,32 +457,64 @@ blink.mojom.AnnotationAgentContainerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreateAgent
+        try {
+             decoder.decodeStruct(blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAgent (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CreateAgentFromSelection
+        try {
+             decoder.decodeStruct(blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAgentFromSelection (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: RemoveAgentsOfType
+        try {
+             decoder.decodeStruct(blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveAgentsOfType (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createAgent');
           const result = this.impl.createAgent(params.host_remote, params.agent_receiver, params.type, params.selector, params.search_range_start_node_id);
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createAgentFromSelection');
           const result = this.impl.createAgentFromSelection(params.type);
           if (header.expectsResponse) {
@@ -467,7 +527,7 @@ blink.mojom.AnnotationAgentContainerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.removeAgentsOfType');
           const result = this.impl.removeAgentsOfType(params.type);
           break;

@@ -2398,25 +2398,723 @@ arc.mojom.OemCryptoServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: InitializeDeprecated
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeDeprecated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Initialize
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_Initialize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: Terminate
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_Terminate_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Terminate (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OpenSession
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_OpenSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSession (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: CloseSession
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_CloseSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseSession (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: GenerateDerivedKeys
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateDerivedKeys (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: GenerateNonce
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateNonce_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateNonce (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: GenerateSignature
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateSignature_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateSignature (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: LoadKeysV11OrV12
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadKeysV11OrV12 (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: RefreshKeysV14
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshKeysV14 (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: QueryKeyControl
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_QueryKeyControl_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryKeyControl (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: SelectKeyV13
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_SelectKeyV13_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectKeyV13 (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: DecryptCencV15
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_DecryptCencV15_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptCencV15 (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: GenericEncrypt
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GenericEncrypt_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericEncrypt (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: GenericDecrypt
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GenericDecrypt_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericDecrypt (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: GenericSign
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GenericSign_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericSign (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: GenericVerify
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GenericVerify_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericVerify (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: CopyBufferV14
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyBufferV14 (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: LoadTestKeyboxV13
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTestKeyboxV13 (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: IsRootKeyCertificateValid
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsRootKeyCertificateValid (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 20: GetDeviceId
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GetDeviceId_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceId (20)');
+             this.mapOrdinal(header.ordinal, 20);
+             dispatchId = 20;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 21: GetKeyData
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GetKeyData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetKeyData (21)');
+             this.mapOrdinal(header.ordinal, 21);
+             dispatchId = 21;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 22: GetRandom
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GetRandom_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRandom (22)');
+             this.mapOrdinal(header.ordinal, 22);
+             dispatchId = 22;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 23: GetNumberOfOpenSessions
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNumberOfOpenSessions (23)');
+             this.mapOrdinal(header.ordinal, 23);
+             dispatchId = 23;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 24: GetMaxNumberOfSessions
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMaxNumberOfSessions (24)');
+             this.mapOrdinal(header.ordinal, 24);
+             dispatchId = 24;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 25: RewrapDeviceRsaKey
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RewrapDeviceRsaKey (25)');
+             this.mapOrdinal(header.ordinal, 25);
+             dispatchId = 25;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 26: LoadDeviceRsaKey
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadDeviceRsaKey (26)');
+             this.mapOrdinal(header.ordinal, 26);
+             dispatchId = 26;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 27: GenerateRsaSignature
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateRsaSignature (27)');
+             this.mapOrdinal(header.ordinal, 27);
+             dispatchId = 27;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 28: DeriveKeysFromSessionKey
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeriveKeysFromSessionKey (28)');
+             this.mapOrdinal(header.ordinal, 28);
+             dispatchId = 28;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 29: SecurityPatchLevel
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SecurityPatchLevel (29)');
+             this.mapOrdinal(header.ordinal, 29);
+             dispatchId = 29;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 30: GetHdcpCapability
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHdcpCapability (30)');
+             this.mapOrdinal(header.ordinal, 30);
+             dispatchId = 30;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 31: UpdateUsageTable
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUsageTable (31)');
+             this.mapOrdinal(header.ordinal, 31);
+             dispatchId = 31;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 32: DeactivateUsageEntryV12
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeactivateUsageEntryV12 (32)');
+             this.mapOrdinal(header.ordinal, 32);
+             dispatchId = 32;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 33: ReportUsage
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_ReportUsage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportUsage (33)');
+             this.mapOrdinal(header.ordinal, 33);
+             dispatchId = 33;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 34: DeleteUsageEntry
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteUsageEntry (34)');
+             this.mapOrdinal(header.ordinal, 34);
+             dispatchId = 34;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 35: ForceDeleteUsageEntry
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceDeleteUsageEntry (35)');
+             this.mapOrdinal(header.ordinal, 35);
+             dispatchId = 35;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 36: DeleteOldUsageTable
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteOldUsageTable (36)');
+             this.mapOrdinal(header.ordinal, 36);
+             dispatchId = 36;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 37: GetProvisioningMethod
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProvisioningMethod (37)');
+             this.mapOrdinal(header.ordinal, 37);
+             dispatchId = 37;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 38: SupportedCertificates
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_SupportedCertificates_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SupportedCertificates (38)');
+             this.mapOrdinal(header.ordinal, 38);
+             dispatchId = 38;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 39: IsSrmUpdateSupported
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsSrmUpdateSupported (39)');
+             this.mapOrdinal(header.ordinal, 39);
+             dispatchId = 39;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 40: GetCurrentSrmVersion
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCurrentSrmVersion (40)');
+             this.mapOrdinal(header.ordinal, 40);
+             dispatchId = 40;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 41: LoadSrm
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadSrm_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadSrm (41)');
+             this.mapOrdinal(header.ordinal, 41);
+             dispatchId = 41;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 42: RemoveSrm
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_RemoveSrm_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveSrm (42)');
+             this.mapOrdinal(header.ordinal, 42);
+             dispatchId = 42;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 43: CreateUsageTableHeader
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUsageTableHeader (43)');
+             this.mapOrdinal(header.ordinal, 43);
+             dispatchId = 43;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 44: LoadUsageTableHeader
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadUsageTableHeader (44)');
+             this.mapOrdinal(header.ordinal, 44);
+             dispatchId = 44;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 45: CreateNewUsageEntry
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNewUsageEntry (45)');
+             this.mapOrdinal(header.ordinal, 45);
+             dispatchId = 45;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 46: LoadUsageEntry
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadUsageEntry (46)');
+             this.mapOrdinal(header.ordinal, 46);
+             dispatchId = 46;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 47: UpdateUsageEntry
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUsageEntry (47)');
+             this.mapOrdinal(header.ordinal, 47);
+             dispatchId = 47;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 48: DeactivateUsageEntry
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeactivateUsageEntry (48)');
+             this.mapOrdinal(header.ordinal, 48);
+             dispatchId = 48;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 49: ShrinkUsageTableHeader
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShrinkUsageTableHeader (49)');
+             this.mapOrdinal(header.ordinal, 49);
+             dispatchId = 49;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 50: MoveEntry
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_MoveEntry_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveEntry (50)');
+             this.mapOrdinal(header.ordinal, 50);
+             dispatchId = 50;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 51: CopyOldUsageEntry
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyOldUsageEntry (51)');
+             this.mapOrdinal(header.ordinal, 51);
+             dispatchId = 51;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 52: CreateOldUsageEntry
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOldUsageEntry (52)');
+             this.mapOrdinal(header.ordinal, 52);
+             dispatchId = 52;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 53: GetAnalogOutputFlags
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAnalogOutputFlags (53)');
+             this.mapOrdinal(header.ordinal, 53);
+             dispatchId = 53;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 54: LoadTestKeybox
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTestKeybox (54)');
+             this.mapOrdinal(header.ordinal, 54);
+             dispatchId = 54;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 55: LoadEntitledContentKeysV14
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadEntitledContentKeysV14 (55)');
+             this.mapOrdinal(header.ordinal, 55);
+             dispatchId = 55;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 56: SelectKey
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_SelectKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectKey (56)');
+             this.mapOrdinal(header.ordinal, 56);
+             dispatchId = 56;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 57: LoadKeysV14
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadKeysV14_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadKeysV14 (57)');
+             this.mapOrdinal(header.ordinal, 57);
+             dispatchId = 57;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 58: LoadKeys
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadKeys_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadKeys (58)');
+             this.mapOrdinal(header.ordinal, 58);
+             dispatchId = 58;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 59: ResourceRatingTier
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResourceRatingTier (59)');
+             this.mapOrdinal(header.ordinal, 59);
+             dispatchId = 59;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 60: BuildInformation
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_BuildInformation_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BuildInformation (60)');
+             this.mapOrdinal(header.ordinal, 60);
+             dispatchId = 60;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 61: RefreshKeys
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_RefreshKeys_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshKeys (61)');
+             this.mapOrdinal(header.ordinal, 61);
+             dispatchId = 61;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 62: LoadEntitledContentKeys
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadEntitledContentKeys (62)');
+             this.mapOrdinal(header.ordinal, 62);
+             dispatchId = 62;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 63: GetOemPublicCertificate
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOemPublicCertificate (63)');
+             this.mapOrdinal(header.ordinal, 63);
+             dispatchId = 63;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 64: MaximumUsageTableHeaderSize
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaximumUsageTableHeaderSize (64)');
+             this.mapOrdinal(header.ordinal, 64);
+             dispatchId = 64;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 65: IsAntiRollbackHwPresent
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsAntiRollbackHwPresent (65)');
+             this.mapOrdinal(header.ordinal, 65);
+             dispatchId = 65;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 66: MinorApiVersion
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_MinorApiVersion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MinorApiVersion (66)');
+             this.mapOrdinal(header.ordinal, 66);
+             dispatchId = 66;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 67: PrepAndSignLicenseRequest
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepAndSignLicenseRequest (67)');
+             this.mapOrdinal(header.ordinal, 67);
+             dispatchId = 67;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 68: PrepAndSignRenewalRequest
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepAndSignRenewalRequest (68)');
+             this.mapOrdinal(header.ordinal, 68);
+             dispatchId = 68;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 69: PrepAndSignProvisioningRequest
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepAndSignProvisioningRequest (69)');
+             this.mapOrdinal(header.ordinal, 69);
+             dispatchId = 69;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 70: LoadLicense
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadLicense_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadLicense (70)');
+             this.mapOrdinal(header.ordinal, 70);
+             dispatchId = 70;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 71: LoadRenewal
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadRenewal_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadRenewal (71)');
+             this.mapOrdinal(header.ordinal, 71);
+             dispatchId = 71;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 72: LoadProvisioning
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadProvisioning_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadProvisioning (72)');
+             this.mapOrdinal(header.ordinal, 72);
+             dispatchId = 72;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 73: LoadOemPrivateKey
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadOemPrivateKey (73)');
+             this.mapOrdinal(header.ordinal, 73);
+             dispatchId = 73;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 74: LoadDrmPrivateKey
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadDrmPrivateKey (74)');
+             this.mapOrdinal(header.ordinal, 74);
+             dispatchId = 74;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 75: DecryptCenc
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_DecryptCenc_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptCenc (75)');
+             this.mapOrdinal(header.ordinal, 75);
+             dispatchId = 75;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 76: CopyBuffer
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoService_CopyBuffer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyBuffer (76)');
+             this.mapOrdinal(header.ordinal, 76);
+             dispatchId = 76;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.initializeDeprecated');
           const result = this.impl.initializeDeprecated();
           if (header.expectsResponse) {
@@ -2427,9 +3125,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_Initialize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_Initialize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.oemcrypto_version);
           if (header.expectsResponse) {
@@ -2440,9 +3138,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_Terminate_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_Terminate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.terminate');
           const result = this.impl.terminate();
           if (header.expectsResponse) {
@@ -2453,9 +3151,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_OpenSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_OpenSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openSession');
           const result = this.impl.openSession();
           if (header.expectsResponse) {
@@ -2466,9 +3164,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CloseSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CloseSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeSession');
           const result = this.impl.closeSession(params.session);
           if (header.expectsResponse) {
@@ -2479,9 +3177,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.generateDerivedKeys');
           const result = this.impl.generateDerivedKeys(params.session, params.mac_key_context, params.enc_key_context);
           if (header.expectsResponse) {
@@ -2492,9 +3190,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateNonce_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateNonce_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.generateNonce');
           const result = this.impl.generateNonce(params.session);
           if (header.expectsResponse) {
@@ -2505,9 +3203,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateSignature_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateSignature_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.generateSignature');
           const result = this.impl.generateSignature(params.session, params.message);
           if (header.expectsResponse) {
@@ -2518,9 +3216,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadKeysV11OrV12');
           const result = this.impl.loadKeysV11OrV12(params.session, params.message, params.signature, params.has_enc_mac_keys, params.enc_mac_keys_iv_offset, params.enc_mac_keys_offset, params.key_array, params.pst_offset, params.pst_length);
           if (header.expectsResponse) {
@@ -2531,9 +3229,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.refreshKeysV14');
           const result = this.impl.refreshKeysV14(params.session, params.message, params.signature, params.key_array);
           if (header.expectsResponse) {
@@ -2544,9 +3242,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_QueryKeyControl_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_QueryKeyControl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.queryKeyControl');
           const result = this.impl.queryKeyControl(params.session, params.key_id);
           if (header.expectsResponse) {
@@ -2557,9 +3255,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_SelectKeyV13_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_SelectKeyV13_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.selectKeyV13');
           const result = this.impl.selectKeyV13(params.session, params.key_id);
           if (header.expectsResponse) {
@@ -2570,9 +3268,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DecryptCencV15_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DecryptCencV15_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.decryptCencV15');
           const result = this.impl.decryptCencV15(params.session, params.data, params.is_encrypted, params.iv, params.block_offset, params.secure_buffer, params.pattern);
           if (header.expectsResponse) {
@@ -2583,9 +3281,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenericEncrypt_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenericEncrypt_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.genericEncrypt');
           const result = this.impl.genericEncrypt(params.session, params.data, params.iv, params.algorithm);
           if (header.expectsResponse) {
@@ -2596,9 +3294,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenericDecrypt_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenericDecrypt_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.genericDecrypt');
           const result = this.impl.genericDecrypt(params.session, params.data, params.iv, params.algorithm);
           if (header.expectsResponse) {
@@ -2609,9 +3307,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenericSign_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenericSign_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.genericSign');
           const result = this.impl.genericSign(params.session, params.data, params.algorithm);
           if (header.expectsResponse) {
@@ -2622,9 +3320,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenericVerify_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenericVerify_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.genericVerify');
           const result = this.impl.genericVerify(params.session, params.data, params.algorithm, params.signature);
           if (header.expectsResponse) {
@@ -2635,9 +3333,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 17: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.copyBufferV14');
           const result = this.impl.copyBufferV14(params.data, params.out_buffer);
           if (header.expectsResponse) {
@@ -2648,9 +3346,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 18: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadTestKeyboxV13');
           const result = this.impl.loadTestKeyboxV13();
           if (header.expectsResponse) {
@@ -2661,9 +3359,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isRootKeyCertificateValid');
           const result = this.impl.isRootKeyCertificateValid();
           if (header.expectsResponse) {
@@ -2674,9 +3372,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 20: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetDeviceId_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetDeviceId_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDeviceId');
           const result = this.impl.getDeviceId();
           if (header.expectsResponse) {
@@ -2687,9 +3385,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 21: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetKeyData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetKeyData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getKeyData');
           const result = this.impl.getKeyData();
           if (header.expectsResponse) {
@@ -2700,9 +3398,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 22: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetRandom_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetRandom_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getRandom');
           const result = this.impl.getRandom(params.length);
           if (header.expectsResponse) {
@@ -2713,9 +3411,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 23: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getNumberOfOpenSessions');
           const result = this.impl.getNumberOfOpenSessions();
           if (header.expectsResponse) {
@@ -2726,9 +3424,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 24: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMaxNumberOfSessions');
           const result = this.impl.getMaxNumberOfSessions();
           if (header.expectsResponse) {
@@ -2739,9 +3437,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 25: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.rewrapDeviceRsaKey');
           const result = this.impl.rewrapDeviceRsaKey(params.session, params.message, params.signature, params.nonce_offset, params.enc_rsa_key_offset, params.enc_rsa_key_length, params.enc_rsa_key_iv_offset);
           if (header.expectsResponse) {
@@ -2752,9 +3450,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 26: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadDeviceRsaKey');
           const result = this.impl.loadDeviceRsaKey(params.session, params.wrapped_rsa_key);
           if (header.expectsResponse) {
@@ -2765,9 +3463,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 27: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.generateRsaSignature');
           const result = this.impl.generateRsaSignature(params.session, params.message, params.padding_scheme);
           if (header.expectsResponse) {
@@ -2778,9 +3476,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deriveKeysFromSessionKey');
           const result = this.impl.deriveKeysFromSessionKey(params.session, params.enc_session_key, params.mac_key_context, params.enc_key_context);
           if (header.expectsResponse) {
@@ -2791,9 +3489,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 29: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.securityPatchLevel');
           const result = this.impl.securityPatchLevel();
           if (header.expectsResponse) {
@@ -2804,9 +3502,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getHdcpCapability');
           const result = this.impl.getHdcpCapability();
           if (header.expectsResponse) {
@@ -2817,9 +3515,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateUsageTable');
           const result = this.impl.updateUsageTable();
           if (header.expectsResponse) {
@@ -2830,9 +3528,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 32: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deactivateUsageEntryV12');
           const result = this.impl.deactivateUsageEntryV12(params.pst);
           if (header.expectsResponse) {
@@ -2843,9 +3541,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 33: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_ReportUsage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_ReportUsage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportUsage');
           const result = this.impl.reportUsage(params.session, params.pst);
           if (header.expectsResponse) {
@@ -2856,9 +3554,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 34: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteUsageEntry');
           const result = this.impl.deleteUsageEntry(params.session, params.pst_offset, params.pst_length, params.message, params.signature);
           if (header.expectsResponse) {
@@ -2869,9 +3567,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 35: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.forceDeleteUsageEntry');
           const result = this.impl.forceDeleteUsageEntry(params.pst);
           if (header.expectsResponse) {
@@ -2882,9 +3580,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 36: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteOldUsageTable');
           const result = this.impl.deleteOldUsageTable();
           if (header.expectsResponse) {
@@ -2895,9 +3593,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 37: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getProvisioningMethod');
           const result = this.impl.getProvisioningMethod();
           if (header.expectsResponse) {
@@ -2908,9 +3606,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 38: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_SupportedCertificates_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_SupportedCertificates_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.supportedCertificates');
           const result = this.impl.supportedCertificates();
           if (header.expectsResponse) {
@@ -2921,9 +3619,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 39: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isSrmUpdateSupported');
           const result = this.impl.isSrmUpdateSupported();
           if (header.expectsResponse) {
@@ -2934,9 +3632,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 40: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getCurrentSrmVersion');
           const result = this.impl.getCurrentSrmVersion();
           if (header.expectsResponse) {
@@ -2947,9 +3645,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 41: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadSrm_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadSrm_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadSrm');
           const result = this.impl.loadSrm(params.buffer);
           if (header.expectsResponse) {
@@ -2960,9 +3658,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 42: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_RemoveSrm_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_RemoveSrm_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.removeSrm');
           const result = this.impl.removeSrm();
           if (header.expectsResponse) {
@@ -2973,9 +3671,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 43: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createUsageTableHeader');
           const result = this.impl.createUsageTableHeader(params.avail_header_length);
           if (header.expectsResponse) {
@@ -2986,9 +3684,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 44: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadUsageTableHeader');
           const result = this.impl.loadUsageTableHeader(params.buffer);
           if (header.expectsResponse) {
@@ -2999,9 +3697,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 45: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createNewUsageEntry');
           const result = this.impl.createNewUsageEntry(params.session);
           if (header.expectsResponse) {
@@ -3012,9 +3710,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 46: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadUsageEntry');
           const result = this.impl.loadUsageEntry(params.session, params.index, params.buffer);
           if (header.expectsResponse) {
@@ -3025,9 +3723,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 47: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateUsageEntry');
           const result = this.impl.updateUsageEntry(params.session, params.avail_header_length, params.avail_entry_length);
           if (header.expectsResponse) {
@@ -3038,9 +3736,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 48: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deactivateUsageEntry');
           const result = this.impl.deactivateUsageEntry(params.session, params.pst);
           if (header.expectsResponse) {
@@ -3051,9 +3749,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 49: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.shrinkUsageTableHeader');
           const result = this.impl.shrinkUsageTableHeader(params.new_entry_count, params.avail_header_length);
           if (header.expectsResponse) {
@@ -3064,9 +3762,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 50: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_MoveEntry_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_MoveEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.moveEntry');
           const result = this.impl.moveEntry(params.session, params.new_index);
           if (header.expectsResponse) {
@@ -3077,9 +3775,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 51: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.copyOldUsageEntry');
           const result = this.impl.copyOldUsageEntry(params.session, params.pst);
           if (header.expectsResponse) {
@@ -3090,9 +3788,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 52: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createOldUsageEntry');
           const result = this.impl.createOldUsageEntry(params.time_since_license_received, params.time_since_first_decrypt, params.time_since_last_decrypt, params.status, params.server_mac_key, params.client_mac_key, params.pst);
           if (header.expectsResponse) {
@@ -3103,9 +3801,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 53: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAnalogOutputFlags');
           const result = this.impl.getAnalogOutputFlags();
           if (header.expectsResponse) {
@@ -3116,9 +3814,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 54: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadTestKeybox');
           const result = this.impl.loadTestKeybox(params.buffer);
           if (header.expectsResponse) {
@@ -3129,9 +3827,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 55: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadEntitledContentKeysV14');
           const result = this.impl.loadEntitledContentKeysV14(params.session, params.key_array);
           if (header.expectsResponse) {
@@ -3142,9 +3840,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 56: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_SelectKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_SelectKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.selectKey');
           const result = this.impl.selectKey(params.session, params.content_key_id, params.cipher_mode);
           if (header.expectsResponse) {
@@ -3155,9 +3853,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 57: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadKeysV14_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadKeysV14_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadKeysV14');
           const result = this.impl.loadKeysV14(params.session, params.message, params.signature, params.has_enc_mac_keys, params.enc_mac_keys_iv_offset, params.enc_mac_keys_offset, params.key_array, params.pst_offset, params.pst_length, params.srm_requirement, params.license_type);
           if (header.expectsResponse) {
@@ -3168,9 +3866,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 58: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadKeys_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadKeys_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadKeys');
           const result = this.impl.loadKeys(params.session, params.message, params.signature, params.enc_mac_keys_iv, params.enc_mac_keys, params.key_array, params.pst, params.srm_restriction_data, params.license_type);
           if (header.expectsResponse) {
@@ -3181,9 +3879,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 59: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resourceRatingTier');
           const result = this.impl.resourceRatingTier();
           if (header.expectsResponse) {
@@ -3194,9 +3892,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 60: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_BuildInformation_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_BuildInformation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.buildInformation');
           const result = this.impl.buildInformation();
           if (header.expectsResponse) {
@@ -3207,9 +3905,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 61: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_RefreshKeys_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_RefreshKeys_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.refreshKeys');
           const result = this.impl.refreshKeys(params.session, params.message, params.signature, params.key_array);
           if (header.expectsResponse) {
@@ -3220,9 +3918,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 62: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadEntitledContentKeys');
           const result = this.impl.loadEntitledContentKeys(params.session, params.message, params.key_array);
           if (header.expectsResponse) {
@@ -3233,9 +3931,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 63: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getOemPublicCertificate');
           const result = this.impl.getOemPublicCertificate();
           if (header.expectsResponse) {
@@ -3246,9 +3944,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 64: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.maximumUsageTableHeaderSize');
           const result = this.impl.maximumUsageTableHeaderSize();
           if (header.expectsResponse) {
@@ -3259,9 +3957,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 65: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isAntiRollbackHwPresent');
           const result = this.impl.isAntiRollbackHwPresent();
           if (header.expectsResponse) {
@@ -3272,9 +3970,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 66: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_MinorApiVersion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_MinorApiVersion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.minorApiVersion');
           const result = this.impl.minorApiVersion();
           if (header.expectsResponse) {
@@ -3285,9 +3983,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 67: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.prepAndSignLicenseRequest');
           const result = this.impl.prepAndSignLicenseRequest(params.session, params.message, params.core_message_size, params.avail_signature_size);
           if (header.expectsResponse) {
@@ -3298,9 +3996,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 68: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.prepAndSignRenewalRequest');
           const result = this.impl.prepAndSignRenewalRequest(params.session, params.message, params.core_message_size, params.avail_signature_size);
           if (header.expectsResponse) {
@@ -3311,9 +4009,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 69: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.prepAndSignProvisioningRequest');
           const result = this.impl.prepAndSignProvisioningRequest(params.session, params.message, params.core_message_size, params.avail_signature_size);
           if (header.expectsResponse) {
@@ -3324,9 +4022,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 70: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadLicense_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadLicense_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadLicense');
           const result = this.impl.loadLicense(params.session, params.message, params.core_message_length, params.signature);
           if (header.expectsResponse) {
@@ -3337,9 +4035,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 71: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadRenewal_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadRenewal_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadRenewal');
           const result = this.impl.loadRenewal(params.session, params.message, params.core_message_length, params.signature);
           if (header.expectsResponse) {
@@ -3350,9 +4048,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 72: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadProvisioning_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadProvisioning_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadProvisioning');
           const result = this.impl.loadProvisioning(params.session, params.message, params.core_message_length, params.signature, params.avail_wrapped_private_key_size);
           if (header.expectsResponse) {
@@ -3363,9 +4061,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 73: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadOemPrivateKey');
           const result = this.impl.loadOemPrivateKey(params.session);
           if (header.expectsResponse) {
@@ -3376,9 +4074,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 74: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadDrmPrivateKey');
           const result = this.impl.loadDrmPrivateKey(params.session, params.key_type, params.wrapped_private_key);
           if (header.expectsResponse) {
@@ -3389,9 +4087,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
           }
           break;
         }
-        case 75: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DecryptCenc_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_DecryptCenc_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.decryptCenc');
           const result = this.impl.decryptCenc(params.session, params.data, params.iv, params.sub_samples, params.pattern, params.secure_buffer);
           if (header.expectsResponse) {
@@ -3404,7 +4102,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
         }
         case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CopyBuffer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoService_CopyBuffer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.copyBuffer');
           const result = this.impl.copyBuffer(params.session, params.data, params.out_buffer, params.subsample_flags);
           if (header.expectsResponse) {
@@ -3509,25 +4207,39 @@ arc.mojom.OemCryptoHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Connect
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoHost_Connect_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoHost_Connect_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoHost_Connect_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.oemcryptor);
           break;
@@ -3631,25 +4343,39 @@ arc.mojom.OemCryptoInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Init
+        try {
+             decoder.decodeStruct(arc.mojom.OemCryptoInstance_Init_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.OemCryptoInstance_Init_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.OemCryptoInstance_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

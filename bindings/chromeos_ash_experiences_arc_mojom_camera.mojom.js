@@ -319,25 +319,102 @@ arc.mojom.CameraServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Connect
+        try {
+             decoder.decodeStruct(arc.mojom.CameraService_Connect_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Disconnect
+        try {
+             decoder.decodeStruct(arc.mojom.CameraService_Disconnect_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Disconnect (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: StreamOn
+        try {
+             decoder.decodeStruct(arc.mojom.CameraService_StreamOn_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StreamOn (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: StreamOff
+        try {
+             decoder.decodeStruct(arc.mojom.CameraService_StreamOff_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StreamOff (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetNextFrameBuffer
+        try {
+             decoder.decodeStruct(arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNextFrameBuffer (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ReuseFrameBuffer
+        try {
+             decoder.decodeStruct(arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReuseFrameBuffer (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: GetDeviceSupportedFormats
+        try {
+             decoder.decodeStruct(arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceSupportedFormats (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: GetCameraDeviceInfos
+        try {
+             decoder.decodeStruct(arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCameraDeviceInfos (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraService_Connect_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraService_Connect_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.device_path);
           if (header.expectsResponse) {
@@ -348,9 +425,9 @@ arc.mojom.CameraServiceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraService_Disconnect_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraService_Disconnect_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect();
           if (header.expectsResponse) {
@@ -361,9 +438,9 @@ arc.mojom.CameraServiceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraService_StreamOn_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraService_StreamOn_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.streamOn');
           const result = this.impl.streamOn(params.width, params.height, params.pixel_format, params.frame_rate);
           if (header.expectsResponse) {
@@ -374,9 +451,9 @@ arc.mojom.CameraServiceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraService_StreamOff_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraService_StreamOff_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.streamOff');
           const result = this.impl.streamOff();
           if (header.expectsResponse) {
@@ -387,9 +464,9 @@ arc.mojom.CameraServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getNextFrameBuffer');
           const result = this.impl.getNextFrameBuffer();
           if (header.expectsResponse) {
@@ -400,9 +477,9 @@ arc.mojom.CameraServiceReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reuseFrameBuffer');
           const result = this.impl.reuseFrameBuffer(params.buffer_id);
           if (header.expectsResponse) {
@@ -413,9 +490,9 @@ arc.mojom.CameraServiceReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDeviceSupportedFormats');
           const result = this.impl.getDeviceSupportedFormats(params.device_path);
           if (header.expectsResponse) {
@@ -428,7 +505,7 @@ arc.mojom.CameraServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getCameraDeviceInfos');
           const result = this.impl.getCameraDeviceInfos();
           if (header.expectsResponse) {
@@ -578,25 +655,57 @@ arc.mojom.CameraHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: StartCameraService
+        try {
+             decoder.decodeStruct(arc.mojom.CameraHost_StartCameraService_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartCameraService (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: RegisterCameraHalClientLegacy
+        try {
+             decoder.decodeStruct(arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterCameraHalClientLegacy (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: RegisterCameraHalClient
+        try {
+             decoder.decodeStruct(arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterCameraHalClient (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraHost_StartCameraService_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraHost_StartCameraService_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startCameraService');
           const result = this.impl.startCameraService();
           if (header.expectsResponse) {
@@ -607,16 +716,16 @@ arc.mojom.CameraHostReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.registerCameraHalClientLegacy');
           const result = this.impl.registerCameraHalClientLegacy(params.client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.registerCameraHalClient');
           const result = this.impl.registerCameraHalClient(params.client);
           if (header.expectsResponse) {
@@ -726,25 +835,39 @@ arc.mojom.CameraInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Init
+        try {
+             decoder.decodeStruct(arc.mojom.CameraInstance_Init_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.CameraInstance_Init_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.CameraInstance_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

@@ -366,25 +366,39 @@ arc.mojom.KeymasterHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetServer
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterHost_GetServer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetServer (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterHost_GetServer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterHost_GetServer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getServer');
           const result = this.impl.getServer();
           if (header.expectsResponse) {
@@ -494,25 +508,39 @@ arc.mojom.KeymasterInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Init
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterInstance_Init_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterInstance_Init_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterInstance_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -916,32 +944,163 @@ arc.mojom.KeymasterServerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetSystemVersion
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSystemVersion (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: AddRngEntropy
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddRngEntropy (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetKeyCharacteristics
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetKeyCharacteristics (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GenerateKey
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_GenerateKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateKey (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ImportKey
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_ImportKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportKey (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ExportKey
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_ExportKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExportKey (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: AttestKey
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_AttestKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttestKey (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: UpgradeKey
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpgradeKey (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: DeleteKey
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_DeleteKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteKey (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: DeleteAllKeys
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAllKeys (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: Begin
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_Begin_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Begin (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: Update
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_Update_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: Finish
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_Finish_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Finish (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: Abort
+        try {
+             decoder.decodeStruct(arc.mojom.KeymasterServer_Abort_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Abort (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSystemVersion');
           const result = this.impl.setSystemVersion(params.os_version, params.os_patchlevel);
           break;
         }
-        case 1: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addRngEntropy');
           const result = this.impl.addRngEntropy(params.data);
           if (header.expectsResponse) {
@@ -952,9 +1111,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getKeyCharacteristics');
           const result = this.impl.getKeyCharacteristics(params.request);
           if (header.expectsResponse) {
@@ -965,9 +1124,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_GenerateKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_GenerateKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.generateKey');
           const result = this.impl.generateKey(params.key_params);
           if (header.expectsResponse) {
@@ -978,9 +1137,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_ImportKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_ImportKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.importKey');
           const result = this.impl.importKey(params.request);
           if (header.expectsResponse) {
@@ -991,9 +1150,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_ExportKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_ExportKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.exportKey');
           const result = this.impl.exportKey(params.request);
           if (header.expectsResponse) {
@@ -1004,9 +1163,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_AttestKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_AttestKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.attestKey');
           const result = this.impl.attestKey(params.request);
           if (header.expectsResponse) {
@@ -1017,9 +1176,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.upgradeKey');
           const result = this.impl.upgradeKey(params.request);
           if (header.expectsResponse) {
@@ -1030,9 +1189,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_DeleteKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_DeleteKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteKey');
           const result = this.impl.deleteKey(params.key_blob);
           if (header.expectsResponse) {
@@ -1043,9 +1202,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteAllKeys');
           const result = this.impl.deleteAllKeys();
           if (header.expectsResponse) {
@@ -1056,9 +1215,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_Begin_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_Begin_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.begin');
           const result = this.impl.begin(params.request);
           if (header.expectsResponse) {
@@ -1069,9 +1228,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_Update_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_Update_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.request);
           if (header.expectsResponse) {
@@ -1082,9 +1241,9 @@ arc.mojom.KeymasterServerReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_Finish_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_Finish_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.finish');
           const result = this.impl.finish(params.request);
           if (header.expectsResponse) {
@@ -1097,7 +1256,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_Abort_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.KeymasterServer_Abort_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort(params.op_handle);
           if (header.expectsResponse) {

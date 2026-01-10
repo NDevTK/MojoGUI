@@ -136,32 +136,55 @@ network.mojom.URLLoaderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: FollowRedirect
+        try {
+             decoder.decodeStruct(network.mojom.URLLoader_FollowRedirect_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FollowRedirect (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: SetPriority
+        try {
+             decoder.decodeStruct(network.mojom.URLLoader_SetPriority_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPriority (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoader_FollowRedirect_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.URLLoader_FollowRedirect_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.followRedirect');
           const result = this.impl.followRedirect(params.removed_headers, params.modified_headers, params.modified_cors_exempt_headers, params.new_url);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoader_SetPriority_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.URLLoader_SetPriority_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setPriority');
           const result = this.impl.setPriority(params.priority, params.intra_priority_value);
           break;
@@ -354,46 +377,105 @@ network.mojom.URLLoaderClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnReceiveEarlyHints
+        try {
+             decoder.decodeStruct(network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceiveEarlyHints (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnReceiveResponse
+        try {
+             decoder.decodeStruct(network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceiveResponse (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnReceiveRedirect
+        try {
+             decoder.decodeStruct(network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceiveRedirect (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnUploadProgress
+        try {
+             decoder.decodeStruct(network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUploadProgress (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OnTransferSizeUpdated
+        try {
+             decoder.decodeStruct(network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTransferSizeUpdated (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: OnComplete
+        try {
+             decoder.decodeStruct(network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onReceiveEarlyHints');
           const result = this.impl.onReceiveEarlyHints(params.early_hints);
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onReceiveResponse');
           const result = this.impl.onReceiveResponse(params.head, params.body, params.cached_metadata);
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onReceiveRedirect');
           const result = this.impl.onReceiveRedirect(params.redirect_info, params.head);
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onUploadProgress');
           const result = this.impl.onUploadProgress(params.current_position, params.total_size);
           if (header.expectsResponse) {
@@ -404,16 +486,16 @@ network.mojom.URLLoaderClientReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTransferSizeUpdated');
           const result = this.impl.onTransferSizeUpdated(params.transfer_size_diff);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.status);
           break;

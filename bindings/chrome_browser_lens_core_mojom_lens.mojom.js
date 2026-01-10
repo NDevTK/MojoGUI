@@ -198,25 +198,39 @@ lens.mojom.LensPageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreatePageHandler
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler, params.page);
           break;
@@ -787,74 +801,331 @@ lens.mojom.LensPageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ActivityRequestedByOverlay
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivityRequestedByOverlay (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CloseRequestedByOverlayCloseButton
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseRequestedByOverlayCloseButton (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: CloseRequestedByOverlayBackgroundClick
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseRequestedByOverlayBackgroundClick (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: NotifyOverlayInitialized
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOverlayInitialized (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: AddBackgroundBlur
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddBackgroundBlur (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: SetLiveBlur
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLiveBlur (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: FeedbackRequestedByOverlay
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FeedbackRequestedByOverlay (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: GetOverlayInvocationSource
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOverlayInvocationSource (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: InfoRequestedByOverlay
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InfoRequestedByOverlay (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: IssueLensRegionRequest
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueLensRegionRequest (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: IssueLensObjectRequest
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueLensObjectRequest (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: IssueTextSelectionRequest
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueTextSelectionRequest (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: IssueTranslateSelectionRequest
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueTranslateSelectionRequest (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: IssueMathSelectionRequest
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueMathSelectionRequest (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: IssueTranslateFullPageRequest
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueTranslateFullPageRequest (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: IssueEndTranslateModeRequest
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueEndTranslateModeRequest (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: CopyText
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_CopyText_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyText (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: CopyImage
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_CopyImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyImage (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: SaveAsImage
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveAsImage (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: ClosePreselectionBubble
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePreselectionBubble (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 20: RecordUkmAndTaskCompletionForLensOverlayInteraction
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordUkmAndTaskCompletionForLensOverlayInteraction (20)');
+             this.mapOrdinal(header.ordinal, 20);
+             dispatchId = 20;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 21: RecordLensOverlaySemanticEvent
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordLensOverlaySemanticEvent (21)');
+             this.mapOrdinal(header.ordinal, 21);
+             dispatchId = 21;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 22: MaybeShowTranslateFeaturePromo
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeShowTranslateFeaturePromo (22)');
+             this.mapOrdinal(header.ordinal, 22);
+             dispatchId = 22;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 23: MaybeCloseTranslateFeaturePromo
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeCloseTranslateFeaturePromo (23)');
+             this.mapOrdinal(header.ordinal, 23);
+             dispatchId = 23;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 24: FetchSupportedLanguages
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchSupportedLanguages (24)');
+             this.mapOrdinal(header.ordinal, 24);
+             dispatchId = 24;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 25: FinishReshowOverlay
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FinishReshowOverlay (25)');
+             this.mapOrdinal(header.ordinal, 25);
+             dispatchId = 25;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 26: AcceptPrivacyNotice
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptPrivacyNotice (26)');
+             this.mapOrdinal(header.ordinal, 26);
+             dispatchId = 26;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 27: DismissPrivacyNotice
+        try {
+             decoder.decodeStruct(lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DismissPrivacyNotice (27)');
+             this.mapOrdinal(header.ordinal, 27);
+             dispatchId = 27;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.activityRequestedByOverlay');
           const result = this.impl.activityRequestedByOverlay(params.click_modifiers);
           break;
         }
-        case 1: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeRequestedByOverlayCloseButton');
           const result = this.impl.closeRequestedByOverlayCloseButton();
           break;
         }
-        case 2: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeRequestedByOverlayBackgroundClick');
           const result = this.impl.closeRequestedByOverlayBackgroundClick();
           break;
         }
-        case 3: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyOverlayInitialized');
           const result = this.impl.notifyOverlayInitialized();
           break;
         }
-        case 4: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addBackgroundBlur');
           const result = this.impl.addBackgroundBlur();
           break;
         }
-        case 5: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setLiveBlur');
           const result = this.impl.setLiveBlur(params.enabled);
           break;
         }
-        case 6: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.feedbackRequestedByOverlay');
           const result = this.impl.feedbackRequestedByOverlay();
           break;
         }
-        case 7: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getOverlayInvocationSource');
           const result = this.impl.getOverlayInvocationSource();
           if (header.expectsResponse) {
@@ -865,121 +1136,121 @@ lens.mojom.LensPageHandlerReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.infoRequestedByOverlay');
           const result = this.impl.infoRequestedByOverlay(params.click_modifiers);
           break;
         }
-        case 9: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.issueLensRegionRequest');
           const result = this.impl.issueLensRegionRequest(params.region, params.is_click);
           break;
         }
-        case 10: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.issueLensObjectRequest');
           const result = this.impl.issueLensObjectRequest(params.region, params.is_mask_click);
           break;
         }
-        case 11: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.issueTextSelectionRequest');
           const result = this.impl.issueTextSelectionRequest(params.query, params.selection_start_index, params.selection_end_index, params.is_translate);
           break;
         }
-        case 12: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.issueTranslateSelectionRequest');
           const result = this.impl.issueTranslateSelectionRequest(params.query, params.content_language, params.selection_start_index, params.selection_end_index);
           break;
         }
-        case 13: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.issueMathSelectionRequest');
           const result = this.impl.issueMathSelectionRequest(params.query, params.formula, params.selection_start_index, params.selection_end_index);
           break;
         }
-        case 14: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.issueTranslateFullPageRequest');
           const result = this.impl.issueTranslateFullPageRequest(params.source_language, params.target_language);
           break;
         }
-        case 15: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.issueEndTranslateModeRequest');
           const result = this.impl.issueEndTranslateModeRequest();
           break;
         }
-        case 16: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_CopyText_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_CopyText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.copyText');
           const result = this.impl.copyText(params.text);
           break;
         }
-        case 17: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_CopyImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_CopyImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.copyImage');
           const result = this.impl.copyImage(params.region);
           break;
         }
-        case 18: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.saveAsImage');
           const result = this.impl.saveAsImage(params.region);
           break;
         }
-        case 19: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closePreselectionBubble');
           const result = this.impl.closePreselectionBubble();
           break;
         }
-        case 20: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.recordUkmAndTaskCompletionForLensOverlayInteraction');
           const result = this.impl.recordUkmAndTaskCompletionForLensOverlayInteraction(params.user_action);
           break;
         }
-        case 21: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.recordLensOverlaySemanticEvent');
           const result = this.impl.recordLensOverlaySemanticEvent(params.event);
           break;
         }
-        case 22: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.maybeShowTranslateFeaturePromo');
           const result = this.impl.maybeShowTranslateFeaturePromo();
           break;
         }
-        case 23: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.maybeCloseTranslateFeaturePromo');
           const result = this.impl.maybeCloseTranslateFeaturePromo(params.feature_engaged);
           break;
         }
-        case 24: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fetchSupportedLanguages');
           const result = this.impl.fetchSupportedLanguages();
           if (header.expectsResponse) {
@@ -990,23 +1261,23 @@ lens.mojom.LensPageHandlerReceiver = class {
           }
           break;
         }
-        case 25: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.finishReshowOverlay');
           const result = this.impl.finishReshowOverlay();
           break;
         }
-        case 26: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.acceptPrivacyNotice');
           const result = this.impl.acceptPrivacyNotice();
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dismissPrivacyNotice');
           const result = this.impl.dismissPrivacyNotice();
           break;
@@ -1407,151 +1678,327 @@ lens.mojom.LensPageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ScreenshotDataReceived
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScreenshotDataReceived (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: NotifyHandshakeComplete
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyHandshakeComplete (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: NotifyResultsPanelOpened
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyResultsPanelOpened (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: NotifyOverlayClosing
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOverlayClosing (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ObjectsReceived
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_ObjectsReceived_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObjectsReceived (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: TextReceived
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_TextReceived_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TextReceived (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: RegionTextReceived
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_RegionTextReceived_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegionTextReceived (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: ThemeReceived
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_ThemeReceived_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ThemeReceived (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: ShouldShowContextualSearchBox
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowContextualSearchBox (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: PageContentTypeChanged
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageContentTypeChanged (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: SetPostRegionSelection
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPostRegionSelection (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: SetTextSelection
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_SetTextSelection_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTextSelection (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: SetTranslateMode
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_SetTranslateMode_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTranslateMode (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: ClearRegionSelection
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_ClearRegionSelection_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearRegionSelection (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: ClearTextSelection
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_ClearTextSelection_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTextSelection (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: ClearAllSelections
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_ClearAllSelections_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearAllSelections (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: OnCopyCommand
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_OnCopyCommand_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCopyCommand (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: SuppressGhostLoader
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuppressGhostLoader (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: OnOverlayReshown
+        try {
+             decoder.decodeStruct(lens.mojom.LensPage_OnOverlayReshown_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOverlayReshown (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.screenshotDataReceived');
           const result = this.impl.screenshotDataReceived(params.screenshot_data, params.is_side_panel_open);
           break;
         }
-        case 1: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyHandshakeComplete');
           const result = this.impl.notifyHandshakeComplete();
           break;
         }
-        case 2: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyResultsPanelOpened');
           const result = this.impl.notifyResultsPanelOpened();
           break;
         }
-        case 3: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyOverlayClosing');
           const result = this.impl.notifyOverlayClosing();
           break;
         }
-        case 4: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_ObjectsReceived_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_ObjectsReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.objectsReceived');
           const result = this.impl.objectsReceived(params.objects);
           break;
         }
-        case 5: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_TextReceived_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_TextReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.textReceived');
           const result = this.impl.textReceived(params.text);
           break;
         }
-        case 6: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_RegionTextReceived_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_RegionTextReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.regionTextReceived');
           const result = this.impl.regionTextReceived(params.text, params.is_injected_image);
           break;
         }
-        case 7: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_ThemeReceived_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_ThemeReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.themeReceived');
           const result = this.impl.themeReceived(params.theme);
           break;
         }
-        case 8: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.shouldShowContextualSearchBox');
           const result = this.impl.shouldShowContextualSearchBox(params.should_show);
           break;
         }
-        case 9: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.pageContentTypeChanged');
           const result = this.impl.pageContentTypeChanged(params.new_page_content_type);
           break;
         }
-        case 10: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setPostRegionSelection');
           const result = this.impl.setPostRegionSelection(params.region);
           break;
         }
-        case 11: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_SetTextSelection_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_SetTextSelection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setTextSelection');
           const result = this.impl.setTextSelection(params.selection_start_index, params.selection_end_index);
           break;
         }
-        case 12: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_SetTranslateMode_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_SetTranslateMode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setTranslateMode');
           const result = this.impl.setTranslateMode(params.source_language, params.target_language);
           break;
         }
-        case 13: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_ClearRegionSelection_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_ClearRegionSelection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearRegionSelection');
           const result = this.impl.clearRegionSelection();
           break;
         }
-        case 14: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_ClearTextSelection_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_ClearTextSelection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearTextSelection');
           const result = this.impl.clearTextSelection();
           break;
         }
-        case 15: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_ClearAllSelections_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_ClearAllSelections_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearAllSelections');
           const result = this.impl.clearAllSelections();
           break;
         }
-        case 16: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_OnCopyCommand_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_OnCopyCommand_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onCopyCommand');
           const result = this.impl.onCopyCommand();
           break;
         }
-        case 17: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.suppressGhostLoader');
           const result = this.impl.suppressGhostLoader();
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(lens.mojom.LensPage_OnOverlayReshown_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(lens.mojom.LensPage_OnOverlayReshown_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onOverlayReshown');
           const result = this.impl.onOverlayReshown(params.screenshot_data);
           break;

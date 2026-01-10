@@ -291,46 +291,87 @@ crosapi.mojom.AccountManagerObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnTokenUpserted
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTokenUpserted (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnAccountRemoved
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAccountRemoved (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnAuthErrorChanged
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthErrorChanged (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnSigninDialogClosed
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSigninDialogClosed (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTokenUpserted');
           const result = this.impl.onTokenUpserted(params.account);
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAccountRemoved');
           const result = this.impl.onAccountRemoved(params.account);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAuthErrorChanged');
           const result = this.impl.onAuthErrorChanged(params.account, params.error);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSigninDialogClosed');
           const result = this.impl.onSigninDialogClosed();
           break;
@@ -605,25 +646,111 @@ crosapi.mojom.AccountManagerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: IsInitialized
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManager_IsInitialized_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsInitialized (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: AddObserver
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManager_AddObserver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetAccounts
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManager_GetAccounts_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAccounts (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ShowAddAccountDialog
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowAddAccountDialog (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ShowReauthAccountDialog
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowReauthAccountDialog (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ShowManageAccountsSettings
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowManageAccountsSettings (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: GetPersistentErrorForAccount
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPersistentErrorForAccount (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: CreateAccessTokenFetcher
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAccessTokenFetcher (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: ReportAuthError
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAuthError (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_IsInitialized_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_IsInitialized_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isInitialized');
           const result = this.impl.isInitialized();
           if (header.expectsResponse) {
@@ -634,9 +761,9 @@ crosapi.mojom.AccountManagerReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_AddObserver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_AddObserver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver();
           if (header.expectsResponse) {
@@ -647,9 +774,9 @@ crosapi.mojom.AccountManagerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_GetAccounts_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_GetAccounts_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAccounts');
           const result = this.impl.getAccounts();
           if (header.expectsResponse) {
@@ -660,9 +787,9 @@ crosapi.mojom.AccountManagerReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showAddAccountDialog');
           const result = this.impl.showAddAccountDialog(params.add_account_options);
           if (header.expectsResponse) {
@@ -673,9 +800,9 @@ crosapi.mojom.AccountManagerReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showReauthAccountDialog');
           const result = this.impl.showReauthAccountDialog(params.email);
           if (header.expectsResponse) {
@@ -686,16 +813,16 @@ crosapi.mojom.AccountManagerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showManageAccountsSettings');
           const result = this.impl.showManageAccountsSettings();
           break;
         }
-        case 6: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPersistentErrorForAccount');
           const result = this.impl.getPersistentErrorForAccount(params.account);
           if (header.expectsResponse) {
@@ -706,9 +833,9 @@ crosapi.mojom.AccountManagerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createAccessTokenFetcher');
           const result = this.impl.createAccessTokenFetcher(params.account_key, params.oauth_consumer_name);
           if (header.expectsResponse) {
@@ -721,7 +848,7 @@ crosapi.mojom.AccountManagerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportAuthError');
           const result = this.impl.reportAuthError(params.account, params.error);
           break;
@@ -826,25 +953,39 @@ crosapi.mojom.AccessTokenFetcherReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Start
+        try {
+             decoder.decodeStruct(crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.scopes);
           if (header.expectsResponse) {

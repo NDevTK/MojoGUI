@@ -157,39 +157,71 @@ content.mojom.GinJavaBridgeReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: AddNamedObject
+        try {
+             decoder.decodeStruct(content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddNamedObject (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: RemoveNamedObject
+        try {
+             decoder.decodeStruct(content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveNamedObject (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetHost
+        try {
+             decoder.decodeStruct(content.mojom.GinJavaBridge_SetHost_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHost (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addNamedObject');
           const result = this.impl.addNamedObject(params.name, params.object_id, params.origin_matcher);
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.removeNamedObject');
           const result = this.impl.removeNamedObject(params.name);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.GinJavaBridge_SetHost_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.GinJavaBridge_SetHost_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setHost');
           const result = this.impl.setHost(params.host);
           break;
@@ -341,25 +373,57 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetMethods
+        try {
+             decoder.decodeStruct(content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMethods (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: HasMethod
+        try {
+             decoder.decodeStruct(content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasMethod (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: InvokeMethod
+        try {
+             decoder.decodeStruct(content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvokeMethod (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMethods');
           const result = this.impl.getMethods();
           if (header.expectsResponse) {
@@ -370,9 +434,9 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hasMethod');
           const result = this.impl.hasMethod(params.method_name);
           if (header.expectsResponse) {
@@ -385,7 +449,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.invokeMethod');
           const result = this.impl.invokeMethod(params.method_name, params.arguments);
           if (header.expectsResponse) {
@@ -508,32 +572,55 @@ content.mojom.GinJavaBridgeHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetObject
+        try {
+             decoder.decodeStruct(content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetObject (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ObjectWrapperDeleted
+        try {
+             decoder.decodeStruct(content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObjectWrapperDeleted (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getObject');
           const result = this.impl.getObject(params.object_id, params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.objectWrapperDeleted');
           const result = this.impl.objectWrapperDeleted(params.object_id);
           break;

@@ -213,25 +213,39 @@ traces_internals.mojom.TracesInternalsHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreatePageHandler
+        try {
+             decoder.decodeStruct(traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -760,25 +774,210 @@ traces_internals.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: StartTraceSession
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartTraceSession (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CloneTraceSession
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloneTraceSession (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: StopTraceSession
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopTraceSession (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetTrackEventCategories
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTrackEventCategories (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetBufferUsage
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBufferUsage (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: GetAllTraceReports
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllTraceReports (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: DeleteSingleTrace
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteSingleTrace (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: DeleteAllTraces
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAllTraces (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: UserUploadSingleTrace
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UserUploadSingleTrace (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: DownloadTrace
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadTrace (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: GetAllScenarios
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllScenarios (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: SetEnabledScenarios
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEnabledScenarios (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: SetScenariosConfigFromString
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScenariosConfigFromString (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: SetScenariosConfigFromBuffer
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScenariosConfigFromBuffer (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: GetPrivacyFilterEnabled
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrivacyFilterEnabled (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: SetPrivacyFilterEnabled
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPrivacyFilterEnabled (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: GetSystemTracingState
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSystemTracingState (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: GetSecurityShieldIconUrl
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSecurityShieldIconUrl (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: EnableSystemTracing
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableSystemTracing (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: DisableSystemTracing
+        try {
+             decoder.decodeStruct(traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableSystemTracing (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startTraceSession');
           const result = this.impl.startTraceSession(params.config_pb, params.enable_privacy_filters);
           if (header.expectsResponse) {
@@ -789,9 +988,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.cloneTraceSession');
           const result = this.impl.cloneTraceSession();
           if (header.expectsResponse) {
@@ -802,9 +1001,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stopTraceSession');
           const result = this.impl.stopTraceSession();
           if (header.expectsResponse) {
@@ -815,9 +1014,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getTrackEventCategories');
           const result = this.impl.getTrackEventCategories();
           if (header.expectsResponse) {
@@ -828,9 +1027,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getBufferUsage');
           const result = this.impl.getBufferUsage();
           if (header.expectsResponse) {
@@ -841,9 +1040,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAllTraceReports');
           const result = this.impl.getAllTraceReports();
           if (header.expectsResponse) {
@@ -854,9 +1053,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteSingleTrace');
           const result = this.impl.deleteSingleTrace(params.uuid);
           if (header.expectsResponse) {
@@ -867,9 +1066,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteAllTraces');
           const result = this.impl.deleteAllTraces();
           if (header.expectsResponse) {
@@ -880,9 +1079,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.userUploadSingleTrace');
           const result = this.impl.userUploadSingleTrace(params.uuid);
           if (header.expectsResponse) {
@@ -893,9 +1092,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.downloadTrace');
           const result = this.impl.downloadTrace(params.uuid);
           if (header.expectsResponse) {
@@ -906,9 +1105,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAllScenarios');
           const result = this.impl.getAllScenarios();
           if (header.expectsResponse) {
@@ -919,9 +1118,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setEnabledScenarios');
           const result = this.impl.setEnabledScenarios(params.new_config);
           if (header.expectsResponse) {
@@ -932,9 +1131,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setScenariosConfigFromString');
           const result = this.impl.setScenariosConfigFromString(params.config_string);
           if (header.expectsResponse) {
@@ -945,9 +1144,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setScenariosConfigFromBuffer');
           const result = this.impl.setScenariosConfigFromBuffer(params.config_pb);
           if (header.expectsResponse) {
@@ -958,9 +1157,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPrivacyFilterEnabled');
           const result = this.impl.getPrivacyFilterEnabled();
           if (header.expectsResponse) {
@@ -971,16 +1170,16 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setPrivacyFilterEnabled');
           const result = this.impl.setPrivacyFilterEnabled(params.enable);
           break;
         }
-        case 16: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSystemTracingState');
           const result = this.impl.getSystemTracingState();
           if (header.expectsResponse) {
@@ -991,9 +1190,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 17: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSecurityShieldIconUrl');
           const result = this.impl.getSecurityShieldIconUrl();
           if (header.expectsResponse) {
@@ -1004,9 +1203,9 @@ traces_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 18: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enableSystemTracing');
           const result = this.impl.enableSystemTracing();
           if (header.expectsResponse) {
@@ -1019,7 +1218,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.disableSystemTracing');
           const result = this.impl.disableSystemTracing();
           if (header.expectsResponse) {
@@ -1125,25 +1324,39 @@ traces_internals.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnTraceComplete
+        try {
+             decoder.decodeStruct(traces_internals.mojom.Page_OnTraceComplete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTraceComplete (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(traces_internals.mojom.Page_OnTraceComplete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(traces_internals.mojom.Page_OnTraceComplete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTraceComplete');
           const result = this.impl.onTraceComplete(params.trace, params.uuid);
           break;

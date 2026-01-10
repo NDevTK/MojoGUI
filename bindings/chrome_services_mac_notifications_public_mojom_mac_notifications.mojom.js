@@ -296,32 +296,91 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: DisplayNotification
+        try {
+             decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayNotification (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetDisplayedNotifications
+        try {
+             decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDisplayedNotifications (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: CloseNotification
+        try {
+             decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseNotification (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: CloseNotificationsForProfile
+        try {
+             decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseNotificationsForProfile (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: CloseAllNotifications
+        try {
+             decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseAllNotifications (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: OkayToTerminateService
+        try {
+             decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OkayToTerminateService (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.displayNotification');
           const result = this.impl.displayNotification(params.notification);
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDisplayedNotifications');
           const result = this.impl.getDisplayedNotifications(params.profile, params.origin);
           if (header.expectsResponse) {
@@ -332,30 +391,30 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeNotification');
           const result = this.impl.closeNotification(params.identifier);
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeNotificationsForProfile');
           const result = this.impl.closeNotificationsForProfile(params.profile);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeAllNotifications');
           const result = this.impl.closeAllNotifications();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.okayToTerminateService');
           const result = this.impl.okayToTerminateService();
           if (header.expectsResponse) {
@@ -460,25 +519,39 @@ mac_notifications.mojom.MacNotificationActionHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnNotificationAction
+        try {
+             decoder.decodeStruct(mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationAction (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onNotificationAction');
           const result = this.impl.onNotificationAction(params.info);
           break;
@@ -578,25 +651,39 @@ mac_notifications.mojom.MacNotificationProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: BindNotificationService
+        try {
+             decoder.decodeStruct(mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindNotificationService (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindNotificationService');
           const result = this.impl.bindNotificationService(params.service, params.handler);
           break;

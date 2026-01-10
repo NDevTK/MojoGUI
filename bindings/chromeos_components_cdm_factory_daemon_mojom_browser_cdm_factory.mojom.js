@@ -249,25 +249,93 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreateFactory
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFactory (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetOutputProtection
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOutputProtection (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetHwConfigData
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHwConfigData (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetScreenResolutions
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetScreenResolutions (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetAndroidHwKeyData
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAndroidHwKeyData (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: AllocateSecureBuffer
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllocateSecureBuffer (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: ParseEncryptedSliceHeader
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseEncryptedSliceHeader (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createFactory');
           const result = this.impl.createFactory(params.key_system);
           if (header.expectsResponse) {
@@ -278,16 +346,16 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getOutputProtection');
           const result = this.impl.getOutputProtection(params.output_protection);
           break;
         }
-        case 2: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getHwConfigData');
           const result = this.impl.getHwConfigData();
           if (header.expectsResponse) {
@@ -298,9 +366,9 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getScreenResolutions');
           const result = this.impl.getScreenResolutions();
           if (header.expectsResponse) {
@@ -311,9 +379,9 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAndroidHwKeyData');
           const result = this.impl.getAndroidHwKeyData(params.key_id, params.hw_identifier);
           if (header.expectsResponse) {
@@ -324,9 +392,9 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.allocateSecureBuffer');
           const result = this.impl.allocateSecureBuffer(params.size);
           if (header.expectsResponse) {
@@ -339,7 +407,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.parseEncryptedSliceHeader');
           const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
           if (header.expectsResponse) {

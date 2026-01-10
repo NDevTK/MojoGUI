@@ -570,53 +570,166 @@ arc.mojom.AuthHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnAuthorizationResult
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthorizationResult (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ReportMetrics
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_ReportMetrics_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportMetrics (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ReportAccountCheckStatus
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAccountCheckStatus (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ReportManagementChangeStatus
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportManagementChangeStatus (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: RequestPrimaryAccount
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPrimaryAccount (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: RequestPrimaryAccountInfo
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPrimaryAccountInfo (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: RequestAccountInfo
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAccountInfo (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: IsAccountManagerAvailable
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsAccountManagerAvailable (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: HandleAddAccountRequest
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAddAccountRequest (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: HandleRemoveAccountRequest
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleRemoveAccountRequest (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: HandleUpdateCredentialsRequest
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleUpdateCredentialsRequest (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: ReportAccountReauthReason
+        try {
+             decoder.decodeStruct(arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAccountReauthReason (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAuthorizationResult');
           const result = this.impl.onAuthorizationResult(params.result, params.account);
           break;
         }
-        case 1: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_ReportMetrics_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_ReportMetrics_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportMetrics');
           const result = this.impl.reportMetrics(params.metrics_type, params.value);
           break;
         }
-        case 2: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportAccountCheckStatus');
           const result = this.impl.reportAccountCheckStatus(params.status);
           break;
         }
-        case 3: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportManagementChangeStatus');
           const result = this.impl.reportManagementChangeStatus(params.status);
           break;
         }
-        case 4: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestPrimaryAccount');
           const result = this.impl.requestPrimaryAccount();
           if (header.expectsResponse) {
@@ -627,9 +740,9 @@ arc.mojom.AuthHostReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestPrimaryAccountInfo');
           const result = this.impl.requestPrimaryAccountInfo();
           if (header.expectsResponse) {
@@ -640,9 +753,9 @@ arc.mojom.AuthHostReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestAccountInfo');
           const result = this.impl.requestAccountInfo(params.account_name);
           if (header.expectsResponse) {
@@ -653,9 +766,9 @@ arc.mojom.AuthHostReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isAccountManagerAvailable');
           const result = this.impl.isAccountManagerAvailable();
           if (header.expectsResponse) {
@@ -666,30 +779,30 @@ arc.mojom.AuthHostReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleAddAccountRequest');
           const result = this.impl.handleAddAccountRequest();
           break;
         }
-        case 9: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleRemoveAccountRequest');
           const result = this.impl.handleRemoveAccountRequest(params.account_name);
           break;
         }
-        case 10: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleUpdateCredentialsRequest');
           const result = this.impl.handleUpdateCredentialsRequest(params.account_name);
           break;
         }
-        case 11: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportAccountReauthReason');
           const result = this.impl.reportAccountReauthReason(params.reason);
           break;
@@ -872,25 +985,75 @@ arc.mojom.AuthInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Init
+        try {
+             decoder.decodeStruct(arc.mojom.AuthInstance_Init_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnAccountUpdated
+        try {
+             decoder.decodeStruct(arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAccountUpdated (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetGoogleAccounts
+        try {
+             decoder.decodeStruct(arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGoogleAccounts (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetMainAccountResolutionStatus
+        try {
+             decoder.decodeStruct(arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMainAccountResolutionStatus (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SetAccounts
+        try {
+             decoder.decodeStruct(arc.mojom.AuthInstance_SetAccounts_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAccounts (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthInstance_Init_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthInstance_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -901,16 +1064,16 @@ arc.mojom.AuthInstanceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAccountUpdated');
           const result = this.impl.onAccountUpdated(params.account_name, params.update_type);
           break;
         }
-        case 2: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getGoogleAccounts');
           const result = this.impl.getGoogleAccounts();
           if (header.expectsResponse) {
@@ -921,9 +1084,9 @@ arc.mojom.AuthInstanceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMainAccountResolutionStatus');
           const result = this.impl.getMainAccountResolutionStatus();
           if (header.expectsResponse) {
@@ -934,9 +1097,9 @@ arc.mojom.AuthInstanceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.AuthInstance_SetAccounts_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.AuthInstance_SetAccounts_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setAccounts');
           const result = this.impl.setAccounts(params.accounts);
           break;

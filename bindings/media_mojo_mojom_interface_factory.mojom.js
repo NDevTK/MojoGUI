@@ -87,20 +87,25 @@ media.mojom.VideoDecoderTrackerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
       }
@@ -349,81 +354,167 @@ media.mojom.InterfaceFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreateAudioDecoder
+        try {
+             decoder.decodeStruct(media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAudioDecoder (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CreateVideoDecoder
+        try {
+             decoder.decodeStruct(media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoDecoder (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: CreateVideoDecoderWithTracker
+        try {
+             decoder.decodeStruct(media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoDecoderWithTracker (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: CreateAudioEncoder
+        try {
+             decoder.decodeStruct(media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAudioEncoder (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: CreateDefaultRenderer
+        try {
+             decoder.decodeStruct(media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDefaultRenderer (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: CreateCastRenderer
+        try {
+             decoder.decodeStruct(media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCastRenderer (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: CreateMediaFoundationRenderer
+        try {
+             decoder.decodeStruct(media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMediaFoundationRenderer (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: CreateFlingingRenderer
+        try {
+             decoder.decodeStruct(media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFlingingRenderer (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: CreateCdm
+        try {
+             decoder.decodeStruct(media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdm (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createAudioDecoder');
           const result = this.impl.createAudioDecoder(params.audio_decoder);
           break;
         }
-        case 1: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoder');
           const result = this.impl.createVideoDecoder(params.video_decoder, params.dst_video_decoder);
           break;
         }
-        case 2: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoderWithTracker');
           const result = this.impl.createVideoDecoderWithTracker(params.receiver, params.tracker);
           break;
         }
-        case 3: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createAudioEncoder');
           const result = this.impl.createAudioEncoder(params.audio_encoder);
           break;
         }
-        case 4: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createDefaultRenderer');
           const result = this.impl.createDefaultRenderer(params.audio_device_id, params.renderer);
           break;
         }
-        case 5: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createCastRenderer');
           const result = this.impl.createCastRenderer(params.overlay_plane_id, params.renderer);
           break;
         }
-        case 6: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createMediaFoundationRenderer');
           const result = this.impl.createMediaFoundationRenderer(params.media_log, params.renderer, params.renderer_extension);
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createFlingingRenderer');
           const result = this.impl.createFlingingRenderer(params.presentation_id, params.client_extension, params.renderer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createCdm');
           const result = this.impl.createCdm(params.cdm_config);
           if (header.expectsResponse) {

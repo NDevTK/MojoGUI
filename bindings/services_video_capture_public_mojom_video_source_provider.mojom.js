@@ -225,25 +225,93 @@ video_capture.mojom.VideoSourceProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetSourceInfos
+        try {
+             decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSourceInfos (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetVideoSource
+        try {
+             decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideoSource (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: AddSharedMemoryVirtualDevice
+        try {
+             decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddSharedMemoryVirtualDevice (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: AddTextureVirtualDevice
+        try {
+             decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddTextureVirtualDevice (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: RegisterVirtualDevicesChangedObserver
+        try {
+             decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterVirtualDevicesChangedObserver (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: RegisterDevicesChangedObserver
+        try {
+             decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterDevicesChangedObserver (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: Close
+        try {
+             decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_Close_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSourceInfos');
           const result = this.impl.getSourceInfos();
           if (header.expectsResponse) {
@@ -254,44 +322,44 @@ video_capture.mojom.VideoSourceProviderReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getVideoSource');
           const result = this.impl.getVideoSource(params.source_id, params.stream);
           break;
         }
-        case 2: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addSharedMemoryVirtualDevice');
           const result = this.impl.addSharedMemoryVirtualDevice(params.device_info, params.producer, params.virtual_device_receiver);
           break;
         }
-        case 3: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addTextureVirtualDevice');
           const result = this.impl.addTextureVirtualDevice(params.device_info, params.virtual_device_receiver);
           break;
         }
-        case 4: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.registerVirtualDevicesChangedObserver');
           const result = this.impl.registerVirtualDevicesChangedObserver(params.observer, params.raise_event_if_virtual_devices_already_present);
           break;
         }
-        case 5: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.registerDevicesChangedObserver');
           const result = this.impl.registerDevicesChangedObserver(params.observer);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_Close_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(video_capture.mojom.VideoSourceProvider_Close_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {

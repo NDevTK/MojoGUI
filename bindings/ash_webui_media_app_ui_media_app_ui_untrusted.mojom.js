@@ -232,39 +232,80 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreateOcrUntrustedService
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOcrUntrustedService (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CreateMahiUntrustedService
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMahiUntrustedService (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: IsMantisAvailable
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsMantisAvailable (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: CreateMantisUntrustedService
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMantisUntrustedService (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createOcrUntrustedService');
           const result = this.impl.createOcrUntrustedService(params.receiver, params.page);
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createMahiUntrustedService');
           const result = this.impl.createMahiUntrustedService(params.receiver, params.page, params.file_name);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isMantisAvailable');
           const result = this.impl.isMantisAvailable();
           if (header.expectsResponse) {
@@ -277,7 +318,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createMantisUntrustedService');
           const result = this.impl.createMantisUntrustedService(params.page, params.dlc_uuid);
           if (header.expectsResponse) {
@@ -417,39 +458,71 @@ ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: PageMetadataUpdated
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageMetadataUpdated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: PageContentsUpdated
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageContentsUpdated (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ViewportUpdated
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ViewportUpdated (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.pageMetadataUpdated');
           const result = this.impl.pageMetadataUpdated(params.page_metadata);
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.pageContentsUpdated');
           const result = this.impl.pageContentsUpdated(params.dirty_page_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.viewportUpdated');
           const result = this.impl.viewportUpdated(params.viewport_box, params.scale_factor);
           break;
@@ -588,25 +661,57 @@ ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: RequestBitmap
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestBitmap (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: SetViewport
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetViewport (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetPdfOcrEnabled
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPdfOcrEnabled (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestBitmap');
           const result = this.impl.requestBitmap(params.requestedPageId);
           if (header.expectsResponse) {
@@ -617,16 +722,16 @@ ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setViewport');
           const result = this.impl.setViewport(params.viewport_box);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setPdfOcrEnabled');
           const result = this.impl.setPdfOcrEnabled(params.enabled);
           break;
@@ -775,46 +880,87 @@ ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnPdfLoaded
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPdfLoaded (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnPdfFileNameUpdated
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPdfFileNameUpdated (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnPdfContextMenuShow
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPdfContextMenuShow (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnPdfContextMenuHide
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPdfContextMenuHide (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPdfLoaded');
           const result = this.impl.onPdfLoaded();
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPdfFileNameUpdated');
           const result = this.impl.onPdfFileNameUpdated(params.new_name);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPdfContextMenuShow');
           const result = this.impl.onPdfContextMenuShow(params.anchor, params.selected_text);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPdfContextMenuHide');
           const result = this.impl.onPdfContextMenuHide();
           break;
@@ -935,32 +1081,55 @@ ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: HidePdfContextMenu
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HidePdfContextMenu (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetPdfContent
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPdfContent (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hidePdfContextMenu');
           const result = this.impl.hidePdfContextMenu();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPdfContent');
           const result = this.impl.getPdfContent(params.limit);
           if (header.expectsResponse) {
@@ -1194,25 +1363,84 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SegmentImage
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SegmentImage (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GenerativeFillImage
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerativeFillImage (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: InpaintImage
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InpaintImage (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OutpaintImage
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OutpaintImage (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ClassifyImageSafety
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyImageSafety (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: InferSegmentationMode
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InferSegmentationMode (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.segmentImage');
           const result = this.impl.segmentImage(params.image, params.selection);
           if (header.expectsResponse) {
@@ -1223,9 +1451,9 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.generativeFillImage');
           const result = this.impl.generativeFillImage(params.image, params.mask, params.text, params.seed);
           if (header.expectsResponse) {
@@ -1236,9 +1464,9 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.inpaintImage');
           const result = this.impl.inpaintImage(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
@@ -1249,9 +1477,9 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.outpaintImage');
           const result = this.impl.outpaintImage(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
@@ -1262,9 +1490,9 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
           const result = this.impl.classifyImageSafety(params.image);
           if (header.expectsResponse) {
@@ -1277,7 +1505,7 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.inferSegmentationMode');
           const result = this.impl.inferSegmentationMode(params.gesture);
           if (header.expectsResponse) {
@@ -1382,25 +1610,39 @@ ash.media_app_ui.mojom.MantisUntrustedPageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ReportMantisProgress
+        try {
+             decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportMantisProgress (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportMantisProgress');
           const result = this.impl.reportMantisProgress(params.progress);
           break;

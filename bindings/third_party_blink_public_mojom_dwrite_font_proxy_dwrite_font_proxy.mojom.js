@@ -260,25 +260,84 @@ blink.mojom.DWriteFontProxyReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: FindFamily
+        try {
+             decoder.decodeStruct(blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FindFamily (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetFamilyCount
+        try {
+             decoder.decodeStruct(blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFamilyCount (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetFamilyNames
+        try {
+             decoder.decodeStruct(blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFamilyNames (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetFontFileHandles
+        try {
+             decoder.decodeStruct(blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFontFileHandles (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: MatchUniqueFont
+        try {
+             decoder.decodeStruct(blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchUniqueFont (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: MapCharacters
+        try {
+             decoder.decodeStruct(blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MapCharacters (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.findFamily');
           const result = this.impl.findFamily(params.family_name);
           if (header.expectsResponse) {
@@ -289,9 +348,9 @@ blink.mojom.DWriteFontProxyReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFamilyCount');
           const result = this.impl.getFamilyCount();
           if (header.expectsResponse) {
@@ -302,9 +361,9 @@ blink.mojom.DWriteFontProxyReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFamilyNames');
           const result = this.impl.getFamilyNames(params.family_index);
           if (header.expectsResponse) {
@@ -315,9 +374,9 @@ blink.mojom.DWriteFontProxyReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFontFileHandles');
           const result = this.impl.getFontFileHandles(params.family_index);
           if (header.expectsResponse) {
@@ -328,9 +387,9 @@ blink.mojom.DWriteFontProxyReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.matchUniqueFont');
           const result = this.impl.matchUniqueFont(params.font_unique_name);
           if (header.expectsResponse) {
@@ -343,7 +402,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.mapCharacters');
           const result = this.impl.mapCharacters(params.text, params.font_style, params.locale_name, params.reading_direction, params.base_family_name);
           if (header.expectsResponse) {

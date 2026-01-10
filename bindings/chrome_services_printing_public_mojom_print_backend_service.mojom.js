@@ -131,25 +131,39 @@ printing.mojom.UnsandboxedPrintBackendHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: BindBackend
+        try {
+             decoder.decodeStruct(printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindBackend (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindBackend');
           const result = this.impl.bindBackend(params.service);
           break;
@@ -248,25 +262,39 @@ printing.mojom.SandboxedPrintBackendHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: BindBackend
+        try {
+             decoder.decodeStruct(printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindBackend (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindBackend');
           const result = this.impl.bindBackend(params.service);
           break;
@@ -672,67 +700,216 @@ printing.mojom.PrintBackendServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Init
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_Init_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Poke
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_Poke_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Poke (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: EnumeratePrinters
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumeratePrinters (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetDefaultPrinterName
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultPrinterName (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetPrinterSemanticCapsAndDefaults
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrinterSemanticCapsAndDefaults (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: FetchCapabilities
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchCapabilities (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: GetPaperPrintableArea
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPaperPrintableArea (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: EstablishPrintingContext
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstablishPrintingContext (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: UseDefaultSettings
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UseDefaultSettings (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: AskUserForSettings
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AskUserForSettings (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: UpdatePrintSettings
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePrintSettings (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: StartPrinting
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_StartPrinting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPrinting (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: RenderPrintedPage
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenderPrintedPage (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: RenderPrintedDocument
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenderPrintedDocument (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: DocumentDone
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_DocumentDone_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DocumentDone (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: Cancel
+        try {
+             decoder.decodeStruct(printing.mojom.PrintBackendService_Cancel_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_Init_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.locale, params.remote);
           break;
         }
-        case 1: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_Poke_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_Poke_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.poke');
           const result = this.impl.poke();
           break;
         }
-        case 2: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enumeratePrinters');
           const result = this.impl.enumeratePrinters();
           break;
         }
-        case 3: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDefaultPrinterName');
           const result = this.impl.getDefaultPrinterName();
           break;
         }
-        case 4: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPrinterSemanticCapsAndDefaults');
           const result = this.impl.getPrinterSemanticCapsAndDefaults(params.printer_name);
           break;
         }
-        case 5: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fetchCapabilities');
           const result = this.impl.fetchCapabilities(params.printer_name);
           break;
         }
-        case 6: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPaperPrintableArea');
           const result = this.impl.getPaperPrintableArea(params.printer_name, params.media);
           if (header.expectsResponse) {
@@ -743,37 +920,37 @@ printing.mojom.PrintBackendServiceReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.establishPrintingContext');
           const result = this.impl.establishPrintingContext(params.context_id, params.parent_window_id);
           break;
         }
-        case 8: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.useDefaultSettings');
           const result = this.impl.useDefaultSettings(params.context_id);
           break;
         }
-        case 9: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.askUserForSettings');
           const result = this.impl.askUserForSettings(params.context_id, params.max_pages, params.has_selection, params.is_scripted);
           break;
         }
-        case 10: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updatePrintSettings');
           const result = this.impl.updatePrintSettings(params.context_id, params.job_settings);
           break;
         }
-        case 11: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_StartPrinting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_StartPrinting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startPrinting');
           const result = this.impl.startPrinting(params.context_id, params.document_cookie, params.document_name, params.settings);
           if (header.expectsResponse) {
@@ -784,9 +961,9 @@ printing.mojom.PrintBackendServiceReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.renderPrintedPage');
           const result = this.impl.renderPrintedPage(params.document_cookie, params.page_index, params.page_data_type, params.serialized_page, params.page_size, params.page_content_rect, params.shrink_factor);
           if (header.expectsResponse) {
@@ -797,9 +974,9 @@ printing.mojom.PrintBackendServiceReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.renderPrintedDocument');
           const result = this.impl.renderPrintedDocument(params.document_cookie, params.page_count, params.data_type, params.serialized_doc);
           if (header.expectsResponse) {
@@ -810,9 +987,9 @@ printing.mojom.PrintBackendServiceReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_DocumentDone_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_DocumentDone_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.documentDone');
           const result = this.impl.documentDone(params.document_cookie);
           if (header.expectsResponse) {
@@ -825,7 +1002,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_Cancel_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PrintBackendService_Cancel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel(params.document_cookie);
           if (header.expectsResponse) {

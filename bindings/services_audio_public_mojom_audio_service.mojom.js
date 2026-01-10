@@ -202,67 +202,135 @@ audio.mojom.AudioServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: BindSystemInfo
+        try {
+             decoder.decodeStruct(audio.mojom.AudioService_BindSystemInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSystemInfo (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: BindDebugRecording
+        try {
+             decoder.decodeStruct(audio.mojom.AudioService_BindDebugRecording_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindDebugRecording (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: BindStreamFactory
+        try {
+             decoder.decodeStruct(audio.mojom.AudioService_BindStreamFactory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindStreamFactory (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: BindDeviceNotifier
+        try {
+             decoder.decodeStruct(audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindDeviceNotifier (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: BindLogFactoryManager
+        try {
+             decoder.decodeStruct(audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindLogFactoryManager (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: BindTestingApi
+        try {
+             decoder.decodeStruct(audio.mojom.AudioService_BindTestingApi_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestingApi (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: BindMlModelManager
+        try {
+             decoder.decodeStruct(audio.mojom.AudioService_BindMlModelManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindMlModelManager (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(audio.mojom.AudioService_BindSystemInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(audio.mojom.AudioService_BindSystemInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindSystemInfo');
           const result = this.impl.bindSystemInfo(params.receiver);
           break;
         }
-        case 1: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(audio.mojom.AudioService_BindDebugRecording_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(audio.mojom.AudioService_BindDebugRecording_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindDebugRecording');
           const result = this.impl.bindDebugRecording(params.receiver);
           break;
         }
-        case 2: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(audio.mojom.AudioService_BindStreamFactory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(audio.mojom.AudioService_BindStreamFactory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindStreamFactory');
           const result = this.impl.bindStreamFactory(params.receiver);
           break;
         }
-        case 3: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindDeviceNotifier');
           const result = this.impl.bindDeviceNotifier(params.receiver);
           break;
         }
-        case 4: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindLogFactoryManager');
           const result = this.impl.bindLogFactoryManager(params.receiver);
           break;
         }
-        case 5: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(audio.mojom.AudioService_BindTestingApi_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(audio.mojom.AudioService_BindTestingApi_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindTestingApi');
           const result = this.impl.bindTestingApi(params.receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(audio.mojom.AudioService_BindMlModelManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(audio.mojom.AudioService_BindMlModelManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindMlModelManager');
           const result = this.impl.bindMlModelManager(params.receiver);
           break;

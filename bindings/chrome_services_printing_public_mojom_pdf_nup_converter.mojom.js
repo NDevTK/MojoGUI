@@ -179,25 +179,66 @@ printing.mojom.PdfNupConverterReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: NupPageConvert
+        try {
+             decoder.decodeStruct(printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NupPageConvert (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: NupDocumentConvert
+        try {
+             decoder.decodeStruct(printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NupDocumentConvert (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetWebContentsURL
+        try {
+             decoder.decodeStruct(printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebContentsURL (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SetUseSkiaRendererPolicy
+        try {
+             decoder.decodeStruct(printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUseSkiaRendererPolicy (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.nupPageConvert');
           const result = this.impl.nupPageConvert(params.pages_per_sheet, params.page_size, params.printable_area, params.pdf_page_regions);
           if (header.expectsResponse) {
@@ -208,9 +249,9 @@ printing.mojom.PdfNupConverterReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.nupDocumentConvert');
           const result = this.impl.nupDocumentConvert(params.pages_per_sheet, params.page_size, params.printable_area, params.src_pdf_region);
           if (header.expectsResponse) {
@@ -221,16 +262,16 @@ printing.mojom.PdfNupConverterReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setWebContentsURL');
           const result = this.impl.setWebContentsURL(params.url);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
           const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
           break;

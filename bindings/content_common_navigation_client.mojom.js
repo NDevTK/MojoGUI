@@ -242,25 +242,48 @@ content.mojom.NavigationClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CommitNavigation
+        try {
+             decoder.decodeStruct(content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitNavigation (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CommitFailedNavigation
+        try {
+             decoder.decodeStruct(content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitFailedNavigation (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.commitNavigation');
           const result = this.impl.commitNavigation(params.common_params, params.request_params, params.response_head, params.response_body, params.url_loader_client_endpoints, params.subresource_loader_factories, params.subresource_overrides, params.controller_service_worker_info, params.container_info, params.subresource_proxying_loader_factory, params.keep_alive_loader_factory, params.fetch_later_loader_factory, params.document_token, params.devtools_navigation_token, params.base_auction_nonce, params.permissions_policy, params.policy_container, params.code_cache_host, params.code_cache_host_for_background, params.cookie_manager_info, params.storage_info);
           if (header.expectsResponse) {
@@ -273,7 +296,7 @@ content.mojom.NavigationClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.commitFailedNavigation');
           const result = this.impl.commitFailedNavigation(params.common_params, params.request_params, params.has_stale_copy_in_cache, params.error_code, params.extended_error_code, params.resolve_error_info, params.error_page_content, params.subresource_loader_factories, params.document_token, params.devtools_navigation_token, params.policy_container, params.alternative_error_page_info);
           if (header.expectsResponse) {

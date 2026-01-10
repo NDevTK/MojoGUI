@@ -121,32 +121,55 @@ blink.mojom.RendererAudioInputStreamFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreateStream
+        try {
+             decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateStream (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: AssociateInputAndOutputForAec
+        try {
+             decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AssociateInputAndOutputForAec (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createStream');
           const result = this.impl.createStream(params.client, params.session_id, params.params, params.automatic_gain_control, params.shared_memory_count, params.processing_config);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.associateInputAndOutputForAec');
           const result = this.impl.associateInputAndOutputForAec(params.input_stream_id, params.output_device_id);
           break;
@@ -249,25 +272,39 @@ blink.mojom.RendererAudioInputStreamFactoryClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: StreamCreated
+        try {
+             decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StreamCreated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.streamCreated');
           const result = this.impl.streamCreated(params.stream, params.client_request, params.data_pipe, params.initially_muted, params.stream_id);
           break;

@@ -630,39 +630,71 @@ ax.android.mojom.AccessibilityHelperHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnAccessibilityEvent
+        try {
+             decoder.decodeStruct(ax.android.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAccessibilityEvent (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnNotificationStateChanged
+        try {
+             decoder.decodeStruct(ax.android.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationStateChanged (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnToggleNativeChromeVoxArcSupport
+        try {
+             decoder.decodeStruct(ax.android.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnToggleNativeChromeVoxArcSupport (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAccessibilityEvent');
           const result = this.impl.onAccessibilityEvent(params.event_data);
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onNotificationStateChanged');
           const result = this.impl.onNotificationStateChanged(params.notification_key, params.state);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onToggleNativeChromeVoxArcSupport');
           const result = this.impl.onToggleNativeChromeVoxArcSupport(params.enabled);
           break;
@@ -886,25 +918,93 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Init
+        try {
+             decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_Init_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: SetFilter
+        try {
+             decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFilter (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: PerformAction
+        try {
+             decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformAction (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SetExploreByTouchEnabled
+        try {
+             decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetExploreByTouchEnabled (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: RefreshWithExtraData
+        try {
+             decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshWithExtraData (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: RequestSendAccessibilityTree
+        try {
+             decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSendAccessibilityTree (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: SetNativeChromeVoxArcSupportForFocusedWindow
+        try {
+             decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNativeChromeVoxArcSupportForFocusedWindow (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_Init_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -915,16 +1015,16 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setFilter');
           const result = this.impl.setFilter(params.filter_type);
           break;
         }
-        case 2: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.performAction');
           const result = this.impl.performAction(params.action_data);
           if (header.expectsResponse) {
@@ -935,16 +1035,16 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setExploreByTouchEnabled');
           const result = this.impl.setExploreByTouchEnabled(params.enabled);
           break;
         }
-        case 4: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.refreshWithExtraData');
           const result = this.impl.refreshWithExtraData(params.refresh_data);
           if (header.expectsResponse) {
@@ -955,16 +1055,16 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestSendAccessibilityTree');
           const result = this.impl.requestSendAccessibilityTree(params.window);
           break;
         }
-        case 6: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setNativeChromeVoxArcSupportForFocusedWindow');
           const result = this.impl.setNativeChromeVoxArcSupportForFocusedWindow(params.enabled);
           if (header.expectsResponse) {

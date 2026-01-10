@@ -170,25 +170,57 @@ payments.mojom.SecurePaymentConfirmationServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SecurePaymentConfirmationAvailability
+        try {
+             decoder.decodeStruct(payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SecurePaymentConfirmationAvailability (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: StorePaymentCredential
+        try {
+             decoder.decodeStruct(payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StorePaymentCredential (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: MakePaymentCredential
+        try {
+             decoder.decodeStruct(payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakePaymentCredential (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.securePaymentConfirmationAvailability');
           const result = this.impl.securePaymentConfirmationAvailability();
           if (header.expectsResponse) {
@@ -199,9 +231,9 @@ payments.mojom.SecurePaymentConfirmationServiceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.storePaymentCredential');
           const result = this.impl.storePaymentCredential(params.credential_id, params.rp_id, params.user_id);
           if (header.expectsResponse) {
@@ -214,7 +246,7 @@ payments.mojom.SecurePaymentConfirmationServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.makePaymentCredential');
           const result = this.impl.makePaymentCredential(params.options);
           if (header.expectsResponse) {
