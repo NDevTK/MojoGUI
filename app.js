@@ -613,209 +613,220 @@
         // Attempts to resolve parameters from the Loaded Bindings in the page
         if (ifaceMetadata && ifaceMetadata.module) {
             // Determine simple interface name for spec lookup (e.g. 'VibrationManager' from 'device.mojom.VibrationManager')
+            // Determine simple interface name for spec lookup (e.g. 'VibrationManager' from 'device.mojom.VibrationManager')
             const simpleInterfaceName = ifaceMetadata.name.split('.').pop();
-            const specName = `${simpleInterfaceName}_${methodName}_ParamsSpec`;
             const namespace = resolveNamespace(ifaceMetadata.module);
 
-            if (namespace && namespace[specName]) {
-                const specWrapper = namespace[specName];
-                // specWrapper is like { $: { structSpec: { ... } } }
-                // or just { structSpec: ... } depending on generation
-                const structSpec = specWrapper.$ ? specWrapper.$.structSpec : specWrapper.structSpec;
+            if (namespace) {
+                // Try exact match first (e.g. Vibrate)
+                let specName = `${simpleInterfaceName}_${methodName}_ParamsSpec`;
+                let specWrapper = namespace[specName];
 
-                if (structSpec && structSpec.fields) {
-                    return structSpec.fields.map(field => {
-                        let type = 'any';
-                        let originalName = field.name;
+                // If not found, try PascalCase (if method is vibrate -> Vibrate)
+                if (!specWrapper) {
+                    const pascalMethod = methodName.charAt(0).toUpperCase() + methodName.slice(1);
+                    specName = `${simpleInterfaceName}_${pascalMethod}_ParamsSpec`;
+                    specWrapper = namespace[specName];
+                }
 
-                        // Check for generated binding artifacts (nullable value structs)
-                        if (field.nullableValueKindProperties && field.nullableValueKindProperties.isPrimary) {
-                            originalName = field.nullableValueKindProperties.originalFieldName;
-                        }
+                if (specWrapper) {
+                    // specWrapper is like { $: { structSpec: { ... } } }
+                    // or just { structSpec: ... } depending on generation
+                    const structSpec = specWrapper.$ ? specWrapper.$.structSpec : specWrapper.structSpec;
 
-                        // Use the runtime type inference
-                        type = inferTypeFromMojomType(field.type);
+                    if (structSpec && structSpec.fields) {
+                        return structSpec.fields.map(field => {
+                            let type = 'any';
+                            let originalName = field.name;
 
-                        return {
-                            name: originalName,
-                            type: type,
-                            optional: !!field.nullable
-                        };
-                    }).filter(f => !f.name.endsWith('_$flag') && !f.name.endsWith('_$value'));
+                            // Check for generated binding artifacts (nullable value structs)
+                            if (field.nullableValueKindProperties && field.nullableValueKindProperties.isPrimary) {
+                                originalName = field.nullableValueKindProperties.originalFieldName;
+                            }
+
+                            // Use the runtime type inference
+                            type = inferTypeFromMojomType(field.type);
+
+                            return {
+                                name: originalName,
+                                type: type,
+                                optional: !!field.nullable
+                            };
+                        }).filter(f => !f.name.endsWith('_$flag') && !f.name.endsWith('_$value'));
+                    }
                 }
             }
+
+            // Return null if schema not found, triggering the "Raw Arguments Array" fallback UI
+            return null;
         }
 
-        // Return null if schema not found, triggering the "Raw Arguments Array" fallback UI
-        return null;
-    }
+        // ========================================
+        // Code Generation
+        // ========================================
+        function updateGeneratedCode() {
+            if (!state.selectedInterface) {
+                elements.generatedCode.textContent = '// Select an interface and method to generate code';
+                return;
+            }
 
-    // ========================================
-    // Code Generation
-    // ========================================
-    function updateGeneratedCode() {
-        if (!state.selectedInterface) {
-            elements.generatedCode.textContent = '// Select an interface and method to generate code';
-            return;
+            const code = generateCode();
+            // Use textContent for safe display - no HTML injection possible
+            elements.generatedCode.textContent = code;
         }
 
-        const code = generateCode();
-        // Use textContent for safe display - no HTML injection possible
-        elements.generatedCode.textContent = code;
-    }
+        function generateCode() {
+            const iface = state.selectedInterface;
+            const method = state.selectedMethod;
 
-    function generateCode() {
-        const iface = state.selectedInterface;
-        const method = state.selectedMethod;
+            if (!iface) return '// Select an interface';
 
-        if (!iface) return '// Select an interface';
+            const moduleParts = iface.module.split('.');
+            const namespace = moduleParts.join('.');
 
-        const moduleParts = iface.module.split('.');
-        const namespace = moduleParts.join('.');
+            let code = `// MojoJS Code for ${iface.name}${method ? '.' + method : ''}\n`;
+            code += `// Module: ${iface.module}\n`;
+            code += `// File: ${iface.file}\n\n`;
 
-        let code = `// MojoJS Code for ${iface.name}${method ? '.' + method : ''}\n`;
-        code += `// Module: ${iface.module}\n`;
-        code += `// File: ${iface.file}\n\n`;
+            if (!method) {
+                code += `// Step 1: Get the interface remote\n`;
+                code += `// The binding file defines the interface in the global scope\n`;
+                code += `// after being loaded via <script> tag\n\n`;
+                code += `// Step 2: Create a remote and bind it\n`;
+                code += `// Namespace depends on binding version (mojo vs global)\n`;
+                code += `let ${iface.name.toLowerCase()}Remote;\n`;
+                code += `if (typeof ${namespace}.${iface.name}.getRemote === 'function') {\n`;
+                code += `    ${iface.name.toLowerCase()}Remote = ${namespace}.${iface.name}.getRemote();\n`;
+                code += `} else {\n`;
+                code += `    ${iface.name.toLowerCase()}Remote = new ${namespace}.${iface.name}Remote();\n`;
+                code += `    const receiver = ${iface.name.toLowerCase()}Remote.bindNewPipeAndPassReceiver();\n`;
+                code += `    const handle = receiver.handle || receiver;\n`;
+                code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
+                code += `}\n`;
+                code += `// Select a method to see the full call...`;
+                return code;
+            }
 
-        if (!method) {
-            code += `// Step 1: Get the interface remote\n`;
-            code += `// The binding file defines the interface in the global scope\n`;
-            code += `// after being loaded via <script> tag\n\n`;
-            code += `// Step 2: Create a remote and bind it\n`;
-            code += `// Namespace depends on binding version (mojo vs global)\n`;
-            code += `let ${iface.name.toLowerCase()}Remote;\n`;
+            const remoteName = iface.name.charAt(0).toLowerCase() + iface.name.slice(1) + 'Remote';
+            const methodName = method.charAt(0).toLowerCase() + method.slice(1);
+
+            code += `// Get remote for the interface\n`;
+            code += `let ${remoteName};\n`;
             code += `if (typeof ${namespace}.${iface.name}.getRemote === 'function') {\n`;
-            code += `    ${iface.name.toLowerCase()}Remote = ${namespace}.${iface.name}.getRemote();\n`;
+            code += `    ${remoteName} = ${namespace}.${iface.name}.getRemote();\n`;
             code += `} else {\n`;
-            code += `    ${iface.name.toLowerCase()}Remote = new ${namespace}.${iface.name}Remote();\n`;
-            code += `    const receiver = ${iface.name.toLowerCase()}Remote.bindNewPipeAndPassReceiver();\n`;
+            code += `    // Manual binding for Lite bindings without getRemote()\n`;
+            code += `    ${remoteName} = new ${namespace}.${iface.name}Remote();\n`;
+            code += `    const receiver = ${remoteName}.bindNewPipeAndPassReceiver();\n`;
             code += `    const handle = receiver.handle || receiver;\n`;
+            code += `    // Default to 'context' scope for safety, can be 'process'\n`;
             code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
-            code += `}\n`;
-            code += `// Select a method to see the full call...`;
+            code += `}\n\n`;
+
+            // Generate method call with params
+            const params = Object.entries(state.paramValues);
+
+            if (params.length > 0) {
+                code += `// Method parameters\n`;
+                params.forEach(([key, value]) => {
+                    let valueStr;
+                    if (typeof value === 'bigint') {
+                        valueStr = value.toString() + 'n';
+                    } else {
+                        valueStr = typeof value === 'string' ? `"${value}"` : safeStringify(value);
+                    }
+                    code += `const ${key} = ${valueStr};\n`;
+                });
+                code += `\n`;
+            }
+
+            code += `// Call the method\n`;
+            code += `try {\n`;
+            if (params.length > 0) {
+                const paramNames = params.map(([key]) => key).join(', ');
+                code += `  const result = await ${remoteName}.${methodName}(${paramNames});\n`;
+            } else {
+                code += `  const result = await ${remoteName}.${methodName}();\n`;
+            }
+            code += `  console.log('Success:', result);\n`;
+            code += `} catch (error) {\n`;
+            code += `  console.error('Error:', error);\n`;
+            code += `}`;
+
             return code;
         }
 
-        const remoteName = iface.name.charAt(0).toLowerCase() + iface.name.slice(1) + 'Remote';
-        const methodName = method.charAt(0).toLowerCase() + method.slice(1);
+        function highlightSyntax(code) {
+            // First escape HTML entities to prevent XSS and display issues
+            let escaped = code
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
 
-        code += `// Get remote for the interface\n`;
-        code += `let ${remoteName};\n`;
-        code += `if (typeof ${namespace}.${iface.name}.getRemote === 'function') {\n`;
-        code += `    ${remoteName} = ${namespace}.${iface.name}.getRemote();\n`;
-        code += `} else {\n`;
-        code += `    // Manual binding for Lite bindings without getRemote()\n`;
-        code += `    ${remoteName} = new ${namespace}.${iface.name}Remote();\n`;
-        code += `    const receiver = ${remoteName}.bindNewPipeAndPassReceiver();\n`;
-        code += `    const handle = receiver.handle || receiver;\n`;
-        code += `    // Default to 'context' scope for safety, can be 'process'\n`;
-        code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
-        code += `}\n\n`;
+            // Apply syntax highlighting in order (comments first to avoid conflicts)
+            return escaped
+                .replace(/\/\/.*$/gm, '<span class="comment">$&</span>')
+                .replace(/\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw)\b/g, '<span class="keyword">$1</span>')
+                .replace(/\b(true|false|null|undefined)\b/g, '<span class="const">$1</span>')
+                .replace(/&quot;([^&]*)&quot;|"([^"]*)"/g, '<span class="string">"$1$2"</span>')
+                .replace(/\b(\d+)\b/g, '<span class="number">$1</span>')
+                .replace(/\.(\w+)\s*\(/g, '.<span class="function">$1</span>(');
+        }
 
-        // Generate method call with params
-        const params = Object.entries(state.paramValues);
+        // ========================================
+        // Actions
+        // ========================================
+        async function copyCode() {
+            const code = generateCode();
 
-        if (params.length > 0) {
-            code += `// Method parameters\n`;
-            params.forEach(([key, value]) => {
-                let valueStr;
-                if (typeof value === 'bigint') {
-                    valueStr = value.toString() + 'n';
-                } else {
-                    valueStr = typeof value === 'string' ? `"${value}"` : safeStringify(value);
-                }
-                code += `const ${key} = ${valueStr};\n`;
+            try {
+                await navigator.clipboard.writeText(code);
+                showToast('Code copied to clipboard!', 'success');
+            } catch (error) {
+                // Fallback
+                const textarea = document.createElement('textarea');
+                textarea.value = code;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast('Code copied to clipboard!', 'success');
+            }
+        }
+
+        async function executeCode() {
+            if (!state.mojoAvailable) {
+                showToast('MojoJS is not available. Enable with --enable-blink-features=MojoJS', 'error');
+                return;
+            }
+
+            const code = generateCode();
+            const interfaceName = state.selectedInterface?.name || 'Unknown';
+            const methodName = state.selectedMethod || 'Unknown';
+
+            const manualId = 'manual_' + Date.now();
+            // Use existing interfaceName/methodName from scope
+
+            // 1. Create a "Pending" entry in the Activity Table immediately
+            addActivityRow({
+                id: manualId,
+                interface: interfaceName,
+                method: methodName,
+                params: state.paramValues, // Best effort capture
+                timestamp: Date.now(),
+                type: 'MANUAL',
+                status: 'Executing...'
             });
-            code += `\n`;
-        }
 
-        code += `// Call the method\n`;
-        code += `try {\n`;
-        if (params.length > 0) {
-            const paramNames = params.map(([key]) => key).join(', ');
-            code += `  const result = await ${remoteName}.${methodName}(${paramNames});\n`;
-        } else {
-            code += `  const result = await ${remoteName}.${methodName}();\n`;
-        }
-        code += `  console.log('Success:', result);\n`;
-        code += `} catch (error) {\n`;
-        code += `  console.error('Error:', error);\n`;
-        code += `}`;
+            // Ensure Activity Panel is visible
+            showInterceptorPanel(true);
 
-        return code;
-    }
+            const startTime = performance.now();
 
-    function highlightSyntax(code) {
-        // First escape HTML entities to prevent XSS and display issues
-        let escaped = code
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-
-        // Apply syntax highlighting in order (comments first to avoid conflicts)
-        return escaped
-            .replace(/\/\/.*$/gm, '<span class="comment">$&</span>')
-            .replace(/\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw)\b/g, '<span class="keyword">$1</span>')
-            .replace(/\b(true|false|null|undefined)\b/g, '<span class="const">$1</span>')
-            .replace(/&quot;([^&]*)&quot;|"([^"]*)"/g, '<span class="string">"$1$2"</span>')
-            .replace(/\b(\d+)\b/g, '<span class="number">$1</span>')
-            .replace(/\.(\w+)\s*\(/g, '.<span class="function">$1</span>(');
-    }
-
-    // ========================================
-    // Actions
-    // ========================================
-    async function copyCode() {
-        const code = generateCode();
-
-        try {
-            await navigator.clipboard.writeText(code);
-            showToast('Code copied to clipboard!', 'success');
-        } catch (error) {
-            // Fallback
-            const textarea = document.createElement('textarea');
-            textarea.value = code;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            showToast('Code copied to clipboard!', 'success');
-        }
-    }
-
-    async function executeCode() {
-        if (!state.mojoAvailable) {
-            showToast('MojoJS is not available. Enable with --enable-blink-features=MojoJS', 'error');
-            return;
-        }
-
-        const code = generateCode();
-        const interfaceName = state.selectedInterface?.name || 'Unknown';
-        const methodName = state.selectedMethod || 'Unknown';
-
-        const manualId = 'manual_' + Date.now();
-        // Use existing interfaceName/methodName from scope
-
-        // 1. Create a "Pending" entry in the Activity Table immediately
-        addActivityRow({
-            id: manualId,
-            interface: interfaceName,
-            method: methodName,
-            params: state.paramValues, // Best effort capture
-            timestamp: Date.now(),
-            type: 'MANUAL',
-            status: 'Executing...'
-        });
-
-        // Ensure Activity Panel is visible
-        showInterceptorPanel(true);
-
-        const startTime = performance.now();
-
-        try {
-            // Use script injection approach that works with Trusted Types
-            // Wrap code in an async IIFE that stores result in window
-            const wrappedCode = `
+            try {
+                // Use script injection approach that works with Trusted Types
+                // Wrap code in an async IIFE that stores result in window
+                const wrappedCode = `
             (async () => {
                 try {
                     ${code}
@@ -827,214 +838,214 @@
             })();
         `;
 
-            // Create promise to wait for execution
-            const resultPromise = new Promise((resolve) => {
-                window.addEventListener(`mojoExecuteComplete_${manualId}`, function handler() {
-                    window.removeEventListener(`mojoExecuteComplete_${manualId}`, handler);
-                    resolve(window.__mojoExecuteResult);
-                    delete window.__mojoExecuteResult;
+                // Create promise to wait for execution
+                const resultPromise = new Promise((resolve) => {
+                    window.addEventListener(`mojoExecuteComplete_${manualId}`, function handler() {
+                        window.removeEventListener(`mojoExecuteComplete_${manualId}`, handler);
+                        resolve(window.__mojoExecuteResult);
+                        delete window.__mojoExecuteResult;
+                    });
                 });
-            });
 
-            // Create script element with trusted script
-            const script = document.createElement('script');
-            if (trustedPolicy) {
-                script.textContent = trustedPolicy.createScript(wrappedCode);
-            } else {
-                script.textContent = wrappedCode;
+                // Create script element with trusted script
+                const script = document.createElement('script');
+                if (trustedPolicy) {
+                    script.textContent = trustedPolicy.createScript(wrappedCode);
+                } else {
+                    script.textContent = wrappedCode;
+                }
+                document.head.appendChild(script);
+                document.head.removeChild(script);
+
+                // Wait for result
+                const result = await resultPromise;
+                const duration = (performance.now() - startTime).toFixed(2);
+
+                // 2. Update the Activity Row with the result
+                updateActivityRow(manualId, result.success ? 'Done' : 'Error', result);
+
+            } catch (e) {
+                updateActivityRow(manualId, 'Error', { error: e.toString() });
             }
-            document.head.appendChild(script);
-            document.head.removeChild(script);
-
-            // Wait for result
-            const result = await resultPromise;
-            const duration = (performance.now() - startTime).toFixed(2);
-
-            // 2. Update the Activity Row with the result
-            updateActivityRow(manualId, result.success ? 'Done' : 'Error', result);
-
-        } catch (e) {
-            updateActivityRow(manualId, 'Error', { error: e.toString() });
         }
-    }
 
 
 
-    function resetParams() {
-        state.paramValues = {};
-        if (state.selectedMethod) {
-            const params = getMethodParams(state.selectedInterface.name, state.selectedMethod);
-            renderParamsForm(params);
-            updateGeneratedCode();
+        function resetParams() {
+            state.paramValues = {};
+            if (state.selectedMethod) {
+                const params = getMethodParams(state.selectedInterface.name, state.selectedMethod);
+                renderParamsForm(params);
+                updateGeneratedCode();
+            }
         }
-    }
 
-    function clearResults() {
-        elements.executionResults.innerHTML = safeHTML(`
+        function clearResults() {
+            elements.executionResults.innerHTML = safeHTML(`
             <div class="empty-state small">
                 <p>Results will appear here</p>
             </div>
         `);
-    }
-
-    // ========================================
-    // Interceptor Logic
-    // ========================================
-    function toggleInterceptor() {
-        if (!state.selectedInterface) {
-            showToast('Select an interface first', 'warning');
-            return;
         }
 
-        // Use Fully Qualified Name if available (module + . + name)
-        // MojoInterfaceInterceptor for Blink services usually requires FQN OR the Name_ string
-        // If module is present, try FQN.
-        const shortName = state.selectedInterface.name;
-        const moduleName = state.selectedInterface.module;
+        // ========================================
+        // Interceptor Logic
+        // ========================================
+        function toggleInterceptor() {
+            if (!state.selectedInterface) {
+                showToast('Select an interface first', 'warning');
+                return;
+            }
 
-        // Try FQN first if module exists
-        const nameTypeToUse = (moduleName && moduleName.length > 0) ? `${moduleName}.${shortName}` : shortName;
+            // Use Fully Qualified Name if available (module + . + name)
+            // MojoInterfaceInterceptor for Blink services usually requires FQN OR the Name_ string
+            // If module is present, try FQN.
+            const shortName = state.selectedInterface.name;
+            const moduleName = state.selectedInterface.module;
 
-        const isActive = InterceptorManager.toggle(nameTypeToUse);
+            // Try FQN first if module exists
+            const nameTypeToUse = (moduleName && moduleName.length > 0) ? `${moduleName}.${shortName}` : shortName;
 
-        updateInterceptButtonState(isActive);
+            const isActive = InterceptorManager.toggle(nameTypeToUse);
 
-        if (isActive) {
-            showToast(`Started intercepting ${nameTypeToUse}`, 'success');
-            // Show panel
-            showInterceptorPanel(true);
-        } else {
-            showToast(`Stopped intercepting ${nameTypeToUse}`, 'info');
+            updateInterceptButtonState(isActive);
+
+            if (isActive) {
+                showToast(`Started intercepting ${nameTypeToUse}`, 'success');
+                // Show panel
+                showInterceptorPanel(true);
+            } else {
+                showToast(`Stopped intercepting ${nameTypeToUse}`, 'info');
+            }
         }
-    }
 
-    function updateInterceptButtonState(isActive) {
-        elements.interceptStatusDot.classList.toggle('active', isActive);
-        elements.interceptToggleBtn.classList.toggle('active', isActive);
+        function updateInterceptButtonState(isActive) {
+            elements.interceptStatusDot.classList.toggle('active', isActive);
+            elements.interceptToggleBtn.classList.toggle('active', isActive);
 
-        const text = elements.interceptToggleBtn.childNodes[2]; // Access text node after span
-        if (text) text.textContent = isActive ? ' Stop Intercepting' : ' Intercept';
-    }
+            const text = elements.interceptToggleBtn.childNodes[2]; // Access text node after span
+            if (text) text.textContent = isActive ? ' Stop Intercepting' : ' Intercept';
+        }
 
-    function clearActivityLog() {
-        elements.interceptorTableBody.innerHTML = '';
-        elements.interceptorDetails.innerHTML = safeHTML(`
+        function clearActivityLog() {
+            elements.interceptorTableBody.innerHTML = '';
+            elements.interceptorDetails.innerHTML = safeHTML(`
             <div class="empty-state small">
                 <p>Select a request to view details</p>
             </div>
         `);
-    }
-
-    function showInterceptorPanel(show) {
-        // Toggle between code/results and interceptor panel
-        // Or specific layout
-        if (show) {
-            elements.codeContainer.style.display = 'none';
-            elements.resultsSection.style.display = 'none';
-            elements.interceptorPanel.style.display = 'flex';
-        } else {
-            elements.codeContainer.style.display = 'block';
-            elements.resultsSection.style.display = 'flex';
-            elements.interceptorPanel.style.display = 'none';
         }
-    }
 
-    // Unified function to add rows to the table
-    function addActivityRow(data) {
-        const { id, interface: iface, method, params, timestamp, type, status } = data;
+        function showInterceptorPanel(show) {
+            // Toggle between code/results and interceptor panel
+            // Or specific layout
+            if (show) {
+                elements.codeContainer.style.display = 'none';
+                elements.resultsSection.style.display = 'none';
+                elements.interceptorPanel.style.display = 'flex';
+            } else {
+                elements.codeContainer.style.display = 'block';
+                elements.resultsSection.style.display = 'flex';
+                elements.interceptorPanel.style.display = 'none';
+            }
+        }
 
-        const row = document.createElement('tr');
-        row.dataset.id = id;
-        row.dataset.type = type || 'INTERCEPT'; // 'INTERCEPT' or 'MANUAL'
-        if (data.proxyId) row.dataset.proxyId = data.proxyId;
+        // Unified function to add rows to the table
+        function addActivityRow(data) {
+            const { id, interface: iface, method, params, timestamp, type, status } = data;
 
-        // Visual indicator for manual vs intercept
-        const typeIcon = type === 'MANUAL' ? '🛠️' : '📡';
-        const displayStatus = status || 'Pending';
-        const statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' : '');
+            const row = document.createElement('tr');
+            row.dataset.id = id;
+            row.dataset.type = type || 'INTERCEPT'; // 'INTERCEPT' or 'MANUAL'
+            if (data.proxyId) row.dataset.proxyId = data.proxyId;
 
-        row.innerHTML = safeHTML(`
+            // Visual indicator for manual vs intercept
+            const typeIcon = type === 'MANUAL' ? '🛠️' : '📡';
+            const displayStatus = status || 'Pending';
+            const statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' : '');
+
+            row.innerHTML = safeHTML(`
             <td>${new Date(timestamp).toLocaleTimeString()}</td>
             <td><span class="type-icon">${typeIcon}</span> ${escapeHtml(method)}</td>
             <td><span class="status-dot ${statusClass}"></span> ${escapeHtml(displayStatus)}</td>
         `);
 
-        // Attach full details for the details view
-        row.__details = data;
-        row.addEventListener('click', () => showInterceptDetails(row.__details));
+            // Attach full details for the details view
+            row.__details = data;
+            row.addEventListener('click', () => showInterceptDetails(row.__details));
 
-        elements.interceptorTableBody.prepend(row);
-    }
+            elements.interceptorTableBody.prepend(row);
+        }
 
-    function updateActivityRow(id, status, resultData) {
-        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
-        if (row) {
-            const statusCell = row.cells[2];
-            const statusDotClass = status === 'Done' ? 'active' : (status === 'Error' ? 'error' : '');
-            let colorStyle = status === 'Error' ? 'style="background:var(--error)"' : '';
+        function updateActivityRow(id, status, resultData) {
+            const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+            if (row) {
+                const statusCell = row.cells[2];
+                const statusDotClass = status === 'Done' ? 'active' : (status === 'Error' ? 'error' : '');
+                let colorStyle = status === 'Error' ? 'style="background:var(--error)"' : '';
 
-            statusCell.innerHTML = safeHTML(`<span class="status-dot ${statusDotClass}" ${colorStyle}></span> ${escapeHtml(status)}`);
+                statusCell.innerHTML = safeHTML(`<span class="status-dot ${statusDotClass}" ${colorStyle}></span> ${escapeHtml(status)}`);
 
-            // Merge result into the stored details so showInterceptDetails can display it
-            if (row.__details) {
-                row.__details.result = resultData;
-                row.__details.status = status;
+                // Merge result into the stored details so showInterceptDetails can display it
+                if (row.__details) {
+                    row.__details.result = resultData;
+                    row.__details.status = status;
 
-                // If this is currently selected, refresh the details view
-                if (row.classList.contains('active')) {
-                    showInterceptDetails(row.__details);
+                    // If this is currently selected, refresh the details view
+                    if (row.classList.contains('active')) {
+                        showInterceptDetails(row.__details);
+                    }
                 }
             }
         }
-    }
 
-    function handleMojoIntercept(e) {
-        // Forward to unified handler
-        addActivityRow({
-            ...e.detail,
-            type: 'INTERCEPT',
-            status: 'Pending'
-        });
+        function handleMojoIntercept(e) {
+            // Forward to unified handler
+            addActivityRow({
+                ...e.detail,
+                type: 'INTERCEPT',
+                status: 'Pending'
+            });
 
-        // Ensure panel is visible if not already
-        if (elements.interceptorPanel.style.display === 'none') {
-            // Optional: highlight tab
+            // Ensure panel is visible if not already
+            if (elements.interceptorPanel.style.display === 'none') {
+                // Optional: highlight tab
+            }
         }
-    }
 
-    function handleMojoResponse(e) {
-        updateActivityRow(e.detail.id, 'Done', e.detail.result);
-    }
+        function handleMojoResponse(e) {
+            updateActivityRow(e.detail.id, 'Done', e.detail.result);
+        }
 
-    function handleMojoError(e) {
-        updateActivityRow(e.detail.id, 'Error', { error: e.detail.error });
-    }
+        function handleMojoError(e) {
+            updateActivityRow(e.detail.id, 'Error', { error: e.detail.error });
+        }
 
-    function showInterceptDetails(detail) {
-        const { id, interface: iface, method, params } = detail;
+        function showInterceptDetails(detail) {
+            const { id, interface: iface, method, params } = detail;
 
-        // Highlight row
-        elements.interceptorTableBody.querySelectorAll('tr').forEach(tr => tr.classList.remove('active'));
-        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
-        if (row) row.classList.add('active');
+            // Highlight row
+            elements.interceptorTableBody.querySelectorAll('tr').forEach(tr => tr.classList.remove('active'));
+            const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+            if (row) row.classList.add('active');
 
-        // Show details with action buttons
-        const isPending = row && !row.cells[2].innerHTML.includes('Done') && !row.cells[2].innerHTML.includes('Error');
-        const isManual = detail.type === 'MANUAL';
+            // Show details with action buttons
+            const isPending = row && !row.cells[2].innerHTML.includes('Done') && !row.cells[2].innerHTML.includes('Error');
+            const isManual = detail.type === 'MANUAL';
 
-        const methodDef = findMethodDefinition(iface, method);
-        let paramsHtml;
+            const methodDef = findMethodDefinition(iface, method);
+            let paramsHtml;
 
-        if (methodDef && methodDef.parameters) {
-            paramsHtml = `<div class="params-form-container" id="interceptForm_${id}">
+            if (methodDef && methodDef.parameters) {
+                paramsHtml = `<div class="params-form-container" id="interceptForm_${id}">
                            ${renderInterceptorForm(methodDef.parameters, params, id)}
                            </div>`;
-        } else {
-            // Fallback for unknown methods
-            paramsHtml = `<textarea id="interceptParams_${id}" class="params-editor" ${!isPending ? 'disabled' : ''}>${escapeHtml(safeStringify(params, 2))}</textarea>`;
-        }
+            } else {
+                // Fallback for unknown methods
+                paramsHtml = `<textarea id="interceptParams_${id}" class="params-editor" ${!isPending ? 'disabled' : ''}>${escapeHtml(safeStringify(params, 2))}</textarea>`;
+            }
 
-        elements.interceptorDetails.innerHTML = safeHTML(`
+            elements.interceptorDetails.innerHTML = safeHTML(`
             <div class="interceptor-actions">
                 <h4>${escapeHtml(iface)}.${escapeHtml(method)}</h4>
                 ${(isPending && !isManual) ? `
@@ -1059,81 +1070,81 @@
                 <div>${escapeHtml(typeof detail.error === 'object' ? safeStringify(detail.error, 2) : detail.error)}</div>
             </div>` : ''}
         `);
-    }
+        }
 
-    // Modify request function (globally accessible for onclick)
-    window.resumeIntercept = function (id, drop) {
-        let params = null;
+        // Modify request function (globally accessible for onclick)
+        window.resumeIntercept = function (id, drop) {
+            let params = null;
 
-        if (!drop) {
-            const formContainer = document.getElementById(`interceptForm_${id}`);
-            if (formContainer) {
-                // New logic: gather from form inputs
-                try {
-                    params = getInterceptorFormValues(id);
-                } catch (e) {
-                    alert('Error parsing form values: ' + e.message);
-                    return;
-                }
-            } else {
-                // Fallback: old textarea logic
-                const textarea = document.getElementById(`interceptParams_${id}`);
-                if (textarea) {
+            if (!drop) {
+                const formContainer = document.getElementById(`interceptForm_${id}`);
+                if (formContainer) {
+                    // New logic: gather from form inputs
                     try {
-                        params = safeParse(textarea.value);
+                        params = getInterceptorFormValues(id);
                     } catch (e) {
-                        alert('Invalid JSON params');
+                        alert('Error parsing form values: ' + e.message);
                         return;
+                    }
+                } else {
+                    // Fallback: old textarea logic
+                    const textarea = document.getElementById(`interceptParams_${id}`);
+                    if (textarea) {
+                        try {
+                            params = safeParse(textarea.value);
+                        } catch (e) {
+                            alert('Invalid JSON params');
+                            return;
+                        }
+                    }
+                }
+            }
+
+            const row = document.querySelector(`tr[data-id="${id}"]`);
+            const proxyId = row.dataset.proxyId;
+
+            if (drop) {
+                // We need to call resumeCall on the proxy
+                const proxy = MojoProxyRegistry.get(proxyId);
+                if (proxy) proxy.resumeCall(id, null, true);
+            } else {
+                const proxy = MojoProxyRegistry.get(proxyId);
+                if (proxy) {
+                    proxy.resumeCall(id, params, false);
+                    // Update history with modified params
+                    if (row && row.__details) {
+                        row.__details.params = params;
                     }
                 }
             }
         }
 
-        const row = document.querySelector(`tr[data-id="${id}"]`);
-        const proxyId = row.dataset.proxyId;
+        // ========================================
+        // Utilities
+        // ========================================
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
 
-        if (drop) {
-            // We need to call resumeCall on the proxy
-            const proxy = MojoProxyRegistry.get(proxyId);
-            if (proxy) proxy.resumeCall(id, null, true);
-        } else {
-            const proxy = MojoProxyRegistry.get(proxyId);
-            if (proxy) {
-                proxy.resumeCall(id, params, false);
-                // Update history with modified params
-                if (row && row.__details) {
-                    row.__details.params = params;
-                }
-            }
-        }
-    }
+            // Icon based on type
+            let icon = 'ℹ️';
+            if (type === 'success') icon = '✅';
+            if (type === 'error') icon = '❌';
+            if (type === 'warning') icon = '⚠️';
 
-    // ========================================
-    // Utilities
-    // ========================================
-    function showToast(message, type = 'info') {
-        const toast = document.createElement('div');
-        toast.className = `toast toast-${type}`;
-
-        // Icon based on type
-        let icon = 'ℹ️';
-        if (type === 'success') icon = '✅';
-        if (type === 'error') icon = '❌';
-        if (type === 'warning') icon = '⚠️';
-
-        toast.innerHTML = safeHTML(`
+            toast.innerHTML = safeHTML(`
             <span class="toast-icon">${icon}</span>
             <span class="toast-message">${escapeHtml(message)}</span>
         `);
 
-        // Styles for toast (should be in CSS but inline for quick fix if needed)
-        // Assuming .toast class exists or standard styling
-        // We need to add specific styles for toast if not present or rely on existing structure
-        // app.js seems to use .toast-container but styles were not fully inspected for individual toasts
-        // Let's add basic inline styles to be safe or assume index.css handles it (which we viewed)
-        // index.css doesn't seem to have full toast animation styles shown in the truncated view
-        // Adding basic style here just in case
-        toast.style.cssText = `
+            // Styles for toast (should be in CSS but inline for quick fix if needed)
+            // Assuming .toast class exists or standard styling
+            // We need to add specific styles for toast if not present or rely on existing structure
+            // app.js seems to use .toast-container but styles were not fully inspected for individual toasts
+            // Let's add basic inline styles to be safe or assume index.css handles it (which we viewed)
+            // index.css doesn't seem to have full toast animation styles shown in the truncated view
+            // Adding basic style here just in case
+            toast.style.cssText = `
             display: flex;
             align-items: center;
             gap: 12px;
@@ -1148,15 +1159,15 @@
             min-width: 300px;
         `;
 
-        elements.toastContainer.appendChild(toast);
+            elements.toastContainer.appendChild(toast);
 
-        setTimeout(() => {
-            toast.style.animation = 'slideOut 0.3s ease forwards';
-            setTimeout(() => toast.remove(), 300);
-        }, 3000);
-    }
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.3s ease forwards';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
 
-    // Start
-    init();
+        // Start
+        init();
 
-})();
+    }) ();
