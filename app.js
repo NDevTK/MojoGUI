@@ -46,6 +46,20 @@
         return html;
     }
 
+    function safeStringify(value, space) {
+        return JSON.stringify(value, (key, val) =>
+            typeof val === 'bigint' ? val.toString() + 'n' : val, space);
+    }
+
+    function safeParse(json) {
+        return JSON.parse(json, (key, value) => {
+            if (typeof value === 'string' && /^-?\d+n$/.test(value)) {
+                return BigInt(value.slice(0, -1));
+            }
+            return value;
+        });
+    }
+
     // ========================================
     // DOM Elements
     // ========================================
@@ -579,7 +593,7 @@
                 // If default is object/array, stringify it. If null/undefined, use empty string or {}
                 let displayValue = defaultValue;
                 if (typeof defaultValue === 'object' && defaultValue !== null) {
-                    displayValue = JSON.stringify(defaultValue, null, 2);
+                    displayValue = safeStringify(defaultValue, 2);
                 } else if (!defaultValue && param.type === 'json') {
                     displayValue = '{}';
                 }
@@ -730,7 +744,12 @@
         if (params.length > 0) {
             code += `// Method parameters\n`;
             params.forEach(([key, value]) => {
-                const valueStr = typeof value === 'string' ? `"${value}"` : JSON.stringify(value);
+                let valueStr;
+                if (typeof value === 'bigint') {
+                    valueStr = value.toString() + 'n';
+                } else {
+                    valueStr = typeof value === 'string' ? `"${value}"` : safeStringify(value);
+                }
                 code += `const ${key} = ${valueStr};\n`;
             });
             code += `\n`;
@@ -1039,8 +1058,19 @@
                 ` : ''}
             </div>
             <div class="code-block" style="margin-top: 10px;">
-                <textarea id="interceptParams_${id}" class="params-editor" ${!isPending ? 'disabled' : ''}>${escapeHtml(JSON.stringify(params, null, 2))}</textarea>
+                <label style="font-size:0.8rem;color:var(--text-tertiary);">Request Params:</label>
+                <textarea id="interceptParams_${id}" class="params-editor" ${!isPending ? 'disabled' : ''}>${escapeHtml(safeStringify(params, 2))}</textarea>
             </div>
+            ${(detail.result || detail.status === 'Done') ? `
+            <div class="code-block" style="margin-top: 10px;">
+                <label style="font-size:0.8rem;color:var(--text-tertiary);">Result:</label>
+                <div class="result-code">${escapeHtml(safeStringify(detail.result, 2))}</div>
+            </div>` : ''}
+            ${(detail.error || detail.status === 'Error') ? `
+            <div class="code-block error-text" style="margin-top: 10px;">
+                <label style="font-size:0.8rem;color:var(--text-tertiary);">Error:</label>
+                <div>${escapeHtml(typeof detail.error === 'object' ? safeStringify(detail.error, 2) : detail.error)}</div>
+            </div>` : ''}
         `);
     }
 
@@ -1048,17 +1078,14 @@
     window.resumeIntercept = function (id, drop) {
         const textarea = document.getElementById(`interceptParams_${id}`);
         let params = null;
-        try {
-            params = JSON.parse(textarea.value);
-        } catch (e) {
-            alert('Invalid JSON params');
-            return;
+        if (!drop) {
+            try {
+                params = safeParse(textarea.value);
+            } catch (e) {
+                alert('Invalid JSON params');
+                return;
+            }
         }
-
-        // Find the proxy instance
-        // We need the proxy ID from the row or stored data
-        // For simplicity, we can dispatch an event or use the global registry if we stored the proxyId
-        // In handleMojoIntercept we received proxyId. Let's store it in the dataset of the row.
 
         const row = document.querySelector(`tr[data-id="${id}"]`);
         const proxyId = row.dataset.proxyId;
@@ -1069,11 +1096,14 @@
             if (proxy) proxy.resumeCall(id, null, true);
         } else {
             const proxy = MojoProxyRegistry.get(proxyId);
-            if (proxy) proxy.resumeCall(id, params, false);
+            if (proxy) {
+                proxy.resumeCall(id, params, false);
+                // Update history with modified params
+                if (row && row.__details) {
+                    row.__details.params = params;
+                }
+            }
         }
-
-        // Update status in UI immediately (opt)
-        // handleMojoResponse/Error will update it effectively
     }
 
     // ========================================
