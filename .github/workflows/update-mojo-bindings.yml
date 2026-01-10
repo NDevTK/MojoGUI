@@ -1015,13 +1015,18 @@ jobs:
                   js_code += "    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);\n"
                   js_code += "    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);\n"
                   js_code += "    this.endpoint.start({ onMessageReceived: (...args) => {\n"
+                  js_code += "      try {\n"
                   js_code += "      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);\n"
                   js_code += "      let message = args[0];\n"
                   js_code += "      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)\n"
                   js_code += "      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {\n"
+                  js_code += "        let payload = args[2];\n"
+                  js_code += "        if (payload instanceof ArrayBuffer) {\n"
+                  js_code += "           payload = new DataView(payload);\n"
+                  js_code += "        }\n"
                   js_code += "        message = {\n"
                   js_code += "          header: args[1],\n"
-                  js_code += "          payload: args[2],\n"
+                  js_code += "          payload: payload,\n"
                   js_code += "          handles: args[3] || []\n"
                   js_code += "        };\n"
                   js_code += "      }\n"
@@ -1046,6 +1051,7 @@ jobs:
                       param_names = [p['name'] for p in method.get('params', []) if p and p.get('name')]
                       args_js = ", ".join([f"params.{name}" for name in param_names])
                       
+                      js_code += f"          console.log('[GeneratedReceiver] Calling impl.{method_name_camel}');\n"
                       js_code += f"          const result = this.impl.{method_name_camel}({args_js});\n"
                       
                       # Handle response
@@ -1062,6 +1068,9 @@ jobs:
                       js_code += "        }\n"
                   
                   js_code += "      }\n" # End switch
+                  js_code += "      } catch (err) {\n"
+                  js_code += "        console.error('[GeneratedReceiver] Error processing message:', err);\n"
+                  js_code += "      }\n"
                   js_code += "    }});\n" # End start
                   js_code += "  }\n"
                   js_code += "};\n\n"
