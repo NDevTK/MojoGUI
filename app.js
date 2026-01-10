@@ -844,6 +844,17 @@
         }
     }
 
+
+
+    function resetParams() {
+        state.paramValues = {};
+        if (state.selectedMethod) {
+            const params = getMethodParams(state.selectedInterface.name, state.selectedMethod);
+            renderParamsForm(params);
+            updateGeneratedCode();
+        }
+    }
+
     function clearResults() {
         elements.executionResults.innerHTML = safeHTML(`
             <div class="empty-state small">
