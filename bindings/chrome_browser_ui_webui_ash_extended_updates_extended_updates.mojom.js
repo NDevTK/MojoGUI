@@ -236,8 +236,7 @@ ash.extended_updates.mojom.PageHandlerReceiver = class {
           const result = this.impl.optInToExtendedUpdates();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -253,8 +252,7 @@ ash.extended_updates.mojom.PageHandlerReceiver = class {
           const result = this.impl.getInstalledAndroidApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec);
                responder(response);
             }});
           }

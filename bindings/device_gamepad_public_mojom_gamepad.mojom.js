@@ -415,8 +415,7 @@ device.mojom.GamepadMonitorReceiver = class {
           const result = this.impl.gamepadStartPolling();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -427,8 +426,7 @@ device.mojom.GamepadMonitorReceiver = class {
           const result = this.impl.gamepadStopPolling();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -556,8 +554,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
           const result = this.impl.playVibrationEffectOnce(params.pad_index, params.type, params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -568,8 +565,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
           const result = this.impl.resetVibrationActuator(params.pad_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec);
                responder(response);
             }});
           }

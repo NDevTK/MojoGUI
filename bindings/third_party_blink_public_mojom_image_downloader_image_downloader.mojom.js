@@ -133,8 +133,7 @@ blink.mojom.ImageDownloaderReceiver = class {
           const result = this.impl.downloadImage(params.url, params.is_favicon, params.preferred_size, params.max_bitmap_size, params.bypass_cache);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -145,8 +144,7 @@ blink.mojom.ImageDownloaderReceiver = class {
           const result = this.impl.downloadImageFromAxNode(params.ax_node_id, params.preferred_size, params.max_bitmap_size, params.bypass_cache);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec);
                responder(response);
             }});
           }

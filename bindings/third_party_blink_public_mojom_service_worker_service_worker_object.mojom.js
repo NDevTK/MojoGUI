@@ -131,8 +131,7 @@ blink.mojom.ServiceWorkerObjectHostReceiver = class {
           const result = this.impl.terminateForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }

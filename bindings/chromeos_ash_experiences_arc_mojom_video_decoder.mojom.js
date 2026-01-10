@@ -211,8 +211,7 @@ arc.mojom.VideoDecoderReceiver = class {
           const result = this.impl.initialize(params.config, params.client, params.video_frame_pool);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -223,8 +222,7 @@ arc.mojom.VideoDecoderReceiver = class {
           const result = this.impl.decode(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoDecoder_Decode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoDecoder_Decode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -235,8 +233,7 @@ arc.mojom.VideoDecoderReceiver = class {
           const result = this.impl.reset();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoDecoder_Reset_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoDecoder_Reset_ResponseParamsSpec);
                responder(response);
             }});
           }

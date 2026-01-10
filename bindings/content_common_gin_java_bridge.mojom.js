@@ -299,8 +299,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
           const result = this.impl.getMethods();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -311,8 +310,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
           const result = this.impl.hasMethod(params.method_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -323,8 +321,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
           const result = this.impl.invokeMethod(params.method_name, params.arguments);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec);
                responder(response);
             }});
           }

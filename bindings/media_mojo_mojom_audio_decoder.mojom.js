@@ -216,8 +216,7 @@ media.mojom.AudioDecoderReceiver = class {
           const result = this.impl.getSupportedConfigs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -233,8 +232,7 @@ media.mojom.AudioDecoderReceiver = class {
           const result = this.impl.initialize(params.config, params.cdm_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioDecoder_Initialize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioDecoder_Initialize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -250,8 +248,7 @@ media.mojom.AudioDecoderReceiver = class {
           const result = this.impl.decode(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioDecoder_Decode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioDecoder_Decode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -262,8 +259,7 @@ media.mojom.AudioDecoderReceiver = class {
           const result = this.impl.reset();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioDecoder_Reset_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioDecoder_Reset_ResponseParamsSpec);
                responder(response);
             }});
           }

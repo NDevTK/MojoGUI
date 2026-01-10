@@ -1015,8 +1015,7 @@ arc.mojom.NetHostReceiver = class {
           const result = this.impl.getWifiEnabledState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1032,8 +1031,7 @@ arc.mojom.NetHostReceiver = class {
           const result = this.impl.setWifiEnabledState(params.is_enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1044,8 +1042,7 @@ arc.mojom.NetHostReceiver = class {
           const result = this.impl.createNetwork(params.cfg);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1056,8 +1053,7 @@ arc.mojom.NetHostReceiver = class {
           const result = this.impl.forgetNetwork(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1068,8 +1064,7 @@ arc.mojom.NetHostReceiver = class {
           const result = this.impl.updateWifiNetwork(params.guid, params.cfg);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1080,8 +1075,7 @@ arc.mojom.NetHostReceiver = class {
           const result = this.impl.startConnect(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetHost_StartConnect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetHost_StartConnect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1092,8 +1086,7 @@ arc.mojom.NetHostReceiver = class {
           const result = this.impl.startDisconnect(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1104,8 +1097,7 @@ arc.mojom.NetHostReceiver = class {
           const result = this.impl.getNetworks(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetHost_GetNetworks_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetHost_GetNetworks_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1141,8 +1133,7 @@ arc.mojom.NetHostReceiver = class {
           const result = this.impl.requestPasspointAppApproval(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1168,8 +1159,7 @@ arc.mojom.NetHostReceiver = class {
           const result = this.impl.startLohs(params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetHost_StartLohs_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetHost_StartLohs_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1450,8 +1440,7 @@ arc.mojom.NetInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1487,8 +1476,7 @@ arc.mojom.NetInstanceReceiver = class {
           const result = this.impl.dnsResolutionTest(params.transport_name, params.host_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1499,8 +1487,7 @@ arc.mojom.NetInstanceReceiver = class {
           const result = this.impl.httpTest(params.transport_name, params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetInstance_HttpTest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetInstance_HttpTest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1511,8 +1498,7 @@ arc.mojom.NetInstanceReceiver = class {
           const result = this.impl.pingTest(params.transport_name, params.ip_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.NetInstance_PingTest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NetInstance_PingTest_ResponseParamsSpec);
                responder(response);
             }});
           }

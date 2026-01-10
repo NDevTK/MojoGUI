@@ -248,8 +248,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
           const result = this.impl.openTCPSocket(params.options, params.receiver, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -260,8 +259,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
           const result = this.impl.openConnectedUDPSocket(params.options, params.receiver, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -272,8 +270,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
           const result = this.impl.openBoundUDPSocket(params.options, params.receiver, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -284,8 +281,7 @@ blink.mojom.DirectSocketsServiceReceiver = class {
           const result = this.impl.openTCPServerSocket(params.options, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec);
                responder(response);
             }});
           }

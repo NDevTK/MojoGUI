@@ -263,8 +263,7 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
           const result = this.impl.getContentCacheSize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -275,8 +274,7 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
           const result = this.impl.clearPinnedFiles();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec);
                responder(response);
             }});
           }

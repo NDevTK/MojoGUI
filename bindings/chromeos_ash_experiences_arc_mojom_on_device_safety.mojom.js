@@ -112,8 +112,7 @@ arc.mojom.OnDeviceSafetyHostReceiver = class {
           const result = this.impl.isCrosSafetyServiceEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -233,8 +232,7 @@ arc.mojom.OnDeviceSafetyInstanceReceiver = class {
           const result = this.impl.getArcSafetySession(params.session);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -245,8 +243,7 @@ arc.mojom.OnDeviceSafetyInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

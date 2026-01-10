@@ -124,8 +124,7 @@ site_engagement.mojom.SiteEngagementDetailsProviderReceiver = class {
           const result = this.impl.getSiteEngagementDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec);
                responder(response);
             }});
           }

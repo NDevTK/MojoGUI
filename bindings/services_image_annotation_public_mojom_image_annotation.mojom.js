@@ -146,8 +146,7 @@ image_annotation.mojom.ImageProcessorReceiver = class {
           const result = this.impl.getJpgImageData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -248,8 +247,7 @@ image_annotation.mojom.AnnotatorReceiver = class {
           const result = this.impl.annotateImage(params.source_id, params.description_language_tag, params.image_processor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec);
                responder(response);
             }});
           }

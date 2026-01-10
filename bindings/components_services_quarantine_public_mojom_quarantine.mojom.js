@@ -114,8 +114,7 @@ quarantine.mojom.QuarantineReceiver = class {
           const result = this.impl.quarantineFile(params.full_path, params.source_url, params.referrer_url, params.request_initiator, params.client_guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec);
                responder(response);
             }});
           }

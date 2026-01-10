@@ -207,8 +207,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
           const result = this.impl.getDeviceInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -219,8 +218,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
           const result = this.impl.getActiveRuntimes();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec);
                responder(response);
             }});
           }

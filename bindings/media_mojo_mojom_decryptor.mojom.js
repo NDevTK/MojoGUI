@@ -274,8 +274,7 @@ media.mojom.DecryptorReceiver = class {
           const result = this.impl.decrypt(params.stream_type, params.encrypted);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.Decryptor_Decrypt_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Decryptor_Decrypt_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -291,8 +290,7 @@ media.mojom.DecryptorReceiver = class {
           const result = this.impl.initializeAudioDecoder(params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -303,8 +301,7 @@ media.mojom.DecryptorReceiver = class {
           const result = this.impl.initializeVideoDecoder(params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -315,8 +312,7 @@ media.mojom.DecryptorReceiver = class {
           const result = this.impl.decryptAndDecodeAudio(params.encrypted);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -327,8 +323,7 @@ media.mojom.DecryptorReceiver = class {
           const result = this.impl.decryptAndDecodeVideo(params.encrypted);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec);
                responder(response);
             }});
           }

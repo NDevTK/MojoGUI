@@ -506,8 +506,7 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
           const result = this.impl.addMostVisitedTile(params.url, params.title);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -548,8 +547,7 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
           const result = this.impl.updateMostVisitedTile(params.tile, params.new_url, params.new_title);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -580,8 +578,7 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
           const result = this.impl.getMostVisitedExpandedState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec);
                responder(response);
             }});
           }

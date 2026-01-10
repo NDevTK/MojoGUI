@@ -811,8 +811,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
           const result = this.impl.getEligibleHostDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -823,8 +822,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
           const result = this.impl.getEligibleActiveHostDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -835,8 +833,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
           const result = this.impl.setHostDevice(params.instance_id_or_legacy_device_id, params.auth_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -852,8 +849,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
           const result = this.impl.getHostStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -864,8 +860,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
           const result = this.impl.setFeatureEnabledState(params.feature, params.enabled, params.auth_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -876,8 +871,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
           const result = this.impl.getFeatureStates();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -888,8 +882,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
           const result = this.impl.retrySetHostNow();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -900,8 +893,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
           const result = this.impl.triggerEventForDebugging(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -917,8 +909,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
           const result = this.impl.getQuickStartPhoneInstanceID();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1017,8 +1008,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = class {
           const result = this.impl.setHostDevice(params.instance_id_or_legacy_device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -130,8 +130,7 @@ arc.mojom.VideoHostReceiver = class {
           const result = this.impl.onBootstrapVideoAcceleratorFactory();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -142,8 +141,7 @@ arc.mojom.VideoHostReceiver = class {
           const result = this.impl.createVideoAcceleratorFactory();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -241,8 +239,7 @@ arc.mojom.VideoInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

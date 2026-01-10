@@ -190,8 +190,7 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
           const result = this.impl.selectURL(params.name, params.urls_with_metadata, params.serialized_data, params.keep_alive_after_operation, params.private_aggregation_config, params.resolve_to_config, params.saved_query_name, params.start_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -202,8 +201,7 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
           const result = this.impl.run(params.name, params.serialized_data, params.keep_alive_after_operation, params.private_aggregation_config, params.start_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -378,8 +376,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
           const result = this.impl.createWorklet(params.script_source_url, params.data_origin, params.data_origin_type, params.credentials_mode, params.creation_method, params.origin_trial_features, params.worklet_host);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -390,8 +387,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
           const result = this.impl.sharedStorageGet(params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -402,8 +398,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
           const result = this.impl.sharedStorageUpdate(params.method_with_options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -414,8 +409,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
           const result = this.impl.sharedStorageBatchUpdate(params.methods_with_options, params.with_lock);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec);
                responder(response);
             }});
           }

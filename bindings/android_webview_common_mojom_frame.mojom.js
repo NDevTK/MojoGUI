@@ -207,8 +207,7 @@ android_webview.mojom.LocalMainFrameReceiver = class {
           const result = this.impl.documentHasImage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -362,8 +361,7 @@ android_webview.mojom.FrameHostReceiver = class {
           const result = this.impl.shouldOverrideUrlLoading(params.url, params.has_user_gesture, params.is_redirect, params.is_outermost_main_frame);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec);
                responder(response);
             }});
           }

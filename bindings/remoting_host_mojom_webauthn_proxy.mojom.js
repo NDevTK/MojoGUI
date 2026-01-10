@@ -143,8 +143,7 @@ remoting.mojom.WebAuthnRequestCancellerReceiver = class {
           const result = this.impl.cancel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -288,8 +287,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
           const result = this.impl.isUserVerifyingPlatformAuthenticatorAvailable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -300,8 +298,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
           const result = this.impl.create(params.request_data, params.request_canceller);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -312,8 +309,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
           const result = this.impl.get(params.request_data, params.request_canceller);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec);
                responder(response);
             }});
           }

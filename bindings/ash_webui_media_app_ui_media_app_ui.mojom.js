@@ -328,8 +328,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const result = this.impl.openFeedbackDialog();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -340,8 +339,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const result = this.impl.toggleBrowserFullscreenMode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -352,8 +350,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const result = this.impl.maybeTriggerPdfHats();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -364,8 +361,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const result = this.impl.isFileArcWritable(params.token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -376,8 +372,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const result = this.impl.isFileBrowserWritable(params.token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -388,8 +383,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const result = this.impl.editInPhotos(params.token, params.mime_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -400,8 +394,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const result = this.impl.submitForm(params.url, params.payload, params.header);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec);
                responder(response);
             }});
           }

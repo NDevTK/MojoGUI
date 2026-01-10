@@ -195,8 +195,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
           const result = this.impl.read(params.file_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -207,8 +206,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
           const result = this.impl.write(params.file_name, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -219,8 +217,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
           const result = this.impl.exists(params.file_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -231,8 +228,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
           const result = this.impl.getSize(params.file_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -243,8 +239,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
           const result = this.impl.remove(params.file_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec);
                responder(response);
             }});
           }

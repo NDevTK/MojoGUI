@@ -232,8 +232,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
           const result = this.impl.getApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -244,8 +243,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
           const result = this.impl.getSystemAppsThatUseCamera();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -256,8 +254,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
           const result = this.impl.getSystemAppsThatUseMicrophone();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec);
                responder(response);
             }});
           }

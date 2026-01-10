@@ -356,8 +356,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
           const result = this.impl.getIsShoppingListEligible();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -373,8 +372,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
           const result = this.impl.getProductInfoForUrl(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -385,8 +383,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
           const result = this.impl.getSubscriptionDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -397,8 +394,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
           const result = this.impl.getProductSpecificationsDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -414,8 +410,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
           const result = this.impl.getShoppingEligibilityDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec);
                responder(response);
             }});
           }

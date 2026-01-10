@@ -230,8 +230,7 @@ mantis.mojom.MantisServiceReceiver = class {
           const result = this.impl.getMantisFeatureStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -242,8 +241,7 @@ mantis.mojom.MantisServiceReceiver = class {
           const result = this.impl.initialize(params.progress_observer, params.processor, params.dlc_uuid, params.text_classifier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mantis.mojom.MantisService_Initialize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisService_Initialize_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -186,8 +186,7 @@ ash.mojom.sample_swa.ParentTrustedPageReceiver = class {
           const result = this.impl.doSomethingForChild(params.task);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -183,8 +183,7 @@ ntp.tab_groups.mojom.PageHandlerReceiver = class {
           const result = this.impl.getTabGroups();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec);
                responder(response);
             }});
           }

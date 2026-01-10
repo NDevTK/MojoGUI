@@ -111,8 +111,7 @@ ash.growth.mojom.PageHandlerReceiver = class {
           const result = this.impl.getCampaignsLogs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec);
                responder(response);
             }});
           }

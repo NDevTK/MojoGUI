@@ -232,8 +232,7 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
           const result = this.impl.getPreferences();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -391,8 +391,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           const result = this.impl.getBaseDataPathForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -403,8 +402,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           const result = this.impl.getFilePathForTesting(params.bucket_locator, params.for_sqlite);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -415,8 +413,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           const result = this.impl.resetCachesForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -427,8 +424,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           const result = this.impl.getPathForBlobForTesting(params.bucket_locator, params.database_id, params.blob_number);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -439,8 +435,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           const result = this.impl.flushBackingStoreForTesting(params.bucket_locator);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -451,8 +446,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           const result = this.impl.flushBucketSequenceForTesting(params.bucket_locator);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -463,8 +457,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           const result = this.impl.getUsageForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -480,8 +473,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
           const result = this.impl.forceInitializeFromFilesForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }

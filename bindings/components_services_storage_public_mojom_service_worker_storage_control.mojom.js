@@ -347,8 +347,7 @@ storage.mojom.ServiceWorkerResourceReaderReceiver = class {
           const result = this.impl.readResponseHead();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -359,8 +358,7 @@ storage.mojom.ServiceWorkerResourceReaderReceiver = class {
           const result = this.impl.prepareReadData(params.size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -371,8 +369,7 @@ storage.mojom.ServiceWorkerResourceReaderReceiver = class {
           const result = this.impl.readData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -493,8 +490,7 @@ storage.mojom.ServiceWorkerResourceWriterReceiver = class {
           const result = this.impl.writeResponseHead(params.response_head);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -505,8 +501,7 @@ storage.mojom.ServiceWorkerResourceWriterReceiver = class {
           const result = this.impl.writeData(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -605,8 +600,7 @@ storage.mojom.ServiceWorkerResourceMetadataWriterReceiver = class {
           const result = this.impl.writeMetadata(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1644,8 +1638,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.disable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_Disable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_Disable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1656,8 +1649,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.delete();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1668,8 +1660,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.recover(params.versions);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_Recover_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_Recover_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1680,8 +1671,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getRegisteredStorageKeys();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1692,8 +1682,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.findRegistrationForClientUrl(params.client_url, params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1704,8 +1693,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.findRegistrationForScope(params.scope, params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1716,8 +1704,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.findRegistrationForId(params.registration_id, params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1728,8 +1715,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getRegistrationsForStorageKey(params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1740,8 +1726,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getUsageForStorageKey(params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1752,8 +1737,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getAllRegistrationsDeprecated();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1764,8 +1748,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getFakeRegistrationForClientUrl(params.client_url, params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1776,8 +1759,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.storeRegistration(params.registration, params.resources);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1788,8 +1770,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.deleteRegistration(params.registration_id, params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1800,8 +1781,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.updateToActiveState(params.registration_id, params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1812,8 +1792,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.updateLastUpdateCheckTime(params.registration_id, params.key, params.last_update_check_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1824,8 +1803,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.updateNavigationPreloadEnabled(params.registration_id, params.key, params.enable);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1836,8 +1814,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.updateNavigationPreloadHeader(params.registration_id, params.key, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1848,8 +1825,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.updateFetchHandlerType(params.registration_id, params.key, params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1860,8 +1836,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.updateResourceSha256Checksums(params.registratation_id, params.key, params.updated_sha256_checksums);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1872,8 +1847,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getNewRegistrationId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1884,8 +1858,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getNewVersionId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1896,8 +1869,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getNewResourceId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1923,8 +1895,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.storeUncommittedResourceId(params.resource_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1935,8 +1906,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.doomUncommittedResources(params.resource_ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1947,8 +1917,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getUserData(params.registration_id, params.keys);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1959,8 +1928,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.storeUserData(params.registration_id, params.key, params.user_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1971,8 +1939,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.clearUserData(params.registration_id, params.keys);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1983,8 +1950,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getUserDataByKeyPrefix(params.registration_id, params.key_prefix);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1995,8 +1961,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getUserKeysAndDataByKeyPrefix(params.registration_id, params.key_prefix);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2007,8 +1972,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.clearUserDataByKeyPrefixes(params.registratation_id, params.key_prefixes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2019,8 +1983,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getUserDataForAllRegistrations(params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2031,8 +1994,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getUserDataForAllRegistrationsByKeyPrefix(params.key_prefix);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2043,8 +2005,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.clearUserDataForAllRegistrationsByKeyPrefix(params.key_prefix);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2055,8 +2016,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.performStorageCleanup();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2067,8 +2027,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.applyPolicyUpdates(params.policy_updates);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2079,8 +2038,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getPurgingResourceIdsForTest();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2091,8 +2049,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getPurgingResourceIdsForLiveVersionForTest(params.version_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2103,8 +2060,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getPurgeableResourceIdsForTest();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2115,8 +2071,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.getUncommittedResourceIdsForTest();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2127,8 +2082,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
           const result = this.impl.setPurgingCompleteCallbackForTest();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec);
                responder(response);
             }});
           }

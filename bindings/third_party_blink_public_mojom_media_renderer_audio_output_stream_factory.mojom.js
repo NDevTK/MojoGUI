@@ -101,8 +101,7 @@ blink.mojom.RendererAudioOutputStreamFactoryReceiver = class {
           const result = this.impl.requestDeviceAuthorization(params.stream_provider_receiver, params.session_id, params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec);
                responder(response);
             }});
           }

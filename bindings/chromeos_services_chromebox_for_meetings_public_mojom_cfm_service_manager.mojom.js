@@ -205,8 +205,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
           const result = this.impl.provideAdaptor(params.interface_name, params.adaptor_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -217,8 +216,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
           const result = this.impl.requestBindService(params.interface_name, params.receiver_pipe);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec);
                responder(response);
             }});
           }

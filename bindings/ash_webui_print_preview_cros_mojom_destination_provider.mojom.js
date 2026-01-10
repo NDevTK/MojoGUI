@@ -99,8 +99,7 @@ ash.printing.print_preview.mojom.DestinationProviderReceiver = class {
           const result = this.impl.fetchCapabilities(params.destination_id, params.printer_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec);
                responder(response);
             }});
           }

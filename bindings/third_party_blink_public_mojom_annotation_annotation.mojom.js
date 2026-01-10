@@ -368,8 +368,7 @@ blink.mojom.AnnotationAgentContainerReceiver = class {
           const result = this.impl.createAgentFromSelection(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec);
                responder(response);
             }});
           }

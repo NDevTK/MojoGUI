@@ -95,8 +95,7 @@ metrics.mojom.CallStackProfileCollectorTestReceiver = class {
           const result = this.impl.bounceSampledProfile(params.in);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec);
                responder(response);
             }});
           }

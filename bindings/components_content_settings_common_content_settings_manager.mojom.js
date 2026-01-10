@@ -153,8 +153,7 @@ content_settings.mojom.ContentSettingsManagerReceiver = class {
           const result = this.impl.allowStorageAccess(params.frame_token, params.storage_type, params.origin, params.site_for_cookies, params.top_frame_origin);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec);
                responder(response);
             }});
           }

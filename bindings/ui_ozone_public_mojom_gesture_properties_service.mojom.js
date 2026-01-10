@@ -213,8 +213,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           const result = this.impl.listDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -225,8 +224,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           const result = this.impl.listProperties(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -237,8 +235,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           const result = this.impl.getProperty(params.device_id, params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -249,8 +246,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           const result = this.impl.setProperty(params.device_id, params.name, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec);
                responder(response);
             }});
           }

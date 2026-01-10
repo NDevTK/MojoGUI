@@ -796,8 +796,7 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
           const result = this.impl.start(params.authenticated_jid, params.resolution, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -917,8 +916,7 @@ remoting.mojom.FileWriterReceiver = class {
           const result = this.impl.writeChunk(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -929,8 +927,7 @@ remoting.mojom.FileWriterReceiver = class {
           const result = this.impl.closeFile();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1029,8 +1026,7 @@ remoting.mojom.FileReaderReceiver = class {
           const result = this.impl.readChunk(params.bytes_to_read);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1343,8 +1339,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
           const result = this.impl.createVideoCapturer(params.desktop_display_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1405,8 +1400,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
           const result = this.impl.beginFileRead();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1417,8 +1411,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
           const result = this.impl.beginFileWrite(params.file_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec);
                responder(response);
             }});
           }

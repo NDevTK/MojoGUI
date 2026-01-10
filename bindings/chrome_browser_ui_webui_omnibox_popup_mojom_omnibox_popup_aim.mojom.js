@@ -360,8 +360,7 @@ omnibox_popup_aim.mojom.PageReceiver = class {
           const result = this.impl.onPopupHidden();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec);
                responder(response);
             }});
           }

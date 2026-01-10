@@ -197,8 +197,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
           const result = this.impl.requestClose();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -209,8 +208,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
           const result = this.impl.getInstalledArcApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -221,8 +219,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
           const result = this.impl.getOAuthToken();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec);
                responder(response);
             }});
           }

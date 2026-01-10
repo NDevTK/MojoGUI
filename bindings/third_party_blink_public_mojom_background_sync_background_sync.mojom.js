@@ -200,8 +200,7 @@ blink.mojom.OneShotBackgroundSyncServiceReceiver = class {
           const result = this.impl.register(params.options, params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -217,8 +216,7 @@ blink.mojom.OneShotBackgroundSyncServiceReceiver = class {
           const result = this.impl.getRegistrations(params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -365,8 +363,7 @@ blink.mojom.PeriodicBackgroundSyncServiceReceiver = class {
           const result = this.impl.register(params.options, params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -377,8 +374,7 @@ blink.mojom.PeriodicBackgroundSyncServiceReceiver = class {
           const result = this.impl.unregister(params.service_worker_registration_id, params.tag);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -389,8 +385,7 @@ blink.mojom.PeriodicBackgroundSyncServiceReceiver = class {
           const result = this.impl.getRegistrations(params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec);
                responder(response);
             }});
           }

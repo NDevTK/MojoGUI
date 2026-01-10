@@ -134,8 +134,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
           const result = this.impl.connectSnapshotController(params.controller);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -146,8 +145,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
           const result = this.impl.connectProfileCollector(params.collector);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec);
                responder(response);
             }});
           }

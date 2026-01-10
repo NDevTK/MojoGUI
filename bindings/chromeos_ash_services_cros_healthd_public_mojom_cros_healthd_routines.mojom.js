@@ -1057,8 +1057,7 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
           const result = this.impl.isRoutineArgumentSupported(params.routine_argument);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1187,8 +1186,7 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
           const result = this.impl.getState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec);
                responder(response);
             }});
           }

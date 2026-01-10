@@ -127,8 +127,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerReceiver = class {
           const result = this.impl.getEvents();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec);
                responder(response);
             }});
           }

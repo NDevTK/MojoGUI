@@ -176,8 +176,7 @@ legion.mojom.OakSessionReceiver = class {
           const result = this.impl.initiateHandshake();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -188,8 +187,7 @@ legion.mojom.OakSessionReceiver = class {
           const result = this.impl.completeHandshake(params.response);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -200,8 +198,7 @@ legion.mojom.OakSessionReceiver = class {
           const result = this.impl.encrypt(params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, legion.mojom.OakSession_Encrypt_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion.mojom.OakSession_Encrypt_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -212,8 +209,7 @@ legion.mojom.OakSessionReceiver = class {
           const result = this.impl.decrypt(params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, legion.mojom.OakSession_Decrypt_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion.mojom.OakSession_Decrypt_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -291,8 +291,7 @@ arc.mojom.ImeHostReceiver = class {
           const result = this.impl.sendKeyEvent(params.key_event_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -506,8 +505,7 @@ arc.mojom.ImeInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ImeInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ImeInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

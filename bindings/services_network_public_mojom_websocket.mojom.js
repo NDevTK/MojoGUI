@@ -157,8 +157,7 @@ network.mojom.WebSocketAuthenticationHandlerReceiver = class {
           const result = this.impl.onAuthRequired(params.info, params.headers, params.remote_endpoint);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec);
                responder(response);
             }});
           }

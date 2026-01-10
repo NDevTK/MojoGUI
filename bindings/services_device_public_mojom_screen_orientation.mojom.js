@@ -115,8 +115,7 @@ device.mojom.ScreenOrientationReceiver = class {
           const result = this.impl.lockOrientation(params.orientation);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -219,8 +218,7 @@ device.mojom.ScreenOrientationListenerReceiver = class {
           const result = this.impl.isAutoRotateEnabledByUser();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec);
                responder(response);
             }});
           }

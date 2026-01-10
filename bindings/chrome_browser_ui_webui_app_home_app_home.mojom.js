@@ -406,8 +406,7 @@ app_home.mojom.PageHandlerReceiver = class {
           const result = this.impl.getApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, app_home.mojom.PageHandler_GetApps_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_home.mojom.PageHandler_GetApps_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -418,8 +417,7 @@ app_home.mojom.PageHandlerReceiver = class {
           const result = this.impl.getDeprecationLinkString();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -440,8 +438,7 @@ app_home.mojom.PageHandlerReceiver = class {
           const result = this.impl.createAppShortcut(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec);
                responder(response);
             }});
           }

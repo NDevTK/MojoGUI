@@ -189,8 +189,7 @@ chromeos.machine_learning.mojom.ModelReceiver = class {
           const result = this.impl.rEMOVED_0(params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -201,8 +200,7 @@ chromeos.machine_learning.mojom.ModelReceiver = class {
           const result = this.impl.createGraphExecutor(params.options, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -193,8 +193,7 @@ arc.mojom.PrintSessionInstanceReceiver = class {
           const result = this.impl.createPreviewDocument(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -295,8 +294,7 @@ arc.mojom.PrintSpoolerHostReceiver = class {
           const result = this.impl.startPrintInCustomTab(params.scoped_handle, params.task_id, params.instance);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -394,8 +392,7 @@ arc.mojom.PrintSpoolerInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

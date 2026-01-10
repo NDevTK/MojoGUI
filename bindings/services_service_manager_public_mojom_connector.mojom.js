@@ -316,8 +316,7 @@ service_manager.mojom.ConnectorReceiver = class {
           const result = this.impl.bindInterface(params.filter, params.interface_name, params.interface_pipe, params.priority);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, service_manager.mojom.Connector_BindInterface_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, service_manager.mojom.Connector_BindInterface_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -328,8 +327,7 @@ service_manager.mojom.ConnectorReceiver = class {
           const result = this.impl.queryService(params.service_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, service_manager.mojom.Connector_QueryService_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, service_manager.mojom.Connector_QueryService_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -340,8 +338,7 @@ service_manager.mojom.ConnectorReceiver = class {
           const result = this.impl.warmService(params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, service_manager.mojom.Connector_WarmService_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, service_manager.mojom.Connector_WarmService_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -352,8 +349,7 @@ service_manager.mojom.ConnectorReceiver = class {
           const result = this.impl.registerServiceInstance(params.identity, params.service, params.metadata_receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec);
                responder(response);
             }});
           }

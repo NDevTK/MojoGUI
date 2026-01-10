@@ -95,8 +95,7 @@ commerce_web_extractor.mojom.CommerceWebExtractorReceiver = class {
           const result = this.impl.extractMetaInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

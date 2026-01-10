@@ -128,8 +128,7 @@ blink.mojom.WebViewMediaIntegrityServiceReceiver = class {
           const result = this.impl.getIntegrityProvider(params.provider_receiver, params.cloud_project_number);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -228,8 +227,7 @@ blink.mojom.WebViewMediaIntegrityProviderReceiver = class {
           const result = this.impl.requestToken(params.content_binding);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec);
                responder(response);
             }});
           }

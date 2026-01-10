@@ -119,8 +119,7 @@ gfx.mojom.RangeTraitsTestServiceReceiver = class {
           const result = this.impl.echoRange(params.p);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -131,8 +130,7 @@ gfx.mojom.RangeTraitsTestServiceReceiver = class {
           const result = this.impl.echoRangeF(params.p);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec);
                responder(response);
             }});
           }

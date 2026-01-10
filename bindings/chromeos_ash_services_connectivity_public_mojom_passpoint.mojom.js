@@ -285,8 +285,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
           const result = this.impl.getPasspointSubscription(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -297,8 +296,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
           const result = this.impl.listPasspointSubscriptions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -309,8 +307,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
           const result = this.impl.deletePasspointSubscription(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec);
                responder(response);
             }});
           }

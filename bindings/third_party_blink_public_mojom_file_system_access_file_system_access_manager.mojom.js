@@ -327,8 +327,7 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
           const result = this.impl.getSandboxedFileSystem();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -339,8 +338,7 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
           const result = this.impl.getSandboxedFileSystemForDevtools(params.directory_path_components);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -351,8 +349,7 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
           const result = this.impl.chooseEntries(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -373,8 +370,7 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
           const result = this.impl.getEntryFromDataTransferToken(params.token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec);
                responder(response);
             }});
           }

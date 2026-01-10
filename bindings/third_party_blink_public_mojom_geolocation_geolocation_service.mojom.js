@@ -97,8 +97,7 @@ blink.mojom.GeolocationServiceReceiver = class {
           const result = this.impl.createGeolocation(params.receiver, params.user_gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec);
                responder(response);
             }});
           }

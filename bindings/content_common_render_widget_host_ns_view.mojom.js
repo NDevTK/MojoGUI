@@ -791,8 +791,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class {
           const result = this.impl.showSharingServicePicker(params.title, params.text, params.url, params.file_paths);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -818,8 +817,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class {
           const result = this.impl.displayPopupMenu(params.menu);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1560,8 +1558,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
           const result = this.impl.syncIsWidgetForMainFrame();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1682,8 +1679,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
           const result = this.impl.syncGetCharacterIndexAtPoint(params.root_point);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1694,8 +1690,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
           const result = this.impl.syncGetFirstRectForRange(params.requested_range);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1766,8 +1761,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
           const result = this.impl.syncIsSpeaking();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1778,8 +1772,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
           const result = this.impl.getRenderWidgetAccessibilityToken();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ResponseParamsSpec);
                responder(response);
             }});
           }

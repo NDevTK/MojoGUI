@@ -357,8 +357,7 @@ ax.mojom.TtsReceiver = class {
           const result = this.impl.speak(params.utterance, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ax.mojom.Tts_Speak_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.Tts_Speak_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -384,8 +383,7 @@ ax.mojom.TtsReceiver = class {
           const result = this.impl.isSpeaking();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ax.mojom.Tts_IsSpeaking_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.Tts_IsSpeaking_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -396,8 +394,7 @@ ax.mojom.TtsReceiver = class {
           const result = this.impl.getVoices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ax.mojom.Tts_GetVoices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.Tts_GetVoices_ResponseParamsSpec);
                responder(response);
             }});
           }

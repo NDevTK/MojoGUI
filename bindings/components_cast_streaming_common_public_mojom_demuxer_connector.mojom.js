@@ -197,8 +197,7 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
           const result = this.impl.getBuffer();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -209,8 +208,7 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
           const result = this.impl.enableBitstreamConverter();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -329,8 +327,7 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
           const result = this.impl.getBuffer();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -341,8 +338,7 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
           const result = this.impl.enableBitstreamConverter();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -456,8 +452,7 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
           const result = this.impl.enableReceiver();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec);
                responder(response);
             }});
           }

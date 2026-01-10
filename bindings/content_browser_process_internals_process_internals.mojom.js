@@ -304,8 +304,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
           const result = this.impl.getProcessCountInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -316,8 +315,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
           const result = this.impl.getIsolationMode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -328,8 +326,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
           const result = this.impl.getProcessPerSiteMode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -340,8 +337,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
           const result = this.impl.getUserTriggeredIsolatedOrigins();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -352,8 +348,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
           const result = this.impl.getWebTriggeredIsolatedOrigins();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -364,8 +359,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
           const result = this.impl.getGloballyIsolatedOrigins();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -376,8 +370,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
           const result = this.impl.getAllWebContentsInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

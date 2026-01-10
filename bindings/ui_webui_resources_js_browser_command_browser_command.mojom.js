@@ -247,8 +247,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
           const result = this.impl.canExecuteCommand(params.command_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -259,8 +258,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
           const result = this.impl.executeCommand(params.command_id, params.click_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec);
                responder(response);
             }});
           }

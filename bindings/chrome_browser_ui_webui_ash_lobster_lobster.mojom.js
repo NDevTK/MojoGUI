@@ -360,8 +360,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           const result = this.impl.requestCandidates(params.query, params.num_candidates);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -372,8 +371,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           const result = this.impl.downloadCandidate(params.candidate_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -384,8 +382,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           const result = this.impl.commitAsInsert(params.candidate_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -396,8 +393,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           const result = this.impl.commitAsDownload(params.candidate_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -408,8 +404,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           const result = this.impl.previewFeedback(params.candidate_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -420,8 +415,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           const result = this.impl.submitFeedback(params.candidate_id, params.description);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec);
                responder(response);
             }});
           }

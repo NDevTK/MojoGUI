@@ -523,8 +523,7 @@ blink.mojom.AIPageContentAgentReceiver = class {
           const result = this.impl.getAIPageContent(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec);
                responder(response);
             }});
           }

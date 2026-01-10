@@ -141,8 +141,7 @@ patch.mojom.FilePatcherReceiver = class {
           const result = this.impl.patchFilePuffPatch(params.input_file, params.patch_file, params.output_file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -153,8 +152,7 @@ patch.mojom.FilePatcherReceiver = class {
           const result = this.impl.patchFileZucchini(params.input_file, params.patch_file, params.output_file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec);
                responder(response);
             }});
           }

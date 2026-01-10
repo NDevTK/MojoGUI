@@ -682,8 +682,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           const result = this.impl.observeTabletMode(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -699,8 +698,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           const result = this.impl.observeDisplayBrightnessSettings(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -711,8 +709,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           const result = this.impl.observeAmbientLightSensor(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -748,8 +745,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           const result = this.impl.hasAmbientLightSensor();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec);
                responder(response);
             }});
           }

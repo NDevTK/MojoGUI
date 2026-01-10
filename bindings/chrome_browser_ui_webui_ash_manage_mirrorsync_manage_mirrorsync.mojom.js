@@ -219,8 +219,7 @@ ash.manage_mirrorsync.mojom.PageHandlerReceiver = class {
           const result = this.impl.getChildFolders(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -231,8 +230,7 @@ ash.manage_mirrorsync.mojom.PageHandlerReceiver = class {
           const result = this.impl.getSyncingPaths();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec);
                responder(response);
             }});
           }

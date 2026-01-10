@@ -226,8 +226,7 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
           const result = this.impl.requestPrintPreview(params.token, params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -238,8 +237,7 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
           const result = this.impl.printPreviewDone(params.token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -361,8 +359,7 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
           const result = this.impl.generatePrintPreview(params.token, params.settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -373,8 +370,7 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
           const result = this.impl.handleDialogClosed(params.token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec);
                responder(response);
             }});
           }

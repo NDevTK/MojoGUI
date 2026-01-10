@@ -251,8 +251,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
           const result = this.impl.findFamily(params.family_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -263,8 +262,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
           const result = this.impl.getFamilyCount();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -275,8 +273,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
           const result = this.impl.getFamilyNames(params.family_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -287,8 +284,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
           const result = this.impl.getFontFileHandles(params.family_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -299,8 +295,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
           const result = this.impl.matchUniqueFont(params.font_unique_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -311,8 +306,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
           const result = this.impl.mapCharacters(params.text, params.font_style, params.locale_name, params.reading_direction, params.base_family_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -622,8 +622,7 @@ content.mojom.FrameReceiver = class {
           const result = this.impl.commitSameDocumentNavigation(params.common_params, params.request_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -664,8 +663,7 @@ content.mojom.FrameReceiver = class {
           const result = this.impl.snapshotAccessibilityTree(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1249,8 +1247,7 @@ content.mojom.FrameHostReceiver = class {
           const result = this.impl.createNewWindow(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -261,8 +261,7 @@ blink.mojom.FindInPageReceiver = class {
           const result = this.impl.getNearestFindResult(params.point);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -278,8 +277,7 @@ blink.mojom.FindInPageReceiver = class {
           const result = this.impl.findMatchRects(params.current_version);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec);
                responder(response);
             }});
           }

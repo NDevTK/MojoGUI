@@ -923,8 +923,7 @@ media_session.mojom.MediaSessionReceiver = class {
           const result = this.impl.getMediaSessionInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -935,8 +934,7 @@ media_session.mojom.MediaSessionReceiver = class {
           const result = this.impl.getDebugInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -997,8 +995,7 @@ media_session.mojom.MediaSessionReceiver = class {
           const result = this.impl.getMediaImageBitmap(params.image, params.minimum_size_px, params.desired_size_px);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1079,8 +1076,7 @@ media_session.mojom.MediaSessionReceiver = class {
           const result = this.impl.getVisibility();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec);
                responder(response);
             }});
           }

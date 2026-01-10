@@ -174,8 +174,7 @@ extensions.mojom.RendererHostReceiver = class {
           const result = this.impl.getMessageBundle(params.extension_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec);
                responder(response);
             }});
           }

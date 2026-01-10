@@ -240,8 +240,7 @@ video_capture.mojom.DeviceReceiver = class {
           const result = this.impl.getPhotoState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -252,8 +251,7 @@ video_capture.mojom.DeviceReceiver = class {
           const result = this.impl.setPhotoOptions(params.settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -264,8 +262,7 @@ video_capture.mojom.DeviceReceiver = class {
           const result = this.impl.takePhoto();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.Device_TakePhoto_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.Device_TakePhoto_ResponseParamsSpec);
                responder(response);
             }});
           }

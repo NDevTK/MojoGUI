@@ -213,8 +213,7 @@ handwriting.mojom.HandwritingRecognizerReceiver = class {
           const result = this.impl.getPrediction(params.strokes, params.hints);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -336,8 +335,7 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
           const result = this.impl.createHandwritingRecognizer(params.constraint);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -348,8 +346,7 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
           const result = this.impl.queryHandwritingRecognizer(params.constraint);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec);
                responder(response);
             }});
           }

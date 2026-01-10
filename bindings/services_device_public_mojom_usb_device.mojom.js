@@ -653,8 +653,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.open();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_Open_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_Open_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -665,8 +664,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_Close_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_Close_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -677,8 +675,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.setConfiguration(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -689,8 +686,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.claimInterface(params.interface_number);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -701,8 +697,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.releaseInterface(params.interface_number);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -713,8 +708,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.setInterfaceAlternateSetting(params.interface_number, params.alternate_setting);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -725,8 +719,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.reset();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_Reset_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_Reset_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -737,8 +730,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.clearHalt(params.direction, params.endpoint_number);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -749,8 +741,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.controlTransferIn(params.params, params.length, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -761,8 +752,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.controlTransferOut(params.params, params.data, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -773,8 +763,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.genericTransferIn(params.endpoint_number, params.length, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -785,8 +774,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.genericTransferOut(params.endpoint_number, params.data, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -797,8 +785,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.isochronousTransferIn(params.endpoint_number, params.packet_lengths, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -809,8 +796,7 @@ device.mojom.UsbDeviceReceiver = class {
           const result = this.impl.isochronousTransferOut(params.endpoint_number, params.data, params.packet_lengths, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec);
                responder(response);
             }});
           }

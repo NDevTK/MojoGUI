@@ -208,8 +208,7 @@ media.mojom.WebrtcVideoPerfHistoryReceiver = class {
           const result = this.impl.getPerfInfo(params.features, params.frames_per_second);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

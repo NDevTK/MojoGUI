@@ -172,8 +172,7 @@ webnn.mojom.WebNNContextReceiver = class {
           const result = this.impl.createTensor(params.tensor_info, params.tensor_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -184,8 +183,7 @@ webnn.mojom.WebNNContextReceiver = class {
           const result = this.impl.createTensorFromMailbox(params.tensor_info, params.mailbox, params.fence);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec);
                responder(response);
             }});
           }

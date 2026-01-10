@@ -108,8 +108,7 @@ chrome.mojom.UtilReadIconReceiver = class {
           const result = this.impl.readIcon(params.file, params.size, params.scale);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec);
                responder(response);
             }});
           }

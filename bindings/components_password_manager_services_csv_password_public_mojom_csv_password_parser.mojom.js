@@ -121,8 +121,7 @@ password_manager.mojom.CSVPasswordParserReceiver = class {
           const result = this.impl.parseCSV(params.raw_csv);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec);
                responder(response);
             }});
           }

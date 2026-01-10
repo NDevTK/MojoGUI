@@ -651,8 +651,7 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
           const result = this.impl.onCameraUsageOwnershipChanged(params.has_usage);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1241,8 +1240,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           const result = this.impl.addMonitor(params.monitor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1253,8 +1251,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           const result = this.impl.getWindowState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1265,8 +1262,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           const result = this.impl.minimize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1277,8 +1273,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           const result = this.impl.restore();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1289,8 +1284,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           const result = this.impl.maximize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1301,8 +1295,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           const result = this.impl.fullscreen();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1313,8 +1306,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           const result = this.impl.focus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2030,8 +2022,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.handleCameraResult(params.intent_id, params.action, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2042,8 +2033,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.isTabletMode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2064,8 +2054,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.setTabletMonitor(params.monitor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2076,8 +2065,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.setScreenStateMonitor(params.monitor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2088,8 +2076,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.isMetricsAndCrashReportingEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2100,8 +2087,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.setExternalScreenMonitor(params.monitor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2127,8 +2113,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.getWindowStateController();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2139,8 +2124,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.processCapturedFile(params.file_type, params.destination);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2151,8 +2135,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.monitorFileDeletion(params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2163,8 +2146,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.isDocumentScannerSupported();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2175,8 +2157,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.checkDocumentModeReadiness();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2187,8 +2168,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.scanDocumentCorners(params.jpeg_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2199,8 +2179,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.convertToDocument(params.jpeg_data, params.corners, params.rotation);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2216,8 +2195,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.startStorageMonitor(params.monitor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2243,8 +2221,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.setLidStateMonitor(params.monitor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2255,8 +2232,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.setSWPrivacySwitchMonitor(params.monitor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2267,8 +2243,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.getEventsSender();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2279,8 +2254,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.setScreenLockedMonitor(params.monitor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2291,8 +2265,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.renderPdfAsJpeg(params.pdf_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2303,8 +2276,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.performOcr(params.jpeg_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2315,8 +2287,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.performOcrInline(params.jpeg_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2332,8 +2303,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           const result = this.impl.getAspectRatioOrder();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec);
                responder(response);
             }});
           }

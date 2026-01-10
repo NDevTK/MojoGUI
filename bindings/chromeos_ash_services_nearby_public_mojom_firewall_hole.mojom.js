@@ -163,8 +163,7 @@ sharing.mojom.FirewallHoleFactoryReceiver = class {
           const result = this.impl.openFirewallHole(params.port);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec);
                responder(response);
             }});
           }

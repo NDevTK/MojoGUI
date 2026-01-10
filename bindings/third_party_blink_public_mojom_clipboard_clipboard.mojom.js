@@ -705,8 +705,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.getSequenceNumber(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -717,8 +716,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.isFormatAvailable(params.format, params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -729,8 +727,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.readAvailableTypes(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -741,8 +738,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.readText(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -753,8 +749,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.readHtml(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -765,8 +760,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.readSvg(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -777,8 +771,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.readRtf(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -789,8 +782,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.readPng(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -801,8 +793,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.readFiles(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -813,8 +804,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.readDataTransferCustomData(params.buffer, params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -825,8 +815,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.readAvailableCustomAndStandardFormats();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -837,8 +826,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.readUnsanitizedCustomFormat(params.format);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -899,8 +887,7 @@ blink.mojom.ClipboardHostReceiver = class {
           const result = this.impl.getPlatformPermissionState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec);
                responder(response);
             }});
           }

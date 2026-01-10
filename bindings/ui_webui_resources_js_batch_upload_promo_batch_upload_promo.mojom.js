@@ -204,8 +204,7 @@ batch_upload_promo.mojom.PageHandlerReceiver = class {
           const result = this.impl.getBatchUploadPromoLocalDataCount();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec);
                responder(response);
             }});
           }

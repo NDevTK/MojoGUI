@@ -401,8 +401,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
           const result = this.impl.requestBitmapForContextNode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -413,8 +412,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
           const result = this.impl.requestBitmapForContextNodeWithBoundsHint();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -425,8 +423,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
           const result = this.impl.requestBoundsHintForAllImages();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -437,8 +434,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
           const result = this.impl.requestImageForContextNode(params.image_min_area_pixels, params.image_max_size_pixels, params.image_format, params.quality);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -459,8 +455,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
           const result = this.impl.getMediaFeedURL();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -481,8 +476,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
           const result = this.impl.invokeTool(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec);
                responder(response);
             }});
           }

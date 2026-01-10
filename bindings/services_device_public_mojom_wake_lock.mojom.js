@@ -198,8 +198,7 @@ device.mojom.WakeLockReceiver = class {
           const result = this.impl.changeType(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.WakeLock_ChangeType_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.WakeLock_ChangeType_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -210,8 +209,7 @@ device.mojom.WakeLockReceiver = class {
           const result = this.impl.hasWakeLockForTests();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec);
                responder(response);
             }});
           }

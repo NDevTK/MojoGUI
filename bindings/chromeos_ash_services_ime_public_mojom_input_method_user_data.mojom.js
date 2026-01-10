@@ -344,8 +344,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
           const result = this.impl.fetchJapaneseDictionary();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -356,8 +355,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
           const result = this.impl.addJapaneseDictionaryEntry(params.dict_id, params.entry);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -368,8 +366,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
           const result = this.impl.editJapaneseDictionaryEntry(params.dict_id, params.entry_index, params.entry);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -380,8 +377,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
           const result = this.impl.deleteJapaneseDictionaryEntry(params.dict_id, params.entry_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -392,8 +388,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
           const result = this.impl.createJapaneseDictionary(params.dictionary_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -404,8 +399,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
           const result = this.impl.renameJapaneseDictionary(params.dict_id, params.dictionary_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -416,8 +410,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
           const result = this.impl.deleteJapaneseDictionary(params.dict_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -428,8 +421,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
           const result = this.impl.exportJapaneseDictionary(params.dict_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -440,8 +432,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
           const result = this.impl.importJapaneseDictionary(params.dict_id, params.tsv_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -452,8 +443,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
           const result = this.impl.clearJapanesePersonalizationData(params.clear_conversion_history, params.clear_suggestion_history);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec);
                responder(response);
             }});
           }

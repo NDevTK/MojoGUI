@@ -167,8 +167,7 @@ chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerReceiver = cla
           const result = this.impl.getPrediction(params.strokes, params.hints);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -225,8 +225,7 @@ ax.mojom.UserInterfaceReceiver = class {
           const result = this.impl.showConfirmationDialog(params.title, params.description, params.cancelName);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -224,8 +224,7 @@ chromeos.machine_learning.mojom.HandwritingRecognizerReceiver = class {
           const result = this.impl.recognize(params.query);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -323,8 +323,7 @@ device.mojom.GeolocationInternalsReceiver = class {
           const result = this.impl.addInternalsObserver(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec);
                responder(response);
             }});
           }

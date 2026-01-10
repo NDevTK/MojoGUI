@@ -348,8 +348,7 @@ media.mojom.AndroidOverlayClientReceiver = class {
           const result = this.impl.onSynchronouslyDestroyed();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec);
                responder(response);
             }});
           }

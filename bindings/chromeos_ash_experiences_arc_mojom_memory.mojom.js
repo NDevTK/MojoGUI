@@ -142,8 +142,7 @@ arc.mojom.MemoryInstanceReceiver = class {
           const result = this.impl.dropCaches();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -154,8 +153,7 @@ arc.mojom.MemoryInstanceReceiver = class {
           const result = this.impl.reclaim(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec);
                responder(response);
             }});
           }

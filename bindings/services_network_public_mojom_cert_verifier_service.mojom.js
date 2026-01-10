@@ -282,8 +282,7 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
           const result = this.impl.verify2QwacBinding(params.binding, params.hostname, params.tls_certificate, params.net_log_source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec);
                responder(response);
             }});
           }

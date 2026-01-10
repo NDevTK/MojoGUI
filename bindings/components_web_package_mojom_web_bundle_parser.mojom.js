@@ -474,8 +474,7 @@ web_package.mojom.WebBundleParserReceiver = class {
           const result = this.impl.parseIntegrityBlock();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -486,8 +485,7 @@ web_package.mojom.WebBundleParserReceiver = class {
           const result = this.impl.parseMetadata(params.offset);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -498,8 +496,7 @@ web_package.mojom.WebBundleParserReceiver = class {
           const result = this.impl.parseResponse(params.response_offset, params.response_length);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -510,8 +507,7 @@ web_package.mojom.WebBundleParserReceiver = class {
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, web_package.mojom.WebBundleParser_Close_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.WebBundleParser_Close_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -673,8 +669,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
           const result = this.impl.read(params.offset, params.length);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Read_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Read_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -685,8 +680,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
           const result = this.impl.length();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Length_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Length_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -697,8 +691,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
           const result = this.impl.isRandomAccessContext();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -709,8 +702,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Close_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Close_ResponseParamsSpec);
                responder(response);
             }});
           }

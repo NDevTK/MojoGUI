@@ -1182,8 +1182,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.authenticateWebview();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1194,8 +1193,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.getWindowsTabsList();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1206,8 +1204,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.listCourses();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1218,8 +1215,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.listStudents(params.course_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1230,8 +1226,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.listAssignments(params.course_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1242,8 +1237,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.createSession(params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1254,8 +1248,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.getSession();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1266,8 +1259,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.endSession();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1278,8 +1270,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.extendSessionDuration(params.extended_duration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1290,8 +1281,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.removeStudent(params.student_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1302,8 +1292,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.renotifyStudent(params.student_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1314,8 +1303,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.addStudents(params.students);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1326,8 +1314,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.updateOnTaskConfig(params.on_task_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1338,8 +1325,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.updateCaptionConfig(params.caption_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1350,8 +1336,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.setFloatMode(params.is_float_mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1362,8 +1347,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.submitAccessCode(params.access_code);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1374,8 +1358,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.viewStudentScreen(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1386,8 +1369,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.endViewScreenSession(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1398,8 +1380,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.setViewScreenSessionActive(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1410,8 +1391,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.getUserPref(params.pref);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1422,8 +1402,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.setUserPref(params.pref, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetUserPref_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetUserPref_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1434,8 +1413,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.setSitePermission(params.url, params.permission, params.setting);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1446,8 +1424,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.closeTab(params.tab_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1458,8 +1435,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.openFeedbackDialog();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1470,8 +1446,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.refreshWorkbook();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RefreshWorkbook_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RefreshWorkbook_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1482,8 +1457,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.getSpeechRecognitionInstallationStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1494,8 +1468,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.startSpotlight(params.crd_connection_code);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StartSpotlight_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StartSpotlight_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1506,8 +1479,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.presentStudentScreen(params.student, params.receiver_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1518,8 +1490,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.stopPresentingStudentScreen();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1530,8 +1501,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.presentOwnScreen(params.receiver_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1542,8 +1512,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           const result = this.impl.stopPresentingOwnScreen();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec);
                responder(response);
             }});
           }

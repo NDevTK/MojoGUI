@@ -98,8 +98,7 @@ ash.quick_start.mojom.QuickStartDecoderReceiver = class {
           const result = this.impl.decodeQuickStartMessage(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec);
                responder(response);
             }});
           }

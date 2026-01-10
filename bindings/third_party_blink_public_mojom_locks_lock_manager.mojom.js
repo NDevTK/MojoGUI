@@ -324,8 +324,7 @@ blink.mojom.LockManagerReceiver = class {
           const result = this.impl.queryState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LockManager_QueryState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LockManager_QueryState_ResponseParamsSpec);
                responder(response);
             }});
           }

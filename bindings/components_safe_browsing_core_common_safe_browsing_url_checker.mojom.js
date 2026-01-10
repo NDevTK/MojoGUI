@@ -98,8 +98,7 @@ safe_browsing.mojom.SafeBrowsingUrlCheckerReceiver = class {
           const result = this.impl.checkUrl(params.url, params.method);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec);
                responder(response);
             }});
           }

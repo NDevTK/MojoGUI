@@ -210,8 +210,7 @@ ash.common.mojom.AcceleratorFetcherReceiver = class {
           const result = this.impl.getMetaKeyToDisplay();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec);
                responder(response);
             }});
           }

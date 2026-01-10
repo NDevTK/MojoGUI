@@ -648,8 +648,7 @@ network.mojom.HostResolverReceiver = class {
           const result = this.impl.mdnsListen(params.host, params.query_type, params.response_client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.HostResolver_MdnsListen_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HostResolver_MdnsListen_ResponseParamsSpec);
                responder(response);
             }});
           }

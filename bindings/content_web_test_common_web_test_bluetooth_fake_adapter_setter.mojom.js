@@ -94,8 +94,7 @@ content.mojom.WebTestBluetoothFakeAdapterSetterReceiver = class {
           const result = this.impl.set(params.adapter_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec);
                responder(response);
             }});
           }

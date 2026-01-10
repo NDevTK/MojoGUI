@@ -119,8 +119,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigReceiver = class {
           const result = this.impl.rollbackConfigImport(params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -131,8 +130,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigReceiver = class {
           const result = this.impl.rollbackConfigExport();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec);
                responder(response);
             }});
           }

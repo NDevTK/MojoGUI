@@ -119,8 +119,7 @@ blink.mojom.FontUniqueNameLookupReceiver = class {
           const result = this.impl.getUniqueNameLookupTableIfAvailable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -131,8 +130,7 @@ blink.mojom.FontUniqueNameLookupReceiver = class {
           const result = this.impl.getUniqueNameLookupTable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -230,8 +230,7 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -242,8 +241,7 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
           const result = this.impl.getStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec);
                responder(response);
             }});
           }

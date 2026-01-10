@@ -113,8 +113,7 @@ media.mojom.DCOMPSurfaceRegistryReceiver = class {
           const result = this.impl.registerDCOMPSurfaceHandle(params.surface_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec);
                responder(response);
             }});
           }

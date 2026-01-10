@@ -191,8 +191,7 @@ media.mojom.SeatbeltExtensionTokenProviderReceiver = class {
           const result = this.impl.getTokens();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec);
                responder(response);
             }});
           }

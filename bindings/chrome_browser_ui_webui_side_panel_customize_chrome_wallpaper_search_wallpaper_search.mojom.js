@@ -513,8 +513,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
           const result = this.impl.getDescriptors();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -525,8 +524,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
           const result = this.impl.getInspirations();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -537,8 +535,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
           const result = this.impl.getWallpaperSearchResults(params.result_descriptors);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec);
                responder(response);
             }});
           }

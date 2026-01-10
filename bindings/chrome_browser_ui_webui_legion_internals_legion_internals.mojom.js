@@ -151,8 +151,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
           const result = this.impl.connect(params.url, params.api_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -163,8 +162,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -175,8 +173,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
           const result = this.impl.sendRequest(params.feature_name, params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec);
                responder(response);
             }});
           }

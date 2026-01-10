@@ -94,8 +94,7 @@ chromecast.mojom.AudioSocketBrokerReceiver = class {
           const result = this.impl.getSocketDescriptor();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec);
                responder(response);
             }});
           }

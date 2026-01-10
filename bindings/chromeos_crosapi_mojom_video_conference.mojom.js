@@ -241,8 +241,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
           const result = this.impl.getMediaApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -253,8 +252,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
           const result = this.impl.returnToApp(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -265,8 +263,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
           const result = this.impl.setSystemMediaDeviceStatus(params.device, params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -132,8 +132,7 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
           const result = this.impl.addProfilingClient(params.pid, params.client, params.process_type, params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -144,8 +143,7 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
           const result = this.impl.getProfiledPids();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec);
                responder(response);
             }});
           }

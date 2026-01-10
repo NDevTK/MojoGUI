@@ -187,8 +187,7 @@ blink.mojom.DevToolsAgentReceiver = class {
           const result = this.impl.reportChildTargets(params.report, params.wait_for_debugger);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -273,8 +273,7 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
           const result = this.impl.getSupportedRoutines();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec);
                responder(response);
             }});
           }

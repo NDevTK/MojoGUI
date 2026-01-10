@@ -191,8 +191,7 @@ device.mojom.PressureManagerReceiver = class {
           const result = this.impl.addVirtualPressureSource(params.token, params.source, params.metadata);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -203,8 +202,7 @@ device.mojom.PressureManagerReceiver = class {
           const result = this.impl.removeVirtualPressureSource(params.token, params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -215,8 +213,7 @@ device.mojom.PressureManagerReceiver = class {
           const result = this.impl.updateVirtualPressureSourceData(params.token, params.source, params.state, params.own_contribution_estimate);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -227,8 +224,7 @@ device.mojom.PressureManagerReceiver = class {
           const result = this.impl.addClient(params.source, params.token, params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.PressureManager_AddClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.PressureManager_AddClient_ResponseParamsSpec);
                responder(response);
             }});
           }

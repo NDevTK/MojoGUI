@@ -100,8 +100,7 @@ network.mojom.SystemDnsResolverReceiver = class {
           const result = this.impl.resolve(params.hostname, params.addr_family, params.flags, params.network);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec);
                responder(response);
             }});
           }

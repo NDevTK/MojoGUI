@@ -136,8 +136,7 @@ printing.mojom.PdfToEmfConverterReceiver = class {
           const result = this.impl.convertPage(params.page_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -248,8 +247,7 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
           const result = this.impl.createConverter(params.pdf_region, params.render_settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec);
                responder(response);
             }});
           }

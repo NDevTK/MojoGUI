@@ -233,8 +233,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = class {
           const result = this.impl.getApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -245,8 +244,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = class {
           const result = this.impl.getQuietMode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec);
                responder(response);
             }});
           }

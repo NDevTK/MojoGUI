@@ -252,8 +252,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
           const result = this.impl.getDetails(params.package_name, params.scope, params.item_ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -264,8 +263,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
           const result = this.impl.acknowledge(params.package_name, params.scope, params.purchase_token, params.make_available_again);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -276,8 +274,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
           const result = this.impl.deprecatedListPurchases(params.package_name, params.scope);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -288,8 +285,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
           const result = this.impl.listPurchases(params.package_name, params.scope);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -300,8 +296,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
           const result = this.impl.listPurchaseHistory(params.package_name, params.scope);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -312,8 +307,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
           const result = this.impl.consume(params.package_name, params.scope, params.purchase_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec);
                responder(response);
             }});
           }

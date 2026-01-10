@@ -134,8 +134,7 @@ arc.mojom.VideoFramePoolReceiver = class {
           const result = this.impl.addVideoFrame(params.video_frame);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -236,8 +235,7 @@ arc.mojom.VideoFramePoolClientReceiver = class {
           const result = this.impl.requestVideoFrames(params.format, params.coded_size, params.visible_rect, params.num_frames);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec);
                responder(response);
             }});
           }

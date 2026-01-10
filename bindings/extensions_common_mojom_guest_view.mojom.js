@@ -126,8 +126,7 @@ extensions.mojom.GuestViewReceiver = class {
           const result = this.impl.canExecuteContentScript(params.script_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -279,8 +278,7 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
           const result = this.impl.createBeforeUnloadControl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec);
                responder(response);
             }});
           }

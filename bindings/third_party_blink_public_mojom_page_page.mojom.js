@@ -351,8 +351,7 @@ blink.mojom.PageBroadcastReceiver = class {
           const result = this.impl.setPageLifecycleState(params.state, params.page_restore_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -368,8 +367,7 @@ blink.mojom.PageBroadcastReceiver = class {
           const result = this.impl.activatePrerenderedPage(params.prerender_page_activation_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec);
                responder(response);
             }});
           }

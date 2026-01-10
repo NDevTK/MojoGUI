@@ -337,8 +337,7 @@ network.mojom.WebTransportReceiver = class {
           const result = this.impl.sendDatagram(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.WebTransport_SendDatagram_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.WebTransport_SendDatagram_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -349,8 +348,7 @@ network.mojom.WebTransportReceiver = class {
           const result = this.impl.createStream(params.readable, params.writable);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.WebTransport_CreateStream_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.WebTransport_CreateStream_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -361,8 +359,7 @@ network.mojom.WebTransportReceiver = class {
           const result = this.impl.acceptBidirectionalStream();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -373,8 +370,7 @@ network.mojom.WebTransportReceiver = class {
           const result = this.impl.acceptUnidirectionalStream();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -405,8 +401,7 @@ network.mojom.WebTransportReceiver = class {
           const result = this.impl.getStats();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.WebTransport_GetStats_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.WebTransport_GetStats_ResponseParamsSpec);
                responder(response);
             }});
           }

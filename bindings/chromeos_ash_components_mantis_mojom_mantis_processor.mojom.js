@@ -279,8 +279,7 @@ mantis.mojom.MantisProcessorReceiver = class {
           const result = this.impl.inpainting(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -291,8 +290,7 @@ mantis.mojom.MantisProcessorReceiver = class {
           const result = this.impl.generativeFill(params.image, params.mask, params.seed, params.prompt);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -303,8 +301,7 @@ mantis.mojom.MantisProcessorReceiver = class {
           const result = this.impl.segmentation(params.image, params.prior);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -315,8 +312,7 @@ mantis.mojom.MantisProcessorReceiver = class {
           const result = this.impl.classifyImageSafety(params.image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -327,8 +323,7 @@ mantis.mojom.MantisProcessorReceiver = class {
           const result = this.impl.outpainting(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -339,8 +334,7 @@ mantis.mojom.MantisProcessorReceiver = class {
           const result = this.impl.inferSegmentationMode(params.gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec);
                responder(response);
             }});
           }

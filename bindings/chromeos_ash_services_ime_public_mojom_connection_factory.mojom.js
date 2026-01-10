@@ -123,8 +123,7 @@ ash.ime.mojom.ConnectionFactoryReceiver = class {
           const result = this.impl.connectToInputMethod(params.ime_spec, params.input_method, params.input_method_host, params.settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -135,8 +134,7 @@ ash.ime.mojom.ConnectionFactoryReceiver = class {
           const result = this.impl.unused(params.unused);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec);
                responder(response);
             }});
           }

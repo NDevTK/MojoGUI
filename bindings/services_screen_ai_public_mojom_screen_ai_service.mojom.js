@@ -284,8 +284,7 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const result = this.impl.performOcrAndReturnAXTreeUpdate(params.image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -296,8 +295,7 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const result = this.impl.performOcrAndReturnAnnotation(params.image);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -313,8 +311,7 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const result = this.impl.getMaxImageDimension();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -330,8 +327,7 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const result = this.impl.isOCRBusy();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -491,8 +487,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
           const result = this.impl.extractMainContent(params.snapshot);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -503,8 +498,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
           const result = this.impl.extractMainNode(params.snapshot);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -515,8 +509,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
           const result = this.impl.identifyMainNode(params.ax_tree);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec);
                responder(response);
             }});
           }

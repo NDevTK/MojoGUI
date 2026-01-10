@@ -117,8 +117,7 @@ ash.local_search_service.mojom.SearchMetricsReporterReceiver = class {
           const result = this.impl.onSearchPerformed(params.index_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -220,8 +219,7 @@ ash.local_search_service.mojom.LocalSearchServiceReceiver = class {
           const result = this.impl.bindIndex(params.index_id, params.backend, params.index_receiver, params.reporter_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -101,8 +101,7 @@ quick_answers.mojom.SpellCheckServiceReceiver = class {
           const result = this.impl.createDictionary(params.dictionary_file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -201,8 +200,7 @@ quick_answers.mojom.SpellCheckDictionaryReceiver = class {
           const result = this.impl.checkSpelling(params.word);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec);
                responder(response);
             }});
           }

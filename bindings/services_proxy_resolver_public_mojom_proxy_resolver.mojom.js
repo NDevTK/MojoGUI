@@ -738,8 +738,7 @@ proxy_resolver.mojom.SystemProxyResolverReceiver = class {
           const result = this.impl.getProxyForUrl(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec);
                responder(response);
             }});
           }

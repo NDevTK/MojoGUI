@@ -94,8 +94,7 @@ content.mojom.MainFrameCounterTestReceiver = class {
           const result = this.impl.hasMainFrame();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec);
                responder(response);
             }});
           }

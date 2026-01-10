@@ -403,8 +403,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.loadBuiltinModel(params.spec, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -415,8 +414,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.loadFlatBufferModel(params.spec, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -427,8 +425,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.loadTextClassifier(params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -439,8 +436,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.loadHandwritingModel(params.spec, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -451,8 +447,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.loadSpeechRecognizer(params.config, params.soda_client, params.soda_recognizer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -463,8 +458,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.loadGrammarChecker(params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -475,8 +469,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.loadTextSuggester(params.receiver, params.spec);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -487,8 +480,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.loadWebPlatformHandwritingModel(params.constraint, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -499,8 +491,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.loadDocumentScanner(params.receiver, params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -511,8 +502,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.loadImageAnnotator(params.config, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -523,8 +513,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.loadHeatmapPalmRejection(params.config, params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -535,8 +524,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           const result = this.impl.rEMOVED_4(params.spec, params.receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec);
                responder(response);
             }});
           }

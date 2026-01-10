@@ -104,8 +104,7 @@ foo.mojom.FooHandlerReceiver = class {
           const result = this.impl.getData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, foo.mojom.FooHandler_GetData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, foo.mojom.FooHandler_GetData_ResponseParamsSpec);
                responder(response);
             }});
           }

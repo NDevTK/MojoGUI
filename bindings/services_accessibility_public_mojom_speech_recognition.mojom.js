@@ -320,8 +320,7 @@ ax.mojom.SpeechRecognitionReceiver = class {
           const result = this.impl.start(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ax.mojom.SpeechRecognition_Start_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.SpeechRecognition_Start_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -332,8 +331,7 @@ ax.mojom.SpeechRecognitionReceiver = class {
           const result = this.impl.stop(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec);
                responder(response);
             }});
           }

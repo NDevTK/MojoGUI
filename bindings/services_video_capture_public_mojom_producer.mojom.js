@@ -113,8 +113,7 @@ video_capture.mojom.ProducerReceiver = class {
           const result = this.impl.onNewBuffer(params.buffer_id, params.buffer_handle);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }

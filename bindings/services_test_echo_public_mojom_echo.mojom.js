@@ -224,8 +224,7 @@ echo.mojom.EchoServiceReceiver = class {
           const result = this.impl.echoString(params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, echo.mojom.EchoService_EchoString_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, echo.mojom.EchoService_EchoString_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -256,8 +255,7 @@ echo.mojom.EchoServiceReceiver = class {
           const result = this.impl.loadNativeLibrary(params.library, params.call_winmm_delayload);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -268,8 +266,7 @@ echo.mojom.EchoServiceReceiver = class {
           const result = this.impl.decryptEncrypt(params.encryptor, params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec);
                responder(response);
             }});
           }

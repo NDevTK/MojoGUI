@@ -407,8 +407,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const result = this.impl.enumerateDevices(params.request_audio_input, params.request_video_input, params.request_audio_output, params.request_video_input_capabilities, params.request_audio_input_capabilities);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -419,8 +418,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const result = this.impl.getVideoInputCapabilities();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -431,8 +429,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const result = this.impl.getAllVideoInputDeviceFormats(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -443,8 +440,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const result = this.impl.getAvailableVideoInputDeviceFormats(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -455,8 +451,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const result = this.impl.getAudioInputCapabilities();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -482,8 +477,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const result = this.impl.produceSubCaptureTargetId(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -494,8 +488,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const result = this.impl.setPreferredSinkId(params.sink_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -506,8 +499,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const result = this.impl.selectAudioOutput(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec);
                responder(response);
             }});
           }

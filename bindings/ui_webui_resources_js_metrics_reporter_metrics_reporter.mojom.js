@@ -158,8 +158,7 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
           const result = this.impl.onGetMark(params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -284,8 +283,7 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
           const result = this.impl.onGetMark(params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec);
                responder(response);
             }});
           }

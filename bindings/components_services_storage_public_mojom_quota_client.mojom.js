@@ -165,8 +165,7 @@ storage.mojom.QuotaClientReceiver = class {
           const result = this.impl.getBucketUsage(params.bucket);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -177,8 +176,7 @@ storage.mojom.QuotaClientReceiver = class {
           const result = this.impl.getDefaultStorageKeys();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -189,8 +187,7 @@ storage.mojom.QuotaClientReceiver = class {
           const result = this.impl.deleteBucketData(params.bucket);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -201,8 +198,7 @@ storage.mojom.QuotaClientReceiver = class {
           const result = this.impl.performStorageCleanup();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec);
                responder(response);
             }});
           }

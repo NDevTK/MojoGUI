@@ -940,8 +940,7 @@ crosapi.mojom.TelemetryProbeServiceReceiver = class {
           const result = this.impl.probeTelemetryInfo(params.categories);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -952,8 +951,7 @@ crosapi.mojom.TelemetryProbeServiceReceiver = class {
           const result = this.impl.getOemData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec);
                responder(response);
             }});
           }

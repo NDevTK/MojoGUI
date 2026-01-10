@@ -144,8 +144,7 @@ ax.mojom.AutomationClientReceiver = class {
           const result = this.impl.enable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ax.mojom.AutomationClient_Enable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.AutomationClient_Enable_ResponseParamsSpec);
                responder(response);
             }});
           }

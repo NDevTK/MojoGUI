@@ -348,8 +348,7 @@ blink.mojom.BucketHostReceiver = class {
           const result = this.impl.persist();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BucketHost_Persist_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_Persist_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -360,8 +359,7 @@ blink.mojom.BucketHostReceiver = class {
           const result = this.impl.persisted();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BucketHost_Persisted_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_Persisted_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -372,8 +370,7 @@ blink.mojom.BucketHostReceiver = class {
           const result = this.impl.estimate();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BucketHost_Estimate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_Estimate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -384,8 +381,7 @@ blink.mojom.BucketHostReceiver = class {
           const result = this.impl.durability();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BucketHost_Durability_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_Durability_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -396,8 +392,7 @@ blink.mojom.BucketHostReceiver = class {
           const result = this.impl.setExpires(params.expires);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BucketHost_SetExpires_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_SetExpires_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -408,8 +403,7 @@ blink.mojom.BucketHostReceiver = class {
           const result = this.impl.expires();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BucketHost_Expires_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_Expires_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -435,8 +429,7 @@ blink.mojom.BucketHostReceiver = class {
           const result = this.impl.getDirectory();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -447,8 +440,7 @@ blink.mojom.BucketHostReceiver = class {
           const result = this.impl.getDirectoryForDevtools(params.directory_path_components);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -610,8 +602,7 @@ blink.mojom.BucketManagerHostReceiver = class {
           const result = this.impl.openBucket(params.name, params.policy);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -627,8 +618,7 @@ blink.mojom.BucketManagerHostReceiver = class {
           const result = this.impl.keys();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -639,8 +629,7 @@ blink.mojom.BucketManagerHostReceiver = class {
           const result = this.impl.deleteBucket(params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec);
                responder(response);
             }});
           }

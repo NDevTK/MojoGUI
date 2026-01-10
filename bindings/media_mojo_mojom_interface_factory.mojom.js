@@ -350,8 +350,7 @@ media.mojom.InterfaceFactoryReceiver = class {
           const result = this.impl.createCdm(params.cdm_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec);
                responder(response);
             }});
           }

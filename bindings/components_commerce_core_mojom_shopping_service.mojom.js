@@ -732,8 +732,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getProductInfoForCurrentUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -744,8 +743,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getProductInfoForUrl(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -756,8 +754,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getProductInfoForUrls(params.urls);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -768,8 +765,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getPriceInsightsInfoForCurrentUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -780,8 +776,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getPriceInsightsInfoForUrl(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -792,8 +787,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getProductSpecificationsForUrls(params.urls);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -804,8 +798,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getUrlInfosForProductTabs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -816,8 +809,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getUrlInfosForRecentlyViewedTabs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -828,8 +820,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.isShoppingListEligible();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -840,8 +831,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getPriceTrackingStatusForCurrentUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -862,8 +852,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getAllProductSpecificationsSets();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -874,8 +863,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getProductSpecificationsSetByUuid(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -886,8 +874,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.addProductSpecificationsSet(params.name, params.urls);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -903,8 +890,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.setNameForProductSpecificationsSet(params.uuid, params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -915,8 +901,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.setUrlsForProductSpecificationsSet(params.uuid, params.urls);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -932,8 +917,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           const result = this.impl.getProductSpecificationsFeatureState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ResponseParamsSpec);
                responder(response);
             }});
           }

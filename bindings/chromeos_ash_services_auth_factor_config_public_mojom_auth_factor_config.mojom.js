@@ -391,8 +391,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
           const result = this.impl.isSupported(params.auth_token, params.factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -403,8 +402,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
           const result = this.impl.isConfigured(params.auth_token, params.factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -415,8 +413,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
           const result = this.impl.getManagementType(params.auth_token, params.factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -427,8 +424,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
           const result = this.impl.isEditable(params.auth_token, params.factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -533,8 +529,7 @@ ash.auth.mojom.RecoveryFactorEditorReceiver = class {
           const result = this.impl.configure(params.auth_token, params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -724,8 +719,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
           const result = this.impl.setPin(params.auth_token, params.pin);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -736,8 +730,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
           const result = this.impl.updatePin(params.auth_token, params.pin);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -748,8 +741,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
           const result = this.impl.removePin(params.auth_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -760,8 +752,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
           const result = this.impl.getConfiguredPinFactor(params.auth_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -772,8 +763,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
           const result = this.impl.checkPinComplexity(params.auth_token, params.pin);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -986,8 +976,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const result = this.impl.updateOrSetLocalPassword(params.auth_token, params.new_password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -998,8 +987,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const result = this.impl.updateOrSetOnlinePassword(params.auth_token, params.new_password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1010,8 +998,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const result = this.impl.setLocalPassword(params.auth_token, params.new_password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1022,8 +1009,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const result = this.impl.setOnlinePassword(params.auth_token, params.new_password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1034,8 +1020,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const result = this.impl.checkLocalPasswordComplexity(params.password);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1046,8 +1031,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const result = this.impl.removePassword(params.auth_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec);
                responder(response);
             }});
           }

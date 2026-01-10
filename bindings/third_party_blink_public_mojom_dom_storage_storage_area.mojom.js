@@ -418,8 +418,7 @@ blink.mojom.StorageAreaReceiver = class {
           const result = this.impl.put(params.key, params.value, params.client_old_value, params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.StorageArea_Put_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageArea_Put_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -430,8 +429,7 @@ blink.mojom.StorageAreaReceiver = class {
           const result = this.impl.delete(params.key, params.client_old_value, params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.StorageArea_Delete_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageArea_Delete_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -442,8 +440,7 @@ blink.mojom.StorageAreaReceiver = class {
           const result = this.impl.deleteAll(params.source, params.new_observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -454,8 +451,7 @@ blink.mojom.StorageAreaReceiver = class {
           const result = this.impl.get(params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.StorageArea_Get_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageArea_Get_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -466,8 +462,7 @@ blink.mojom.StorageAreaReceiver = class {
           const result = this.impl.getAll(params.new_observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.StorageArea_GetAll_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.StorageArea_GetAll_ResponseParamsSpec);
                responder(response);
             }});
           }

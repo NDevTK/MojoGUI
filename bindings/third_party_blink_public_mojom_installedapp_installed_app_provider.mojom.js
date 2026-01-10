@@ -98,8 +98,7 @@ blink.mojom.InstalledAppProviderReceiver = class {
           const result = this.impl.filterInstalledApps(params.related_apps, params.manifest_url, params.add_saved_related_applications);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec);
                responder(response);
             }});
           }

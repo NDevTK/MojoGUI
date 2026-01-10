@@ -163,8 +163,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
           const result = this.impl.allowIndexedDB();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -175,8 +174,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
           const result = this.impl.allowCacheStorage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -187,8 +185,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
           const result = this.impl.allowWebLocks();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -199,8 +196,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
           const result = this.impl.requestFileSystemAccessSync();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -345,8 +345,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
           const result = this.impl.getHwKeyData(params.decrypt_config, params.hw_identifier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -362,8 +361,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
           const result = this.impl.getHwConfigData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -374,8 +372,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
           const result = this.impl.getScreenResolutions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -386,8 +383,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
           const result = this.impl.allocateSecureBuffer(params.size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -398,8 +394,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
           const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -410,8 +405,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
           const result = this.impl.decryptVideoBuffer(params.buffer, params.bytes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec);
                responder(response);
             }});
           }

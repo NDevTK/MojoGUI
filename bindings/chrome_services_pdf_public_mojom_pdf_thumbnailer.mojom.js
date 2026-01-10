@@ -131,8 +131,7 @@ pdf.mojom.PdfThumbnailerReceiver = class {
           const result = this.impl.getThumbnail(params.params, params.pdf_region);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec);
                responder(response);
             }});
           }

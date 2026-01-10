@@ -214,8 +214,7 @@ ash.shortcut_customization.mojom.SearchHandlerReceiver = class {
           const result = this.impl.search(params.query, params.max_num_results);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec);
                responder(response);
             }});
           }

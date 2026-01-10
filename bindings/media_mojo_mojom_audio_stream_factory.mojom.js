@@ -300,8 +300,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
           const result = this.impl.createInputStream(params.stream, params.client, params.observer, params.log, params.device_id, params.params, params.group_id, params.shared_memory_count, params.enable_agc, params.processing_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -317,8 +316,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
           const result = this.impl.createOutputStream(params.stream, params.observer, params.log, params.device_id, params.params, params.group_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -329,8 +327,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
           const result = this.impl.createSwitchableOutputStream(params.stream, params.device_switch_receiver, params.observer, params.log, params.device_id, params.params, params.group_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -346,8 +343,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
           const result = this.impl.createLoopbackStream(params.receiver, params.client, params.observer, params.params, params.shared_memory_count, params.group_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec);
                responder(response);
             }});
           }

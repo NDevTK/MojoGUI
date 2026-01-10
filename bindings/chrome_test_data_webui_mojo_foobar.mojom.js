@@ -102,8 +102,7 @@ test.mojom.FooReceiver = class {
           const result = this.impl.getFoo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, test.mojom.Foo_GetFoo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, test.mojom.Foo_GetFoo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -201,8 +200,7 @@ test.mojom.BarReceiver = class {
           const result = this.impl.getBar();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, test.mojom.Bar_GetBar_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, test.mojom.Bar_GetBar_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -300,8 +298,7 @@ test.mojom.BazReceiver = class {
           const result = this.impl.getBaz();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, test.mojom.Baz_GetBaz_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, test.mojom.Baz_GetBaz_ResponseParamsSpec);
                responder(response);
             }});
           }

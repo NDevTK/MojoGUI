@@ -125,8 +125,7 @@ extensions.mojom.EventDispatcherReceiver = class {
           const result = this.impl.dispatchEvent(params.params, params.event_args);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec);
                responder(response);
             }});
           }

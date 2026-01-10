@@ -494,8 +494,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
           const result = this.impl.prepareForUpdate(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -506,8 +505,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
           const result = this.impl.fetchInProgressUpdate();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec);
                responder(response);
             }});
           }

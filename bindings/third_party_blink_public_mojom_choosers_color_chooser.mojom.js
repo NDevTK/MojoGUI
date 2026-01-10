@@ -377,8 +377,7 @@ blink.mojom.EyeDropperChooserReceiver = class {
           const result = this.impl.choose();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec);
                responder(response);
             }});
           }

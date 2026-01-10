@@ -195,8 +195,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
           const result = this.impl.initialize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -207,8 +206,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
           const result = this.impl.decode(params.input_buffer, params.coded_size, params.output_handle, params.output_buffer_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -219,8 +217,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
           const result = this.impl.decodeWithDmaBuf(params.task_id, params.src_dmabuf_fd, params.src_size, params.src_offset, params.dst_frame);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -184,8 +184,7 @@ guest_view.mojom.GuestViewHostReceiver = class {
           const result = this.impl.attachToEmbedderFrame(params.element_instance_id, params.guest_instance_id, params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -422,8 +422,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
           const result = this.impl.getCertificates(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -434,8 +433,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
           const result = this.impl.getCertManagementMetadata();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -456,8 +454,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
           const result = this.impl.importCertificate(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -468,8 +465,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
           const result = this.impl.importAndBindCertificate(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -480,8 +476,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
           const result = this.impl.deleteCertificate(params.source, params.display_name, params.sha256_hash_hex);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -643,8 +638,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
           const result = this.impl.askForImportPassword();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -655,8 +649,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
           const result = this.impl.askForConfirmation(params.title, params.message);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec);
                responder(response);
             }});
           }

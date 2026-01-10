@@ -467,8 +467,7 @@ data_sharing.mojom.PageHandlerReceiver = class {
           const result = this.impl.makeTabGroupShared(params.tab_group_id, params.group_id, params.access_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -479,8 +478,7 @@ data_sharing.mojom.PageHandlerReceiver = class {
           const result = this.impl.getShareLink(params.group_id, params.access_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -491,8 +489,7 @@ data_sharing.mojom.PageHandlerReceiver = class {
           const result = this.impl.getTabGroupPreview(params.group_id, params.access_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -698,8 +695,7 @@ data_sharing.mojom.PageReceiver = class {
           const result = this.impl.readGroups(params.read_groups_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -710,8 +706,7 @@ data_sharing.mojom.PageReceiver = class {
           const result = this.impl.readGroupWithToken(params.param);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -722,8 +717,7 @@ data_sharing.mojom.PageReceiver = class {
           const result = this.impl.deleteGroup(params.group_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -734,8 +728,7 @@ data_sharing.mojom.PageReceiver = class {
           const result = this.impl.leaveGroup(params.group_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec);
                responder(response);
             }});
           }

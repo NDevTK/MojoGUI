@@ -202,8 +202,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           const result = this.impl.createWifiDirectGroup(params.credentials);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -214,8 +213,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           const result = this.impl.connectToWifiDirectGroup(params.credentials, params.frequency);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -226,8 +224,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           const result = this.impl.getWifiP2PCapabilities();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -347,8 +344,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
           const result = this.impl.getProperties();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -359,8 +355,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
           const result = this.impl.associateSocket(params.socket);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec);
                responder(response);
             }});
           }

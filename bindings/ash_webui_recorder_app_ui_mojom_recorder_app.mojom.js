@@ -699,8 +699,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.getModelInfo(params.feature);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -711,8 +710,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.loadModel(params.model_id, params.model);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -723,8 +721,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.formatModelInput(params.uuid, params.feature, params.fields);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -735,8 +732,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.validateSafetyResult(params.safety_feature, params.text, params.safety_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -747,8 +743,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.addModelMonitor(params.model_id, params.monitor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -759,8 +754,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.getAvailableLangPacks();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -771,8 +765,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.getDefaultLanguage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -783,8 +776,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.addSodaMonitor(params.language, params.monitor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -795,8 +787,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.installSoda(params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -807,8 +798,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.loadSpeechRecognizer(params.language, params.soda_client, params.soda_recognizer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -824,8 +814,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.getMicrophoneInfo(params.source_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -836,8 +825,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.addQuietModeMonitor(params.monitor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -853,8 +841,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.canUseSpeakerLabel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -870,8 +857,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
           const result = this.impl.canCaptureSystemAudioWithLoopback();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec);
                responder(response);
             }});
           }

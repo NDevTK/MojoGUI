@@ -212,8 +212,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
           const result = this.impl.getFileSystemSignals(params.requests);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -224,8 +223,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
           const result = this.impl.getAntiVirusSignals();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -236,8 +234,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
           const result = this.impl.getHotfixSignals();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec);
                responder(response);
             }});
           }

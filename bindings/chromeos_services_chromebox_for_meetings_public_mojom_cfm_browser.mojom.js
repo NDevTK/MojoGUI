@@ -162,8 +162,7 @@ chromeos.cfm.mojom.CfmBrowserReceiver = class {
           const result = this.impl.getVariationsData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -174,8 +173,7 @@ chromeos.cfm.mojom.CfmBrowserReceiver = class {
           const result = this.impl.getMemoryDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec);
                responder(response);
             }});
           }

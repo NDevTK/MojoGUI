@@ -348,8 +348,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           const result = this.impl.getNewScreencastPrecondition();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -360,8 +359,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           const result = this.impl.shouldDownloadSoda();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -372,8 +370,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           const result = this.impl.installSoda();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -384,8 +381,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           const result = this.impl.getPendingScreencasts();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -396,8 +392,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           const result = this.impl.getUserPref(params.pref);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -408,8 +403,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           const result = this.impl.setUserPref(params.pref, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -420,8 +414,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           const result = this.impl.openFeedbackDialog();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -432,8 +425,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           const result = this.impl.startProjectorSession(params.storage_dir_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -444,8 +436,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           const result = this.impl.sendXhr(params.url, params.method, params.request_body, params.use_credentials, params.use_api_key, params.headers, params.account_email);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -456,8 +447,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           const result = this.impl.getAccounts();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -468,8 +458,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           const result = this.impl.getVideo(params.video_file_id, params.resource_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec);
                responder(response);
             }});
           }

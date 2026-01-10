@@ -104,8 +104,7 @@ media.mojom.CastApplicationMediaInfoManagerReceiver = class {
           const result = this.impl.getCastApplicationMediaInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -278,8 +278,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
           const result = this.impl.maybeShowDisclosure(params.urls, params.name, params.set_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -300,8 +299,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
           const result = this.impl.getPageTitleFromHistory(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -327,8 +325,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
           const result = this.impl.getComparisonTableUrlForUuid(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec);
                responder(response);
             }});
           }

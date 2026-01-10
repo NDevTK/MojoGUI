@@ -167,8 +167,7 @@ gfx.mojom.TraitsTestServiceReceiver = class {
           const result = this.impl.echoSelectionBound(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -179,8 +178,7 @@ gfx.mojom.TraitsTestServiceReceiver = class {
           const result = this.impl.echoTransform(params.t);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -191,8 +189,7 @@ gfx.mojom.TraitsTestServiceReceiver = class {
           const result = this.impl.echoGpuMemoryBufferHandle(params.g);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -203,8 +200,7 @@ gfx.mojom.TraitsTestServiceReceiver = class {
           const result = this.impl.echoRRectF(params.t);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec);
                responder(response);
             }});
           }

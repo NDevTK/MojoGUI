@@ -105,8 +105,7 @@ remoting.mojom.RemoteUrlOpenerReceiver = class {
           const result = this.impl.openUrl(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec);
                responder(response);
             }});
           }

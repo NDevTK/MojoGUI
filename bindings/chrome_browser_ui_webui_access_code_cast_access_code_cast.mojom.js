@@ -240,8 +240,7 @@ access_code_cast.mojom.PageHandlerReceiver = class {
           const result = this.impl.addSink(params.access_code, params.discovery_method);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -252,8 +251,7 @@ access_code_cast.mojom.PageHandlerReceiver = class {
           const result = this.impl.castToSink();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec);
                responder(response);
             }});
           }

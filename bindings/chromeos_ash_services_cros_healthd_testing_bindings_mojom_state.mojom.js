@@ -138,8 +138,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
           const result = this.impl.lastCallHasNext();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -150,8 +149,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
           const result = this.impl.waitLastCall();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec);
                responder(response);
             }});
           }

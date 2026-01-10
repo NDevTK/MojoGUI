@@ -431,8 +431,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.read();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_Read_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Read_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -443,8 +442,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.openFileHandle(params.path, params.open_flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -455,8 +453,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.openFileHandles(params.files);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -467,8 +464,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.openDirectory(params.path, params.directory, params.open_flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -479,8 +475,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.rename(params.path, params.new_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_Rename_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Rename_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -491,8 +486,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.replace(params.path, params.new_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_Replace_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Replace_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -503,8 +497,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.delete(params.path, params.delete_flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_Delete_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Delete_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -515,8 +508,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.exists(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_Exists_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Exists_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -527,8 +519,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.isWritable(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_IsWritable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_IsWritable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -539,8 +530,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.flush();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_Flush_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_Flush_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -551,8 +541,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.statFile(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_StatFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_StatFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -568,8 +557,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.readEntireFile(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -580,8 +568,7 @@ filesystem.mojom.DirectoryReceiver = class {
           const result = this.impl.writeFile(params.path, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, filesystem.mojom.Directory_WriteFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, filesystem.mojom.Directory_WriteFile_ResponseParamsSpec);
                responder(response);
             }});
           }

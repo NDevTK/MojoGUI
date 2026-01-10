@@ -233,8 +233,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
           const result = this.impl.createCheckerAndCheck(params.frame_token, params.receiver, params.url, params.method, params.headers, params.load_flags, params.has_user_gesture, params.originated_from_service_worker);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -337,8 +336,7 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
           const result = this.impl.getThreatDOMDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -439,8 +437,7 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
           const result = this.impl.startPhishingDetection(params.url, params.request_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -624,8 +621,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
           const result = this.impl.setTestObserver(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -811,8 +807,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
           const result = this.impl.startImageEmbedding(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec);
                responder(response);
             }});
           }

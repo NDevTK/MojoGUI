@@ -143,8 +143,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandlerReceiver = class {
           const result = this.impl.getDebugInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

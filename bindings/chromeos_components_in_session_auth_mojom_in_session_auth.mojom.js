@@ -183,8 +183,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
           const result = this.impl.requestToken(params.reason, params.prompt);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -195,8 +194,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
           const result = this.impl.checkToken(params.reason, params.token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -212,8 +210,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
           const result = this.impl.requestLegacyWebAuthn(params.rp_id, params.window_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec);
                responder(response);
             }});
           }

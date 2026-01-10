@@ -121,8 +121,7 @@ ai.mojom.AIPrototypingServiceReceiver = class {
           const result = this.impl.executeServerQuery(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -133,8 +132,7 @@ ai.mojom.AIPrototypingServiceReceiver = class {
           const result = this.impl.executeOnDeviceQuery(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec);
                responder(response);
             }});
           }

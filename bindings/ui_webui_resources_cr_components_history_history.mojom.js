@@ -427,8 +427,7 @@ history.mojom.PageHandlerReceiver = class {
           const result = this.impl.queryHistory(params.query, params.max_results, params.begin_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, history.mojom.PageHandler_QueryHistory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, history.mojom.PageHandler_QueryHistory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -439,8 +438,7 @@ history.mojom.PageHandlerReceiver = class {
           const result = this.impl.queryHistoryContinuation();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -451,8 +449,7 @@ history.mojom.PageHandlerReceiver = class {
           const result = this.impl.removeVisits(params.items);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -483,8 +480,7 @@ history.mojom.PageHandlerReceiver = class {
           const result = this.impl.requestAccountInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -500,8 +496,7 @@ history.mojom.PageHandlerReceiver = class {
           const result = this.impl.shouldShowHistoryPageHistorySyncPromo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec);
                responder(response);
             }});
           }

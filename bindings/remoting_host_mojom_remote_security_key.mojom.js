@@ -96,8 +96,7 @@ remoting.mojom.SecurityKeyForwarderReceiver = class {
           const result = this.impl.onSecurityKeyRequest(params.request_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec);
                responder(response);
             }});
           }

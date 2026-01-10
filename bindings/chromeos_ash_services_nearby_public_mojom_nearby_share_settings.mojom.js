@@ -749,8 +749,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const result = this.impl.getEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -766,8 +765,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const result = this.impl.isOnboardingComplete();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -783,8 +781,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const result = this.impl.getFastInitiationNotificationState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -800,8 +797,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const result = this.impl.getIsFastInitiationHardwareSupported();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -812,8 +808,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const result = this.impl.getDeviceName();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -824,8 +819,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const result = this.impl.validateDeviceName(params.device_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -836,8 +830,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const result = this.impl.setDeviceName(params.device_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -848,8 +841,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const result = this.impl.getDataUsage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -865,8 +857,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const result = this.impl.getVisibility();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -882,8 +873,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const result = this.impl.getAllowedContacts();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -418,8 +418,7 @@ media.mojom.MediaPlayerReceiver = class {
           const result = this.impl.requestVisibility();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -522,8 +521,7 @@ media.mojom.MediaPlayerObserverClientReceiver = class {
           const result = this.impl.getHasPlayedBefore();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec);
                responder(response);
             }});
           }

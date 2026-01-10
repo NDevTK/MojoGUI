@@ -850,8 +850,7 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
           const result = this.impl.getConnectedDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -872,8 +871,7 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
           const result = this.impl.observeTabletMode(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -884,8 +882,7 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
           const result = this.impl.observeLidState(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec);
                responder(response);
             }});
           }

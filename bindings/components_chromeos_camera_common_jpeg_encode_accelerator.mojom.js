@@ -176,8 +176,7 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
           const result = this.impl.initialize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -188,8 +187,7 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
           const result = this.impl.encodeWithFD(params.task_id, params.input_fd, params.input_buffer_size, params.coded_size_width, params.coded_size_height, params.exif_fd, params.exif_buffer_size, params.output_fd, params.output_buffer_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -200,8 +198,7 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
           const result = this.impl.encodeWithDmaBuf(params.task_id, params.input_format, params.input_planes, params.output_planes, params.exif_handle, params.exif_buffer_size, params.coded_size_width, params.coded_size_height, params.quality, params.has_input_modifier, params.input_modifier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec);
                responder(response);
             }});
           }

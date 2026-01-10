@@ -575,8 +575,7 @@ arc.mojom.AuthHostReceiver = class {
           const result = this.impl.requestPrimaryAccount();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -587,8 +586,7 @@ arc.mojom.AuthHostReceiver = class {
           const result = this.impl.requestPrimaryAccountInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -599,8 +597,7 @@ arc.mojom.AuthHostReceiver = class {
           const result = this.impl.requestAccountInfo(params.account_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -611,8 +608,7 @@ arc.mojom.AuthHostReceiver = class {
           const result = this.impl.isAccountManagerAvailable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -805,8 +801,7 @@ arc.mojom.AuthInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AuthInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -822,8 +817,7 @@ arc.mojom.AuthInstanceReceiver = class {
           const result = this.impl.getGoogleAccounts();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -834,8 +828,7 @@ arc.mojom.AuthInstanceReceiver = class {
           const result = this.impl.getMainAccountResolutionStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec);
                responder(response);
             }});
           }

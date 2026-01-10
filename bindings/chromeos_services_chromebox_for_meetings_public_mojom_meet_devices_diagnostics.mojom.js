@@ -120,8 +120,7 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsReceiver = class {
           const result = this.impl.getCrosHealthdTelemetry();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -132,8 +131,7 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsReceiver = class {
           const result = this.impl.getCrosHealthdProcessInfo(params.pid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

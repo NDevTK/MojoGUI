@@ -255,8 +255,7 @@ blink.mojom.PictureInPictureSessionReceiver = class {
           const result = this.impl.stop();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -367,8 +366,7 @@ blink.mojom.PictureInPictureServiceReceiver = class {
           const result = this.impl.startSession(params.player_id, params.player_remote, params.surface_id, params.natural_size, params.show_play_pause_button, params.observer, params.source_bounds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec);
                responder(response);
             }});
           }

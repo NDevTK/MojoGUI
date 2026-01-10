@@ -149,8 +149,7 @@ network.mojom.FileEnumeratorReceiver = class {
           const result = this.impl.getNext(params.num_entries);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.FileEnumerator_GetNext_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.FileEnumerator_GetNext_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -424,8 +423,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           const result = this.impl.createDirectory(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -436,8 +434,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           const result = this.impl.pathExists(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -448,8 +445,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           const result = this.impl.directoryExists(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -460,8 +456,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           const result = this.impl.openFile(params.path, params.flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -472,8 +467,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           const result = this.impl.deleteFile(params.path, params.mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -484,8 +478,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           const result = this.impl.renameFile(params.from_path, params.to_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -496,8 +489,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           const result = this.impl.getFileInfo(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -513,8 +505,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           const result = this.impl.cleanupDirectory(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec);
                responder(response);
             }});
           }

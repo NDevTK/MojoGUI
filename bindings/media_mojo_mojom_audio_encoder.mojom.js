@@ -185,8 +185,7 @@ media.mojom.AudioEncoderReceiver = class {
           const result = this.impl.initialize(params.client, params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioEncoder_Initialize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioEncoder_Initialize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -197,8 +196,7 @@ media.mojom.AudioEncoderReceiver = class {
           const result = this.impl.encode(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioEncoder_Encode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioEncoder_Encode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -209,8 +207,7 @@ media.mojom.AudioEncoderReceiver = class {
           const result = this.impl.flush();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.AudioEncoder_Flush_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioEncoder_Flush_ResponseParamsSpec);
                responder(response);
             }});
           }

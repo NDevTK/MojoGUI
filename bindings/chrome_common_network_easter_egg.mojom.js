@@ -127,8 +127,7 @@ chrome.mojom.NetworkEasterEggReceiver = class {
           const result = this.impl.getHighScore();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -219,8 +219,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
           const result = this.impl.getIconSizes(params.category);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -231,8 +230,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
           const result = this.impl.add(params.service_worker_registration_id, params.description, params.icon, params.launchUrl);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ContentIndexService_Add_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ContentIndexService_Add_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -243,8 +241,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
           const result = this.impl.delete(params.service_worker_registration_id, params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ContentIndexService_Delete_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ContentIndexService_Delete_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -255,8 +252,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
           const result = this.impl.getDescriptions(params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec);
                responder(response);
             }});
           }

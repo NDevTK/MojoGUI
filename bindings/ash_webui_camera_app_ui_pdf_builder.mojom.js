@@ -187,8 +187,7 @@ ash.camera_app.mojom.PdfBuilderReceiver = class {
           const result = this.impl.save();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -199,8 +198,7 @@ ash.camera_app.mojom.PdfBuilderReceiver = class {
           const result = this.impl.saveInline();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec);
                responder(response);
             }});
           }

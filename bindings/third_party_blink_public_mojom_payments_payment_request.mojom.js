@@ -551,8 +551,7 @@ payments.mojom.PaymentRequestClientReceiver = class {
           const result = this.impl.allowConnectToSource(params.url, params.url_before_redirects, params.did_follow_redirect);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec);
                responder(response);
             }});
           }

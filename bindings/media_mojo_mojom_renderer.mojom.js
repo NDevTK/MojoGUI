@@ -226,8 +226,7 @@ media.mojom.RendererReceiver = class {
           const result = this.impl.initialize(params.client, params.streams);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.Renderer_Initialize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Renderer_Initialize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -238,8 +237,7 @@ media.mojom.RendererReceiver = class {
           const result = this.impl.flush();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.Renderer_Flush_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Renderer_Flush_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -265,8 +263,7 @@ media.mojom.RendererReceiver = class {
           const result = this.impl.setCdm(params.cdm_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.Renderer_SetCdm_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.Renderer_SetCdm_ResponseParamsSpec);
                responder(response);
             }});
           }

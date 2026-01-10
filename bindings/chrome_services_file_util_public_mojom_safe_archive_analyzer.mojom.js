@@ -241,8 +241,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const result = this.impl.analyzeZipFile(params.zip_file, params.password, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -253,8 +252,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const result = this.impl.analyzeDmgFile(params.dmg_file, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -265,8 +263,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const result = this.impl.analyzeRarFile(params.rar_file, params.password, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -277,8 +274,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const result = this.impl.analyzeSevenZipFile(params.seven_zip_file, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -289,8 +285,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const result = this.impl.analyzeObfuscatedZipFile(params.zip_file, params.password, params.header_data, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -301,8 +296,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const result = this.impl.analyzeObfuscatedRarFile(params.rar_file, params.password, params.header_data, params.temp_file_getter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -400,8 +394,7 @@ chrome.mojom.TemporaryFileGetterReceiver = class {
           const result = this.impl.requestTemporaryFile();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec);
                responder(response);
             }});
           }

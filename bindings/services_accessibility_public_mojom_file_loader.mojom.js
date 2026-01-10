@@ -96,8 +96,7 @@ ax.mojom.AccessibilityFileLoaderReceiver = class {
           const result = this.impl.load(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec);
                responder(response);
             }});
           }

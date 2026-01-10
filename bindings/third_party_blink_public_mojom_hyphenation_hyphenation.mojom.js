@@ -96,8 +96,7 @@ blink.mojom.HyphenationReceiver = class {
           const result = this.impl.openDictionary(params.locale);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec);
                responder(response);
             }});
           }

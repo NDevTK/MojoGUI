@@ -262,8 +262,7 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
           const result = this.impl.requestWorker(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec);
                responder(response);
             }});
           }

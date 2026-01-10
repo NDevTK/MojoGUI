@@ -291,8 +291,7 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
           const result = this.impl.getCdmOrigin();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec);
                responder(response);
             }});
           }

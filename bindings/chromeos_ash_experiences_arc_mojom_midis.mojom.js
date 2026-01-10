@@ -277,8 +277,7 @@ arc.mojom.MidisServerReceiver = class {
           const result = this.impl.listDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.MidisServer_ListDevices_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MidisServer_ListDevices_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -289,8 +288,7 @@ arc.mojom.MidisServerReceiver = class {
           const result = this.impl.requestPort(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.MidisServer_RequestPort_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MidisServer_RequestPort_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -481,8 +479,7 @@ arc.mojom.MidisInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.MidisInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MidisInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

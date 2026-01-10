@@ -422,8 +422,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.loadModel(params.model_path, params.performance_hint, params.model);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -434,8 +433,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.loadPlatformModel(params.model_path, params.model);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -446,8 +444,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getDeviceAndPerformanceInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -458,8 +455,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getDefaultModelPath();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -475,8 +471,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getPageData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -492,8 +487,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.decodeBitmap(params.image_buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec);
                responder(response);
             }});
           }

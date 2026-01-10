@@ -96,8 +96,7 @@ content.mojom.PowerMonitorTestReceiver = class {
           const result = this.impl.queryNextState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec);
                responder(response);
             }});
           }

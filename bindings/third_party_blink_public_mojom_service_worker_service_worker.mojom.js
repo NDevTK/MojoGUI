@@ -457,8 +457,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           const result = this.impl.getClients(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -469,8 +468,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           const result = this.impl.getClient(params.client_uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -481,8 +479,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           const result = this.impl.openNewTab(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -493,8 +490,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           const result = this.impl.openPaymentHandlerWindow(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -510,8 +506,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           const result = this.impl.focusClient(params.client_uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -522,8 +517,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           const result = this.impl.navigateClient(params.client_uuid, params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -534,8 +528,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           const result = this.impl.skipWaiting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -546,8 +539,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           const result = this.impl.claimClients();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -558,8 +550,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           const result = this.impl.addRoutes(params.rules);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1222,8 +1213,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchInstallEvent();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1234,8 +1224,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchActivateEvent();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1246,8 +1235,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchBackgroundFetchAbortEvent(params.registration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1258,8 +1246,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchBackgroundFetchClickEvent(params.registration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1270,8 +1257,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchBackgroundFetchFailEvent(params.registration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1282,8 +1268,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchBackgroundFetchSuccessEvent(params.registration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1294,8 +1279,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchCookieChangeEvent(params.change);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1306,8 +1290,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchFetchEventForMainResource(params.params, params.response_callback);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1318,8 +1301,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchNotificationClickEvent(params.notification_id, params.notification_data, params.action_index, params.reply);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1330,8 +1312,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchNotificationCloseEvent(params.notification_id, params.notification_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1342,8 +1323,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchPushEvent(params.payload);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1354,8 +1334,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchPushEventRecordingNetworkRequests(params.payload);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1366,8 +1345,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchPushSubscriptionChangeEvent(params.old_subscription, params.new_subscription);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1378,8 +1356,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchSyncEvent(params.tag, params.last_chance, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1390,8 +1367,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchPeriodicSyncEvent(params.tag, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1402,8 +1378,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchAbortPaymentEvent(params.result_of_abort_payment);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1414,8 +1389,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchCanMakePaymentEvent(params.event_data, params.result_of_can_make_payment);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1426,8 +1400,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchPaymentRequestEvent(params.request_data, params.response_callback);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1438,8 +1411,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchExtendableMessageEvent(params.event);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1450,8 +1422,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.dispatchContentDeleteEvent(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1462,8 +1433,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.ping();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_Ping_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_Ping_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1494,8 +1464,7 @@ blink.mojom.ServiceWorkerReceiver = class {
           const result = this.impl.executeScriptForTest(params.javascript, params.wants_result);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec);
                responder(response);
             }});
           }

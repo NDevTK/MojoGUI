@@ -98,8 +98,7 @@ media.mojom.ProvisionFetcherReceiver = class {
           const result = this.impl.retrieve(params.default_url, params.request_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec);
                responder(response);
             }});
           }

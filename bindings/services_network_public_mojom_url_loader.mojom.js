@@ -327,8 +327,7 @@ network.mojom.URLLoaderClientReceiver = class {
           const result = this.impl.onUploadProgress(params.current_position, params.total_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec);
                responder(response);
             }});
           }

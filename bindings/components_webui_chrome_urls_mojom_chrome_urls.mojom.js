@@ -231,8 +231,7 @@ chrome_urls.mojom.PageHandlerReceiver = class {
           const result = this.impl.getUrls();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -243,8 +242,7 @@ chrome_urls.mojom.PageHandlerReceiver = class {
           const result = this.impl.setDebugPagesEnabled(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }

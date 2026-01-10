@@ -226,8 +226,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
           const result = this.impl.getAllBucketsAcrossAllStorageKeys();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -238,8 +237,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
           const result = this.impl.downloadBucketData(params.bucketId);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -250,8 +248,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
           const result = this.impl.forceClose(params.bucketId);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -262,8 +259,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
           const result = this.impl.startMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -274,8 +270,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
           const result = this.impl.stopMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -286,8 +281,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
           const result = this.impl.inspectClient(params.client_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec);
                responder(response);
             }});
           }

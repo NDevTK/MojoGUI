@@ -652,8 +652,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
           const result = this.impl.createFolder(params.folder_id, params.title);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -664,8 +663,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
           const result = this.impl.dropBookmarks(params.folder_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_DropBookmarks_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_DropBookmarks_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -746,8 +744,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
           const result = this.impl.removeBookmarks(params.node_ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -778,8 +775,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
           const result = this.impl.getAllBookmarks();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec);
                responder(response);
             }});
           }

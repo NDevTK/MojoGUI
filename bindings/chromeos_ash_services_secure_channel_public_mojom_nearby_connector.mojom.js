@@ -242,8 +242,7 @@ ash.secure_channel.mojom.NearbyMessageSenderReceiver = class {
           const result = this.impl.sendMessage(params.message);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -431,8 +430,7 @@ ash.secure_channel.mojom.NearbyFilePayloadHandlerReceiver = class {
           const result = this.impl.registerPayloadFile(params.payload_id, params.payload_files, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -535,8 +533,7 @@ ash.secure_channel.mojom.NearbyConnectorReceiver = class {
           const result = this.impl.connect(params.bluetooth_public_address, params.eid, params.message_receiver, params.nearby_connection_state_listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec);
                responder(response);
             }});
           }

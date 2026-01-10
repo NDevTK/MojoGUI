@@ -142,8 +142,7 @@ arc.mojom.TracingInstanceReceiver = class {
           const result = this.impl.queryAvailableCategories();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -154,8 +153,7 @@ arc.mojom.TracingInstanceReceiver = class {
           const result = this.impl.startTracing(params.categories, params.socket);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -166,8 +164,7 @@ arc.mojom.TracingInstanceReceiver = class {
           const result = this.impl.stopTracing();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec);
                responder(response);
             }});
           }

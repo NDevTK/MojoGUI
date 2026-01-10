@@ -153,8 +153,7 @@ webnn.mojom.WebNNGraphBuilderReceiver = class {
           const result = this.impl.isValidGraphForTesting(params.context_properties, params.graph_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }

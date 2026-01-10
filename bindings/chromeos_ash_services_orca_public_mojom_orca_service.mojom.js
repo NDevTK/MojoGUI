@@ -529,8 +529,7 @@ ash.orca.mojom.EditorClientReceiver = class {
           const result = this.impl.getPresetTextQueries();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -541,8 +540,7 @@ ash.orca.mojom.EditorClientReceiver = class {
           const result = this.impl.requestPresetRewrite(params.text_query_id, params.text_override);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -553,8 +551,7 @@ ash.orca.mojom.EditorClientReceiver = class {
           const result = this.impl.requestFreeformRewrite(params.input, params.text_override);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -565,8 +562,7 @@ ash.orca.mojom.EditorClientReceiver = class {
           const result = this.impl.requestFreeformWrite(params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -617,8 +613,7 @@ ash.orca.mojom.EditorClientReceiver = class {
           const result = this.impl.previewFeedback(params.result_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1157,8 +1152,7 @@ ash.orca.mojom.TextQueryProviderReceiver = class {
           const result = this.impl.process(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec);
                responder(response);
             }});
           }

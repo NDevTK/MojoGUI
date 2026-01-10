@@ -178,8 +178,7 @@ network.mojom.TCPBoundSocketReceiver = class {
           const result = this.impl.listen(params.backlog, params.socket);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -190,8 +189,7 @@ network.mojom.TCPBoundSocketReceiver = class {
           const result = this.impl.connect(params.remote_addr_list, params.tcp_connected_socket_options, params.socket, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -386,8 +384,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
           const result = this.impl.upgradeToTLS(params.host_port_pair, params.options, params.traffic_annotation, params.receiver, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -398,8 +395,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
           const result = this.impl.setSendBufferSize(params.send_buffer_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -410,8 +406,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
           const result = this.impl.setReceiveBufferSize(params.receive_buffer_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -422,8 +417,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
           const result = this.impl.setNoDelay(params.no_delay);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -434,8 +428,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
           const result = this.impl.setKeepAlive(params.enable, params.delay_secs);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -646,8 +639,7 @@ network.mojom.TCPServerSocketReceiver = class {
           const result = this.impl.accept(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TCPServerSocket_Accept_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPServerSocket_Accept_ResponseParamsSpec);
                responder(response);
             }});
           }

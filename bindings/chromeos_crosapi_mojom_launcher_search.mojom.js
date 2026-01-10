@@ -310,8 +310,7 @@ crosapi.mojom.SearchControllerReceiver = class {
           const result = this.impl.search(params.query);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.SearchController_Search_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.SearchController_Search_ResponseParamsSpec);
                responder(response);
             }});
           }

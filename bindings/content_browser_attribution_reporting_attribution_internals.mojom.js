@@ -668,8 +668,7 @@ attribution_internals.mojom.HandlerReceiver = class {
           const result = this.impl.isAttributionReportingEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -680,8 +679,7 @@ attribution_internals.mojom.HandlerReceiver = class {
           const result = this.impl.sendReport(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, attribution_internals.mojom.Handler_SendReport_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, attribution_internals.mojom.Handler_SendReport_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -692,8 +690,7 @@ attribution_internals.mojom.HandlerReceiver = class {
           const result = this.impl.clearStorage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec);
                responder(response);
             }});
           }

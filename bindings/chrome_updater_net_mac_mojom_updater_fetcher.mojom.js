@@ -414,8 +414,7 @@ updater.mojom.FetchServiceReceiver = class {
           const result = this.impl.postRequest(params.url, params.post_data, params.content_type, params.additional_headers);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.FetchService_PostRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.FetchService_PostRequest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -426,8 +425,7 @@ updater.mojom.FetchServiceReceiver = class {
           const result = this.impl.downloadToFile(params.url, params.output_file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -143,8 +143,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerReceiver = class {
           const result = this.impl.canShowModule();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec);
                responder(response);
             }});
           }

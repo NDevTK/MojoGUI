@@ -422,8 +422,7 @@ blink.mojom.RemoteObjectReceiver = class {
           const result = this.impl.hasMethod(params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -434,8 +433,7 @@ blink.mojom.RemoteObjectReceiver = class {
           const result = this.impl.getMethods();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -446,8 +444,7 @@ blink.mojom.RemoteObjectReceiver = class {
           const result = this.impl.invokeMethod(params.name, params.arguments);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -308,8 +308,7 @@ media.mojom.ImageCaptureReceiver = class {
           const result = this.impl.getPhotoState(params.source_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -320,8 +319,7 @@ media.mojom.ImageCaptureReceiver = class {
           const result = this.impl.setPhotoOptions(params.source_id, params.settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -332,8 +330,7 @@ media.mojom.ImageCaptureReceiver = class {
           const result = this.impl.takePhoto(params.source_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec);
                responder(response);
             }});
           }

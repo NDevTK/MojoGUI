@@ -172,8 +172,7 @@ arc.mojom.TimerHostReceiver = class {
           const result = this.impl.createTimers(params.timer_requests);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -184,8 +183,7 @@ arc.mojom.TimerHostReceiver = class {
           const result = this.impl.startTimer(params.clock_id, params.absolute_expiration_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.TimerHost_StartTimer_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerHost_StartTimer_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -196,8 +194,7 @@ arc.mojom.TimerHostReceiver = class {
           const result = this.impl.setTime(params.time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.TimerHost_SetTime_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerHost_SetTime_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -295,8 +292,7 @@ arc.mojom.TimerInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.TimerInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -809,8 +809,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
           const result = this.impl.getPhotoState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -821,8 +820,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
           const result = this.impl.setPhotoOptions(params.settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -833,8 +831,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
           const result = this.impl.takePhoto();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -965,8 +962,7 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
           const result = this.impl.getDeviceInfos();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -977,8 +973,7 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
           const result = this.impl.createDevice(params.device_id, params.device_receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec);
                responder(response);
             }});
           }

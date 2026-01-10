@@ -647,8 +647,7 @@ network.mojom.CustomProxyConfigClientReceiver = class {
           const result = this.impl.onCustomProxyConfigUpdated(params.proxy_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -774,8 +773,7 @@ network.mojom.TrustedHeaderClientReceiver = class {
           const result = this.impl.onBeforeSendHeaders(params.headers);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -786,8 +784,7 @@ network.mojom.TrustedHeaderClientReceiver = class {
           const result = this.impl.onHeadersReceived(params.headers, params.remote_endpoint, params.ssl_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2944,8 +2941,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearTrustTokenData(params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearTrustTokenData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearTrustTokenData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2956,8 +2952,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearTrustTokenSessionOnlyData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2968,8 +2963,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.getStoredTrustTokenCounts();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_GetStoredTrustTokenCounts_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetStoredTrustTokenCounts_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2980,8 +2974,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.getPrivateStateTokenRedemptionRecords();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2992,8 +2985,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.deleteStoredTrustTokens(params.issuer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_DeleteStoredTrustTokens_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_DeleteStoredTrustTokens_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3009,8 +3001,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearNetworkingHistoryBetween(params.start_time, params.end_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3021,8 +3012,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearHttpCache(params.start_time, params.end_time, params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearHttpCache_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearHttpCache_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3033,8 +3023,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.computeHttpCacheSize(params.start_time, params.end_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ComputeHttpCacheSize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ComputeHttpCacheSize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3055,8 +3044,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearHostCache(params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearHostCache_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearHostCache_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3067,8 +3055,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearHttpAuthCache(params.start_time, params.end_time, params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearHttpAuthCache_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearHttpAuthCache_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3079,8 +3066,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearCorsPreflightCache(params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearCorsPreflightCache_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearCorsPreflightCache_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3091,8 +3077,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearReportingCacheReports(params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearReportingCacheReports_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearReportingCacheReports_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3103,8 +3088,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearReportingCacheClients(params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearReportingCacheClients_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearReportingCacheClients_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3115,8 +3099,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearNetworkErrorLogging(params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearNetworkErrorLogging_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearNetworkErrorLogging_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3127,8 +3110,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearDomainReliability(params.filter, params.mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearDomainReliability_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearDomainReliability_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3139,8 +3121,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearSharedDictionaryCache(params.start_time, params.end_time, params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearSharedDictionaryCache_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearSharedDictionaryCache_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3151,8 +3132,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearSharedDictionaryCacheForIsolationKey(params.isolation_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3193,8 +3173,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.closeAllConnections();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_CloseAllConnections_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CloseAllConnections_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3205,8 +3184,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.closeIdleConnections();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_CloseIdleConnections_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CloseIdleConnections_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3242,8 +3220,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.createRestrictedUDPSocket(params.addr, params.mode, params.traffic_annotation, params.params, params.receiver, params.listener, params.allow_multicast);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_CreateRestrictedUDPSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CreateRestrictedUDPSocket_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3254,8 +3231,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.createTCPServerSocket(params.local_addr, params.options, params.traffic_annotation, params.socket);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_CreateTCPServerSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CreateTCPServerSocket_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3266,8 +3242,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.createTCPConnectedSocket(params.local_addr, params.remote_addr_list, params.tcp_connected_socket_options, params.traffic_annotation, params.socket, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_CreateTCPConnectedSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CreateTCPConnectedSocket_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3278,8 +3253,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.createTCPBoundSocket(params.local_addr, params.traffic_annotation, params.socket);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_CreateTCPBoundSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CreateTCPBoundSocket_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3300,8 +3274,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.forceReloadProxyConfig();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ForceReloadProxyConfig_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ForceReloadProxyConfig_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3312,8 +3285,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.clearBadProxiesCache();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ClearBadProxiesCache_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearBadProxiesCache_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3364,8 +3336,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.verifyCert(params.certificate, params.host_port, params.ocsp_response, params.sct_list);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_VerifyCert_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_VerifyCert_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3376,8 +3347,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.verifyCertForSignedExchange(params.certificate, params.host_port, params.ocsp_response, params.sct_list);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_VerifyCertForSignedExchange_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_VerifyCertForSignedExchange_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3388,8 +3358,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.verify2QwacCertBinding(params.binding, params.hostname, params.tls_certificate);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_Verify2QwacCertBinding_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_Verify2QwacCertBinding_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3400,8 +3369,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.addHSTS(params.host, params.expiry, params.include_subdomains);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_AddHSTS_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_AddHSTS_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3412,8 +3380,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.isHSTSActiveForHost(params.host, params.is_top_level_nav);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_IsHSTSActiveForHost_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_IsHSTSActiveForHost_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3424,8 +3391,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.getHSTSState(params.domain);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_GetHSTSState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetHSTSState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3436,8 +3402,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.setCorsOriginAccessListsForOrigin(params.source_origin, params.allow_patterns, params.block_patterns);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3448,8 +3413,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.deleteDynamicDataForHost(params.host);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_DeleteDynamicDataForHost_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_DeleteDynamicDataForHost_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3465,8 +3429,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.saveHttpAuthCacheProxyEntries();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3477,8 +3440,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.loadHttpAuthCacheProxyEntries(params.cache_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3489,8 +3451,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.addAuthCacheEntry(params.challenge, params.network_anonymization_key, params.credentials);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_AddAuthCacheEntry_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_AddAuthCacheEntry_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3506,8 +3467,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.lookupProxyAuthCredentials(params.proxy_server, params.auth_scheme, params.realm);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_LookupProxyAuthCredentials_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_LookupProxyAuthCredentials_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3518,8 +3478,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.enableStaticKeyPinningForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3530,8 +3489,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.verifyCertificateForTesting(params.certificate, params.hostname, params.ocsp_response, params.sct_list);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_VerifyCertificateForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_VerifyCertificateForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3542,8 +3500,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.getTrustAnchorIDsForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3554,8 +3511,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.addDomainReliabilityContextForTesting(params.origin, params.upload_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3566,8 +3522,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.forceDomainReliabilityUploadsForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3588,8 +3543,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.getSharedDictionaryUsageInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3600,8 +3554,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.getSharedDictionaryInfo(params.isolation_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_GetSharedDictionaryInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetSharedDictionaryInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3612,8 +3565,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.getSharedDictionaryOriginsBetween(params.start_time, params.end_time);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3634,8 +3586,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.hasPreloadedSharedDictionaryInfoForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3661,8 +3612,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.revokeNetworkForNonces(params.nonces_to_patterns);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_RevokeNetworkForNonces_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_RevokeNetworkForNonces_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3678,8 +3628,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.exemptUrlFromNetworkRevocationForNonce(params.exempted_url, params.nonce);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3695,8 +3644,7 @@ network.mojom.NetworkContextReceiver = class {
           const result = this.impl.getBoundNetworkForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContext_GetBoundNetworkForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetBoundNetworkForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }

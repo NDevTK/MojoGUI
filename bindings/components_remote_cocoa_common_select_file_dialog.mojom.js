@@ -126,8 +126,7 @@ remote_cocoa.mojom.SelectFileDialogReceiver = class {
           const result = this.impl.show(params.type, params.title, params.file_path, params.file_types, params.file_type_index, params.default_extension);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec);
                responder(response);
             }});
           }

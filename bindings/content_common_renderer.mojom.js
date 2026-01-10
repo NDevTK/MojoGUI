@@ -498,8 +498,7 @@ content.mojom.RendererReceiver = class {
           const result = this.impl.purgeResourceCache();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -520,8 +519,7 @@ content.mojom.RendererReceiver = class {
           const result = this.impl.writeClangProfilingProfile();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec);
                responder(response);
             }});
           }

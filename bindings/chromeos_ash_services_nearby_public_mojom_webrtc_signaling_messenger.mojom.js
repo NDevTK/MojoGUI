@@ -342,8 +342,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
           const result = this.impl.sendMessage(params.self_id, params.peer_id, params.location_hint, params.message);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -354,8 +353,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
           const result = this.impl.startReceivingMessages(params.self_id, params.location_hint, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec);
                responder(response);
             }});
           }

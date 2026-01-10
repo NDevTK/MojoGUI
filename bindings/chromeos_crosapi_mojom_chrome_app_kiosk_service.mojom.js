@@ -157,8 +157,7 @@ crosapi.mojom.ChromeKioskLaunchControllerReceiver = class {
           const result = this.impl.installKioskApp(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -169,8 +168,7 @@ crosapi.mojom.ChromeKioskLaunchControllerReceiver = class {
           const result = this.impl.launchKioskApp(params.app_id, params.is_network_ready);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec);
                responder(response);
             }});
           }

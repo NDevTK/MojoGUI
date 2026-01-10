@@ -207,8 +207,7 @@ infobar_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.getInfoBars();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -219,8 +218,7 @@ infobar_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.triggerInfoBar(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec);
                responder(response);
             }});
           }

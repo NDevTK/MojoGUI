@@ -504,8 +504,7 @@ actor.mojom.PageStabilityMonitorReceiver = class {
           const result = this.impl.notifyWhenStable(params.observation_delay);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec);
                responder(response);
             }});
           }

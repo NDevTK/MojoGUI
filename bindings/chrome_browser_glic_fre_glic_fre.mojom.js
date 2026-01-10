@@ -350,8 +350,7 @@ glic.mojom.FrePageHandlerReceiver = class {
           const result = this.impl.prepareForClient();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec);
                responder(response);
             }});
           }

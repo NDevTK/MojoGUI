@@ -262,8 +262,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
           const result = this.impl.getUnitId(params.id, params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -274,8 +273,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
           const result = this.impl.mapCtrl(params.id, params.mapping_ctrl);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -286,8 +284,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
           const result = this.impl.getCtrl(params.id, params.ctrl, params.fn);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -298,8 +295,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
           const result = this.impl.setCtrl(params.id, params.ctrl, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec);
                responder(response);
             }});
           }

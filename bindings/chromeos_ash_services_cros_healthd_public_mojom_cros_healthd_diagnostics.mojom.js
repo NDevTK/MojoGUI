@@ -287,8 +287,7 @@ ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierReceiver = class {
           const result = this.impl.getColorMatched();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec);
                responder(response);
             }});
           }

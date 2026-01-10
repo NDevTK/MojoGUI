@@ -94,8 +94,7 @@ device.mojom.BatteryMonitorReceiver = class {
           const result = this.impl.queryNextStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec);
                responder(response);
             }});
           }

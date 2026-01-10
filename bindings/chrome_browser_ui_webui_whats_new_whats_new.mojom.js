@@ -576,8 +576,7 @@ whats_new.mojom.PageHandlerReceiver = class {
           const result = this.impl.getServerUrl(params.is_staging);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec);
                responder(response);
             }});
           }

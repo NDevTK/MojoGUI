@@ -352,8 +352,7 @@ extensions.mojom.LocalFrameReceiver = class {
           const result = this.impl.executeCode(params.param);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -374,8 +373,7 @@ extensions.mojom.LocalFrameReceiver = class {
           const result = this.impl.dispatchOnConnect(params.port_id, params.channel_type, params.channel_name, params.tab_info, params.external_connection_info, params.port, params.port_host);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -699,8 +697,7 @@ extensions.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.requestScriptInjectionPermission(params.extension_id, params.script_type, params.run_location);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -711,8 +708,7 @@ extensions.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.getAppInstallState(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -723,8 +719,7 @@ extensions.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.request(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec);
                responder(response);
             }});
           }

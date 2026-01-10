@@ -175,8 +175,7 @@ arc.mojom.ArcWifiHostReceiver = class {
           const result = this.impl.getWifiEnabledState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -187,8 +186,7 @@ arc.mojom.ArcWifiHostReceiver = class {
           const result = this.impl.setWifiEnabledState(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -204,8 +202,7 @@ arc.mojom.ArcWifiHostReceiver = class {
           const result = this.impl.getScanResults();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -334,8 +331,7 @@ arc.mojom.ArcWifiInstanceReceiver = class {
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec);
                responder(response);
             }});
           }

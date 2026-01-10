@@ -113,8 +113,7 @@ network.mojom.ProxyResolvingSocketReceiver = class {
           const result = this.impl.upgradeToTLS(params.host_port_pair, params.traffic_annotation, params.receiver, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -222,8 +221,7 @@ network.mojom.ProxyResolvingSocketFactoryReceiver = class {
           const result = this.impl.createProxyResolvingSocket(params.url, params.network_anonymization_key, params.options, params.traffic_annotation, params.socket, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec);
                responder(response);
             }});
           }

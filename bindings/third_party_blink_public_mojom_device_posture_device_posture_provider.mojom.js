@@ -138,8 +138,7 @@ blink.mojom.DevicePostureProviderReceiver = class {
           const result = this.impl.addListenerAndGetCurrentPosture(params.client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec);
                responder(response);
             }});
           }

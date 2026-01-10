@@ -313,8 +313,7 @@ chrome.mojom.PluginInfoHostReceiver = class {
           const result = this.impl.getPluginInfo(params.url, params.origin, params.mime_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

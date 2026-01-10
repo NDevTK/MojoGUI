@@ -128,8 +128,7 @@ arc.mojom.CompatibilityModeInstanceReceiver = class {
           const result = this.impl.isOptimizedForCrosApp(params.package_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec);
                responder(response);
             }});
           }

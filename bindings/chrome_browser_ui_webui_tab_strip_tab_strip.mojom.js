@@ -537,8 +537,7 @@ tab_strip.mojom.PageHandlerReceiver = class {
           const result = this.impl.getGroupVisualData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -549,8 +548,7 @@ tab_strip.mojom.PageHandlerReceiver = class {
           const result = this.impl.getTabs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -591,8 +589,7 @@ tab_strip.mojom.PageHandlerReceiver = class {
           const result = this.impl.getLayout();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -158,8 +158,7 @@ blink.mojom.CookieStoreReceiver = class {
           const result = this.impl.addSubscriptions(params.service_worker_registration_id, params.subscription);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -170,8 +169,7 @@ blink.mojom.CookieStoreReceiver = class {
           const result = this.impl.removeSubscriptions(params.service_worker_registration_id, params.subscription);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -182,8 +180,7 @@ blink.mojom.CookieStoreReceiver = class {
           const result = this.impl.getSubscriptions(params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec);
                responder(response);
             }});
           }

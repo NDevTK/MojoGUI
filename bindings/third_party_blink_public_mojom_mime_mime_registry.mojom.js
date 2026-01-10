@@ -95,8 +95,7 @@ blink.mojom.MimeRegistryReceiver = class {
           const result = this.impl.getMimeTypeFromExtension(params.extension);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec);
                responder(response);
             }});
           }

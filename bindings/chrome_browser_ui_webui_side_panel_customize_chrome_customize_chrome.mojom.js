@@ -820,8 +820,7 @@ side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
           const result = this.impl.getBackgroundCollections();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -832,8 +831,7 @@ side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
           const result = this.impl.getReplacementCollectionPreviewImage(params.collection_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -844,8 +842,7 @@ side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
           const result = this.impl.getBackgroundImages(params.collection_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -886,8 +883,7 @@ side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
           const result = this.impl.chooseLocalCustomBackground();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec);
                responder(response);
             }});
           }

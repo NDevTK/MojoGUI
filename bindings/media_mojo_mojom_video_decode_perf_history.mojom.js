@@ -96,8 +96,7 @@ media.mojom.VideoDecodePerfHistoryReceiver = class {
           const result = this.impl.getPerfInfo(params.features);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -112,8 +112,7 @@ blink.mojom.LeakDetectorReceiver = class {
           const result = this.impl.performLeakDetection();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec);
                responder(response);
             }});
           }

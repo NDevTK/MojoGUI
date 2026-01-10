@@ -263,8 +263,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
           const result = this.impl.getBrowsingTopicsConfiguration();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -275,8 +274,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
           const result = this.impl.getBrowsingTopicsState(params.calculate_now);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -287,8 +285,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
           const result = this.impl.getModelInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -299,8 +296,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
           const result = this.impl.classifyHosts(params.hosts);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec);
                responder(response);
             }});
           }

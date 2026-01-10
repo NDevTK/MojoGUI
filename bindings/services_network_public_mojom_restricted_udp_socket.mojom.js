@@ -203,8 +203,7 @@ network.mojom.RestrictedUDPSocketReceiver = class {
           const result = this.impl.joinGroup(params.group_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -215,8 +214,7 @@ network.mojom.RestrictedUDPSocketReceiver = class {
           const result = this.impl.leaveGroup(params.group_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -232,8 +230,7 @@ network.mojom.RestrictedUDPSocketReceiver = class {
           const result = this.impl.send(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -244,8 +241,7 @@ network.mojom.RestrictedUDPSocketReceiver = class {
           const result = this.impl.sendTo(params.data, params.dest_addr, params.dns_query_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec);
                responder(response);
             }});
           }

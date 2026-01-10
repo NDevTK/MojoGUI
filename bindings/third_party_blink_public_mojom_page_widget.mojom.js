@@ -516,8 +516,7 @@ blink.mojom.FrameWidgetReceiver = class {
           const result = this.impl.dragTargetDragEnter(params.drag_data, params.point_in_viewport, params.screen_point, params.operations_allowed, params.key_modifiers);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -528,8 +527,7 @@ blink.mojom.FrameWidgetReceiver = class {
           const result = this.impl.dragTargetDragOver(params.point_in_viewport, params.screen_point, params.operations_allowed, params.key_modifiers);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -545,8 +543,7 @@ blink.mojom.FrameWidgetReceiver = class {
           const result = this.impl.dragTargetDrop(params.drag_data, params.point_in_viewport, params.screen_point, params.key_modifiers);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FrameWidget_DragTargetDrop_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_DragTargetDrop_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -557,8 +554,7 @@ blink.mojom.FrameWidgetReceiver = class {
           const result = this.impl.dragSourceEndedAt(params.point_in_viewport, params.screen_point, params.drag_operation);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -574,8 +570,7 @@ blink.mojom.FrameWidgetReceiver = class {
           const result = this.impl.onStartStylusWriting(params.focus_widget_rect_in_dips);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -621,8 +616,7 @@ blink.mojom.FrameWidgetReceiver = class {
           const result = this.impl.getStringAtPoint(params.point_in_local_root);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1000,8 +994,7 @@ blink.mojom.PopupWidgetHostReceiver = class {
           const result = this.impl.showPopup(params.initial_rect, params.anchor_rect);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PopupWidgetHost_ShowPopup_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PopupWidgetHost_ShowPopup_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -1012,8 +1005,7 @@ blink.mojom.PopupWidgetHostReceiver = class {
           const result = this.impl.setPopupBounds(params.bounds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParamsSpec);
                responder(response);
             }});
           }

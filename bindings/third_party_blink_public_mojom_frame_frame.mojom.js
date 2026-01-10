@@ -1881,8 +1881,7 @@ blink.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.enterFullscreen(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrameHost_EnterFullscreen_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_EnterFullscreen_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2083,8 +2082,7 @@ blink.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.runModalAlertDialog(params.alert_message, params.disable_third_party_subframe_suppresion);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunModalAlertDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunModalAlertDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2095,8 +2093,7 @@ blink.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.runModalConfirmDialog(params.alert_message, params.disable_third_party_subframe_suppresion);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunModalConfirmDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunModalConfirmDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2107,8 +2104,7 @@ blink.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.runModalPromptDialog(params.alert_message, params.default_value, params.disable_third_party_subframe_suppresion);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunModalPromptDialog_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunModalPromptDialog_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2119,8 +2115,7 @@ blink.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.runBeforeUnloadConfirm(params.is_reload);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2246,8 +2241,7 @@ blink.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.disableUntrustedNetworkInFencedFrame();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrameHost_DisableUntrustedNetworkInFencedFrame_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_DisableUntrustedNetworkInFencedFrame_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2258,8 +2252,7 @@ blink.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.exemptUrlFromNetworkRevocationForTesting(params.exempted_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrameHost_ExemptUrlFromNetworkRevocationForTesting_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_ExemptUrlFromNetworkRevocationForTesting_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2330,8 +2323,7 @@ blink.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.initializeCrashReportStorage(params.length);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2342,8 +2334,7 @@ blink.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.setCrashReportStorageKey(params.key, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrameHost_SetCrashReportStorageKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_SetCrashReportStorageKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -2354,8 +2345,7 @@ blink.mojom.LocalFrameHostReceiver = class {
           const result = this.impl.removeCrashReportStorageKey(params.key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RemoveCrashReportStorageKey_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RemoveCrashReportStorageKey_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3532,8 +3522,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.getTextSurroundingSelection(params.max_length);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_GetTextSurroundingSelection_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetTextSurroundingSelection_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3629,8 +3618,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.beforeUnload(params.is_reload);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_BeforeUnload_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_BeforeUnload_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3646,8 +3634,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.requestVideoFrameAtWithBoundsHint(params.location, params.max_size, params.max_area);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3693,8 +3680,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.javaScriptMethodExecuteRequest(params.object_name, params.method_name, params.arguments, params.wants_result);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3705,8 +3691,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.javaScriptExecuteRequest(params.javascript, params.wants_result);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptExecuteRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptExecuteRequest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3717,8 +3702,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.javaScriptExecuteRequestForTests(params.javascript, params.has_user_gesture, params.resolve_promises, params.honor_js_content_settings, params.world_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3729,8 +3713,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.javaScriptExecuteRequestInIsolatedWorld(params.javascript, params.wants_result, params.world_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3751,8 +3734,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.getStringForRange(params.range);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_GetStringForRange_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetStringForRange_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3773,8 +3755,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.getSavableResourceLinks();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3795,8 +3776,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.extractSmartClipData(params.rect);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_ExtractSmartClipData_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_ExtractSmartClipData_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3812,8 +3792,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.getCanonicalUrlForSharing();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3824,8 +3803,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.getOpenGraphMetadata();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_GetOpenGraphMetadata_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetOpenGraphMetadata_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3841,8 +3819,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.updatePrerenderURL(params.matched_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_UpdatePrerenderURL_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_UpdatePrerenderURL_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3868,8 +3845,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.snapshotDocumentForViewTransition(params.transition_token, params.page_swap_event_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -3895,8 +3871,7 @@ blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.getScrollPosition();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4198,8 +4173,7 @@ blink.mojom.LocalMainFrameReceiver = class {
           const result = this.impl.closePage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalMainFrame_ClosePage_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrame_ClosePage_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4210,8 +4184,7 @@ blink.mojom.LocalMainFrameReceiver = class {
           const result = this.impl.getFullPageSize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalMainFrame_GetFullPageSize_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrame_GetFullPageSize_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4252,8 +4225,7 @@ blink.mojom.LocalMainFrameReceiver = class {
           const result = this.impl.discard();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalMainFrame_Discard_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrame_Discard_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4643,8 +4615,7 @@ blink.mojom.LocalMainFrameHostReceiver = class {
           const result = this.impl.updateTargetURL(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalMainFrameHost_UpdateTargetURL_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrameHost_UpdateTargetURL_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4660,8 +4631,7 @@ blink.mojom.LocalMainFrameHostReceiver = class {
           const result = this.impl.showCreatedWindow(params.opener_frame_token, params.disposition, params.window_features, params.opened_by_user_gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalMainFrameHost_ShowCreatedWindow_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrameHost_ShowCreatedWindow_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -4672,8 +4642,7 @@ blink.mojom.LocalMainFrameHostReceiver = class {
           const result = this.impl.setWindowRect(params.bounds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -216,8 +216,7 @@ network.mojom.NetworkContextClientReceiver = class {
           const result = this.impl.onFileUploadRequested(params.process_id, params.async, params.file_paths, params.destination_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -228,8 +227,7 @@ network.mojom.NetworkContextClientReceiver = class {
           const result = this.impl.onCanSendReportingReports(params.origins);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -240,8 +238,7 @@ network.mojom.NetworkContextClientReceiver = class {
           const result = this.impl.onCanSendDomainReliabilityUpload(params.origin);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -252,8 +249,7 @@ network.mojom.NetworkContextClientReceiver = class {
           const result = this.impl.onGenerateHttpNegotiateAuthToken(params.server_auth_token, params.can_delegate, params.auth_negotiate_android_account_type, params.spn);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -264,8 +260,7 @@ network.mojom.NetworkContextClientReceiver = class {
           const result = this.impl.onCanSendSCTAuditingReport();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec);
                responder(response);
             }});
           }

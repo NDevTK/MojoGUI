@@ -96,8 +96,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBrokerReceiver = class {
           const result = this.impl.openDevice(params.device_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -95,8 +95,7 @@ content.mojom.RenderFrameTestHelperReceiver = class {
           const result = this.impl.getDocumentToken();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec);
                responder(response);
             }});
           }

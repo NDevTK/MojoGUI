@@ -429,8 +429,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
           const result = this.impl.getRetailerName();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -441,8 +440,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
           const result = this.impl.getStoreId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -458,8 +456,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
           const result = this.impl.getDefaultVolumeLevel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -480,8 +477,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
           const result = this.impl.getAvailableWifiNetworks();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -492,8 +488,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
           const result = this.impl.getConnectionStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec);
                responder(response);
             }});
           }

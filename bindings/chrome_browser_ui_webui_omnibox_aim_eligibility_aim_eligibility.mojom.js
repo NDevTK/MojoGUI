@@ -244,8 +244,7 @@ aim_eligibility.mojom.PageHandlerReceiver = class {
           const result = this.impl.getEligibilityState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -261,8 +260,7 @@ aim_eligibility.mojom.PageHandlerReceiver = class {
           const result = this.impl.setEligibilityResponseForDebugging(params.base64_encoded_response);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec);
                responder(response);
             }});
           }

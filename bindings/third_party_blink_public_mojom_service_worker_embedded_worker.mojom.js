@@ -404,8 +404,7 @@ blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
           const result = this.impl.requestTermination();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -203,8 +203,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           const result = this.impl.getPolicyInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -215,8 +214,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           const result = this.impl.getSysInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -227,8 +225,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           const result = this.impl.getMachineStatisticsInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec);
                responder(response);
             }});
           }

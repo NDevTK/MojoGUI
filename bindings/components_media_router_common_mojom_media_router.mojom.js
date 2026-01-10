@@ -500,8 +500,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
           const result = this.impl.createRoute(params.media_source, params.sink_id, params.original_presentation_id, params.origin, params.frame_tree_node_id, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -512,8 +511,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
           const result = this.impl.joinRoute(params.media_source, params.presentation_id, params.origin, params.frame_tree_node_id, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -524,8 +522,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
           const result = this.impl.terminateRoute(params.route_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -571,8 +568,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
           const result = this.impl.bindMediaController(params.route_id, params.media_controller, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -583,8 +579,7 @@ media_router.mojom.MediaRouteProviderReceiver = class {
           const result = this.impl.getState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -912,8 +907,7 @@ media_router.mojom.MediaRouterReceiver = class {
           const result = this.impl.getMediaSinkServiceStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -934,8 +928,7 @@ media_router.mojom.MediaRouterReceiver = class {
           const result = this.impl.getLogsAsString();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec);
                responder(response);
             }});
           }

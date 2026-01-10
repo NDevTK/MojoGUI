@@ -141,8 +141,7 @@ printing.mojom.PdfToPwgRasterConverterReceiver = class {
           const result = this.impl.convert(params.pdf_region, params.pdf_settings, params.pwg_raster_settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec);
                responder(response);
             }});
           }

@@ -452,8 +452,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
           const result = this.impl.requestToken(params.idp_get_params, params.requirement);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -464,8 +463,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
           const result = this.impl.requestUserInfo(params.provider);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -481,8 +479,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
           const result = this.impl.resolveTokenRequest(params.account_id, params.token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -493,8 +490,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
           const result = this.impl.setIdpSigninStatus(params.origin, params.status, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -505,8 +501,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
           const result = this.impl.registerIdP(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -517,8 +512,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
           const result = this.impl.unregisterIdP(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -534,8 +528,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
           const result = this.impl.preventSilentAccess();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec);
                responder(response);
             }});
           }
@@ -546,8 +539,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
           const result = this.impl.disconnect(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec);
                responder(response);
             }});
           }

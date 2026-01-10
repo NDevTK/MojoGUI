@@ -113,8 +113,7 @@ chromeos.machine_learning.mojom.GraphExecutorReceiver = class {
           const result = this.impl.execute(params.inputs, params.output_names);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(
-                this.endpoint, header.requestId, chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec);
                responder(response);
             }});
           }
