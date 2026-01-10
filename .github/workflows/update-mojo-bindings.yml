@@ -1224,7 +1224,7 @@ jobs:
                   if not os.path.isfile(mojom_path):
                       continue
                   
-                  parsed = parse_mojom_file(mojom_path)
+                  parsed = parse_mojom(mojom_path)
                   if parsed:
                       all_parsed.append({'path': mojom_path, 'data': parsed})
                       
