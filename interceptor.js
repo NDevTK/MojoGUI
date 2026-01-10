@@ -107,11 +107,20 @@
                 if (handler && !handler._interceptor_patched) {
                     handler._interceptor_patched = true;
 
-                    // Helper to get raw ArrayBuffer from message.buffer (could be Uint8Array, etc)
-                    const normalizeBuffer = (buf) => {
-                        if (!buf) return null;
-                        if (buf instanceof ArrayBuffer) return buf;
-                        if (buf.buffer instanceof ArrayBuffer) return buf.buffer;
+                    // Helper to get raw ArrayBuffer from message (could be Message object, Uint8Array, etc)
+                    const normalizeBuffer = (obj) => {
+                        if (!obj) return null;
+                        // 1. If it's already an ArrayBuffer
+                        if (obj instanceof ArrayBuffer) return obj;
+                        // 2. If it's a view (Uint8Array, etc)
+                        if (obj.buffer instanceof ArrayBuffer) return obj.buffer;
+                        // 3. If it's a Mojo Message object/wrapper
+                        if (obj.buffer) return normalizeBuffer(obj.buffer);
+                        if (obj.payload) return normalizeBuffer(obj.payload);
+                        if (obj.data) return normalizeBuffer(obj.data);
+
+                        // Debug log for unknown types
+                        // console.warn('[Interceptor] normalizeBuffer: Unknown object type:', obj.constructor?.name || typeof obj, Object.keys(obj));
                         return null;
                     };
 
@@ -119,8 +128,9 @@
                     if (typeof handler.decodeMessageHeader !== 'function') {
                         handler.decodeMessageHeader = function (message) {
                             try {
-                                const rawBuf = normalizeBuffer(message.buffer || message);
-                                if (!rawBuf) throw new Error('Invalid buffer');
+                                const rawBuf = normalizeBuffer(message);
+                                if (!rawBuf) throw new Error('Invalid buffer (Object keys: ' + Object.keys(message).join(',') + ')');
+
                                 const view = new DataView(rawBuf);
                                 const headerSize = view.getUint32(0, true);
                                 const headerVersion = view.getUint32(4, true);
@@ -138,6 +148,7 @@
                                 };
                             } catch (e) {
                                 console.error('[Interceptor] Robust decodeMessageHeader failed:', e);
+                                // Fallback: try to guess if it's a control message or not
                                 return { headerSize: 32, ordinal: 0, flags: 0, controlMessage: false, expectsResponse: false };
                             }
                         };
@@ -150,7 +161,7 @@
                             if (header.expectsResponse === undefined) {
                                 header.expectsResponse = !!(header.flags & 1);
                             }
-                            const rawBuf = normalizeBuffer(message.buffer || message);
+                            const rawBuf = normalizeBuffer(message);
                             _endpointContexts.set(endpoint, {
                                 header: header,
                                 rawHeader: rawBuf ? rawBuf.slice(0, header.headerSize) : null
