@@ -247,8 +247,11 @@ side_panel.mojom.CustomizeChromePageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -271,9 +274,13 @@ side_panel.mojom.CustomizeChromePageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -822,8 +829,39 @@ side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
+    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
+    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
+    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
+    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
+    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
+    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
+    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
+    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -846,21 +884,27 @@ side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedSettings');
           const result = this.impl.setMostVisitedSettings(params.shortcuts_types, params.shortcuts_visible, params.personal_shortcuts_visible);
           break;
         }
         case 1: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateMostVisitedSettings');
           const result = this.impl.updateMostVisitedSettings();
           break;
         }
         case 2: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getBackgroundCollections');
           const result = this.impl.getBackgroundCollections();
           if (header.expectsResponse) {
@@ -872,7 +916,8 @@ side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getReplacementCollectionPreviewImage');
           const result = this.impl.getReplacementCollectionPreviewImage(params.collection_id);
           if (header.expectsResponse) {
@@ -884,7 +929,8 @@ side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
           break;
         }
         case 4: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getBackgroundImages');
           const result = this.impl.getBackgroundImages(params.collection_id);
           if (header.expectsResponse) {
@@ -896,43 +942,50 @@ side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
           break;
         }
         case 5: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateModulesSettings');
           const result = this.impl.updateModulesSettings();
           break;
         }
         case 6: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateTheme');
           const result = this.impl.updateTheme();
           break;
         }
         case 7: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateThemeEditable');
           const result = this.impl.updateThemeEditable(params.is_theme_editable);
           break;
         }
         case 8: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDefaultColor');
           const result = this.impl.setDefaultColor();
           break;
         }
         case 9: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setFollowDeviceTheme');
           const result = this.impl.setFollowDeviceTheme(params.follow);
           break;
         }
         case 10: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeBackgroundImage');
           const result = this.impl.removeBackgroundImage();
           break;
         }
         case 11: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.chooseLocalCustomBackground');
           const result = this.impl.chooseLocalCustomBackground();
           if (header.expectsResponse) {
@@ -944,103 +997,120 @@ side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
           break;
         }
         case 12: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundImage');
           const result = this.impl.setBackgroundImage(params.attribution_1, params.attribution_2, params.attribution_url, params.image_url, params.thumbnail_url, params.collection_id);
           break;
         }
         case 13: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDailyRefreshCollectionId');
           const result = this.impl.setDailyRefreshCollectionId(params.collection_id);
           break;
         }
         case 14: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openChromeWebStore');
           const result = this.impl.openChromeWebStore();
           break;
         }
         case 15: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openChromeWebStoreHomePage');
           const result = this.impl.openChromeWebStoreHomePage();
           break;
         }
         case 16: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openThirdPartyThemePage');
           const result = this.impl.openThirdPartyThemePage(params.theme_id);
           break;
         }
         case 17: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openChromeWebStoreCategoryPage');
           const result = this.impl.openChromeWebStoreCategoryPage(params.category);
           break;
         }
         case 18: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openChromeWebStoreCollectionPage');
           const result = this.impl.openChromeWebStoreCollectionPage(params.collection);
           break;
         }
         case 19: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openNtpManagedByPage');
           const result = this.impl.openNtpManagedByPage();
           break;
         }
         case 20: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setModulesVisible');
           const result = this.impl.setModulesVisible(params.visible);
           break;
         }
         case 21: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setModuleDisabled');
           const result = this.impl.setModuleDisabled(params.module_id, params.disabled);
           break;
         }
         case 22: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setToolChipsVisible');
           const result = this.impl.setToolChipsVisible(params.visible);
           break;
         }
         case 23: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateToolChipsSettings');
           const result = this.impl.updateToolChipsSettings();
           break;
         }
         case 24: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateScrollToSection');
           const result = this.impl.updateScrollToSection();
           break;
         }
         case 25: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateAttachedTabState');
           const result = this.impl.updateAttachedTabState();
           break;
         }
         case 26: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateNtpManagedByName');
           const result = this.impl.updateNtpManagedByName();
           break;
         }
         case 27: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setFooterVisible');
           const result = this.impl.setFooterVisible(params.visible);
           break;
         }
         case 28: {
-          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateFooterSettings');
           const result = this.impl.updateFooterSettings();
           break;
@@ -1260,8 +1330,19 @@ side_panel.mojom.CustomizeChromePageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1284,57 +1365,69 @@ side_panel.mojom.CustomizeChromePageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setModulesSettings');
           const result = this.impl.setModulesSettings(params.modules_settings, params.managed, params.visible);
           break;
         }
         case 1: {
-          const params = side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedSettings');
           const result = this.impl.setMostVisitedSettings(params.shortcuts_types, params.visible, params.personal_shortcuts_visible, params.disabled_shortcuts);
           break;
         }
         case 2: {
-          const params = side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setToolsSettings');
           const result = this.impl.setToolsSettings(params.visible);
           break;
         }
         case 3: {
-          const params = side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setFooterSettings');
           const result = this.impl.setFooterSettings(params.visible, params.extension_policy_enabled, params.management_notice_state);
           break;
         }
         case 4: {
-          const params = side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
           const result = this.impl.setTheme(params.theme);
           break;
         }
         case 5: {
-          const params = side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setThemeEditable');
           const result = this.impl.setThemeEditable(params.is_theme_editable);
           break;
         }
         case 6: {
-          const params = side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.scrollToSection');
           const result = this.impl.scrollToSection(params.section);
           break;
         }
         case 7: {
-          const params = side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.attachedTabStateUpdated');
           const result = this.impl.attachedTabStateUpdated(params.ntp_type);
           break;
         }
         case 8: {
-          const params = side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.ntpManagedByNameUpdated');
           const result = this.impl.ntpManagedByNameUpdated(params.name, params.description);
           break;

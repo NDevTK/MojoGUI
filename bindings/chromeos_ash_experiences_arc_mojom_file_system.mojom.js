@@ -642,8 +642,25 @@ arc.mojom.FileSystemHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(1, 0); // Default ordinal 1 -> Index 0
+    this.ordinalMap.set(2, 1); // Default ordinal 2 -> Index 1
+    this.ordinalMap.set(11, 2); // Default ordinal 11 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(0, 4); // Default ordinal 0 -> Index 4
+    this.ordinalMap.set(6, 5); // Default ordinal 6 -> Index 5
+    this.ordinalMap.set(9, 6); // Default ordinal 9 -> Index 6
+    this.ordinalMap.set(10, 7); // Default ordinal 10 -> Index 7
+    this.ordinalMap.set(4, 8); // Default ordinal 4 -> Index 8
+    this.ordinalMap.set(5, 9); // Default ordinal 5 -> Index 9
+    this.ordinalMap.set(7, 10); // Default ordinal 7 -> Index 10
+    this.ordinalMap.set(8, 11); // Default ordinal 8 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -666,9 +683,13 @@ arc.mojom.FileSystemHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 1: {
-          const params = arc.mojom.FileSystemHost_GetFileName_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_GetFileName_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getFileName');
           const result = this.impl.getFileName(params.url);
           if (header.expectsResponse) {
@@ -679,8 +700,9 @@ arc.mojom.FileSystemHostReceiver = class {
           }
           break;
         }
-        case 2: {
-          const params = arc.mojom.FileSystemHost_GetFileSize_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_GetFileSize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getFileSize');
           const result = this.impl.getFileSize(params.url);
           if (header.expectsResponse) {
@@ -691,8 +713,9 @@ arc.mojom.FileSystemHostReceiver = class {
           }
           break;
         }
-        case 11: {
-          const params = arc.mojom.FileSystemHost_GetLastModified_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_GetLastModified_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getLastModified');
           const result = this.impl.getLastModified(params.url);
           if (header.expectsResponse) {
@@ -704,7 +727,8 @@ arc.mojom.FileSystemHostReceiver = class {
           break;
         }
         case 3: {
-          const params = arc.mojom.FileSystemHost_GetFileType_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_GetFileType_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getFileType');
           const result = this.impl.getFileType(params.url);
           if (header.expectsResponse) {
@@ -715,20 +739,23 @@ arc.mojom.FileSystemHostReceiver = class {
           }
           break;
         }
-        case 0: {
-          const params = arc.mojom.FileSystemHost_OnDocumentChanged_ParamsSpec.$.decode(message.payload);
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_OnDocumentChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDocumentChanged');
           const result = this.impl.onDocumentChanged(params.watcher_id, params.type);
           break;
         }
-        case 6: {
-          const params = arc.mojom.FileSystemHost_OnRootsChanged_ParamsSpec.$.decode(message.payload);
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_OnRootsChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onRootsChanged');
           const result = this.impl.onRootsChanged();
           break;
         }
-        case 9: {
-          const params = arc.mojom.FileSystemHost_GetVirtualFileId_ParamsSpec.$.decode(message.payload);
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_GetVirtualFileId_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getVirtualFileId');
           const result = this.impl.getVirtualFileId(params.url);
           if (header.expectsResponse) {
@@ -739,8 +766,9 @@ arc.mojom.FileSystemHostReceiver = class {
           }
           break;
         }
-        case 10: {
-          const params = arc.mojom.FileSystemHost_HandleIdReleased_ParamsSpec.$.decode(message.payload);
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_HandleIdReleased_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.handleIdReleased');
           const result = this.impl.handleIdReleased(params.id);
           if (header.expectsResponse) {
@@ -751,8 +779,9 @@ arc.mojom.FileSystemHostReceiver = class {
           }
           break;
         }
-        case 4: {
-          const params = arc.mojom.FileSystemHost_OpenFileToRead_ParamsSpec.$.decode(message.payload);
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_OpenFileToRead_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openFileToRead');
           const result = this.impl.openFileToRead(params.url);
           if (header.expectsResponse) {
@@ -763,8 +792,9 @@ arc.mojom.FileSystemHostReceiver = class {
           }
           break;
         }
-        case 5: {
-          const params = arc.mojom.FileSystemHost_SelectFiles_ParamsSpec.$.decode(message.payload);
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_SelectFiles_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.selectFiles');
           const result = this.impl.selectFiles(params.request);
           if (header.expectsResponse) {
@@ -775,8 +805,9 @@ arc.mojom.FileSystemHostReceiver = class {
           }
           break;
         }
-        case 7: {
-          const params = arc.mojom.FileSystemHost_OnFileSelectorEvent_ParamsSpec.$.decode(message.payload);
+        case 10: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_OnFileSelectorEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFileSelectorEvent');
           const result = this.impl.onFileSelectorEvent(params.event);
           if (header.expectsResponse) {
@@ -787,8 +818,9 @@ arc.mojom.FileSystemHostReceiver = class {
           }
           break;
         }
-        case 8: {
-          const params = arc.mojom.FileSystemHost_GetFileSelectorElements_ParamsSpec.$.decode(message.payload);
+        case 11: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_GetFileSelectorElements_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getFileSelectorElements');
           const result = this.impl.getFileSelectorElements(params.request);
           if (header.expectsResponse) {
@@ -800,13 +832,15 @@ arc.mojom.FileSystemHostReceiver = class {
           break;
         }
         case 12: {
-          const params = arc.mojom.FileSystemHost_OnMediaStoreUriAdded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_OnMediaStoreUriAdded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMediaStoreUriAdded');
           const result = this.impl.onMediaStoreUriAdded(params.uri, params.metadata);
           break;
         }
         case 13: {
-          const params = arc.mojom.FileSystemHost_CreateMoniker_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_CreateMoniker_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createMoniker');
           const result = this.impl.createMoniker(params.content_uri, params.read_only);
           if (header.expectsResponse) {
@@ -818,7 +852,8 @@ arc.mojom.FileSystemHostReceiver = class {
           break;
         }
         case 14: {
-          const params = arc.mojom.FileSystemHost_DestroyMoniker_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemHost_DestroyMoniker_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.destroyMoniker');
           const result = this.impl.destroyMoniker(params.moniker);
           if (header.expectsResponse) {
@@ -1390,8 +1425,33 @@ arc.mojom.FileSystemInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(6, 0); // Default ordinal 6 -> Index 0
+    this.ordinalMap.set(4, 1); // Default ordinal 4 -> Index 1
+    this.ordinalMap.set(3, 2); // Default ordinal 3 -> Index 2
+    this.ordinalMap.set(1, 3); // Default ordinal 1 -> Index 3
+    this.ordinalMap.set(8, 4); // Default ordinal 8 -> Index 4
+    this.ordinalMap.set(9, 5); // Default ordinal 9 -> Index 5
+    this.ordinalMap.set(12, 6); // Default ordinal 12 -> Index 6
+    this.ordinalMap.set(22, 7); // Default ordinal 22 -> Index 7
+    this.ordinalMap.set(13, 8); // Default ordinal 13 -> Index 8
+    this.ordinalMap.set(14, 9); // Default ordinal 14 -> Index 9
+    this.ordinalMap.set(15, 10); // Default ordinal 15 -> Index 10
+    this.ordinalMap.set(16, 11); // Default ordinal 16 -> Index 11
+    this.ordinalMap.set(17, 12); // Default ordinal 17 -> Index 12
+    this.ordinalMap.set(10, 13); // Default ordinal 10 -> Index 13
+    this.ordinalMap.set(21, 14); // Default ordinal 21 -> Index 14
+    this.ordinalMap.set(24, 15); // Default ordinal 24 -> Index 15
+    this.ordinalMap.set(25, 16); // Default ordinal 25 -> Index 16
+    this.ordinalMap.set(26, 17); // Default ordinal 26 -> Index 17
+    this.ordinalMap.set(7, 18); // Default ordinal 7 -> Index 18
+    this.ordinalMap.set(0, 19); // Default ordinal 0 -> Index 19
+    this.ordinalMap.set(19, 20); // Default ordinal 19 -> Index 20
+    this.ordinalMap.set(20, 21); // Default ordinal 20 -> Index 21
+    this.ordinalMap.set(23, 22); // Default ordinal 23 -> Index 22
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1414,9 +1474,13 @@ arc.mojom.FileSystemInstanceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 6: {
-          const params = arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addWatcher');
           const result = this.impl.addWatcher(params.authority, params.document_id);
           if (header.expectsResponse) {
@@ -1427,8 +1491,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 4: {
-          const params = arc.mojom.FileSystemInstance_GetChildDocuments_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_GetChildDocuments_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getChildDocuments');
           const result = this.impl.getChildDocuments(params.authority, params.parent_document_id);
           if (header.expectsResponse) {
@@ -1439,8 +1504,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 3: {
-          const params = arc.mojom.FileSystemInstance_GetDocument_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_GetDocument_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDocument');
           const result = this.impl.getDocument(params.authority, params.document_id);
           if (header.expectsResponse) {
@@ -1451,8 +1517,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 1: {
-          const params = arc.mojom.FileSystemInstance_GetFileSize_ParamsSpec.$.decode(message.payload);
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_GetFileSize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getFileSize');
           const result = this.impl.getFileSize(params.url);
           if (header.expectsResponse) {
@@ -1463,8 +1530,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 8: {
-          const params = arc.mojom.FileSystemInstance_GetMimeType_ParamsSpec.$.decode(message.payload);
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_GetMimeType_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getMimeType');
           const result = this.impl.getMimeType(params.url);
           if (header.expectsResponse) {
@@ -1475,8 +1543,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 9: {
-          const params = arc.mojom.FileSystemInstance_GetRecentDocuments_ParamsSpec.$.decode(message.payload);
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_GetRecentDocuments_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getRecentDocuments');
           const result = this.impl.getRecentDocuments(params.authority, params.root_id);
           if (header.expectsResponse) {
@@ -1487,8 +1556,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 12: {
-          const params = arc.mojom.FileSystemInstance_GetRoots_ParamsSpec.$.decode(message.payload);
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_GetRoots_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getRoots');
           const result = this.impl.getRoots();
           if (header.expectsResponse) {
@@ -1499,8 +1569,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 22: {
-          const params = arc.mojom.FileSystemInstance_GetRootSize_ParamsSpec.$.decode(message.payload);
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_GetRootSize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getRootSize');
           const result = this.impl.getRootSize(params.authority, params.root_id);
           if (header.expectsResponse) {
@@ -1511,8 +1582,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 13: {
-          const params = arc.mojom.FileSystemInstance_DeleteDocument_ParamsSpec.$.decode(message.payload);
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_DeleteDocument_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deleteDocument');
           const result = this.impl.deleteDocument(params.authority, params.document_id);
           if (header.expectsResponse) {
@@ -1523,8 +1595,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 14: {
-          const params = arc.mojom.FileSystemInstance_RenameDocument_ParamsSpec.$.decode(message.payload);
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_RenameDocument_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.renameDocument');
           const result = this.impl.renameDocument(params.authority, params.document_id, params.display_name);
           if (header.expectsResponse) {
@@ -1535,8 +1608,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 15: {
-          const params = arc.mojom.FileSystemInstance_CreateDocument_ParamsSpec.$.decode(message.payload);
+        case 10: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_CreateDocument_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createDocument');
           const result = this.impl.createDocument(params.authority, params.parent_document_id, params.mime_type, params.display_name);
           if (header.expectsResponse) {
@@ -1547,8 +1621,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 16: {
-          const params = arc.mojom.FileSystemInstance_CopyDocument_ParamsSpec.$.decode(message.payload);
+        case 11: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_CopyDocument_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.copyDocument');
           const result = this.impl.copyDocument(params.authority, params.source_document_id, params.target_parent_document_id);
           if (header.expectsResponse) {
@@ -1559,8 +1634,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 17: {
-          const params = arc.mojom.FileSystemInstance_MoveDocument_ParamsSpec.$.decode(message.payload);
+        case 12: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_MoveDocument_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.moveDocument');
           const result = this.impl.moveDocument(params.authority, params.source_document_id, params.source_parent_document_id, params.target_parent_document_id);
           if (header.expectsResponse) {
@@ -1571,8 +1647,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 10: {
-          const params = arc.mojom.FileSystemInstance_Init_ParamsSpec.$.decode(message.payload);
+        case 13: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_Init_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -1583,8 +1660,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 21: {
-          const params = arc.mojom.FileSystemInstance_OpenThumbnail_ParamsSpec.$.decode(message.payload);
+        case 14: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_OpenThumbnail_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openThumbnail');
           const result = this.impl.openThumbnail(params.url, params.size_hint);
           if (header.expectsResponse) {
@@ -1595,14 +1673,16 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 24: {
-          const params = arc.mojom.FileSystemInstance_CloseFileSession_ParamsSpec.$.decode(message.payload);
+        case 15: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_CloseFileSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeFileSession');
           const result = this.impl.closeFileSession(params.url_id, params.error_message);
           break;
         }
-        case 25: {
-          const params = arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ParamsSpec.$.decode(message.payload);
+        case 16: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openFileSessionToWrite');
           const result = this.impl.openFileSessionToWrite(params.url);
           if (header.expectsResponse) {
@@ -1613,8 +1693,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 26: {
-          const params = arc.mojom.FileSystemInstance_OpenFileSessionToRead_ParamsSpec.$.decode(message.payload);
+        case 17: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_OpenFileSessionToRead_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openFileSessionToRead');
           const result = this.impl.openFileSessionToRead(params.url);
           if (header.expectsResponse) {
@@ -1625,8 +1706,9 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 7: {
-          const params = arc.mojom.FileSystemInstance_RemoveWatcher_ParamsSpec.$.decode(message.payload);
+        case 18: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_RemoveWatcher_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeWatcher');
           const result = this.impl.removeWatcher(params.watcher_id);
           if (header.expectsResponse) {
@@ -1637,26 +1719,30 @@ arc.mojom.FileSystemInstanceReceiver = class {
           }
           break;
         }
-        case 0: {
-          const params = arc.mojom.FileSystemInstance_RequestMediaScan_ParamsSpec.$.decode(message.payload);
+        case 19: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_RequestMediaScan_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestMediaScan');
           const result = this.impl.requestMediaScan(params.paths);
           break;
         }
-        case 19: {
-          const params = arc.mojom.FileSystemInstance_ReindexDirectory_ParamsSpec.$.decode(message.payload);
+        case 20: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_ReindexDirectory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reindexDirectory');
           const result = this.impl.reindexDirectory(params.directory_path);
           break;
         }
-        case 20: {
-          const params = arc.mojom.FileSystemInstance_RequestFileRemovalScan_ParamsSpec.$.decode(message.payload);
+        case 21: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_RequestFileRemovalScan_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestFileRemovalScan');
           const result = this.impl.requestFileRemovalScan(params.directory_paths);
           break;
         }
-        case 23: {
-          const params = arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ParamsSpec.$.decode(message.payload);
+        case 22: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openUrlsWithPermissionAndWindowInfo');
           const result = this.impl.openUrlsWithPermissionAndWindowInfo(params.request, params.window_info);
           if (header.expectsResponse) {

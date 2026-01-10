@@ -90,8 +90,11 @@ media.mojom.GpuInfoObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -114,9 +117,13 @@ media.mojom.GpuInfoObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onGpuInfoUpdate');
           const result = this.impl.onGpuInfoUpdate(params.gpu_info);
           break;
@@ -224,8 +231,12 @@ media.mojom.MediaFoundationServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -248,9 +259,13 @@ media.mojom.MediaFoundationServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isKeySystemSupported');
           const result = this.impl.isKeySystemSupported(params.key_system);
           if (header.expectsResponse) {
@@ -262,7 +277,8 @@ media.mojom.MediaFoundationServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createInterfaceFactory');
           const result = this.impl.createInterfaceFactory(params.factory, params.frame_interfaces);
           break;
@@ -369,8 +385,12 @@ media.mojom.MediaFoundationServiceBrokerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -393,9 +413,13 @@ media.mojom.MediaFoundationServiceBrokerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateGpuInfo');
           const result = this.impl.updateGpuInfo(params.gpu_info);
           if (header.expectsResponse) {
@@ -407,7 +431,8 @@ media.mojom.MediaFoundationServiceBrokerReceiver = class {
           break;
         }
         case 1: {
-          const params = media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getService');
           const result = this.impl.getService(params.cdm_path, params.receiver);
           break;

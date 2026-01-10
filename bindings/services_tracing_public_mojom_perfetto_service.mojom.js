@@ -383,8 +383,15 @@ tracing.mojom.ProducerHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -407,9 +414,13 @@ tracing.mojom.ProducerHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = tracing.mojom.ProducerHost_CommitData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ProducerHost_CommitData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.commitData');
           const result = this.impl.commitData(params.data_request);
           if (header.expectsResponse) {
@@ -421,25 +432,29 @@ tracing.mojom.ProducerHostReceiver = class {
           break;
         }
         case 1: {
-          const params = tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerDataSource');
           const result = this.impl.registerDataSource(params.registration_info);
           break;
         }
         case 2: {
-          const params = tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateDataSource');
           const result = this.impl.updateDataSource(params.registration_info);
           break;
         }
         case 3: {
-          const params = tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerTraceWriter');
           const result = this.impl.registerTraceWriter(params.writer_id, params.target_buffer);
           break;
         }
         case 4: {
-          const params = tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.unregisterTraceWriter');
           const result = this.impl.unregisterTraceWriter(params.writer_id);
           break;
@@ -597,8 +612,15 @@ tracing.mojom.ProducerClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -621,15 +643,20 @@ tracing.mojom.ProducerClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTracingStart');
           const result = this.impl.onTracingStart();
           break;
         }
         case 1: {
-          const params = tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startDataSource');
           const result = this.impl.startDataSource(params.id, params.data_source_config);
           if (header.expectsResponse) {
@@ -641,7 +668,8 @@ tracing.mojom.ProducerClientReceiver = class {
           break;
         }
         case 2: {
-          const params = tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopDataSource');
           const result = this.impl.stopDataSource(params.id);
           if (header.expectsResponse) {
@@ -653,13 +681,15 @@ tracing.mojom.ProducerClientReceiver = class {
           break;
         }
         case 3: {
-          const params = tracing.mojom.ProducerClient_Flush_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ProducerClient_Flush_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush(params.flush_request_id, params.data_source_ids);
           break;
         }
         case 4: {
-          const params = tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clearIncrementalState');
           const result = this.impl.clearIncrementalState();
           break;
@@ -746,8 +776,11 @@ tracing.mojom.PerfettoServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -770,9 +803,13 @@ tracing.mojom.PerfettoServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connectToProducerHost');
           const result = this.impl.connectToProducerHost(params.producer_client, params.producer_host_receiver, params.shared_memory, params.shared_memory_buffer_page_size_bytes);
           break;
@@ -886,8 +923,12 @@ tracing.mojom.ConsumerHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -910,15 +951,20 @@ tracing.mojom.ConsumerHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enableTracing');
           const result = this.impl.enableTracing(params.tracing_session_host, params.tracing_session_client, params.config, params.output_file);
           break;
         }
         case 1: {
-          const params = tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cloneSession');
           const result = this.impl.cloneSession(params.tracing_session_host, params.tracing_session_client, params.unguessable_name, params.privacy_filtering_enabled);
           if (header.expectsResponse) {
@@ -1090,8 +1136,15 @@ tracing.mojom.TracingSessionHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1114,21 +1167,27 @@ tracing.mojom.TracingSessionHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.changeTraceConfig');
           const result = this.impl.changeTraceConfig(params.config);
           break;
         }
         case 1: {
-          const params = tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disableTracing');
           const result = this.impl.disableTracing();
           break;
         }
         case 2: {
-          const params = tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.readBuffers');
           const result = this.impl.readBuffers(params.stream);
           if (header.expectsResponse) {
@@ -1140,7 +1199,8 @@ tracing.mojom.TracingSessionHostReceiver = class {
           break;
         }
         case 3: {
-          const params = tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestBufferUsage');
           const result = this.impl.requestBufferUsage();
           if (header.expectsResponse) {
@@ -1152,7 +1212,8 @@ tracing.mojom.TracingSessionHostReceiver = class {
           break;
         }
         case 4: {
-          const params = tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disableTracingAndEmitJson');
           const result = this.impl.disableTracingAndEmitJson(params.agent_label_filter, params.stream, params.privacy_filtering_enabled);
           if (header.expectsResponse) {
@@ -1257,8 +1318,12 @@ tracing.mojom.TracingSessionClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1281,15 +1346,20 @@ tracing.mojom.TracingSessionClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTracingEnabled');
           const result = this.impl.onTracingEnabled();
           break;
         }
         case 1: {
-          const params = tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTracingDisabled');
           const result = this.impl.onTracingDisabled(params.tracing_succeeded);
           break;

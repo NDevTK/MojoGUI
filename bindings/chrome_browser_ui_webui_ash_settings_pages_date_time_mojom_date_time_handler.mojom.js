@@ -90,8 +90,11 @@ ash.settings.date_time.mojom.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -114,9 +117,13 @@ ash.settings.date_time.mojom.PageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -235,8 +242,13 @@ ash.settings.date_time.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -259,15 +271,20 @@ ash.settings.date_time.mojom.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showParentAccessForTimezone');
           const result = this.impl.showParentAccessForTimezone();
           break;
         }
         case 1: {
-          const params = ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getTimezones');
           const result = this.impl.getTimezones();
           if (header.expectsResponse) {
@@ -279,7 +296,8 @@ ash.settings.date_time.mojom.PageHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showSetDateTimeUI');
           const result = this.impl.showSetDateTimeUI();
           break;
@@ -379,8 +397,12 @@ ash.settings.date_time.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -403,15 +425,20 @@ ash.settings.date_time.mojom.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSystemClockCanSetTimeChanged');
           const result = this.impl.onSystemClockCanSetTimeChanged(params.is_allowed);
           break;
         }
         case 1: {
-          const params = ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onParentAccessValidationComplete');
           const result = this.impl.onParentAccessValidationComplete(params.success);
           break;

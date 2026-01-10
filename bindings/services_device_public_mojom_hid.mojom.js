@@ -452,8 +452,13 @@ device.mojom.HidManagerClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -476,21 +481,27 @@ device.mojom.HidManagerClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deviceAdded');
           const result = this.impl.deviceAdded(params.device_info);
           break;
         }
         case 1: {
-          const params = device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deviceRemoved');
           const result = this.impl.deviceRemoved(params.device_info);
           break;
         }
         case 2: {
-          const params = device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deviceChanged');
           const result = this.impl.deviceChanged(params.device_info);
           break;
@@ -643,8 +654,14 @@ device.mojom.HidManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -667,9 +684,13 @@ device.mojom.HidManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDevicesAndSetClient');
           const result = this.impl.getDevicesAndSetClient(params.client);
           if (header.expectsResponse) {
@@ -681,7 +702,8 @@ device.mojom.HidManagerReceiver = class {
           break;
         }
         case 1: {
-          const params = device.mojom.HidManager_GetDevices_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidManager_GetDevices_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
@@ -693,7 +715,8 @@ device.mojom.HidManagerReceiver = class {
           break;
         }
         case 2: {
-          const params = device.mojom.HidManager_Connect_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidManager_Connect_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.device_guid, params.connection_client, params.watcher, params.allow_protected_reports, params.allow_fido_reports);
           if (header.expectsResponse) {
@@ -705,7 +728,8 @@ device.mojom.HidManagerReceiver = class {
           break;
         }
         case 3: {
-          const params = device.mojom.HidManager_AddReceiver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidManager_AddReceiver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addReceiver');
           const result = this.impl.addReceiver(params.receiver);
           break;
@@ -865,8 +889,14 @@ device.mojom.HidConnectionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -889,9 +919,13 @@ device.mojom.HidConnectionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.HidConnection_Read_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidConnection_Read_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read();
           if (header.expectsResponse) {
@@ -903,7 +937,8 @@ device.mojom.HidConnectionReceiver = class {
           break;
         }
         case 1: {
-          const params = device.mojom.HidConnection_Write_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidConnection_Write_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.report_id, params.buffer);
           if (header.expectsResponse) {
@@ -915,7 +950,8 @@ device.mojom.HidConnectionReceiver = class {
           break;
         }
         case 2: {
-          const params = device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getFeatureReport');
           const result = this.impl.getFeatureReport(params.report_id);
           if (header.expectsResponse) {
@@ -927,7 +963,8 @@ device.mojom.HidConnectionReceiver = class {
           break;
         }
         case 3: {
-          const params = device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendFeatureReport');
           const result = this.impl.sendFeatureReport(params.report_id, params.buffer);
           if (header.expectsResponse) {
@@ -1018,8 +1055,11 @@ device.mojom.HidConnectionClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1042,9 +1082,13 @@ device.mojom.HidConnectionClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onInputReport');
           const result = this.impl.onInputReport(params.report_id, params.buffer);
           break;
@@ -1112,8 +1156,10 @@ device.mojom.HidConnectionWatcherReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1136,7 +1182,10 @@ device.mojom.HidConnectionWatcherReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);

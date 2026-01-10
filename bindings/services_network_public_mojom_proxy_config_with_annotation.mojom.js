@@ -115,8 +115,12 @@ network.mojom.ProxyConfigClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -139,15 +143,20 @@ network.mojom.ProxyConfigClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onProxyConfigUpdated');
           const result = this.impl.onProxyConfigUpdated(params.proxy_config);
           break;
         }
         case 1: {
-          const params = network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.flushProxyConfig');
           const result = this.impl.flushProxyConfig();
           if (header.expectsResponse) {
@@ -236,8 +245,11 @@ network.mojom.ProxyConfigPollerClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -260,9 +272,13 @@ network.mojom.ProxyConfigPollerClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLazyProxyConfigPoll');
           const result = this.impl.onLazyProxyConfigPoll();
           break;
@@ -363,8 +379,12 @@ network.mojom.ProxyErrorClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -387,15 +407,20 @@ network.mojom.ProxyErrorClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPACScriptError');
           const result = this.impl.onPACScriptError(params.line_number, params.details);
           break;
         }
         case 1: {
-          const params = network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onRequestMaybeFailedDueToProxySettings');
           const result = this.impl.onRequestMaybeFailedDueToProxySettings(params.net_error);
           break;

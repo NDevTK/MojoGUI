@@ -266,8 +266,13 @@ device.mojom.GamepadObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -290,21 +295,27 @@ device.mojom.GamepadObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.gamepadConnected');
           const result = this.impl.gamepadConnected(params.index, params.gamepad);
           break;
         }
         case 1: {
-          const params = device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.gamepadDisconnected');
           const result = this.impl.gamepadDisconnected(params.index, params.gamepad);
           break;
         }
         case 2: {
-          const params = device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.gamepadRawInputChanged');
           const result = this.impl.gamepadRawInputChanged(params.index, params.gamepad);
           break;
@@ -429,8 +440,13 @@ device.mojom.GamepadMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -453,9 +469,13 @@ device.mojom.GamepadMonitorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.gamepadStartPolling');
           const result = this.impl.gamepadStartPolling();
           if (header.expectsResponse) {
@@ -467,7 +487,8 @@ device.mojom.GamepadMonitorReceiver = class {
           break;
         }
         case 1: {
-          const params = device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.gamepadStopPolling');
           const result = this.impl.gamepadStopPolling();
           if (header.expectsResponse) {
@@ -479,7 +500,8 @@ device.mojom.GamepadMonitorReceiver = class {
           break;
         }
         case 2: {
-          const params = device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setObserver');
           const result = this.impl.setObserver(params.gamepad_observer);
           break;
@@ -593,8 +615,12 @@ device.mojom.GamepadHapticsManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -617,9 +643,13 @@ device.mojom.GamepadHapticsManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.playVibrationEffectOnce');
           const result = this.impl.playVibrationEffectOnce(params.pad_index, params.type, params.params);
           if (header.expectsResponse) {
@@ -631,7 +661,8 @@ device.mojom.GamepadHapticsManagerReceiver = class {
           break;
         }
         case 1: {
-          const params = device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resetVibrationActuator');
           const result = this.impl.resetVibrationActuator(params.pad_index);
           if (header.expectsResponse) {

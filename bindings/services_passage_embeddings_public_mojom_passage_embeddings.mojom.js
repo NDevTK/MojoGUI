@@ -130,8 +130,11 @@ passage_embeddings.mojom.PassageEmbedderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -154,9 +157,13 @@ passage_embeddings.mojom.PassageEmbedderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.generateEmbeddings');
           const result = this.impl.generateEmbeddings(params.passages, params.priority);
           if (header.expectsResponse) {
@@ -254,8 +261,11 @@ passage_embeddings.mojom.PassageEmbeddingsServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -278,9 +288,13 @@ passage_embeddings.mojom.PassageEmbeddingsServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.loadModels');
           const result = this.impl.loadModels(params.model_params, params.params, params.model);
           if (header.expectsResponse) {

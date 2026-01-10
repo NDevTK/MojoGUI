@@ -187,8 +187,14 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -211,15 +217,20 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addDeviceSettingsObserver');
           const result = this.impl.addDeviceSettingsObserver(params.observer);
           break;
         }
         case 1: {
-          const params = chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPolicyInfo');
           const result = this.impl.getPolicyInfo();
           if (header.expectsResponse) {
@@ -231,7 +242,8 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           break;
         }
         case 2: {
-          const params = chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSysInfo');
           const result = this.impl.getSysInfo();
           if (header.expectsResponse) {
@@ -243,7 +255,8 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           break;
         }
         case 3: {
-          const params = chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getMachineStatisticsInfo');
           const result = this.impl.getMachineStatisticsInfo();
           if (header.expectsResponse) {
@@ -333,8 +346,11 @@ chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -357,9 +373,13 @@ chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPolicyInfoChange');
           const result = this.impl.onPolicyInfoChange(params.info);
           break;

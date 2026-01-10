@@ -142,8 +142,13 @@ arc.mojom.ScreenCaptureHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(2, 1); // Default ordinal 2 -> Index 1
+    this.ordinalMap.set(1, 2); // Default ordinal 1 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -166,9 +171,13 @@ arc.mojom.ScreenCaptureHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.display_name, params.package_name);
           if (header.expectsResponse) {
@@ -179,14 +188,16 @@ arc.mojom.ScreenCaptureHostReceiver = class {
           }
           break;
         }
-        case 2: {
-          const params = arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.testModeAcceptPermission');
           const result = this.impl.testModeAcceptPermission(params.package_name);
           break;
         }
-        case 1: {
-          const params = arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openSession');
           const result = this.impl.openSession(params.notifier, params.package_name, params.size);
           if (header.expectsResponse) {
@@ -306,8 +317,12 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -330,9 +345,13 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setOutputBufferDeprecated');
           const result = this.impl.setOutputBufferDeprecated(params.graphics_buffer, params.stride);
           if (header.expectsResponse) {
@@ -344,7 +363,8 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
           break;
         }
         case 1: {
-          const params = arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setOutputBuffer');
           const result = this.impl.setOutputBuffer(params.graphics_buffer, params.buffer_format, params.buffer_format_modifier, params.stride);
           if (header.expectsResponse) {
@@ -439,8 +459,11 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -463,9 +486,13 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.ScreenCaptureInstance_Init_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureInstance_Init_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -554,8 +581,11 @@ arc.mojom.ScreenCaptureSessionNotifierReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -578,9 +608,13 @@ arc.mojom.ScreenCaptureSessionNotifierReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.forceUpdate');
           const result = this.impl.forceUpdate();
           break;

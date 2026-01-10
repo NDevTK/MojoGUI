@@ -106,8 +106,11 @@ ash.local_search_service.mojom.SearchMetricsReporterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -130,9 +133,13 @@ ash.local_search_service.mojom.SearchMetricsReporterReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSearchPerformed');
           const result = this.impl.onSearchPerformed(params.index_id);
           if (header.expectsResponse) {
@@ -231,8 +238,11 @@ ash.local_search_service.mojom.LocalSearchServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -255,9 +265,13 @@ ash.local_search_service.mojom.LocalSearchServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindIndex');
           const result = this.impl.bindIndex(params.index_id, params.backend, params.index_receiver, params.reporter_remote);
           if (header.expectsResponse) {

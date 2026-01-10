@@ -365,8 +365,15 @@ media_session.mojom.MediaSessionObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -389,33 +396,41 @@ media_session.mojom.MediaSessionObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionInfoChanged');
           const result = this.impl.mediaSessionInfoChanged(params.info);
           break;
         }
         case 1: {
-          const params = media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionMetadataChanged');
           const result = this.impl.mediaSessionMetadataChanged(params.metadata);
           break;
         }
         case 2: {
-          const params = media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionActionsChanged');
           const result = this.impl.mediaSessionActionsChanged(params.action);
           break;
         }
         case 3: {
-          const params = media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionImagesChanged');
           const result = this.impl.mediaSessionImagesChanged(params.images);
           break;
         }
         case 4: {
-          const params = media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionPositionChanged');
           const result = this.impl.mediaSessionPositionChanged(params.position);
           break;
@@ -939,8 +954,38 @@ media_session.mojom.MediaSessionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
+    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
+    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
+    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
+    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
+    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
+    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
+    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -963,9 +1008,13 @@ media_session.mojom.MediaSessionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getMediaSessionInfo');
           const result = this.impl.getMediaSessionInfo();
           if (header.expectsResponse) {
@@ -977,7 +1026,8 @@ media_session.mojom.MediaSessionReceiver = class {
           break;
         }
         case 1: {
-          const params = media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDebugInfo');
           const result = this.impl.getDebugInfo();
           if (header.expectsResponse) {
@@ -989,67 +1039,78 @@ media_session.mojom.MediaSessionReceiver = class {
           break;
         }
         case 2: {
-          const params = media_session.mojom.MediaSession_StartDucking_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_StartDucking_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startDucking');
           const result = this.impl.startDucking();
           break;
         }
         case 3: {
-          const params = media_session.mojom.MediaSession_StopDucking_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_StopDucking_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopDucking');
           const result = this.impl.stopDucking();
           break;
         }
         case 4: {
-          const params = media_session.mojom.MediaSession_Suspend_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Suspend_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.suspend');
           const result = this.impl.suspend(params.suspend_type);
           break;
         }
         case 5: {
-          const params = media_session.mojom.MediaSession_Resume_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Resume_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume(params.suspend_type);
           break;
         }
         case 6: {
-          const params = media_session.mojom.MediaSession_AddObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_AddObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 7: {
-          const params = media_session.mojom.MediaSession_PreviousTrack_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_PreviousTrack_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.previousTrack');
           const result = this.impl.previousTrack();
           break;
         }
         case 8: {
-          const params = media_session.mojom.MediaSession_NextTrack_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_NextTrack_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.nextTrack');
           const result = this.impl.nextTrack();
           break;
         }
         case 9: {
-          const params = media_session.mojom.MediaSession_Seek_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Seek_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.seek');
           const result = this.impl.seek(params.seek_time);
           break;
         }
         case 10: {
-          const params = media_session.mojom.MediaSession_Stop_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Stop_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop(params.suspend_type);
           break;
         }
         case 11: {
-          const params = media_session.mojom.MediaSession_SkipAd_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SkipAd_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.skipAd');
           const result = this.impl.skipAd();
           break;
         }
         case 12: {
-          const params = media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getMediaImageBitmap');
           const result = this.impl.getMediaImageBitmap(params.image, params.minimum_size_px, params.desired_size_px);
           if (header.expectsResponse) {
@@ -1061,91 +1122,106 @@ media_session.mojom.MediaSessionReceiver = class {
           break;
         }
         case 13: {
-          const params = media_session.mojom.MediaSession_SeekTo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SeekTo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.seekTo');
           const result = this.impl.seekTo(params.seek_time);
           break;
         }
         case 14: {
-          const params = media_session.mojom.MediaSession_ScrubTo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ScrubTo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.scrubTo');
           const result = this.impl.scrubTo(params.seek_time);
           break;
         }
         case 15: {
-          const params = media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enterPictureInPicture');
           const result = this.impl.enterPictureInPicture();
           break;
         }
         case 16: {
-          const params = media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.exitPictureInPicture');
           const result = this.impl.exitPictureInPicture();
           break;
         }
         case 17: {
-          const params = media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setAudioSinkId');
           const result = this.impl.setAudioSinkId(params.id);
           break;
         }
         case 18: {
-          const params = media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.toggleMicrophone');
           const result = this.impl.toggleMicrophone();
           break;
         }
         case 19: {
-          const params = media_session.mojom.MediaSession_ToggleCamera_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ToggleCamera_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.toggleCamera');
           const result = this.impl.toggleCamera();
           break;
         }
         case 20: {
-          const params = media_session.mojom.MediaSession_HangUp_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_HangUp_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.hangUp');
           const result = this.impl.hangUp();
           break;
         }
         case 21: {
-          const params = media_session.mojom.MediaSession_Raise_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Raise_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.raise');
           const result = this.impl.raise();
           break;
         }
         case 22: {
-          const params = media_session.mojom.MediaSession_SetMute_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SetMute_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMute');
           const result = this.impl.setMute(params.mute);
           break;
         }
         case 23: {
-          const params = media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestMediaRemoting');
           const result = this.impl.requestMediaRemoting();
           break;
         }
         case 24: {
-          const params = media_session.mojom.MediaSession_PreviousSlide_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_PreviousSlide_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.previousSlide');
           const result = this.impl.previousSlide();
           break;
         }
         case 25: {
-          const params = media_session.mojom.MediaSession_NextSlide_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_NextSlide_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.nextSlide');
           const result = this.impl.nextSlide();
           break;
         }
         case 26: {
-          const params = media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enterAutoPictureInPicture');
           const result = this.impl.enterAutoPictureInPicture();
           break;
         }
         case 27: {
-          const params = media_session.mojom.MediaSession_GetVisibility_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetVisibility_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getVisibility');
           const result = this.impl.getVisibility();
           if (header.expectsResponse) {

@@ -116,8 +116,12 @@ auction_worklet.mojom.TrustedSignalsCacheClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -140,15 +144,20 @@ auction_worklet.mojom.TrustedSignalsCacheClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSuccess');
           const result = this.impl.onSuccess(params.compression_scheme, params.compression_group_data);
           break;
         }
         case 1: {
-          const params = auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error_message);
           break;
@@ -233,8 +242,11 @@ auction_worklet.mojom.TrustedSignalsCacheReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -257,9 +269,13 @@ auction_worklet.mojom.TrustedSignalsCacheReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getTrustedSignals');
           const result = this.impl.getTrustedSignals(params.compression_group_token, params.client);
           break;

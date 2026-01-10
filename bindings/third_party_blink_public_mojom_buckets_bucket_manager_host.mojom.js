@@ -337,8 +337,21 @@ blink.mojom.BucketHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -361,9 +374,13 @@ blink.mojom.BucketHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.BucketHost_Persist_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketHost_Persist_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.persist');
           const result = this.impl.persist();
           if (header.expectsResponse) {
@@ -375,7 +392,8 @@ blink.mojom.BucketHostReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.BucketHost_Persisted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketHost_Persisted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.persisted');
           const result = this.impl.persisted();
           if (header.expectsResponse) {
@@ -387,7 +405,8 @@ blink.mojom.BucketHostReceiver = class {
           break;
         }
         case 2: {
-          const params = blink.mojom.BucketHost_Estimate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketHost_Estimate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.estimate');
           const result = this.impl.estimate();
           if (header.expectsResponse) {
@@ -399,7 +418,8 @@ blink.mojom.BucketHostReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.BucketHost_Durability_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketHost_Durability_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.durability');
           const result = this.impl.durability();
           if (header.expectsResponse) {
@@ -411,7 +431,8 @@ blink.mojom.BucketHostReceiver = class {
           break;
         }
         case 4: {
-          const params = blink.mojom.BucketHost_SetExpires_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketHost_SetExpires_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setExpires');
           const result = this.impl.setExpires(params.expires);
           if (header.expectsResponse) {
@@ -423,7 +444,8 @@ blink.mojom.BucketHostReceiver = class {
           break;
         }
         case 5: {
-          const params = blink.mojom.BucketHost_Expires_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketHost_Expires_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.expires');
           const result = this.impl.expires();
           if (header.expectsResponse) {
@@ -435,25 +457,29 @@ blink.mojom.BucketHostReceiver = class {
           break;
         }
         case 6: {
-          const params = blink.mojom.BucketHost_GetIdbFactory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketHost_GetIdbFactory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getIdbFactory');
           const result = this.impl.getIdbFactory(params.idb_factory);
           break;
         }
         case 7: {
-          const params = blink.mojom.BucketHost_GetLockManager_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketHost_GetLockManager_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getLockManager');
           const result = this.impl.getLockManager(params.lock_manager);
           break;
         }
         case 8: {
-          const params = blink.mojom.BucketHost_GetCaches_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketHost_GetCaches_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getCaches');
           const result = this.impl.getCaches(params.cache_storage);
           break;
         }
         case 9: {
-          const params = blink.mojom.BucketHost_GetDirectory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketHost_GetDirectory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDirectory');
           const result = this.impl.getDirectory();
           if (header.expectsResponse) {
@@ -465,7 +491,8 @@ blink.mojom.BucketHostReceiver = class {
           break;
         }
         case 10: {
-          const params = blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDirectoryForDevtools');
           const result = this.impl.getDirectoryForDevtools(params.directory_path_components);
           if (header.expectsResponse) {
@@ -624,8 +651,14 @@ blink.mojom.BucketManagerHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -648,9 +681,13 @@ blink.mojom.BucketManagerHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openBucket');
           const result = this.impl.openBucket(params.name, params.policy);
           if (header.expectsResponse) {
@@ -662,13 +699,15 @@ blink.mojom.BucketManagerHostReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getBucketForDevtools');
           const result = this.impl.getBucketForDevtools(params.name, params.receiver);
           break;
         }
         case 2: {
-          const params = blink.mojom.BucketManagerHost_Keys_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketManagerHost_Keys_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.keys');
           const result = this.impl.keys();
           if (header.expectsResponse) {
@@ -680,7 +719,8 @@ blink.mojom.BucketManagerHostReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deleteBucket');
           const result = this.impl.deleteBucket(params.name);
           if (header.expectsResponse) {

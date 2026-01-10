@@ -251,8 +251,14 @@ ash.cfm.mojom.XuCameraReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -275,9 +281,13 @@ ash.cfm.mojom.XuCameraReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getUnitId');
           const result = this.impl.getUnitId(params.id, params.guid);
           if (header.expectsResponse) {
@@ -289,7 +299,8 @@ ash.cfm.mojom.XuCameraReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.mapCtrl');
           const result = this.impl.mapCtrl(params.id, params.mapping_ctrl);
           if (header.expectsResponse) {
@@ -301,7 +312,8 @@ ash.cfm.mojom.XuCameraReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getCtrl');
           const result = this.impl.getCtrl(params.id, params.ctrl, params.fn);
           if (header.expectsResponse) {
@@ -313,7 +325,8 @@ ash.cfm.mojom.XuCameraReceiver = class {
           break;
         }
         case 3: {
-          const params = ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setCtrl');
           const result = this.impl.setCtrl(params.id, params.ctrl, params.data);
           if (header.expectsResponse) {

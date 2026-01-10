@@ -429,8 +429,11 @@ crosapi.mojom.TelemetryEventObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -453,9 +456,13 @@ crosapi.mojom.TelemetryEventObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onEvent');
           const result = this.impl.onEvent(params.info);
           break;
@@ -562,8 +569,12 @@ crosapi.mojom.TelemetryEventServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(1, 0); // Default ordinal 1 -> Index 0
+    this.ordinalMap.set(2, 1); // Default ordinal 2 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -586,15 +597,20 @@ crosapi.mojom.TelemetryEventServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 1: {
-          const params = crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addEventObserver');
           const result = this.impl.addEventObserver(params.category, params.observer);
           break;
         }
-        case 2: {
-          const params = crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isEventSupported');
           const result = this.impl.isEventSupported(params.category);
           if (header.expectsResponse) {

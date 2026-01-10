@@ -185,8 +185,12 @@ ash.settings.mojom.KeyboardSettingsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -209,15 +213,20 @@ ash.settings.mojom.KeyboardSettingsObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardListUpdated');
           const result = this.impl.onKeyboardListUpdated(params.keyboards);
           break;
         }
         case 1: {
-          const params = ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardPoliciesUpdated');
           const result = this.impl.onKeyboardPoliciesUpdated(params.policies);
           break;
@@ -301,8 +310,11 @@ ash.settings.mojom.TouchpadSettingsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -325,9 +337,13 @@ ash.settings.mojom.TouchpadSettingsObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTouchpadListUpdated');
           const result = this.impl.onTouchpadListUpdated(params.touchpads);
           break;
@@ -411,8 +427,11 @@ ash.settings.mojom.PointingStickSettingsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -435,9 +454,13 @@ ash.settings.mojom.PointingStickSettingsObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPointingStickListUpdated');
           const result = this.impl.onPointingStickListUpdated(params.pointSticks);
           break;
@@ -537,8 +560,12 @@ ash.settings.mojom.MouseSettingsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -561,15 +588,20 @@ ash.settings.mojom.MouseSettingsObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMouseListUpdated');
           const result = this.impl.onMouseListUpdated(params.mice);
           break;
         }
         case 1: {
-          const params = ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMousePoliciesUpdated');
           const result = this.impl.onMousePoliciesUpdated(params.policies);
           break;
@@ -653,8 +685,11 @@ ash.settings.mojom.ButtonPressObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -677,9 +712,13 @@ ash.settings.mojom.ButtonPressObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onButtonPressed');
           const result = this.impl.onButtonPressed(params.button);
           break;
@@ -763,8 +802,11 @@ ash.settings.mojom.GraphicsTabletSettingsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -787,9 +829,13 @@ ash.settings.mojom.GraphicsTabletSettingsObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onGraphicsTabletListUpdated');
           const result = this.impl.onGraphicsTabletListUpdated(params.graphics_tablets);
           break;
@@ -873,8 +919,11 @@ ash.settings.mojom.KeyboardBrightnessObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -897,9 +946,13 @@ ash.settings.mojom.KeyboardBrightnessObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardBrightnessChanged');
           const result = this.impl.onKeyboardBrightnessChanged(params.brightness_percent);
           break;
@@ -983,8 +1036,11 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1007,9 +1063,13 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardAmbientLightSensorEnabledChanged');
           const result = this.impl.onKeyboardAmbientLightSensorEnabledChanged(params.keyboard_ambient_light_sensor_enabled);
           break;
@@ -1093,8 +1153,11 @@ ash.settings.mojom.LidStateObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1117,9 +1180,13 @@ ash.settings.mojom.LidStateObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLidStateChanged');
           const result = this.impl.onLidStateChanged(params.is_lid_open);
           break;
@@ -1696,8 +1763,39 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
+    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
+    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
+    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
+    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
+    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
+    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
+    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
+    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1720,57 +1818,69 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeKeyboardSettings');
           const result = this.impl.observeKeyboardSettings(params.observer);
           break;
         }
         case 1: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeTouchpadSettings');
           const result = this.impl.observeTouchpadSettings(params.observer);
           break;
         }
         case 2: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observePointingStickSettings');
           const result = this.impl.observePointingStickSettings(params.observer);
           break;
         }
         case 3: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeMouseSettings');
           const result = this.impl.observeMouseSettings(params.observer);
           break;
         }
         case 4: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeGraphicsTabletSettings');
           const result = this.impl.observeGraphicsTabletSettings(params.observer);
           break;
         }
         case 5: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeButtonPresses');
           const result = this.impl.observeButtonPresses(params.observer);
           break;
         }
         case 6: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeKeyboardBrightness');
           const result = this.impl.observeKeyboardBrightness(params.observer);
           break;
         }
         case 7: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeKeyboardAmbientLightSensor');
           const result = this.impl.observeKeyboardAmbientLightSensor(params.observer);
           break;
         }
         case 8: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeLidState');
           const result = this.impl.observeLidState(params.observer);
           if (header.expectsResponse) {
@@ -1782,67 +1892,78 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
           break;
         }
         case 9: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.restoreDefaultKeyboardRemappings');
           const result = this.impl.restoreDefaultKeyboardRemappings(params.device_id);
           break;
         }
         case 10: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setKeyboardSettings');
           const result = this.impl.setKeyboardSettings(params.device_id, params.settings);
           break;
         }
         case 11: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPointingStickSettings');
           const result = this.impl.setPointingStickSettings(params.device_id, params.settings);
           break;
         }
         case 12: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMouseSettings');
           const result = this.impl.setMouseSettings(params.device_id, params.settings);
           break;
         }
         case 13: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setTouchpadSettings');
           const result = this.impl.setTouchpadSettings(params.device_id, params.settings);
           break;
         }
         case 14: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setGraphicsTabletSettings');
           const result = this.impl.setGraphicsTabletSettings(params.device_id, params.settings);
           break;
         }
         case 15: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setKeyboardBrightness');
           const result = this.impl.setKeyboardBrightness(params.percent);
           break;
         }
         case 16: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setKeyboardAmbientLightSensorEnabled');
           const result = this.impl.setKeyboardAmbientLightSensorEnabled(params.enabled);
           break;
         }
         case 17: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startObserving');
           const result = this.impl.startObserving(params.device_id);
           break;
         }
         case 18: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopObserving');
           const result = this.impl.stopObserving();
           break;
         }
         case 19: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getActionsForMouseButtonCustomization');
           const result = this.impl.getActionsForMouseButtonCustomization();
           if (header.expectsResponse) {
@@ -1854,7 +1975,8 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
           break;
         }
         case 20: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getActionsForGraphicsTabletButtonCustomization');
           const result = this.impl.getActionsForGraphicsTabletButtonCustomization();
           if (header.expectsResponse) {
@@ -1866,7 +1988,8 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
           break;
         }
         case 21: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getMetaKeyToDisplay');
           const result = this.impl.getMetaKeyToDisplay();
           if (header.expectsResponse) {
@@ -1878,7 +2001,8 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
           break;
         }
         case 22: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.hasKeyboardBacklight');
           const result = this.impl.hasKeyboardBacklight();
           if (header.expectsResponse) {
@@ -1890,7 +2014,8 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
           break;
         }
         case 23: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.hasAmbientLightSensor');
           const result = this.impl.hasAmbientLightSensor();
           if (header.expectsResponse) {
@@ -1902,7 +2027,8 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
           break;
         }
         case 24: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isRgbKeyboardSupported');
           const result = this.impl.isRgbKeyboardSupported();
           if (header.expectsResponse) {
@@ -1914,19 +2040,22 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
           break;
         }
         case 25: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordKeyboardColorLinkClicked');
           const result = this.impl.recordKeyboardColorLinkClicked();
           break;
         }
         case 26: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordKeyboardBrightnessChangeFromSlider');
           const result = this.impl.recordKeyboardBrightnessChangeFromSlider(params.percent);
           break;
         }
         case 27: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDeviceIconImage');
           const result = this.impl.getDeviceIconImage(params.device_key);
           if (header.expectsResponse) {
@@ -1938,7 +2067,8 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
           break;
         }
         case 28: {
-          const params = ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.launchCompanionApp');
           const result = this.impl.launchCompanionApp(params.package_id);
           break;

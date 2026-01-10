@@ -126,8 +126,11 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -150,9 +153,13 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createThemeColorPickerHandler');
           const result = this.impl.createThemeColorPickerHandler(params.handler, params.client);
           break;
@@ -335,8 +342,17 @@ theme_color_picker.mojom.ThemeColorPickerHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -359,9 +375,13 @@ theme_color_picker.mojom.ThemeColorPickerHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getChromeColors');
           const result = this.impl.getChromeColors(params.is_dark_mode);
           if (header.expectsResponse) {
@@ -373,37 +393,43 @@ theme_color_picker.mojom.ThemeColorPickerHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateTheme');
           const result = this.impl.updateTheme();
           break;
         }
         case 2: {
-          const params = theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDefaultColor');
           const result = this.impl.setDefaultColor();
           break;
         }
         case 3: {
-          const params = theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setGreyDefaultColor');
           const result = this.impl.setGreyDefaultColor();
           break;
         }
         case 4: {
-          const params = theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSeedColor');
           const result = this.impl.setSeedColor(params.seed_color, params.variant);
           break;
         }
         case 5: {
-          const params = theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSeedColorFromHue');
           const result = this.impl.setSeedColorFromHue(params.hue);
           break;
         }
         case 6: {
-          const params = theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeBackgroundImage');
           const result = this.impl.removeBackgroundImage();
           break;
@@ -487,8 +513,11 @@ theme_color_picker.mojom.ThemeColorPickerClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -511,9 +540,13 @@ theme_color_picker.mojom.ThemeColorPickerClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
           const result = this.impl.setTheme(params.theme);
           break;

@@ -249,8 +249,11 @@ blink.mojom.PermissionObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -273,9 +276,13 @@ blink.mojom.PermissionObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPermissionStatusChange');
           const result = this.impl.onPermissionStatusChange(params.status);
           break;
@@ -360,8 +367,11 @@ blink.mojom.EmbeddedPermissionControlClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -384,9 +394,13 @@ blink.mojom.EmbeddedPermissionControlClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onEmbeddedPermissionControlRegistered');
           const result = this.impl.onEmbeddedPermissionControlRegistered(params.allow, params.statuses);
           break;
@@ -639,8 +653,19 @@ blink.mojom.PermissionServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -663,9 +688,13 @@ blink.mojom.PermissionServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.PermissionService_HasPermission_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PermissionService_HasPermission_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.hasPermission');
           const result = this.impl.hasPermission(params.permission);
           if (header.expectsResponse) {
@@ -677,13 +706,15 @@ blink.mojom.PermissionServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerPageEmbeddedPermissionControl');
           const result = this.impl.registerPageEmbeddedPermissionControl(params.permissions, params.descriptor, params.client);
           break;
         }
         case 2: {
-          const params = blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestPageEmbeddedPermission');
           const result = this.impl.requestPageEmbeddedPermission(params.permissions, params.descriptor);
           if (header.expectsResponse) {
@@ -695,7 +726,8 @@ blink.mojom.PermissionServiceReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.PermissionService_RequestPermission_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PermissionService_RequestPermission_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.permission, params.user_gesture);
           if (header.expectsResponse) {
@@ -707,7 +739,8 @@ blink.mojom.PermissionServiceReceiver = class {
           break;
         }
         case 4: {
-          const params = blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestPermissions');
           const result = this.impl.requestPermissions(params.permission, params.user_gesture);
           if (header.expectsResponse) {
@@ -719,7 +752,8 @@ blink.mojom.PermissionServiceReceiver = class {
           break;
         }
         case 5: {
-          const params = blink.mojom.PermissionService_RevokePermission_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PermissionService_RevokePermission_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.revokePermission');
           const result = this.impl.revokePermission(params.permission);
           if (header.expectsResponse) {
@@ -731,19 +765,22 @@ blink.mojom.PermissionServiceReceiver = class {
           break;
         }
         case 6: {
-          const params = blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addPermissionObserver');
           const result = this.impl.addPermissionObserver(params.permission, params.last_known_status, params.observer);
           break;
         }
         case 7: {
-          const params = blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addPageEmbeddedPermissionObserver');
           const result = this.impl.addPageEmbeddedPermissionObserver(params.permission, params.last_known_status, params.observer);
           break;
         }
         case 8: {
-          const params = blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyEventListener');
           const result = this.impl.notifyEventListener(params.permission, params.event_type, params.is_added);
           break;

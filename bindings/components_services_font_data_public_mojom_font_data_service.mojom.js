@@ -232,8 +232,14 @@ font_data_service.mojom.FontDataServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -256,9 +262,13 @@ font_data_service.mojom.FontDataServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.matchFamilyName');
           const result = this.impl.matchFamilyName(params.family_name, params.style);
           if (header.expectsResponse) {
@@ -270,7 +280,8 @@ font_data_service.mojom.FontDataServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.matchFamilyNameCharacter');
           const result = this.impl.matchFamilyNameCharacter(params.family_name, params.style, params.bcp47s, params.character);
           if (header.expectsResponse) {
@@ -282,7 +293,8 @@ font_data_service.mojom.FontDataServiceReceiver = class {
           break;
         }
         case 2: {
-          const params = font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getAllFamilyNames');
           const result = this.impl.getAllFamilyNames();
           if (header.expectsResponse) {
@@ -294,7 +306,8 @@ font_data_service.mojom.FontDataServiceReceiver = class {
           break;
         }
         case 3: {
-          const params = font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.legacyMakeTypeface');
           const result = this.impl.legacyMakeTypeface(params.family_name, params.style);
           if (header.expectsResponse) {

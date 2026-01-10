@@ -130,8 +130,12 @@ arc.mojom.AudioHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -154,15 +158,20 @@ arc.mojom.AudioHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showVolumeControls');
           const result = this.impl.showVolumeControls();
           break;
         }
         case 1: {
-          const params = arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSystemVolumeUpdateRequest');
           const result = this.impl.onSystemVolumeUpdateRequest(params.percent);
           break;
@@ -316,8 +325,15 @@ arc.mojom.AudioInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(3, 0); // Default ordinal 3 -> Index 0
+    this.ordinalMap.set(0, 1); // Default ordinal 0 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(4, 3); // Default ordinal 4 -> Index 3
+    this.ordinalMap.set(5, 4); // Default ordinal 5 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -340,9 +356,13 @@ arc.mojom.AudioInstanceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 3: {
-          const params = arc.mojom.AudioInstance_Init_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.AudioInstance_Init_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -353,26 +373,30 @@ arc.mojom.AudioInstanceReceiver = class {
           }
           break;
         }
-        case 0: {
-          const params = arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifySwitchState');
           const result = this.impl.notifySwitchState(params.state);
           break;
         }
         case 2: {
-          const params = arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyVolumeState');
           const result = this.impl.notifyVolumeState(params.volume, params.muted);
           break;
         }
-        case 4: {
-          const params = arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$.decode(message.payload);
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifySpatialAudioState');
           const result = this.impl.notifySpatialAudioState(params.enabled);
           break;
         }
-        case 5: {
-          const params = arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$.decode(message.payload);
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyOutputDeviceInfo');
           const result = this.impl.notifyOutputDeviceInfo(params.device_type);
           break;

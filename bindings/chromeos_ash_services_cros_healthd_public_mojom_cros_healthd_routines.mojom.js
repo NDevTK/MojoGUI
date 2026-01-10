@@ -1041,8 +1041,12 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1065,15 +1069,20 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createRoutine');
           const result = this.impl.createRoutine(params.routine_argument, params.routine_receiver, params.routine_observer);
           break;
         }
         case 1: {
-          const params = ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isRoutineArgumentSupported');
           const result = this.impl.isRoutineArgumentSupported(params.routine_argument);
           if (header.expectsResponse) {
@@ -1199,8 +1208,13 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1223,9 +1237,13 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getState');
           const result = this.impl.getState();
           if (header.expectsResponse) {
@@ -1237,13 +1255,15 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start();
           break;
         }
         case 2: {
-          const params = ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.replyInquiry');
           const result = this.impl.replyInquiry(params.reply);
           break;
@@ -1327,8 +1347,11 @@ ash.cros_healthd.mojom.RoutineObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1351,9 +1374,13 @@ ash.cros_healthd.mojom.RoutineObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onRoutineStateChange');
           const result = this.impl.onRoutineStateChange(params.state);
           break;

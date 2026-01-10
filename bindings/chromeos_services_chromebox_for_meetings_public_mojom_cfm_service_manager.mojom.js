@@ -82,8 +82,10 @@ chromeos.cfm.mojom.DisconnectReasonReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -106,7 +108,10 @@ chromeos.cfm.mojom.DisconnectReasonReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -216,8 +221,12 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -240,9 +249,13 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.provideAdaptor');
           const result = this.impl.provideAdaptor(params.interface_name, params.adaptor_remote);
           if (header.expectsResponse) {
@@ -254,7 +267,8 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
           break;
         }
         case 1: {
-          const params = chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestBindService');
           const result = this.impl.requestBindService(params.interface_name, params.receiver_pipe);
           if (header.expectsResponse) {
@@ -344,8 +358,11 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -368,9 +385,13 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBindService');
           const result = this.impl.onBindService(params.receiver_pipe);
           break;

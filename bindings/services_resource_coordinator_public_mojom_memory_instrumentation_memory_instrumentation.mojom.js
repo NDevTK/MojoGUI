@@ -399,8 +399,12 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -423,9 +427,13 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestChromeMemoryDump');
           const result = this.impl.requestChromeMemoryDump(params.args);
           if (header.expectsResponse) {
@@ -437,7 +445,8 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
           break;
         }
         case 1: {
-          const params = memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestOSMemoryDump');
           const result = this.impl.requestOSMemoryDump(params.option, params.flags, params.pids);
           if (header.expectsResponse) {
@@ -534,8 +543,11 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -558,9 +570,13 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dumpProcessesForTracing');
           const result = this.impl.dumpProcessesForTracing(params.strip_path_from_mapped_files, params.write_proto);
           if (header.expectsResponse) {
@@ -656,8 +672,11 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -680,9 +699,13 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getVmRegionsForHeapProfiler');
           const result = this.impl.getVmRegionsForHeapProfiler(params.pids);
           if (header.expectsResponse) {
@@ -854,8 +877,14 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -878,9 +907,13 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDump');
           const result = this.impl.requestGlobalMemoryDump(params.dump_type, params.level_of_detail, params.determinism, params.allocator_dump_names);
           if (header.expectsResponse) {
@@ -892,7 +925,8 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
           break;
         }
         case 1: {
-          const params = memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpForPid');
           const result = this.impl.requestGlobalMemoryDumpForPid(params.pid, params.allocator_dump_names);
           if (header.expectsResponse) {
@@ -904,7 +938,8 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
           break;
         }
         case 2: {
-          const params = memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestPrivateMemoryFootprint');
           const result = this.impl.requestPrivateMemoryFootprint(params.pid);
           if (header.expectsResponse) {
@@ -916,7 +951,8 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
           break;
         }
         case 3: {
-          const params = memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpAndAppendToTrace');
           const result = this.impl.requestGlobalMemoryDumpAndAppendToTrace(params.dump_type, params.level_of_detail, params.determinism);
           if (header.expectsResponse) {
@@ -1007,8 +1043,11 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1031,9 +1070,13 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerCoordinatorClient');
           const result = this.impl.registerCoordinatorClient(params.receiver, params.client_process);
           break;

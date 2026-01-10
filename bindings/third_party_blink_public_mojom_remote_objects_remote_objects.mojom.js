@@ -249,8 +249,13 @@ blink.mojom.RemoteObjectHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -273,21 +278,27 @@ blink.mojom.RemoteObjectHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getObject');
           const result = this.impl.getObject(params.object_id, params.receiver);
           break;
         }
         case 1: {
-          const params = blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.acquireObject');
           const result = this.impl.acquireObject(params.object_id);
           break;
         }
         case 2: {
-          const params = blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.releaseObject');
           const result = this.impl.releaseObject(params.object_id);
           break;
@@ -436,8 +447,14 @@ blink.mojom.RemoteObjectReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -460,9 +477,13 @@ blink.mojom.RemoteObjectReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.RemoteObject_HasMethod_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RemoteObject_HasMethod_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.hasMethod');
           const result = this.impl.hasMethod(params.name);
           if (header.expectsResponse) {
@@ -474,7 +495,8 @@ blink.mojom.RemoteObjectReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.RemoteObject_GetMethods_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RemoteObject_GetMethods_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getMethods');
           const result = this.impl.getMethods();
           if (header.expectsResponse) {
@@ -486,7 +508,8 @@ blink.mojom.RemoteObjectReceiver = class {
           break;
         }
         case 2: {
-          const params = blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.invokeMethod');
           const result = this.impl.invokeMethod(params.name, params.arguments);
           if (header.expectsResponse) {
@@ -498,7 +521,8 @@ blink.mojom.RemoteObjectReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyReleasedObject');
           const result = this.impl.notifyReleasedObject();
           break;
@@ -583,8 +607,11 @@ blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -607,9 +634,13 @@ blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createRemoteObjectGateway');
           const result = this.impl.createRemoteObjectGateway(params.host, params.gateway);
           break;
@@ -710,8 +741,12 @@ blink.mojom.RemoteObjectGatewayReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -734,15 +769,20 @@ blink.mojom.RemoteObjectGatewayReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addNamedObject');
           const result = this.impl.addNamedObject(params.name, params.object_id);
           break;
         }
         case 1: {
-          const params = blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeNamedObject');
           const result = this.impl.removeNamedObject(params.name);
           break;

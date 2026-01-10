@@ -522,8 +522,16 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -546,9 +554,13 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getAllSessions');
           const result = this.impl.getAllSessions();
           if (header.expectsResponse) {
@@ -560,13 +572,15 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
           break;
         }
         case 1: {
-          const params = network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deleteSession');
           const result = this.impl.deleteSession(params.reason, params.session);
           break;
         }
         case 2: {
-          const params = network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deleteAllSessions');
           const result = this.impl.deleteAllSessions(params.reason, params.created_after_time, params.created_before_time, params.filter);
           if (header.expectsResponse) {
@@ -578,19 +592,22 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
           break;
         }
         case 3: {
-          const params = network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.url, params.observer);
           break;
         }
         case 4: {
-          const params = network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addEventObserver');
           const result = this.impl.addEventObserver(params.observer);
           break;
         }
         case 5: {
-          const params = network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createBoundSessions');
           const result = this.impl.createBoundSessions(params.params, params.wrapped_key, params.cookies_to_set, params.cookie_options);
           if (header.expectsResponse) {
@@ -696,8 +713,12 @@ network.mojom.DeviceBoundSessionAccessObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -720,15 +741,20 @@ network.mojom.DeviceBoundSessionAccessObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDeviceBoundSessionAccessed');
           const result = this.impl.onDeviceBoundSessionAccessed(params.access);
           break;
         }
         case 1: {
-          const params = network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.observer);
           break;
@@ -828,8 +854,12 @@ network.mojom.DeviceBoundSessionEventObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -852,15 +882,20 @@ network.mojom.DeviceBoundSessionEventObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDeviceBoundSessionEventReceived');
           const result = this.impl.onDeviceBoundSessionEventReceived(params.event);
           break;
         }
         case 1: {
-          const params = network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addDeviceBoundSessionDisplays');
           const result = this.impl.addDeviceBoundSessionDisplays(params.session_displays);
           break;

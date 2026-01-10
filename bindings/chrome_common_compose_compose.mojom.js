@@ -207,8 +207,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -231,9 +234,13 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createComposeSessionUntrustedPageHandler');
           const result = this.impl.createComposeSessionUntrustedPageHandler(params.client_handler, params.handler, params.dialog);
           break;
@@ -599,8 +606,27 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -623,39 +649,48 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logCancelEdit');
           const result = this.impl.logCancelEdit();
           break;
         }
         case 1: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.compose');
           const result = this.impl.compose(params.input, params.mode, params.edited);
           break;
         }
         case 2: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.rewrite');
           const result = this.impl.rewrite(params.style);
           break;
         }
         case 3: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logEditInput');
           const result = this.impl.logEditInput();
           break;
         }
         case 4: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.saveWebUIState');
           const result = this.impl.saveWebUIState(params.webui_state);
           break;
         }
         case 5: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.acceptComposeResult');
           const result = this.impl.acceptComposeResult();
           if (header.expectsResponse) {
@@ -667,7 +702,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
           break;
         }
         case 6: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestInitialState');
           const result = this.impl.requestInitialState();
           if (header.expectsResponse) {
@@ -679,7 +715,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
           break;
         }
         case 7: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.undo');
           const result = this.impl.undo();
           if (header.expectsResponse) {
@@ -691,7 +728,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
           break;
         }
         case 8: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recoverFromErrorState');
           const result = this.impl.recoverFromErrorState();
           if (header.expectsResponse) {
@@ -703,7 +741,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
           break;
         }
         case 9: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.redo');
           const result = this.impl.redo();
           if (header.expectsResponse) {
@@ -715,43 +754,50 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
           break;
         }
         case 10: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openBugReportingLink');
           const result = this.impl.openBugReportingLink();
           break;
         }
         case 11: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openComposeLearnMorePage');
           const result = this.impl.openComposeLearnMorePage();
           break;
         }
         case 12: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openEnterpriseComposeLearnMorePage');
           const result = this.impl.openEnterpriseComposeLearnMorePage();
           break;
         }
         case 13: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackSurveyLink');
           const result = this.impl.openFeedbackSurveyLink();
           break;
         }
         case 14: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openSignInPage');
           const result = this.impl.openSignInPage();
           break;
         }
         case 15: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setUserFeedback');
           const result = this.impl.setUserFeedback(params.feedback);
           break;
         }
         case 16: {
-          const params = compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.editResult');
           const result = this.impl.editResult(params.new_result);
           if (header.expectsResponse) {
@@ -886,8 +932,14 @@ compose.mojom.ComposeClientUntrustedPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -910,27 +962,34 @@ compose.mojom.ComposeClientUntrustedPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 1: {
-          const params = compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI(params.reason);
           break;
         }
         case 2: {
-          const params = compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.completeFirstRun');
           const result = this.impl.completeFirstRun();
           break;
         }
         case 3: {
-          const params = compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openComposeSettings');
           const result = this.impl.openComposeSettings();
           break;
@@ -1030,8 +1089,12 @@ compose.mojom.ComposeUntrustedDialogReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1054,15 +1117,20 @@ compose.mojom.ComposeUntrustedDialogReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.responseReceived');
           const result = this.impl.responseReceived(params.response);
           break;
         }
         case 1: {
-          const params = compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.partialResponseReceived');
           const result = this.impl.partialResponseReceived(params.partial_response);
           break;

@@ -138,8 +138,11 @@ commerce.mojom.CommerceInternalsHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -162,9 +165,13 @@ commerce.mojom.CommerceInternalsHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createCommerceInternalsHandler');
           const result = this.impl.createCommerceInternalsHandler(params.page, params.handler);
           break;
@@ -368,8 +375,17 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -392,9 +408,13 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getIsShoppingListEligible');
           const result = this.impl.getIsShoppingListEligible();
           if (header.expectsResponse) {
@@ -406,13 +426,15 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resetPriceTrackingEmailPref');
           const result = this.impl.resetPriceTrackingEmailPref();
           break;
         }
         case 2: {
-          const params = commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getProductInfoForUrl');
           const result = this.impl.getProductInfoForUrl(params.url);
           if (header.expectsResponse) {
@@ -424,7 +446,8 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSubscriptionDetails');
           const result = this.impl.getSubscriptionDetails();
           if (header.expectsResponse) {
@@ -436,7 +459,8 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
           break;
         }
         case 4: {
-          const params = commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getProductSpecificationsDetails');
           const result = this.impl.getProductSpecificationsDetails();
           if (header.expectsResponse) {
@@ -448,13 +472,15 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
           break;
         }
         case 5: {
-          const params = commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resetProductSpecifications');
           const result = this.impl.resetProductSpecifications();
           break;
         }
         case 6: {
-          const params = commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getShoppingEligibilityDetails');
           const result = this.impl.getShoppingEligibilityDetails();
           if (header.expectsResponse) {
@@ -544,8 +570,11 @@ commerce.mojom.CommerceInternalsPageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -568,9 +597,13 @@ commerce.mojom.CommerceInternalsPageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onShoppingListEligibilityChanged');
           const result = this.impl.onShoppingListEligibilityChanged(params.eligible);
           break;

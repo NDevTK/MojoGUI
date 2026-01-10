@@ -114,8 +114,12 @@ sharing.mojom.MdnsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -138,15 +142,20 @@ sharing.mojom.MdnsObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.serviceFound');
           const result = this.impl.serviceFound(params.service_info);
           break;
         }
         case 1: {
-          const params = sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.serviceLost');
           const result = this.impl.serviceLost(params.service_info);
           break;
@@ -274,8 +283,13 @@ sharing.mojom.MdnsManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -298,15 +312,20 @@ sharing.mojom.MdnsManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
-          const params = sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startDiscoverySession');
           const result = this.impl.startDiscoverySession(params.service_type);
           if (header.expectsResponse) {
@@ -318,7 +337,8 @@ sharing.mojom.MdnsManagerReceiver = class {
           break;
         }
         case 2: {
-          const params = sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopDiscoverySession');
           const result = this.impl.stopDiscoverySession(params.service_type);
           if (header.expectsResponse) {

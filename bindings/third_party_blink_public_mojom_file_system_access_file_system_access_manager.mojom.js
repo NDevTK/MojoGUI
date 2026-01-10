@@ -316,8 +316,17 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -340,9 +349,13 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSandboxedFileSystem');
           const result = this.impl.getSandboxedFileSystem();
           if (header.expectsResponse) {
@@ -354,7 +367,8 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSandboxedFileSystemForDevtools');
           const result = this.impl.getSandboxedFileSystemForDevtools(params.directory_path_components);
           if (header.expectsResponse) {
@@ -366,7 +380,8 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
           break;
         }
         case 2: {
-          const params = blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.chooseEntries');
           const result = this.impl.chooseEntries(params.options);
           if (header.expectsResponse) {
@@ -378,19 +393,22 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getFileHandleFromToken');
           const result = this.impl.getFileHandleFromToken(params.token, params.file_handle);
           break;
         }
         case 4: {
-          const params = blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDirectoryHandleFromToken');
           const result = this.impl.getDirectoryHandleFromToken(params.token, params.directory_handle);
           break;
         }
         case 5: {
-          const params = blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getEntryFromDataTransferToken');
           const result = this.impl.getEntryFromDataTransferToken(params.token);
           if (header.expectsResponse) {
@@ -402,7 +420,8 @@ blink.mojom.FileSystemAccessManagerReceiver = class {
           break;
         }
         case 6: {
-          const params = blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindObserverHost');
           const result = this.impl.bindObserverHost(params.observer_host);
           break;

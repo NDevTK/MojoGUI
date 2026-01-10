@@ -234,8 +234,12 @@ nearby_share.mojom.ShareTargetListenerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -258,15 +262,20 @@ nearby_share.mojom.ShareTargetListenerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onShareTargetDiscovered');
           const result = this.impl.onShareTargetDiscovered(params.share_target);
           break;
         }
         case 1: {
-          const params = nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onShareTargetLost');
           const result = this.impl.onShareTargetLost(params.share_target);
           break;
@@ -351,8 +360,11 @@ nearby_share.mojom.TransferUpdateListenerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -375,9 +387,13 @@ nearby_share.mojom.TransferUpdateListenerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTransferUpdate');
           const result = this.impl.onTransferUpdate(params.status, params.token);
           break;
@@ -476,8 +492,12 @@ nearby_share.mojom.DiscoveryObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -500,15 +520,20 @@ nearby_share.mojom.DiscoveryObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNearbyProcessStopped');
           const result = this.impl.onNearbyProcessStopped();
           break;
         }
         case 1: {
-          const params = nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStartDiscoveryResult');
           const result = this.impl.onStartDiscoveryResult(params.success);
           break;
@@ -679,8 +704,15 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -703,15 +735,20 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addDiscoveryObserver');
           const result = this.impl.addDiscoveryObserver(params.observer);
           break;
         }
         case 1: {
-          const params = nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startDiscovery');
           const result = this.impl.startDiscovery(params.listener);
           if (header.expectsResponse) {
@@ -723,7 +760,8 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
           break;
         }
         case 2: {
-          const params = nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopDiscovery');
           const result = this.impl.stopDiscovery();
           if (header.expectsResponse) {
@@ -735,7 +773,8 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
           break;
         }
         case 3: {
-          const params = nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.selectShareTarget');
           const result = this.impl.selectShareTarget(params.share_target_id);
           if (header.expectsResponse) {
@@ -747,7 +786,8 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
           break;
         }
         case 4: {
-          const params = nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPayloadPreview');
           const result = this.impl.getPayloadPreview();
           if (header.expectsResponse) {
@@ -884,8 +924,13 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -908,9 +953,13 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept();
           if (header.expectsResponse) {
@@ -922,7 +971,8 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
           break;
         }
         case 1: {
-          const params = nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reject');
           const result = this.impl.reject();
           if (header.expectsResponse) {
@@ -934,7 +984,8 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
           break;
         }
         case 2: {
-          const params = nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           if (header.expectsResponse) {
@@ -1071,8 +1122,14 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1095,27 +1152,34 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onHighVisibilityChanged');
           const result = this.impl.onHighVisibilityChanged(params.in_high_visibility);
           break;
         }
         case 1: {
-          const params = nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTransferUpdate');
           const result = this.impl.onTransferUpdate(params.share_target, params.metadata);
           break;
         }
         case 2: {
-          const params = nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNearbyProcessStopped');
           const result = this.impl.onNearbyProcessStopped();
           break;
         }
         case 3: {
-          const params = nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStartAdvertisingFailure');
           const result = this.impl.onStartAdvertisingFailure();
           break;
@@ -1322,8 +1386,17 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1346,15 +1419,20 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addReceiveObserver');
           const result = this.impl.addReceiveObserver(params.observer);
           break;
         }
         case 1: {
-          const params = nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isInHighVisibility');
           const result = this.impl.isInHighVisibility();
           if (header.expectsResponse) {
@@ -1366,7 +1444,8 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
           break;
         }
         case 2: {
-          const params = nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerForegroundReceiveSurface');
           const result = this.impl.registerForegroundReceiveSurface();
           if (header.expectsResponse) {
@@ -1378,7 +1457,8 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
           break;
         }
         case 3: {
-          const params = nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.unregisterForegroundReceiveSurface');
           const result = this.impl.unregisterForegroundReceiveSurface();
           if (header.expectsResponse) {
@@ -1390,7 +1470,8 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
           break;
         }
         case 4: {
-          const params = nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept(params.share_target_id);
           if (header.expectsResponse) {
@@ -1402,7 +1483,8 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
           break;
         }
         case 5: {
-          const params = nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reject');
           const result = this.impl.reject(params.share_target_id);
           if (header.expectsResponse) {
@@ -1414,7 +1496,8 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
           break;
         }
         case 6: {
-          const params = nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordFastInitiationNotificationUsage');
           const result = this.impl.recordFastInitiationNotificationUsage(params.success);
           break;

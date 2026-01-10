@@ -129,8 +129,12 @@ content.mojom.ChildProcessHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -153,9 +157,13 @@ content.mojom.ChildProcessHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content.mojom.ChildProcessHost_Ping_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcessHost_Ping_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.ping');
           const result = this.impl.ping();
           if (header.expectsResponse) {
@@ -167,7 +175,8 @@ content.mojom.ChildProcessHostReceiver = class {
           break;
         }
         case 1: {
-          const params = content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindHostReceiver');
           const result = this.impl.bindHostReceiver(params.receiver);
           break;
@@ -466,8 +475,24 @@ content.mojom.ChildProcessReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -490,15 +515,20 @@ content.mojom.ChildProcessReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content.mojom.ChildProcess_ProcessShutdown_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_ProcessShutdown_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.processShutdown');
           const result = this.impl.processShutdown();
           break;
         }
         case 1: {
-          const params = content.mojom.ChildProcess_GetTaskPort_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_GetTaskPort_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getTaskPort');
           const result = this.impl.getTaskPort();
           if (header.expectsResponse) {
@@ -510,49 +540,57 @@ content.mojom.ChildProcessReceiver = class {
           break;
         }
         case 2: {
-          const params = content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setIPCLoggingEnabled');
           const result = this.impl.setIPCLoggingEnabled(params.on);
           break;
         }
         case 3: {
-          const params = content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getBackgroundTracingAgentProvider');
           const result = this.impl.getBackgroundTracingAgentProvider(params.receiver);
           break;
         }
         case 4: {
-          const params = content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enableSystemTracingService');
           const result = this.impl.enableSystemTracingService(params.remote);
           break;
         }
         case 5: {
-          const params = content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.crashHungProcess');
           const result = this.impl.crashHungProcess();
           break;
         }
         case 6: {
-          const params = content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindServiceInterface');
           const result = this.impl.bindServiceInterface(params.receiver);
           break;
         }
         case 7: {
-          const params = content.mojom.ChildProcess_BindReceiver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_BindReceiver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindReceiver');
           const result = this.impl.bindReceiver(params.receiver);
           break;
         }
         case 8: {
-          const params = content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setProfilingFile');
           const result = this.impl.setProfilingFile(params.file);
           break;
         }
         case 9: {
-          const params = content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.writeClangProfilingProfile');
           const result = this.impl.writeClangProfilingProfile();
           if (header.expectsResponse) {
@@ -564,25 +602,29 @@ content.mojom.ChildProcessReceiver = class {
           break;
         }
         case 10: {
-          const params = content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPseudonymizationSalt');
           const result = this.impl.setPseudonymizationSalt(params.salt);
           break;
         }
         case 11: {
-          const params = content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reinitializeLogging');
           const result = this.impl.reinitializeLogging(params.settings);
           break;
         }
         case 12: {
-          const params = content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMemoryPressure');
           const result = this.impl.onMemoryPressure(params.memory_pressure_level);
           break;
         }
         case 13: {
-          const params = content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setBatterySaverMode');
           const result = this.impl.setBatterySaverMode(params.battery_saver_mode_enabled);
           break;

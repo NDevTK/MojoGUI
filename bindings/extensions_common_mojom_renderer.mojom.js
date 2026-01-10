@@ -517,8 +517,33 @@ extensions.mojom.RendererReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
+    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
+    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -541,33 +566,41 @@ extensions.mojom.RendererReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.activateExtension');
           const result = this.impl.activateExtension(params.extension_id);
           break;
         }
         case 1: {
-          const params = extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setActivityLoggingEnabled');
           const result = this.impl.setActivityLoggingEnabled(params.enabled);
           break;
         }
         case 2: {
-          const params = extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.loadExtensions');
           const result = this.impl.loadExtensions(params.params);
           break;
         }
         case 3: {
-          const params = extensions.mojom.Renderer_UnloadExtension_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_UnloadExtension_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.unloadExtension');
           const result = this.impl.unloadExtension(params.extension_id);
           break;
         }
         case 4: {
-          const params = extensions.mojom.Renderer_SuspendExtension_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_SuspendExtension_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.suspendExtension');
           const result = this.impl.suspendExtension(params.extension_id);
           if (header.expectsResponse) {
@@ -579,61 +612,71 @@ extensions.mojom.RendererReceiver = class {
           break;
         }
         case 5: {
-          const params = extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancelSuspendExtension');
           const result = this.impl.cancelSuspendExtension(params.extension_id);
           break;
         }
         case 6: {
-          const params = extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDeveloperMode');
           const result = this.impl.setDeveloperMode(params.developer_mode_only);
           break;
         }
         case 7: {
-          const params = extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setUserScriptsAllowed');
           const result = this.impl.setUserScriptsAllowed(params.extension_id, params.allowed);
           break;
         }
         case 8: {
-          const params = extensions.mojom.Renderer_SetSessionInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_SetSessionInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSessionInfo');
           const result = this.impl.setSessionInfo(params.channel, params.session);
           break;
         }
         case 9: {
-          const params = extensions.mojom.Renderer_SetSystemFont_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_SetSystemFont_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSystemFont');
           const result = this.impl.setSystemFont(params.font_family, params.font_size);
           break;
         }
         case 10: {
-          const params = extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setWebViewPartitionID');
           const result = this.impl.setWebViewPartitionID(params.partition_id);
           break;
         }
         case 11: {
-          const params = extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setScriptingAllowlist');
           const result = this.impl.setScriptingAllowlist(params.extension_ids);
           break;
         }
         case 12: {
-          const params = extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateUserScriptWorlds');
           const result = this.impl.updateUserScriptWorlds(params.infos);
           break;
         }
         case 13: {
-          const params = extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clearUserScriptWorldConfig');
           const result = this.impl.clearUserScriptWorldConfig(params.extension_id, params.world_id);
           break;
         }
         case 14: {
-          const params = extensions.mojom.Renderer_ShouldSuspend_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_ShouldSuspend_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.shouldSuspend');
           const result = this.impl.shouldSuspend();
           if (header.expectsResponse) {
@@ -645,7 +688,8 @@ extensions.mojom.RendererReceiver = class {
           break;
         }
         case 15: {
-          const params = extensions.mojom.Renderer_TransferBlobs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_TransferBlobs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.transferBlobs');
           const result = this.impl.transferBlobs();
           if (header.expectsResponse) {
@@ -657,43 +701,50 @@ extensions.mojom.RendererReceiver = class {
           break;
         }
         case 16: {
-          const params = extensions.mojom.Renderer_UpdatePermissions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_UpdatePermissions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updatePermissions');
           const result = this.impl.updatePermissions(params.extension_id, params.active_permissions, params.withheld_permissions, params.policy_blocked_hosts, params.policy_allowed_hosts, params.uses_default_policy_host_restrictions);
           break;
         }
         case 17: {
-          const params = extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateDefaultPolicyHostRestrictions');
           const result = this.impl.updateDefaultPolicyHostRestrictions(params.default_policy_blocked_hosts, params.default_policy_allowed_hosts);
           break;
         }
         case 18: {
-          const params = extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateUserHostRestrictions');
           const result = this.impl.updateUserHostRestrictions(params.user_blocked_hosts, params.user_allowed_hosts);
           break;
         }
         case 19: {
-          const params = extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateTabSpecificPermissions');
           const result = this.impl.updateTabSpecificPermissions(params.extension_id, params.new_hosts, params.tab_id, params.update_origin_allowlist);
           break;
         }
         case 20: {
-          const params = extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateUserScripts');
           const result = this.impl.updateUserScripts(params.region, params.owner);
           break;
         }
         case 21: {
-          const params = extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clearTabSpecificPermissions');
           const result = this.impl.clearTabSpecificPermissions(params.extension_ids, params.tab_id, params.update_origin_allowlist);
           break;
         }
         case 22: {
-          const params = extensions.mojom.Renderer_WatchPages_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.Renderer_WatchPages_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.watchPages');
           const result = this.impl.watchPages(params.css_selectors);
           break;

@@ -118,8 +118,13 @@ media_router.mojom.DebuggerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -142,9 +147,13 @@ media_router.mojom.DebuggerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.shouldFetchMirroringStats');
           const result = this.impl.shouldFetchMirroringStats();
           if (header.expectsResponse) {
@@ -156,13 +165,15 @@ media_router.mojom.DebuggerReceiver = class {
           break;
         }
         case 1: {
-          const params = media_router.mojom.Debugger_OnMirroringStats_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_router.mojom.Debugger_OnMirroringStats_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMirroringStats');
           const result = this.impl.onMirroringStats(params.json_stats);
           break;
         }
         case 2: {
-          const params = media_router.mojom.Debugger_BindReceiver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_router.mojom.Debugger_BindReceiver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindReceiver');
           const result = this.impl.bindReceiver(params.receiver);
           break;

@@ -226,8 +226,12 @@ content.mojom.NavigationClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -250,9 +254,13 @@ content.mojom.NavigationClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.commitNavigation');
           const result = this.impl.commitNavigation(params.common_params, params.request_params, params.response_head, params.response_body, params.url_loader_client_endpoints, params.subresource_loader_factories, params.subresource_overrides, params.controller_service_worker_info, params.container_info, params.subresource_proxying_loader_factory, params.keep_alive_loader_factory, params.fetch_later_loader_factory, params.document_token, params.devtools_navigation_token, params.base_auction_nonce, params.permissions_policy, params.policy_container, params.code_cache_host, params.code_cache_host_for_background, params.cookie_manager_info, params.storage_info);
           if (header.expectsResponse) {
@@ -264,7 +272,8 @@ content.mojom.NavigationClientReceiver = class {
           break;
         }
         case 1: {
-          const params = content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.commitFailedNavigation');
           const result = this.impl.commitFailedNavigation(params.common_params, params.request_params, params.has_stale_copy_in_cache, params.error_code, params.extended_error_code, params.resolve_error_info, params.error_page_content, params.subresource_loader_factories, params.document_token, params.devtools_navigation_token, params.policy_container, params.alternative_error_page_info);
           if (header.expectsResponse) {

@@ -106,8 +106,12 @@ blink.mojom.FileBackedBlobFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -130,15 +134,20 @@ blink.mojom.FileBackedBlobFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerBlob');
           const result = this.impl.registerBlob(params.blob, params.uuid, params.content_type, params.file);
           break;
         }
         case 1: {
-          const params = blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerBlobSync');
           const result = this.impl.registerBlobSync(params.blob, params.uuid, params.content_type, params.file);
           if (header.expectsResponse) {

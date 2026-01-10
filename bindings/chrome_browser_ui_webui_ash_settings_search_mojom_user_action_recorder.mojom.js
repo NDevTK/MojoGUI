@@ -197,8 +197,17 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -221,45 +230,55 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordPageFocus');
           const result = this.impl.recordPageFocus();
           break;
         }
         case 1: {
-          const params = ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordPageBlur');
           const result = this.impl.recordPageBlur();
           break;
         }
         case 2: {
-          const params = ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordClick');
           const result = this.impl.recordClick();
           break;
         }
         case 3: {
-          const params = ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordNavigation');
           const result = this.impl.recordNavigation();
           break;
         }
         case 4: {
-          const params = ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordSearch');
           const result = this.impl.recordSearch();
           break;
         }
         case 5: {
-          const params = ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordSettingChange');
           const result = this.impl.recordSettingChange();
           break;
         }
         case 6: {
-          const params = ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordSettingChangeWithDetails');
           const result = this.impl.recordSettingChangeWithDetails(params.setting, params.value);
           break;

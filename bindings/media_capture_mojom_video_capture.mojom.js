@@ -203,8 +203,16 @@ media.mojom.VideoCaptureObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -227,39 +235,48 @@ media.mojom.VideoCaptureObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStateChanged');
           const result = this.impl.onStateChanged(params.result);
           break;
         }
         case 1: {
-          const params = media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNewBuffer');
           const result = this.impl.onNewBuffer(params.buffer_id, params.buffer_handle);
           break;
         }
         case 2: {
-          const params = media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBufferReady');
           const result = this.impl.onBufferReady(params.buffer);
           break;
         }
         case 3: {
-          const params = media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBufferDestroyed');
           const result = this.impl.onBufferDestroyed(params.buffer_id);
           break;
         }
         case 4: {
-          const params = media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFrameDropped');
           const result = this.impl.onFrameDropped(params.reason);
           break;
         }
         case 5: {
-          const params = media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNewCaptureVersion');
           const result = this.impl.onNewCaptureVersion(params.capture_version);
           break;
@@ -493,8 +510,19 @@ media.mojom.VideoCaptureHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -517,45 +545,55 @@ media.mojom.VideoCaptureHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media.mojom.VideoCaptureHost_Start_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureHost_Start_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.device_id, params.session_id, params.params, params.observer);
           break;
         }
         case 1: {
-          const params = media.mojom.VideoCaptureHost_Stop_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureHost_Stop_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop(params.device_id);
           break;
         }
         case 2: {
-          const params = media.mojom.VideoCaptureHost_Pause_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureHost_Pause_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause(params.device_id);
           break;
         }
         case 3: {
-          const params = media.mojom.VideoCaptureHost_Resume_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureHost_Resume_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume(params.device_id, params.session_id, params.params);
           break;
         }
         case 4: {
-          const params = media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestRefreshFrame');
           const result = this.impl.requestRefreshFrame(params.device_id);
           break;
         }
         case 5: {
-          const params = media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.releaseBuffer');
           const result = this.impl.releaseBuffer(params.device_id, params.buffer_id, params.feedback);
           break;
         }
         case 6: {
-          const params = media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDeviceSupportedFormats');
           const result = this.impl.getDeviceSupportedFormats(params.device_id, params.session_id);
           if (header.expectsResponse) {
@@ -567,7 +605,8 @@ media.mojom.VideoCaptureHostReceiver = class {
           break;
         }
         case 7: {
-          const params = media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDeviceFormatsInUse');
           const result = this.impl.getDeviceFormatsInUse(params.device_id, params.session_id);
           if (header.expectsResponse) {
@@ -579,7 +618,8 @@ media.mojom.VideoCaptureHostReceiver = class {
           break;
         }
         case 8: {
-          const params = media.mojom.VideoCaptureHost_OnLog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoCaptureHost_OnLog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLog');
           const result = this.impl.onLog(params.device_id, params.message);
           break;

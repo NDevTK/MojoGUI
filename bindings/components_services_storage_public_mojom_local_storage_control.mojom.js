@@ -212,8 +212,18 @@ storage.mojom.LocalStorageControlReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -236,15 +246,20 @@ storage.mojom.LocalStorageControlReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindStorageArea');
           const result = this.impl.bindStorageArea(params.storage_key, params.receiver);
           break;
         }
         case 1: {
-          const params = storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getUsage');
           const result = this.impl.getUsage();
           if (header.expectsResponse) {
@@ -256,7 +271,8 @@ storage.mojom.LocalStorageControlReceiver = class {
           break;
         }
         case 2: {
-          const params = storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deleteStorage');
           const result = this.impl.deleteStorage(params.storage_key);
           if (header.expectsResponse) {
@@ -268,7 +284,8 @@ storage.mojom.LocalStorageControlReceiver = class {
           break;
         }
         case 3: {
-          const params = storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cleanUpStorage');
           const result = this.impl.cleanUpStorage();
           if (header.expectsResponse) {
@@ -280,25 +297,29 @@ storage.mojom.LocalStorageControlReceiver = class {
           break;
         }
         case 4: {
-          const params = storage.mojom.LocalStorageControl_Flush_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_Flush_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           break;
         }
         case 5: {
-          const params = storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.purgeMemory');
           const result = this.impl.purgeMemory();
           break;
         }
         case 6: {
-          const params = storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
           const result = this.impl.applyPolicyUpdates(params.policy_updates);
           break;
         }
         case 7: {
-          const params = storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.forceKeepSessionState');
           const result = this.impl.forceKeepSessionState();
           break;

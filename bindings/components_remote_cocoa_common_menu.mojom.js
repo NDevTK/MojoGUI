@@ -173,8 +173,12 @@ remote_cocoa.mojom.MenuHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -197,15 +201,20 @@ remote_cocoa.mojom.MenuHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.commandActivated');
           const result = this.impl.commandActivated(params.command_id, params.event_flags);
           break;
         }
         case 1: {
-          const params = remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.menuClosed');
           const result = this.impl.menuClosed();
           break;
@@ -307,8 +316,12 @@ remote_cocoa.mojom.MenuReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -331,15 +344,20 @@ remote_cocoa.mojom.MenuReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remote_cocoa.mojom.Menu_Cancel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.Menu_Cancel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;
         }
         case 1: {
-          const params = remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateMenuItem');
           const result = this.impl.updateMenuItem(params.command_id, params.enabled, params.visible, params.label);
           break;

@@ -353,8 +353,15 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -377,9 +384,13 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getHexModelIdFromServiceData');
           const result = this.impl.getHexModelIdFromServiceData(params.service_data);
           if (header.expectsResponse) {
@@ -391,7 +402,8 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.parseDecryptedResponse');
           const result = this.impl.parseDecryptedResponse(params.aes_key, params.encrypted_response_bytes);
           if (header.expectsResponse) {
@@ -403,7 +415,8 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.parseDecryptedPasskey');
           const result = this.impl.parseDecryptedPasskey(params.aes_key, params.encrypted_passkey_bytes);
           if (header.expectsResponse) {
@@ -415,7 +428,8 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           break;
         }
         case 3: {
-          const params = ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.parseNotDiscoverableAdvertisement');
           const result = this.impl.parseNotDiscoverableAdvertisement(params.service_data, params.address);
           if (header.expectsResponse) {
@@ -427,7 +441,8 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           break;
         }
         case 4: {
-          const params = ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.parseMessageStreamMessages');
           const result = this.impl.parseMessageStreamMessages(params.message_bytes);
           if (header.expectsResponse) {

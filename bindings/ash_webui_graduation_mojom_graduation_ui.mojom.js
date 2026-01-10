@@ -164,8 +164,14 @@ ash.graduation_ui.mojom.GraduationUiHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -188,9 +194,13 @@ ash.graduation_ui.mojom.GraduationUiHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.authenticateWebview');
           const result = this.impl.authenticateWebview();
           if (header.expectsResponse) {
@@ -202,7 +212,8 @@ ash.graduation_ui.mojom.GraduationUiHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getProfileInfo');
           const result = this.impl.getProfileInfo();
           if (header.expectsResponse) {
@@ -214,13 +225,15 @@ ash.graduation_ui.mojom.GraduationUiHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onScreenSwitched');
           const result = this.impl.onScreenSwitched(params.screen);
           break;
         }
         case 3: {
-          const params = ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTransferComplete');
           const result = this.impl.onTransferComplete();
           break;

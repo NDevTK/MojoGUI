@@ -143,8 +143,14 @@ device.mojom.WakeLockProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -167,27 +173,34 @@ device.mojom.WakeLockProviderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getWakeLockContextForID');
           const result = this.impl.getWakeLockContextForID(params.context_id, params.context);
           break;
         }
         case 1: {
-          const params = device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getWakeLockWithoutContext');
           const result = this.impl.getWakeLockWithoutContext(params.type, params.reason, params.description, params.wake_lock);
           break;
         }
         case 2: {
-          const params = device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyOnWakeLockDeactivation');
           const result = this.impl.notifyOnWakeLockDeactivation(params.type, params.observer);
           break;
         }
         case 3: {
-          const params = device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getActiveWakeLocksForTests');
           const result = this.impl.getActiveWakeLocksForTests(params.type);
           if (header.expectsResponse) {
@@ -277,8 +290,11 @@ device.mojom.WakeLockObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -301,9 +317,13 @@ device.mojom.WakeLockObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWakeLockDeactivated');
           const result = this.impl.onWakeLockDeactivated(params.type);
           break;

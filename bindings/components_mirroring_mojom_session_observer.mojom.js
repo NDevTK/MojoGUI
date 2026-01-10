@@ -195,8 +195,17 @@ mirroring.mojom.SessionObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -219,45 +228,55 @@ mirroring.mojom.SessionObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = mirroring.mojom.SessionObserver_OnError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.SessionObserver_OnError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
         }
         case 1: {
-          const params = mirroring.mojom.SessionObserver_DidStart_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.SessionObserver_DidStart_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.didStart');
           const result = this.impl.didStart();
           break;
         }
         case 2: {
-          const params = mirroring.mojom.SessionObserver_DidStop_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.SessionObserver_DidStop_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.didStop');
           const result = this.impl.didStop();
           break;
         }
         case 3: {
-          const params = mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logInfoMessage');
           const result = this.impl.logInfoMessage(params.message);
           break;
         }
         case 4: {
-          const params = mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logErrorMessage');
           const result = this.impl.logErrorMessage(params.message);
           break;
         }
         case 5: {
-          const params = mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSourceChanged');
           const result = this.impl.onSourceChanged();
           break;
         }
         case 6: {
-          const params = mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onRemotingStateChanged');
           const result = this.impl.onRemotingStateChanged(params.is_remoting);
           break;

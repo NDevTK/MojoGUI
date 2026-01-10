@@ -157,8 +157,13 @@ chromeos.cdm.mojom.CdmFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(1, 0); // Default ordinal 1 -> Index 0
+    this.ordinalMap.set(2, 1); // Default ordinal 2 -> Index 1
+    this.ordinalMap.set(3, 2); // Default ordinal 3 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -181,21 +186,27 @@ chromeos.cdm.mojom.CdmFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 1: {
-          const params = chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_1');
           const result = this.impl.dEPRECATED_1(params.client, params.storage, params.cdm, params.output_protection);
           break;
         }
-        case 2: {
-          const params = chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createCdmDeprecated');
           const result = this.impl.createCdmDeprecated(params.client, params.storage, params.output_protection, params.host, params.cdm);
           break;
         }
-        case 3: {
-          const params = chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createCdm');
           const result = this.impl.createCdm(params.client, params.storage, params.output_protection, params.host, params.cdm);
           if (header.expectsResponse) {
@@ -468,8 +479,20 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -492,9 +515,13 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createFactory');
           const result = this.impl.createFactory(params.key_system);
           if (header.expectsResponse) {
@@ -506,25 +533,29 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           break;
         }
         case 1: {
-          const params = chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removedMethod1');
           const result = this.impl.removedMethod1();
           break;
         }
         case 2: {
-          const params = chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connectOemCrypto');
           const result = this.impl.connectOemCrypto(params.oemcryptor, params.protected_buffer_manager, params.output_protection);
           break;
         }
         case 3: {
-          const params = chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removedMethod3');
           const result = this.impl.removedMethod3();
           break;
         }
         case 4: {
-          const params = chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getHwConfigData');
           const result = this.impl.getHwConfigData();
           if (header.expectsResponse) {
@@ -536,13 +567,15 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           break;
         }
         case 5: {
-          const params = chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removedMethod5');
           const result = this.impl.removedMethod5();
           break;
         }
         case 6: {
-          const params = chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getHdcp14Key');
           const result = this.impl.getHdcp14Key();
           if (header.expectsResponse) {
@@ -554,7 +587,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           break;
         }
         case 7: {
-          const params = chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getAndroidHwKeyData');
           const result = this.impl.getAndroidHwKeyData(params.key_id, params.hw_identifier);
           if (header.expectsResponse) {
@@ -566,7 +600,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           break;
         }
         case 8: {
-          const params = chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.allocateSecureBuffer');
           const result = this.impl.allocateSecureBuffer(params.size);
           if (header.expectsResponse) {
@@ -578,7 +613,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           break;
         }
         case 9: {
-          const params = chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.parseEncryptedSliceHeader');
           const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
           if (header.expectsResponse) {

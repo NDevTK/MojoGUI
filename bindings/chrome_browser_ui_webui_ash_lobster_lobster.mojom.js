@@ -349,8 +349,20 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -373,9 +385,13 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestCandidates');
           const result = this.impl.requestCandidates(params.query, params.num_candidates);
           if (header.expectsResponse) {
@@ -387,7 +403,8 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.downloadCandidate');
           const result = this.impl.downloadCandidate(params.candidate_id);
           if (header.expectsResponse) {
@@ -399,7 +416,8 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.commitAsInsert');
           const result = this.impl.commitAsInsert(params.candidate_id);
           if (header.expectsResponse) {
@@ -411,7 +429,8 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.commitAsDownload');
           const result = this.impl.commitAsDownload(params.candidate_id);
           if (header.expectsResponse) {
@@ -423,7 +442,8 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           break;
         }
         case 4: {
-          const params = lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.previewFeedback');
           const result = this.impl.previewFeedback(params.candidate_id);
           if (header.expectsResponse) {
@@ -435,7 +455,8 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           break;
         }
         case 5: {
-          const params = lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.submitFeedback');
           const result = this.impl.submitFeedback(params.candidate_id, params.description);
           if (header.expectsResponse) {
@@ -447,25 +468,29 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
           break;
         }
         case 6: {
-          const params = lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 7: {
-          const params = lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 8: {
-          const params = lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
           const result = this.impl.emitMetricEvent(params.metric_event);
           break;
         }
         case 9: {
-          const params = lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
           const result = this.impl.openUrlInNewWindow(params.url);
           break;

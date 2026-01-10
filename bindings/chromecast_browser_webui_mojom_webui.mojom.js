@@ -90,8 +90,11 @@ chromecast.mojom.MessageCallbackReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -114,9 +117,13 @@ chromecast.mojom.MessageCallbackReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.list);
           break;
@@ -218,8 +225,12 @@ chromecast.mojom.WebUiReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -242,15 +253,20 @@ chromecast.mojom.WebUiReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerMessageCallback');
           const result = this.impl.registerMessageCallback(params.message, params.cb);
           break;
         }
         case 1: {
-          const params = chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.callJavascriptFunction');
           const result = this.impl.callJavascriptFunction(params.function, params.args);
           break;
@@ -340,8 +356,11 @@ chromecast.mojom.ResourcesReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -364,9 +383,13 @@ chromecast.mojom.ResourcesReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestResourceBytes');
           const result = this.impl.requestResourceBytes(params.path);
           if (header.expectsResponse) {
@@ -475,8 +498,12 @@ chromecast.mojom.WebUiClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -499,15 +526,20 @@ chromecast.mojom.WebUiClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createController');
           const result = this.impl.createController(params.host, params.web_ui, params.resources);
           break;
         }
         case 1: {
-          const params = chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createResources');
           const result = this.impl.createResources(params.host, params.resources);
           break;

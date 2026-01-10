@@ -304,8 +304,15 @@ content.mojom.InputInjectorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -328,9 +335,13 @@ content.mojom.InputInjectorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticSmoothDrag');
           const result = this.impl.queueSyntheticSmoothDrag(params.drag);
           if (header.expectsResponse) {
@@ -342,7 +353,8 @@ content.mojom.InputInjectorReceiver = class {
           break;
         }
         case 1: {
-          const params = content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticSmoothScroll');
           const result = this.impl.queueSyntheticSmoothScroll(params.scroll);
           if (header.expectsResponse) {
@@ -354,7 +366,8 @@ content.mojom.InputInjectorReceiver = class {
           break;
         }
         case 2: {
-          const params = content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticPinch');
           const result = this.impl.queueSyntheticPinch(params.pinch);
           if (header.expectsResponse) {
@@ -366,7 +379,8 @@ content.mojom.InputInjectorReceiver = class {
           break;
         }
         case 3: {
-          const params = content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticTap');
           const result = this.impl.queueSyntheticTap(params.tap);
           if (header.expectsResponse) {
@@ -378,7 +392,8 @@ content.mojom.InputInjectorReceiver = class {
           break;
         }
         case 4: {
-          const params = content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticPointerAction');
           const result = this.impl.queueSyntheticPointerAction(params.pointer_action);
           if (header.expectsResponse) {

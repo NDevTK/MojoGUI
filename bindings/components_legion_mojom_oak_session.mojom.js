@@ -165,8 +165,14 @@ legion.mojom.OakSessionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -189,9 +195,13 @@ legion.mojom.OakSessionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = legion.mojom.OakSession_InitiateHandshake_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(legion.mojom.OakSession_InitiateHandshake_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.initiateHandshake');
           const result = this.impl.initiateHandshake();
           if (header.expectsResponse) {
@@ -203,7 +213,8 @@ legion.mojom.OakSessionReceiver = class {
           break;
         }
         case 1: {
-          const params = legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.completeHandshake');
           const result = this.impl.completeHandshake(params.response);
           if (header.expectsResponse) {
@@ -215,7 +226,8 @@ legion.mojom.OakSessionReceiver = class {
           break;
         }
         case 2: {
-          const params = legion.mojom.OakSession_Encrypt_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(legion.mojom.OakSession_Encrypt_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.encrypt');
           const result = this.impl.encrypt(params.input);
           if (header.expectsResponse) {
@@ -227,7 +239,8 @@ legion.mojom.OakSessionReceiver = class {
           break;
         }
         case 3: {
-          const params = legion.mojom.OakSession_Decrypt_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(legion.mojom.OakSession_Decrypt_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.decrypt');
           const result = this.impl.decrypt(params.input);
           if (header.expectsResponse) {

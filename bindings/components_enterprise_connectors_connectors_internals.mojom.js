@@ -300,8 +300,14 @@ connectors_internals.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -324,9 +330,13 @@ connectors_internals.mojom.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDeviceTrustState');
           const result = this.impl.getDeviceTrustState();
           if (header.expectsResponse) {
@@ -338,7 +348,8 @@ connectors_internals.mojom.PageHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deleteDeviceTrustKey');
           const result = this.impl.deleteDeviceTrustKey();
           if (header.expectsResponse) {
@@ -350,7 +361,8 @@ connectors_internals.mojom.PageHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getClientCertificateState');
           const result = this.impl.getClientCertificateState();
           if (header.expectsResponse) {
@@ -362,7 +374,8 @@ connectors_internals.mojom.PageHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSignalsReportingState');
           const result = this.impl.getSignalsReportingState();
           if (header.expectsResponse) {

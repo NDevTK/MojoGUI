@@ -178,8 +178,15 @@ blink.mojom.CodeCacheHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -202,9 +209,13 @@ blink.mojom.CodeCacheHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPendingBackend');
           const result = this.impl.getPendingBackend(params.cache_type);
           if (header.expectsResponse) {
@@ -216,13 +227,15 @@ blink.mojom.CodeCacheHostReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.didGenerateCacheableMetadata');
           const result = this.impl.didGenerateCacheableMetadata(params.cache_type, params.url, params.expected_response_time, params.data);
           break;
         }
         case 2: {
-          const params = blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.fetchCachedCode');
           const result = this.impl.fetchCachedCode(params.cache_type, params.url);
           if (header.expectsResponse) {
@@ -234,13 +247,15 @@ blink.mojom.CodeCacheHostReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clearCodeCacheEntry');
           const result = this.impl.clearCodeCacheEntry(params.cache_type, params.url);
           break;
         }
         case 4: {
-          const params = blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.didGenerateCacheableMetadataInCacheStorage');
           const result = this.impl.didGenerateCacheableMetadataInCacheStorage(params.url, params.expected_response_time, params.data, params.cache_storage_cache_name);
           break;

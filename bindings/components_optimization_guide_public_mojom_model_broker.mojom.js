@@ -165,8 +165,13 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -189,21 +194,27 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createSession');
           const result = this.impl.createSession(params.session, params.params);
           break;
         }
         case 1: {
-          const params = optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createTextSafetySession');
           const result = this.impl.createTextSafetySession(params.session);
           break;
         }
         case 2: {
-          const params = optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reportHealthyCompletion');
           const result = this.impl.reportHealthyCompletion();
           break;
@@ -304,8 +315,12 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -328,15 +343,20 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.unavailable');
           const result = this.impl.unavailable(params.reason);
           break;
         }
         case 1: {
-          const params = optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.available');
           const result = this.impl.available(params.config, params.solution);
           break;
@@ -421,8 +441,11 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -445,9 +468,13 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.subscribe');
           const result = this.impl.subscribe(params.options, params.subcriber);
           break;

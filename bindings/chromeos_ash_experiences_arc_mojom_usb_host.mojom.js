@@ -143,8 +143,13 @@ arc.mojom.UsbHostHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(3, 0); // Default ordinal 3 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -167,9 +172,13 @@ arc.mojom.UsbHostHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 3: {
-          const params = arc.mojom.UsbHostHost_OpenDevice_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.UsbHostHost_OpenDevice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openDevice');
           const result = this.impl.openDevice(params.guid, params.pkg_name);
           if (header.expectsResponse) {
@@ -181,7 +190,8 @@ arc.mojom.UsbHostHostReceiver = class {
           break;
         }
         case 1: {
-          const params = arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDeviceInfo');
           const result = this.impl.getDeviceInfo(params.guid);
           if (header.expectsResponse) {
@@ -193,7 +203,8 @@ arc.mojom.UsbHostHostReceiver = class {
           break;
         }
         case 2: {
-          const params = arc.mojom.UsbHostHost_RequestPermission_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.UsbHostHost_RequestPermission_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.guid, params.pkg_name, params.interactive);
           if (header.expectsResponse) {
@@ -322,8 +333,13 @@ arc.mojom.UsbHostInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -346,9 +362,13 @@ arc.mojom.UsbHostInstanceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.UsbHostInstance_Init_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.UsbHostInstance_Init_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -360,13 +380,15 @@ arc.mojom.UsbHostInstanceReceiver = class {
           break;
         }
         case 1: {
-          const params = arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
           const result = this.impl.onDeviceAdded(params.guid, params.event_receiver_packages);
           break;
         }
         case 2: {
-          const params = arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
           const result = this.impl.onDeviceRemoved(params.guid, params.event_receiver_packages);
           break;

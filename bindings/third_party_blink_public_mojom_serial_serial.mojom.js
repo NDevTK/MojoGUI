@@ -206,8 +206,15 @@ blink.mojom.SerialServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -230,15 +237,20 @@ blink.mojom.SerialServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.SerialService_SetClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SerialService_SetClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
-          const params = blink.mojom.SerialService_GetPorts_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SerialService_GetPorts_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPorts');
           const result = this.impl.getPorts();
           if (header.expectsResponse) {
@@ -250,7 +262,8 @@ blink.mojom.SerialServiceReceiver = class {
           break;
         }
         case 2: {
-          const params = blink.mojom.SerialService_RequestPort_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SerialService_RequestPort_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestPort');
           const result = this.impl.requestPort(params.filters, params.allowed_bluetooth_service_class_ids);
           if (header.expectsResponse) {
@@ -262,7 +275,8 @@ blink.mojom.SerialServiceReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.SerialService_OpenPort_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SerialService_OpenPort_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openPort');
           const result = this.impl.openPort(params.token, params.options, params.client);
           if (header.expectsResponse) {
@@ -274,7 +288,8 @@ blink.mojom.SerialServiceReceiver = class {
           break;
         }
         case 4: {
-          const params = blink.mojom.SerialService_ForgetPort_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SerialService_ForgetPort_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.forgetPort');
           const result = this.impl.forgetPort(params.token);
           if (header.expectsResponse) {
@@ -364,8 +379,11 @@ blink.mojom.SerialServiceClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -388,9 +406,13 @@ blink.mojom.SerialServiceClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPortConnectedStateChanged');
           const result = this.impl.onPortConnectedStateChanged(params.port_info);
           break;

@@ -545,8 +545,29 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -569,9 +590,13 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getTutorials');
           const result = this.impl.getTutorials();
           if (header.expectsResponse) {
@@ -583,7 +608,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 1: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startTutorial');
           const result = this.impl.startTutorial(params.tutorial_id);
           if (header.expectsResponse) {
@@ -595,7 +621,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 2: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSessionData');
           const result = this.impl.getSessionData();
           if (header.expectsResponse) {
@@ -607,7 +634,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 3: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getFeaturePromos');
           const result = this.impl.getFeaturePromos();
           if (header.expectsResponse) {
@@ -619,7 +647,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 4: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showFeaturePromo');
           const result = this.impl.showFeaturePromo(params.feature_name);
           if (header.expectsResponse) {
@@ -631,7 +660,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 5: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clearFeaturePromoData');
           const result = this.impl.clearFeaturePromoData(params.feature_name);
           if (header.expectsResponse) {
@@ -643,7 +673,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 6: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clearSessionData');
           const result = this.impl.clearSessionData();
           if (header.expectsResponse) {
@@ -655,7 +686,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 7: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.forceNewSession');
           const result = this.impl.forceNewSession();
           if (header.expectsResponse) {
@@ -667,7 +699,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 8: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeGracePeriods');
           const result = this.impl.removeGracePeriods();
           if (header.expectsResponse) {
@@ -679,7 +712,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 9: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getNewBadges');
           const result = this.impl.getNewBadges();
           if (header.expectsResponse) {
@@ -691,7 +725,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 10: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getWhatsNewModules');
           const result = this.impl.getWhatsNewModules();
           if (header.expectsResponse) {
@@ -703,7 +738,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 11: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getWhatsNewEditions');
           const result = this.impl.getWhatsNewEditions();
           if (header.expectsResponse) {
@@ -715,7 +751,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 12: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getNtpPromos');
           const result = this.impl.getNtpPromos();
           if (header.expectsResponse) {
@@ -727,7 +764,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 13: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getNtpPromoPreferences');
           const result = this.impl.getNtpPromoPreferences();
           if (header.expectsResponse) {
@@ -739,7 +777,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 14: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clearNewBadgeData');
           const result = this.impl.clearNewBadgeData(params.feature_name);
           if (header.expectsResponse) {
@@ -751,7 +790,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 15: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clearWhatsNewData');
           const result = this.impl.clearWhatsNewData();
           if (header.expectsResponse) {
@@ -763,7 +803,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 16: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clearNtpPromoData');
           const result = this.impl.clearNtpPromoData(params.id);
           if (header.expectsResponse) {
@@ -775,7 +816,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 17: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clearNtpPromoPreferences');
           const result = this.impl.clearNtpPromoPreferences();
           if (header.expectsResponse) {
@@ -787,7 +829,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           break;
         }
         case 18: {
-          const params = mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.launchWhatsNewStaging');
           const result = this.impl.launchWhatsNewStaging();
           break;

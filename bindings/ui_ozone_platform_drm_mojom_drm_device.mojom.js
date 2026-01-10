@@ -471,8 +471,29 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -495,27 +516,34 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createWindow');
           const result = this.impl.createWindow(params.widget, params.initial_bounds);
           break;
         }
         case 1: {
-          const params = ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.destroyWindow');
           const result = this.impl.destroyWindow(params.widget);
           break;
         }
         case 2: {
-          const params = ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setWindowBounds');
           const result = this.impl.setWindowBounds(params.widget, params.bounds);
           break;
         }
         case 3: {
-          const params = ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.takeDisplayControl');
           const result = this.impl.takeDisplayControl();
           if (header.expectsResponse) {
@@ -527,7 +555,8 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
           break;
         }
         case 4: {
-          const params = ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.relinquishDisplayControl');
           const result = this.impl.relinquishDisplayControl();
           if (header.expectsResponse) {
@@ -539,7 +568,8 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
           break;
         }
         case 5: {
-          const params = ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.refreshNativeDisplays');
           const result = this.impl.refreshNativeDisplays();
           if (header.expectsResponse) {
@@ -551,19 +581,22 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
           break;
         }
         case 6: {
-          const params = ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addGraphicsDevice');
           const result = this.impl.addGraphicsDevice(params.path, params.fd_mojo_handle);
           break;
         }
         case 7: {
-          const params = ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeGraphicsDevice');
           const result = this.impl.removeGraphicsDevice(params.path);
           break;
         }
         case 8: {
-          const params = ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.shouldDisplayEventTriggerConfiguration');
           const result = this.impl.shouldDisplayEventTriggerConfiguration(params.event_props);
           if (header.expectsResponse) {
@@ -575,7 +608,8 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
           break;
         }
         case 9: {
-          const params = ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.configureNativeDisplays');
           const result = this.impl.configureNativeDisplays(params.config_requests, params.modeset_flags);
           if (header.expectsResponse) {
@@ -587,7 +621,8 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
           break;
         }
         case 10: {
-          const params = ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setHdcpKeyProp');
           const result = this.impl.setHdcpKeyProp(params.display_id, params.key);
           if (header.expectsResponse) {
@@ -599,7 +634,8 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
           break;
         }
         case 11: {
-          const params = ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getHDCPState');
           const result = this.impl.getHDCPState(params.display_id);
           if (header.expectsResponse) {
@@ -611,7 +647,8 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
           break;
         }
         case 12: {
-          const params = ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setHDCPState');
           const result = this.impl.setHDCPState(params.display_id, params.state, params.protection_method);
           if (header.expectsResponse) {
@@ -623,25 +660,29 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
           break;
         }
         case 13: {
-          const params = ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setColorTemperatureAdjustment');
           const result = this.impl.setColorTemperatureAdjustment(params.display_id, params.cta);
           break;
         }
         case 14: {
-          const params = ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setColorCalibration');
           const result = this.impl.setColorCalibration(params.display_id, params.calibration);
           break;
         }
         case 15: {
-          const params = ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setGammaAdjustment');
           const result = this.impl.setGammaAdjustment(params.display_id, params.adjustment);
           break;
         }
         case 16: {
-          const params = ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPrivacyScreen');
           const result = this.impl.setPrivacyScreen(params.display_id, params.enabled);
           if (header.expectsResponse) {
@@ -653,7 +694,8 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
           break;
         }
         case 17: {
-          const params = ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSeamlessRefreshRates');
           const result = this.impl.getSeamlessRefreshRates(params.display_id);
           if (header.expectsResponse) {
@@ -665,7 +707,8 @@ ui.ozone.mojom.DrmDeviceReceiver = class {
           break;
         }
         case 18: {
-          const params = ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDeviceCursor');
           const result = this.impl.getDeviceCursor(params.cursor);
           break;

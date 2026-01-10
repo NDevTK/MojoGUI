@@ -302,8 +302,14 @@ mojom.OmniboxPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -326,21 +332,27 @@ mojom.OmniboxPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setClientPage');
           const result = this.impl.setClientPage(params.page);
           break;
         }
         case 1: {
-          const params = mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startOmniboxQuery');
           const result = this.impl.startOmniboxQuery(params.input_string, params.reset_autocomplete_controller, params.cursor_position, params.zero_suggest, params.prevent_inline_autocomplete, params.prefer_keyword, params.current_url, params.page_classification);
           break;
         }
         case 2: {
-          const params = mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getMlModelVersion');
           const result = this.impl.getMlModelVersion();
           if (header.expectsResponse) {
@@ -352,7 +364,8 @@ mojom.OmniboxPageHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = mojom.OmniboxPageHandler_StartMl_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_StartMl_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startMl');
           const result = this.impl.startMl(params.signals);
           if (header.expectsResponse) {
@@ -496,8 +509,14 @@ mojom.OmniboxPageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -520,27 +539,34 @@ mojom.OmniboxPageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.handleNewAutocompleteQuery');
           const result = this.impl.handleNewAutocompleteQuery(params.autocomplete_controller_type, params.input_text);
           break;
         }
         case 1: {
-          const params = mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.handleNewAutocompleteResponse');
           const result = this.impl.handleNewAutocompleteResponse(params.autocomplete_controller_type, params.response);
           break;
         }
         case 2: {
-          const params = mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.handleNewMlResponse');
           const result = this.impl.handleNewMlResponse(params.autocomplete_controller_type, params.input_text, params.matches);
           break;
         }
         case 3: {
-          const params = mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.handleAnswerIconImageData');
           const result = this.impl.handleAnswerIconImageData(params.autocomplete_controller_type, params.image_url, params.image_data);
           break;

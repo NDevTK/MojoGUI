@@ -404,8 +404,30 @@ crosapi.mojom.CrosapiReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(7, 0); // Default ordinal 7 -> Index 0
+    this.ordinalMap.set(47, 1); // Default ordinal 47 -> Index 1
+    this.ordinalMap.set(142, 2); // Default ordinal 142 -> Index 2
+    this.ordinalMap.set(93, 3); // Default ordinal 93 -> Index 3
+    this.ordinalMap.set(99, 4); // Default ordinal 99 -> Index 4
+    this.ordinalMap.set(80, 5); // Default ordinal 80 -> Index 5
+    this.ordinalMap.set(96, 6); // Default ordinal 96 -> Index 6
+    this.ordinalMap.set(2, 7); // Default ordinal 2 -> Index 7
+    this.ordinalMap.set(30, 8); // Default ordinal 30 -> Index 8
+    this.ordinalMap.set(22, 9); // Default ordinal 22 -> Index 9
+    this.ordinalMap.set(19, 10); // Default ordinal 19 -> Index 10
+    this.ordinalMap.set(4, 11); // Default ordinal 4 -> Index 11
+    this.ordinalMap.set(9, 12); // Default ordinal 9 -> Index 12
+    this.ordinalMap.set(10, 13); // Default ordinal 10 -> Index 13
+    this.ordinalMap.set(11, 14); // Default ordinal 11 -> Index 14
+    this.ordinalMap.set(115, 15); // Default ordinal 115 -> Index 15
+    this.ordinalMap.set(129, 16); // Default ordinal 129 -> Index 16
+    this.ordinalMap.set(97, 17); // Default ordinal 97 -> Index 17
+    this.ordinalMap.set(25, 18); // Default ordinal 25 -> Index 18
+    this.ordinalMap.set(123, 19); // Default ordinal 123 -> Index 19
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -428,123 +450,146 @@ crosapi.mojom.CrosapiReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 7: {
-          const params = crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindAccountManager');
           const result = this.impl.bindAccountManager(params.receiver);
           break;
         }
-        case 47: {
-          const params = crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindBrowserCdmFactory');
           const result = this.impl.bindBrowserCdmFactory(params.receiver);
           break;
         }
-        case 142: {
-          const params = crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindCfmServiceContext');
           const result = this.impl.bindCfmServiceContext(params.receiver);
           break;
         }
-        case 93: {
-          const params = crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec.$.decode(message.payload);
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindCrosDisplayConfigController');
           const result = this.impl.bindCrosDisplayConfigController(params.receiver);
           break;
         }
-        case 99: {
-          const params = crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec.$.decode(message.payload);
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindDiagnosticsService');
           const result = this.impl.bindDiagnosticsService(params.receiver);
           break;
         }
-        case 80: {
-          const params = crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec.$.decode(message.payload);
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindDocumentScan');
           const result = this.impl.bindDocumentScan(params.receiver);
           break;
         }
-        case 96: {
-          const params = crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec.$.decode(message.payload);
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindInSessionAuth');
           const result = this.impl.bindInSessionAuth(params.receiver);
           break;
         }
-        case 2: {
-          const params = crosapi.mojom.Crosapi_BindKeystoreService_ParamsSpec.$.decode(message.payload);
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindKeystoreService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindKeystoreService');
           const result = this.impl.bindKeystoreService(params.receiver);
           break;
         }
-        case 30: {
-          const params = crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec.$.decode(message.payload);
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindLocalPrinter');
           const result = this.impl.bindLocalPrinter(params.receiver);
           break;
         }
-        case 22: {
-          const params = crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec.$.decode(message.payload);
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindMachineLearningService');
           const result = this.impl.bindMachineLearningService(params.receiver);
           break;
         }
-        case 19: {
-          const params = crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec.$.decode(message.payload);
+        case 10: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindSensorHalClient');
           const result = this.impl.bindSensorHalClient(params.receiver);
           break;
         }
-        case 4: {
-          const params = crosapi.mojom.Crosapi_BindHidManager_ParamsSpec.$.decode(message.payload);
+        case 11: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindHidManager_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindHidManager');
           const result = this.impl.bindHidManager(params.receiver);
           break;
         }
-        case 9: {
-          const params = crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec.$.decode(message.payload);
+        case 12: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindMediaSessionController');
           const result = this.impl.bindMediaSessionController(params.receiver);
           break;
         }
-        case 10: {
-          const params = crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec.$.decode(message.payload);
+        case 13: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindMediaSessionAudioFocus');
           const result = this.impl.bindMediaSessionAudioFocus(params.receiver);
           break;
         }
-        case 11: {
-          const params = crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec.$.decode(message.payload);
+        case 14: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindMediaSessionAudioFocusDebug');
           const result = this.impl.bindMediaSessionAudioFocusDebug(params.receiver);
           break;
         }
-        case 115: {
-          const params = crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec.$.decode(message.payload);
+        case 15: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindTelemetryDiagnosticRoutinesService');
           const result = this.impl.bindTelemetryDiagnosticRoutinesService(params.receiver);
           break;
         }
-        case 129: {
-          const params = crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec.$.decode(message.payload);
+        case 16: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindTelemetryManagementService');
           const result = this.impl.bindTelemetryManagementService(params.receiver);
           break;
         }
-        case 97: {
-          const params = crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec.$.decode(message.payload);
+        case 17: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindTelemetryProbeService');
           const result = this.impl.bindTelemetryProbeService(params.receiver);
           break;
         }
-        case 25: {
-          const params = crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec.$.decode(message.payload);
+        case 18: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindVideoCaptureDeviceFactory');
           const result = this.impl.bindVideoCaptureDeviceFactory(params.receiver);
           break;
         }
-        case 123: {
-          const params = crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec.$.decode(message.payload);
+        case 19: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindGuestOsSkForwarderFactory');
           const result = this.impl.bindGuestOsSkForwarderFactory(params.receiver);
           break;

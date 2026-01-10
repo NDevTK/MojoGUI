@@ -148,8 +148,14 @@ extensions.mojom.RendererHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -172,27 +178,34 @@ extensions.mojom.RendererHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addAPIActionToActivityLog');
           const result = this.impl.addAPIActionToActivityLog(params.extension_id, params.call_name, params.args, params.extra);
           break;
         }
         case 1: {
-          const params = extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addEventToActivityLog');
           const result = this.impl.addEventToActivityLog(params.extension_id, params.call_name, params.args, params.extra);
           break;
         }
         case 2: {
-          const params = extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addDOMActionToActivityLog');
           const result = this.impl.addDOMActionToActivityLog(params.extension_id, params.call_name, params.args, params.url, params.url_title, params.call_type);
           break;
         }
         case 3: {
-          const params = extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getMessageBundle');
           const result = this.impl.getMessageBundle(params.extension_id);
           if (header.expectsResponse) {

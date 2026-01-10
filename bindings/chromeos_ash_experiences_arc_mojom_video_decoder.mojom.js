@@ -200,8 +200,14 @@ arc.mojom.VideoDecoderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -224,9 +230,13 @@ arc.mojom.VideoDecoderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.VideoDecoder_Initialize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VideoDecoder_Initialize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.config, params.client, params.video_frame_pool);
           if (header.expectsResponse) {
@@ -238,7 +248,8 @@ arc.mojom.VideoDecoderReceiver = class {
           break;
         }
         case 1: {
-          const params = arc.mojom.VideoDecoder_Decode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VideoDecoder_Decode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.decode');
           const result = this.impl.decode(params.buffer);
           if (header.expectsResponse) {
@@ -250,7 +261,8 @@ arc.mojom.VideoDecoderReceiver = class {
           break;
         }
         case 2: {
-          const params = arc.mojom.VideoDecoder_Reset_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VideoDecoder_Reset_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reset');
           const result = this.impl.reset();
           if (header.expectsResponse) {
@@ -262,7 +274,8 @@ arc.mojom.VideoDecoderReceiver = class {
           break;
         }
         case 3: {
-          const params = arc.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.releaseVideoFrame');
           const result = this.impl.releaseVideoFrame(params.video_frame_id);
           break;
@@ -364,8 +377,12 @@ arc.mojom.VideoDecoderClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -388,15 +405,20 @@ arc.mojom.VideoDecoderClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onVideoFrameDecoded');
           const result = this.impl.onVideoFrameDecoded(params.video_frame_id, params.visible_rect, params.timestamp);
           break;
         }
         case 1: {
-          const params = arc.mojom.VideoDecoderClient_OnError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VideoDecoderClient_OnError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.status);
           break;

@@ -226,8 +226,10 @@ ash.nearby.presence.mojom.ScanSessionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -250,7 +252,10 @@ ash.nearby.presence.mojom.ScanSessionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -362,8 +367,13 @@ ash.nearby.presence.mojom.ScanObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -386,21 +396,27 @@ ash.nearby.presence.mojom.ScanObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDeviceFound');
           const result = this.impl.onDeviceFound(params.device);
           break;
         }
         case 1: {
-          const params = ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDeviceChanged');
           const result = this.impl.onDeviceChanged(params.device);
           break;
         }
         case 2: {
-          const params = ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDeviceLost');
           const result = this.impl.onDeviceLost(params.device);
           break;
@@ -592,8 +608,16 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -616,9 +640,13 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startScan');
           const result = this.impl.startScan(params.scan_request);
           if (header.expectsResponse) {
@@ -630,19 +658,22 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setScanObserver');
           const result = this.impl.setScanObserver(params.scan_observer);
           break;
         }
         case 2: {
-          const params = ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateLocalDeviceMetadata');
           const result = this.impl.updateLocalDeviceMetadata(params.metadata);
           break;
         }
         case 3: {
-          const params = ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateLocalDeviceMetadataAndGenerateCredentials');
           const result = this.impl.updateLocalDeviceMetadataAndGenerateCredentials(params.metadata);
           if (header.expectsResponse) {
@@ -654,7 +685,8 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
           break;
         }
         case 4: {
-          const params = ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateRemoteSharedCredentials');
           const result = this.impl.updateRemoteSharedCredentials(params.shared_credentials, params.account_name);
           if (header.expectsResponse) {
@@ -666,7 +698,8 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
           break;
         }
         case 5: {
-          const params = ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getLocalSharedCredentials');
           const result = this.impl.getLocalSharedCredentials(params.account_name);
           if (header.expectsResponse) {

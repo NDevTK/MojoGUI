@@ -1171,8 +1171,41 @@ ash.boca.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
+    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
+    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
+    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
+    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
+    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
+    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
+    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
+    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
+    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
+    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1195,9 +1228,13 @@ ash.boca.mojom.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.authenticateWebview');
           const result = this.impl.authenticateWebview();
           if (header.expectsResponse) {
@@ -1209,7 +1246,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getWindowsTabsList');
           const result = this.impl.getWindowsTabsList();
           if (header.expectsResponse) {
@@ -1221,7 +1259,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.boca.mojom.PageHandler_ListCourses_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_ListCourses_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.listCourses');
           const result = this.impl.listCourses();
           if (header.expectsResponse) {
@@ -1233,7 +1272,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = ash.boca.mojom.PageHandler_ListStudents_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_ListStudents_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.listStudents');
           const result = this.impl.listStudents(params.course_id);
           if (header.expectsResponse) {
@@ -1245,7 +1285,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 4: {
-          const params = ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.listAssignments');
           const result = this.impl.listAssignments(params.course_id);
           if (header.expectsResponse) {
@@ -1257,7 +1298,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 5: {
-          const params = ash.boca.mojom.PageHandler_CreateSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_CreateSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createSession');
           const result = this.impl.createSession(params.config);
           if (header.expectsResponse) {
@@ -1269,7 +1311,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 6: {
-          const params = ash.boca.mojom.PageHandler_GetSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_GetSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSession');
           const result = this.impl.getSession();
           if (header.expectsResponse) {
@@ -1281,7 +1324,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 7: {
-          const params = ash.boca.mojom.PageHandler_EndSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_EndSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.endSession');
           const result = this.impl.endSession();
           if (header.expectsResponse) {
@@ -1293,7 +1337,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 8: {
-          const params = ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.extendSessionDuration');
           const result = this.impl.extendSessionDuration(params.extended_duration);
           if (header.expectsResponse) {
@@ -1305,7 +1350,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 9: {
-          const params = ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeStudent');
           const result = this.impl.removeStudent(params.student_id);
           if (header.expectsResponse) {
@@ -1317,7 +1363,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 10: {
-          const params = ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.renotifyStudent');
           const result = this.impl.renotifyStudent(params.student_id);
           if (header.expectsResponse) {
@@ -1329,7 +1376,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 11: {
-          const params = ash.boca.mojom.PageHandler_AddStudents_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_AddStudents_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addStudents');
           const result = this.impl.addStudents(params.students);
           if (header.expectsResponse) {
@@ -1341,7 +1389,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 12: {
-          const params = ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateOnTaskConfig');
           const result = this.impl.updateOnTaskConfig(params.on_task_config);
           if (header.expectsResponse) {
@@ -1353,7 +1402,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 13: {
-          const params = ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateCaptionConfig');
           const result = this.impl.updateCaptionConfig(params.caption_config);
           if (header.expectsResponse) {
@@ -1365,7 +1415,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 14: {
-          const params = ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setFloatMode');
           const result = this.impl.setFloatMode(params.is_float_mode);
           if (header.expectsResponse) {
@@ -1377,7 +1428,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 15: {
-          const params = ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.submitAccessCode');
           const result = this.impl.submitAccessCode(params.access_code);
           if (header.expectsResponse) {
@@ -1389,7 +1441,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 16: {
-          const params = ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.viewStudentScreen');
           const result = this.impl.viewStudentScreen(params.id);
           if (header.expectsResponse) {
@@ -1401,7 +1454,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 17: {
-          const params = ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.endViewScreenSession');
           const result = this.impl.endViewScreenSession(params.id);
           if (header.expectsResponse) {
@@ -1413,7 +1467,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 18: {
-          const params = ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setViewScreenSessionActive');
           const result = this.impl.setViewScreenSessionActive(params.id);
           if (header.expectsResponse) {
@@ -1425,7 +1480,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 19: {
-          const params = ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getUserPref');
           const result = this.impl.getUserPref(params.pref);
           if (header.expectsResponse) {
@@ -1437,7 +1493,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 20: {
-          const params = ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setUserPref');
           const result = this.impl.setUserPref(params.pref, params.value);
           if (header.expectsResponse) {
@@ -1449,7 +1506,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 21: {
-          const params = ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSitePermission');
           const result = this.impl.setSitePermission(params.url, params.permission, params.setting);
           if (header.expectsResponse) {
@@ -1461,7 +1519,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 22: {
-          const params = ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeTab');
           const result = this.impl.closeTab(params.tab_id);
           if (header.expectsResponse) {
@@ -1473,7 +1532,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 23: {
-          const params = ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog();
           if (header.expectsResponse) {
@@ -1485,7 +1545,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 24: {
-          const params = ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.refreshWorkbook');
           const result = this.impl.refreshWorkbook();
           if (header.expectsResponse) {
@@ -1497,7 +1558,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 25: {
-          const params = ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSpeechRecognitionInstallationStatus');
           const result = this.impl.getSpeechRecognitionInstallationStatus();
           if (header.expectsResponse) {
@@ -1509,7 +1571,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 26: {
-          const params = ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startSpotlight');
           const result = this.impl.startSpotlight(params.crd_connection_code);
           if (header.expectsResponse) {
@@ -1521,7 +1584,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 27: {
-          const params = ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.presentStudentScreen');
           const result = this.impl.presentStudentScreen(params.student, params.receiver_id);
           if (header.expectsResponse) {
@@ -1533,7 +1597,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 28: {
-          const params = ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopPresentingStudentScreen');
           const result = this.impl.stopPresentingStudentScreen();
           if (header.expectsResponse) {
@@ -1545,7 +1610,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 29: {
-          const params = ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.presentOwnScreen');
           const result = this.impl.presentOwnScreen(params.receiver_id);
           if (header.expectsResponse) {
@@ -1557,7 +1623,8 @@ ash.boca.mojom.PageHandlerReceiver = class {
           break;
         }
         case 30: {
-          const params = ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopPresentingOwnScreen');
           const result = this.impl.stopPresentingOwnScreen();
           if (header.expectsResponse) {
@@ -1788,8 +1855,20 @@ ash.boca.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1812,63 +1891,76 @@ ash.boca.mojom.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStudentActivityUpdated');
           const result = this.impl.onStudentActivityUpdated(params.activities);
           break;
         }
         case 1: {
-          const params = ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSessionConfigUpdated');
           const result = this.impl.onSessionConfigUpdated(params.config);
           break;
         }
         case 2: {
-          const params = ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onActiveNetworkStateChanged');
           const result = this.impl.onActiveNetworkStateChanged(params.active_networks);
           break;
         }
         case 3: {
-          const params = ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLocalCaptionDisabled');
           const result = this.impl.onLocalCaptionDisabled();
           break;
         }
         case 4: {
-          const params = ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRecognitionInstallStateUpdated');
           const result = this.impl.onSpeechRecognitionInstallStateUpdated(params.state);
           break;
         }
         case 5: {
-          const params = ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSessionCaptionDisabled');
           const result = this.impl.onSessionCaptionDisabled(params.is_error);
           break;
         }
         case 6: {
-          const params = ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFrameDataReceived');
           const result = this.impl.onFrameDataReceived(params.frame_data);
           break;
         }
         case 7: {
-          const params = ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSpotlightCrdSessionStatusUpdated');
           const result = this.impl.onSpotlightCrdSessionStatusUpdated(params.state);
           break;
         }
         case 8: {
-          const params = ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPresentStudentScreenEnded');
           const result = this.impl.onPresentStudentScreenEnded();
           break;
         }
         case 9: {
-          const params = ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPresentOwnScreenEnded');
           const result = this.impl.onPresentOwnScreenEnded();
           break;
@@ -1953,8 +2045,11 @@ ash.boca.mojom.BocaPageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1977,9 +2072,13 @@ ash.boca.mojom.BocaPageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.handler, params.page);
           break;

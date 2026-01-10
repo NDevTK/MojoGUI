@@ -274,8 +274,19 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -298,9 +309,13 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.script_url, params.options, params.outside_fetch_client_settings_object);
           if (header.expectsResponse) {
@@ -312,7 +327,8 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getRegistration');
           const result = this.impl.getRegistration(params.client_url);
           if (header.expectsResponse) {
@@ -324,7 +340,8 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
           break;
         }
         case 2: {
-          const params = blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getRegistrations');
           const result = this.impl.getRegistrations();
           if (header.expectsResponse) {
@@ -336,7 +353,8 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getRegistrationForReady');
           const result = this.impl.getRegistrationForReady();
           if (header.expectsResponse) {
@@ -348,25 +366,29 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
           break;
         }
         case 4: {
-          const params = blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.ensureControllerServiceWorker');
           const result = this.impl.ensureControllerServiceWorker(params.receiver, params.purpose);
           break;
         }
         case 5: {
-          const params = blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cloneContainerHost');
           const result = this.impl.cloneContainerHost(params.container_host);
           break;
         }
         case 6: {
-          const params = blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.hintToUpdateServiceWorker');
           const result = this.impl.hintToUpdateServiceWorker();
           break;
         }
         case 7: {
-          const params = blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.ensureFileAccess');
           const result = this.impl.ensureFileAccess(params.files);
           if (header.expectsResponse) {
@@ -378,7 +400,8 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
           break;
         }
         case 8: {
-          const params = blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onExecutionReady');
           const result = this.impl.onExecutionReady();
           break;
@@ -496,8 +519,13 @@ blink.mojom.ServiceWorkerContainerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -520,21 +548,27 @@ blink.mojom.ServiceWorkerContainerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setController');
           const result = this.impl.setController(params.controller_info, params.should_notify_controllerchange);
           break;
         }
         case 1: {
-          const params = blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.postMessageToClient');
           const result = this.impl.postMessageToClient(params.source, params.message);
           break;
         }
         case 2: {
-          const params = blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.countFeature');
           const result = this.impl.countFeature(params.feature);
           break;

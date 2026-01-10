@@ -250,8 +250,11 @@ coral.mojom.TitleObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -274,9 +277,13 @@ coral.mojom.TitleObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.titleUpdated');
           const result = this.impl.titleUpdated(params.group_id, params.title);
           break;
@@ -389,8 +396,12 @@ coral.mojom.CoralProcessorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -413,9 +424,13 @@ coral.mojom.CoralProcessorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = coral.mojom.CoralProcessor_Group_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(coral.mojom.CoralProcessor_Group_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.group');
           const result = this.impl.group(params.request, params.observer);
           if (header.expectsResponse) {
@@ -427,7 +442,8 @@ coral.mojom.CoralProcessorReceiver = class {
           break;
         }
         case 1: {
-          const params = coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cacheEmbeddings');
           const result = this.impl.cacheEmbeddings(params.request);
           if (header.expectsResponse) {
@@ -579,8 +595,14 @@ coral.mojom.CoralServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -603,9 +625,13 @@ coral.mojom.CoralServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.groupDeprecated');
           const result = this.impl.groupDeprecated(params.request, params.observer);
           if (header.expectsResponse) {
@@ -617,7 +643,8 @@ coral.mojom.CoralServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cacheEmbeddingsDeprecated');
           const result = this.impl.cacheEmbeddingsDeprecated(params.request);
           if (header.expectsResponse) {
@@ -629,13 +656,15 @@ coral.mojom.CoralServiceReceiver = class {
           break;
         }
         case 2: {
-          const params = coral.mojom.CoralService_PrepareResource_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(coral.mojom.CoralService_PrepareResource_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.prepareResource');
           const result = this.impl.prepareResource();
           break;
         }
         case 3: {
-          const params = coral.mojom.CoralService_Initialize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(coral.mojom.CoralService_Initialize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.ml_service, params.processor, params.language_code);
           break;

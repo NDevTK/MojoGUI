@@ -370,8 +370,23 @@ blink.mojom.SynchronousCompositorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -394,15 +409,20 @@ blink.mojom.SynchronousCompositorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.demandDrawHwAsync');
           const result = this.impl.demandDrawHwAsync(params.draw_params);
           break;
         }
         case 1: {
-          const params = blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.demandDrawHw');
           const result = this.impl.demandDrawHw(params.draw_params);
           if (header.expectsResponse) {
@@ -414,7 +434,8 @@ blink.mojom.SynchronousCompositorReceiver = class {
           break;
         }
         case 2: {
-          const params = blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSharedMemory');
           const result = this.impl.setSharedMemory(params.shm_region);
           if (header.expectsResponse) {
@@ -426,7 +447,8 @@ blink.mojom.SynchronousCompositorReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.demandDrawSw');
           const result = this.impl.demandDrawSw(params.draw_params);
           if (header.expectsResponse) {
@@ -438,19 +460,22 @@ blink.mojom.SynchronousCompositorReceiver = class {
           break;
         }
         case 4: {
-          const params = blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.willSkipDraw');
           const result = this.impl.willSkipDraw();
           break;
         }
         case 5: {
-          const params = blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.zeroSharedMemory');
           const result = this.impl.zeroSharedMemory();
           break;
         }
         case 6: {
-          const params = blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.zoomBy');
           const result = this.impl.zoomBy(params.delta, params.anchor);
           if (header.expectsResponse) {
@@ -462,37 +487,43 @@ blink.mojom.SynchronousCompositorReceiver = class {
           break;
         }
         case 7: {
-          const params = blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMemoryPolicy');
           const result = this.impl.setMemoryPolicy(params.bytes_limit);
           break;
         }
         case 8: {
-          const params = blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reclaimResources');
           const result = this.impl.reclaimResources(params.layer_tree_frame_sink_id, params.resources);
           break;
         }
         case 9: {
-          const params = blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCompositorFrameTransitionDirectiveProcessed');
           const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.layer_tree_frame_sink_id, params.sequence_id);
           break;
         }
         case 10: {
-          const params = blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setScroll');
           const result = this.impl.setScroll(params.offset);
           break;
         }
         case 11: {
-          const params = blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.beginFrame');
           const result = this.impl.beginFrame(params.args, params.timing_details);
           break;
         }
         case 12: {
-          const params = blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setBeginFrameSourcePaused');
           const result = this.impl.setBeginFrameSourcePaused(params.paused);
           break;
@@ -623,8 +654,14 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -647,27 +684,34 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.layerTreeFrameSinkCreated');
           const result = this.impl.layerTreeFrameSinkCreated();
           break;
         }
         case 1: {
-          const params = blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateState');
           const result = this.impl.updateState(params.params);
           break;
         }
         case 2: {
-          const params = blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrames');
           const result = this.impl.setNeedsBeginFrames(params.needs_begin_frames);
           break;
         }
         case 3: {
-          const params = blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setThreads');
           const result = this.impl.setThreads(params.threads);
           break;
@@ -771,8 +815,12 @@ blink.mojom.SynchronousCompositorControlHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -795,15 +843,20 @@ blink.mojom.SynchronousCompositorControlHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.returnFrame');
           const result = this.impl.returnFrame(params.layer_tree_frame_sink_id, params.metadata_version, params.local_surface_id, params.frame, params.hit_test_region_list);
           break;
         }
         case 1: {
-          const params = blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.beginFrameResponse');
           const result = this.impl.beginFrameResponse(params.params);
           break;

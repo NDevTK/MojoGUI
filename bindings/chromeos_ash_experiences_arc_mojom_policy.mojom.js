@@ -174,8 +174,14 @@ arc.mojom.PolicyHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(7, 2); // Default ordinal 7 -> Index 2
+    this.ordinalMap.set(8, 3); // Default ordinal 8 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -198,9 +204,13 @@ arc.mojom.PolicyHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPolicies');
           const result = this.impl.getPolicies();
           if (header.expectsResponse) {
@@ -212,7 +222,8 @@ arc.mojom.PolicyHostReceiver = class {
           break;
         }
         case 1: {
-          const params = arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reportCompliance');
           const result = this.impl.reportCompliance(params.request);
           if (header.expectsResponse) {
@@ -223,14 +234,16 @@ arc.mojom.PolicyHostReceiver = class {
           }
           break;
         }
-        case 7: {
-          const params = arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reportDPCVersion');
           const result = this.impl.reportDPCVersion(params.version);
           break;
         }
-        case 8: {
-          const params = arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$.decode(message.payload);
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reportPlayStoreLocalPolicySet');
           const result = this.impl.reportPlayStoreLocalPolicySet(params.time, params.package_names);
           break;
@@ -356,8 +369,13 @@ arc.mojom.PolicyInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(2, 0); // Default ordinal 2 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(3, 2); // Default ordinal 3 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -380,9 +398,13 @@ arc.mojom.PolicyInstanceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 2: {
-          const params = arc.mojom.PolicyInstance_Init_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.PolicyInstance_Init_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -394,13 +416,15 @@ arc.mojom.PolicyInstanceReceiver = class {
           break;
         }
         case 1: {
-          const params = arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPolicyUpdated');
           const result = this.impl.onPolicyUpdated();
           break;
         }
-        case 3: {
-          const params = arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCommandReceived');
           const result = this.impl.onCommandReceived(params.command);
           if (header.expectsResponse) {

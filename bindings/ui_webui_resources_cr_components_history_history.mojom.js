@@ -411,8 +411,23 @@ history.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -435,15 +450,20 @@ history.mojom.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = history.mojom.PageHandler_SetPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_SetPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPage');
           const result = this.impl.setPage(params.page);
           break;
         }
         case 1: {
-          const params = history.mojom.PageHandler_QueryHistory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_QueryHistory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queryHistory');
           const result = this.impl.queryHistory(params.query, params.max_results, params.begin_time);
           if (header.expectsResponse) {
@@ -455,7 +475,8 @@ history.mojom.PageHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queryHistoryContinuation');
           const result = this.impl.queryHistoryContinuation();
           if (header.expectsResponse) {
@@ -467,7 +488,8 @@ history.mojom.PageHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = history.mojom.PageHandler_RemoveVisits_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_RemoveVisits_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeVisits');
           const result = this.impl.removeVisits(params.items);
           if (header.expectsResponse) {
@@ -479,31 +501,36 @@ history.mojom.PageHandlerReceiver = class {
           break;
         }
         case 4: {
-          const params = history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openClearBrowsingDataDialog');
           const result = this.impl.openClearBrowsingDataDialog();
           break;
         }
         case 5: {
-          const params = history.mojom.PageHandler_RemoveBookmark_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_RemoveBookmark_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeBookmark');
           const result = this.impl.removeBookmark(params.url);
           break;
         }
         case 6: {
-          const params = history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setLastSelectedTab');
           const result = this.impl.setLastSelectedTab(params.last_tab);
           break;
         }
         case 7: {
-          const params = history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showSidePanelUI');
           const result = this.impl.showSidePanelUI();
           break;
         }
         case 8: {
-          const params = history.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestAccountInfo');
           const result = this.impl.requestAccountInfo();
           if (header.expectsResponse) {
@@ -515,13 +542,15 @@ history.mojom.PageHandlerReceiver = class {
           break;
         }
         case 9: {
-          const params = history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.turnOnHistorySync');
           const result = this.impl.turnOnHistorySync();
           break;
         }
         case 10: {
-          const params = history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.shouldShowHistoryPageHistorySyncPromo');
           const result = this.impl.shouldShowHistoryPageHistorySyncPromo();
           if (header.expectsResponse) {
@@ -533,13 +562,15 @@ history.mojom.PageHandlerReceiver = class {
           break;
         }
         case 11: {
-          const params = history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordHistoryPageHistorySyncPromoDismissed');
           const result = this.impl.recordHistoryPageHistorySyncPromoDismissed();
           break;
         }
         case 12: {
-          const params = history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.incrementHistoryPageHistorySyncPromoShownCount');
           const result = this.impl.incrementHistoryPageHistorySyncPromoShownCount();
           break;
@@ -654,8 +685,13 @@ history.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -678,21 +714,27 @@ history.mojom.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = history.mojom.Page_OnHistoryDeleted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.Page_OnHistoryDeleted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onHistoryDeleted');
           const result = this.impl.onHistoryDeleted();
           break;
         }
         case 1: {
-          const params = history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onHasOtherFormsChanged');
           const result = this.impl.onHasOtherFormsChanged(params.has_other_forms);
           break;
         }
         case 2: {
-          const params = history.mojom.Page_SendAccountInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(history.mojom.Page_SendAccountInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendAccountInfo');
           const result = this.impl.sendAccountInfo(params.account_info);
           break;

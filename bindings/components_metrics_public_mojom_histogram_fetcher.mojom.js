@@ -100,8 +100,11 @@ metrics.mojom.ChildHistogramFetcherFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -124,9 +127,13 @@ metrics.mojom.ChildHistogramFetcherFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createFetcher');
           const result = this.impl.createFetcher(params.shared_memory, params.child_histogram_fetcher);
           break;
@@ -236,8 +243,12 @@ metrics.mojom.ChildHistogramFetcherReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -260,9 +271,13 @@ metrics.mojom.ChildHistogramFetcherReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getChildNonPersistentHistogramData');
           const result = this.impl.getChildNonPersistentHistogramData();
           if (header.expectsResponse) {
@@ -274,7 +289,8 @@ metrics.mojom.ChildHistogramFetcherReceiver = class {
           break;
         }
         case 1: {
-          const params = metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.ping');
           const result = this.impl.ping(params.call_source);
           if (header.expectsResponse) {

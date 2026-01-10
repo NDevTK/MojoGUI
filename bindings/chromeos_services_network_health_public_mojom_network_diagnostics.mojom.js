@@ -873,8 +873,28 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(27, 0); // Default ordinal 27 -> Index 0
+    this.ordinalMap.set(28, 1); // Default ordinal 28 -> Index 1
+    this.ordinalMap.set(12, 2); // Default ordinal 12 -> Index 2
+    this.ordinalMap.set(13, 3); // Default ordinal 13 -> Index 3
+    this.ordinalMap.set(14, 4); // Default ordinal 14 -> Index 4
+    this.ordinalMap.set(15, 5); // Default ordinal 15 -> Index 5
+    this.ordinalMap.set(16, 6); // Default ordinal 16 -> Index 6
+    this.ordinalMap.set(17, 7); // Default ordinal 17 -> Index 7
+    this.ordinalMap.set(18, 8); // Default ordinal 18 -> Index 8
+    this.ordinalMap.set(19, 9); // Default ordinal 19 -> Index 9
+    this.ordinalMap.set(20, 10); // Default ordinal 20 -> Index 10
+    this.ordinalMap.set(21, 11); // Default ordinal 21 -> Index 11
+    this.ordinalMap.set(22, 12); // Default ordinal 22 -> Index 12
+    this.ordinalMap.set(23, 13); // Default ordinal 23 -> Index 13
+    this.ordinalMap.set(24, 14); // Default ordinal 24 -> Index 14
+    this.ordinalMap.set(25, 15); // Default ordinal 25 -> Index 15
+    this.ordinalMap.set(26, 16); // Default ordinal 26 -> Index 16
+    this.ordinalMap.set(29, 17); // Default ordinal 29 -> Index 17
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -897,9 +917,13 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 27: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getResult');
           const result = this.impl.getResult(params.routine);
           if (header.expectsResponse) {
@@ -910,8 +934,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 28: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getAllResults');
           const result = this.impl.getAllResults();
           if (header.expectsResponse) {
@@ -922,8 +947,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 12: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runLanConnectivity');
           const result = this.impl.runLanConnectivity(params.source);
           if (header.expectsResponse) {
@@ -934,8 +960,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 13: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec.$.decode(message.payload);
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runSignalStrength');
           const result = this.impl.runSignalStrength(params.source);
           if (header.expectsResponse) {
@@ -946,8 +973,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 14: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec.$.decode(message.payload);
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runGatewayCanBePinged');
           const result = this.impl.runGatewayCanBePinged(params.source);
           if (header.expectsResponse) {
@@ -958,8 +986,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 15: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec.$.decode(message.payload);
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runHasSecureWiFiConnection');
           const result = this.impl.runHasSecureWiFiConnection(params.source);
           if (header.expectsResponse) {
@@ -970,8 +999,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 16: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec.$.decode(message.payload);
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolverPresent');
           const result = this.impl.runDnsResolverPresent(params.source);
           if (header.expectsResponse) {
@@ -982,8 +1012,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 17: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec.$.decode(message.payload);
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runDnsLatency');
           const result = this.impl.runDnsLatency(params.source);
           if (header.expectsResponse) {
@@ -994,8 +1025,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 18: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec.$.decode(message.payload);
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolution');
           const result = this.impl.runDnsResolution(params.source);
           if (header.expectsResponse) {
@@ -1006,8 +1038,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 19: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec.$.decode(message.payload);
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runCaptivePortal');
           const result = this.impl.runCaptivePortal(params.source);
           if (header.expectsResponse) {
@@ -1018,8 +1051,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 20: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec.$.decode(message.payload);
+        case 10: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runHttpFirewall');
           const result = this.impl.runHttpFirewall(params.source);
           if (header.expectsResponse) {
@@ -1030,8 +1064,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 21: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec.$.decode(message.payload);
+        case 11: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runHttpsFirewall');
           const result = this.impl.runHttpsFirewall(params.source);
           if (header.expectsResponse) {
@@ -1042,8 +1077,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 22: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec.$.decode(message.payload);
+        case 12: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runHttpsLatency');
           const result = this.impl.runHttpsLatency(params.source);
           if (header.expectsResponse) {
@@ -1054,8 +1090,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 23: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec.$.decode(message.payload);
+        case 13: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runVideoConferencing');
           const result = this.impl.runVideoConferencing(params.stun_server_hostname, params.source);
           if (header.expectsResponse) {
@@ -1066,8 +1103,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 24: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec.$.decode(message.payload);
+        case 14: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runArcHttp');
           const result = this.impl.runArcHttp(params.source);
           if (header.expectsResponse) {
@@ -1078,8 +1116,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 25: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec.$.decode(message.payload);
+        case 15: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runArcPing');
           const result = this.impl.runArcPing(params.source);
           if (header.expectsResponse) {
@@ -1090,8 +1129,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 26: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec.$.decode(message.payload);
+        case 16: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runArcDnsResolution');
           const result = this.impl.runArcDnsResolution(params.source);
           if (header.expectsResponse) {
@@ -1102,8 +1142,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 29: {
-          const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec.$.decode(message.payload);
+        case 17: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runGoogleServicesConnectivity');
           const result = this.impl.runGoogleServicesConnectivity(params.source);
           if (header.expectsResponse) {

@@ -215,8 +215,13 @@ blink.mojom.PresentationConnectionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -239,21 +244,27 @@ blink.mojom.PresentationConnectionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.message);
           break;
         }
         case 1: {
-          const params = blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.didChangeState');
           const result = this.impl.didChangeState(params.state);
           break;
         }
         case 2: {
-          const params = blink.mojom.PresentationConnection_DidClose_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationConnection_DidClose_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.didClose');
           const result = this.impl.didClose(params.reason);
           break;
@@ -482,8 +493,19 @@ blink.mojom.PresentationServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -506,39 +528,48 @@ blink.mojom.PresentationServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.PresentationService_SetController_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_SetController_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setController');
           const result = this.impl.setController(params.controller);
           break;
         }
         case 1: {
-          const params = blink.mojom.PresentationService_SetReceiver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_SetReceiver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setReceiver');
           const result = this.impl.setReceiver(params.receiver);
           break;
         }
         case 2: {
-          const params = blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDefaultPresentationUrls');
           const result = this.impl.setDefaultPresentationUrls(params.presentation_urls);
           break;
         }
         case 3: {
-          const params = blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.listenForScreenAvailability');
           const result = this.impl.listenForScreenAvailability(params.availability_url);
           break;
         }
         case 4: {
-          const params = blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopListeningForScreenAvailability');
           const result = this.impl.stopListeningForScreenAvailability(params.availability_url);
           break;
         }
         case 5: {
-          const params = blink.mojom.PresentationService_StartPresentation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_StartPresentation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startPresentation');
           const result = this.impl.startPresentation(params.presentation_urls);
           if (header.expectsResponse) {
@@ -550,7 +581,8 @@ blink.mojom.PresentationServiceReceiver = class {
           break;
         }
         case 6: {
-          const params = blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reconnectPresentation');
           const result = this.impl.reconnectPresentation(params.presentation_urls, params.presentation_id);
           if (header.expectsResponse) {
@@ -562,13 +594,15 @@ blink.mojom.PresentationServiceReceiver = class {
           break;
         }
         case 7: {
-          const params = blink.mojom.PresentationService_CloseConnection_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_CloseConnection_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeConnection');
           const result = this.impl.closeConnection(params.presentation_url, params.presentation_id);
           break;
         }
         case 8: {
-          const params = blink.mojom.PresentationService_Terminate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationService_Terminate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.terminate');
           const result = this.impl.terminate(params.presentation_url, params.presentation_id);
           break;
@@ -704,8 +738,14 @@ blink.mojom.PresentationControllerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -728,27 +768,34 @@ blink.mojom.PresentationControllerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onScreenAvailabilityUpdated');
           const result = this.impl.onScreenAvailabilityUpdated(params.url, params.availability);
           break;
         }
         case 1: {
-          const params = blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDefaultPresentationStarted');
           const result = this.impl.onDefaultPresentationStarted(params.result);
           break;
         }
         case 2: {
-          const params = blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onConnectionStateChanged');
           const result = this.impl.onConnectionStateChanged(params.presentation_info, params.newState);
           break;
         }
         case 3: {
-          const params = blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onConnectionClosed');
           const result = this.impl.onConnectionClosed(params.presentation_info, params.reason, params.message);
           break;
@@ -832,8 +879,11 @@ blink.mojom.PresentationReceiverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -856,9 +906,13 @@ blink.mojom.PresentationReceiverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReceiverConnectionAvailable');
           const result = this.impl.onReceiverConnectionAvailable(params.result);
           break;

@@ -357,8 +357,23 @@ content.mojom.TestServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -381,9 +396,13 @@ content.mojom.TestServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content.mojom.TestService_DoSomething_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_DoSomething_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.doSomething');
           const result = this.impl.doSomething();
           if (header.expectsResponse) {
@@ -395,7 +414,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = content.mojom.TestService_DoTerminateProcess_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_DoTerminateProcess_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.doTerminateProcess');
           const result = this.impl.doTerminateProcess();
           if (header.expectsResponse) {
@@ -407,7 +427,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 2: {
-          const params = content.mojom.TestService_DoCrashImmediately_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_DoCrashImmediately_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.doCrashImmediately');
           const result = this.impl.doCrashImmediately();
           if (header.expectsResponse) {
@@ -419,7 +440,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 3: {
-          const params = content.mojom.TestService_CreateFolder_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_CreateFolder_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createFolder');
           const result = this.impl.createFolder();
           if (header.expectsResponse) {
@@ -431,7 +453,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 4: {
-          const params = content.mojom.TestService_GetRequestorName_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_GetRequestorName_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getRequestorName');
           const result = this.impl.getRequestorName();
           if (header.expectsResponse) {
@@ -443,7 +466,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 5: {
-          const params = content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createReadOnlySharedMemoryRegion');
           const result = this.impl.createReadOnlySharedMemoryRegion(params.message);
           if (header.expectsResponse) {
@@ -455,7 +479,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 6: {
-          const params = content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createWritableSharedMemoryRegion');
           const result = this.impl.createWritableSharedMemoryRegion(params.message);
           if (header.expectsResponse) {
@@ -467,7 +492,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 7: {
-          const params = content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createUnsafeSharedMemoryRegion');
           const result = this.impl.createUnsafeSharedMemoryRegion(params.message);
           if (header.expectsResponse) {
@@ -479,7 +505,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 8: {
-          const params = content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cloneSharedMemoryContents');
           const result = this.impl.cloneSharedMemoryContents(params.region);
           if (header.expectsResponse) {
@@ -491,7 +518,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 9: {
-          const params = content.mojom.TestService_IsProcessSandboxed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_IsProcessSandboxed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isProcessSandboxed');
           const result = this.impl.isProcessSandboxed();
           if (header.expectsResponse) {
@@ -503,7 +531,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 10: {
-          const params = content.mojom.TestService_PseudonymizeString_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_PseudonymizeString_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.pseudonymizeString');
           const result = this.impl.pseudonymizeString(params.value);
           if (header.expectsResponse) {
@@ -515,7 +544,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 11: {
-          const params = content.mojom.TestService_PassWriteableFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_PassWriteableFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.passWriteableFile');
           const result = this.impl.passWriteableFile(params.file);
           if (header.expectsResponse) {
@@ -527,7 +557,8 @@ content.mojom.TestServiceReceiver = class {
           break;
         }
         case 12: {
-          const params = content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.writeToPreloadedPipe');
           const result = this.impl.writeToPreloadedPipe();
           break;

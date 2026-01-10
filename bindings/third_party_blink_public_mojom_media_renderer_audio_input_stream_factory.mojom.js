@@ -105,8 +105,12 @@ blink.mojom.RendererAudioInputStreamFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -129,15 +133,20 @@ blink.mojom.RendererAudioInputStreamFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createStream');
           const result = this.impl.createStream(params.client, params.session_id, params.params, params.automatic_gain_control, params.shared_memory_count, params.processing_config);
           break;
         }
         case 1: {
-          const params = blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.associateInputAndOutputForAec');
           const result = this.impl.associateInputAndOutputForAec(params.input_stream_id, params.output_device_id);
           break;
@@ -225,8 +234,11 @@ blink.mojom.RendererAudioInputStreamFactoryClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -249,9 +261,13 @@ blink.mojom.RendererAudioInputStreamFactoryClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.streamCreated');
           const result = this.impl.streamCreated(params.stream, params.client_request, params.data_pipe, params.initially_muted, params.stream_id);
           break;

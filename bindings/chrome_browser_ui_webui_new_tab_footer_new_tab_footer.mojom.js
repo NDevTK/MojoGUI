@@ -123,8 +123,11 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -147,9 +150,13 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createNewTabFooterHandler');
           const result = this.impl.createNewTabFooterHandler(params.document, params.handler);
           break;
@@ -354,8 +361,19 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -378,57 +396,69 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateNtpExtensionName');
           const result = this.impl.updateNtpExtensionName();
           break;
         }
         case 1: {
-          const params = new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateManagementNotice');
           const result = this.impl.updateManagementNotice();
           break;
         }
         case 2: {
-          const params = new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateAttachedTabState');
           const result = this.impl.updateAttachedTabState();
           break;
         }
         case 3: {
-          const params = new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateBackgroundAttribution');
           const result = this.impl.updateBackgroundAttribution();
           break;
         }
         case 4: {
-          const params = new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openExtensionOptionsPageWithFallback');
           const result = this.impl.openExtensionOptionsPageWithFallback();
           break;
         }
         case 5: {
-          const params = new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openManagementPage');
           const result = this.impl.openManagementPage();
           break;
         }
         case 6: {
-          const params = new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openUrlInCurrentTab');
           const result = this.impl.openUrlInCurrentTab(params.url);
           break;
         }
         case 7: {
-          const params = new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.point);
           break;
         }
         case 8: {
-          const params = new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyCustomizationButtonVisible');
           const result = this.impl.notifyCustomizationButtonVisible();
           break;
@@ -561,8 +591,14 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -585,27 +621,34 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setNtpExtensionName');
           const result = this.impl.setNtpExtensionName(params.name);
           break;
         }
         case 1: {
-          const params = new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setManagementNotice');
           const result = this.impl.setManagementNotice(params.notice);
           break;
         }
         case 2: {
-          const params = new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.attachedTabStateUpdated');
           const result = this.impl.attachedTabStateUpdated(params.ntp_type, params.can_customize_chrome);
           break;
         }
         case 3: {
-          const params = new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundAttribution');
           const result = this.impl.setBackgroundAttribution(params.background_image_attribution);
           break;

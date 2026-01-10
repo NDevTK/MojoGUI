@@ -91,8 +91,11 @@ mirroring.mojom.AudioStreamCreatorClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -115,9 +118,13 @@ mirroring.mojom.AudioStreamCreatorClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.streamCreated');
           const result = this.impl.streamCreated(params.stream, params.client_receiver, params.data_pipe);
           break;
@@ -284,8 +291,16 @@ mirroring.mojom.ResourceProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -308,39 +323,48 @@ mirroring.mojom.ResourceProviderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindGpu');
           const result = this.impl.bindGpu(params.receiver);
           break;
         }
         case 1: {
-          const params = mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getVideoCaptureHost');
           const result = this.impl.getVideoCaptureHost(params.receiver);
           break;
         }
         case 2: {
-          const params = mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getVideoEncoderMetricsProvider');
           const result = this.impl.getVideoEncoderMetricsProvider(params.receiver);
           break;
         }
         case 3: {
-          const params = mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getNetworkContext');
           const result = this.impl.getNetworkContext(params.receiver);
           break;
         }
         case 4: {
-          const params = mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createAudioStream');
           const result = this.impl.createAudioStream(params.client, params.param, params.shared_memory_count);
           break;
         }
         case 5: {
-          const params = mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connectToRemotingSource');
           const result = this.impl.connectToRemotingSource(params.remoter, params.receiver);
           break;

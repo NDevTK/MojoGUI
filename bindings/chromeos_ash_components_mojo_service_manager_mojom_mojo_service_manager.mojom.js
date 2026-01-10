@@ -250,8 +250,14 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -274,21 +280,27 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.service_name, params.service_provider);
           break;
         }
         case 1: {
-          const params = chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.request');
           const result = this.impl.request(params.service_name, params.timeout, params.receiver);
           break;
         }
         case 2: {
-          const params = chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.query');
           const result = this.impl.query(params.service_name);
           if (header.expectsResponse) {
@@ -300,7 +312,8 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
           break;
         }
         case 3: {
-          const params = chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addServiceObserver');
           const result = this.impl.addServiceObserver(params.observer);
           break;
@@ -385,8 +398,11 @@ chromeos.mojo_service_manager.mojom.ServiceProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -409,9 +425,13 @@ chromeos.mojo_service_manager.mojom.ServiceProviderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.request');
           const result = this.impl.request(params.client_identity, params.receiver);
           break;
@@ -495,8 +515,11 @@ chromeos.mojo_service_manager.mojom.ServiceObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -519,9 +542,13 @@ chromeos.mojo_service_manager.mojom.ServiceObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onServiceEvent');
           const result = this.impl.onServiceEvent(params.event);
           break;

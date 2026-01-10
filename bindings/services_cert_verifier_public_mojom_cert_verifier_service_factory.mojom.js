@@ -350,8 +350,20 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -374,15 +386,20 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getNewCertVerifier');
           const result = this.impl.getNewCertVerifier(params.receiver, params.updater, params.client, params.creation_params);
           break;
         }
         case 1: {
-          const params = cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateCRLSet');
           const result = this.impl.updateCRLSet(params.crl_set);
           if (header.expectsResponse) {
@@ -394,7 +411,8 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
           break;
         }
         case 2: {
-          const params = cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateCtLogList');
           const result = this.impl.updateCtLogList(params.log_list, params.update_time);
           if (header.expectsResponse) {
@@ -406,7 +424,8 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
           break;
         }
         case 3: {
-          const params = cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disableCtEnforcement');
           const result = this.impl.disableCtEnforcement();
           if (header.expectsResponse) {
@@ -418,7 +437,8 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
           break;
         }
         case 4: {
-          const params = cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateChromeRootStore');
           const result = this.impl.updateChromeRootStore(params.new_root_store);
           if (header.expectsResponse) {
@@ -430,7 +450,8 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
           break;
         }
         case 5: {
-          const params = cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateMtcMetadata');
           const result = this.impl.updateMtcMetadata(params.new_mtc_metadata);
           if (header.expectsResponse) {
@@ -442,7 +463,8 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
           break;
         }
         case 6: {
-          const params = cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setUseChromeRootStore');
           const result = this.impl.setUseChromeRootStore(params.use_crs);
           if (header.expectsResponse) {
@@ -454,7 +476,8 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
           break;
         }
         case 7: {
-          const params = cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getChromeRootStoreInfo');
           const result = this.impl.getChromeRootStoreInfo();
           if (header.expectsResponse) {
@@ -466,7 +489,8 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
           break;
         }
         case 8: {
-          const params = cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPlatformRootStoreInfo');
           const result = this.impl.getPlatformRootStoreInfo();
           if (header.expectsResponse) {
@@ -478,7 +502,8 @@ cert_verifier.mojom.CertVerifierServiceFactoryReceiver = class {
           break;
         }
         case 9: {
-          const params = cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateNetworkTime');
           const result = this.impl.updateNetworkTime(params.system_time, params.system_ticks, params.current_time);
           break;

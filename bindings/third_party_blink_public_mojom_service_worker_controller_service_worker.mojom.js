@@ -138,8 +138,12 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -162,9 +166,13 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dispatchFetchEventForSubresource');
           const result = this.impl.dispatchFetchEventForSubresource(params.params, params.response_callback);
           if (header.expectsResponse) {
@@ -176,7 +184,8 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver, params.cross_origin_embedder_policy, params.coep_reporter, params.document_isolation_policy, params.dip_reporter);
           break;
@@ -260,8 +269,11 @@ blink.mojom.ControllerServiceWorkerConnectorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -284,9 +296,13 @@ blink.mojom.ControllerServiceWorkerConnectorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateController');
           const result = this.impl.updateController(params.controller);
           break;

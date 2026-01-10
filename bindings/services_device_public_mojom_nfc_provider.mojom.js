@@ -110,8 +110,13 @@ device.mojom.NFCProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -134,21 +139,27 @@ device.mojom.NFCProviderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.NFCProvider_GetNFCForHost_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFCProvider_GetNFCForHost_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getNFCForHost');
           const result = this.impl.getNFCForHost(params.host_id, params.receiver);
           break;
         }
         case 1: {
-          const params = device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.suspendNFCOperations');
           const result = this.impl.suspendNFCOperations();
           break;
         }
         case 2: {
-          const params = device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resumeNFCOperations');
           const result = this.impl.resumeNFCOperations();
           break;

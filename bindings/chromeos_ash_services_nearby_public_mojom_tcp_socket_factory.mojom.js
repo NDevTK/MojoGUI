@@ -125,8 +125,12 @@ sharing.mojom.TcpSocketFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -149,9 +153,13 @@ sharing.mojom.TcpSocketFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createTCPServerSocket');
           const result = this.impl.createTCPServerSocket(params.local_addr, params.port, params.backlog, params.traffic_annotation, params.socket);
           if (header.expectsResponse) {
@@ -163,7 +171,8 @@ sharing.mojom.TcpSocketFactoryReceiver = class {
           break;
         }
         case 1: {
-          const params = sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createTCPConnectedSocket');
           const result = this.impl.createTCPConnectedSocket(params.timeout, params.local_addr, params.remote_addr_list, params.tcp_connected_socket_options, params.traffic_annotation, params.socket, params.observer);
           if (header.expectsResponse) {

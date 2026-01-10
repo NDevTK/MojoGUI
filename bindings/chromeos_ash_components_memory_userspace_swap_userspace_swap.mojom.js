@@ -101,8 +101,11 @@ userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -125,9 +128,13 @@ userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.transferUserfaultFD');
           const result = this.impl.transferUserfaultFD(params.uffd_error, params.uffd_handle, params.mmap_error, params.swap_area);
           if (header.expectsResponse) {
@@ -256,8 +263,13 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -280,21 +292,27 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.movePTEsLeavingMapping');
           const result = this.impl.movePTEsLeavingMapping(params.src, params.dest);
           break;
         }
         case 1: {
-          const params = userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.mapArea');
           const result = this.impl.mapArea(params.area);
           break;
         }
         case 2: {
-          const params = userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPartitionAllocSuperPagesUsed');
           const result = this.impl.getPartitionAllocSuperPagesUsed(params.max_superpages);
           if (header.expectsResponse) {

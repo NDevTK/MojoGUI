@@ -108,8 +108,11 @@ ash.cfm.mojom.DataWatchDogReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -132,9 +135,13 @@ ash.cfm.mojom.DataWatchDogReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNotify');
           const result = this.impl.onNotify(params.data);
           break;
@@ -261,8 +268,13 @@ ash.cfm.mojom.DataSourceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -285,9 +297,13 @@ ash.cfm.mojom.DataSourceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.cfm.mojom.DataSource_Fetch_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cfm.mojom.DataSource_Fetch_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.fetch');
           const result = this.impl.fetch();
           if (header.expectsResponse) {
@@ -299,7 +315,8 @@ ash.cfm.mojom.DataSourceReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addWatchDog');
           const result = this.impl.addWatchDog(params.filter, params.watch_dog);
           if (header.expectsResponse) {
@@ -311,7 +328,8 @@ ash.cfm.mojom.DataSourceReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.cfm.mojom.DataSource_Flush_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cfm.mojom.DataSource_Flush_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           break;
@@ -447,8 +465,13 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -471,9 +494,13 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDataSourceNames');
           const result = this.impl.getDataSourceNames();
           if (header.expectsResponse) {
@@ -485,7 +512,8 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addDataSource');
           const result = this.impl.addDataSource(params.source_name, params.data_source);
           if (header.expectsResponse) {
@@ -497,7 +525,8 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addWatchDog');
           const result = this.impl.addWatchDog(params.source_name, params.filter, params.watch_dog);
           if (header.expectsResponse) {

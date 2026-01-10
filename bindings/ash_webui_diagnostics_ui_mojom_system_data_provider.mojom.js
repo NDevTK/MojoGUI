@@ -200,8 +200,11 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -224,9 +227,13 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBatteryChargeStatusUpdated');
           const result = this.impl.onBatteryChargeStatusUpdated(params.battery_charge_status);
           break;
@@ -310,8 +317,11 @@ ash.diagnostics.mojom.BatteryHealthObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -334,9 +344,13 @@ ash.diagnostics.mojom.BatteryHealthObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBatteryHealthUpdated');
           const result = this.impl.onBatteryHealthUpdated(params.battery_health);
           break;
@@ -420,8 +434,11 @@ ash.diagnostics.mojom.MemoryUsageObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -444,9 +461,13 @@ ash.diagnostics.mojom.MemoryUsageObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMemoryUsageUpdated');
           const result = this.impl.onMemoryUsageUpdated(params.memory_usage);
           break;
@@ -530,8 +551,11 @@ ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -554,9 +578,13 @@ ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCpuUsageUpdated');
           const result = this.impl.onCpuUsageUpdated(params.cpu_usage);
           break;
@@ -730,8 +758,16 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -754,9 +790,13 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSystemInfo');
           const result = this.impl.getSystemInfo();
           if (header.expectsResponse) {
@@ -768,7 +808,8 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getBatteryInfo');
           const result = this.impl.getBatteryInfo();
           if (header.expectsResponse) {
@@ -780,25 +821,29 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryChargeStatus');
           const result = this.impl.observeBatteryChargeStatus(params.observer);
           break;
         }
         case 3: {
-          const params = ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryHealth');
           const result = this.impl.observeBatteryHealth(params.observer);
           break;
         }
         case 4: {
-          const params = ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeMemoryUsage');
           const result = this.impl.observeMemoryUsage(params.observer);
           break;
         }
         case 5: {
-          const params = ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeCpuUsage');
           const result = this.impl.observeCpuUsage(params.observer);
           break;

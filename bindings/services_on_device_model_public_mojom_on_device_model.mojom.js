@@ -377,8 +377,12 @@ on_device_model.mojom.StreamingResponderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -401,15 +405,20 @@ on_device_model.mojom.StreamingResponderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onResponse');
           const result = this.impl.onResponse(params.chunk);
           break;
         }
         case 1: {
-          const params = on_device_model.mojom.StreamingResponder_OnComplete_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.StreamingResponder_OnComplete_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.summary);
           break;
@@ -493,8 +502,11 @@ on_device_model.mojom.ContextClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -517,9 +529,13 @@ on_device_model.mojom.ContextClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = on_device_model.mojom.ContextClient_OnComplete_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.ContextClient_OnComplete_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.tokens_processed);
           break;
@@ -737,8 +753,18 @@ on_device_model.mojom.SessionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(6, 0); // Default ordinal 6 -> Index 0
+    this.ordinalMap.set(7, 1); // Default ordinal 7 -> Index 1
+    this.ordinalMap.set(5, 2); // Default ordinal 5 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(8, 5); // Default ordinal 8 -> Index 5
+    this.ordinalMap.set(9, 6); // Default ordinal 9 -> Index 6
+    this.ordinalMap.set(10, 7); // Default ordinal 10 -> Index 7
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -761,21 +787,27 @@ on_device_model.mojom.SessionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 6: {
-          const params = on_device_model.mojom.Session_Append_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.Session_Append_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.append');
           const result = this.impl.append(params.options, params.client);
           break;
         }
-        case 7: {
-          const params = on_device_model.mojom.Session_Generate_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.Session_Generate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.generate');
           const result = this.impl.generate(params.options, params.responder);
           break;
         }
-        case 5: {
-          const params = on_device_model.mojom.Session_GetSizeInTokens_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.Session_GetSizeInTokens_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSizeInTokens');
           const result = this.impl.getSizeInTokens(params.input);
           if (header.expectsResponse) {
@@ -787,7 +819,8 @@ on_device_model.mojom.SessionReceiver = class {
           break;
         }
         case 3: {
-          const params = on_device_model.mojom.Session_Score_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.Session_Score_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.score');
           const result = this.impl.score(params.text);
           if (header.expectsResponse) {
@@ -799,13 +832,15 @@ on_device_model.mojom.SessionReceiver = class {
           break;
         }
         case 4: {
-          const params = on_device_model.mojom.Session_Clone_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.Session_Clone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.session);
           break;
         }
-        case 8: {
-          const params = on_device_model.mojom.Session_GetProbabilitiesBlocking_ParamsSpec.$.decode(message.payload);
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.Session_GetProbabilitiesBlocking_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getProbabilitiesBlocking');
           const result = this.impl.getProbabilitiesBlocking(params.text);
           if (header.expectsResponse) {
@@ -816,14 +851,16 @@ on_device_model.mojom.SessionReceiver = class {
           }
           break;
         }
-        case 9: {
-          const params = on_device_model.mojom.Session_SetPriority_ParamsSpec.$.decode(message.payload);
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.Session_SetPriority_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPriority');
           const result = this.impl.setPriority(params.priority);
           break;
         }
-        case 10: {
-          const params = on_device_model.mojom.Session_AsrStream_ParamsSpec.$.decode(message.payload);
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.Session_AsrStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.asrStream');
           const result = this.impl.asrStream(params.options, params.stream, params.responder);
           break;
@@ -975,8 +1012,14 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -999,15 +1042,20 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startSession');
           const result = this.impl.startSession(params.session, params.params);
           break;
         }
         case 1: {
-          const params = on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
           const result = this.impl.classifyTextSafety(params.text);
           if (header.expectsResponse) {
@@ -1019,7 +1067,8 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
           break;
         }
         case 2: {
-          const params = on_device_model.mojom.OnDeviceModel_DetectLanguage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModel_DetectLanguage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.detectLanguage');
           const result = this.impl.detectLanguage(params.text);
           if (header.expectsResponse) {
@@ -1031,7 +1080,8 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
           break;
         }
         case 3: {
-          const params = on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.loadAdaptation');
           const result = this.impl.loadAdaptation(params.params, params.model);
           if (header.expectsResponse) {
@@ -1165,8 +1215,13 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(1, 0); // Default ordinal 1 -> Index 0
+    this.ordinalMap.set(2, 1); // Default ordinal 2 -> Index 1
+    this.ordinalMap.set(3, 2); // Default ordinal 3 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1189,9 +1244,13 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 1: {
-          const params = on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
           const result = this.impl.classifyTextSafety(params.text);
           if (header.expectsResponse) {
@@ -1202,8 +1261,9 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
           }
           break;
         }
-        case 2: {
-          const params = on_device_model.mojom.TextSafetySession_DetectLanguage_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.TextSafetySession_DetectLanguage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.detectLanguage');
           const result = this.impl.detectLanguage(params.text);
           if (header.expectsResponse) {
@@ -1214,8 +1274,9 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
           }
           break;
         }
-        case 3: {
-          const params = on_device_model.mojom.TextSafetySession_Clone_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.TextSafetySession_Clone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.session);
           break;
@@ -1299,8 +1360,11 @@ on_device_model.mojom.TextSafetyModelReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1323,9 +1387,13 @@ on_device_model.mojom.TextSafetyModelReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startSession');
           const result = this.impl.startSession(params.session);
           break;
@@ -1409,8 +1477,11 @@ on_device_model.mojom.AsrStreamResponderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1433,9 +1504,13 @@ on_device_model.mojom.AsrStreamResponderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onResponse');
           const result = this.impl.onResponse(params.result);
           break;
@@ -1519,8 +1594,11 @@ on_device_model.mojom.AsrStreamInputReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1543,9 +1621,13 @@ on_device_model.mojom.AsrStreamInputReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addAudioChunk');
           const result = this.impl.addAudioChunk(params.data);
           break;

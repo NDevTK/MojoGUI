@@ -171,8 +171,14 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -195,15 +201,20 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startFrameCounting');
           const result = this.impl.startFrameCounting(params.start_time, params.bucket_size);
           break;
         }
         case 1: {
-          const params = viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopFrameCounting');
           const result = this.impl.stopFrameCounting();
           if (header.expectsResponse) {
@@ -215,13 +226,15 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
           break;
         }
         case 2: {
-          const params = viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startOverdrawTracking');
           const result = this.impl.startOverdrawTracking(params.root_frame_sink_id, params.bucket_size);
           break;
         }
         case 3: {
-          const params = viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopOverdrawTracking');
           const result = this.impl.stopOverdrawTracking(params.root_frame_sink_id);
           if (header.expectsResponse) {

@@ -123,8 +123,13 @@ chromeos.network_health.mojom.NetworkEventsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -147,21 +152,27 @@ chromeos.network_health.mojom.NetworkEventsObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onConnectionStateChanged');
           const result = this.impl.onConnectionStateChanged(params.guid, params.state);
           break;
         }
         case 1: {
-          const params = chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSignalStrengthChanged');
           const result = this.impl.onSignalStrengthChanged(params.guid, params.signal_strength);
           break;
         }
         case 2: {
-          const params = chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNetworkListChanged');
           const result = this.impl.onNetworkListChanged(params.networks);
           break;
@@ -308,8 +319,14 @@ chromeos.network_health.mojom.NetworkHealthServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -332,15 +349,20 @@ chromeos.network_health.mojom.NetworkHealthServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
-          const params = chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getNetworkList');
           const result = this.impl.getNetworkList();
           if (header.expectsResponse) {
@@ -352,7 +374,8 @@ chromeos.network_health.mojom.NetworkHealthServiceReceiver = class {
           break;
         }
         case 2: {
-          const params = chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getHealthSnapshot');
           const result = this.impl.getHealthSnapshot();
           if (header.expectsResponse) {
@@ -364,7 +387,8 @@ chromeos.network_health.mojom.NetworkHealthServiceReceiver = class {
           break;
         }
         case 3: {
-          const params = chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getRecentlyActiveNetworks');
           const result = this.impl.getRecentlyActiveNetworks();
           if (header.expectsResponse) {

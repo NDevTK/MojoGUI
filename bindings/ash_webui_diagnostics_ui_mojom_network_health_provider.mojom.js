@@ -221,8 +221,11 @@ ash.diagnostics.mojom.NetworkListObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -245,9 +248,13 @@ ash.diagnostics.mojom.NetworkListObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNetworkListChanged');
           const result = this.impl.onNetworkListChanged(params.network_guids, params.active_guid);
           break;
@@ -331,8 +338,11 @@ ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -355,9 +365,13 @@ ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNetworkStateChanged');
           const result = this.impl.onNetworkStateChanged(params.network);
           break;
@@ -458,8 +472,12 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -482,15 +500,20 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeNetworkList');
           const result = this.impl.observeNetworkList(params.observer);
           break;
         }
         case 1: {
-          const params = ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeNetwork');
           const result = this.impl.observeNetwork(params.observer, params.guid);
           break;

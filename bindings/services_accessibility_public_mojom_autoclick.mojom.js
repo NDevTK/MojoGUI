@@ -83,8 +83,11 @@ ax.mojom.AutoclickReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -107,9 +110,13 @@ ax.mojom.AutoclickReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestScrollableBoundsForPoint');
           const result = this.impl.requestScrollableBoundsForPoint(params.point);
           break;
@@ -214,8 +221,12 @@ ax.mojom.AutoclickClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -238,15 +249,20 @@ ax.mojom.AutoclickClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.handleScrollableBoundsForPointFound');
           const result = this.impl.handleScrollableBoundsForPointFound(params.bounds);
           break;
         }
         case 1: {
-          const params = ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindAutoclick');
           const result = this.impl.bindAutoclick();
           if (header.expectsResponse) {

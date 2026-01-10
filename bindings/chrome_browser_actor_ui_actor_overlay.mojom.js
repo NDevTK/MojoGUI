@@ -107,8 +107,11 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -131,9 +134,13 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.receiver);
           break;
@@ -238,8 +245,12 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -262,15 +273,20 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onHoverStatusChanged');
           const result = this.impl.onHoverStatusChanged(params.is_hovering);
           break;
         }
         case 1: {
-          const params = actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getCurrentBorderGlowVisibility');
           const result = this.impl.getCurrentBorderGlowVisibility();
           if (header.expectsResponse) {
@@ -433,8 +449,15 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -457,27 +480,34 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setScrimBackground');
           const result = this.impl.setScrimBackground(params.is_visible);
           break;
         }
         case 1: {
-          const params = actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setBorderGlowVisibility');
           const result = this.impl.setBorderGlowVisibility(params.is_visible);
           break;
         }
         case 2: {
-          const params = actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
           const result = this.impl.setTheme(params.theme);
           break;
         }
         case 3: {
-          const params = actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.moveCursorTo');
           const result = this.impl.moveCursorTo(params.point);
           if (header.expectsResponse) {
@@ -489,7 +519,8 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
           break;
         }
         case 4: {
-          const params = actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.triggerClickAnimation');
           const result = this.impl.triggerClickAnimation();
           if (header.expectsResponse) {

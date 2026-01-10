@@ -210,8 +210,17 @@ blink.mojom.LCPCriticalPathPredictorHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -234,45 +243,55 @@ blink.mojom.LCPCriticalPathPredictorHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLcpUpdated');
           const result = this.impl.onLcpUpdated(params.lcp_element);
           break;
         }
         case 1: {
-          const params = blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLcpTimingPredictedForTesting');
           const result = this.impl.onLcpTimingPredictedForTesting(params.element_locator);
           break;
         }
         case 2: {
-          const params = blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setLcpInfluencerScriptUrls');
           const result = this.impl.setLcpInfluencerScriptUrls(params.lcp_influencer_scripts);
           break;
         }
         case 3: {
-          const params = blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addPreconnectOrigin');
           const result = this.impl.addPreconnectOrigin(params.origin);
           break;
         }
         case 4: {
-          const params = blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyFetchedFont');
           const result = this.impl.notifyFetchedFont(params.font_url, params.hit);
           break;
         }
         case 5: {
-          const params = blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyFetchedSubresource');
           const result = this.impl.notifyFetchedSubresource(params.subresource_url, params.subresource_load_start, params.request_destination);
           break;
         }
         case 6: {
-          const params = blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setUnusedPreloads');
           const result = this.impl.setUnusedPreloads(params.unused_preloads);
           break;

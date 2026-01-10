@@ -159,8 +159,14 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(4, 1); // Default ordinal 4 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -183,9 +189,13 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deprecatedGetProtectedSharedMemoryFromHandle');
           const result = this.impl.deprecatedGetProtectedSharedMemoryFromHandle(params.dummy_handle);
           if (header.expectsResponse) {
@@ -196,8 +206,9 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
           }
           break;
         }
-        case 4: {
-          const params = arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getProtectedSharedMemoryFromHandle');
           const result = this.impl.getProtectedSharedMemoryFromHandle(params.dummy_handle);
           if (header.expectsResponse) {
@@ -209,7 +220,8 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
           break;
         }
         case 2: {
-          const params = arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getProtectedNativePixmapHandleFromHandle');
           const result = this.impl.getProtectedNativePixmapHandleFromHandle(params.dummy_handle);
           if (header.expectsResponse) {
@@ -221,7 +233,8 @@ arc.mojom.ProtectedBufferManagerReceiver = class {
           break;
         }
         case 3: {
-          const params = arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isProtectedNativePixmapHandle');
           const result = this.impl.isProtectedNativePixmapHandle(params.dummy_handle);
           if (header.expectsResponse) {

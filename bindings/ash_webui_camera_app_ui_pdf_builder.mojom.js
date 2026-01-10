@@ -161,8 +161,15 @@ ash.camera_app.mojom.PdfBuilderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -185,27 +192,34 @@ ash.camera_app.mojom.PdfBuilderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addPage');
           const result = this.impl.addPage(params.jpeg, params.page_index);
           break;
         }
         case 1: {
-          const params = ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addPageInline');
           const result = this.impl.addPageInline(params.jpeg, params.page_index);
           break;
         }
         case 2: {
-          const params = ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deletePage');
           const result = this.impl.deletePage(params.page_index);
           break;
         }
         case 3: {
-          const params = ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.save');
           const result = this.impl.save();
           if (header.expectsResponse) {
@@ -217,7 +231,8 @@ ash.camera_app.mojom.PdfBuilderReceiver = class {
           break;
         }
         case 4: {
-          const params = ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.saveInline');
           const result = this.impl.saveInline();
           if (header.expectsResponse) {

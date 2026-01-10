@@ -216,8 +216,17 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -240,15 +249,20 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
-          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getApps');
           const result = this.impl.getApps();
           if (header.expectsResponse) {
@@ -260,7 +274,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSystemAppsThatUseCamera');
           const result = this.impl.getSystemAppsThatUseCamera();
           if (header.expectsResponse) {
@@ -272,7 +287,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSystemAppsThatUseMicrophone');
           const result = this.impl.getSystemAppsThatUseMicrophone();
           if (header.expectsResponse) {
@@ -284,19 +300,22 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
           break;
         }
         case 4: {
-          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openBrowserPermissionSettings');
           const result = this.impl.openBrowserPermissionSettings(params.permission_type);
           break;
         }
         case 5: {
-          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openNativeSettings');
           const result = this.impl.openNativeSettings(params.app_id);
           break;
         }
         case 6: {
-          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPermission');
           const result = this.impl.setPermission(params.app_id, params.permission);
           break;
@@ -396,8 +415,12 @@ ash.settings.app_permission.mojom.AppPermissionsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -420,15 +443,20 @@ ash.settings.app_permission.mojom.AppPermissionsObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAppRemoved');
           const result = this.impl.onAppRemoved(params.app_id);
           break;
         }
         case 1: {
-          const params = ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAppUpdated');
           const result = this.impl.onAppUpdated(params.app);
           break;

@@ -205,8 +205,16 @@ network.mojom.NetworkContextClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -229,9 +237,13 @@ network.mojom.NetworkContextClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFileUploadRequested');
           const result = this.impl.onFileUploadRequested(params.process_id, params.async, params.file_paths, params.destination_url);
           if (header.expectsResponse) {
@@ -243,7 +255,8 @@ network.mojom.NetworkContextClientReceiver = class {
           break;
         }
         case 1: {
-          const params = network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCanSendReportingReports');
           const result = this.impl.onCanSendReportingReports(params.origins);
           if (header.expectsResponse) {
@@ -255,7 +268,8 @@ network.mojom.NetworkContextClientReceiver = class {
           break;
         }
         case 2: {
-          const params = network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCanSendDomainReliabilityUpload');
           const result = this.impl.onCanSendDomainReliabilityUpload(params.origin);
           if (header.expectsResponse) {
@@ -267,7 +281,8 @@ network.mojom.NetworkContextClientReceiver = class {
           break;
         }
         case 3: {
-          const params = network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onGenerateHttpNegotiateAuthToken');
           const result = this.impl.onGenerateHttpNegotiateAuthToken(params.server_auth_token, params.can_delegate, params.auth_negotiate_android_account_type, params.spn);
           if (header.expectsResponse) {
@@ -279,7 +294,8 @@ network.mojom.NetworkContextClientReceiver = class {
           break;
         }
         case 4: {
-          const params = network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCanSendSCTAuditingReport');
           const result = this.impl.onCanSendSCTAuditingReport();
           if (header.expectsResponse) {
@@ -291,7 +307,8 @@ network.mojom.NetworkContextClientReceiver = class {
           break;
         }
         case 5: {
-          const params = network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNewSCTAuditingReportSent');
           const result = this.impl.onNewSCTAuditingReportSent();
           break;

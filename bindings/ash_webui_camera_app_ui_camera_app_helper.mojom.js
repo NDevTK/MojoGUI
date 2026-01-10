@@ -287,8 +287,11 @@ ash.camera_app.mojom.TabletModeMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -311,9 +314,13 @@ ash.camera_app.mojom.TabletModeMonitorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.is_tablet_mode);
           break;
@@ -397,8 +404,11 @@ ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -421,9 +431,13 @@ ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.state);
           break;
@@ -507,8 +521,11 @@ ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -531,9 +548,13 @@ ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.is_screen_locked);
           break;
@@ -617,8 +638,11 @@ ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -641,9 +665,13 @@ ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.has_external_screen);
           break;
@@ -732,8 +760,11 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -756,9 +787,13 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCameraUsageOwnershipChanged');
           const result = this.impl.onCameraUsageOwnershipChanged(params.has_usage);
           if (header.expectsResponse) {
@@ -848,8 +883,11 @@ ash.camera_app.mojom.LidStateMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -872,9 +910,13 @@ ash.camera_app.mojom.LidStateMonitorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.lid_status);
           break;
@@ -958,8 +1000,11 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -982,9 +1027,13 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.is_sw_privacy_switch_on);
           break;
@@ -1084,8 +1133,12 @@ ash.camera_app.mojom.WindowStateMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1108,15 +1161,20 @@ ash.camera_app.mojom.WindowStateMonitorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWindowStateChanged');
           const result = this.impl.onWindowStateChanged(params.states);
           break;
         }
         case 1: {
-          const params = ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWindowFocusChanged');
           const result = this.impl.onWindowFocusChanged(params.is_focus);
           break;
@@ -1200,8 +1258,11 @@ ash.camera_app.mojom.StorageMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1224,9 +1285,13 @@ ash.camera_app.mojom.StorageMonitorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.status);
           break;
@@ -1437,8 +1502,17 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1461,9 +1535,13 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addMonitor');
           const result = this.impl.addMonitor(params.monitor);
           if (header.expectsResponse) {
@@ -1475,7 +1553,8 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getWindowState');
           const result = this.impl.getWindowState();
           if (header.expectsResponse) {
@@ -1487,7 +1566,8 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.minimize');
           const result = this.impl.minimize();
           if (header.expectsResponse) {
@@ -1499,7 +1579,8 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           break;
         }
         case 3: {
-          const params = ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.restore');
           const result = this.impl.restore();
           if (header.expectsResponse) {
@@ -1511,7 +1592,8 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           break;
         }
         case 4: {
-          const params = ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.maximize');
           const result = this.impl.maximize();
           if (header.expectsResponse) {
@@ -1523,7 +1605,8 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           break;
         }
         case 5: {
-          const params = ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.fullscreen');
           const result = this.impl.fullscreen();
           if (header.expectsResponse) {
@@ -1535,7 +1618,8 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           break;
         }
         case 6: {
-          const params = ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.focus');
           const result = this.impl.focus();
           if (header.expectsResponse) {
@@ -2248,8 +2332,42 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
+    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
+    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
+    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
+    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
+    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
+    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
+    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
+    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
+    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
+    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
+    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -2272,9 +2390,13 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.handleCameraResult');
           const result = this.impl.handleCameraResult(params.intent_id, params.action, params.data);
           if (header.expectsResponse) {
@@ -2286,7 +2408,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isTabletMode');
           const result = this.impl.isTabletMode();
           if (header.expectsResponse) {
@@ -2298,19 +2421,22 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startPerfEventTrace');
           const result = this.impl.startPerfEventTrace(params.event);
           break;
         }
         case 3: {
-          const params = ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopPerfEventTrace');
           const result = this.impl.stopPerfEventTrace(params.event);
           break;
         }
         case 4: {
-          const params = ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setTabletMonitor');
           const result = this.impl.setTabletMonitor(params.monitor);
           if (header.expectsResponse) {
@@ -2322,7 +2448,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 5: {
-          const params = ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setScreenStateMonitor');
           const result = this.impl.setScreenStateMonitor(params.monitor);
           if (header.expectsResponse) {
@@ -2334,7 +2461,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 6: {
-          const params = ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isMetricsAndCrashReportingEnabled');
           const result = this.impl.isMetricsAndCrashReportingEnabled();
           if (header.expectsResponse) {
@@ -2346,7 +2474,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 7: {
-          const params = ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setExternalScreenMonitor');
           const result = this.impl.setExternalScreenMonitor(params.monitor);
           if (header.expectsResponse) {
@@ -2358,25 +2487,29 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 8: {
-          const params = ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openFileInGallery');
           const result = this.impl.openFileInGallery(params.name);
           break;
         }
         case 9: {
-          const params = ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog(params.placeholder);
           break;
         }
         case 10: {
-          const params = ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openUrlInBrowser');
           const result = this.impl.openUrlInBrowser(params.url);
           break;
         }
         case 11: {
-          const params = ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getWindowStateController');
           const result = this.impl.getWindowStateController();
           if (header.expectsResponse) {
@@ -2388,7 +2521,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 12: {
-          const params = ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.processCapturedFile');
           const result = this.impl.processCapturedFile(params.file_type, params.destination);
           if (header.expectsResponse) {
@@ -2400,7 +2534,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 13: {
-          const params = ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.monitorFileDeletion');
           const result = this.impl.monitorFileDeletion(params.name);
           if (header.expectsResponse) {
@@ -2412,7 +2547,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 14: {
-          const params = ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isDocumentScannerSupported');
           const result = this.impl.isDocumentScannerSupported();
           if (header.expectsResponse) {
@@ -2424,7 +2560,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 15: {
-          const params = ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.checkDocumentModeReadiness');
           const result = this.impl.checkDocumentModeReadiness();
           if (header.expectsResponse) {
@@ -2436,7 +2573,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 16: {
-          const params = ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.scanDocumentCorners');
           const result = this.impl.scanDocumentCorners(params.jpeg_data);
           if (header.expectsResponse) {
@@ -2448,7 +2586,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 17: {
-          const params = ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.convertToDocument');
           const result = this.impl.convertToDocument(params.jpeg_data, params.corners, params.rotation);
           if (header.expectsResponse) {
@@ -2460,13 +2599,15 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 18: {
-          const params = ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.maybeTriggerSurvey');
           const result = this.impl.maybeTriggerSurvey();
           break;
         }
         case 19: {
-          const params = ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startStorageMonitor');
           const result = this.impl.startStorageMonitor(params.monitor);
           if (header.expectsResponse) {
@@ -2478,25 +2619,29 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 20: {
-          const params = ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopStorageMonitor');
           const result = this.impl.stopStorageMonitor();
           break;
         }
         case 21: {
-          const params = ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openStorageManagement');
           const result = this.impl.openStorageManagement();
           break;
         }
         case 22: {
-          const params = ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openWifiDialog');
           const result = this.impl.openWifiDialog(params.config);
           break;
         }
         case 23: {
-          const params = ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setLidStateMonitor');
           const result = this.impl.setLidStateMonitor(params.monitor);
           if (header.expectsResponse) {
@@ -2508,7 +2653,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 24: {
-          const params = ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSWPrivacySwitchMonitor');
           const result = this.impl.setSWPrivacySwitchMonitor(params.monitor);
           if (header.expectsResponse) {
@@ -2520,7 +2666,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 25: {
-          const params = ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getEventsSender');
           const result = this.impl.getEventsSender();
           if (header.expectsResponse) {
@@ -2532,7 +2679,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 26: {
-          const params = ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setScreenLockedMonitor');
           const result = this.impl.setScreenLockedMonitor(params.monitor);
           if (header.expectsResponse) {
@@ -2544,7 +2692,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 27: {
-          const params = ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.renderPdfAsJpeg');
           const result = this.impl.renderPdfAsJpeg(params.pdf_data);
           if (header.expectsResponse) {
@@ -2556,7 +2705,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 28: {
-          const params = ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.performOcr');
           const result = this.impl.performOcr(params.jpeg_data);
           if (header.expectsResponse) {
@@ -2568,7 +2718,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 29: {
-          const params = ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.performOcrInline');
           const result = this.impl.performOcrInline(params.jpeg_data);
           if (header.expectsResponse) {
@@ -2580,13 +2731,15 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
         case 30: {
-          const params = ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPdfBuilder');
           const result = this.impl.createPdfBuilder(params.builder);
           break;
         }
         case 31: {
-          const params = ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getAspectRatioOrder');
           const result = this.impl.getAspectRatioOrder();
           if (header.expectsResponse) {

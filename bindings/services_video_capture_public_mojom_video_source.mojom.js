@@ -251,8 +251,18 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -275,15 +285,20 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.activate');
           const result = this.impl.activate();
           break;
         }
         case 1: {
-          const params = video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.suspend');
           const result = this.impl.suspend();
           if (header.expectsResponse) {
@@ -295,13 +310,15 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
           break;
         }
         case 2: {
-          const params = video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 3: {
-          const params = video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPhotoState');
           const result = this.impl.getPhotoState();
           if (header.expectsResponse) {
@@ -313,7 +330,8 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
           break;
         }
         case 4: {
-          const params = video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
           const result = this.impl.setPhotoOptions(params.settings);
           if (header.expectsResponse) {
@@ -325,7 +343,8 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
           break;
         }
         case 5: {
-          const params = video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.takePhoto');
           const result = this.impl.takePhoto();
           if (header.expectsResponse) {
@@ -337,7 +356,8 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
           break;
         }
         case 6: {
-          const params = video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {
@@ -349,7 +369,8 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
           break;
         }
         case 7: {
-          const params = video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.processFeedback');
           const result = this.impl.processFeedback(params.feedback);
           break;
@@ -443,8 +464,11 @@ video_capture.mojom.VideoSourceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -467,9 +491,13 @@ video_capture.mojom.VideoSourceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPushSubscription');
           const result = this.impl.createPushSubscription(params.subscriber, params.requested_settings, params.force_reopen_with_new_settings, params.subscription);
           if (header.expectsResponse) {

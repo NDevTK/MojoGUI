@@ -216,8 +216,16 @@ device.mojom.SensorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -240,9 +248,13 @@ device.mojom.SensorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDefaultConfiguration');
           const result = this.impl.getDefaultConfiguration();
           if (header.expectsResponse) {
@@ -254,7 +266,8 @@ device.mojom.SensorReceiver = class {
           break;
         }
         case 1: {
-          const params = device.mojom.Sensor_AddConfiguration_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.Sensor_AddConfiguration_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addConfiguration');
           const result = this.impl.addConfiguration(params.configuration);
           if (header.expectsResponse) {
@@ -266,25 +279,29 @@ device.mojom.SensorReceiver = class {
           break;
         }
         case 2: {
-          const params = device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeConfiguration');
           const result = this.impl.removeConfiguration(params.configuration);
           break;
         }
         case 3: {
-          const params = device.mojom.Sensor_Suspend_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.Sensor_Suspend_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.suspend');
           const result = this.impl.suspend();
           break;
         }
         case 4: {
-          const params = device.mojom.Sensor_Resume_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.Sensor_Resume_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 5: {
-          const params = device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.configureReadingChangeNotifications');
           const result = this.impl.configureReadingChangeNotifications(params.enabled);
           break;
@@ -382,8 +399,12 @@ device.mojom.SensorClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -406,15 +427,20 @@ device.mojom.SensorClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.SensorClient_RaiseError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SensorClient_RaiseError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.raiseError');
           const result = this.impl.raiseError();
           break;
         }
         case 1: {
-          const params = device.mojom.SensorClient_SensorReadingChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SensorClient_SensorReadingChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sensorReadingChanged');
           const result = this.impl.sensorReadingChanged();
           break;

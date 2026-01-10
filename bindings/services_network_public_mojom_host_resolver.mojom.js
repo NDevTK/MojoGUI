@@ -229,8 +229,11 @@ network.mojom.ResolveHostHandleReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -253,9 +256,13 @@ network.mojom.ResolveHostHandleReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.ResolveHostHandle_Cancel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ResolveHostHandle_Cancel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel(params.result);
           break;
@@ -374,8 +381,13 @@ network.mojom.ResolveHostClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -398,21 +410,27 @@ network.mojom.ResolveHostClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.ResolveHostClient_OnComplete_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ResolveHostClient_OnComplete_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.result, params.resolve_error_info, params.resolved_addresses, params.alternative_endpoints);
           break;
         }
         case 1: {
-          const params = network.mojom.ResolveHostClient_OnTextResults_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ResolveHostClient_OnTextResults_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTextResults');
           const result = this.impl.onTextResults(params.text_results);
           break;
         }
         case 2: {
-          const params = network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onHostnameResults');
           const result = this.impl.onHostnameResults(params.hosts);
           break;
@@ -551,8 +569,14 @@ network.mojom.MdnsListenClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -575,27 +599,34 @@ network.mojom.MdnsListenClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAddressResult');
           const result = this.impl.onAddressResult(params.update_type, params.query_type, params.endpoint);
           break;
         }
         case 1: {
-          const params = network.mojom.MdnsListenClient_OnTextResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.MdnsListenClient_OnTextResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTextResult');
           const result = this.impl.onTextResult(params.update_type, params.query_type, params.text_records);
           break;
         }
         case 2: {
-          const params = network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onHostnameResult');
           const result = this.impl.onHostnameResult(params.update_type, params.query_type, params.host);
           break;
         }
         case 3: {
-          const params = network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onUnhandledResult');
           const result = this.impl.onUnhandledResult(params.update_type, params.query_type);
           break;
@@ -706,8 +737,12 @@ network.mojom.HostResolverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -730,15 +765,20 @@ network.mojom.HostResolverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.HostResolver_ResolveHost_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.HostResolver_ResolveHost_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resolveHost');
           const result = this.impl.resolveHost(params.host, params.network_anonymization_key, params.optional_parameters, params.response_client);
           break;
         }
         case 1: {
-          const params = network.mojom.HostResolver_MdnsListen_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.HostResolver_MdnsListen_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.mdnsListen');
           const result = this.impl.mdnsListen(params.host, params.query_type, params.response_client);
           if (header.expectsResponse) {
@@ -827,8 +867,11 @@ network.mojom.DnsConfigChangeManagerClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -851,9 +894,13 @@ network.mojom.DnsConfigChangeManagerClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDnsConfigChanged');
           const result = this.impl.onDnsConfigChanged();
           break;
@@ -937,8 +984,11 @@ network.mojom.DnsConfigChangeManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -961,9 +1011,13 @@ network.mojom.DnsConfigChangeManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestNotifications');
           const result = this.impl.requestNotifications(params.client);
           break;

@@ -230,8 +230,16 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -254,9 +262,13 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.analyzeZipFile');
           const result = this.impl.analyzeZipFile(params.zip_file, params.password, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -268,7 +280,8 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           break;
         }
         case 1: {
-          const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.analyzeDmgFile');
           const result = this.impl.analyzeDmgFile(params.dmg_file, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -280,7 +293,8 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           break;
         }
         case 2: {
-          const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.analyzeRarFile');
           const result = this.impl.analyzeRarFile(params.rar_file, params.password, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -292,7 +306,8 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           break;
         }
         case 3: {
-          const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.analyzeSevenZipFile');
           const result = this.impl.analyzeSevenZipFile(params.seven_zip_file, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -304,7 +319,8 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           break;
         }
         case 4: {
-          const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.analyzeObfuscatedZipFile');
           const result = this.impl.analyzeObfuscatedZipFile(params.zip_file, params.password, params.header_data, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -316,7 +332,8 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           break;
         }
         case 5: {
-          const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.analyzeObfuscatedRarFile');
           const result = this.impl.analyzeObfuscatedRarFile(params.rar_file, params.password, params.header_data, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -411,8 +428,11 @@ chrome.mojom.TemporaryFileGetterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -435,9 +455,13 @@ chrome.mojom.TemporaryFileGetterReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestTemporaryFile');
           const result = this.impl.requestTemporaryFile();
           if (header.expectsResponse) {

@@ -146,8 +146,11 @@ network.mojom.WebSocketAuthenticationHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -170,9 +173,13 @@ network.mojom.WebSocketAuthenticationHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAuthRequired');
           const result = this.impl.onAuthRequired(params.info, params.headers, params.remote_endpoint);
           if (header.expectsResponse) {
@@ -300,8 +307,13 @@ network.mojom.WebSocketHandshakeClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -324,21 +336,27 @@ network.mojom.WebSocketHandshakeClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onOpeningHandshakeStarted');
           const result = this.impl.onOpeningHandshakeStarted(params.request);
           break;
         }
         case 1: {
-          const params = network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFailure');
           const result = this.impl.onFailure(params.message, params.net_error, params.response_code);
           break;
         }
         case 2: {
-          const params = network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onConnectionEstablished');
           const result = this.impl.onConnectionEstablished(params.socket, params.client_receiver, params.response, params.readable, params.writable);
           break;
@@ -457,8 +475,13 @@ network.mojom.WebSocketClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -481,21 +504,27 @@ network.mojom.WebSocketClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDataFrame');
           const result = this.impl.onDataFrame(params.fin, params.type, params.data_length);
           break;
         }
         case 1: {
-          const params = network.mojom.WebSocketClient_OnDropChannel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebSocketClient_OnDropChannel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDropChannel');
           const result = this.impl.onDropChannel(params.was_clean, params.code, params.reason);
           break;
         }
         case 2: {
-          const params = network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onClosingHandshake');
           const result = this.impl.onClosingHandshake();
           break;
@@ -612,8 +641,13 @@ network.mojom.WebSocketReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -636,21 +670,27 @@ network.mojom.WebSocketReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.WebSocket_SendMessage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebSocket_SendMessage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
           const result = this.impl.sendMessage(params.type, params.data_length);
           break;
         }
         case 1: {
-          const params = network.mojom.WebSocket_StartReceiving_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebSocket_StartReceiving_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startReceiving');
           const result = this.impl.startReceiving();
           break;
         }
         case 2: {
-          const params = network.mojom.WebSocket_StartClosingHandshake_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebSocket_StartClosingHandshake_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startClosingHandshake');
           const result = this.impl.startClosingHandshake(params.code, params.reason);
           break;

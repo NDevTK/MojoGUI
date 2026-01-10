@@ -179,8 +179,12 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -203,9 +207,13 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.selectURL');
           const result = this.impl.selectURL(params.name, params.urls_with_metadata, params.serialized_data, params.keep_alive_after_operation, params.private_aggregation_config, params.resolve_to_config, params.saved_query_name, params.start_time);
           if (header.expectsResponse) {
@@ -217,7 +225,8 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.run');
           const result = this.impl.run(params.name, params.serialized_data, params.keep_alive_after_operation, params.private_aggregation_config, params.start_time);
           if (header.expectsResponse) {
@@ -389,8 +398,14 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -413,9 +428,13 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createWorklet');
           const result = this.impl.createWorklet(params.script_source_url, params.data_origin, params.data_origin_type, params.credentials_mode, params.creation_method, params.origin_trial_features, params.worklet_host);
           if (header.expectsResponse) {
@@ -427,7 +446,8 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageGet');
           const result = this.impl.sharedStorageGet(params.key);
           if (header.expectsResponse) {
@@ -439,7 +459,8 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
           break;
         }
         case 2: {
-          const params = blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageUpdate');
           const result = this.impl.sharedStorageUpdate(params.method_with_options);
           if (header.expectsResponse) {
@@ -451,7 +472,8 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageBatchUpdate');
           const result = this.impl.sharedStorageBatchUpdate(params.methods_with_options, params.with_lock);
           if (header.expectsResponse) {

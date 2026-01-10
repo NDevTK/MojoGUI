@@ -94,8 +94,11 @@ ash.settings.one_drive.mojom.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -118,9 +121,13 @@ ash.settings.one_drive.mojom.PageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -272,8 +279,14 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -296,9 +309,13 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getUserEmailAddress');
           const result = this.impl.getUserEmailAddress();
           if (header.expectsResponse) {
@@ -310,7 +327,8 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connectToOneDrive');
           const result = this.impl.connectToOneDrive();
           if (header.expectsResponse) {
@@ -322,7 +340,8 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disconnectFromOneDrive');
           const result = this.impl.disconnectFromOneDrive();
           if (header.expectsResponse) {
@@ -334,7 +353,8 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openOneDriveFolder');
           const result = this.impl.openOneDriveFolder();
           if (header.expectsResponse) {
@@ -439,8 +459,12 @@ ash.settings.one_drive.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -463,15 +487,20 @@ ash.settings.one_drive.mojom.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onODFSMountOrUnmount');
           const result = this.impl.onODFSMountOrUnmount();
           break;
         }
         case 1: {
-          const params = ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAllowUserToRemoveODFSChanged');
           const result = this.impl.onAllowUserToRemoveODFSChanged(params.is_allowed);
           break;

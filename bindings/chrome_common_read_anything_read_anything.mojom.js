@@ -268,8 +268,12 @@ read_anything.mojom.UntrustedPageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -292,15 +296,20 @@ read_anything.mojom.UntrustedPageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createUntrustedPageHandler');
           const result = this.impl.createUntrustedPageHandler(params.page, params.handler);
           break;
         }
         case 1: {
-          const params = read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.shouldShowUI');
           const result = this.impl.shouldShowUI();
           break;
@@ -885,8 +894,42 @@ read_anything.mojom.UntrustedPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
+    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
+    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
+    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
+    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
+    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
+    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
+    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
+    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
+    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
+    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
+    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -909,9 +952,13 @@ read_anything.mojom.UntrustedPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDependencyParserModel');
           const result = this.impl.getDependencyParserModel();
           if (header.expectsResponse) {
@@ -923,187 +970,218 @@ read_anything.mojom.UntrustedPageHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPresentationState');
           const result = this.impl.getPresentationState();
           break;
         }
         case 2: {
-          const params = read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getVoicePackInfo');
           const result = this.impl.getVoicePackInfo(params.language);
           break;
         }
         case 3: {
-          const params = read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.installVoicePack');
           const result = this.impl.installVoicePack(params.language);
           break;
         }
         case 4: {
-          const params = read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.uninstallVoice');
           const result = this.impl.uninstallVoice(params.language);
           break;
         }
         case 5: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCopy');
           const result = this.impl.onCopy();
           break;
         }
         case 6: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLineSpaceChange');
           const result = this.impl.onLineSpaceChange(params.line_spacing);
           break;
         }
         case 7: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLetterSpaceChange');
           const result = this.impl.onLetterSpaceChange(params.letter_spacing);
           break;
         }
         case 8: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFontChange');
           const result = this.impl.onFontChange(params.font);
           break;
         }
         case 9: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFontSizeChange');
           const result = this.impl.onFontSizeChange(params.font_size);
           break;
         }
         case 10: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLinksEnabledChanged');
           const result = this.impl.onLinksEnabledChanged(params.enabled);
           break;
         }
         case 11: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onImagesEnabledChanged');
           const result = this.impl.onImagesEnabledChanged(params.enabled);
           break;
         }
         case 12: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onColorChange');
           const result = this.impl.onColorChange(params.color);
           break;
         }
         case 13: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRateChange');
           const result = this.impl.onSpeechRateChange(params.rate);
           break;
         }
         case 14: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onVoiceChange');
           const result = this.impl.onVoiceChange(params.voice, params.lang);
           break;
         }
         case 15: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLanguagePrefChange');
           const result = this.impl.onLanguagePrefChange(params.lang, params.enabled);
           break;
         }
         case 16: {
-          const params = read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logExtensionState');
           const result = this.impl.logExtensionState();
           break;
         }
         case 17: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onHighlightGranularityChanged');
           const result = this.impl.onHighlightGranularityChanged(params.granularity);
           break;
         }
         case 18: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLineFocusChanged');
           const result = this.impl.onLineFocusChanged(params.granularity);
           break;
         }
         case 19: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReadAloudAudioStateChange');
           const result = this.impl.onReadAloudAudioStateChange(params.playing);
           break;
         }
         case 20: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLinkClicked');
           const result = this.impl.onLinkClicked(params.target_tree_id, params.target_node_id);
           break;
         }
         case 21: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onImageDataRequested');
           const result = this.impl.onImageDataRequested(params.target_tree_id, params.target_node_id);
           break;
         }
         case 22: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSelectionChange');
           const result = this.impl.onSelectionChange(params.target_tree_id, params.anchor_node_id, params.anchor_offset, params.focus_node_id, params.focus_offset);
           break;
         }
         case 23: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCollapseSelection');
           const result = this.impl.onCollapseSelection();
           break;
         }
         case 24: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onScreenshotRequested');
           const result = this.impl.onScreenshotRequested();
           break;
         }
         case 25: {
-          const params = read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDistillationStatus');
           const result = this.impl.onDistillationStatus(params.status, params.word_count);
           break;
         }
         case 26: {
-          const params = read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.scrollToTargetNode');
           const result = this.impl.scrollToTargetNode(params.target_tree_id, params.target_node_id);
           break;
         }
         case 27: {
-          const params = read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 28: {
-          const params = read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.togglePinState');
           const result = this.impl.togglePinState();
           break;
         }
         case 29: {
-          const params = read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendPinStateRequest');
           const result = this.impl.sendPinStateRequest();
           break;
         }
         case 30: {
-          const params = read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.togglePresentation');
           const result = this.impl.togglePresentation();
           break;
         }
         case 31: {
-          const params = read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.ackReadingModeHidden');
           const result = this.impl.ackReadingModeHidden();
           break;
@@ -1457,8 +1535,27 @@ read_anything.mojom.UntrustedPageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1481,105 +1578,125 @@ read_anything.mojom.UntrustedPageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.accessibilityEventReceived');
           const result = this.impl.accessibilityEventReceived(params.tree_id, params.updates, params.events);
           break;
         }
         case 1: {
-          const params = read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onGetPresentationState');
           const result = this.impl.onGetPresentationState(params.presentation_state);
           break;
         }
         case 2: {
-          const params = read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onGetVoicePackInfo');
           const result = this.impl.onGetVoicePackInfo(params.voice_pack_info);
           break;
         }
         case 3: {
-          const params = read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.accessibilityLocationChangesReceived');
           const result = this.impl.accessibilityLocationChangesReceived(params.tree_id, params.details);
           break;
         }
         case 4: {
-          const params = read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onActiveAXTreeIDChanged');
           const result = this.impl.onActiveAXTreeIDChanged(params.tree_id, params.ukm_source_id, params.is_pdf);
           break;
         }
         case 5: {
-          const params = read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAXTreeDestroyed');
           const result = this.impl.onAXTreeDestroyed(params.tree_id);
           break;
         }
         case 6: {
-          const params = read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setLanguageCode');
           const result = this.impl.setLanguageCode(params.code);
           break;
         }
         case 7: {
-          const params = read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDeviceLocked');
           const result = this.impl.onDeviceLocked();
           break;
         }
         case 8: {
-          const params = read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTtsEngineInstalled');
           const result = this.impl.onTtsEngineInstalled();
           break;
         }
         case 9: {
-          const params = read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDefaultLanguageCode');
           const result = this.impl.setDefaultLanguageCode(params.code);
           break;
         }
         case 10: {
-          const params = read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSettingsRestoredFromPrefs');
           const result = this.impl.onSettingsRestoredFromPrefs(params.line_spacing, params.letter_spacing, params.font, params.font_size, params.links_enabled, params.images_enabled, params.color, params.speech_rate, params.voices, params.languages_enabled_in_pref, params.granularity, params.line_focus);
           break;
         }
         case 11: {
-          const params = read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.screenAIServiceReady');
           const result = this.impl.screenAIServiceReady();
           break;
         }
         case 12: {
-          const params = read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReadingModeHidden');
           const result = this.impl.onReadingModeHidden(params.tab_active);
           break;
         }
         case 13: {
-          const params = read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTabWillDetach');
           const result = this.impl.onTabWillDetach();
           break;
         }
         case 14: {
-          const params = read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTabMuteStateChange');
           const result = this.impl.onTabMuteStateChange(params.muted);
           break;
         }
         case 15: {
-          const params = read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onImageDataDownloaded');
           const result = this.impl.onImageDataDownloaded(params.tree_id, params.node_id, params.image);
           break;
         }
         case 16: {
-          const params = read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPinStatusReceived');
           const result = this.impl.onPinStatusReceived(params.new_pin_state);
           break;

@@ -256,8 +256,13 @@ ash.secure_channel.mojom.ChannelReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -280,9 +285,13 @@ ash.secure_channel.mojom.ChannelReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
           const result = this.impl.sendMessage(params.message);
           if (header.expectsResponse) {
@@ -294,7 +303,8 @@ ash.secure_channel.mojom.ChannelReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerPayloadFile');
           const result = this.impl.registerPayloadFile(params.payload_id, params.payload_files, params.listener);
           if (header.expectsResponse) {
@@ -306,7 +316,8 @@ ash.secure_channel.mojom.ChannelReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getConnectionMetadata');
           const result = this.impl.getConnectionMetadata();
           if (header.expectsResponse) {
@@ -396,8 +407,11 @@ ash.secure_channel.mojom.MessageReceiverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -420,9 +434,13 @@ ash.secure_channel.mojom.MessageReceiverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMessageReceived');
           const result = this.impl.onMessageReceived(params.message);
           break;
@@ -524,8 +542,12 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -548,15 +570,20 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onConnectionAttemptFailure');
           const result = this.impl.onConnectionAttemptFailure(params.reason);
           break;
         }
         case 1: {
-          const params = ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onConnection');
           const result = this.impl.onConnection(params.channel, params.message_receiver_receiver, params.nearby_connection_state_listener_receiver);
           break;
@@ -674,8 +701,13 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -698,21 +730,27 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logDiscoveryAttempt');
           const result = this.impl.logDiscoveryAttempt(params.result, params.error_code);
           break;
         }
         case 1: {
-          const params = ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logNearbyConnectionState');
           const result = this.impl.logNearbyConnectionState(params.step, params.status);
           break;
         }
         case 2: {
-          const params = ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logSecureChannelState');
           const result = this.impl.logSecureChannelState(params.state);
           break;
@@ -861,8 +899,14 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -885,27 +929,34 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.listenForConnectionFromDevice');
           const result = this.impl.listenForConnectionFromDevice(params.device_to_connect, params.local_device, params.feature, params.connection_medium, params.connection_priority, params.delegate);
           break;
         }
         case 1: {
-          const params = ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.initiateConnectionToDevice');
           const result = this.impl.initiateConnectionToDevice(params.device_to_connect, params.local_device, params.feature, params.connection_medium, params.connection_priority, params.delegate, params.secure_channel_structured_metrics_logger);
           break;
         }
         case 2: {
-          const params = ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setNearbyConnector');
           const result = this.impl.setNearbyConnector(params.nearby_connector);
           break;
         }
         case 3: {
-          const params = ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getLastSeenTimestamp');
           const result = this.impl.getLastSeenTimestamp(params.remote_device_id);
           if (header.expectsResponse) {

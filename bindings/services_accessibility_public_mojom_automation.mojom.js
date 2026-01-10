@@ -173,8 +173,16 @@ ax.mojom.AutomationReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -197,39 +205,48 @@ ax.mojom.AutomationReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dispatchTreeDestroyedEvent');
           const result = this.impl.dispatchTreeDestroyedEvent(params.tree_id);
           break;
         }
         case 1: {
-          const params = ax.mojom.Automation_DispatchActionResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchActionResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dispatchActionResult');
           const result = this.impl.dispatchActionResult(params.data, params.result);
           break;
         }
         case 2: {
-          const params = ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityEvents');
           const result = this.impl.dispatchAccessibilityEvents(params.tree_id, params.updates, params.mouse_location, params.events);
           break;
         }
         case 3: {
-          const params = ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityLocationChange');
           const result = this.impl.dispatchAccessibilityLocationChange(params.tree_id, params.node_id, params.bounds);
           break;
         }
         case 4: {
-          const params = ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityScrollChange');
           const result = this.impl.dispatchAccessibilityScrollChange(params.tree_id, params.node_id, params.scroll_x, params.scroll_y);
           break;
         }
         case 5: {
-          const params = ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dispatchGetTextLocationResult');
           const result = this.impl.dispatchGetTextLocationResult(params.data, params.rect);
           break;

@@ -144,8 +144,12 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -168,9 +172,13 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
           const result = this.impl.classifyTextSafety(params.rules, params.text);
           if (header.expectsResponse) {
@@ -182,7 +190,8 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
           const result = this.impl.classifyImageSafety(params.rules, params.prompt, params.image);
           if (header.expectsResponse) {
@@ -302,8 +311,12 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -326,9 +339,13 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
           const result = this.impl.classifyTextSafety(params.rules, params.text);
           if (header.expectsResponse) {
@@ -340,7 +357,8 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
           const result = this.impl.classifyImageSafety(params.rules, params.image);
           if (header.expectsResponse) {

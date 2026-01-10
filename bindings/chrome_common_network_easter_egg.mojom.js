@@ -116,8 +116,13 @@ chrome.mojom.NetworkEasterEggReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -140,9 +145,13 @@ chrome.mojom.NetworkEasterEggReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getHighScore');
           const result = this.impl.getHighScore();
           if (header.expectsResponse) {
@@ -154,13 +163,15 @@ chrome.mojom.NetworkEasterEggReceiver = class {
           break;
         }
         case 1: {
-          const params = chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateHighScore');
           const result = this.impl.updateHighScore(params.high_score);
           break;
         }
         case 2: {
-          const params = chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resetHighScore');
           const result = this.impl.resetHighScore();
           break;

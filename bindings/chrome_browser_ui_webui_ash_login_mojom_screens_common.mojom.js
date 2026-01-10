@@ -126,8 +126,11 @@ ash.screens_common.mojom.AiIntroPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -150,9 +153,13 @@ ash.screens_common.mojom.AiIntroPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
           const result = this.impl.onNextClicked();
           break;
@@ -236,8 +243,11 @@ ash.screens_common.mojom.AiIntroPageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -260,9 +270,13 @@ ash.screens_common.mojom.AiIntroPageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setAutoTransition');
           const result = this.impl.setAutoTransition(params.value);
           break;
@@ -345,8 +359,11 @@ ash.screens_common.mojom.AppDownloadingPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -369,9 +386,13 @@ ash.screens_common.mojom.AppDownloadingPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onContinueClicked');
           const result = this.impl.onContinueClicked();
           break;
@@ -471,8 +492,12 @@ ash.screens_common.mojom.DrivePinningPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -495,15 +520,20 @@ ash.screens_common.mojom.DrivePinningPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReturnClicked');
           const result = this.impl.onReturnClicked(params.enable_drive_pinning);
           break;
         }
         case 1: {
-          const params = ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
           const result = this.impl.onNextClicked(params.enable_drive_pinning);
           break;
@@ -588,8 +618,11 @@ ash.screens_common.mojom.DrivePinningPageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -612,9 +645,13 @@ ash.screens_common.mojom.DrivePinningPageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setRequiredSpaceInfo');
           const result = this.impl.setRequiredSpaceInfo(params.required_space, params.free_space);
           break;
@@ -697,8 +734,11 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -721,9 +761,13 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSetupComplete');
           const result = this.impl.onSetupComplete();
           break;
@@ -822,8 +866,12 @@ ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -846,15 +894,20 @@ ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBackClicked');
           const result = this.impl.onBackClicked();
           break;
         }
         case 1: {
-          const params = ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
           const result = this.impl.onNextClicked(params.user_flow);
           break;
@@ -937,8 +990,11 @@ ash.screens_common.mojom.GaiaInfoPageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -961,9 +1017,13 @@ ash.screens_common.mojom.GaiaInfoPageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setQuickStartVisible');
           const result = this.impl.setQuickStartVisible();
           break;
@@ -1077,8 +1137,13 @@ ash.screens_common.mojom.GestureNavigationPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1101,21 +1166,27 @@ ash.screens_common.mojom.GestureNavigationPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPageChange');
           const result = this.impl.onPageChange(params.page);
           break;
         }
         case 1: {
-          const params = ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSkipClicked');
           const result = this.impl.onSkipClicked();
           break;
         }
         case 2: {
-          const params = ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onExitClicked');
           const result = this.impl.onExitClicked();
           break;
@@ -1213,8 +1284,12 @@ ash.screens_common.mojom.GeminiIntroPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1237,15 +1312,20 @@ ash.screens_common.mojom.GeminiIntroPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBackClicked');
           const result = this.impl.onBackClicked();
           break;
         }
         case 1: {
-          const params = ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
           const result = this.impl.onNextClicked();
           break;

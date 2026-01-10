@@ -395,8 +395,11 @@ device.mojom.SmartCardTransactionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -419,9 +422,13 @@ device.mojom.SmartCardTransactionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.endTransaction');
           const result = this.impl.endTransaction(params.disposition);
           if (header.expectsResponse) {
@@ -650,8 +657,17 @@ device.mojom.SmartCardConnectionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -674,9 +690,13 @@ device.mojom.SmartCardConnectionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.SmartCardConnection_Disconnect_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardConnection_Disconnect_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect(params.disposition);
           if (header.expectsResponse) {
@@ -688,7 +708,8 @@ device.mojom.SmartCardConnectionReceiver = class {
           break;
         }
         case 1: {
-          const params = device.mojom.SmartCardConnection_Transmit_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardConnection_Transmit_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.transmit');
           const result = this.impl.transmit(params.protocol, params.data);
           if (header.expectsResponse) {
@@ -700,7 +721,8 @@ device.mojom.SmartCardConnectionReceiver = class {
           break;
         }
         case 2: {
-          const params = device.mojom.SmartCardConnection_Control_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardConnection_Control_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.control');
           const result = this.impl.control(params.control_code, params.data);
           if (header.expectsResponse) {
@@ -712,7 +734,8 @@ device.mojom.SmartCardConnectionReceiver = class {
           break;
         }
         case 3: {
-          const params = device.mojom.SmartCardConnection_GetAttrib_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardConnection_GetAttrib_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getAttrib');
           const result = this.impl.getAttrib(params.id);
           if (header.expectsResponse) {
@@ -724,7 +747,8 @@ device.mojom.SmartCardConnectionReceiver = class {
           break;
         }
         case 4: {
-          const params = device.mojom.SmartCardConnection_SetAttrib_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardConnection_SetAttrib_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setAttrib');
           const result = this.impl.setAttrib(params.id, params.data);
           if (header.expectsResponse) {
@@ -736,7 +760,8 @@ device.mojom.SmartCardConnectionReceiver = class {
           break;
         }
         case 5: {
-          const params = device.mojom.SmartCardConnection_Status_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardConnection_Status_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.status');
           const result = this.impl.status();
           if (header.expectsResponse) {
@@ -748,7 +773,8 @@ device.mojom.SmartCardConnectionReceiver = class {
           break;
         }
         case 6: {
-          const params = device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.beginTransaction');
           const result = this.impl.beginTransaction();
           if (header.expectsResponse) {
@@ -837,8 +863,11 @@ device.mojom.SmartCardConnectionWatcherReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -861,9 +890,13 @@ device.mojom.SmartCardConnectionWatcherReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyConnectionUsed');
           const result = this.impl.notifyConnectionUsed();
           break;
@@ -1021,8 +1054,14 @@ device.mojom.SmartCardContextReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1045,9 +1084,13 @@ device.mojom.SmartCardContextReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.SmartCardContext_ListReaders_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardContext_ListReaders_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.listReaders');
           const result = this.impl.listReaders();
           if (header.expectsResponse) {
@@ -1059,7 +1102,8 @@ device.mojom.SmartCardContextReceiver = class {
           break;
         }
         case 1: {
-          const params = device.mojom.SmartCardContext_GetStatusChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardContext_GetStatusChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getStatusChange');
           const result = this.impl.getStatusChange(params.timeout, params.reader_states);
           if (header.expectsResponse) {
@@ -1071,7 +1115,8 @@ device.mojom.SmartCardContextReceiver = class {
           break;
         }
         case 2: {
-          const params = device.mojom.SmartCardContext_Cancel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardContext_Cancel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           if (header.expectsResponse) {
@@ -1083,7 +1128,8 @@ device.mojom.SmartCardContextReceiver = class {
           break;
         }
         case 3: {
-          const params = device.mojom.SmartCardContext_Connect_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardContext_Connect_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.reader, params.share_mode, params.preferred_protocols, params.connection_watcher);
           if (header.expectsResponse) {
@@ -1178,8 +1224,11 @@ device.mojom.SmartCardContextFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1202,9 +1251,13 @@ device.mojom.SmartCardContextFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createContext');
           const result = this.impl.createContext();
           if (header.expectsResponse) {
