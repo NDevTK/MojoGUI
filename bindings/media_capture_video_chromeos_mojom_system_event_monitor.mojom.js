@@ -121,7 +121,7 @@ cros.mojom.CrosDisplayObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -130,7 +130,7 @@ cros.mojom.CrosDisplayObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -209,7 +209,7 @@ cros.mojom.CrosLidObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -218,7 +218,7 @@ cros.mojom.CrosLidObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -316,7 +316,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -336,7 +336,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -464,7 +464,7 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -488,7 +488,7 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

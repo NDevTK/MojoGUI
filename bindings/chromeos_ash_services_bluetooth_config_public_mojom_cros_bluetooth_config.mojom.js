@@ -264,7 +264,7 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -273,7 +273,7 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -384,7 +384,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -403,7 +403,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -482,7 +482,7 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -491,7 +491,7 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -570,7 +570,7 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -579,7 +579,7 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -761,7 +761,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -819,7 +819,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -927,7 +927,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -953,7 +953,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1063,7 +1063,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1082,7 +1082,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1339,7 +1339,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1416,7 +1416,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

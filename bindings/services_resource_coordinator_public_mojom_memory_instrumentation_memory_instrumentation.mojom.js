@@ -403,7 +403,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -429,7 +429,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -515,7 +515,7 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -530,7 +530,7 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -615,7 +615,7 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -630,7 +630,7 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -791,7 +791,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -839,7 +839,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -919,7 +919,7 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -928,7 +928,7 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

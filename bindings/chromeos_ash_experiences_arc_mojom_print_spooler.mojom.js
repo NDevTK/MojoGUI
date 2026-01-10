@@ -77,11 +77,11 @@ arc.mojom.PrintSessionHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
       }
-    });
+    }});
   }
 };
 
@@ -182,7 +182,7 @@ arc.mojom.PrintSessionInstanceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -202,7 +202,7 @@ arc.mojom.PrintSessionInstanceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -289,7 +289,7 @@ arc.mojom.PrintSpoolerHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 1: {
@@ -304,7 +304,7 @@ arc.mojom.PrintSpoolerHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -388,7 +388,7 @@ arc.mojom.PrintSpoolerInstanceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -403,7 +403,7 @@ arc.mojom.PrintSpoolerInstanceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

@@ -189,7 +189,7 @@ ash.settings.mojom.KeyboardSettingsObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -203,7 +203,7 @@ ash.settings.mojom.KeyboardSettingsObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -282,7 +282,7 @@ ash.settings.mojom.TouchpadSettingsObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -291,7 +291,7 @@ ash.settings.mojom.TouchpadSettingsObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -370,7 +370,7 @@ ash.settings.mojom.PointingStickSettingsObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -379,7 +379,7 @@ ash.settings.mojom.PointingStickSettingsObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -474,7 +474,7 @@ ash.settings.mojom.MouseSettingsObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -488,7 +488,7 @@ ash.settings.mojom.MouseSettingsObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -567,7 +567,7 @@ ash.settings.mojom.ButtonPressObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -576,7 +576,7 @@ ash.settings.mojom.ButtonPressObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -655,7 +655,7 @@ ash.settings.mojom.GraphicsTabletSettingsObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -664,7 +664,7 @@ ash.settings.mojom.GraphicsTabletSettingsObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -743,7 +743,7 @@ ash.settings.mojom.KeyboardBrightnessObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -752,7 +752,7 @@ ash.settings.mojom.KeyboardBrightnessObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -831,7 +831,7 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -840,7 +840,7 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -919,7 +919,7 @@ ash.settings.mojom.LidStateObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -928,7 +928,7 @@ ash.settings.mojom.LidStateObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1500,7 +1500,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1697,7 +1697,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

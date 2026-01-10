@@ -146,7 +146,7 @@ content.mojom.FakeBluetoothChooserReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -165,7 +165,7 @@ content.mojom.FakeBluetoothChooserReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -250,7 +250,7 @@ content.mojom.FakeBluetoothChooserFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -265,7 +265,7 @@ content.mojom.FakeBluetoothChooserFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -344,7 +344,7 @@ content.mojom.FakeBluetoothChooserClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -353,7 +353,7 @@ content.mojom.FakeBluetoothChooserClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

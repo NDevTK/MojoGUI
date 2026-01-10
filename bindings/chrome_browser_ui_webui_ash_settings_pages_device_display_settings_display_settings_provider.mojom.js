@@ -160,7 +160,7 @@ ash.settings.mojom.TabletModeObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -169,7 +169,7 @@ ash.settings.mojom.TabletModeObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -247,7 +247,7 @@ ash.settings.mojom.DisplayConfigurationObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -256,7 +256,7 @@ ash.settings.mojom.DisplayConfigurationObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -336,7 +336,7 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -345,7 +345,7 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -424,7 +424,7 @@ ash.settings.mojom.AmbientLightSensorObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -433,7 +433,7 @@ ash.settings.mojom.AmbientLightSensorObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -679,7 +679,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -757,7 +757,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

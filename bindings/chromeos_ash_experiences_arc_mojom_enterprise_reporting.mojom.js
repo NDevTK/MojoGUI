@@ -109,7 +109,7 @@ arc.mojom.EnterpriseReportingHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 1: {
@@ -118,7 +118,7 @@ arc.mojom.EnterpriseReportingHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -224,7 +224,7 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 2: {
@@ -250,7 +250,7 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

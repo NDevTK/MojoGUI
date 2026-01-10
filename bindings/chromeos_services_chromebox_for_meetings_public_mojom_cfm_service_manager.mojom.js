@@ -86,11 +86,11 @@ chromeos.cfm.mojom.DisconnectReasonReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
       }
-    });
+    }});
   }
 };
 
@@ -199,7 +199,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -225,7 +225,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -304,7 +304,7 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -313,7 +313,7 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

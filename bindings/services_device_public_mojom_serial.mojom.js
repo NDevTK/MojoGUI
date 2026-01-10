@@ -295,7 +295,7 @@ device.mojom.SerialPortManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -326,7 +326,7 @@ device.mojom.SerialPortManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -437,7 +437,7 @@ device.mojom.SerialPortManagerClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -456,7 +456,7 @@ device.mojom.SerialPortManagerClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -699,7 +699,7 @@ device.mojom.SerialPortReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -790,7 +790,7 @@ device.mojom.SerialPortReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -885,7 +885,7 @@ device.mojom.SerialPortClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -899,7 +899,7 @@ device.mojom.SerialPortClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -962,11 +962,11 @@ device.mojom.SerialPortConnectionWatcherReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
       }
-    });
+    }});
   }
 };
 

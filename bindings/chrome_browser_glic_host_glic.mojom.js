@@ -1166,7 +1166,7 @@ glic.mojom.PreloadPageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1175,7 +1175,7 @@ glic.mojom.PreloadPageReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1285,7 +1285,7 @@ glic.mojom.PageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1304,7 +1304,7 @@ glic.mojom.PageReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1388,7 +1388,7 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1403,7 +1403,7 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1483,7 +1483,7 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1492,7 +1492,7 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1572,7 +1572,7 @@ glic.mojom.PageHandlerFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1581,7 +1581,7 @@ glic.mojom.PageHandlerFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1837,7 +1837,7 @@ glic.mojom.PageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1920,7 +1920,7 @@ glic.mojom.PageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1999,7 +1999,7 @@ glic.mojom.PinCandidatesObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2008,7 +2008,7 @@ glic.mojom.PinCandidatesObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -3671,7 +3671,7 @@ glic.mojom.WebClientHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -4327,7 +4327,7 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -4406,7 +4406,7 @@ glic.mojom.TabDataHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -4415,7 +4415,7 @@ glic.mojom.TabDataHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -5043,7 +5043,7 @@ glic.mojom.WebClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -5248,7 +5248,7 @@ glic.mojom.WebClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -5328,7 +5328,7 @@ glic.mojom.CaptureRegionObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -5337,7 +5337,7 @@ glic.mojom.CaptureRegionObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

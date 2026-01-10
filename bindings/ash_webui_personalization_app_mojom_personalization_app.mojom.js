@@ -584,7 +584,7 @@ ash.personalization_app.mojom.WallpaperObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -603,7 +603,7 @@ ash.personalization_app.mojom.WallpaperObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1195,7 +1195,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1449,7 +1449,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1626,7 +1626,7 @@ ash.personalization_app.mojom.ThemeObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1665,7 +1665,7 @@ ash.personalization_app.mojom.ThemeObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1970,7 +1970,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2081,7 +2081,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2208,7 +2208,7 @@ ash.personalization_app.mojom.UserImageObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2232,7 +2232,7 @@ ash.personalization_app.mojom.UserImageObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2430,7 +2430,7 @@ ash.personalization_app.mojom.UserProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2486,7 +2486,7 @@ ash.personalization_app.mojom.UserProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2710,7 +2710,7 @@ ash.personalization_app.mojom.AmbientObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2764,7 +2764,7 @@ ash.personalization_app.mojom.AmbientObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -3100,7 +3100,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -3208,7 +3208,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -3303,7 +3303,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -3317,7 +3317,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -3465,7 +3465,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -3500,7 +3500,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

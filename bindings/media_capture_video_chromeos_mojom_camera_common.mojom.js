@@ -192,7 +192,7 @@ cros.mojom.CameraModuleCallbacksReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -206,7 +206,7 @@ cros.mojom.CameraModuleCallbacksReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -377,7 +377,7 @@ cros.mojom.VendorTagOpsReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -436,7 +436,7 @@ cros.mojom.VendorTagOpsReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -675,7 +675,7 @@ cros.mojom.CameraModuleReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -767,7 +767,7 @@ cros.mojom.CameraModuleReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

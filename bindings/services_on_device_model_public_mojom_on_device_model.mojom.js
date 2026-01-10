@@ -381,7 +381,7 @@ on_device_model.mojom.StreamingResponderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -395,7 +395,7 @@ on_device_model.mojom.StreamingResponderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -474,7 +474,7 @@ on_device_model.mojom.ContextClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -483,7 +483,7 @@ on_device_model.mojom.ContextClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -696,7 +696,7 @@ on_device_model.mojom.SessionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 6: {
@@ -758,7 +758,7 @@ on_device_model.mojom.SessionReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -905,7 +905,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -947,7 +947,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1070,7 +1070,7 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 1: {
@@ -1101,7 +1101,7 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1180,7 +1180,7 @@ on_device_model.mojom.TextSafetyModelReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1189,7 +1189,7 @@ on_device_model.mojom.TextSafetyModelReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1268,7 +1268,7 @@ on_device_model.mojom.AsrStreamResponderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1277,7 +1277,7 @@ on_device_model.mojom.AsrStreamResponderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1356,7 +1356,7 @@ on_device_model.mojom.AsrStreamInputReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1365,7 +1365,7 @@ on_device_model.mojom.AsrStreamInputReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

@@ -88,7 +88,7 @@ chromecast.mojom.AssistantMessagePipeReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -97,7 +97,7 @@ chromecast.mojom.AssistantMessagePipeReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -176,7 +176,7 @@ chromecast.mojom.AssistantMessageClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -185,7 +185,7 @@ chromecast.mojom.AssistantMessageClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -266,7 +266,7 @@ chromecast.mojom.AssistantMessageServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -275,7 +275,7 @@ chromecast.mojom.AssistantMessageServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

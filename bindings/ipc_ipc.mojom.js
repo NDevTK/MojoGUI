@@ -111,7 +111,7 @@ IPC.mojom.ChannelReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -125,7 +125,7 @@ IPC.mojom.ChannelReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -188,11 +188,11 @@ IPC.mojom.ChannelBootstrapReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
       }
-    });
+    }});
   }
 };
 

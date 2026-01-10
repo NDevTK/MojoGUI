@@ -291,7 +291,7 @@ ash.camera_app.mojom.TabletModeMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -300,7 +300,7 @@ ash.camera_app.mojom.TabletModeMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -379,7 +379,7 @@ ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -388,7 +388,7 @@ ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -467,7 +467,7 @@ ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -476,7 +476,7 @@ ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -555,7 +555,7 @@ ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -564,7 +564,7 @@ ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -648,7 +648,7 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -663,7 +663,7 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -742,7 +742,7 @@ ash.camera_app.mojom.LidStateMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -751,7 +751,7 @@ ash.camera_app.mojom.LidStateMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -830,7 +830,7 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -839,7 +839,7 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -934,7 +934,7 @@ ash.camera_app.mojom.WindowStateMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -948,7 +948,7 @@ ash.camera_app.mojom.WindowStateMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1027,7 +1027,7 @@ ash.camera_app.mojom.StorageMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1036,7 +1036,7 @@ ash.camera_app.mojom.StorageMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1242,7 +1242,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1323,7 +1323,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2025,7 +2025,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2321,7 +2321,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

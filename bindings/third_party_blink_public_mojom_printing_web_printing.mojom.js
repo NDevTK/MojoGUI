@@ -387,7 +387,7 @@ blink.mojom.WebPrintJobStateObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -396,7 +396,7 @@ blink.mojom.WebPrintJobStateObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -474,7 +474,7 @@ blink.mojom.WebPrintJobControllerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -483,7 +483,7 @@ blink.mojom.WebPrintJobControllerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -590,7 +590,7 @@ blink.mojom.WebPrinterReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -616,7 +616,7 @@ blink.mojom.WebPrinterReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -700,7 +700,7 @@ blink.mojom.WebPrintingServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -715,7 +715,7 @@ blink.mojom.WebPrintingServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

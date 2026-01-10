@@ -1282,7 +1282,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1759,7 +1759,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2782,7 +2782,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -3259,7 +3259,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -3364,7 +3364,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 1: {
@@ -3390,7 +3390,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -3541,7 +3541,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 1: {
@@ -3567,7 +3567,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

@@ -94,7 +94,7 @@ chromecast.mojom.MessageCallbackReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -103,7 +103,7 @@ chromecast.mojom.MessageCallbackReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -200,7 +200,7 @@ chromecast.mojom.WebUiReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -214,7 +214,7 @@ chromecast.mojom.WebUiReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -299,7 +299,7 @@ chromecast.mojom.ResourcesReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -314,7 +314,7 @@ chromecast.mojom.ResourcesReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -412,7 +412,7 @@ chromecast.mojom.WebUiClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -426,7 +426,7 @@ chromecast.mojom.WebUiClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

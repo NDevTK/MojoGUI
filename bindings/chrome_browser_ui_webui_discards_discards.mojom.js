@@ -343,7 +343,7 @@ discards.mojom.DetailsProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -411,7 +411,7 @@ discards.mojom.DetailsProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -634,7 +634,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -688,7 +688,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -789,7 +789,7 @@ discards.mojom.GraphDumpReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -809,7 +809,7 @@ discards.mojom.GraphDumpReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

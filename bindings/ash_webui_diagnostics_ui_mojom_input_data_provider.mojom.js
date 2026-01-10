@@ -190,7 +190,7 @@ ash.diagnostics.mojom.KeyboardObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -209,7 +209,7 @@ ash.diagnostics.mojom.KeyboardObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -288,7 +288,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -297,7 +297,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -376,7 +376,7 @@ ash.diagnostics.mojom.TabletModeObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -385,7 +385,7 @@ ash.diagnostics.mojom.TabletModeObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -464,7 +464,7 @@ ash.diagnostics.mojom.LidStateObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -473,7 +473,7 @@ ash.diagnostics.mojom.LidStateObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -600,7 +600,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -624,7 +624,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -848,7 +848,7 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -915,7 +915,7 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

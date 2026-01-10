@@ -169,7 +169,7 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -188,7 +188,7 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -284,7 +284,7 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -298,7 +298,7 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -378,7 +378,7 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -387,7 +387,7 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

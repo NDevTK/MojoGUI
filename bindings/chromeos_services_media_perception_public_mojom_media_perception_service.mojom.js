@@ -90,7 +90,7 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -99,7 +99,7 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -178,7 +178,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -187,7 +187,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -266,7 +266,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -275,7 +275,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
           break;
         }
       }
-    });
+    }});
   }
 };
 

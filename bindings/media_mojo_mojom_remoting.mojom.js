@@ -120,7 +120,7 @@ media.mojom.RemoterFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -129,7 +129,7 @@ media.mojom.RemoterFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -228,7 +228,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -248,7 +248,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -413,7 +413,7 @@ media.mojom.RemoterReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -453,7 +453,7 @@ media.mojom.RemoterReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -610,7 +610,7 @@ media.mojom.RemotingSourceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -644,7 +644,7 @@ media.mojom.RemotingSourceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -789,7 +789,7 @@ media.mojom.RemoteeReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -818,7 +818,7 @@ media.mojom.RemoteeReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -897,7 +897,7 @@ media.mojom.RemotingSinkReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -906,7 +906,7 @@ media.mojom.RemotingSinkReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1018,7 +1018,7 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1037,7 +1037,7 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

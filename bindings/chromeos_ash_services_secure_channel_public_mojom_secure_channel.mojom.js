@@ -260,7 +260,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -297,7 +297,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -376,7 +376,7 @@ ash.secure_channel.mojom.MessageReceiverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -385,7 +385,7 @@ ash.secure_channel.mojom.MessageReceiverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -482,7 +482,7 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -496,7 +496,7 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -609,7 +609,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -628,7 +628,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -772,7 +772,7 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -802,7 +802,7 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

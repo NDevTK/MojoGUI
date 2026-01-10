@@ -770,7 +770,7 @@ arc.mojom.keymint.KeyMintHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -785,7 +785,7 @@ arc.mojom.keymint.KeyMintHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -869,7 +869,7 @@ arc.mojom.keymint.KeyMintInstanceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -884,7 +884,7 @@ arc.mojom.keymint.KeyMintInstanceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1526,7 +1526,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1815,7 +1815,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

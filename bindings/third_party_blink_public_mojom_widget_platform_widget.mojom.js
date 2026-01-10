@@ -118,7 +118,7 @@ blink.mojom.WidgetCompositorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -133,7 +133,7 @@ blink.mojom.WidgetCompositorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -334,7 +334,7 @@ blink.mojom.WidgetHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -378,7 +378,7 @@ blink.mojom.WidgetHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -578,7 +578,7 @@ blink.mojom.WidgetReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -634,7 +634,7 @@ blink.mojom.WidgetReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -748,7 +748,7 @@ blink.mojom.RenderInputRouterClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -767,7 +767,7 @@ blink.mojom.RenderInputRouterClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

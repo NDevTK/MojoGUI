@@ -175,7 +175,7 @@ media_session.mojom.AudioFocusObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -194,7 +194,7 @@ media_session.mojom.AudioFocusObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -310,7 +310,7 @@ media_session.mojom.AudioFocusRequestClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -335,7 +335,7 @@ media_session.mojom.AudioFocusRequestClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -626,7 +626,7 @@ media_session.mojom.AudioFocusManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -720,7 +720,7 @@ media_session.mojom.AudioFocusManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -805,7 +805,7 @@ media_session.mojom.AudioFocusManagerDebugReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -820,7 +820,7 @@ media_session.mojom.AudioFocusManagerDebugReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

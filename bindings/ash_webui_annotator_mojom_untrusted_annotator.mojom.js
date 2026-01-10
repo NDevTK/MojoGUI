@@ -137,7 +137,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -161,7 +161,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -257,7 +257,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -271,7 +271,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -351,7 +351,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -360,7 +360,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

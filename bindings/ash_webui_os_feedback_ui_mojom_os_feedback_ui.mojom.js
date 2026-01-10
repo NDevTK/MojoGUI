@@ -241,7 +241,7 @@ ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -256,7 +256,7 @@ ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -539,7 +539,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -626,7 +626,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

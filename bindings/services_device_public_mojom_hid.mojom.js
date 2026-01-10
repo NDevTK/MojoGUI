@@ -456,7 +456,7 @@ device.mojom.HidManagerClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -475,7 +475,7 @@ device.mojom.HidManagerClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -623,7 +623,7 @@ device.mojom.HidManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -665,7 +665,7 @@ device.mojom.HidManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -820,7 +820,7 @@ device.mojom.HidConnectionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -868,7 +868,7 @@ device.mojom.HidConnectionReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -948,7 +948,7 @@ device.mojom.HidConnectionClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -957,7 +957,7 @@ device.mojom.HidConnectionClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1020,11 +1020,11 @@ device.mojom.HidConnectionWatcherReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
       }
-    });
+    }});
   }
 };
 

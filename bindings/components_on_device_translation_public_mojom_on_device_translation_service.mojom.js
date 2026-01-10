@@ -159,7 +159,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -185,7 +185,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -311,7 +311,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -342,7 +342,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

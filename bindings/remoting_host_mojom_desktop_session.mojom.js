@@ -552,7 +552,7 @@ remoting.mojom.DesktopSessionRequestHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -571,7 +571,7 @@ remoting.mojom.DesktopSessionRequestHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -685,7 +685,7 @@ remoting.mojom.DesktopSessionManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -704,7 +704,7 @@ remoting.mojom.DesktopSessionManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -791,7 +791,7 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -806,7 +806,7 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -912,7 +912,7 @@ remoting.mojom.FileWriterReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -938,7 +938,7 @@ remoting.mojom.FileWriterReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1023,7 +1023,7 @@ remoting.mojom.FileReaderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1038,7 +1038,7 @@ remoting.mojom.FileReaderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1337,7 +1337,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1429,7 +1429,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1523,7 +1523,7 @@ remoting.mojom.VideoCapturerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1537,7 +1537,7 @@ remoting.mojom.VideoCapturerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1650,7 +1650,7 @@ remoting.mojom.VideoCapturerEventHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1669,7 +1669,7 @@ remoting.mojom.VideoCapturerEventHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1876,7 +1876,7 @@ remoting.mojom.DesktopSessionEventHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1925,7 +1925,7 @@ remoting.mojom.DesktopSessionEventHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2006,7 +2006,7 @@ remoting.mojom.DesktopSessionStateHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2015,7 +2015,7 @@ remoting.mojom.DesktopSessionStateHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2096,7 +2096,7 @@ remoting.mojom.WorkerProcessControlReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2105,7 +2105,7 @@ remoting.mojom.WorkerProcessControlReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

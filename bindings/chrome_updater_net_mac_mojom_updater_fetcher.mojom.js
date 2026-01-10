@@ -145,7 +145,7 @@ updater.mojom.PostRequestObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -164,7 +164,7 @@ updater.mojom.PostRequestObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -279,7 +279,7 @@ updater.mojom.FileDownloadObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -298,7 +298,7 @@ updater.mojom.FileDownloadObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -409,7 +409,7 @@ updater.mojom.FetchServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -435,7 +435,7 @@ updater.mojom.FetchServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

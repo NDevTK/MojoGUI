@@ -234,7 +234,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -302,7 +302,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -430,7 +430,7 @@ commerce.price_tracking.mojom.PageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -454,7 +454,7 @@ commerce.price_tracking.mojom.PageReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -534,7 +534,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -543,7 +543,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

@@ -297,7 +297,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -356,7 +356,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -440,7 +440,7 @@ network.mojom.SimpleCacheEntryEnumeratorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -455,7 +455,7 @@ network.mojom.SimpleCacheEntryEnumeratorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -643,7 +643,7 @@ network.mojom.SimpleCacheReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -707,7 +707,7 @@ network.mojom.SimpleCacheReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1370,7 +1370,7 @@ network.mojom.NetworkServiceTestReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1669,7 +1669,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

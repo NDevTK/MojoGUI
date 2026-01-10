@@ -411,7 +411,7 @@ arc.mojom.CustomTabSessionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -420,7 +420,7 @@ arc.mojom.CustomTabSessionReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -820,7 +820,7 @@ arc.mojom.IntentHelperHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 1: {
@@ -936,7 +936,7 @@ arc.mojom.IntentHelperHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1307,7 +1307,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 8: {
@@ -1433,7 +1433,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

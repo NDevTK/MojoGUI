@@ -151,7 +151,7 @@ app_home.mojom.PageHandlerFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -160,7 +160,7 @@ app_home.mojom.PageHandlerFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -400,7 +400,7 @@ app_home.mojom.PageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -472,7 +472,7 @@ app_home.mojom.PageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -583,7 +583,7 @@ app_home.mojom.PageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -602,7 +602,7 @@ app_home.mojom.PageReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

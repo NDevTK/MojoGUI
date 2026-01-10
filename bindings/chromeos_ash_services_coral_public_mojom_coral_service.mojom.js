@@ -254,7 +254,7 @@ coral.mojom.TitleObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -263,7 +263,7 @@ coral.mojom.TitleObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -371,7 +371,7 @@ coral.mojom.CoralProcessorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -397,7 +397,7 @@ coral.mojom.CoralProcessorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -538,7 +538,7 @@ coral.mojom.CoralServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -574,7 +574,7 @@ coral.mojom.CoralServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

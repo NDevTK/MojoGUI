@@ -673,7 +673,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -707,7 +707,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -800,7 +800,7 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -814,7 +814,7 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -937,7 +937,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -961,7 +961,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1054,7 +1054,7 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1068,7 +1068,7 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1191,7 +1191,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1215,7 +1215,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1310,7 +1310,7 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1324,7 +1324,7 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1417,7 +1417,7 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1431,7 +1431,7 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1510,7 +1510,7 @@ ash.cros_healthd.mojom.EventObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1519,7 +1519,7 @@ ash.cros_healthd.mojom.EventObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

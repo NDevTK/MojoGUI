@@ -251,7 +251,7 @@ media.mojom.SpeechRecognitionContextReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -271,7 +271,7 @@ media.mojom.SpeechRecognitionContextReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -414,7 +414,7 @@ media.mojom.SpeechRecognitionRecognizerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -443,7 +443,7 @@ media.mojom.SpeechRecognitionRecognizerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -574,7 +574,7 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -604,7 +604,7 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -715,7 +715,7 @@ media.mojom.SpeechRecognitionBrowserObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -734,7 +734,7 @@ media.mojom.SpeechRecognitionBrowserObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -833,7 +833,7 @@ media.mojom.SpeechRecognitionSurfaceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -853,7 +853,7 @@ media.mojom.SpeechRecognitionSurfaceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -946,7 +946,7 @@ media.mojom.SpeechRecognitionSurfaceClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -960,7 +960,7 @@ media.mojom.SpeechRecognitionSurfaceClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1070,7 +1070,7 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1089,7 +1089,7 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

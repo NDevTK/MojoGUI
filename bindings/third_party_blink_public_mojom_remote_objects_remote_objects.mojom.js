@@ -253,7 +253,7 @@ blink.mojom.RemoteObjectHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -272,7 +272,7 @@ blink.mojom.RemoteObjectHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -416,7 +416,7 @@ blink.mojom.RemoteObjectReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -458,7 +458,7 @@ blink.mojom.RemoteObjectReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -538,7 +538,7 @@ blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -547,7 +547,7 @@ blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -643,7 +643,7 @@ blink.mojom.RemoteObjectGatewayReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -657,7 +657,7 @@ blink.mojom.RemoteObjectGatewayReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

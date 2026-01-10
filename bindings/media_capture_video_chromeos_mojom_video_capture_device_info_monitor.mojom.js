@@ -85,7 +85,7 @@ cros.mojom.VideoCaptureDeviceInfoObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -94,7 +94,7 @@ cros.mojom.VideoCaptureDeviceInfoObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -173,7 +173,7 @@ cros.mojom.VideoCaptureDeviceInfoMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -182,7 +182,7 @@ cros.mojom.VideoCaptureDeviceInfoMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

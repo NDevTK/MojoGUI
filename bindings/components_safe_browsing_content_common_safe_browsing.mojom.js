@@ -226,7 +226,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -246,7 +246,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -330,7 +330,7 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -345,7 +345,7 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -432,7 +432,7 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -447,7 +447,7 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -597,7 +597,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -632,7 +632,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -710,7 +710,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -719,7 +719,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -805,7 +805,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -820,7 +820,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -918,7 +918,7 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -932,7 +932,7 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

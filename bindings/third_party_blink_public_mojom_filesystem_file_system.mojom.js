@@ -151,7 +151,7 @@ blink.mojom.FileSystemCancellableOperationReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -166,7 +166,7 @@ blink.mojom.FileSystemCancellableOperationReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -279,7 +279,7 @@ blink.mojom.FileSystemOperationListenerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -298,7 +298,7 @@ blink.mojom.FileSystemOperationListenerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -376,7 +376,7 @@ blink.mojom.ReceivedSnapshotListenerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -385,7 +385,7 @@ blink.mojom.ReceivedSnapshotListenerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -842,7 +842,7 @@ blink.mojom.FileSystemManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1021,7 +1021,7 @@ blink.mojom.FileSystemManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

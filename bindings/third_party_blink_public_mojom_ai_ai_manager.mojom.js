@@ -157,7 +157,7 @@ blink.mojom.AIManagerCreateWriterClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -171,7 +171,7 @@ blink.mojom.AIManagerCreateWriterClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -267,7 +267,7 @@ blink.mojom.AIManagerCreateRewriterClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -281,7 +281,7 @@ blink.mojom.AIManagerCreateRewriterClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -377,7 +377,7 @@ blink.mojom.AIManagerCreateSummarizerClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -391,7 +391,7 @@ blink.mojom.AIManagerCreateSummarizerClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -487,7 +487,7 @@ blink.mojom.AIManagerCreateProofreaderClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -501,7 +501,7 @@ blink.mojom.AIManagerCreateProofreaderClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -796,7 +796,7 @@ blink.mojom.AIManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -896,7 +896,7 @@ blink.mojom.AIManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

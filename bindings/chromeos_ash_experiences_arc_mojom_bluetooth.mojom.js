@@ -628,7 +628,7 @@ arc.mojom.RfcommListeningSocketClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -637,7 +637,7 @@ arc.mojom.RfcommListeningSocketClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -731,7 +731,7 @@ arc.mojom.RfcommConnectingSocketClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -745,7 +745,7 @@ arc.mojom.RfcommConnectingSocketClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -824,7 +824,7 @@ arc.mojom.BluetoothListenSocketClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -833,7 +833,7 @@ arc.mojom.BluetoothListenSocketClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -927,7 +927,7 @@ arc.mojom.BluetoothConnectSocketClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -941,7 +941,7 @@ arc.mojom.BluetoothConnectSocketClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1832,7 +1832,7 @@ arc.mojom.BluetoothHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2192,7 +2192,7 @@ arc.mojom.BluetoothHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2613,7 +2613,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 18: {
@@ -2736,7 +2736,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

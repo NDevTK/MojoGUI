@@ -650,7 +650,7 @@ ash.shimless_rma.mojom.ErrorObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -659,7 +659,7 @@ ash.shimless_rma.mojom.ErrorObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -740,7 +740,7 @@ ash.shimless_rma.mojom.OsUpdateObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -749,7 +749,7 @@ ash.shimless_rma.mojom.OsUpdateObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -844,7 +844,7 @@ ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -858,7 +858,7 @@ ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -939,7 +939,7 @@ ash.shimless_rma.mojom.ProvisioningObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -948,7 +948,7 @@ ash.shimless_rma.mojom.ProvisioningObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1027,7 +1027,7 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1036,7 +1036,7 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1115,7 +1115,7 @@ ash.shimless_rma.mojom.PowerCableStateObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1124,7 +1124,7 @@ ash.shimless_rma.mojom.PowerCableStateObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1203,7 +1203,7 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1212,7 +1212,7 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1291,7 +1291,7 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1300,7 +1300,7 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1381,7 +1381,7 @@ ash.shimless_rma.mojom.FinalizationObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1390,7 +1390,7 @@ ash.shimless_rma.mojom.FinalizationObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1469,7 +1469,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1478,7 +1478,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -3042,7 +3042,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -3782,7 +3782,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

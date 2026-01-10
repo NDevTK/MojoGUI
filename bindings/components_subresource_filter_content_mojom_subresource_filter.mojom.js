@@ -91,7 +91,7 @@ subresource_filter.mojom.SubresourceFilterAgentReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -100,7 +100,7 @@ subresource_filter.mojom.SubresourceFilterAgentReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -256,7 +256,7 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -290,7 +290,7 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

@@ -234,7 +234,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -265,7 +265,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -485,7 +485,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -559,7 +559,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -654,7 +654,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -668,7 +668,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -748,7 +748,7 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -757,7 +757,7 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

@@ -174,7 +174,7 @@ network.mojom.ClientCertificateResponderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -193,7 +193,7 @@ network.mojom.ClientCertificateResponderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -280,7 +280,7 @@ network.mojom.SSLPrivateKeyReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -295,7 +295,7 @@ network.mojom.SSLPrivateKeyReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -374,7 +374,7 @@ network.mojom.AuthChallengeResponderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -383,7 +383,7 @@ network.mojom.AuthChallengeResponderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -690,7 +690,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -784,7 +784,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

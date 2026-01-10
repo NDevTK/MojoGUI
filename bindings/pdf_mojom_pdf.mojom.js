@@ -141,7 +141,7 @@ pdf.mojom.SaveDataBufferHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -156,7 +156,7 @@ pdf.mojom.SaveDataBufferHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -358,7 +358,7 @@ pdf.mojom.PdfListenerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -421,7 +421,7 @@ pdf.mojom.PdfListenerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -598,7 +598,7 @@ pdf.mojom.PdfHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -637,7 +637,7 @@ pdf.mojom.PdfHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

@@ -111,7 +111,7 @@ blink.mojom.PictureInPictureSessionObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -125,7 +125,7 @@ blink.mojom.PictureInPictureSessionObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -244,7 +244,7 @@ blink.mojom.PictureInPictureSessionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -269,7 +269,7 @@ blink.mojom.PictureInPictureSessionReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -361,7 +361,7 @@ blink.mojom.PictureInPictureServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -376,7 +376,7 @@ blink.mojom.PictureInPictureServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

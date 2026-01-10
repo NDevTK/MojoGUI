@@ -116,7 +116,7 @@ ash.help_app.mojom.SearchResultsObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -125,7 +125,7 @@ ash.help_app.mojom.SearchResultsObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -248,7 +248,7 @@ ash.help_app.mojom.SearchHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -279,7 +279,7 @@ ash.help_app.mojom.SearchHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

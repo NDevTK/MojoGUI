@@ -166,7 +166,7 @@ js_injection.mojom.JsToBrowserMessagingReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -180,7 +180,7 @@ js_injection.mojom.JsToBrowserMessagingReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -258,7 +258,7 @@ js_injection.mojom.JsObjectsClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -267,7 +267,7 @@ js_injection.mojom.JsObjectsClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -346,7 +346,7 @@ js_injection.mojom.BrowserToJsMessagingFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -355,7 +355,7 @@ js_injection.mojom.BrowserToJsMessagingFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -434,7 +434,7 @@ js_injection.mojom.BrowserToJsMessagingReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -443,7 +443,7 @@ js_injection.mojom.BrowserToJsMessagingReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -555,7 +555,7 @@ js_injection.mojom.JsCommunicationReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -574,7 +574,7 @@ js_injection.mojom.JsCommunicationReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

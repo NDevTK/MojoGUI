@@ -147,7 +147,7 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -167,7 +167,7 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -359,7 +359,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -416,7 +416,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -579,7 +579,7 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -619,7 +619,7 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -743,7 +743,7 @@ chromeos.tts.mojom.TtsEventObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -767,7 +767,7 @@ chromeos.tts.mojom.TtsEventObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

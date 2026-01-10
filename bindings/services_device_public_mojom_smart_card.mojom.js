@@ -399,7 +399,7 @@ device.mojom.SmartCardTransactionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -414,7 +414,7 @@ device.mojom.SmartCardTransactionReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -632,7 +632,7 @@ device.mojom.SmartCardConnectionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -713,7 +713,7 @@ device.mojom.SmartCardConnectionReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -791,7 +791,7 @@ device.mojom.SmartCardConnectionWatcherReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -800,7 +800,7 @@ device.mojom.SmartCardConnectionWatcherReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -953,7 +953,7 @@ device.mojom.SmartCardContextReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1001,7 +1001,7 @@ device.mojom.SmartCardContextReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1085,7 +1085,7 @@ device.mojom.SmartCardContextFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1100,7 +1100,7 @@ device.mojom.SmartCardContextFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

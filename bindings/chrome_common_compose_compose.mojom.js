@@ -211,7 +211,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -220,7 +220,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -581,7 +581,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -706,7 +706,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -830,7 +830,7 @@ compose.mojom.ComposeClientUntrustedPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -854,7 +854,7 @@ compose.mojom.ComposeClientUntrustedPageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -949,7 +949,7 @@ compose.mojom.ComposeUntrustedDialogReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -963,7 +963,7 @@ compose.mojom.ComposeUntrustedDialogReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

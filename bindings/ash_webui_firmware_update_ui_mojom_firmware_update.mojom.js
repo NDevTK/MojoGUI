@@ -178,7 +178,7 @@ ash.firmware_update.mojom.UpdateObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -187,7 +187,7 @@ ash.firmware_update.mojom.UpdateObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -266,7 +266,7 @@ ash.firmware_update.mojom.DeviceRequestObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -275,7 +275,7 @@ ash.firmware_update.mojom.DeviceRequestObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -354,7 +354,7 @@ ash.firmware_update.mojom.UpdateProgressObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -363,7 +363,7 @@ ash.firmware_update.mojom.UpdateProgressObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -485,7 +485,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -516,7 +516,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -628,7 +628,7 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -647,7 +647,7 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -725,7 +725,7 @@ ash.firmware_update.mojom.SystemUtilsReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -734,7 +734,7 @@ ash.firmware_update.mojom.SystemUtilsReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

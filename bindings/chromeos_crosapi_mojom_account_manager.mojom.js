@@ -277,7 +277,7 @@ crosapi.mojom.AccountManagerObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -301,7 +301,7 @@ crosapi.mojom.AccountManagerObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -548,7 +548,7 @@ crosapi.mojom.AccountManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -639,7 +639,7 @@ crosapi.mojom.AccountManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -724,7 +724,7 @@ crosapi.mojom.AccessTokenFetcherReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -739,7 +739,7 @@ crosapi.mojom.AccessTokenFetcherReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

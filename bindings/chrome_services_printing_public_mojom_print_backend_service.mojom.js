@@ -120,7 +120,7 @@ printing.mojom.UnsandboxedPrintBackendHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -129,7 +129,7 @@ printing.mojom.UnsandboxedPrintBackendHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -208,7 +208,7 @@ printing.mojom.SandboxedPrintBackendHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -217,7 +217,7 @@ printing.mojom.SandboxedPrintBackendHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -588,7 +588,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -708,7 +708,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

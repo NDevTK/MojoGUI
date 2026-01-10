@@ -1874,7 +1874,7 @@ blink.mojom.LocalFrameHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2353,7 +2353,7 @@ blink.mojom.LocalFrameHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2432,7 +2432,7 @@ blink.mojom.NonAssociatedLocalFrameHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2441,7 +2441,7 @@ blink.mojom.NonAssociatedLocalFrameHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -3517,7 +3517,7 @@ blink.mojom.LocalFrameReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -3886,7 +3886,7 @@ blink.mojom.LocalFrameReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -4159,7 +4159,7 @@ blink.mojom.LocalMainFrameReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -4241,7 +4241,7 @@ blink.mojom.LocalMainFrameReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -4587,7 +4587,7 @@ blink.mojom.LocalMainFrameHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -4694,7 +4694,7 @@ blink.mojom.LocalMainFrameHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

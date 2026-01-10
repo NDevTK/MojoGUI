@@ -102,7 +102,7 @@ ash.settings.graduation.mojom.GraduationHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -116,7 +116,7 @@ ash.settings.graduation.mojom.GraduationHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -195,7 +195,7 @@ ash.settings.graduation.mojom.GraduationObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -204,7 +204,7 @@ ash.settings.graduation.mojom.GraduationObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

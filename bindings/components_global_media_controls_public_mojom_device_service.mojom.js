@@ -133,7 +133,7 @@ global_media_controls.mojom.DeviceListHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -142,7 +142,7 @@ global_media_controls.mojom.DeviceListHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -236,7 +236,7 @@ global_media_controls.mojom.DeviceListClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -250,7 +250,7 @@ global_media_controls.mojom.DeviceListClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -364,7 +364,7 @@ global_media_controls.mojom.DeviceServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -383,7 +383,7 @@ global_media_controls.mojom.DeviceServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -586,7 +586,7 @@ global_media_controls.mojom.DevicePickerProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -635,7 +635,7 @@ global_media_controls.mojom.DevicePickerProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -758,7 +758,7 @@ global_media_controls.mojom.DevicePickerObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -782,7 +782,7 @@ global_media_controls.mojom.DevicePickerObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

@@ -193,7 +193,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -207,7 +207,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -398,7 +398,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -468,7 +468,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -563,7 +563,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerReceiver = class 
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -577,7 +577,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerReceiver = class 
           break;
         }
       }
-    });
+    }});
   }
 };
 

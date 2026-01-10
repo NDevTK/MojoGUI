@@ -825,7 +825,7 @@ gpu.mojom.GpuChannelReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -981,7 +981,7 @@ gpu.mojom.GpuChannelReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1150,7 +1150,7 @@ gpu.mojom.CommandBufferReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1190,7 +1190,7 @@ gpu.mojom.CommandBufferReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1334,7 +1334,7 @@ gpu.mojom.CommandBufferClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1363,7 +1363,7 @@ gpu.mojom.CommandBufferClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1480,7 +1480,7 @@ gpu.mojom.DCOMPTextureReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1505,7 +1505,7 @@ gpu.mojom.DCOMPTextureReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1600,7 +1600,7 @@ gpu.mojom.DCOMPTextureClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1614,7 +1614,7 @@ gpu.mojom.DCOMPTextureClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1693,7 +1693,7 @@ gpu.mojom.OverlayStateObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1702,7 +1702,7 @@ gpu.mojom.OverlayStateObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

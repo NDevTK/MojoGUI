@@ -233,7 +233,7 @@ network.mojom.ResolveHostHandleReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -242,7 +242,7 @@ network.mojom.ResolveHostHandleReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -356,7 +356,7 @@ network.mojom.ResolveHostClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -375,7 +375,7 @@ network.mojom.ResolveHostClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -509,7 +509,7 @@ network.mojom.MdnsListenClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -533,7 +533,7 @@ network.mojom.MdnsListenClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -639,7 +639,7 @@ network.mojom.HostResolverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -659,7 +659,7 @@ network.mojom.HostResolverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -737,7 +737,7 @@ network.mojom.DnsConfigChangeManagerClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -746,7 +746,7 @@ network.mojom.DnsConfigChangeManagerClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -825,7 +825,7 @@ network.mojom.DnsConfigChangeManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -834,7 +834,7 @@ network.mojom.DnsConfigChangeManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

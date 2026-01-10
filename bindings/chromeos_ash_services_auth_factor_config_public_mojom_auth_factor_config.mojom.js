@@ -184,7 +184,7 @@ ash.auth.mojom.FactorObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -193,7 +193,7 @@ ash.auth.mojom.FactorObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -380,7 +380,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -438,7 +438,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -524,7 +524,7 @@ ash.auth.mojom.RecoveryFactorEditorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -539,7 +539,7 @@ ash.auth.mojom.RecoveryFactorEditorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -715,7 +715,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -774,7 +774,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -973,7 +973,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1043,7 +1043,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

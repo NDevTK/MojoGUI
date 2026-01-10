@@ -229,7 +229,7 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -253,7 +253,7 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -353,7 +353,7 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -373,7 +373,7 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -567,7 +567,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -637,7 +637,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -786,7 +786,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -834,7 +834,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

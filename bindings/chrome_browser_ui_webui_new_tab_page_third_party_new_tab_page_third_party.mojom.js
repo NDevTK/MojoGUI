@@ -105,7 +105,7 @@ new_tab_page_third_party.mojom.PageHandlerFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -114,7 +114,7 @@ new_tab_page_third_party.mojom.PageHandlerFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -192,7 +192,7 @@ new_tab_page_third_party.mojom.PageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -201,7 +201,7 @@ new_tab_page_third_party.mojom.PageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -280,7 +280,7 @@ new_tab_page_third_party.mojom.PageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -289,7 +289,7 @@ new_tab_page_third_party.mojom.PageReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

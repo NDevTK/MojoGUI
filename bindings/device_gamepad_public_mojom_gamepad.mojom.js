@@ -270,7 +270,7 @@ device.mojom.GamepadObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -289,7 +289,7 @@ device.mojom.GamepadObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -409,7 +409,7 @@ device.mojom.GamepadMonitorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -440,7 +440,7 @@ device.mojom.GamepadMonitorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -549,7 +549,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -575,7 +575,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

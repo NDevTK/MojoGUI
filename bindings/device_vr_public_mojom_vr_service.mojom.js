@@ -1034,7 +1034,7 @@ device.mojom.VRServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1092,7 +1092,7 @@ device.mojom.VRServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1171,7 +1171,7 @@ device.mojom.XRSessionMetricsRecorderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1180,7 +1180,7 @@ device.mojom.XRSessionMetricsRecorderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1258,7 +1258,7 @@ device.mojom.VRServiceClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1267,7 +1267,7 @@ device.mojom.VRServiceClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1434,7 +1434,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1481,7 +1481,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1582,7 +1582,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1602,7 +1602,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1755,7 +1755,7 @@ device.mojom.XRPresentationProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1784,7 +1784,7 @@ device.mojom.XRPresentationProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1894,7 +1894,7 @@ device.mojom.XRPresentationClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1913,7 +1913,7 @@ device.mojom.XRPresentationClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2007,7 +2007,7 @@ device.mojom.XRSessionClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2021,7 +2021,7 @@ device.mojom.XRSessionClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2155,7 +2155,7 @@ device.mojom.XRLayerManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2185,7 +2185,7 @@ device.mojom.XRLayerManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -2280,7 +2280,7 @@ device.mojom.WebXrInternalsRendererListenerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -2294,7 +2294,7 @@ device.mojom.WebXrInternalsRendererListenerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

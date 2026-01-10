@@ -387,7 +387,7 @@ tracing.mojom.ProducerHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -422,7 +422,7 @@ tracing.mojom.ProducerHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -575,7 +575,7 @@ tracing.mojom.ProducerClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -616,7 +616,7 @@ tracing.mojom.ProducerClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -698,7 +698,7 @@ tracing.mojom.PerfettoServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -707,7 +707,7 @@ tracing.mojom.PerfettoServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -816,7 +816,7 @@ tracing.mojom.ConsumerHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -836,7 +836,7 @@ tracing.mojom.ConsumerHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -997,7 +997,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1044,7 +1044,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1138,7 +1138,7 @@ tracing.mojom.TracingSessionClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1152,7 +1152,7 @@ tracing.mojom.TracingSessionClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

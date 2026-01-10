@@ -225,7 +225,7 @@ ash.diagnostics.mojom.NetworkListObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -234,7 +234,7 @@ ash.diagnostics.mojom.NetworkListObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -313,7 +313,7 @@ ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -322,7 +322,7 @@ ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -418,7 +418,7 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -432,7 +432,7 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

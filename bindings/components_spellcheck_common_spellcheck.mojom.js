@@ -148,7 +148,7 @@ spellcheck.mojom.SpellCheckerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -162,7 +162,7 @@ spellcheck.mojom.SpellCheckerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -240,7 +240,7 @@ spellcheck.mojom.SpellCheckInitializationHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -249,7 +249,7 @@ spellcheck.mojom.SpellCheckInitializationHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -457,7 +457,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -526,7 +526,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

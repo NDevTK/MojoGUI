@@ -628,7 +628,7 @@ blink.mojom.IDBFactoryClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -657,7 +657,7 @@ blink.mojom.IDBFactoryClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -786,7 +786,7 @@ blink.mojom.IDBDatabaseCallbacksReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -810,7 +810,7 @@ blink.mojom.IDBDatabaseCallbacksReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -956,7 +956,7 @@ blink.mojom.IDBCursorReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -998,7 +998,7 @@ blink.mojom.IDBCursorReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1171,7 +1171,7 @@ blink.mojom.IDBTransactionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1211,7 +1211,7 @@ blink.mojom.IDBTransactionReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1307,7 +1307,7 @@ blink.mojom.IDBDatabaseGetAllResultSinkReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1321,7 +1321,7 @@ blink.mojom.IDBDatabaseGetAllResultSinkReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1718,7 +1718,7 @@ blink.mojom.IDBDatabaseReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1844,7 +1844,7 @@ blink.mojom.IDBDatabaseReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1969,7 +1969,7 @@ blink.mojom.IDBFactoryReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1994,7 +1994,7 @@ blink.mojom.IDBFactoryReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

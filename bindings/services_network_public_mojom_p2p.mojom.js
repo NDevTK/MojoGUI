@@ -130,7 +130,7 @@ network.mojom.P2PNetworkNotificationClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -139,7 +139,7 @@ network.mojom.P2PNetworkNotificationClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -265,7 +265,7 @@ network.mojom.P2PSocketManagerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -290,7 +290,7 @@ network.mojom.P2PSocketManagerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -403,7 +403,7 @@ network.mojom.P2PSocketReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -422,7 +422,7 @@ network.mojom.P2PSocketReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -550,7 +550,7 @@ network.mojom.P2PSocketClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -574,7 +574,7 @@ network.mojom.P2PSocketClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

@@ -123,7 +123,7 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -137,7 +137,7 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -215,7 +215,7 @@ sharing.mojom.ReceiveMessagesSessionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -224,7 +224,7 @@ sharing.mojom.ReceiveMessagesSessionReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -337,7 +337,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -363,7 +363,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

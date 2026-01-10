@@ -92,7 +92,7 @@ codelabs.mojom.ObjectAReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -101,7 +101,7 @@ codelabs.mojom.ObjectAReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -179,7 +179,7 @@ codelabs.mojom.ObjectBReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -188,7 +188,7 @@ codelabs.mojom.ObjectBReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -267,7 +267,7 @@ codelabs.mojom.AssociatedProcessReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -276,7 +276,7 @@ codelabs.mojom.AssociatedProcessReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -339,11 +339,11 @@ codelabs.mojom.GenericInterfaceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
       }
-    });
+    }});
   }
 };
 
@@ -438,7 +438,7 @@ codelabs.mojom.ProcessReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -452,7 +452,7 @@ codelabs.mojom.ProcessReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

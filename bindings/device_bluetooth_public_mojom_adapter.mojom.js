@@ -229,7 +229,7 @@ bluetooth.mojom.AdvertisementReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -244,7 +244,7 @@ bluetooth.mojom.AdvertisementReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -349,7 +349,7 @@ bluetooth.mojom.DiscoverySessionReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -375,7 +375,7 @@ bluetooth.mojom.DiscoverySessionReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -458,7 +458,7 @@ bluetooth.mojom.SocketReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -473,7 +473,7 @@ bluetooth.mojom.SocketReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -577,7 +577,7 @@ bluetooth.mojom.ServerSocketReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -603,7 +603,7 @@ bluetooth.mojom.ServerSocketReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -711,7 +711,7 @@ bluetooth.mojom.GattServiceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -737,7 +737,7 @@ bluetooth.mojom.GattServiceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -825,7 +825,7 @@ bluetooth.mojom.GattServiceObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -840,7 +840,7 @@ bluetooth.mojom.GattServiceObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1171,7 +1171,7 @@ bluetooth.mojom.AdapterReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1307,7 +1307,7 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1482,7 +1482,7 @@ bluetooth.mojom.AdapterObserverReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1521,7 +1521,7 @@ bluetooth.mojom.AdapterObserverReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

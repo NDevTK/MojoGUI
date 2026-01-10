@@ -130,7 +130,7 @@ ash.screens_common.mojom.AiIntroPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -139,7 +139,7 @@ ash.screens_common.mojom.AiIntroPageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -218,7 +218,7 @@ ash.screens_common.mojom.AiIntroPageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -227,7 +227,7 @@ ash.screens_common.mojom.AiIntroPageReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -305,7 +305,7 @@ ash.screens_common.mojom.AppDownloadingPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -314,7 +314,7 @@ ash.screens_common.mojom.AppDownloadingPageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -409,7 +409,7 @@ ash.screens_common.mojom.DrivePinningPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -423,7 +423,7 @@ ash.screens_common.mojom.DrivePinningPageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -503,7 +503,7 @@ ash.screens_common.mojom.DrivePinningPageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -512,7 +512,7 @@ ash.screens_common.mojom.DrivePinningPageReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -590,7 +590,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -599,7 +599,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -693,7 +693,7 @@ ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -707,7 +707,7 @@ ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -785,7 +785,7 @@ ash.screens_common.mojom.GaiaInfoPageReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -794,7 +794,7 @@ ash.screens_common.mojom.GaiaInfoPageReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -903,7 +903,7 @@ ash.screens_common.mojom.GestureNavigationPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -922,7 +922,7 @@ ash.screens_common.mojom.GestureNavigationPageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -1015,7 +1015,7 @@ ash.screens_common.mojom.GeminiIntroPageHandlerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -1029,7 +1029,7 @@ ash.screens_common.mojom.GeminiIntroPageHandlerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

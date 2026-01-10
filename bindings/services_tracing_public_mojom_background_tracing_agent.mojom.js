@@ -115,7 +115,7 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -129,7 +129,7 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -227,7 +227,7 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -241,7 +241,7 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -322,7 +322,7 @@ tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -331,7 +331,7 @@ tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

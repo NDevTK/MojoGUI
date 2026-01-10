@@ -136,7 +136,7 @@ blink.mojom.AnnotationAgentReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -145,7 +145,7 @@ blink.mojom.AnnotationAgentReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -225,7 +225,7 @@ blink.mojom.AnnotationAgentHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -234,7 +234,7 @@ blink.mojom.AnnotationAgentHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -358,7 +358,7 @@ blink.mojom.AnnotationAgentContainerReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -383,7 +383,7 @@ blink.mojom.AnnotationAgentContainerReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 

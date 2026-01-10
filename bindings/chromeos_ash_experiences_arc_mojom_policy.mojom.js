@@ -178,7 +178,7 @@ arc.mojom.PolicyHostReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 0: {
@@ -214,7 +214,7 @@ arc.mojom.PolicyHostReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
@@ -335,7 +335,7 @@ arc.mojom.PolicyInstanceReceiver = class {
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start((message) => {
+    this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
       switch (header.ordinal) {
         case 2: {
@@ -366,7 +366,7 @@ arc.mojom.PolicyInstanceReceiver = class {
           break;
         }
       }
-    });
+    }});
   }
 };
 
