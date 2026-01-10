@@ -88,7 +88,9 @@
         interceptorTableBody: document.getElementById('interceptorTableBody'),
         interceptorDetails: document.getElementById('interceptorDetails'),
         codeContainer: document.getElementById('codeContainer'),
-        resultsSection: document.getElementById('resultsSection')
+        // resultsSection duplicate in original, keeping last
+        resultsSection: document.getElementById('resultsSection'),
+        clearActivityBtn: document.getElementById('clearActivityBtn')
     };
 
     // ========================================
@@ -240,9 +242,12 @@
         // Clear results
         elements.clearResultsBtn.addEventListener('click', clearResults);
 
-        // Interceptor events
+        // Interceptor
         elements.interceptToggleBtn.addEventListener('click', toggleInterceptor);
+        elements.clearActivityBtn?.addEventListener('click', clearActivityLog);
 
+        // Global functions for inline handlers
+        window.resumeIntercept = resumeIntercept;
         window.addEventListener('mojo-intercept', handleMojoIntercept);
         window.addEventListener('mojo-response', handleMojoResponse);
         window.addEventListener('mojo-error', handleMojoError);
@@ -795,14 +800,22 @@
         const interfaceName = state.selectedInterface?.name || 'Unknown';
         const methodName = state.selectedMethod || 'Unknown';
 
-        elements.resultsSection.style.display = 'flex';
-        elements.executionResults.innerHTML = safeHTML(`
-        <div class="result-header">
-            <span class="result-icon">⏳</span>
-            <span>Executing <strong>${escapeHtml(interfaceName)}.${escapeHtml(methodName)}</strong>...</span>
-        </div>
-    `);
-        elements.executionResults.className = 'results-block';
+        const manualId = 'manual_' + Date.now();
+        // Use existing interfaceName/methodName from scope
+
+        // 1. Create a "Pending" entry in the Activity Table immediately
+        addActivityRow({
+            id: manualId,
+            interface: interfaceName,
+            method: methodName,
+            params: state.paramValues, // Best effort capture
+            timestamp: Date.now(),
+            type: 'MANUAL',
+            status: 'Executing...'
+        });
+
+        // Ensure Activity Panel is visible
+        showInterceptorPanel(true);
 
         const startTime = performance.now();
 
@@ -817,14 +830,14 @@
                 } catch (error) {
                     window.__mojoExecuteResult = { success: false, error: error.message, stack: error.stack };
                 }
-                window.dispatchEvent(new Event('mojoExecuteComplete'));
+                window.dispatchEvent(new Event('mojoExecuteComplete_${manualId}'));
             })();
         `;
 
             // Create promise to wait for execution
             const resultPromise = new Promise((resolve) => {
-                window.addEventListener('mojoExecuteComplete', function handler() {
-                    window.removeEventListener('mojoExecuteComplete', handler);
+                window.addEventListener(`mojoExecuteComplete_${manualId}`, function handler() {
+                    window.removeEventListener(`mojoExecuteComplete_${manualId}`, handler);
                     resolve(window.__mojoExecuteResult);
                     delete window.__mojoExecuteResult;
                 });
@@ -843,43 +856,12 @@
             // Wait for result
             const result = await resultPromise;
             const duration = (performance.now() - startTime).toFixed(2);
-            const timestamp = new Date().toLocaleTimeString();
 
-            if (result.success) {
-                const hasResponseData = result.result !== null && result.result !== undefined;
-                const responseDisplay = hasResponseData
-                    ? JSON.stringify(result.result, null, 2)
-                    : '(No response data - method is fire-and-forget)';
-
-                elements.executionResults.innerHTML = safeHTML(`
-                <div class="result-header success-header">
-                    <span class="result-icon">✅</span>
-                    <span><strong>Mojo Call Successful</strong></span>
-                </div>
-                <!-- ... rest of output ... -->
-                `);
-            } else {
-                elements.executionResults.innerHTML = safeHTML(`
-                <div class="result-header error-header">
-                    <span class="result-icon">❌</span>
-                    <span><strong>Mojo Call Failed</strong></span>
-                </div>
-                <div class="code-block error-text">
-                    ${escapeHtml(result.error || 'Unknown error')}
-                </div>
-                `);
-            }
+            // 2. Update the Activity Row with the result
+            updateActivityRow(manualId, result.success ? 'Done' : 'Error', result);
 
         } catch (e) {
-            elements.executionResults.innerHTML = safeHTML(`
-                <div class="result-header error-header">
-                    <span class="result-icon">❌</span>
-                    <span><strong>Execution Error</strong></span>
-                </div>
-                <div class="code-block error-text">
-                    ${escapeHtml(e.toString())}
-                </div>
-            `);
+            updateActivityRow(manualId, 'Error', { error: e.toString() });
         }
     }
 
@@ -941,6 +923,15 @@
         if (text) text.textContent = isActive ? ' Stop Intercepting' : ' Intercept';
     }
 
+    function clearActivityLog() {
+        elements.interceptorTableBody.innerHTML = '';
+        elements.interceptorDetails.innerHTML = safeHTML(`
+            <div class="empty-state small">
+                <p>Select a request to view details</p>
+            </div>
+        `);
+    }
+
     function showInterceptorPanel(show) {
         // Toggle between code/results and interceptor panel
         // Or specific layout
@@ -955,45 +946,74 @@
         }
     }
 
-    function handleMojoIntercept(e) {
-        const { id, interface: iface, method, params, timestamp, proxy } = e.detail;
+    // Unified function to add rows to the table
+    function addActivityRow(data) {
+        const { id, interface: iface, method, params, timestamp, type, status } = data;
 
-        // Add to list
         const row = document.createElement('tr');
         row.dataset.id = id;
-        row.dataset.proxyId = e.detail.proxyId;
+        row.dataset.type = type || 'INTERCEPT'; // 'INTERCEPT' or 'MANUAL'
+
+        // Visual indicator for manual vs intercept
+        const typeIcon = type === 'MANUAL' ? '🛠️' : '📡';
+        const displayStatus = status || 'Pending';
+        const statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' : '');
+
         row.innerHTML = safeHTML(`
             <td>${new Date(timestamp).toLocaleTimeString()}</td>
-            <td>${escapeHtml(method)}</td>
-            <td><span class="status-dot"></span> Pending</td>
+            <td><span class="type-icon">${typeIcon}</span> ${escapeHtml(method)}</td>
+            <td><span class="status-dot ${statusClass}"></span> ${escapeHtml(displayStatus)}</td>
         `);
-        row.addEventListener('click', () => showInterceptDetails(e.detail));
+
+        // Attach full details for the details view
+        row.__details = data;
+        row.addEventListener('click', () => showInterceptDetails(row.__details));
 
         elements.interceptorTableBody.prepend(row);
+    }
+
+    function updateActivityRow(id, status, resultData) {
+        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+        if (row) {
+            const statusCell = row.cells[2];
+            const statusDotClass = status === 'Done' ? 'active' : (status === 'Error' ? 'error' : '');
+            let colorStyle = status === 'Error' ? 'style="background:var(--error)"' : '';
+
+            statusCell.innerHTML = safeHTML(`<span class="status-dot ${statusDotClass}" ${colorStyle}></span> ${escapeHtml(status)}`);
+
+            // Merge result into the stored details so showInterceptDetails can display it
+            if (row.__details) {
+                row.__details.result = resultData;
+                row.__details.status = status;
+
+                // If this is currently selected, refresh the details view
+                if (row.classList.contains('active')) {
+                    showInterceptDetails(row.__details);
+                }
+            }
+        }
+    }
+
+    function handleMojoIntercept(e) {
+        // Forward to unified handler
+        addActivityRow({
+            ...e.detail,
+            type: 'INTERCEPT',
+            status: 'Pending'
+        });
 
         // Ensure panel is visible if not already
         if (elements.interceptorPanel.style.display === 'none') {
-            // Optional: auto-show?
+            // Optional: highlight tab
         }
     }
 
     function handleMojoResponse(e) {
-        const { id, result, timestamp } = e.detail;
-
-        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
-        if (row) {
-            const statusCell = row.cells[2];
-            statusCell.innerHTML = safeHTML(`<span class="status-dot active"></span> Done`);
-        }
+        updateActivityRow(e.detail.id, 'Done', e.detail.result);
     }
 
     function handleMojoError(e) {
-        const { id, error } = e.detail;
-        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
-        if (row) {
-            const statusCell = row.cells[2];
-            statusCell.innerHTML = safeHTML(`<span class="status-dot" style="background:var(--error)"></span> Error`);
-        }
+        updateActivityRow(e.detail.id, 'Error', { error: e.detail.error });
     }
 
     function showInterceptDetails(detail) {
@@ -1001,15 +1021,17 @@
 
         // Highlight row
         elements.interceptorTableBody.querySelectorAll('tr').forEach(tr => tr.classList.remove('active'));
-        elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`)?.classList.add('active');
+        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+        if (row) row.classList.add('active');
 
         // Show details with action buttons
-        const isPending = !row.cells[2].innerHTML.includes('Done') && !row.cells[2].innerHTML.includes('Error');
+        const isPending = row && !row.cells[2].innerHTML.includes('Done') && !row.cells[2].innerHTML.includes('Error');
+        const isManual = detail.type === 'MANUAL';
 
         elements.interceptorDetails.innerHTML = safeHTML(`
             <div class="interceptor-actions">
                 <h4>${escapeHtml(iface)}.${escapeHtml(method)}</h4>
-                ${isPending ? `
+                ${(isPending && !isManual) ? `
                 <div class="action-buttons">
                     <button class="btn btn-primary btn-small" onclick="resumeIntercept('${id}', false)">Forward</button>
                     <button class="btn btn-small" onclick="resumeIntercept('${id}', true)">Drop</button>
