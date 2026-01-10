@@ -367,7 +367,7 @@ mojo.internal.Struct(
     arc.mojom.OemCryptoEntitledContentKeyObjectV14Spec, 'arc.mojom.OemCryptoEntitledContentKeyObjectV14', [
       mojo.internal.StructField('entitlement_key_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('content_key_id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('content_key_data_iv', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('content_key_data_iv', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('content_key_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -414,7 +414,7 @@ mojo.internal.Struct(
 // Struct: OemCryptoPstReport
 mojo.internal.Struct(
     arc.mojom.OemCryptoPstReportSpec, 'arc.mojom.OemCryptoPstReport', [
-      mojo.internal.StructField('signature', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('signature', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('status', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('clock_security_level', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('seconds_since_license_received', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
@@ -600,7 +600,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('is_encrypted', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('iv', 24, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('iv', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('block_offset', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('secure_buffer', 40, 0, arc.mojom.OemCryptoSecureBufferSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('pattern', 48, 0, arc.mojom.OemCryptoCencEncryptPatternDescSpec.$, null, false, 0, undefined),
@@ -618,7 +618,7 @@ mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenericEncrypt_ParamsSpec, 'arc.mojom.OemCryptoService_GenericEncrypt_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('iv', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('iv', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('algorithm', 24, 0, arc.mojom.OemCryptoAlgorithmSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -634,7 +634,7 @@ mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenericDecrypt_ParamsSpec, 'arc.mojom.OemCryptoService_GenericDecrypt_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('iv', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('iv', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('algorithm', 24, 0, arc.mojom.OemCryptoAlgorithmSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -1460,7 +1460,7 @@ mojo.internal.Struct(
     arc.mojom.OemCryptoService_DecryptCenc_ParamsSpec, 'arc.mojom.OemCryptoService_DecryptCenc_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('iv', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('iv', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('sub_samples', 24, 0, mojo.internal.Array(arc.mojom.SubSampleDescriptionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('pattern', 32, 0, arc.mojom.OemCryptoCencEncryptPatternDescSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('secure_buffer', 40, 0, arc.mojom.OemCryptoSecureBufferSpec.$, null, true, 0, undefined),

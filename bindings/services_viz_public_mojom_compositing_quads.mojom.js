@@ -99,7 +99,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     viz.mojom.RoundedDisplayMasksInfoSpec, 'viz.mojom.RoundedDisplayMasksInfo', [
       mojo.internal.StructField('is_horizontally_positioned', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('radii', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('radii', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -193,7 +193,7 @@ mojo.internal.Struct(
 // Struct: WebBluetoothDeviceId
 mojo.internal.Struct(
     blink.mojom.WebBluetoothDeviceIdSpec, 'blink.mojom.WebBluetoothDeviceId', [
-      mojo.internal.StructField('device_id', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('device_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

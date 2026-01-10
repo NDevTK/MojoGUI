@@ -649,7 +649,7 @@ mojo.internal.Struct(
 // Struct: XRSphericalHarmonics
 mojo.internal.Struct(
     device.mojom.XRSphericalHarmonicsSpec, 'device.mojom.XRSphericalHarmonics', [
-      mojo.internal.StructField('coefficients', 0, 0, mojo.internal.Array(device.mojom.RgbTupleF32, 9Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('coefficients', 0, 0, mojo.internal.Array(device.mojom.RgbTupleF32Spec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

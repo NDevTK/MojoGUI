@@ -635,7 +635,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('endpoint_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('endpoint_info', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('remote_bluetooth_mac_address', 24, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('remote_bluetooth_mac_address', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

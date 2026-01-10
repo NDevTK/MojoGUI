@@ -1011,7 +1011,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_GetRootOfTrust_Params', [
-      mojo.internal.StructField('challenge', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('challenge', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

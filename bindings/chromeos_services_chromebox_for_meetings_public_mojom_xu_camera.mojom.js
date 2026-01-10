@@ -72,7 +72,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ash.cfm.mojom.MenuInfoSpec, 'ash.cfm.mojom.MenuInfo', [
       mojo.internal.StructField('value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -87,8 +87,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cfm.mojom.ControlMappingSpec, 'ash.cfm.mojom.ControlMapping', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('guid', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('guid', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('selector', 24, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('size', 25, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('offset', 26, 0, mojo.internal.Uint8, 0, false, 0, undefined),
@@ -110,7 +110,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec, 'ash.cfm.mojom.XuCamera_GetUnitId_Params', [
       mojo.internal.StructField('id', 0, 0, ash.cfm.mojom.WebcamIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('guid', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('guid', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

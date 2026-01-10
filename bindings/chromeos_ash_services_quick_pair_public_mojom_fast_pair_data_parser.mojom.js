@@ -118,13 +118,13 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ash.quick_pair.mojom.DecryptedResponseSpec, 'ash.quick_pair.mojom.DecryptedResponse', [
       mojo.internal.StructField('message_type', 0, 0, ash.quick_pair.mojom.MessageTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('address_bytes', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('salt', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('address_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('salt', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('flags_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'flags_$value', originalFieldName: 'flags' }),
       mojo.internal.StructField('flags_$value', 25, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'flags_$flag', originalFieldName: 'flags' }),
       mojo.internal.StructField('num_addresses_$flag', 26, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'num_addresses_$value', originalFieldName: 'num_addresses' }),
       mojo.internal.StructField('num_addresses_$value', 27, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'num_addresses_$flag', originalFieldName: 'num_addresses' }),
-      mojo.internal.StructField('secondary_address_bytes', 32, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('secondary_address_bytes', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -133,7 +133,7 @@ mojo.internal.Struct(
     ash.quick_pair.mojom.DecryptedPasskeySpec, 'ash.quick_pair.mojom.DecryptedPasskey', [
       mojo.internal.StructField('message_type', 0, 0, ash.quick_pair.mojom.MessageTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('passkey', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('salt', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('salt', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -206,8 +206,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_Params', [
-      mojo.internal.StructField('aes_key', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('encrypted_response_bytes', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('aes_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('encrypted_response_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -219,8 +219,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_Params', [
-      mojo.internal.StructField('aes_key', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('encrypted_passkey_bytes', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('aes_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('encrypted_passkey_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

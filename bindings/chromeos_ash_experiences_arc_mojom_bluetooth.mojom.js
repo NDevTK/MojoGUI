@@ -402,14 +402,14 @@ mojo.internal.Union(
 // Struct: BluetoothAddress
 mojo.internal.Struct(
     arc.mojom.BluetoothAddressSpec, 'arc.mojom.BluetoothAddress', [
-      mojo.internal.StructField('address', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('address', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: BluetoothUUID
 mojo.internal.Struct(
     arc.mojom.BluetoothUUIDSpec, 'arc.mojom.BluetoothUUID', [
-      mojo.internal.StructField('uuid', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('uuid', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

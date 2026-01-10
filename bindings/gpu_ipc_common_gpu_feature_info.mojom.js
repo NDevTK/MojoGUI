@@ -26,7 +26,7 @@ gpu.mojom.GpuFeatureStatus = {
 // Struct: GpuFeatureInfo
 mojo.internal.Struct(
     gpu.mojom.GpuFeatureInfoSpec, 'gpu.mojom.GpuFeatureInfo', [
-      mojo.internal.StructField('status_values', 0, 0, mojo.internal.Array(gpu.mojom.GpuFeatureStatus, 13Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('status_values', 0, 0, mojo.internal.Array(gpu.mojom.GpuFeatureStatusSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('enabled_gpu_driver_bug_workarounds', 8, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
       mojo.internal.StructField('disabled_extensions', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('disabled_webgl_extensions', 24, 0, mojo.internal.String, null, false, 0, undefined),

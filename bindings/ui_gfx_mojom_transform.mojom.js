@@ -23,7 +23,7 @@ mojo.internal.Union(
       },
       'matrix': {
         'ordinal': 1,
-        'type': mojo.internal.Array(mojo.internal.Pointer, false),
+        'type': mojo.internal.Array(mojo.internal.Double, false),
         'nullable': false,
       },
     });

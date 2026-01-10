@@ -13,6 +13,6 @@ network.mojom.SHA256HashValueSpec = { $: {} };
 // Struct: SHA256HashValue
 mojo.internal.Struct(
     network.mojom.SHA256HashValueSpec, 'network.mojom.SHA256HashValue', [
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

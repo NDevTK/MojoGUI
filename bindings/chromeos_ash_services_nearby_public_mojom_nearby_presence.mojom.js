@@ -127,7 +127,7 @@ mojo.internal.Struct(
 // Struct: SharedCredential
 mojo.internal.Struct(
     ash.nearby.presence.mojom.SharedCredentialSpec, 'ash.nearby.presence.mojom.SharedCredential', [
-      mojo.internal.StructField('key_seed', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_seed', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('start_time_millis', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('end_time_millis', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('encrypted_metadata_bytes_v0', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),

@@ -182,7 +182,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     nearby.connections.mojom.ConnectionOptionsSpec, 'nearby.connections.mojom.ConnectionOptions', [
       mojo.internal.StructField('allowed_mediums', 0, 0, nearby.connections.mojom.MediumSelectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('remote_bluetooth_mac_address', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('remote_bluetooth_mac_address', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('keep_alive_interval', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('keep_alive_timeout', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
