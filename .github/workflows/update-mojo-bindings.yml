@@ -537,9 +537,13 @@ jobs:
                       if p_type == 'mojo.internal.Bool': return 1, 1 # Bit packed later
                       if p_type in ('mojo.internal.Int8', 'mojo.internal.Uint8'): return 1, 1
                       if p_type in ('mojo.internal.Int16', 'mojo.internal.Uint16'): return 2, 2
-                      if p_type in ('mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Float', 'mojo.internal.InterfaceRequest', 'mojo.internal.AssociatedInterfaceRequest', 'mojo.internal.Handle'): return 4, 4
-                      if p_type in ('mojo.internal.Int64', 'mojo.internal.Uint64', 'mojo.internal.Double', 'mojo.internal.InterfaceProxy', 'mojo.internal.AssociatedInterfaceProxy'): return 8, 8
-                      # Pointers
+                      if p_type in ('mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Float', 'mojo.internal.Handle'): return 4, 4
+                      if p_type in ('mojo.internal.Int64', 'mojo.internal.Uint64', 'mojo.internal.Double'): return 8, 8
+                      
+                      # Interface types in MojoJS Lite are typically 8 bytes (Handle + Version/Reserved)
+                      if 'Interface' in p_type: return 8, 8
+                      
+                      # Pointers (Structs, Arrays, Maps, Unions)
                       spec_name = p_type.replace('Spec', '')
                       kind = global_kind_map.get(spec_name)
                       if kind == 'enum': return 4, 4
@@ -577,7 +581,7 @@ jobs:
                   expanded_params.sort(key=lambda x: (x['min_version'], -x['size'], x['ordinal'], x['sub_ordinal']))
                   
                   if not expanded_params:
-                      return [], 8, "[{version: 0, packedSize: 8}]"
+                      return [], 8, "[[0, 8]]"
 
                   # First field always at 0
                   first = expanded_params[0]
