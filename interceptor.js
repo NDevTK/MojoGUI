@@ -92,12 +92,17 @@
                         try {
                             // Attempt 1: Use internal Encoder
                             var structSpec = responseParamsSpec.$.structSpec;
-                            // console.log('[Interceptor] Polyfill Encoder init', structSpec.packedSize);
                             var encoder = new mojo.internal.Encoder(structSpec.packedSize, 0);
 
-                            // Fix: Force DataView initialization.
-                            // Some versions have data_ as undefined or not a DataView.
-                            if (encoder.buffer_) {
+                            // Fix: Manually allocate if missing (common in some envs)
+                            if (!encoder.buffer_) {
+                                console.log('[Interceptor] Encoder buffer missing, allocating:', structSpec.packedSize);
+                                encoder.buffer_ = new ArrayBuffer(structSpec.packedSize);
+                            }
+
+                            // Fix: Force DataView initialization
+                            if (!encoder.data_ || typeof encoder.data_.setUint32 !== 'function') {
+                                // console.log('[Interceptor] Encoder data_ invalid, recreating DataView');
                                 encoder.data_ = new DataView(encoder.buffer_);
                             }
 
@@ -105,52 +110,11 @@
                             message = encoder.message_;
 
                         } catch (e) {
-                            console.error('[Interceptor] createResponder Encoder failed, attempting manual fallback:', e);
-
-                            // Attempt 2: Manual Buffer Construction (For Empty Response)
-                            try {
-                                const headerSize = 32;
-                                const payloadSize = 8; // Empty struct (8 bytes size/ver)
-                                const totalSize = headerSize + payloadSize;
-                                const buffer = new ArrayBuffer(totalSize);
-                                const view = new DataView(buffer);
-
-                                // Header
-                                view.setUint32(0, totalSize, true); // num_bytes
-                                view.setUint32(4, 1, true);         // version (1 for requestID support)
-                                view.setUint32(8, 0, true);         // interface_id (endpoint fixes?)
-                                view.setUint32(12, 0, true);        // ordinal (0/unknown)
-                                view.setUint32(16, 2, true);        // flags: 2 (IsResponse)
-                                view.setUint32(20, 0, true);        // padding
-
-                                // RequestID (u64)
-                                if (typeof requestId === 'bigint') {
-                                    view.setBigUint64(24, requestId, true);
-                                } else {
-                                    view.setUint32(24, Number(requestId) & 0xFFFFFFFF, true);
-                                    view.setUint32(28, (Number(requestId) / 0x100000000) >>> 0, true);
-                                }
-
-                                // Payload: Empty Struct (Size=8, Version=0)
-                                view.setUint32(32, 8, true);
-                                view.setUint32(36, 0, true);
-
-                                // Bypassing constructor: return a plain object that mimics Message
-                                message = {
-                                    buffer: buffer,
-                                    handles: [],
-                                    header: {
-                                        requestId: requestId,
-                                        flags: 2,
-                                        ordinal: 0
-                                    }
-                                };
-
-                            } catch (fallbackErr) {
-                                console.error('[Interceptor] Manual fallback failed:', fallbackErr);
-                                return;
-                            }
+                            console.error('[Interceptor] createResponder Encoder failed:', e);
+                            // Fallback removed to focus on Encoder fix, as manual packet was rejected.
+                            return;
                         }
+
 
                         if (message) {
                             // Ensure header properties are set
