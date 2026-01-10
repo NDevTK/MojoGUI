@@ -914,8 +914,9 @@ jobs:
                   # Generate static getRemote() factory function
                   js_code += f"{full_name}.getRemote = function() {{\n"
                   js_code += f"  let remote = new {full_name}Remote();\n"
-                  js_code += "  remote.bindNewPipeAndPassReceiver();\n"
-                  js_code += f"  remote.proxy.endpoint_.bindInBrowser(\n"
+                  js_code += "  let receiver = remote.bindNewPipeAndPassReceiver();\n"
+                  js_code += f"  mojo.internal.interfaceSupport.bind(\n"
+                  js_code += f"    receiver.handle,\n"
                   js_code += f"    '{interface_string}',\n"
                   js_code += "    'context');\n"
                   js_code += "  return remote.$;\n"
