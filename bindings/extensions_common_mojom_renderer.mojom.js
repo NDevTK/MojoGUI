@@ -550,7 +550,7 @@ extensions.mojom.RendererReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -606,7 +606,7 @@ extensions.mojom.RendererReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -617,7 +617,7 @@ extensions.mojom.RendererReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

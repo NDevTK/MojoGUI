@@ -302,7 +302,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -318,7 +318,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -329,7 +329,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -345,7 +345,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

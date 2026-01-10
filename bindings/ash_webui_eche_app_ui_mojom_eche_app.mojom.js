@@ -446,7 +446,7 @@ ash.eche_app.mojom.SystemInfoProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -721,7 +721,7 @@ ash.eche_app.mojom.AccessibilityProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -884,7 +884,7 @@ ash.eche_app.mojom.AccessibilityObserverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -895,7 +895,7 @@ ash.eche_app.mojom.AccessibilityObserverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -993,7 +993,7 @@ ash.eche_app.mojom.UidGeneratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

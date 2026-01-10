@@ -144,7 +144,7 @@ blink.mojom.AndroidFontLookupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -155,7 +155,7 @@ blink.mojom.AndroidFontLookupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -166,7 +166,7 @@ blink.mojom.AndroidFontLookupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

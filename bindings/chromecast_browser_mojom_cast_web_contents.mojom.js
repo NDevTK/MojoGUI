@@ -711,7 +711,7 @@ chromecast.mojom.CastWebContentsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

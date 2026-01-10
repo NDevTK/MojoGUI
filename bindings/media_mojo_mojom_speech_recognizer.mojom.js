@@ -255,7 +255,7 @@ media.mojom.OnDeviceSpeechRecognitionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -266,7 +266,7 @@ media.mojom.OnDeviceSpeechRecognitionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

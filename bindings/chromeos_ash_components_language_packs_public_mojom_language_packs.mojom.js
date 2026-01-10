@@ -331,7 +331,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -342,7 +342,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -353,7 +353,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -364,7 +364,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -294,7 +294,7 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -320,7 +320,7 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

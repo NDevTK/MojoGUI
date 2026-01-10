@@ -174,7 +174,7 @@ printing.mojom.PdfNupConverterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -185,7 +185,7 @@ printing.mojom.PdfNupConverterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

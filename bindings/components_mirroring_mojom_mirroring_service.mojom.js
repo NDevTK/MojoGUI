@@ -153,7 +153,7 @@ mirroring.mojom.MirroringServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

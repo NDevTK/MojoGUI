@@ -163,7 +163,7 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -174,7 +174,7 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

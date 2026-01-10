@@ -233,7 +233,7 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -414,7 +414,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -425,7 +425,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

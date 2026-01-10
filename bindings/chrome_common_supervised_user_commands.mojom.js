@@ -162,7 +162,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -173,7 +173,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -184,7 +184,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

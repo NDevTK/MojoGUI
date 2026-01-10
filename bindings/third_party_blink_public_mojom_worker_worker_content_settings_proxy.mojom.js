@@ -165,7 +165,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -176,7 +176,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -187,7 +187,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -198,7 +198,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -496,7 +496,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -507,7 +507,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

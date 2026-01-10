@@ -283,7 +283,7 @@ arc.mojom.NearbyShareHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -381,7 +381,7 @@ arc.mojom.NearbyShareInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

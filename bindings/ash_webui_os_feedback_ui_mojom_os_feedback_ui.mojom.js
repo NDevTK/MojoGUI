@@ -250,7 +250,7 @@ ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -547,7 +547,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -558,7 +558,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -569,7 +569,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

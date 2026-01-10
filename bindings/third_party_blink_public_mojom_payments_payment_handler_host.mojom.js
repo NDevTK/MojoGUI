@@ -176,7 +176,7 @@ payments.mojom.PaymentHandlerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -187,7 +187,7 @@ payments.mojom.PaymentHandlerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -198,7 +198,7 @@ payments.mojom.PaymentHandlerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

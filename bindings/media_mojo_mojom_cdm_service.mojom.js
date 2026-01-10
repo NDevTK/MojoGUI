@@ -193,7 +193,7 @@ media.mojom.SeatbeltExtensionTokenProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

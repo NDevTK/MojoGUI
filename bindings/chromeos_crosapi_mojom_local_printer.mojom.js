@@ -1157,7 +1157,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1168,7 +1168,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1179,7 +1179,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1190,7 +1190,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1201,7 +1201,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1212,7 +1212,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1223,7 +1223,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1234,7 +1234,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1245,7 +1245,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1256,7 +1256,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1267,7 +1267,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1278,7 +1278,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1289,7 +1289,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1300,7 +1300,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1311,7 +1311,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1322,7 +1322,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1333,7 +1333,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

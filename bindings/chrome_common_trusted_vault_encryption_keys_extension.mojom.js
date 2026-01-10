@@ -131,7 +131,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -142,7 +142,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

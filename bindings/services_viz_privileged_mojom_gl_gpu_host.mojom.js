@@ -450,7 +450,7 @@ viz.mojom.GpuHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -471,7 +471,7 @@ viz.mojom.GpuHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -482,7 +482,7 @@ viz.mojom.GpuHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

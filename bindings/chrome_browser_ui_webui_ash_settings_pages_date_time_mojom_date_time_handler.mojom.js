@@ -230,7 +230,7 @@ ash.settings.date_time.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

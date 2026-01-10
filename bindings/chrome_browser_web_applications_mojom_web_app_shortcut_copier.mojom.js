@@ -99,7 +99,7 @@ web_app.mojom.WebAppShortcutCopierReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

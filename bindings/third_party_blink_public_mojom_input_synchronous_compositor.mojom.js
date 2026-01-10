@@ -388,7 +388,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -399,7 +399,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -410,7 +410,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -431,7 +431,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -393,7 +393,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -404,7 +404,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -415,7 +415,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -426,7 +426,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -531,7 +531,7 @@ ash.auth.mojom.RecoveryFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -721,7 +721,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -732,7 +732,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -743,7 +743,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -754,7 +754,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -765,7 +765,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -978,7 +978,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -989,7 +989,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1000,7 +1000,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1011,7 +1011,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1022,7 +1022,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1033,7 +1033,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

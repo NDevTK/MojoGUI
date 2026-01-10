@@ -209,7 +209,7 @@ infobar_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -220,7 +220,7 @@ infobar_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

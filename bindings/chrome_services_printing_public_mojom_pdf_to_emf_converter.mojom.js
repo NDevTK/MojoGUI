@@ -138,7 +138,7 @@ printing.mojom.PdfToEmfConverterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -249,7 +249,7 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

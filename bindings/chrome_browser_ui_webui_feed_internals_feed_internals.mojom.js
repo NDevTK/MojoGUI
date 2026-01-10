@@ -356,7 +356,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -367,7 +367,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -393,7 +393,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -404,7 +404,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

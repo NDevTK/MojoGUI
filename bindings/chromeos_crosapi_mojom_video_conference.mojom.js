@@ -243,7 +243,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -254,7 +254,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -265,7 +265,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

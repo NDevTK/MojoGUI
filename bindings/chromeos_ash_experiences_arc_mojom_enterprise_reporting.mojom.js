@@ -232,7 +232,7 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -243,7 +243,7 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

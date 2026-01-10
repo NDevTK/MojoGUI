@@ -751,7 +751,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -767,7 +767,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -783,7 +783,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -799,7 +799,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -810,7 +810,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -821,7 +821,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -832,7 +832,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -843,7 +843,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -859,7 +859,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -875,7 +875,7 @@ nearby_share.mojom.NearbyShareSettingsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

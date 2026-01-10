@@ -435,7 +435,7 @@ blink.mojom.AnchorElementMetricsHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

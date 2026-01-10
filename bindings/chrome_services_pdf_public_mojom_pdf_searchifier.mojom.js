@@ -97,7 +97,7 @@ pdf.mojom.PdfSearchifierReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

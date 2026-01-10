@@ -98,7 +98,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBrokerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

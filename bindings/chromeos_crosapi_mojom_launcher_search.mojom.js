@@ -312,7 +312,7 @@ crosapi.mojom.SearchControllerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.SearchController_Search_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

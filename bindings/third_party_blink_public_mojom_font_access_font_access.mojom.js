@@ -120,7 +120,7 @@ blink.mojom.FontAccessManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

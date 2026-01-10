@@ -243,7 +243,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -254,7 +254,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -498,7 +498,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -509,7 +509,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -530,7 +530,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -541,7 +541,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -552,7 +552,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -381,7 +381,7 @@ auction_worklet.mojom.SellerWorkletReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

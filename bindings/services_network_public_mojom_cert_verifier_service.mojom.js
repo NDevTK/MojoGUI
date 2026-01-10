@@ -284,7 +284,7 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

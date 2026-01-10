@@ -194,7 +194,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

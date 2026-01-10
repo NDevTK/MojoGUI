@@ -99,7 +99,7 @@ blink.mojom.WebSensorProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

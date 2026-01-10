@@ -1236,7 +1236,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1247,7 +1247,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1258,7 +1258,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1269,7 +1269,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1280,7 +1280,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1291,7 +1291,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1302,7 +1302,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1313,7 +1313,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1324,7 +1324,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1335,7 +1335,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1346,7 +1346,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1357,7 +1357,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1368,7 +1368,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1379,7 +1379,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1390,7 +1390,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1401,7 +1401,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1412,7 +1412,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1423,7 +1423,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

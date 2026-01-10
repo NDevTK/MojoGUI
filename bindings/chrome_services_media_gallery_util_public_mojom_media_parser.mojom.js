@@ -253,7 +253,7 @@ chrome.mojom.MediaParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -264,7 +264,7 @@ chrome.mojom.MediaParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -275,7 +275,7 @@ chrome.mojom.MediaParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -286,7 +286,7 @@ chrome.mojom.MediaParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -386,7 +386,7 @@ chrome.mojom.MediaParserFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -486,7 +486,7 @@ chrome.mojom.MediaDataSourceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.MediaDataSource_Read_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

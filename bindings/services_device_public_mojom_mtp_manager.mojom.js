@@ -492,7 +492,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -503,7 +503,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -514,7 +514,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -525,7 +525,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_OpenStorage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -536,7 +536,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_CloseStorage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -547,7 +547,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -558,7 +558,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -569,7 +569,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -580,7 +580,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -591,7 +591,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_RenameObject_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -602,7 +602,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -613,7 +613,7 @@ device.mojom.MtpManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.MtpManager_DeleteObject_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

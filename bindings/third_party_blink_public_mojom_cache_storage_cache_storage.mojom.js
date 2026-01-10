@@ -332,7 +332,7 @@ blink.mojom.CacheStorageCacheReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -343,7 +343,7 @@ blink.mojom.CacheStorageCacheReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -525,7 +525,7 @@ blink.mojom.CacheStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CacheStorage_Has_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -536,7 +536,7 @@ blink.mojom.CacheStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CacheStorage_Delete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -547,7 +547,7 @@ blink.mojom.CacheStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CacheStorage_Keys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

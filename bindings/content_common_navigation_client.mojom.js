@@ -239,7 +239,7 @@ content.mojom.NavigationClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -250,7 +250,7 @@ content.mojom.NavigationClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -655,7 +655,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_Open_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -666,7 +666,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_Close_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -677,7 +677,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -688,7 +688,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -699,7 +699,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -710,7 +710,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -721,7 +721,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_Reset_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -732,7 +732,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -743,7 +743,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -754,7 +754,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -765,7 +765,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -776,7 +776,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -787,7 +787,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -798,7 +798,7 @@ device.mojom.UsbDeviceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -128,7 +128,7 @@ extensions.mojom.GuestViewReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -280,7 +280,7 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -1275,7 +1275,7 @@ arc.mojom.MetricsInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MetricsInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1286,7 +1286,7 @@ arc.mojom.MetricsInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

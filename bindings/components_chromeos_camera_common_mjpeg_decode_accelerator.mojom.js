@@ -197,7 +197,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -208,7 +208,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -219,7 +219,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

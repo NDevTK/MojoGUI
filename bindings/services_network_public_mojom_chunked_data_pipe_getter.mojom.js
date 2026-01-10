@@ -114,7 +114,7 @@ network.mojom.ChunkedDataPipeGetterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

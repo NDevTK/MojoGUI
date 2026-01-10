@@ -209,7 +209,7 @@ android_webview.mojom.LocalMainFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -363,7 +363,7 @@ android_webview.mojom.FrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

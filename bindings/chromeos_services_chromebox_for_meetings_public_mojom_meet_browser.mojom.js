@@ -98,7 +98,7 @@ ash.cfm.mojom.MeetBrowserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

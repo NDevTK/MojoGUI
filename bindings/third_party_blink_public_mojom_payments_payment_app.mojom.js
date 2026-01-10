@@ -413,7 +413,7 @@ payments.mojom.PaymentManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -424,7 +424,7 @@ payments.mojom.PaymentManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -435,7 +435,7 @@ payments.mojom.PaymentManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -446,7 +446,7 @@ payments.mojom.PaymentManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -457,7 +457,7 @@ payments.mojom.PaymentManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -468,7 +468,7 @@ payments.mojom.PaymentManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -484,7 +484,7 @@ payments.mojom.PaymentManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

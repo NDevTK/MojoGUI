@@ -252,7 +252,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -263,7 +263,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -284,7 +284,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -295,7 +295,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -306,7 +306,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -252,7 +252,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -263,7 +263,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -274,7 +274,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -285,7 +285,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -296,7 +296,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -307,7 +307,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -443,7 +443,7 @@ arc.mojom.DiskSpaceInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -454,7 +454,7 @@ arc.mojom.DiskSpaceInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

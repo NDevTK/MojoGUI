@@ -264,7 +264,7 @@ audio.mojom.SystemInfoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -275,7 +275,7 @@ audio.mojom.SystemInfoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -286,7 +286,7 @@ audio.mojom.SystemInfoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -297,7 +297,7 @@ audio.mojom.SystemInfoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -308,7 +308,7 @@ audio.mojom.SystemInfoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -319,7 +319,7 @@ audio.mojom.SystemInfoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -330,7 +330,7 @@ audio.mojom.SystemInfoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -341,7 +341,7 @@ audio.mojom.SystemInfoReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

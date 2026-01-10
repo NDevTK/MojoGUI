@@ -415,7 +415,7 @@ autofill.mojom.AutofillAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -436,7 +436,7 @@ autofill.mojom.AutofillAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -447,7 +447,7 @@ autofill.mojom.AutofillAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -498,7 +498,7 @@ autofill.mojom.AutofillAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -832,7 +832,7 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -868,7 +868,7 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -879,7 +879,7 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -905,7 +905,7 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1075,7 +1075,7 @@ autofill.mojom.PasswordGenerationAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

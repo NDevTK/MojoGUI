@@ -253,7 +253,7 @@ chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

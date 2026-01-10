@@ -293,7 +293,7 @@ arc.mojom.ImeHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -507,7 +507,7 @@ arc.mojom.ImeInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ImeInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -155,7 +155,7 @@ content_settings.mojom.ContentSettingsManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

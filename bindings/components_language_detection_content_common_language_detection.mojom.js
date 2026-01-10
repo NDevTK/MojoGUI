@@ -128,7 +128,7 @@ language_detection.mojom.ContentLanguageDetectionDriverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -139,7 +139,7 @@ language_detection.mojom.ContentLanguageDetectionDriverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

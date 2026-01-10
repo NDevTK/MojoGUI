@@ -233,7 +233,7 @@ chromecast.mojom.CastWebServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

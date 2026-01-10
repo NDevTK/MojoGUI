@@ -145,7 +145,7 @@ user_data_importer.mojom.BookmarkHtmlParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -226,7 +226,7 @@ metrics.mojom.ChildHistogramFetcherReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -237,7 +237,7 @@ metrics.mojom.ChildHistogramFetcherReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

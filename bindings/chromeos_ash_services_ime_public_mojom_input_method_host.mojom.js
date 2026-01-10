@@ -596,7 +596,7 @@ ash.ime.mojom.InputMethodHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

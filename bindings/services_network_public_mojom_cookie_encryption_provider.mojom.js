@@ -97,7 +97,7 @@ network.mojom.CookieEncryptionProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

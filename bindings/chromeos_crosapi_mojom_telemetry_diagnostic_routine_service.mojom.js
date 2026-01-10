@@ -626,7 +626,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -845,7 +845,7 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

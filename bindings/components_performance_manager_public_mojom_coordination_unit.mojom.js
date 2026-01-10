@@ -350,7 +350,7 @@ performance_manager.mojom.DocumentCoordinationUnitReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -650,7 +650,7 @@ performance_manager.mojom.ChildProcessCoordinationUnitReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

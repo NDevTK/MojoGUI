@@ -180,7 +180,7 @@ network.mojom.TCPBoundSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -191,7 +191,7 @@ network.mojom.TCPBoundSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -386,7 +386,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -397,7 +397,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -408,7 +408,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -419,7 +419,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -430,7 +430,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -641,7 +641,7 @@ network.mojom.TCPServerSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TCPServerSocket_Accept_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

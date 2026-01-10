@@ -406,7 +406,7 @@ device.mojom.XRRuntimeReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XRRuntime_RequestSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -417,7 +417,7 @@ device.mojom.XRRuntimeReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.XRRuntime_ShutdownSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -583,7 +583,7 @@ device.mojom.ImmersiveOverlayReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -594,7 +594,7 @@ device.mojom.ImmersiveOverlayReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -610,7 +610,7 @@ device.mojom.ImmersiveOverlayReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

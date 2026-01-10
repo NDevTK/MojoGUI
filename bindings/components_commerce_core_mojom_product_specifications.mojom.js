@@ -280,7 +280,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -301,7 +301,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -327,7 +327,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

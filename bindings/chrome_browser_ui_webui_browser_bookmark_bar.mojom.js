@@ -232,7 +232,7 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

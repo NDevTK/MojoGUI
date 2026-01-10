@@ -313,7 +313,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -324,7 +324,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -335,7 +335,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -346,7 +346,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

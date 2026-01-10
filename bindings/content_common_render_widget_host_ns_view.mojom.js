@@ -793,7 +793,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -819,7 +819,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1560,7 +1560,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1681,7 +1681,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1692,7 +1692,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1763,7 +1763,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1774,7 +1774,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

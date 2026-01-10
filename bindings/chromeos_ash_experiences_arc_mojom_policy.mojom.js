@@ -187,7 +187,7 @@ arc.mojom.PolicyHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -198,7 +198,7 @@ arc.mojom.PolicyHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -343,7 +343,7 @@ arc.mojom.PolicyInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PolicyInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -359,7 +359,7 @@ arc.mojom.PolicyInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

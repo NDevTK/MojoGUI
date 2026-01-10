@@ -115,7 +115,7 @@ network.mojom.ProxyResolvingSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -223,7 +223,7 @@ network.mojom.ProxyResolvingSocketFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

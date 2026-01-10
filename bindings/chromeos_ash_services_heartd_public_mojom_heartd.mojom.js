@@ -193,7 +193,7 @@ ash.heartd.mojom.HeartdControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -294,7 +294,7 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -412,7 +412,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -423,7 +423,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

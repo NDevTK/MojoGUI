@@ -98,7 +98,7 @@ blink.mojom.GpuDataManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

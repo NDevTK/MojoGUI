@@ -460,7 +460,7 @@ password_manager.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -471,7 +471,7 @@ password_manager.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -487,7 +487,7 @@ password_manager.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -503,7 +503,7 @@ password_manager.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -519,7 +519,7 @@ password_manager.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -535,7 +535,7 @@ password_manager.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -546,7 +546,7 @@ password_manager.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -557,7 +557,7 @@ password_manager.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

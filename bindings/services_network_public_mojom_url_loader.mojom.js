@@ -329,7 +329,7 @@ network.mojom.URLLoaderClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

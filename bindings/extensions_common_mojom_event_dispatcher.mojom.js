@@ -127,7 +127,7 @@ extensions.mojom.EventDispatcherReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

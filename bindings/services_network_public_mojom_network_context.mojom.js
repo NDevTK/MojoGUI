@@ -649,7 +649,7 @@ network.mojom.CustomProxyConfigClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -775,7 +775,7 @@ network.mojom.TrustedHeaderClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -786,7 +786,7 @@ network.mojom.TrustedHeaderClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2943,7 +2943,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearTrustTokenData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2954,7 +2954,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2965,7 +2965,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetStoredTrustTokenCounts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2976,7 +2976,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2987,7 +2987,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_DeleteStoredTrustTokens_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3003,7 +3003,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3014,7 +3014,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearHttpCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3025,7 +3025,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ComputeHttpCacheSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3046,7 +3046,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearHostCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3057,7 +3057,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearHttpAuthCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3068,7 +3068,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearCorsPreflightCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3079,7 +3079,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearReportingCacheReports_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3090,7 +3090,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearReportingCacheClients_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3101,7 +3101,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearNetworkErrorLogging_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3112,7 +3112,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearDomainReliability_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3123,7 +3123,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearSharedDictionaryCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3134,7 +3134,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3175,7 +3175,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CloseAllConnections_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3186,7 +3186,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CloseIdleConnections_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3222,7 +3222,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CreateRestrictedUDPSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3233,7 +3233,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CreateTCPServerSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3244,7 +3244,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CreateTCPConnectedSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3255,7 +3255,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_CreateTCPBoundSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3276,7 +3276,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ForceReloadProxyConfig_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3287,7 +3287,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ClearBadProxiesCache_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3338,7 +3338,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_VerifyCert_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3349,7 +3349,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_VerifyCertForSignedExchange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3360,7 +3360,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_Verify2QwacCertBinding_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3371,7 +3371,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_AddHSTS_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3382,7 +3382,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_IsHSTSActiveForHost_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3393,7 +3393,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetHSTSState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3404,7 +3404,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3415,7 +3415,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_DeleteDynamicDataForHost_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3431,7 +3431,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3442,7 +3442,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3453,7 +3453,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_AddAuthCacheEntry_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3469,7 +3469,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_LookupProxyAuthCredentials_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3480,7 +3480,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3491,7 +3491,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_VerifyCertificateForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3502,7 +3502,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3513,7 +3513,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3524,7 +3524,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3545,7 +3545,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3556,7 +3556,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetSharedDictionaryInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3567,7 +3567,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3588,7 +3588,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3614,7 +3614,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_RevokeNetworkForNonces_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3630,7 +3630,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3646,7 +3646,7 @@ network.mojom.NetworkContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.NetworkContext_GetBoundNetworkForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

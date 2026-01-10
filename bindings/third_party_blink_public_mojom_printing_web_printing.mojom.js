@@ -597,7 +597,7 @@ blink.mojom.WebPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -608,7 +608,7 @@ blink.mojom.WebPrinterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebPrinter_Print_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -706,7 +706,7 @@ blink.mojom.WebPrintingServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

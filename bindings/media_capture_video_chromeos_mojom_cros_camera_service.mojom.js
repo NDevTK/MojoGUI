@@ -355,7 +355,7 @@ cros.mojom.CameraHalDispatcherReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -773,7 +773,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -794,7 +794,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -810,7 +810,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -821,7 +821,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

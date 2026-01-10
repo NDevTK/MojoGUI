@@ -127,7 +127,7 @@ arc.mojom.ObbMounterHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -138,7 +138,7 @@ arc.mojom.ObbMounterHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -236,7 +236,7 @@ arc.mojom.ObbMounterInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

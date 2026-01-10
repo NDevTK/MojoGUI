@@ -234,7 +234,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -245,7 +245,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -256,7 +256,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

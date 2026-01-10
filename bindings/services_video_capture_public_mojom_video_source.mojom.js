@@ -269,7 +269,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -285,7 +285,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -296,7 +296,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -307,7 +307,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -318,7 +318,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -426,7 +426,7 @@ video_capture.mojom.VideoSourceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -263,7 +263,7 @@ enterprise_reporting.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -274,7 +274,7 @@ enterprise_reporting.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

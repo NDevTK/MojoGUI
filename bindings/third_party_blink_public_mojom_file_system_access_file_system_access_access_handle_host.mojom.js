@@ -95,7 +95,7 @@ blink.mojom.FileSystemAccessAccessHandleHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

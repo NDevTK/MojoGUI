@@ -558,7 +558,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -569,7 +569,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -580,7 +580,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -591,7 +591,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -602,7 +602,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -613,7 +613,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -624,7 +624,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -635,7 +635,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -646,7 +646,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -657,7 +657,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -668,7 +668,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -679,7 +679,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -690,7 +690,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -701,7 +701,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -712,7 +712,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -723,7 +723,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -734,7 +734,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -745,7 +745,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

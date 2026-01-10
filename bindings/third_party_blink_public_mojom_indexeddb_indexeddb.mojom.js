@@ -963,7 +963,7 @@ blink.mojom.IDBCursorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBCursor_Advance_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -974,7 +974,7 @@ blink.mojom.IDBCursorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBCursor_Continue_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -985,7 +985,7 @@ blink.mojom.IDBCursorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1187,7 +1187,7 @@ blink.mojom.IDBTransactionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBTransaction_Put_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1737,7 +1737,7 @@ blink.mojom.IDBDatabaseReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_Get_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1748,7 +1748,7 @@ blink.mojom.IDBDatabaseReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1759,7 +1759,7 @@ blink.mojom.IDBDatabaseReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1770,7 +1770,7 @@ blink.mojom.IDBDatabaseReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_Count_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1781,7 +1781,7 @@ blink.mojom.IDBDatabaseReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1792,7 +1792,7 @@ blink.mojom.IDBDatabaseReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1803,7 +1803,7 @@ blink.mojom.IDBDatabaseReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBDatabase_Clear_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1972,7 +1972,7 @@ blink.mojom.IDBFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

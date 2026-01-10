@@ -204,7 +204,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -215,7 +215,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -226,7 +226,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -346,7 +346,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -357,7 +357,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

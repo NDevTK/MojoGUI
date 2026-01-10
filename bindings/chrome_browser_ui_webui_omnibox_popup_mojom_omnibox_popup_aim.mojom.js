@@ -362,7 +362,7 @@ omnibox_popup_aim.mojom.PageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

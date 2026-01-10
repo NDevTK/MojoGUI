@@ -226,7 +226,7 @@ echo.mojom.EchoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, echo.mojom.EchoService_EchoString_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -257,7 +257,7 @@ echo.mojom.EchoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -268,7 +268,7 @@ echo.mojom.EchoServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

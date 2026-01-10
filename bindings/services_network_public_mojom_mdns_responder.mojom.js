@@ -123,7 +123,7 @@ network.mojom.MdnsResponderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -134,7 +134,7 @@ network.mojom.MdnsResponderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

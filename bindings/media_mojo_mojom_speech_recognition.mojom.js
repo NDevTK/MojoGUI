@@ -260,7 +260,7 @@ media.mojom.SpeechRecognitionContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -581,7 +581,7 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -843,7 +843,7 @@ media.mojom.SpeechRecognitionSurfaceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

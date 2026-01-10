@@ -174,7 +174,7 @@ webnn.mojom.WebNNContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -185,7 +185,7 @@ webnn.mojom.WebNNContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

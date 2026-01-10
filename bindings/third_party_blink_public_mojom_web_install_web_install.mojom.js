@@ -141,7 +141,7 @@ blink.mojom.WebInstallServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebInstallService_Install_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -152,7 +152,7 @@ blink.mojom.WebInstallServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

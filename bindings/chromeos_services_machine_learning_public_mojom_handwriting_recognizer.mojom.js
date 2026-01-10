@@ -226,7 +226,7 @@ chromeos.machine_learning.mojom.HandwritingRecognizerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

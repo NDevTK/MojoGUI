@@ -205,7 +205,7 @@ media.mojom.MediaDrmStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -216,7 +216,7 @@ media.mojom.MediaDrmStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -227,7 +227,7 @@ media.mojom.MediaDrmStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -238,7 +238,7 @@ media.mojom.MediaDrmStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -249,7 +249,7 @@ media.mojom.MediaDrmStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

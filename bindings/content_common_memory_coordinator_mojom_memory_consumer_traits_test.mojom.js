@@ -97,7 +97,7 @@ content.mojom.MemoryConsumerTraitsTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -1259,7 +1259,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1270,7 +1270,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1281,7 +1281,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1292,7 +1292,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1303,7 +1303,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1314,7 +1314,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1325,7 +1325,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1336,7 +1336,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1347,7 +1347,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1358,7 +1358,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1369,7 +1369,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1380,7 +1380,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1391,7 +1391,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1402,7 +1402,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1413,7 +1413,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1424,7 +1424,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1435,7 +1435,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1446,7 +1446,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1457,7 +1457,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1468,7 +1468,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1479,7 +1479,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1490,7 +1490,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1501,7 +1501,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1512,7 +1512,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1523,7 +1523,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1534,7 +1534,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1545,7 +1545,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1556,7 +1556,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1567,7 +1567,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1578,7 +1578,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1589,7 +1589,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1600,7 +1600,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1611,7 +1611,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1622,7 +1622,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1633,7 +1633,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1644,7 +1644,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1655,7 +1655,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1666,7 +1666,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1677,7 +1677,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1688,7 +1688,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1699,7 +1699,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1710,7 +1710,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1721,7 +1721,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1732,7 +1732,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1743,7 +1743,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1754,7 +1754,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1765,7 +1765,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1776,7 +1776,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1787,7 +1787,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2055,7 +2055,7 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2199,7 +2199,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2210,7 +2210,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2221,7 +2221,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

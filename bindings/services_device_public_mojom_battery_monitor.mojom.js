@@ -96,7 +96,7 @@ device.mojom.BatteryMonitorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

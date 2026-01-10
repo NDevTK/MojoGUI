@@ -97,7 +97,7 @@ network.mojom.CacheEncryptionProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

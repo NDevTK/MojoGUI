@@ -188,7 +188,7 @@ ash.common.mojom.AccessibilityFeaturesReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

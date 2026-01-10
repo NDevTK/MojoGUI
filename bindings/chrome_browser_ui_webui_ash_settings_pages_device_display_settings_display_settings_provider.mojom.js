@@ -684,7 +684,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -700,7 +700,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -711,7 +711,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -747,7 +747,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

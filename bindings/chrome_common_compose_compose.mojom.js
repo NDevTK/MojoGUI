@@ -614,7 +614,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -625,7 +625,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -636,7 +636,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -647,7 +647,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -658,7 +658,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -699,7 +699,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

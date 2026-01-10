@@ -286,7 +286,7 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -297,7 +297,7 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -313,7 +313,7 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -329,7 +329,7 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -489,7 +489,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -500,7 +500,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -511,7 +511,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

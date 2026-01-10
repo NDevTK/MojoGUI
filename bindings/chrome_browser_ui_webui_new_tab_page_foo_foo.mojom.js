@@ -106,7 +106,7 @@ foo.mojom.FooHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, foo.mojom.FooHandler_GetData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

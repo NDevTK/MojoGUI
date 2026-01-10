@@ -197,7 +197,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -208,7 +208,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -219,7 +219,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -230,7 +230,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -241,7 +241,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

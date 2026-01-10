@@ -103,7 +103,7 @@ chrome.mojom.SingleFileExtractorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

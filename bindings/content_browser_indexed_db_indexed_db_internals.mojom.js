@@ -228,7 +228,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -239,7 +239,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -250,7 +250,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -261,7 +261,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -272,7 +272,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -283,7 +283,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

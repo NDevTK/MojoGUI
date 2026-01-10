@@ -124,7 +124,7 @@ blink.mojom.FileBackedBlobFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -124,7 +124,7 @@ ai.mojom.EnhancedCalendarServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -235,7 +235,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -338,7 +338,7 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -439,7 +439,7 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -623,7 +623,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -809,7 +809,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

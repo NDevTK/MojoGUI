@@ -802,7 +802,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -828,7 +828,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -849,7 +849,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -865,7 +865,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -876,7 +876,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -887,7 +887,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -898,7 +898,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

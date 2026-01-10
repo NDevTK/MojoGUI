@@ -654,7 +654,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -665,7 +665,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_DropBookmarks_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -746,7 +746,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -777,7 +777,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -111,7 +111,7 @@ blink.mojom.ShareServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ShareService_Share_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

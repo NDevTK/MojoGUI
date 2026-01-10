@@ -1102,7 +1102,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

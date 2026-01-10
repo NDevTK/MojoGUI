@@ -406,7 +406,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -417,7 +417,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -428,7 +428,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -439,7 +439,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -450,7 +450,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -461,7 +461,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -897,7 +897,7 @@ network.mojom.CookieManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -908,7 +908,7 @@ network.mojom.CookieManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -919,7 +919,7 @@ network.mojom.CookieManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieManager_GetCookieList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -930,7 +930,7 @@ network.mojom.CookieManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -941,7 +941,7 @@ network.mojom.CookieManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -952,7 +952,7 @@ network.mojom.CookieManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -963,7 +963,7 @@ network.mojom.CookieManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -974,7 +974,7 @@ network.mojom.CookieManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1000,7 +1000,7 @@ network.mojom.CookieManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieManager_FlushCookieStore_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1011,7 +1011,7 @@ network.mojom.CookieManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1022,7 +1022,7 @@ network.mojom.CookieManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.CookieManager_SetContentSettings_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

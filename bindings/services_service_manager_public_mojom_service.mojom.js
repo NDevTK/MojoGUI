@@ -151,7 +151,7 @@ service_manager.mojom.ServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, service_manager.mojom.Service_OnStart_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -162,7 +162,7 @@ service_manager.mojom.ServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

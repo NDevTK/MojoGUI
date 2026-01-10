@@ -195,7 +195,7 @@ arc.mojom.PrintSessionInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -296,7 +296,7 @@ arc.mojom.PrintSpoolerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -394,7 +394,7 @@ arc.mojom.PrintSpoolerInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

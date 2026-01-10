@@ -114,7 +114,7 @@ userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -256,7 +256,7 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

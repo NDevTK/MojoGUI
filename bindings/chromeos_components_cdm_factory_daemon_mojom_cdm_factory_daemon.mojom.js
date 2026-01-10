@@ -180,7 +180,7 @@ chromeos.cdm.mojom.CdmFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -456,7 +456,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -482,7 +482,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -498,7 +498,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -509,7 +509,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -520,7 +520,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -531,7 +531,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

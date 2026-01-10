@@ -214,7 +214,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -225,7 +225,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -236,7 +236,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

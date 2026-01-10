@@ -397,7 +397,7 @@ media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -702,7 +702,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -713,7 +713,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -739,7 +739,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoEncodeAccelerator_IsFlushSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -750,7 +750,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

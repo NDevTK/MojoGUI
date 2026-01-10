@@ -130,7 +130,7 @@ blink.mojom.WebViewMediaIntegrityServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -229,7 +229,7 @@ blink.mojom.WebViewMediaIntegrityProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

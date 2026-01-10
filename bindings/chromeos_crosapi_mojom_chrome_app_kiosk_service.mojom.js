@@ -159,7 +159,7 @@ crosapi.mojom.ChromeKioskLaunchControllerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -170,7 +170,7 @@ crosapi.mojom.ChromeKioskLaunchControllerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

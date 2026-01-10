@@ -396,7 +396,7 @@ tracing.mojom.ProducerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -588,7 +588,7 @@ tracing.mojom.ProducerClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -599,7 +599,7 @@ tracing.mojom.ProducerClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -827,7 +827,7 @@ tracing.mojom.ConsumerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1012,7 +1012,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1023,7 +1023,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1034,7 +1034,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

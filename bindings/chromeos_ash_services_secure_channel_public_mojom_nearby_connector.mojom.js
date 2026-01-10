@@ -244,7 +244,7 @@ ash.secure_channel.mojom.NearbyMessageSenderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -432,7 +432,7 @@ ash.secure_channel.mojom.NearbyFilePayloadHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -535,7 +535,7 @@ ash.secure_channel.mojom.NearbyConnectorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

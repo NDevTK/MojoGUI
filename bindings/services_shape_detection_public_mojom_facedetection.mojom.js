@@ -134,7 +134,7 @@ shape_detection.mojom.FaceDetectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -176,7 +176,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -187,7 +187,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

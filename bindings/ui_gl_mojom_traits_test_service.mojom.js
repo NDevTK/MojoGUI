@@ -121,7 +121,7 @@ gl.mojom.TraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -132,7 +132,7 @@ gl.mojom.TraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

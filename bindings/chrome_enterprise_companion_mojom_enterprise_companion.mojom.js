@@ -130,7 +130,7 @@ enterprise_companion.mojom.EnterpriseCompanionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -141,7 +141,7 @@ enterprise_companion.mojom.EnterpriseCompanionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -97,7 +97,7 @@ media_router.mojom.MediaRouterTraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

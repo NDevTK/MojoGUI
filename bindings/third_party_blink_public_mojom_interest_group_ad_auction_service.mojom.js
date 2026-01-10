@@ -683,7 +683,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -694,7 +694,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -705,7 +705,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -716,7 +716,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -727,7 +727,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -743,7 +743,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -759,7 +759,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -770,7 +770,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -781,7 +781,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

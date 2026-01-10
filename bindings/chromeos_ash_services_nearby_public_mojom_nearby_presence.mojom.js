@@ -558,7 +558,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -579,7 +579,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -590,7 +590,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -601,7 +601,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

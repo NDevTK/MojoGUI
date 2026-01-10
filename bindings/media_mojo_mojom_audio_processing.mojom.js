@@ -145,7 +145,7 @@ media.mojom.AudioProcessorControlsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

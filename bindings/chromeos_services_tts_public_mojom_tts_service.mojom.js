@@ -161,7 +161,7 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -367,7 +367,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -378,7 +378,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -389,7 +389,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -586,7 +586,7 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

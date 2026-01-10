@@ -813,7 +813,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -824,7 +824,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -835,7 +835,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -851,7 +851,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -862,7 +862,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -873,7 +873,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -884,7 +884,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -895,7 +895,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -911,7 +911,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1010,7 +1010,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -362,7 +362,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -373,7 +373,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -384,7 +384,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -395,7 +395,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -406,7 +406,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -417,7 +417,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

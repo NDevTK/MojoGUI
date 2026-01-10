@@ -146,7 +146,7 @@ blink.mojom.V8DetailedMemoryReporterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -625,7 +625,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -656,7 +656,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -667,7 +667,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -678,7 +678,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -689,7 +689,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -700,7 +700,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -779,7 +779,7 @@ arc.mojom.keymint.KeyMintHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -877,7 +877,7 @@ arc.mojom.keymint.KeyMintInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1538,7 +1538,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1549,7 +1549,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1560,7 +1560,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1571,7 +1571,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1582,7 +1582,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1593,7 +1593,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1604,7 +1604,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1615,7 +1615,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1626,7 +1626,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1637,7 +1637,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1648,7 +1648,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1659,7 +1659,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1670,7 +1670,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1681,7 +1681,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1692,7 +1692,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1703,7 +1703,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1714,7 +1714,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1725,7 +1725,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1736,7 +1736,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1747,7 +1747,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1758,7 +1758,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1769,7 +1769,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1780,7 +1780,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1791,7 +1791,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1802,7 +1802,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

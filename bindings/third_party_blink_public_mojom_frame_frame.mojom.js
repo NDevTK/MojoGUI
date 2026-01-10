@@ -1883,7 +1883,7 @@ blink.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_EnterFullscreen_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2084,7 +2084,7 @@ blink.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunModalAlertDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2095,7 +2095,7 @@ blink.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunModalConfirmDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2106,7 +2106,7 @@ blink.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunModalPromptDialog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2117,7 +2117,7 @@ blink.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2243,7 +2243,7 @@ blink.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_DisableUntrustedNetworkInFencedFrame_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2254,7 +2254,7 @@ blink.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_ExemptUrlFromNetworkRevocationForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2325,7 +2325,7 @@ blink.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2336,7 +2336,7 @@ blink.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_SetCrashReportStorageKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2347,7 +2347,7 @@ blink.mojom.LocalFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrameHost_RemoveCrashReportStorageKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3524,7 +3524,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetTextSurroundingSelection_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3620,7 +3620,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_BeforeUnload_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3636,7 +3636,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3682,7 +3682,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3693,7 +3693,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptExecuteRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3704,7 +3704,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3715,7 +3715,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3736,7 +3736,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetStringForRange_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3757,7 +3757,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3778,7 +3778,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_ExtractSmartClipData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3794,7 +3794,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3805,7 +3805,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetOpenGraphMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3821,7 +3821,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_UpdatePrerenderURL_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3847,7 +3847,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3873,7 +3873,7 @@ blink.mojom.LocalFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4175,7 +4175,7 @@ blink.mojom.LocalMainFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrame_ClosePage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4186,7 +4186,7 @@ blink.mojom.LocalMainFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrame_GetFullPageSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4227,7 +4227,7 @@ blink.mojom.LocalMainFrameReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrame_Discard_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4617,7 +4617,7 @@ blink.mojom.LocalMainFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrameHost_UpdateTargetURL_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4633,7 +4633,7 @@ blink.mojom.LocalMainFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrameHost_ShowCreatedWindow_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -4644,7 +4644,7 @@ blink.mojom.LocalMainFrameHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

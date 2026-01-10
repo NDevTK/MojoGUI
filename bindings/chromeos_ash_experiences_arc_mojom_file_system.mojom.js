@@ -655,7 +655,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -666,7 +666,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -677,7 +677,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -688,7 +688,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -709,7 +709,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -720,7 +720,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -731,7 +731,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -742,7 +742,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -753,7 +753,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -764,7 +764,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -780,7 +780,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -791,7 +791,7 @@ arc.mojom.FileSystemHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1366,7 +1366,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1377,7 +1377,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1388,7 +1388,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1399,7 +1399,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1410,7 +1410,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1421,7 +1421,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1432,7 +1432,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1443,7 +1443,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1454,7 +1454,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1465,7 +1465,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1476,7 +1476,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1487,7 +1487,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1498,7 +1498,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1509,7 +1509,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1520,7 +1520,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1536,7 +1536,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1547,7 +1547,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1558,7 +1558,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1584,7 +1584,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

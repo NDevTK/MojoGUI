@@ -102,7 +102,7 @@ network.mojom.SystemDnsResolverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

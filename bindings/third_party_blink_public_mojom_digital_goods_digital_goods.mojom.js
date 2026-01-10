@@ -174,7 +174,7 @@ payments.mojom.DigitalGoodsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -185,7 +185,7 @@ payments.mojom.DigitalGoodsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -196,7 +196,7 @@ payments.mojom.DigitalGoodsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -207,7 +207,7 @@ payments.mojom.DigitalGoodsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.DigitalGoods_Consume_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -307,7 +307,7 @@ payments.mojom.DigitalGoodsFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

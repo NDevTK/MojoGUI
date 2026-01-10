@@ -139,7 +139,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

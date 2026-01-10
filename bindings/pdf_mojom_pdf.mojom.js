@@ -150,7 +150,7 @@ pdf.mojom.SaveDataBufferHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -381,7 +381,7 @@ pdf.mojom.PdfListenerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -392,7 +392,7 @@ pdf.mojom.PdfListenerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -403,7 +403,7 @@ pdf.mojom.PdfListenerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -414,7 +414,7 @@ pdf.mojom.PdfListenerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

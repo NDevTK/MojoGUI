@@ -298,7 +298,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -309,7 +309,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -320,7 +320,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -331,7 +331,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -342,7 +342,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -457,7 +457,7 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

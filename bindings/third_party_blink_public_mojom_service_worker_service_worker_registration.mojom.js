@@ -228,7 +228,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -239,7 +239,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -250,7 +250,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -261,7 +261,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -272,7 +272,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

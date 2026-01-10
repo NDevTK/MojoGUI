@@ -142,7 +142,7 @@ webnn.mojom.WebNNContextProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

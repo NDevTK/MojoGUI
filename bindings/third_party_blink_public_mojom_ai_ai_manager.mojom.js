@@ -801,7 +801,7 @@ blink.mojom.AIManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -817,7 +817,7 @@ blink.mojom.AIManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -833,7 +833,7 @@ blink.mojom.AIManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -844,7 +844,7 @@ blink.mojom.AIManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -860,7 +860,7 @@ blink.mojom.AIManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -876,7 +876,7 @@ blink.mojom.AIManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

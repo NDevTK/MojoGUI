@@ -142,7 +142,7 @@ content.mojom.ChildProcessHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.ChildProcessHost_Ping_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -460,7 +460,7 @@ content.mojom.ChildProcessReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -506,7 +506,7 @@ content.mojom.ChildProcessReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

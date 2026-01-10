@@ -238,7 +238,7 @@ bluetooth.mojom.AdvertisementReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Advertisement_Unregister_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -357,7 +357,7 @@ bluetooth.mojom.DiscoverySessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -368,7 +368,7 @@ bluetooth.mojom.DiscoverySessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -465,7 +465,7 @@ bluetooth.mojom.SocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Socket_Disconnect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -583,7 +583,7 @@ bluetooth.mojom.ServerSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -594,7 +594,7 @@ bluetooth.mojom.ServerSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.ServerSocket_Disconnect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -716,7 +716,7 @@ bluetooth.mojom.GattServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -727,7 +727,7 @@ bluetooth.mojom.GattServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.GattService_Register_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -829,7 +829,7 @@ bluetooth.mojom.GattServiceObserverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1174,7 +1174,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1185,7 +1185,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1196,7 +1196,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1207,7 +1207,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_AddObserver_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1218,7 +1218,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1229,7 +1229,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1240,7 +1240,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_SetName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1251,7 +1251,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1262,7 +1262,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1273,7 +1273,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1284,7 +1284,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1295,7 +1295,7 @@ bluetooth.mojom.AdapterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

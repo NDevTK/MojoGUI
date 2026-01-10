@@ -150,7 +150,7 @@ chrome.mojom.BoundSessionRequestThrottledHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

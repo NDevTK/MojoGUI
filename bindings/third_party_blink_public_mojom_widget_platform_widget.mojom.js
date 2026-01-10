@@ -127,7 +127,7 @@ blink.mojom.WidgetCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -585,7 +585,7 @@ blink.mojom.WidgetReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Widget_ForceRedraw_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -601,7 +601,7 @@ blink.mojom.WidgetReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

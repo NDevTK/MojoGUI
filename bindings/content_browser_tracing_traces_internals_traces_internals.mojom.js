@@ -709,7 +709,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -720,7 +720,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -731,7 +731,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -742,7 +742,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -753,7 +753,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -764,7 +764,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -775,7 +775,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -786,7 +786,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -797,7 +797,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -808,7 +808,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -819,7 +819,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -830,7 +830,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -841,7 +841,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -852,7 +852,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -863,7 +863,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -879,7 +879,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -890,7 +890,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -901,7 +901,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -912,7 +912,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -123,7 +123,7 @@ password_manager.mojom.CSVPasswordParserReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

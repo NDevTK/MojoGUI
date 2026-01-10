@@ -121,7 +121,7 @@ sharing.mojom.NearbySharingDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -132,7 +132,7 @@ sharing.mojom.NearbySharingDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -172,7 +172,7 @@ arc.mojom.VolumeMounterHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -313,7 +313,7 @@ arc.mojom.VolumeMounterInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VolumeMounterInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -329,7 +329,7 @@ arc.mojom.VolumeMounterInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -234,7 +234,7 @@ unexportable_keys_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -245,7 +245,7 @@ unexportable_keys_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

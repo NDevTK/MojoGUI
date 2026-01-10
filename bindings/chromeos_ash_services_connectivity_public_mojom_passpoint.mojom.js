@@ -287,7 +287,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -298,7 +298,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -309,7 +309,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

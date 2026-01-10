@@ -218,7 +218,7 @@ media.mojom.AudioDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -234,7 +234,7 @@ media.mojom.AudioDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioDecoder_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -250,7 +250,7 @@ media.mojom.AudioDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioDecoder_Decode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -261,7 +261,7 @@ media.mojom.AudioDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioDecoder_Reset_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -133,7 +133,7 @@ network.mojom.ProxyConfigClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -557,7 +557,7 @@ crosapi.mojom.TelemetryEventServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

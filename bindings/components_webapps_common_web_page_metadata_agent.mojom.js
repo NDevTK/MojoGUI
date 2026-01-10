@@ -96,7 +96,7 @@ webapps.mojom.WebPageMetadataAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -143,7 +143,7 @@ printing.mojom.PdfToPwgRasterConverterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

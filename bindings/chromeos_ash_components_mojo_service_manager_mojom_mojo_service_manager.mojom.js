@@ -273,7 +273,7 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -189,7 +189,7 @@ blink.mojom.DevToolsAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

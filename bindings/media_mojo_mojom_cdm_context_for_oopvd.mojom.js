@@ -347,7 +347,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -363,7 +363,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -374,7 +374,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -385,7 +385,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -396,7 +396,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -407,7 +407,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -215,7 +215,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -226,7 +226,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -237,7 +237,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -248,7 +248,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

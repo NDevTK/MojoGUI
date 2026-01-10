@@ -178,7 +178,7 @@ ash.ime.mojom.JpUnusedReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

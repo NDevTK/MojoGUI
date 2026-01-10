@@ -464,7 +464,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -475,7 +475,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -486,7 +486,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -497,7 +497,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -508,7 +508,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -519,7 +519,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -530,7 +530,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -541,7 +541,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -552,7 +552,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -563,7 +563,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

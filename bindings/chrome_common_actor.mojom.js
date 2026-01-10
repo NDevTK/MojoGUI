@@ -506,7 +506,7 @@ actor.mojom.PageStabilityMonitorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

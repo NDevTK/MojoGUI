@@ -409,7 +409,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -420,7 +420,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -431,7 +431,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -442,7 +442,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -453,7 +453,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -479,7 +479,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -490,7 +490,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -501,7 +501,7 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

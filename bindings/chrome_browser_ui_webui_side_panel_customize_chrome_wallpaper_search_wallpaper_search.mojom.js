@@ -515,7 +515,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -526,7 +526,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -537,7 +537,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

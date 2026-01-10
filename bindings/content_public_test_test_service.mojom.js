@@ -370,7 +370,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_DoSomething_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -381,7 +381,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -392,7 +392,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -403,7 +403,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_CreateFolder_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -414,7 +414,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_GetRequestorName_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -425,7 +425,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -436,7 +436,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -447,7 +447,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -458,7 +458,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -469,7 +469,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -480,7 +480,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_PseudonymizeString_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -491,7 +491,7 @@ content.mojom.TestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.TestService_PassWriteableFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -531,7 +531,7 @@ ash.orca.mojom.EditorClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -542,7 +542,7 @@ ash.orca.mojom.EditorClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -553,7 +553,7 @@ ash.orca.mojom.EditorClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -564,7 +564,7 @@ ash.orca.mojom.EditorClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -615,7 +615,7 @@ ash.orca.mojom.EditorClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1154,7 +1154,7 @@ ash.orca.mojom.TextQueryProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

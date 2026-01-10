@@ -174,7 +174,7 @@ arc.mojom.TimerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -185,7 +185,7 @@ arc.mojom.TimerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerHost_StartTimer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -196,7 +196,7 @@ arc.mojom.TimerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerHost_SetTime_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -294,7 +294,7 @@ arc.mojom.TimerInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

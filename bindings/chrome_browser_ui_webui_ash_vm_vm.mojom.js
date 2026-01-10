@@ -98,7 +98,7 @@ ash.vm.mojom.VmDiagnosticsProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

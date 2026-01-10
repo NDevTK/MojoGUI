@@ -105,7 +105,7 @@ pdf.mojom.OcrReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

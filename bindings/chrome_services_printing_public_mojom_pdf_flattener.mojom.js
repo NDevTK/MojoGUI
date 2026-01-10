@@ -124,7 +124,7 @@ printing.mojom.PdfFlattenerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

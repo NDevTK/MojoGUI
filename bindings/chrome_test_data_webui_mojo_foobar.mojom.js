@@ -104,7 +104,7 @@ test.mojom.FooReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, test.mojom.Foo_GetFoo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -202,7 +202,7 @@ test.mojom.BarReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, test.mojom.Bar_GetBar_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -300,7 +300,7 @@ test.mojom.BazReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, test.mojom.Baz_GetBaz_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

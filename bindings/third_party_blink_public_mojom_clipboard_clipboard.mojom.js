@@ -707,7 +707,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -718,7 +718,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -729,7 +729,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -740,7 +740,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -751,7 +751,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -762,7 +762,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -773,7 +773,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -784,7 +784,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -795,7 +795,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -806,7 +806,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -817,7 +817,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -828,7 +828,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -889,7 +889,7 @@ blink.mojom.ClipboardHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

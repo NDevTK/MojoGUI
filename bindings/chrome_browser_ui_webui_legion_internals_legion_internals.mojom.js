@@ -153,7 +153,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -164,7 +164,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -175,7 +175,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

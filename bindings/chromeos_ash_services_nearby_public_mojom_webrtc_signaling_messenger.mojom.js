@@ -344,7 +344,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -355,7 +355,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

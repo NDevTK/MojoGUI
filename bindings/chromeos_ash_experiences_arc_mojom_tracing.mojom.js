@@ -144,7 +144,7 @@ arc.mojom.TracingInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -155,7 +155,7 @@ arc.mojom.TracingInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -166,7 +166,7 @@ arc.mojom.TracingInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

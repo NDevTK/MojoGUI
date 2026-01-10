@@ -128,7 +128,7 @@ file_suggestion.mojom.MicrosoftFilesPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

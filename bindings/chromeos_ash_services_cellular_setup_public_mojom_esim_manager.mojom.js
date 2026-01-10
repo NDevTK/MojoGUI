@@ -366,7 +366,7 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -574,7 +574,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -585,7 +585,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -596,7 +596,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -607,7 +607,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -618,7 +618,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -629,7 +629,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -792,7 +792,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -803,7 +803,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -814,7 +814,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -825,7 +825,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

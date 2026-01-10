@@ -205,7 +205,7 @@ network.mojom.RestrictedUDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -216,7 +216,7 @@ network.mojom.RestrictedUDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -232,7 +232,7 @@ network.mojom.RestrictedUDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -243,7 +243,7 @@ network.mojom.RestrictedUDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

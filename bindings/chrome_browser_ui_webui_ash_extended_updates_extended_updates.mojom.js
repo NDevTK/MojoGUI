@@ -238,7 +238,7 @@ ash.extended_updates.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -254,7 +254,7 @@ ash.extended_updates.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

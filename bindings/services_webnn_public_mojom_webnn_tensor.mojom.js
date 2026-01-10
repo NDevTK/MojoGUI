@@ -184,7 +184,7 @@ webnn.mojom.WebNNTensorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

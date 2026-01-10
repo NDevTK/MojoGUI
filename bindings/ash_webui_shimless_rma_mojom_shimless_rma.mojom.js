@@ -3041,7 +3041,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3052,7 +3052,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3063,7 +3063,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3074,7 +3074,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3085,7 +3085,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3101,7 +3101,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3112,7 +3112,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3123,7 +3123,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3134,7 +3134,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3145,7 +3145,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3156,7 +3156,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3167,7 +3167,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3178,7 +3178,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3189,7 +3189,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3200,7 +3200,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3211,7 +3211,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3222,7 +3222,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3233,7 +3233,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3244,7 +3244,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3255,7 +3255,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3266,7 +3266,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3277,7 +3277,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3288,7 +3288,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3299,7 +3299,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3310,7 +3310,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3321,7 +3321,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3332,7 +3332,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3343,7 +3343,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3354,7 +3354,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3365,7 +3365,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3376,7 +3376,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3387,7 +3387,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3398,7 +3398,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3409,7 +3409,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3420,7 +3420,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3431,7 +3431,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3442,7 +3442,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3453,7 +3453,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3464,7 +3464,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3475,7 +3475,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3486,7 +3486,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3497,7 +3497,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3508,7 +3508,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3519,7 +3519,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3530,7 +3530,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3541,7 +3541,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3552,7 +3552,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3563,7 +3563,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3574,7 +3574,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3585,7 +3585,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3596,7 +3596,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3607,7 +3607,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3618,7 +3618,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3634,7 +3634,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3650,7 +3650,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3661,7 +3661,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3672,7 +3672,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3683,7 +3683,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3694,7 +3694,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3705,7 +3705,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -3716,7 +3716,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

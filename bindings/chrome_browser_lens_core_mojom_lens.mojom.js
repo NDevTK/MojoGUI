@@ -763,7 +763,7 @@ lens.mojom.LensPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -854,7 +854,7 @@ lens.mojom.LensPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

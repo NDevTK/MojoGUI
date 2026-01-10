@@ -124,7 +124,7 @@ crosapi.mojom.TelemetryManagementServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -135,7 +135,7 @@ crosapi.mojom.TelemetryManagementServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

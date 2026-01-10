@@ -469,7 +469,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -480,7 +480,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -496,7 +496,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -507,7 +507,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -518,7 +518,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

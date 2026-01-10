@@ -123,7 +123,7 @@ ai.mojom.AIPrototypingServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -134,7 +134,7 @@ ai.mojom.AIPrototypingServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

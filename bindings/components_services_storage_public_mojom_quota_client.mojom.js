@@ -167,7 +167,7 @@ storage.mojom.QuotaClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -178,7 +178,7 @@ storage.mojom.QuotaClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -189,7 +189,7 @@ storage.mojom.QuotaClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -200,7 +200,7 @@ storage.mojom.QuotaClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

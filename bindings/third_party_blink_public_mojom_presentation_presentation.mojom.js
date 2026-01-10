@@ -495,7 +495,7 @@ blink.mojom.PresentationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -506,7 +506,7 @@ blink.mojom.PresentationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

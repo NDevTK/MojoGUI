@@ -187,7 +187,7 @@ media.mojom.AudioEncoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioEncoder_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -198,7 +198,7 @@ media.mojom.AudioEncoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioEncoder_Encode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -209,7 +209,7 @@ media.mojom.AudioEncoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.AudioEncoder_Flush_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -842,7 +842,7 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.android.mojom.AccessibilityHelperInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -858,7 +858,7 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.android.mojom.AccessibilityHelperInstance_PerformAction_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -874,7 +874,7 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -890,7 +890,7 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

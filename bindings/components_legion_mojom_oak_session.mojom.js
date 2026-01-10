@@ -178,7 +178,7 @@ legion.mojom.OakSessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -189,7 +189,7 @@ legion.mojom.OakSessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -200,7 +200,7 @@ legion.mojom.OakSessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion.mojom.OakSession_Encrypt_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -211,7 +211,7 @@ legion.mojom.OakSessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, legion.mojom.OakSession_Decrypt_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

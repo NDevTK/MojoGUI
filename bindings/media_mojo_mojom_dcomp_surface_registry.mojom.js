@@ -115,7 +115,7 @@ media.mojom.DCOMPSurfaceRegistryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

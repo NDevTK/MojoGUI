@@ -189,7 +189,7 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -205,7 +205,7 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -460,7 +460,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -471,7 +471,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -487,7 +487,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -498,7 +498,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

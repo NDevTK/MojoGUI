@@ -121,7 +121,7 @@ device.mojom.VibrationManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Vibrate_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -132,7 +132,7 @@ device.mojom.VibrationManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Cancel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

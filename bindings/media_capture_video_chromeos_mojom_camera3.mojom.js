@@ -474,7 +474,7 @@ cros.mojom.Camera3CallbackOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -811,7 +811,7 @@ cros.mojom.Camera3DeviceOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -822,7 +822,7 @@ cros.mojom.Camera3DeviceOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -833,7 +833,7 @@ cros.mojom.Camera3DeviceOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -844,7 +844,7 @@ cros.mojom.Camera3DeviceOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -860,7 +860,7 @@ cros.mojom.Camera3DeviceOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_Flush_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -871,7 +871,7 @@ cros.mojom.Camera3DeviceOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -882,7 +882,7 @@ cros.mojom.Camera3DeviceOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_Close_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -893,7 +893,7 @@ cros.mojom.Camera3DeviceOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -909,7 +909,7 @@ cros.mojom.Camera3DeviceOpsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

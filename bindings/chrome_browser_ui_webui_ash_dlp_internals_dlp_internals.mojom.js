@@ -416,7 +416,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -427,7 +427,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -443,7 +443,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -454,7 +454,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

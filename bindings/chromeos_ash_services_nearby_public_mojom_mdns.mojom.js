@@ -268,7 +268,7 @@ sharing.mojom.MdnsManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -279,7 +279,7 @@ sharing.mojom.MdnsManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

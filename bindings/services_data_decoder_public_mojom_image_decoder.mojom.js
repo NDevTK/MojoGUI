@@ -147,7 +147,7 @@ data_decoder.mojom.ImageDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -158,7 +158,7 @@ data_decoder.mojom.ImageDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -98,7 +98,7 @@ content.mojom.PowerMonitorTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

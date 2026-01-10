@@ -121,7 +121,7 @@ crosapi.mojom.RemotingReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -132,7 +132,7 @@ crosapi.mojom.RemotingReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

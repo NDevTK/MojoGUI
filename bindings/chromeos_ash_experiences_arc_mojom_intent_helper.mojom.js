@@ -848,7 +848,7 @@ arc.mojom.IntentHelperHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -899,7 +899,7 @@ arc.mojom.IntentHelperHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1339,7 +1339,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1350,7 +1350,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1361,7 +1361,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1372,7 +1372,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1383,7 +1383,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1399,7 +1399,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1410,7 +1410,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

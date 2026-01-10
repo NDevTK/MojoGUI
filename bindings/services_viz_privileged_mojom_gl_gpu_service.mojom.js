@@ -694,7 +694,7 @@ viz.mojom.GpuServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -740,7 +740,7 @@ viz.mojom.GpuServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -766,7 +766,7 @@ viz.mojom.GpuServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -782,7 +782,7 @@ viz.mojom.GpuServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -793,7 +793,7 @@ viz.mojom.GpuServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -859,7 +859,7 @@ viz.mojom.GpuServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuService_CommitCATransaction_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -870,7 +870,7 @@ viz.mojom.GpuServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuService_WriteClangProfilingProfile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -881,7 +881,7 @@ viz.mojom.GpuServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

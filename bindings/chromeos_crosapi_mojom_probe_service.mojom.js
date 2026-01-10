@@ -942,7 +942,7 @@ crosapi.mojom.TelemetryProbeServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -953,7 +953,7 @@ crosapi.mojom.TelemetryProbeServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

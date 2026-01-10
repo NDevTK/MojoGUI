@@ -550,7 +550,7 @@ device.mojom.FingerprintReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -566,7 +566,7 @@ device.mojom.FingerprintReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -577,7 +577,7 @@ device.mojom.FingerprintReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -588,7 +588,7 @@ device.mojom.FingerprintReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -599,7 +599,7 @@ device.mojom.FingerprintReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -615,7 +615,7 @@ device.mojom.FingerprintReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -626,7 +626,7 @@ device.mojom.FingerprintReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -642,7 +642,7 @@ device.mojom.FingerprintReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.Fingerprint_RequestType_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

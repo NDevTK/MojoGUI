@@ -191,7 +191,7 @@ blink.mojom.CodeCacheHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -207,7 +207,7 @@ blink.mojom.CodeCacheHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

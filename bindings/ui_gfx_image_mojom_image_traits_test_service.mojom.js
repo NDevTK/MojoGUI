@@ -121,7 +121,7 @@ gfx.mojom.ImageTraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -132,7 +132,7 @@ gfx.mojom.ImageTraitsTestServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

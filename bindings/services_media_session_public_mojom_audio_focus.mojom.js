@@ -318,7 +318,7 @@ media_session.mojom.AudioFocusRequestClientReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -633,7 +633,7 @@ media_session.mojom.AudioFocusManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -644,7 +644,7 @@ media_session.mojom.AudioFocusManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -655,7 +655,7 @@ media_session.mojom.AudioFocusManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -686,7 +686,7 @@ media_session.mojom.AudioFocusManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -712,7 +712,7 @@ media_session.mojom.AudioFocusManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -811,7 +811,7 @@ media_session.mojom.AudioFocusManagerDebugReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

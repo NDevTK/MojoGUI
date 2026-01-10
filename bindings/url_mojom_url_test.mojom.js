@@ -121,7 +121,7 @@ url.mojom.UrlTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, url.mojom.UrlTest_BounceUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -132,7 +132,7 @@ url.mojom.UrlTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

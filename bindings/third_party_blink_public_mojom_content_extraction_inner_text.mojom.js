@@ -149,7 +149,7 @@ blink.mojom.InnerTextAgentReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

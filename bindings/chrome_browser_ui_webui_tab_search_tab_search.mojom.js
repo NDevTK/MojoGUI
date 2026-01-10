@@ -1018,7 +1018,7 @@ tab_search.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1029,7 +1029,7 @@ tab_search.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1040,7 +1040,7 @@ tab_search.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1051,7 +1051,7 @@ tab_search.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1062,7 +1062,7 @@ tab_search.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1073,7 +1073,7 @@ tab_search.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1084,7 +1084,7 @@ tab_search.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

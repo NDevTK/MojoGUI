@@ -539,7 +539,7 @@ tab_strip.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -550,7 +550,7 @@ tab_strip.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -591,7 +591,7 @@ tab_strip.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

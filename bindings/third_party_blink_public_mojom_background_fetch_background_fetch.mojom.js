@@ -411,7 +411,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -422,7 +422,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -433,7 +433,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -444,7 +444,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -605,7 +605,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -616,7 +616,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -627,7 +627,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

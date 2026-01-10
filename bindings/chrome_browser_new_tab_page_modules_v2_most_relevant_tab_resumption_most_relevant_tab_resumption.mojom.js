@@ -194,7 +194,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

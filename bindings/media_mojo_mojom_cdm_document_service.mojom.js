@@ -218,7 +218,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -229,7 +229,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -240,7 +240,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -251,7 +251,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

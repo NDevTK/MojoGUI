@@ -103,7 +103,7 @@ blink.mojom.RendererAudioOutputStreamFactoryReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

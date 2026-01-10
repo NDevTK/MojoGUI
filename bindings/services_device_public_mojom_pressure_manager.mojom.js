@@ -193,7 +193,7 @@ device.mojom.PressureManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -204,7 +204,7 @@ device.mojom.PressureManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -215,7 +215,7 @@ device.mojom.PressureManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -226,7 +226,7 @@ device.mojom.PressureManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.PressureManager_AddClient_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

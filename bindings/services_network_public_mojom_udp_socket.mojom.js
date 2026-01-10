@@ -368,7 +368,7 @@ network.mojom.UDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.UDPSocket_Bind_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -379,7 +379,7 @@ network.mojom.UDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.UDPSocket_Connect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -390,7 +390,7 @@ network.mojom.UDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -401,7 +401,7 @@ network.mojom.UDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -412,7 +412,7 @@ network.mojom.UDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -423,7 +423,7 @@ network.mojom.UDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -434,7 +434,7 @@ network.mojom.UDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -455,7 +455,7 @@ network.mojom.UDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.UDPSocket_SendTo_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -466,7 +466,7 @@ network.mojom.UDPSocketReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.UDPSocket_Send_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

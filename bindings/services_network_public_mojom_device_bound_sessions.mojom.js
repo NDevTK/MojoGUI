@@ -535,7 +535,7 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -551,7 +551,7 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -572,7 +572,7 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

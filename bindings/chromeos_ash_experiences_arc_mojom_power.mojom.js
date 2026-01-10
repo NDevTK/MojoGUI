@@ -291,7 +291,7 @@ arc.mojom.PowerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -317,7 +317,7 @@ arc.mojom.PowerHostReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -566,7 +566,7 @@ arc.mojom.PowerInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PowerInstance_Init_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -582,7 +582,7 @@ arc.mojom.PowerInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PowerInstance_Suspend_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -608,7 +608,7 @@ arc.mojom.PowerInstanceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

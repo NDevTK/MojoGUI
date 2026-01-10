@@ -265,7 +265,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -276,7 +276,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -287,7 +287,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -298,7 +298,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -309,7 +309,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -320,7 +320,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -331,7 +331,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -342,7 +342,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

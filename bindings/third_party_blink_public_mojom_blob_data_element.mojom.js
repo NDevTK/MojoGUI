@@ -196,7 +196,7 @@ blink.mojom.BytesProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -212,7 +212,7 @@ blink.mojom.BytesProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -163,7 +163,7 @@ blink.mojom.KeyboardLockServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -179,7 +179,7 @@ blink.mojom.KeyboardLockServiceReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

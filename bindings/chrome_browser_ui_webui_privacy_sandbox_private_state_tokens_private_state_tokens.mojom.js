@@ -105,7 +105,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

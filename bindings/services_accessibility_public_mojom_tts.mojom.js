@@ -359,7 +359,7 @@ ax.mojom.TtsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.Tts_Speak_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -385,7 +385,7 @@ ax.mojom.TtsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.Tts_IsSpeaking_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -396,7 +396,7 @@ ax.mojom.TtsReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ax.mojom.Tts_GetVoices_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

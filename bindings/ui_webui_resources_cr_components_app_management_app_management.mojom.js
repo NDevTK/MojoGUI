@@ -721,7 +721,7 @@ app_management.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_management.mojom.PageHandler_GetApps_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -732,7 +732,7 @@ app_management.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_management.mojom.PageHandler_GetApp_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -743,7 +743,7 @@ app_management.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -754,7 +754,7 @@ app_management.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -795,7 +795,7 @@ app_management.mojom.PageHandlerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

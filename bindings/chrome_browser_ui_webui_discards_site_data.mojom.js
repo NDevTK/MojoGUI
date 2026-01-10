@@ -178,7 +178,7 @@ discards.mojom.SiteDataProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -189,7 +189,7 @@ discards.mojom.SiteDataProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

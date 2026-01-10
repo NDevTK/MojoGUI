@@ -349,7 +349,7 @@ storage.mojom.ServiceWorkerResourceReaderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -360,7 +360,7 @@ storage.mojom.ServiceWorkerResourceReaderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -371,7 +371,7 @@ storage.mojom.ServiceWorkerResourceReaderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -492,7 +492,7 @@ storage.mojom.ServiceWorkerResourceWriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -503,7 +503,7 @@ storage.mojom.ServiceWorkerResourceWriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -602,7 +602,7 @@ storage.mojom.ServiceWorkerResourceMetadataWriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1640,7 +1640,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_Disable_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1651,7 +1651,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1662,7 +1662,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_Recover_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1673,7 +1673,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1684,7 +1684,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1695,7 +1695,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1706,7 +1706,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1717,7 +1717,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1728,7 +1728,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1739,7 +1739,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1750,7 +1750,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1761,7 +1761,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1772,7 +1772,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1783,7 +1783,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1794,7 +1794,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1805,7 +1805,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1816,7 +1816,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1827,7 +1827,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1838,7 +1838,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1849,7 +1849,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1860,7 +1860,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1871,7 +1871,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1897,7 +1897,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1908,7 +1908,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1919,7 +1919,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1930,7 +1930,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1941,7 +1941,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1952,7 +1952,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1963,7 +1963,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1974,7 +1974,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1985,7 +1985,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -1996,7 +1996,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2007,7 +2007,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2018,7 +2018,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2029,7 +2029,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2040,7 +2040,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2051,7 +2051,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2062,7 +2062,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2073,7 +2073,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -2084,7 +2084,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

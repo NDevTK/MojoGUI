@@ -207,7 +207,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -218,7 +218,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

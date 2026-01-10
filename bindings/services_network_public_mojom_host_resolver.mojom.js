@@ -650,7 +650,7 @@ network.mojom.HostResolverReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.HostResolver_MdnsListen_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -113,7 +113,7 @@ content.mojom.FontCacheWinReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

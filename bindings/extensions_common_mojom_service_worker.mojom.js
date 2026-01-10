@@ -126,7 +126,7 @@ extensions.mojom.ServiceWorkerReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

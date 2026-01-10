@@ -349,7 +349,7 @@ media.mojom.VideoDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -365,7 +365,7 @@ media.mojom.VideoDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoDecoder_Initialize_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -376,7 +376,7 @@ media.mojom.VideoDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoDecoder_Decode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -387,7 +387,7 @@ media.mojom.VideoDecoderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.VideoDecoder_Reset_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

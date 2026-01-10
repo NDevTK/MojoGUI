@@ -281,7 +281,7 @@ mantis.mojom.MantisProcessorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -292,7 +292,7 @@ mantis.mojom.MantisProcessorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -303,7 +303,7 @@ mantis.mojom.MantisProcessorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -314,7 +314,7 @@ mantis.mojom.MantisProcessorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -325,7 +325,7 @@ mantis.mojom.MantisProcessorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -336,7 +336,7 @@ mantis.mojom.MantisProcessorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

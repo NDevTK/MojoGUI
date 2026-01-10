@@ -157,7 +157,7 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -168,7 +168,7 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -291,7 +291,7 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -302,7 +302,7 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

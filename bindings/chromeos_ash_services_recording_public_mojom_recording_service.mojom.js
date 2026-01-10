@@ -129,7 +129,7 @@ recording.mojom.DriveFsQuotaDelegateReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

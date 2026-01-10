@@ -260,7 +260,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -271,7 +271,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -282,7 +282,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -293,7 +293,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -439,7 +439,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -450,7 +450,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

@@ -109,7 +109,7 @@ shape_detection.mojom.TextDetectionReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

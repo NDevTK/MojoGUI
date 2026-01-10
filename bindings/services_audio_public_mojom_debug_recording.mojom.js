@@ -135,7 +135,7 @@ audio.mojom.DebugRecordingFileProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
@@ -146,7 +146,7 @@ audio.mojom.DebugRecordingFileProviderReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }

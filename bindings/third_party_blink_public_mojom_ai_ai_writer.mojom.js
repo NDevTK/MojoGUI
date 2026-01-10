@@ -160,7 +160,7 @@ blink.mojom.AIWriterReceiver = class {
             Promise.resolve(result).then(response => {
               const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec);
                responder(response);
-            }});
+            });
           }
           break;
         }
