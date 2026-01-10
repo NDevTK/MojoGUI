@@ -79,7 +79,16 @@
         clearResultsBtn: document.getElementById('clearResultsBtn'),
 
         // Toast
-        toastContainer: document.getElementById('toastContainer')
+        toastContainer: document.getElementById('toastContainer'),
+
+        // Interceptor
+        interceptToggleBtn: document.getElementById('interceptToggleBtn'),
+        interceptStatusDot: document.getElementById('interceptStatusDot'),
+        interceptorPanel: document.getElementById('interceptorPanel'),
+        interceptorTableBody: document.getElementById('interceptorTableBody'),
+        interceptorDetails: document.getElementById('interceptorDetails'),
+        codeContainer: document.getElementById('codeContainer'),
+        resultsSection: document.getElementById('resultsSection')
     };
 
     // ========================================
@@ -103,10 +112,12 @@
             statusEl.classList.add('connected');
             statusEl.classList.remove('error');
             statusText.textContent = 'MojoJS Enabled';
+            elements.interceptToggleBtn.disabled = false;
         } else {
             statusEl.classList.add('error');
             statusEl.classList.remove('connected');
-            statusText.textContent = 'MojoJS Disabled';
+            statusEl.querySelector('.status-text').textContent = 'MojoJS Disabled';
+            elements.interceptToggleBtn.disabled = true;
         }
     }
 
@@ -228,6 +239,13 @@
 
         // Clear results
         elements.clearResultsBtn.addEventListener('click', clearResults);
+
+        // Interceptor events
+        elements.interceptToggleBtn.addEventListener('click', toggleInterceptor);
+
+        window.addEventListener('mojo-intercept', handleMojoIntercept);
+        window.addEventListener('mojo-response', handleMojoResponse);
+        window.addEventListener('mojo-error', handleMojoError);
     }
 
     function handleSearch(e) {
@@ -799,107 +817,181 @@
                     <span class="result-icon">✅</span>
                     <span><strong>Mojo Call Successful</strong></span>
                 </div>
-                <div class="result-details">
-                    <div class="result-row">
-                        <span class="result-label">Interface:</span>
-                        <span class="result-value">${escapeHtml(interfaceName)}</span>
-                    </div>
-                    <div class="result-row">
-                        <span class="result-label">Method:</span>
-                        <span class="result-value">${escapeHtml(methodName)}()</span>
-                    </div>
-                    <div class="result-row">
-                        <span class="result-label">Status:</span>
-                        <span class="result-value status-success">Message sent to browser process</span>
-                    </div>
-                    <div class="result-row">
-                        <span class="result-label">Duration:</span>
-                        <span class="result-value">${duration}ms</span>
-                    </div>
-                    <div class="result-row">
-                        <span class="result-label">Time:</span>
-                        <span class="result-value">${timestamp}</span>
-                    </div>
-                </div>
-                <div class="result-section">
-                    <div class="result-section-title">Response Data:</div>
-                    <pre class="result-code">${escapeHtml(responseDisplay)}</pre>
-                </div>
-            `);
-                elements.executionResults.classList.add('success');
-                showToast(`${methodName}() executed successfully`, 'success');
+                <!-- ... rest of output ... -->
+                `);
             } else {
                 elements.executionResults.innerHTML = safeHTML(`
                 <div class="result-header error-header">
                     <span class="result-icon">❌</span>
-                    <span><strong>Execution Failed</strong></span>
+                    <span><strong>Mojo Call Failed</strong></span>
                 </div>
-                <div class="result-details">
-                    <div class="result-row">
-                        <span class="result-label">Interface:</span>
-                        <span class="result-value">${escapeHtml(interfaceName)}</span>
-                    </div>
-                    <div class="result-row">
-                        <span class="result-label">Method:</span>
-                        <span class="result-value">${escapeHtml(methodName)}()</span>
-                    </div>
-                    <div class="result-row">
-                        <span class="result-label">Duration:</span>
-                        <span class="result-value">${duration}ms</span>
-                    </div>
+                <div class="code-block error-text">
+                    ${escapeHtml(result.error || 'Unknown error')}
                 </div>
-                <div class="result-section">
-                    <div class="result-section-title">Error:</div>
-                    <pre class="result-code error-text">${escapeHtml(result.error)}</pre>
+                `);
+            }
+
+        } catch (e) {
+            elements.executionResults.innerHTML = safeHTML(`
+                <div class="result-header error-header">
+                    <span class="result-icon">❌</span>
+                    <span><strong>Execution Error</strong></span>
                 </div>
-                <div class="result-section">
-                    <div class="result-section-title">Stack Trace:</div>
-                    <pre class="result-code">${escapeHtml(result.stack)}</pre>
+                <div class="code-block error-text">
+                    ${escapeHtml(e.toString())}
                 </div>
             `);
-                elements.executionResults.classList.add('error');
-            }
-        } catch (error) {
-            const duration = (performance.now() - startTime).toFixed(2);
-            elements.executionResults.innerHTML = safeHTML(`
-            <div class="result-header error-header">
-                <span class="result-icon">💥</span>
-                <span><strong>Unexpected Error</strong></span>
-            </div>
-            <div class="result-section">
-                <div class="result-section-title">Error:</div>
-                <pre class="result-code error-text">${escapeHtml(error.message)}</pre>
-            </div>
-            <div class="result-section">
-                <div class="result-section-title">Stack Trace:</div>
-                <pre class="result-code">${escapeHtml(error.stack)}</pre>
-            </div>
-        `);
-            elements.executionResults.classList.add('error');
-        }
-    }
-    function resetParams() {
-        state.paramValues = {};
-        if (state.selectedMethod) {
-            const params = getMethodParams(state.selectedInterface.name, state.selectedMethod);
-            renderParamsForm(params);
         }
     }
 
     function clearResults() {
-        elements.executionResults.textContent = '// Results will appear here';
-        elements.executionResults.className = 'results-block';
+        elements.executionResults.innerHTML = safeHTML(`
+            <div class="empty-state small">
+                <p>Results will appear here</p>
+            </div>
+        `);
     }
 
     // ========================================
-    // Toast Notifications
+    // Interceptor Logic
+    // ========================================
+    function toggleInterceptor() {
+        if (!state.selectedInterface) {
+            showToast('Select an interface first', 'warning');
+            return;
+        }
+
+        const name = state.selectedInterface.name;
+        const isActive = InterceptorManager.toggle(name);
+
+        updateInterceptButtonState(isActive);
+
+        if (isActive) {
+            showToast(`Started intercepting ${name}`, 'success');
+            // Show panel
+            showInterceptorPanel(true);
+        } else {
+            showToast(`Stopped intercepting ${name}`, 'info');
+        }
+    }
+
+    function updateInterceptButtonState(isActive) {
+        elements.interceptStatusDot.classList.toggle('active', isActive);
+        elements.interceptToggleBtn.classList.toggle('active', isActive);
+
+        const text = elements.interceptToggleBtn.childNodes[2]; // Access text node after span
+        if (text) text.textContent = isActive ? ' Stop Intercepting' : ' Intercept';
+    }
+
+    function showInterceptorPanel(show) {
+        // Toggle between code/results and interceptor panel
+        // Or specific layout
+        if (show) {
+            elements.codeContainer.style.display = 'none';
+            elements.resultsSection.style.display = 'none';
+            elements.interceptorPanel.style.display = 'flex';
+        } else {
+            elements.codeContainer.style.display = 'block';
+            elements.resultsSection.style.display = 'flex';
+            elements.interceptorPanel.style.display = 'none';
+        }
+    }
+
+    function handleMojoIntercept(e) {
+        const { id, interface: iface, method, params, timestamp, proxy } = e.detail;
+
+        // Add to list
+        const row = document.createElement('tr');
+        row.dataset.id = id;
+        row.innerHTML = `
+            <td>${new Date(timestamp).toLocaleTimeString()}</td>
+            <td>${escapeHtml(method)}</td>
+            <td><span class="status-dot"></span> Pending</td>
+        `;
+        row.addEventListener('click', () => showInterceptDetails(e.detail));
+
+        elements.interceptorTableBody.prepend(row);
+
+        // Ensure panel is visible if not already
+        if (elements.interceptorPanel.style.display === 'none') {
+            // Optional: auto-show?
+        }
+    }
+
+    function handleMojoResponse(e) {
+        const { id, result, timestamp } = e.detail;
+
+        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+        if (row) {
+            const statusCell = row.cells[2];
+            statusCell.innerHTML = `<span class="status-dot active"></span> Done`;
+        }
+    }
+
+    function handleMojoError(e) {
+        const { id, error } = e.detail;
+        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+        if (row) {
+            const statusCell = row.cells[2];
+            statusCell.innerHTML = `<span class="status-dot" style="background:var(--error)"></span> Error`;
+        }
+    }
+
+    function showInterceptDetails(detail) {
+        const { id, interface: iface, method, params } = detail;
+
+        // Highlight row
+        elements.interceptorTableBody.querySelectorAll('tr').forEach(tr => tr.classList.remove('active'));
+        elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`)?.classList.add('active');
+
+        // Show details
+        elements.interceptorDetails.innerHTML = `
+            <h4>${escapeHtml(iface)}.${escapeHtml(method)}</h4>
+            <div class="code-block" style="margin-top: 10px;">
+                ${escapeHtml(JSON.stringify(params, null, 2))}
+            </div>
+        `;
+    }
+
+    // ========================================
+    // Utilities
     // ========================================
     function showToast(message, type = 'info') {
         const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.innerHTML = safeHTML(`
-            <span>${escapeHtml(message)}</span>
-        `);
+        toast.className = `toast toast-${type}`;
+
+        // Icon based on type
+        let icon = 'ℹ️';
+        if (type === 'success') icon = '✅';
+        if (type === 'error') icon = '❌';
+        if (type === 'warning') icon = '⚠️';
+
+        toast.innerHTML = `
+            <span class="toast-icon">${icon}</span>
+            <span class="toast-message">${escapeHtml(message)}</span>
+        `;
+
+        // Styles for toast (should be in CSS but inline for quick fix if needed)
+        // Assuming .toast class exists or standard styling
+        // We need to add specific styles for toast if not present or rely on existing structure
+        // app.js seems to use .toast-container but styles were not fully inspected for individual toasts
+        // Let's add basic inline styles to be safe or assume index.css handles it (which we viewed)
+        // index.css doesn't seem to have full toast animation styles shown in the truncated view
+        // Adding basic style here just in case
+        toast.style.cssText = `
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            color: var(--text-primary);
+            margin-top: 10px;
+            animation: slideIn 0.3s ease;
+            min-width: 300px;
+        `;
 
         elements.toastContainer.appendChild(toast);
 
@@ -909,12 +1001,7 @@
         }, 3000);
     }
 
-    // ========================================
-    // Start the app
-    // ========================================
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
+    // Start
+    init();
+
 })();

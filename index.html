@@ -42,8 +42,7 @@
                     <h1>MojoJS<span class="accent">Research</span></h1>
                 </div>
                 <nav class="header-nav">
-                    <a href="https://github.com/NDevTK/MojoGUI/tree/main"
-                        target="_blank" class="nav-link">
+                    <a href="https://github.com/NDevTK/MojoGUI/tree/main" target="_blank" class="nav-link">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
                             height="16">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -93,6 +92,13 @@
                         <div class="panel-title">
                             <h3 id="selectedInterfaceName">Select an Interface</h3>
                             <span class="module-badge" id="selectedModule"></span>
+                        </div>
+                        <div class="panel-actions">
+                            <button class="btn btn-secondary btn-small" id="interceptToggleBtn" disabled
+                                title="Requires MojoJS & MojoJSTest">
+                                <span class="status-dot" id="interceptStatusDot"></span>
+                                Intercept
+                            </button>
                         </div>
                     </div>
 
@@ -158,9 +164,32 @@
                     </div>
                 </div>
 
-                <div class="code-container">
+                <div class="code-container" id="codeContainer">
                     <pre
                         class="code-block"><code id="generatedCode">// Select an interface and method to generate code</code></pre>
+                </div>
+
+                <!-- Interceptor Panel (Hidden by default) -->
+                <div class="interceptor-panel" id="interceptorPanel" style="display: none;">
+                    <div class="interceptor-list-container">
+                        <table class="interceptor-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Method</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="interceptorTableBody">
+                                <!-- Items will be added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="interceptor-details" id="interceptorDetails">
+                        <div class="empty-state small">
+                            <p>Select a request to view details</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Results Section -->
@@ -201,6 +230,9 @@
     <script src="bindings/interface_support.js"></script>
     <script src="bindings/index.js"></script>
     <script src="parser.js"></script>
+    <script src="bindings/index.js"></script>
+    <script src="parser.js"></script>
+    <script src="interceptor.js"></script>
     <script src="app.js"></script>
 </body>
 

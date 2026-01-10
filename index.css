@@ -977,3 +977,92 @@ body::before {
     background: rgba(239, 68, 68, 0.1);
     border-color: rgba(239, 68, 68, 0.2);
 }
+
+/* Interceptor Panel */
+.interceptor-panel {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    background: var(--bg-primary); /* Corrected from surface */
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle); /* Corrected variable name */
+}
+
+.interceptor-list-container {
+    height: 40%;
+    overflow-y: auto;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.interceptor-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.interceptor-table th {
+    text-align: left;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--border-subtle);
+    position: sticky;
+    top: 0;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.interceptor-table td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--border-default);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.interceptor-table tr {
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.interceptor-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.interceptor-table tr.active {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--text-primary);
+}
+
+.interceptor-details {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+/* Status dots */
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--error);
+    margin-right: 6px;
+}
+
+.status-dot.active {
+    background: var(--success);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+}
+
+#interceptToggleBtn {
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+#interceptToggleBtn.active {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: var(--success);
+    color: var(--success);
+}
