@@ -105,7 +105,8 @@
                             const interfaceId = (reqHeader.interfaceId !== undefined) ? reqHeader.interfaceId : (endpoint.interfaceId_ || 0);
                             const version = (reqHeader.headerVersion !== undefined) ? reqHeader.headerVersion : 1;
 
-                            view.setUint32(0, totalSize, true);     // num_bytes
+                            // CRITICAL FIX: In this MojoJS environment, offset 0 is HEADER SIZE, not total size.
+                            view.setUint32(0, headerSize, true);    // header_size (MATCH REQUEST)
                             view.setUint32(4, version, true);       // version
                             view.setUint32(8, interfaceId, true);   // interface_id
                             view.setUint32(12, ordinal, true);      // ordinal
