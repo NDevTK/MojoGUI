@@ -274,11 +274,17 @@ jobs:
               ordinal = int(ordinal_match.group(1)) if ordinal_match else None
               param_str = re.sub(r'@\d+', '', param_str).strip() # Remove explicit ordinals
               
+              # Capture default value if exists
+              default_value = None
+              default_match = re.search(r'=\s*([^;@\[]+)', param_str)
+              if default_match:
+                  default_value = default_match.group(1).strip()
+              
               param_str = re.sub(r'=.*$', '', param_str).strip()
               param_str = param_str.rstrip(';').strip()
               
               if not param_str:
-                  return None
+                  return {'name': None, 'type': None, 'min_version': min_version, 'ordinal': ordinal, 'default_value': default_value}
               
               optional = '?' in param_str
               param_str = param_str.replace('?', '').strip()
@@ -299,7 +305,7 @@ jobs:
               if param_name and not re.match(r'^[a-zA-Z_][a-zA-Z0-9_]*$', param_name):
                   return None
               
-              return {'type': param_type, 'name': param_name, 'optional': optional, 'ordinal': ordinal, 'min_version': min_version}
+              return {'type': param_type, 'name': param_name, 'optional': optional, 'ordinal': ordinal, 'min_version': min_version, 'default_value': default_value}
 
           def to_camel_case(name):
               """Convert PascalCase to camelCase."""
@@ -553,120 +559,74 @@ jobs:
                   def get_pad(offset, alignment):
                       return (alignment - (offset % alignment)) % alignment
 
-                  def get_field_offset(src_field, last_field):
-                      # If trying to pack Bool after Bool in same byte
-                      if (src_field['type'] == 'mojo.internal.Bool' and 
-                          last_field['type'] == 'mojo.internal.Bool' and
-                          last_field['bit'] < 7 and
-                          src_field['offset'] is None): # Only if not already placed
-                          # Special case handled by logic below, but here we calculate space.
-                          # Actually, Best Fit iterates through *Packed* fields.
-                          pass
-                      
-                      start = last_field['offset'] + last_field['size']
-                      pad = get_pad(start, src_field['alignment'])
-                      return start + pad
+                  if not expanded_params:
+                      return [], 8, "[[0, 8]]"
 
-                  # Initialize fields with size/alignment
+                  # Linear packing: sort by min_version, then ordinal (definition order)
+                  expanded_params.sort(key=lambda x: (x['min_version'], x['ordinal'] or 0, x['sub_ordinal'] or 0))
+                  
+                  packed_fields = []
+                  current_offset = 0
+                  current_bool_byte = -1
+                  current_bool_bit = 0
+                  
                   for p in expanded_params:
                       size, align = get_size_alignment(p['type'])
                       p['size'] = size
                       p['alignment'] = align
-                      p['offset'] = None
-                      p['bit'] = 0
-                  
-                  # CRITICAL: Sort by Version (Ascending), then Size (Descending)
-                  # This ensures V0 fields are packed first, and within each version, large fields come first.
-                  # This matches pack.py behavior and prevents data corruption across versions.
-                  expanded_params.sort(key=lambda x: (x['min_version'], -x['size'], x['ordinal'], x['sub_ordinal']))
-                  
-                  if not expanded_params:
-                      return [], 8, "[[0, 8]]"
-
-                  # First field always at 0
-                  first = expanded_params[0]
-                  first['offset'] = 0
-                  first['bit'] = 0
-                  packed_fields.append(first)
-                  
-                  # Pack remaining fields
-                  for src in expanded_params[1:]:
-                      placed = False
                       
-                      # Try to fit in holes provided by existing fields
-                      # Iterate through gaps between packed_fields
+                      if p['type'] == 'mojo.internal.Bool':
+                          if current_bool_byte != -1 and current_bool_bit < 7:
+                              p['offset'] = current_bool_byte
+                              p['bit'] = current_bool_bit + 1
+                              current_bool_bit += 1
+                          else:
+                              # Start new bool byte
+                              pad = get_pad(current_offset, 1)
+                              p['offset'] = current_offset + pad
+                              p['bit'] = 0
+                              current_bool_byte = p['offset']
+                              current_bool_bit = 0
+                              current_offset = p['offset'] + 1
+                      else:
+                          # regular field
+                          pad = get_pad(current_offset, align)
+                          p['offset'] = current_offset + pad
+                          p['bit'] = 0
+                          current_offset = p['offset'] + size
+                          current_bool_byte = -1 # break bool sequence
                       
-                      # Special Bool Packing Check first?
-                      # If src is Bool, try to pack into ANY existing Bool that has space
-                      if src['type'] == 'mojo.internal.Bool':
-                          for dst in packed_fields:
-                              if dst['type'] == 'mojo.internal.Bool' and dst['bit'] < 7:
-                                  # Check if this byte is "open" for this version? 
-                                  # Assuming versions allow packing.
-                                  src['offset'] = dst['offset']
-                                  src['bit'] = dst['bit'] + 1
-                                  # Update the dst bit count to reserve it? 
-                                  # Simpler: Just increment bit count of "byte owner" or track used bits map.
-                                  # Let's just find the latest bool in this byte.
-                                  
-                                  # Better: Find all bools at this offset. Max bit.
-                                  bools_at_offset = [f for f in packed_fields if f['offset'] == dst['offset'] and f['type'] == 'mojo.internal.Bool']
-                                  max_bit = max(f['bit'] for f in bools_at_offset)
-                                  if max_bit < 7:
-                                      src['offset'] = dst['offset']
-                                      src['bit'] = max_bit + 1
-                                      # Insert in list order
-                                      # Find index of last bool at this offset
-                                      idx = packed_fields.index(bools_at_offset[-1])
-                                      packed_fields.insert(idx + 1, src)
-                                      placed = True
-                                      break
-                          if placed: continue
-
-                      # Find hole
-                      # Check gap before first field? (Should be 0 if header is separate)
-                      # Check gaps between fields
-                      for i in range(len(packed_fields) + 1):
-                          prev = packed_fields[i-1] if i > 0 else None
-                          curr = packed_fields[i] if i < len(packed_fields) else None
-                          
-                          start = 0
-                          if prev:
-                              start = prev['offset'] + prev['size']
-                          
-                          # Proposed offset
-                          pad = get_pad(start, src['alignment'])
-                          proposed_offset = start + pad
-                          
-                          end_limit = curr['offset'] if curr else float('inf')
-                          
-                          if proposed_offset + src['size'] <= end_limit:
-                              # Fits!
-                              src['offset'] = proposed_offset
-                              src['bit'] = 0
-                              packed_fields.insert(i, src)
-                              placed = True
-                              break
-                      
-                      if not placed:
-                          # Append to end
-                          last = packed_fields[-1]
-                          start = last['offset'] + last['size']
-                          pad = get_pad(start, src['alignment'])
-                          src['offset'] = start + pad
-                          src['bit'] = 0
-                          packed_fields.append(src)
-
+                      packed_fields.append(p)
                   
-                  # 4. Generate JavaScript Argument Lists for StructField
-                  packed_fields.sort(key=lambda x: (x['ordinal'], x['sub_ordinal']))
+                  # Generate JavaScript Argument Lists for StructField
                   fields_code = []
                   for f in packed_fields:
-                      # Determine DEFAULT VALUE
-                      default_val = "null"
-                      if f['type'] == 'mojo.internal.Bool': default_val = "false"
-                      elif f['type'] in ('mojo.internal.Int8', 'mojo.internal.Uint8', 'mojo.internal.Int16', 'mojo.internal.Uint16', 'mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Int64', 'mojo.internal.Uint64', 'mojo.internal.Float', 'mojo.internal.Double'):
-                          default_val = "0"
+                      # Map default value
+                      raw_def = f.get('default_value')
+                      p_type = f['type']
+                      
+                      if raw_def is None:
+                          js_def = "null"
+                          if p_type == 'mojo.internal.Bool': js_def = "false"
+                          elif p_type in ('mojo.internal.Int8', 'mojo.internal.Uint8', 'mojo.internal.Int16', 'mojo.internal.Uint16', 'mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Int64', 'mojo.internal.Uint64', 'mojo.internal.Float', 'mojo.internal.Double'):
+                              js_def = "0"
+                      else:
+                          if p_type == 'mojo.internal.Bool':
+                              js_def = "true" if raw_def == "true" else "false"
+                          elif "INFINITY" in raw_def:
+                              js_def = "Infinity"
+                          elif "NAN" in raw_def:
+                              js_def = "NaN"
+                          elif raw_def.startswith('0x'):
+                              js_def = str(int(raw_def, 16))
+                          else:
+                               # Check if it's a number literal
+                               try:
+                                   float(raw_def)
+                                   js_def = raw_def
+                               except:
+                                   # Reference handles (like kLevel) or other literals
+                                   js_def = "0" 
                       
                       # Nullable props
                       props_js = "undefined"
@@ -679,72 +639,50 @@ jobs:
                           f"'{f['name']}'",
                           f"{f['offset']}",
                           f"{f['bit']}",
-                          f"{f['type']}",
-                          default_val,
-                          "true" if f['nullable'] else "false",
+                          f"{p_type}",
+                          js_def,
+                          "true" if f.get('nullable') else "false",
                           f"{f['min_version']}",
                           props_js
                       ]
                       fields_code.append(", ".join(arg_list))
                   
                   # 5. Calculate Versions
-                  # The logic for versions needs to be based on the *packed* fields,
-                  # and their final offsets.
-                  
-                  # Sort fields by min_version to determine version boundaries
-                  # and then by offset to correctly calculate packedSize for each version.
                   sorted_fields_for_versions = sorted(packed_fields, key=lambda x: (x['min_version'], x['offset']))
-                  
                   versions = []
                   current_version = -1
                   current_max_offset = 0
                   
-                  # Ensure version 0 is always present, even if no fields.
-                  # The base size is 8 bytes for the struct header.
+                  # Ensure version 0 is always present
                   versions.append([0, 8]) 
                   
                   for field in sorted_fields_for_versions:
                       field_ver = field.get('min_version', 0)
                       field_end_offset = field['offset'] + field['size']
                       
-                      # If this field introduces a new version
                       if field_ver > current_version:
-                          # Finalize the previous version's size if it exists and was updated
                           if current_version != -1:
-                              # Align previous version's max_offset to 8 bytes
-                              aligned_max_offset = current_max_offset
-                              if aligned_max_offset % 8 != 0:
-                                  aligned_max_offset += (8 - (aligned_max_offset % 8))
-                              versions[-1][1] = 8 + aligned_max_offset # Header + aligned size
+                              aligned_max_offset = (current_max_offset + 7) // 8 * 8
+                              versions[-1][1] = 8 + aligned_max_offset
                           
-                          # Start a new version entry
-                          versions.append([field_ver, 0]) # Placeholder for size
+                          versions.append([field_ver, 0])
                           current_version = field_ver
                           current_max_offset = field_end_offset
                       else:
-                          # Continue with the current version, update max offset if needed
                           if field_end_offset > current_max_offset:
                               current_max_offset = field_end_offset
                   
-                  # Finalize the last version's size
                   if versions:
-                      aligned_max_offset = current_max_offset
-                      if aligned_max_offset % 8 != 0:
-                          aligned_max_offset += (8 - (aligned_max_offset % 8))
-                      versions[-1][1] = 8 + aligned_max_offset # Header + aligned size
+                      aligned_max_offset = (current_max_offset + 7) // 8 * 8
+                      versions[-1][1] = 8 + aligned_max_offset
                   
-                  # Remove duplicate version 0 if it was added twice (once initially, once by loop)
                   if len(versions) > 1 and versions[0][0] == 0 and versions[1][0] == 0:
                       versions.pop(0)
                   
-                  # If no fields, ensure version 0, size 8
                   if not sorted_fields_for_versions and not versions:
                       versions = [[0, 8]]
                   
-                  # Format versions as JS array of arrays (e.g. [[0, 40]])
                   versions_code = "[" + ", ".join([f"[{v[0]}, {v[1]}]" for v in versions]) + "]"
-
-                  # Final struct size is the size of the latest version
                   packed_size = versions[-1][1] if versions else 8
                   
                   return fields_code, packed_size, versions_code
