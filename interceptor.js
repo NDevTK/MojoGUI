@@ -41,6 +41,31 @@
                 };
             }
         }
+
+        // Polyfill for InterfaceControlMessage (RUN_MESSAGE_ID)
+        if (mojo.internal.interfaceSupport && !mojo.internal.interfaceSupport.InterfaceControlMessage) {
+            console.warn('[Interceptor] Polyfilling missing InterfaceControlMessage');
+            mojo.internal.interfaceSupport.InterfaceControlMessage = {
+                RUN_MESSAGE_ID: 0xFFFFFFFF
+            };
+        }
+
+        // MONKEY PATCH: Fix ControlMessageHandler crash (RUN_MESSAGE_ID)
+        if (mojo.internal.interfaceSupport.ControlMessageHandler) {
+            const OriginalHandler = mojo.internal.interfaceSupport.ControlMessageHandler;
+            const OriginalProto = OriginalHandler.prototype;
+            if (OriginalProto.maybeHandleControlMessage) {
+                console.warn('[Interceptor] Monkey-patching ControlMessageHandler.maybeHandleControlMessage');
+                OriginalProto.maybeHandleControlMessage = function (message) {
+                    const ICM = mojo.internal.interfaceSupport.InterfaceControlMessage;
+                    if (ICM && message && message.header && message.header.type === ICM.RUN_MESSAGE_ID) {
+                        // Try to handle or return false
+                        return false; // Safest to ignore in this fragile env
+                    }
+                    return false;
+                };
+            }
+        }
     }
 
     // ========================================
