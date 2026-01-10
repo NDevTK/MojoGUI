@@ -3,6 +3,66 @@
 // Module: glic.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var glic = glic || {};
@@ -1134,12 +1194,14 @@ glic.mojom.PreloadPageRemote = class {
 glic.mojom.PreloadPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('PreloadPage', [
+      { explicit: null },
+    ]);
   }
 
   setProfileReadyState(ready_state) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec,
       null,
       [ready_state],
@@ -1163,7 +1225,13 @@ glic.mojom.PreloadPageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('PreloadPage', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1201,7 +1269,7 @@ glic.mojom.PreloadPageReceiver = class {
         // Try Method 0: SetProfileReadyState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProfileReadyState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1218,7 +1286,7 @@ glic.mojom.PreloadPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setProfileReadyState');
           const result = this.impl.setProfileReadyState(params.ready_state);
           break;
@@ -1285,12 +1353,16 @@ glic.mojom.PageRemote = class {
 glic.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   intentToShow() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       glic.mojom.Page_IntentToShow_ParamsSpec,
       null,
       [],
@@ -1298,9 +1370,8 @@ glic.mojom.PageRemoteCallHandler = class {
   }
 
   setProfileReadyState(ready_state) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       glic.mojom.Page_SetProfileReadyState_ParamsSpec,
       null,
       [ready_state],
@@ -1308,9 +1379,8 @@ glic.mojom.PageRemoteCallHandler = class {
   }
 
   updatePageState(panelStateKind) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       glic.mojom.Page_UpdatePageState_ParamsSpec,
       null,
       [panelStateKind],
@@ -1334,9 +1404,15 @@ glic.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1374,7 +1450,7 @@ glic.mojom.PageReceiver = class {
         // Try Method 0: IntentToShow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.Page_IntentToShow_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.Page_IntentToShow_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IntentToShow (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1385,7 +1461,7 @@ glic.mojom.PageReceiver = class {
         // Try Method 1: SetProfileReadyState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.Page_SetProfileReadyState_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.Page_SetProfileReadyState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProfileReadyState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1396,7 +1472,7 @@ glic.mojom.PageReceiver = class {
         // Try Method 2: UpdatePageState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.Page_UpdatePageState_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.Page_UpdatePageState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePageState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1413,21 +1489,21 @@ glic.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.Page_IntentToShow_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.Page_IntentToShow_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.intentToShow');
           const result = this.impl.intentToShow();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.Page_SetProfileReadyState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.Page_SetProfileReadyState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setProfileReadyState');
           const result = this.impl.setProfileReadyState(params.ready_state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.Page_UpdatePageState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.Page_UpdatePageState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePageState');
           const result = this.impl.updatePageState(params.panelStateKind);
           break;
@@ -1488,12 +1564,14 @@ glic.mojom.GlicPreloadHandlerRemote = class {
 glic.mojom.GlicPreloadHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('GlicPreloadHandler', [
+      { explicit: null },
+    ]);
   }
 
   prepareForClient() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec,
       glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec,
       [],
@@ -1517,7 +1595,13 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('GlicPreloadHandler', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1555,7 +1639,7 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
         // Try Method 0: PrepareForClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareForClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1572,7 +1656,7 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.prepareForClient');
           const result = this.impl.prepareForClient();
           if (header.expectsResponse) {
@@ -1635,12 +1719,14 @@ glic.mojom.GlicPreloadHandlerFactoryRemote = class {
 glic.mojom.GlicPreloadHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('GlicPreloadHandlerFactory', [
+      { explicit: null },
+    ]);
   }
 
   createPreloadHandler(receiver, page) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec,
       null,
       [receiver, page],
@@ -1664,7 +1750,13 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('GlicPreloadHandlerFactory', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1702,7 +1794,7 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
         // Try Method 0: CreatePreloadHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePreloadHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1719,7 +1811,7 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createPreloadHandler');
           const result = this.impl.createPreloadHandler(params.receiver, params.page);
           break;
@@ -1776,12 +1868,14 @@ glic.mojom.PageHandlerFactoryRemote = class {
 glic.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+      { explicit: null },
+    ]);
   }
 
   createPageHandler(receiver, page) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [receiver, page],
@@ -1805,7 +1899,13 @@ glic.mojom.PageHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1843,7 +1943,7 @@ glic.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1860,7 +1960,7 @@ glic.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.receiver, params.page);
           break;
@@ -1993,12 +2093,24 @@ glic.mojom.PageHandlerRemote = class {
 glic.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   createWebClient(web_client_receiver) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       glic.mojom.PageHandler_CreateWebClient_ParamsSpec,
       null,
       [web_client_receiver],
@@ -2006,9 +2118,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   prepareForClient() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       glic.mojom.PageHandler_PrepareForClient_ParamsSpec,
       glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec,
       [],
@@ -2016,9 +2127,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   webviewCommitted(url) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       glic.mojom.PageHandler_WebviewCommitted_ParamsSpec,
       null,
       [url],
@@ -2026,9 +2136,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   closePanel() {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       glic.mojom.PageHandler_ClosePanel_ParamsSpec,
       glic.mojom.PageHandler_ClosePanel_ResponseParamsSpec,
       [],
@@ -2036,9 +2145,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   openProfilePickerAndClosePanel() {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec,
       null,
       [],
@@ -2046,9 +2154,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   openDisabledByAdminLinkAndClosePanel() {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec,
       null,
       [],
@@ -2056,9 +2163,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   signInAndClosePanel() {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec,
       null,
       [],
@@ -2066,9 +2172,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   resizeWidget(size, duration) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       glic.mojom.PageHandler_ResizeWidget_ParamsSpec,
       glic.mojom.PageHandler_ResizeWidget_ResponseParamsSpec,
       [size, duration],
@@ -2076,9 +2181,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   enableDragResize(enabled) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       glic.mojom.PageHandler_EnableDragResize_ParamsSpec,
       null,
       [enabled],
@@ -2086,9 +2190,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   webUiStateChanged(new_state) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec,
       null,
       [new_state],
@@ -2096,9 +2199,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   getProfileEnablement() {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec,
       glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec,
       [],
@@ -2122,17 +2224,23 @@ glic.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -2170,7 +2278,7 @@ glic.mojom.PageHandlerReceiver = class {
         // Try Method 0: CreateWebClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandler_CreateWebClient_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandler_CreateWebClient_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2181,7 +2289,7 @@ glic.mojom.PageHandlerReceiver = class {
         // Try Method 1: PrepareForClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandler_PrepareForClient_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandler_PrepareForClient_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareForClient (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2192,7 +2300,7 @@ glic.mojom.PageHandlerReceiver = class {
         // Try Method 2: WebviewCommitted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandler_WebviewCommitted_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandler_WebviewCommitted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WebviewCommitted (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2203,7 +2311,7 @@ glic.mojom.PageHandlerReceiver = class {
         // Try Method 3: ClosePanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandler_ClosePanel_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandler_ClosePanel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePanel (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2214,7 +2322,7 @@ glic.mojom.PageHandlerReceiver = class {
         // Try Method 4: OpenProfilePickerAndClosePanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenProfilePickerAndClosePanel (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2225,7 +2333,7 @@ glic.mojom.PageHandlerReceiver = class {
         // Try Method 5: OpenDisabledByAdminLinkAndClosePanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDisabledByAdminLinkAndClosePanel (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2236,7 +2344,7 @@ glic.mojom.PageHandlerReceiver = class {
         // Try Method 6: SignInAndClosePanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SignInAndClosePanel (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2247,7 +2355,7 @@ glic.mojom.PageHandlerReceiver = class {
         // Try Method 7: ResizeWidget
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandler_ResizeWidget_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandler_ResizeWidget_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResizeWidget (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2258,7 +2366,7 @@ glic.mojom.PageHandlerReceiver = class {
         // Try Method 8: EnableDragResize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandler_EnableDragResize_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandler_EnableDragResize_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableDragResize (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2269,7 +2377,7 @@ glic.mojom.PageHandlerReceiver = class {
         // Try Method 9: WebUiStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WebUiStateChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2280,7 +2388,7 @@ glic.mojom.PageHandlerReceiver = class {
         // Try Method 10: GetProfileEnablement
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProfileEnablement (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2297,14 +2405,14 @@ glic.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandler_CreateWebClient_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandler_CreateWebClient_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createWebClient');
           const result = this.impl.createWebClient(params.web_client_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandler_PrepareForClient_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandler_PrepareForClient_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.prepareForClient');
           const result = this.impl.prepareForClient();
           if (header.expectsResponse) {
@@ -2317,14 +2425,14 @@ glic.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandler_WebviewCommitted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandler_WebviewCommitted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.webviewCommitted');
           const result = this.impl.webviewCommitted(params.url);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandler_ClosePanel_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandler_ClosePanel_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.closePanel');
           const result = this.impl.closePanel();
           if (header.expectsResponse) {
@@ -2337,28 +2445,28 @@ glic.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openProfilePickerAndClosePanel');
           const result = this.impl.openProfilePickerAndClosePanel();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openDisabledByAdminLinkAndClosePanel');
           const result = this.impl.openDisabledByAdminLinkAndClosePanel();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.signInAndClosePanel');
           const result = this.impl.signInAndClosePanel();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandler_ResizeWidget_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandler_ResizeWidget_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resizeWidget');
           const result = this.impl.resizeWidget(params.size, params.duration);
           if (header.expectsResponse) {
@@ -2371,21 +2479,21 @@ glic.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandler_EnableDragResize_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandler_EnableDragResize_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.enableDragResize');
           const result = this.impl.enableDragResize(params.enabled);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.webUiStateChanged');
           const result = this.impl.webUiStateChanged(params.new_state);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getProfileEnablement');
           const result = this.impl.getProfileEnablement();
           if (header.expectsResponse) {
@@ -2447,12 +2555,14 @@ glic.mojom.PinCandidatesObserverRemote = class {
 glic.mojom.PinCandidatesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('PinCandidatesObserver', [
+      { explicit: null },
+    ]);
   }
 
   onPinCandidatesChanged(candidates) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec,
       null,
       [candidates],
@@ -2476,7 +2586,13 @@ glic.mojom.PinCandidatesObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('PinCandidatesObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -2514,7 +2630,7 @@ glic.mojom.PinCandidatesObserverReceiver = class {
         // Try Method 0: OnPinCandidatesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPinCandidatesChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2531,7 +2647,7 @@ glic.mojom.PinCandidatesObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onPinCandidatesChanged');
           const result = this.impl.onPinCandidatesChanged(params.candidates);
           break;
@@ -3321,12 +3437,99 @@ glic.mojom.WebClientHandlerRemote = class {
 glic.mojom.WebClientHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('WebClientHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   webClientCreated(web_client) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec,
       glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec,
       [web_client],
@@ -3334,9 +3537,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   webClientInitialized() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec,
       null,
       [],
@@ -3344,9 +3546,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   webClientInitializeFailed() {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec,
       null,
       [],
@@ -3354,9 +3555,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   createTab(url, open_in_background, window_id) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       glic.mojom.WebClientHandler_CreateTab_ParamsSpec,
       glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec,
       [url, open_in_background, window_id],
@@ -3364,9 +3564,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   openLinkInPopup(url, popup_width, popup_height) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec,
       null,
       [url, popup_width, popup_height],
@@ -3374,9 +3573,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   openGlicSettingsPage(options) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec,
       null,
       [options],
@@ -3384,9 +3582,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   openPasswordManagerSettingsPage() {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec,
       null,
       [],
@@ -3394,9 +3591,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   closePanel() {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       glic.mojom.WebClientHandler_ClosePanel_ParamsSpec,
       null,
       [],
@@ -3404,9 +3600,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   closePanelAndShutdown() {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec,
       null,
       [],
@@ -3414,9 +3609,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   attachPanel() {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       glic.mojom.WebClientHandler_AttachPanel_ParamsSpec,
       null,
       [],
@@ -3424,9 +3618,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   detachPanel() {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       glic.mojom.WebClientHandler_DetachPanel_ParamsSpec,
       null,
       [],
@@ -3434,9 +3627,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onModeChange(new_mode) {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[11],  // ordinal
       glic.mojom.WebClientHandler_OnModeChange_ParamsSpec,
       null,
       [new_mode],
@@ -3444,9 +3636,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   showProfilePicker() {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[12],  // ordinal
       glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec,
       null,
       [],
@@ -3454,9 +3645,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   getModelQualityClientId() {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[13],  // ordinal
       glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec,
       glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec,
       [],
@@ -3464,9 +3654,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   getContextFromFocusedTab(options) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[14],  // ordinal
       glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec,
       glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec,
       [options],
@@ -3474,9 +3663,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   getContextFromTab(tab_id, options) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[15],  // ordinal
       glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec,
       glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec,
       [tab_id, options],
@@ -3484,9 +3672,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   getContextForActorFromTab(tab_id, options) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[16],  // ordinal
       glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec,
       glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec,
       [tab_id, options],
@@ -3494,9 +3681,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setMaximumNumberOfPinnedTabs(requested_max) {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[17],  // ordinal
       glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec,
       glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec,
       [requested_max],
@@ -3504,9 +3690,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   pinTabs(tab_ids, options) {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[18],  // ordinal
       glic.mojom.WebClientHandler_PinTabs_ParamsSpec,
       glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec,
       [tab_ids, options],
@@ -3514,9 +3699,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   unpinTabs(tab_ids, options) {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[19],  // ordinal
       glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec,
       glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec,
       [tab_ids, options],
@@ -3524,9 +3708,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   unpinAllTabs(options) {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[20],  // ordinal
       glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec,
       null,
       [options],
@@ -3534,9 +3717,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   createSkill(request) {
-    // Ordinal: 21
     return this.proxy.sendMessage(
-      21,  // ordinal
+      this.ordinals[21],  // ordinal
       glic.mojom.WebClientHandler_CreateSkill_ParamsSpec,
       glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec,
       [request],
@@ -3544,9 +3726,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   updateSkill(request) {
-    // Ordinal: 22
     return this.proxy.sendMessage(
-      22,  // ordinal
+      this.ordinals[22],  // ordinal
       glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec,
       glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec,
       [request],
@@ -3554,9 +3735,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   getSkill(id) {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[23],  // ordinal
       glic.mojom.WebClientHandler_GetSkill_ParamsSpec,
       glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec,
       [id],
@@ -3564,9 +3744,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   subscribeToPinCandidates(options, observer) {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[24],  // ordinal
       glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec,
       null,
       [options, observer],
@@ -3574,9 +3753,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   createTask(task_options) {
-    // Ordinal: 25
     return this.proxy.sendMessage(
-      25,  // ordinal
+      this.ordinals[25],  // ordinal
       glic.mojom.WebClientHandler_CreateTask_ParamsSpec,
       null,
       [task_options],
@@ -3584,9 +3762,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   performActions(actions_proto) {
-    // Ordinal: 26
     return this.proxy.sendMessage(
-      26,  // ordinal
+      this.ordinals[26],  // ordinal
       glic.mojom.WebClientHandler_PerformActions_ParamsSpec,
       null,
       [actions_proto],
@@ -3594,9 +3771,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   cancelActions(task_id) {
-    // Ordinal: 27
     return this.proxy.sendMessage(
-      27,  // ordinal
+      this.ordinals[27],  // ordinal
       glic.mojom.WebClientHandler_CancelActions_ParamsSpec,
       glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec,
       [task_id],
@@ -3604,9 +3780,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   stopActorTask(task_id, stop_reason) {
-    // Ordinal: 28
     return this.proxy.sendMessage(
-      28,  // ordinal
+      this.ordinals[28],  // ordinal
       glic.mojom.WebClientHandler_StopActorTask_ParamsSpec,
       null,
       [task_id, stop_reason],
@@ -3614,9 +3789,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   pauseActorTask(task_id, pause_reason, tab_id) {
-    // Ordinal: 29
     return this.proxy.sendMessage(
-      29,  // ordinal
+      this.ordinals[29],  // ordinal
       glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec,
       null,
       [task_id, pause_reason, tab_id],
@@ -3624,9 +3798,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   resumeActorTask(task_id, context_options) {
-    // Ordinal: 30
     return this.proxy.sendMessage(
-      30,  // ordinal
+      this.ordinals[30],  // ordinal
       glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec,
       glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec,
       [task_id, context_options],
@@ -3634,9 +3807,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   interruptActorTask(task_id) {
-    // Ordinal: 31
     return this.proxy.sendMessage(
-      31,  // ordinal
+      this.ordinals[31],  // ordinal
       glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec,
       null,
       [task_id],
@@ -3644,9 +3816,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   uninterruptActorTask(task_id) {
-    // Ordinal: 32
     return this.proxy.sendMessage(
-      32,  // ordinal
+      this.ordinals[32],  // ordinal
       glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec,
       null,
       [task_id],
@@ -3654,9 +3825,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   createActorTab(task_id, open_in_background, initiator_tab_id, initiator_window_id) {
-    // Ordinal: 33
     return this.proxy.sendMessage(
-      33,  // ordinal
+      this.ordinals[33],  // ordinal
       glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec,
       glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec,
       [task_id, open_in_background, initiator_tab_id, initiator_window_id],
@@ -3664,9 +3834,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   activateTab(task_id) {
-    // Ordinal: 34
     return this.proxy.sendMessage(
-      34,  // ordinal
+      this.ordinals[34],  // ordinal
       glic.mojom.WebClientHandler_ActivateTab_ParamsSpec,
       null,
       [task_id],
@@ -3674,9 +3843,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   resizeWidget(size, duration) {
-    // Ordinal: 35
     return this.proxy.sendMessage(
-      35,  // ordinal
+      this.ordinals[35],  // ordinal
       glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec,
       glic.mojom.WebClientHandler_ResizeWidget_ResponseParamsSpec,
       [size, duration],
@@ -3684,9 +3852,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   captureScreenshot() {
-    // Ordinal: 36
     return this.proxy.sendMessage(
-      36,  // ordinal
+      this.ordinals[36],  // ordinal
       glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec,
       glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec,
       [],
@@ -3694,9 +3861,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   captureRegion(observer) {
-    // Ordinal: 37
     return this.proxy.sendMessage(
-      37,  // ordinal
+      this.ordinals[37],  // ordinal
       glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec,
       null,
       [observer],
@@ -3704,9 +3870,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setAudioDucking(enable) {
-    // Ordinal: 38
     return this.proxy.sendMessage(
-      38,  // ordinal
+      this.ordinals[38],  // ordinal
       glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec,
       glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec,
       [enable],
@@ -3714,9 +3879,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setPanelDraggableAreas(draggable_areas) {
-    // Ordinal: 39
     return this.proxy.sendMessage(
-      39,  // ordinal
+      this.ordinals[39],  // ordinal
       glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec,
       glic.mojom.WebClientHandler_SetPanelDraggableAreas_ResponseParamsSpec,
       [draggable_areas],
@@ -3724,9 +3888,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setMinimumPanelSize(size) {
-    // Ordinal: 40
     return this.proxy.sendMessage(
-      40,  // ordinal
+      this.ordinals[40],  // ordinal
       glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec,
       null,
       [size],
@@ -3734,9 +3897,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setMicrophonePermissionState(enabled) {
-    // Ordinal: 41
     return this.proxy.sendMessage(
-      41,  // ordinal
+      this.ordinals[41],  // ordinal
       glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec,
       glic.mojom.WebClientHandler_SetMicrophonePermissionState_ResponseParamsSpec,
       [enabled],
@@ -3744,9 +3906,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setLocationPermissionState(enabled) {
-    // Ordinal: 42
     return this.proxy.sendMessage(
-      42,  // ordinal
+      this.ordinals[42],  // ordinal
       glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec,
       glic.mojom.WebClientHandler_SetLocationPermissionState_ResponseParamsSpec,
       [enabled],
@@ -3754,9 +3915,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setTabContextPermissionState(enabled) {
-    // Ordinal: 43
     return this.proxy.sendMessage(
-      43,  // ordinal
+      this.ordinals[43],  // ordinal
       glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec,
       glic.mojom.WebClientHandler_SetTabContextPermissionState_ResponseParamsSpec,
       [enabled],
@@ -3764,9 +3924,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setClosedCaptioningSetting(enabled) {
-    // Ordinal: 44
     return this.proxy.sendMessage(
-      44,  // ordinal
+      this.ordinals[44],  // ordinal
       glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec,
       glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ResponseParamsSpec,
       [enabled],
@@ -3774,9 +3933,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setActuationOnWebSetting(enabled) {
-    // Ordinal: 45
     return this.proxy.sendMessage(
-      45,  // ordinal
+      this.ordinals[45],  // ordinal
       glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec,
       glic.mojom.WebClientHandler_SetActuationOnWebSetting_ResponseParamsSpec,
       [enabled],
@@ -3784,9 +3942,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   shouldAllowMediaPermissionRequest() {
-    // Ordinal: 46
     return this.proxy.sendMessage(
-      46,  // ordinal
+      this.ordinals[46],  // ordinal
       glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec,
       glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec,
       [],
@@ -3794,9 +3951,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   shouldAllowGeolocationPermissionRequest() {
-    // Ordinal: 47
     return this.proxy.sendMessage(
-      47,  // ordinal
+      this.ordinals[47],  // ordinal
       glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec,
       glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec,
       [],
@@ -3804,9 +3960,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setContextAccessIndicator(enabled) {
-    // Ordinal: 48
     return this.proxy.sendMessage(
-      48,  // ordinal
+      this.ordinals[48],  // ordinal
       glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec,
       null,
       [enabled],
@@ -3814,9 +3969,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   getUserProfileInfo() {
-    // Ordinal: 49
     return this.proxy.sendMessage(
-      49,  // ordinal
+      this.ordinals[49],  // ordinal
       glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec,
       glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec,
       [],
@@ -3824,9 +3978,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   syncCookies() {
-    // Ordinal: 50
     return this.proxy.sendMessage(
-      50,  // ordinal
+      this.ordinals[50],  // ordinal
       glic.mojom.WebClientHandler_SyncCookies_ParamsSpec,
       glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec,
       [],
@@ -3834,9 +3987,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   logBeginAsyncEvent(event_async_id, task_id, event, details) {
-    // Ordinal: 51
     return this.proxy.sendMessage(
-      51,  // ordinal
+      this.ordinals[51],  // ordinal
       glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec,
       null,
       [event_async_id, task_id, event, details],
@@ -3844,9 +3996,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   logEndAsyncEvent(event_async_id, details) {
-    // Ordinal: 52
     return this.proxy.sendMessage(
-      52,  // ordinal
+      this.ordinals[52],  // ordinal
       glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec,
       null,
       [event_async_id, details],
@@ -3854,9 +4005,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   logInstantEvent(task_id, event, details) {
-    // Ordinal: 53
     return this.proxy.sendMessage(
-      53,  // ordinal
+      this.ordinals[53],  // ordinal
       glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec,
       null,
       [task_id, event, details],
@@ -3864,9 +4014,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   journalClear() {
-    // Ordinal: 54
     return this.proxy.sendMessage(
-      54,  // ordinal
+      this.ordinals[54],  // ordinal
       glic.mojom.WebClientHandler_JournalClear_ParamsSpec,
       null,
       [],
@@ -3874,9 +4023,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   journalSnapshot(clear_journal) {
-    // Ordinal: 55
     return this.proxy.sendMessage(
-      55,  // ordinal
+      this.ordinals[55],  // ordinal
       glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec,
       glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec,
       [clear_journal],
@@ -3884,9 +4032,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   journalStart(max_bytes, capture_screenshots) {
-    // Ordinal: 56
     return this.proxy.sendMessage(
-      56,  // ordinal
+      this.ordinals[56],  // ordinal
       glic.mojom.WebClientHandler_JournalStart_ParamsSpec,
       null,
       [max_bytes, capture_screenshots],
@@ -3894,9 +4041,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   journalStop() {
-    // Ordinal: 57
     return this.proxy.sendMessage(
-      57,  // ordinal
+      this.ordinals[57],  // ordinal
       glic.mojom.WebClientHandler_JournalStop_ParamsSpec,
       null,
       [],
@@ -3904,9 +4050,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   journalRecordFeedback(positive, reason) {
-    // Ordinal: 58
     return this.proxy.sendMessage(
-      58,  // ordinal
+      this.ordinals[58],  // ordinal
       glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec,
       null,
       [positive, reason],
@@ -3914,9 +4059,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onUserInputSubmitted(mode) {
-    // Ordinal: 59
     return this.proxy.sendMessage(
-      59,  // ordinal
+      this.ordinals[59],  // ordinal
       glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec,
       null,
       [mode],
@@ -3924,9 +4068,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onContextUploadStarted() {
-    // Ordinal: 60
     return this.proxy.sendMessage(
-      60,  // ordinal
+      this.ordinals[60],  // ordinal
       glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec,
       null,
       [],
@@ -3934,9 +4077,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onContextUploadCompleted() {
-    // Ordinal: 61
     return this.proxy.sendMessage(
-      61,  // ordinal
+      this.ordinals[61],  // ordinal
       glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec,
       null,
       [],
@@ -3944,9 +4086,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onReaction(reactionType) {
-    // Ordinal: 62
     return this.proxy.sendMessage(
-      62,  // ordinal
+      this.ordinals[62],  // ordinal
       glic.mojom.WebClientHandler_OnReaction_ParamsSpec,
       null,
       [reactionType],
@@ -3954,9 +4095,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onResponseStarted() {
-    // Ordinal: 63
     return this.proxy.sendMessage(
-      63,  // ordinal
+      this.ordinals[63],  // ordinal
       glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec,
       null,
       [],
@@ -3964,9 +4104,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onResponseStopped(details) {
-    // Ordinal: 64
     return this.proxy.sendMessage(
-      64,  // ordinal
+      this.ordinals[64],  // ordinal
       glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec,
       null,
       [details],
@@ -3974,9 +4113,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onSessionTerminated() {
-    // Ordinal: 65
     return this.proxy.sendMessage(
-      65,  // ordinal
+      this.ordinals[65],  // ordinal
       glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec,
       null,
       [],
@@ -3984,9 +4122,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onTurnCompleted(model, duration) {
-    // Ordinal: 66
     return this.proxy.sendMessage(
-      66,  // ordinal
+      this.ordinals[66],  // ordinal
       glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec,
       null,
       [model, duration],
@@ -3994,9 +4131,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onModelChanged(model) {
-    // Ordinal: 67
     return this.proxy.sendMessage(
-      67,  // ordinal
+      this.ordinals[67],  // ordinal
       glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec,
       null,
       [model],
@@ -4004,9 +4140,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onRecordUseCounter(counter) {
-    // Ordinal: 68
     return this.proxy.sendMessage(
-      68,  // ordinal
+      this.ordinals[68],  // ordinal
       glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec,
       null,
       [counter],
@@ -4014,9 +4149,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onResponseRated(positive) {
-    // Ordinal: 69
     return this.proxy.sendMessage(
-      69,  // ordinal
+      this.ordinals[69],  // ordinal
       glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec,
       null,
       [positive],
@@ -4024,9 +4158,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onClosedCaptionsShown() {
-    // Ordinal: 70
     return this.proxy.sendMessage(
-      70,  // ordinal
+      this.ordinals[70],  // ordinal
       glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec,
       null,
       [],
@@ -4034,9 +4167,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   scrollTo(params) {
-    // Ordinal: 71
     return this.proxy.sendMessage(
-      71,  // ordinal
+      this.ordinals[71],  // ordinal
       glic.mojom.WebClientHandler_ScrollTo_ParamsSpec,
       glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec,
       [params],
@@ -4044,9 +4176,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   dropScrollToHighlight() {
-    // Ordinal: 72
     return this.proxy.sendMessage(
-      72,  // ordinal
+      this.ordinals[72],  // ordinal
       glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec,
       null,
       [],
@@ -4054,9 +4185,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setSyntheticExperimentState(trial_name, group_name) {
-    // Ordinal: 73
     return this.proxy.sendMessage(
-      73,  // ordinal
+      this.ordinals[73],  // ordinal
       glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec,
       null,
       [trial_name, group_name],
@@ -4064,9 +4194,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   openOsPermissionSettingsMenu(type) {
-    // Ordinal: 74
     return this.proxy.sendMessage(
-      74,  // ordinal
+      this.ordinals[74],  // ordinal
       glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec,
       null,
       [type],
@@ -4074,9 +4203,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   getOsMicrophonePermissionStatus() {
-    // Ordinal: 75
     return this.proxy.sendMessage(
-      75,  // ordinal
+      this.ordinals[75],  // ordinal
       glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec,
       glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec,
       [],
@@ -4084,9 +4212,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   getZeroStateSuggestionsAndSubscribe(is_live, options) {
-    // Ordinal: 76
     return this.proxy.sendMessage(
-      76,  // ordinal
+      this.ordinals[76],  // ordinal
       glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec,
       glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec,
       [is_live, options],
@@ -4094,9 +4221,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   getZeroStateSuggestionsForFocusedTab(is_first_run) {
-    // Ordinal: 77
     return this.proxy.sendMessage(
-      77,  // ordinal
+      this.ordinals[77],  // ordinal
       glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec,
       glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec,
       [is_first_run],
@@ -4104,9 +4230,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   maybeRefreshUserStatus() {
-    // Ordinal: 78
     return this.proxy.sendMessage(
-      78,  // ordinal
+      this.ordinals[78],  // ordinal
       glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec,
       null,
       [],
@@ -4114,9 +4239,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   isDebuggerAttached() {
-    // Ordinal: 79
     return this.proxy.sendMessage(
-      79,  // ordinal
+      this.ordinals[79],  // ordinal
       glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec,
       glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec,
       [],
@@ -4124,9 +4248,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   onViewChanged(notification) {
-    // Ordinal: 80
     return this.proxy.sendMessage(
-      80,  // ordinal
+      this.ordinals[80],  // ordinal
       glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec,
       null,
       [notification],
@@ -4134,9 +4257,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   subscribeToPageMetadata(tab_id, names) {
-    // Ordinal: 81
     return this.proxy.sendMessage(
-      81,  // ordinal
+      this.ordinals[81],  // ordinal
       glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec,
       glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec,
       [tab_id, names],
@@ -4144,9 +4266,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   switchConversation(info) {
-    // Ordinal: 82
     return this.proxy.sendMessage(
-      82,  // ordinal
+      this.ordinals[82],  // ordinal
       glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec,
       glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec,
       [info],
@@ -4154,9 +4275,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   registerConversation(info) {
-    // Ordinal: 83
     return this.proxy.sendMessage(
-      83,  // ordinal
+      this.ordinals[83],  // ordinal
       glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec,
       glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec,
       [info],
@@ -4164,9 +4284,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   setOnboardingCompleted() {
-    // Ordinal: 84
     return this.proxy.sendMessage(
-      84,  // ordinal
+      this.ordinals[84],  // ordinal
       glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec,
       null,
       [],
@@ -4174,9 +4293,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
   }
 
   subscribeToTabData(tab_id, receiver) {
-    // Ordinal: 85
     return this.proxy.sendMessage(
-      85,  // ordinal
+      this.ordinals[85],  // ordinal
       glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec,
       null,
       [tab_id, receiver],
@@ -4200,92 +4318,98 @@ glic.mojom.WebClientHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
-    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
-    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
-    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
-    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
-    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
-    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
-    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
-    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
-    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
-    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
-    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
-    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
-    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
-    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
-    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
-    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
-    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
-    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
-    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
-    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
-    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
-    this.ordinalMap.set(32, 32); // Default ordinal 32 -> Index 32
-    this.ordinalMap.set(33, 33); // Default ordinal 33 -> Index 33
-    this.ordinalMap.set(34, 34); // Default ordinal 34 -> Index 34
-    this.ordinalMap.set(35, 35); // Default ordinal 35 -> Index 35
-    this.ordinalMap.set(36, 36); // Default ordinal 36 -> Index 36
-    this.ordinalMap.set(37, 37); // Default ordinal 37 -> Index 37
-    this.ordinalMap.set(38, 38); // Default ordinal 38 -> Index 38
-    this.ordinalMap.set(39, 39); // Default ordinal 39 -> Index 39
-    this.ordinalMap.set(40, 40); // Default ordinal 40 -> Index 40
-    this.ordinalMap.set(41, 41); // Default ordinal 41 -> Index 41
-    this.ordinalMap.set(42, 42); // Default ordinal 42 -> Index 42
-    this.ordinalMap.set(43, 43); // Default ordinal 43 -> Index 43
-    this.ordinalMap.set(44, 44); // Default ordinal 44 -> Index 44
-    this.ordinalMap.set(45, 45); // Default ordinal 45 -> Index 45
-    this.ordinalMap.set(46, 46); // Default ordinal 46 -> Index 46
-    this.ordinalMap.set(47, 47); // Default ordinal 47 -> Index 47
-    this.ordinalMap.set(48, 48); // Default ordinal 48 -> Index 48
-    this.ordinalMap.set(49, 49); // Default ordinal 49 -> Index 49
-    this.ordinalMap.set(50, 50); // Default ordinal 50 -> Index 50
-    this.ordinalMap.set(51, 51); // Default ordinal 51 -> Index 51
-    this.ordinalMap.set(52, 52); // Default ordinal 52 -> Index 52
-    this.ordinalMap.set(53, 53); // Default ordinal 53 -> Index 53
-    this.ordinalMap.set(54, 54); // Default ordinal 54 -> Index 54
-    this.ordinalMap.set(55, 55); // Default ordinal 55 -> Index 55
-    this.ordinalMap.set(56, 56); // Default ordinal 56 -> Index 56
-    this.ordinalMap.set(57, 57); // Default ordinal 57 -> Index 57
-    this.ordinalMap.set(58, 58); // Default ordinal 58 -> Index 58
-    this.ordinalMap.set(59, 59); // Default ordinal 59 -> Index 59
-    this.ordinalMap.set(60, 60); // Default ordinal 60 -> Index 60
-    this.ordinalMap.set(61, 61); // Default ordinal 61 -> Index 61
-    this.ordinalMap.set(62, 62); // Default ordinal 62 -> Index 62
-    this.ordinalMap.set(63, 63); // Default ordinal 63 -> Index 63
-    this.ordinalMap.set(64, 64); // Default ordinal 64 -> Index 64
-    this.ordinalMap.set(65, 65); // Default ordinal 65 -> Index 65
-    this.ordinalMap.set(66, 66); // Default ordinal 66 -> Index 66
-    this.ordinalMap.set(67, 67); // Default ordinal 67 -> Index 67
-    this.ordinalMap.set(68, 68); // Default ordinal 68 -> Index 68
-    this.ordinalMap.set(69, 69); // Default ordinal 69 -> Index 69
-    this.ordinalMap.set(70, 70); // Default ordinal 70 -> Index 70
-    this.ordinalMap.set(71, 71); // Default ordinal 71 -> Index 71
-    this.ordinalMap.set(72, 72); // Default ordinal 72 -> Index 72
-    this.ordinalMap.set(73, 73); // Default ordinal 73 -> Index 73
-    this.ordinalMap.set(74, 74); // Default ordinal 74 -> Index 74
-    this.ordinalMap.set(75, 75); // Default ordinal 75 -> Index 75
-    this.ordinalMap.set(76, 76); // Default ordinal 76 -> Index 76
-    this.ordinalMap.set(77, 77); // Default ordinal 77 -> Index 77
-    this.ordinalMap.set(78, 78); // Default ordinal 78 -> Index 78
-    this.ordinalMap.set(79, 79); // Default ordinal 79 -> Index 79
-    this.ordinalMap.set(80, 80); // Default ordinal 80 -> Index 80
-    this.ordinalMap.set(81, 81); // Default ordinal 81 -> Index 81
-    this.ordinalMap.set(82, 82); // Default ordinal 82 -> Index 82
-    this.ordinalMap.set(83, 83); // Default ordinal 83 -> Index 83
-    this.ordinalMap.set(84, 84); // Default ordinal 84 -> Index 84
-    this.ordinalMap.set(85, 85); // Default ordinal 85 -> Index 85
+    const ordinals = window.mojoScrambler.getOrdinals('WebClientHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -4323,7 +4447,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 0: WebClientCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WebClientCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -4334,7 +4458,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 1: WebClientInitialized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WebClientInitialized (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -4345,7 +4469,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 2: WebClientInitializeFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WebClientInitializeFailed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -4356,7 +4480,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 3: CreateTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateTab_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTab (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -4367,7 +4491,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 4: OpenLinkInPopup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenLinkInPopup (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -4378,7 +4502,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 5: OpenGlicSettingsPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenGlicSettingsPage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -4389,7 +4513,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 6: OpenPasswordManagerSettingsPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenPasswordManagerSettingsPage (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -4400,7 +4524,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 7: ClosePanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_ClosePanel_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_ClosePanel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePanel (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -4411,7 +4535,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 8: ClosePanelAndShutdown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClosePanelAndShutdown (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -4422,7 +4546,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 9: AttachPanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_AttachPanel_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_AttachPanel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachPanel (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -4433,7 +4557,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 10: DetachPanel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_DetachPanel_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_DetachPanel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetachPanel (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -4444,7 +4568,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 11: OnModeChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnModeChange_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnModeChange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnModeChange (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -4455,7 +4579,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 12: ShowProfilePicker
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowProfilePicker (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -4466,7 +4590,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 13: GetModelQualityClientId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetModelQualityClientId (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -4477,7 +4601,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 14: GetContextFromFocusedTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContextFromFocusedTab (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -4488,7 +4612,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 15: GetContextFromTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContextFromTab (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -4499,7 +4623,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 16: GetContextForActorFromTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContextForActorFromTab (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -4510,7 +4634,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 17: SetMaximumNumberOfPinnedTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMaximumNumberOfPinnedTabs (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -4521,7 +4645,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 18: PinTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_PinTabs_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_PinTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PinTabs (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -4532,7 +4656,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 19: UnpinTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnpinTabs (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -4543,7 +4667,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 20: UnpinAllTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnpinAllTabs (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -4554,7 +4678,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 21: CreateSkill
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateSkill_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateSkill_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSkill (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -4565,7 +4689,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 22: UpdateSkill
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSkill (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -4576,7 +4700,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 23: GetSkill
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetSkill_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetSkill_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSkill (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -4587,7 +4711,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 24: SubscribeToPinCandidates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToPinCandidates (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -4598,7 +4722,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 25: CreateTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateTask_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateTask_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTask (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -4609,7 +4733,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 26: PerformActions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_PerformActions_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_PerformActions_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformActions (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -4620,7 +4744,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 27: CancelActions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_CancelActions_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_CancelActions_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelActions (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -4631,7 +4755,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 28: StopActorTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_StopActorTask_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_StopActorTask_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopActorTask (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -4642,7 +4766,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 29: PauseActorTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PauseActorTask (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -4653,7 +4777,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 30: ResumeActorTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResumeActorTask (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -4664,7 +4788,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 31: InterruptActorTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InterruptActorTask (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -4675,7 +4799,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 32: UninterruptActorTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninterruptActorTask (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -4686,7 +4810,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 33: CreateActorTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateActorTab (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -4697,7 +4821,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 34: ActivateTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_ActivateTab_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_ActivateTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateTab (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -4708,7 +4832,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 35: ResizeWidget
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResizeWidget (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -4719,7 +4843,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 36: CaptureScreenshot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CaptureScreenshot (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -4730,7 +4854,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 37: CaptureRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CaptureRegion (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
@@ -4741,7 +4865,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 38: SetAudioDucking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAudioDucking (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
@@ -4752,7 +4876,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 39: SetPanelDraggableAreas
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPanelDraggableAreas (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
@@ -4763,7 +4887,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 40: SetMinimumPanelSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMinimumPanelSize (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
@@ -4774,7 +4898,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 41: SetMicrophonePermissionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMicrophonePermissionState (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
@@ -4785,7 +4909,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 42: SetLocationPermissionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLocationPermissionState (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
@@ -4796,7 +4920,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 43: SetTabContextPermissionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTabContextPermissionState (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
@@ -4807,7 +4931,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 44: SetClosedCaptioningSetting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClosedCaptioningSetting (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
@@ -4818,7 +4942,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 45: SetActuationOnWebSetting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActuationOnWebSetting (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
@@ -4829,7 +4953,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 46: ShouldAllowMediaPermissionRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldAllowMediaPermissionRequest (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
@@ -4840,7 +4964,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 47: ShouldAllowGeolocationPermissionRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldAllowGeolocationPermissionRequest (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
@@ -4851,7 +4975,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 48: SetContextAccessIndicator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetContextAccessIndicator (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
@@ -4862,7 +4986,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 49: GetUserProfileInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserProfileInfo (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
@@ -4873,7 +4997,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 50: SyncCookies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SyncCookies_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SyncCookies_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SyncCookies (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
@@ -4884,7 +5008,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 51: LogBeginAsyncEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogBeginAsyncEvent (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
@@ -4895,7 +5019,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 52: LogEndAsyncEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogEndAsyncEvent (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
@@ -4906,7 +5030,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 53: LogInstantEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogInstantEvent (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;
@@ -4917,7 +5041,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 54: JournalClear
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalClear_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalClear_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JournalClear (54)');
              this.mapOrdinal(header.ordinal, 54);
              dispatchId = 54;
@@ -4928,7 +5052,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 55: JournalSnapshot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JournalSnapshot (55)');
              this.mapOrdinal(header.ordinal, 55);
              dispatchId = 55;
@@ -4939,7 +5063,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 56: JournalStart
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalStart_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalStart_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JournalStart (56)');
              this.mapOrdinal(header.ordinal, 56);
              dispatchId = 56;
@@ -4950,7 +5074,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 57: JournalStop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalStop_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalStop_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JournalStop (57)');
              this.mapOrdinal(header.ordinal, 57);
              dispatchId = 57;
@@ -4961,7 +5085,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 58: JournalRecordFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JournalRecordFeedback (58)');
              this.mapOrdinal(header.ordinal, 58);
              dispatchId = 58;
@@ -4972,7 +5096,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 59: OnUserInputSubmitted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUserInputSubmitted (59)');
              this.mapOrdinal(header.ordinal, 59);
              dispatchId = 59;
@@ -4983,7 +5107,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 60: OnContextUploadStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContextUploadStarted (60)');
              this.mapOrdinal(header.ordinal, 60);
              dispatchId = 60;
@@ -4994,7 +5118,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 61: OnContextUploadCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContextUploadCompleted (61)');
              this.mapOrdinal(header.ordinal, 61);
              dispatchId = 61;
@@ -5005,7 +5129,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 62: OnReaction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnReaction_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnReaction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReaction (62)');
              this.mapOrdinal(header.ordinal, 62);
              dispatchId = 62;
@@ -5016,7 +5140,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 63: OnResponseStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponseStarted (63)');
              this.mapOrdinal(header.ordinal, 63);
              dispatchId = 63;
@@ -5027,7 +5151,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 64: OnResponseStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponseStopped (64)');
              this.mapOrdinal(header.ordinal, 64);
              dispatchId = 64;
@@ -5038,7 +5162,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 65: OnSessionTerminated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionTerminated (65)');
              this.mapOrdinal(header.ordinal, 65);
              dispatchId = 65;
@@ -5049,7 +5173,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 66: OnTurnCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTurnCompleted (66)');
              this.mapOrdinal(header.ordinal, 66);
              dispatchId = 66;
@@ -5060,7 +5184,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 67: OnModelChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnModelChanged (67)');
              this.mapOrdinal(header.ordinal, 67);
              dispatchId = 67;
@@ -5071,7 +5195,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 68: OnRecordUseCounter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRecordUseCounter (68)');
              this.mapOrdinal(header.ordinal, 68);
              dispatchId = 68;
@@ -5082,7 +5206,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 69: OnResponseRated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponseRated (69)');
              this.mapOrdinal(header.ordinal, 69);
              dispatchId = 69;
@@ -5093,7 +5217,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 70: OnClosedCaptionsShown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClosedCaptionsShown (70)');
              this.mapOrdinal(header.ordinal, 70);
              dispatchId = 70;
@@ -5104,7 +5228,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 71: ScrollTo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_ScrollTo_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_ScrollTo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScrollTo (71)');
              this.mapOrdinal(header.ordinal, 71);
              dispatchId = 71;
@@ -5115,7 +5239,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 72: DropScrollToHighlight
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DropScrollToHighlight (72)');
              this.mapOrdinal(header.ordinal, 72);
              dispatchId = 72;
@@ -5126,7 +5250,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 73: SetSyntheticExperimentState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSyntheticExperimentState (73)');
              this.mapOrdinal(header.ordinal, 73);
              dispatchId = 73;
@@ -5137,7 +5261,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 74: OpenOsPermissionSettingsMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenOsPermissionSettingsMenu (74)');
              this.mapOrdinal(header.ordinal, 74);
              dispatchId = 74;
@@ -5148,7 +5272,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 75: GetOsMicrophonePermissionStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOsMicrophonePermissionStatus (75)');
              this.mapOrdinal(header.ordinal, 75);
              dispatchId = 75;
@@ -5159,7 +5283,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 76: GetZeroStateSuggestionsAndSubscribe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetZeroStateSuggestionsAndSubscribe (76)');
              this.mapOrdinal(header.ordinal, 76);
              dispatchId = 76;
@@ -5170,7 +5294,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 77: GetZeroStateSuggestionsForFocusedTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetZeroStateSuggestionsForFocusedTab (77)');
              this.mapOrdinal(header.ordinal, 77);
              dispatchId = 77;
@@ -5181,7 +5305,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 78: MaybeRefreshUserStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeRefreshUserStatus (78)');
              this.mapOrdinal(header.ordinal, 78);
              dispatchId = 78;
@@ -5192,7 +5316,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 79: IsDebuggerAttached
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsDebuggerAttached (79)');
              this.mapOrdinal(header.ordinal, 79);
              dispatchId = 79;
@@ -5203,7 +5327,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 80: OnViewChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnViewChanged (80)');
              this.mapOrdinal(header.ordinal, 80);
              dispatchId = 80;
@@ -5214,7 +5338,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 81: SubscribeToPageMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToPageMetadata (81)');
              this.mapOrdinal(header.ordinal, 81);
              dispatchId = 81;
@@ -5225,7 +5349,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 82: SwitchConversation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SwitchConversation (82)');
              this.mapOrdinal(header.ordinal, 82);
              dispatchId = 82;
@@ -5236,7 +5360,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 83: RegisterConversation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterConversation (83)');
              this.mapOrdinal(header.ordinal, 83);
              dispatchId = 83;
@@ -5247,7 +5371,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 84: SetOnboardingCompleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOnboardingCompleted (84)');
              this.mapOrdinal(header.ordinal, 84);
              dispatchId = 84;
@@ -5258,7 +5382,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         // Try Method 85: SubscribeToTabData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToTabData (85)');
              this.mapOrdinal(header.ordinal, 85);
              dispatchId = 85;
@@ -5275,7 +5399,7 @@ glic.mojom.WebClientHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.webClientCreated');
           const result = this.impl.webClientCreated(params.web_client);
           if (header.expectsResponse) {
@@ -5288,21 +5412,21 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.webClientInitialized');
           const result = this.impl.webClientInitialized();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.webClientInitializeFailed');
           const result = this.impl.webClientInitializeFailed();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createTab');
           const result = this.impl.createTab(params.url, params.open_in_background, params.window_id);
           if (header.expectsResponse) {
@@ -5315,70 +5439,70 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openLinkInPopup');
           const result = this.impl.openLinkInPopup(params.url, params.popup_width, params.popup_height);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openGlicSettingsPage');
           const result = this.impl.openGlicSettingsPage(params.options);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openPasswordManagerSettingsPage');
           const result = this.impl.openPasswordManagerSettingsPage();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ClosePanel_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ClosePanel_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.closePanel');
           const result = this.impl.closePanel();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.closePanelAndShutdown');
           const result = this.impl.closePanelAndShutdown();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_AttachPanel_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_AttachPanel_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.attachPanel');
           const result = this.impl.attachPanel();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_DetachPanel_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_DetachPanel_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.detachPanel');
           const result = this.impl.detachPanel();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnModeChange_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnModeChange_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onModeChange');
           const result = this.impl.onModeChange(params.new_mode);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.showProfilePicker');
           const result = this.impl.showProfilePicker();
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getModelQualityClientId');
           const result = this.impl.getModelQualityClientId();
           if (header.expectsResponse) {
@@ -5391,7 +5515,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getContextFromFocusedTab');
           const result = this.impl.getContextFromFocusedTab(params.options);
           if (header.expectsResponse) {
@@ -5404,7 +5528,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getContextFromTab');
           const result = this.impl.getContextFromTab(params.tab_id, params.options);
           if (header.expectsResponse) {
@@ -5417,7 +5541,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getContextForActorFromTab');
           const result = this.impl.getContextForActorFromTab(params.tab_id, params.options);
           if (header.expectsResponse) {
@@ -5430,7 +5554,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setMaximumNumberOfPinnedTabs');
           const result = this.impl.setMaximumNumberOfPinnedTabs(params.requested_max);
           if (header.expectsResponse) {
@@ -5443,7 +5567,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_PinTabs_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_PinTabs_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.pinTabs');
           const result = this.impl.pinTabs(params.tab_ids, params.options);
           if (header.expectsResponse) {
@@ -5456,7 +5580,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.unpinTabs');
           const result = this.impl.unpinTabs(params.tab_ids, params.options);
           if (header.expectsResponse) {
@@ -5469,14 +5593,14 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.unpinAllTabs');
           const result = this.impl.unpinAllTabs(params.options);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateSkill_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateSkill_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createSkill');
           const result = this.impl.createSkill(params.request);
           if (header.expectsResponse) {
@@ -5489,7 +5613,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSkill');
           const result = this.impl.updateSkill(params.request);
           if (header.expectsResponse) {
@@ -5502,7 +5626,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetSkill_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetSkill_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getSkill');
           const result = this.impl.getSkill(params.id);
           if (header.expectsResponse) {
@@ -5515,28 +5639,28 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToPinCandidates');
           const result = this.impl.subscribeToPinCandidates(params.options, params.observer);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateTask_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateTask_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createTask');
           const result = this.impl.createTask(params.task_options);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_PerformActions_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_PerformActions_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.performActions');
           const result = this.impl.performActions(params.actions_proto);
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CancelActions_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CancelActions_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelActions');
           const result = this.impl.cancelActions(params.task_id);
           if (header.expectsResponse) {
@@ -5549,21 +5673,21 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_StopActorTask_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_StopActorTask_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.stopActorTask');
           const result = this.impl.stopActorTask(params.task_id, params.stop_reason);
           break;
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.pauseActorTask');
           const result = this.impl.pauseActorTask(params.task_id, params.pause_reason, params.tab_id);
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resumeActorTask');
           const result = this.impl.resumeActorTask(params.task_id, params.context_options);
           if (header.expectsResponse) {
@@ -5576,21 +5700,21 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.interruptActorTask');
           const result = this.impl.interruptActorTask(params.task_id);
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.uninterruptActorTask');
           const result = this.impl.uninterruptActorTask(params.task_id);
           break;
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createActorTab');
           const result = this.impl.createActorTab(params.task_id, params.open_in_background, params.initiator_tab_id, params.initiator_window_id);
           if (header.expectsResponse) {
@@ -5603,14 +5727,14 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ActivateTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ActivateTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.activateTab');
           const result = this.impl.activateTab(params.task_id);
           break;
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resizeWidget');
           const result = this.impl.resizeWidget(params.size, params.duration);
           if (header.expectsResponse) {
@@ -5623,7 +5747,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.captureScreenshot');
           const result = this.impl.captureScreenshot();
           if (header.expectsResponse) {
@@ -5636,14 +5760,14 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.captureRegion');
           const result = this.impl.captureRegion(params.observer);
           break;
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setAudioDucking');
           const result = this.impl.setAudioDucking(params.enable);
           if (header.expectsResponse) {
@@ -5656,7 +5780,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setPanelDraggableAreas');
           const result = this.impl.setPanelDraggableAreas(params.draggable_areas);
           if (header.expectsResponse) {
@@ -5669,14 +5793,14 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setMinimumPanelSize');
           const result = this.impl.setMinimumPanelSize(params.size);
           break;
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setMicrophonePermissionState');
           const result = this.impl.setMicrophonePermissionState(params.enabled);
           if (header.expectsResponse) {
@@ -5689,7 +5813,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setLocationPermissionState');
           const result = this.impl.setLocationPermissionState(params.enabled);
           if (header.expectsResponse) {
@@ -5702,7 +5826,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 43: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setTabContextPermissionState');
           const result = this.impl.setTabContextPermissionState(params.enabled);
           if (header.expectsResponse) {
@@ -5715,7 +5839,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 44: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setClosedCaptioningSetting');
           const result = this.impl.setClosedCaptioningSetting(params.enabled);
           if (header.expectsResponse) {
@@ -5728,7 +5852,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 45: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setActuationOnWebSetting');
           const result = this.impl.setActuationOnWebSetting(params.enabled);
           if (header.expectsResponse) {
@@ -5741,7 +5865,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 46: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldAllowMediaPermissionRequest');
           const result = this.impl.shouldAllowMediaPermissionRequest();
           if (header.expectsResponse) {
@@ -5754,7 +5878,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 47: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldAllowGeolocationPermissionRequest');
           const result = this.impl.shouldAllowGeolocationPermissionRequest();
           if (header.expectsResponse) {
@@ -5767,14 +5891,14 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 48: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setContextAccessIndicator');
           const result = this.impl.setContextAccessIndicator(params.enabled);
           break;
         }
         case 49: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserProfileInfo');
           const result = this.impl.getUserProfileInfo();
           if (header.expectsResponse) {
@@ -5787,7 +5911,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SyncCookies_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SyncCookies_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.syncCookies');
           const result = this.impl.syncCookies();
           if (header.expectsResponse) {
@@ -5800,35 +5924,35 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 51: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.logBeginAsyncEvent');
           const result = this.impl.logBeginAsyncEvent(params.event_async_id, params.task_id, params.event, params.details);
           break;
         }
         case 52: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.logEndAsyncEvent');
           const result = this.impl.logEndAsyncEvent(params.event_async_id, params.details);
           break;
         }
         case 53: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.logInstantEvent');
           const result = this.impl.logInstantEvent(params.task_id, params.event, params.details);
           break;
         }
         case 54: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalClear_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalClear_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.journalClear');
           const result = this.impl.journalClear();
           break;
         }
         case 55: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.journalSnapshot');
           const result = this.impl.journalSnapshot(params.clear_journal);
           if (header.expectsResponse) {
@@ -5841,112 +5965,112 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 56: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalStart_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalStart_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.journalStart');
           const result = this.impl.journalStart(params.max_bytes, params.capture_screenshots);
           break;
         }
         case 57: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalStop_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalStop_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.journalStop');
           const result = this.impl.journalStop();
           break;
         }
         case 58: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.journalRecordFeedback');
           const result = this.impl.journalRecordFeedback(params.positive, params.reason);
           break;
         }
         case 59: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onUserInputSubmitted');
           const result = this.impl.onUserInputSubmitted(params.mode);
           break;
         }
         case 60: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextUploadStarted');
           const result = this.impl.onContextUploadStarted();
           break;
         }
         case 61: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextUploadCompleted');
           const result = this.impl.onContextUploadCompleted();
           break;
         }
         case 62: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnReaction_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnReaction_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onReaction');
           const result = this.impl.onReaction(params.reactionType);
           break;
         }
         case 63: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
           const result = this.impl.onResponseStarted();
           break;
         }
         case 64: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseStopped');
           const result = this.impl.onResponseStopped(params.details);
           break;
         }
         case 65: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onSessionTerminated');
           const result = this.impl.onSessionTerminated();
           break;
         }
         case 66: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onTurnCompleted');
           const result = this.impl.onTurnCompleted(params.model, params.duration);
           break;
         }
         case 67: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onModelChanged');
           const result = this.impl.onModelChanged(params.model);
           break;
         }
         case 68: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onRecordUseCounter');
           const result = this.impl.onRecordUseCounter(params.counter);
           break;
         }
         case 69: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseRated');
           const result = this.impl.onResponseRated(params.positive);
           break;
         }
         case 70: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onClosedCaptionsShown');
           const result = this.impl.onClosedCaptionsShown();
           break;
         }
         case 71: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ScrollTo_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_ScrollTo_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.scrollTo');
           const result = this.impl.scrollTo(params.params);
           if (header.expectsResponse) {
@@ -5959,28 +6083,28 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 72: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dropScrollToHighlight');
           const result = this.impl.dropScrollToHighlight();
           break;
         }
         case 73: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setSyntheticExperimentState');
           const result = this.impl.setSyntheticExperimentState(params.trial_name, params.group_name);
           break;
         }
         case 74: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openOsPermissionSettingsMenu');
           const result = this.impl.openOsPermissionSettingsMenu(params.type);
           break;
         }
         case 75: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOsMicrophonePermissionStatus');
           const result = this.impl.getOsMicrophonePermissionStatus();
           if (header.expectsResponse) {
@@ -5993,7 +6117,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getZeroStateSuggestionsAndSubscribe');
           const result = this.impl.getZeroStateSuggestionsAndSubscribe(params.is_live, params.options);
           if (header.expectsResponse) {
@@ -6006,7 +6130,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 77: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getZeroStateSuggestionsForFocusedTab');
           const result = this.impl.getZeroStateSuggestionsForFocusedTab(params.is_first_run);
           if (header.expectsResponse) {
@@ -6019,14 +6143,14 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 78: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.maybeRefreshUserStatus');
           const result = this.impl.maybeRefreshUserStatus();
           break;
         }
         case 79: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.isDebuggerAttached');
           const result = this.impl.isDebuggerAttached();
           if (header.expectsResponse) {
@@ -6039,14 +6163,14 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 80: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onViewChanged');
           const result = this.impl.onViewChanged(params.notification);
           break;
         }
         case 81: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToPageMetadata');
           const result = this.impl.subscribeToPageMetadata(params.tab_id, params.names);
           if (header.expectsResponse) {
@@ -6059,7 +6183,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 82: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.switchConversation');
           const result = this.impl.switchConversation(params.info);
           if (header.expectsResponse) {
@@ -6072,7 +6196,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 83: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.registerConversation');
           const result = this.impl.registerConversation(params.info);
           if (header.expectsResponse) {
@@ -6085,14 +6209,14 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 84: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setOnboardingCompleted');
           const result = this.impl.setOnboardingCompleted();
           break;
         }
         case 85: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToTabData');
           const result = this.impl.subscribeToTabData(params.tab_id, params.receiver);
           break;
@@ -6148,12 +6272,14 @@ glic.mojom.TabDataHandlerRemote = class {
 glic.mojom.TabDataHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('TabDataHandler', [
+      { explicit: null },
+    ]);
   }
 
   onTabDataChanged(tab_data) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec,
       null,
       [tab_data],
@@ -6177,7 +6303,13 @@ glic.mojom.TabDataHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('TabDataHandler', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -6215,7 +6347,7 @@ glic.mojom.TabDataHandlerReceiver = class {
         // Try Method 0: OnTabDataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabDataChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -6232,7 +6364,7 @@ glic.mojom.TabDataHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabDataChanged');
           const result = this.impl.onTabDataChanged(params.tab_data);
           break;
@@ -6517,12 +6649,46 @@ glic.mojom.WebClientRemote = class {
 glic.mojom.WebClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('WebClient', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   notifyPanelWillOpen(panel_opening_data) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec,
       glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec,
       [panel_opening_data],
@@ -6530,9 +6696,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyPanelWasClosed() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec,
       glic.mojom.WebClient_NotifyPanelWasClosed_ResponseParamsSpec,
       [],
@@ -6540,9 +6705,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyPanelStateChange(panel_state) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec,
       null,
       [panel_state],
@@ -6550,9 +6714,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyPanelActiveChange(panel_active) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec,
       null,
       [panel_active],
@@ -6560,9 +6723,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyPanelCanAttachChange(can_attach) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec,
       null,
       [can_attach],
@@ -6570,9 +6732,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyMicrophonePermissionStateChanged(enabled) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec,
       null,
       [enabled],
@@ -6580,9 +6741,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyLocationPermissionStateChanged(enabled) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec,
       null,
       [enabled],
@@ -6590,9 +6750,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyTabContextPermissionStateChanged(enabled) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec,
       null,
       [enabled],
@@ -6600,9 +6759,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyOsLocationPermissionStateChanged(enabled) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec,
       null,
       [enabled],
@@ -6610,9 +6768,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyFocusedTabChanged(focused_tab_data) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec,
       null,
       [focused_tab_data],
@@ -6620,9 +6777,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyManualResizeChanged(resizing) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec,
       null,
       [resizing],
@@ -6630,9 +6786,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyOsHotkeyStateChanged(hotkey) {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[11],  // ordinal
       glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec,
       null,
       [hotkey],
@@ -6640,9 +6795,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyBrowserIsOpenChanged(browser_is_open) {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[12],  // ordinal
       glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec,
       null,
       [browser_is_open],
@@ -6650,9 +6804,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyInstanceActivationChanged(instance_active) {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[13],  // ordinal
       glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec,
       null,
       [instance_active],
@@ -6660,9 +6813,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyClosedCaptioningSettingChanged(enabled) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[14],  // ordinal
       glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec,
       null,
       [enabled],
@@ -6670,9 +6822,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyPinnedTabsChanged(tab_data) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[15],  // ordinal
       glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec,
       null,
       [tab_data],
@@ -6680,9 +6831,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyPinnedTabDataChanged(tab_data) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[16],  // ordinal
       glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec,
       null,
       [tab_data],
@@ -6690,9 +6840,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifySkillPreviewsChanged(skill_previews) {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[17],  // ordinal
       glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec,
       null,
       [skill_previews],
@@ -6700,9 +6849,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifySkillPreviewChanged(skill_preview) {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[18],  // ordinal
       glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec,
       null,
       [skill_preview],
@@ -6710,9 +6858,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifySkillToInvokeChanged(skill) {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[19],  // ordinal
       glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec,
       null,
       [skill],
@@ -6720,9 +6867,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyZeroStateSuggestionsChanged(suggestions, options) {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[20],  // ordinal
       glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec,
       null,
       [suggestions, options],
@@ -6730,9 +6876,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyActorTaskStateChanged(task_id, state) {
-    // Ordinal: 21
     return this.proxy.sendMessage(
-      21,  // ordinal
+      this.ordinals[21],  // ordinal
       glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec,
       null,
       [task_id, state],
@@ -6740,9 +6885,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   requestViewChange(request) {
-    // Ordinal: 22
     return this.proxy.sendMessage(
-      22,  // ordinal
+      this.ordinals[22],  // ordinal
       glic.mojom.WebClient_RequestViewChange_ParamsSpec,
       null,
       [request],
@@ -6750,9 +6894,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyPageMetadataChanged(tab_id, metadata) {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[23],  // ordinal
       glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec,
       null,
       [tab_id, metadata],
@@ -6760,9 +6903,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyDefaultTabContextPermissionStateChanged(enabled) {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[24],  // ordinal
       glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec,
       null,
       [enabled],
@@ -6770,9 +6912,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   requestToShowCredentialSelectionDialog(request) {
-    // Ordinal: 25
     return this.proxy.sendMessage(
-      25,  // ordinal
+      this.ordinals[25],  // ordinal
       glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec,
       glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec,
       [request],
@@ -6780,9 +6921,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   requestToShowAutofillSuggestionsDialog(request) {
-    // Ordinal: 26
     return this.proxy.sendMessage(
-      26,  // ordinal
+      this.ordinals[26],  // ordinal
       glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec,
       glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec,
       [request],
@@ -6790,9 +6930,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   requestToShowUserConfirmationDialog(request) {
-    // Ordinal: 27
     return this.proxy.sendMessage(
-      27,  // ordinal
+      this.ordinals[27],  // ordinal
       glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec,
       glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec,
       [request],
@@ -6800,9 +6939,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   requestToConfirmNavigation(request) {
-    // Ordinal: 28
     return this.proxy.sendMessage(
-      28,  // ordinal
+      this.ordinals[28],  // ordinal
       glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec,
       glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec,
       [request],
@@ -6810,9 +6948,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyAdditionalContext(context) {
-    // Ordinal: 29
     return this.proxy.sendMessage(
-      29,  // ordinal
+      this.ordinals[29],  // ordinal
       glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec,
       null,
       [context],
@@ -6820,9 +6957,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyActuationOnWebSettingChanged(enabled) {
-    // Ordinal: 30
     return this.proxy.sendMessage(
-      30,  // ordinal
+      this.ordinals[30],  // ordinal
       glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec,
       null,
       [enabled],
@@ -6830,9 +6966,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyActOnWebCapabilityChanged(can_act_on_web) {
-    // Ordinal: 31
     return this.proxy.sendMessage(
-      31,  // ordinal
+      this.ordinals[31],  // ordinal
       glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec,
       null,
       [can_act_on_web],
@@ -6840,9 +6975,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
   }
 
   notifyOnboardingCompletedChanged(completed) {
-    // Ordinal: 32
     return this.proxy.sendMessage(
-      32,  // ordinal
+      this.ordinals[32],  // ordinal
       glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec,
       null,
       [completed],
@@ -6866,39 +7000,45 @@ glic.mojom.WebClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
-    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
-    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
-    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
-    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
-    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
-    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
-    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
-    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
-    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
-    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
-    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
-    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
-    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
-    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
-    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
-    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
-    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
-    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
-    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
-    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
-    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
-    this.ordinalMap.set(32, 32); // Default ordinal 32 -> Index 32
+    const ordinals = window.mojoScrambler.getOrdinals('WebClient', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -6936,7 +7076,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 0: NotifyPanelWillOpen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPanelWillOpen (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -6947,7 +7087,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 1: NotifyPanelWasClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPanelWasClosed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -6958,7 +7098,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 2: NotifyPanelStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPanelStateChange (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -6969,7 +7109,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 3: NotifyPanelActiveChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPanelActiveChange (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -6980,7 +7120,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 4: NotifyPanelCanAttachChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPanelCanAttachChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -6991,7 +7131,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 5: NotifyMicrophonePermissionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyMicrophonePermissionStateChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -7002,7 +7142,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 6: NotifyLocationPermissionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyLocationPermissionStateChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -7013,7 +7153,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 7: NotifyTabContextPermissionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyTabContextPermissionStateChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -7024,7 +7164,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 8: NotifyOsLocationPermissionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOsLocationPermissionStateChanged (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -7035,7 +7175,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 9: NotifyFocusedTabChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyFocusedTabChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -7046,7 +7186,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 10: NotifyManualResizeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyManualResizeChanged (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -7057,7 +7197,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 11: NotifyOsHotkeyStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOsHotkeyStateChanged (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -7068,7 +7208,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 12: NotifyBrowserIsOpenChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyBrowserIsOpenChanged (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -7079,7 +7219,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 13: NotifyInstanceActivationChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyInstanceActivationChanged (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -7090,7 +7230,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 14: NotifyClosedCaptioningSettingChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyClosedCaptioningSettingChanged (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -7101,7 +7241,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 15: NotifyPinnedTabsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPinnedTabsChanged (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -7112,7 +7252,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 16: NotifyPinnedTabDataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPinnedTabDataChanged (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -7123,7 +7263,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 17: NotifySkillPreviewsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySkillPreviewsChanged (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -7134,7 +7274,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 18: NotifySkillPreviewChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySkillPreviewChanged (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -7145,7 +7285,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 19: NotifySkillToInvokeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySkillToInvokeChanged (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -7156,7 +7296,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 20: NotifyZeroStateSuggestionsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyZeroStateSuggestionsChanged (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -7167,7 +7307,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 21: NotifyActorTaskStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyActorTaskStateChanged (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -7178,7 +7318,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 22: RequestViewChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_RequestViewChange_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_RequestViewChange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestViewChange (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -7189,7 +7329,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 23: NotifyPageMetadataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyPageMetadataChanged (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -7200,7 +7340,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 24: NotifyDefaultTabContextPermissionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyDefaultTabContextPermissionStateChanged (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -7211,7 +7351,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 25: RequestToShowCredentialSelectionDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToShowCredentialSelectionDialog (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -7222,7 +7362,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 26: RequestToShowAutofillSuggestionsDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToShowAutofillSuggestionsDialog (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -7233,7 +7373,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 27: RequestToShowUserConfirmationDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToShowUserConfirmationDialog (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -7244,7 +7384,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 28: RequestToConfirmNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToConfirmNavigation (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -7255,7 +7395,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 29: NotifyAdditionalContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyAdditionalContext (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -7266,7 +7406,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 30: NotifyActuationOnWebSettingChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyActuationOnWebSettingChanged (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -7277,7 +7417,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 31: NotifyActOnWebCapabilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyActOnWebCapabilityChanged (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -7288,7 +7428,7 @@ glic.mojom.WebClientReceiver = class {
         // Try Method 32: NotifyOnboardingCompletedChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOnboardingCompletedChanged (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -7305,7 +7445,7 @@ glic.mojom.WebClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyPanelWillOpen');
           const result = this.impl.notifyPanelWillOpen(params.panel_opening_data);
           if (header.expectsResponse) {
@@ -7318,7 +7458,7 @@ glic.mojom.WebClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyPanelWasClosed');
           const result = this.impl.notifyPanelWasClosed();
           if (header.expectsResponse) {
@@ -7331,168 +7471,168 @@ glic.mojom.WebClientReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyPanelStateChange');
           const result = this.impl.notifyPanelStateChange(params.panel_state);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyPanelActiveChange');
           const result = this.impl.notifyPanelActiveChange(params.panel_active);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyPanelCanAttachChange');
           const result = this.impl.notifyPanelCanAttachChange(params.can_attach);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyMicrophonePermissionStateChanged');
           const result = this.impl.notifyMicrophonePermissionStateChanged(params.enabled);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyLocationPermissionStateChanged');
           const result = this.impl.notifyLocationPermissionStateChanged(params.enabled);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyTabContextPermissionStateChanged');
           const result = this.impl.notifyTabContextPermissionStateChanged(params.enabled);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyOsLocationPermissionStateChanged');
           const result = this.impl.notifyOsLocationPermissionStateChanged(params.enabled);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyFocusedTabChanged');
           const result = this.impl.notifyFocusedTabChanged(params.focused_tab_data);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyManualResizeChanged');
           const result = this.impl.notifyManualResizeChanged(params.resizing);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyOsHotkeyStateChanged');
           const result = this.impl.notifyOsHotkeyStateChanged(params.hotkey);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyBrowserIsOpenChanged');
           const result = this.impl.notifyBrowserIsOpenChanged(params.browser_is_open);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyInstanceActivationChanged');
           const result = this.impl.notifyInstanceActivationChanged(params.instance_active);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyClosedCaptioningSettingChanged');
           const result = this.impl.notifyClosedCaptioningSettingChanged(params.enabled);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyPinnedTabsChanged');
           const result = this.impl.notifyPinnedTabsChanged(params.tab_data);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyPinnedTabDataChanged');
           const result = this.impl.notifyPinnedTabDataChanged(params.tab_data);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySkillPreviewsChanged');
           const result = this.impl.notifySkillPreviewsChanged(params.skill_previews);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySkillPreviewChanged');
           const result = this.impl.notifySkillPreviewChanged(params.skill_preview);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySkillToInvokeChanged');
           const result = this.impl.notifySkillToInvokeChanged(params.skill);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyZeroStateSuggestionsChanged');
           const result = this.impl.notifyZeroStateSuggestionsChanged(params.suggestions, params.options);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyActorTaskStateChanged');
           const result = this.impl.notifyActorTaskStateChanged(params.task_id, params.state);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_RequestViewChange_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_RequestViewChange_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestViewChange');
           const result = this.impl.requestViewChange(params.request);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyPageMetadataChanged');
           const result = this.impl.notifyPageMetadataChanged(params.tab_id, params.metadata);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyDefaultTabContextPermissionStateChanged');
           const result = this.impl.notifyDefaultTabContextPermissionStateChanged(params.enabled);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestToShowCredentialSelectionDialog');
           const result = this.impl.requestToShowCredentialSelectionDialog(params.request);
           if (header.expectsResponse) {
@@ -7505,7 +7645,7 @@ glic.mojom.WebClientReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestToShowAutofillSuggestionsDialog');
           const result = this.impl.requestToShowAutofillSuggestionsDialog(params.request);
           if (header.expectsResponse) {
@@ -7518,7 +7658,7 @@ glic.mojom.WebClientReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestToShowUserConfirmationDialog');
           const result = this.impl.requestToShowUserConfirmationDialog(params.request);
           if (header.expectsResponse) {
@@ -7531,7 +7671,7 @@ glic.mojom.WebClientReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestToConfirmNavigation');
           const result = this.impl.requestToConfirmNavigation(params.request);
           if (header.expectsResponse) {
@@ -7544,28 +7684,28 @@ glic.mojom.WebClientReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyAdditionalContext');
           const result = this.impl.notifyAdditionalContext(params.context);
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyActuationOnWebSettingChanged');
           const result = this.impl.notifyActuationOnWebSettingChanged(params.enabled);
           break;
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyActOnWebCapabilityChanged');
           const result = this.impl.notifyActOnWebCapabilityChanged(params.can_act_on_web);
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyOnboardingCompletedChanged');
           const result = this.impl.notifyOnboardingCompletedChanged(params.completed);
           break;
@@ -7622,12 +7762,14 @@ glic.mojom.CaptureRegionObserverRemote = class {
 glic.mojom.CaptureRegionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('CaptureRegionObserver', [
+      { explicit: null },
+    ]);
   }
 
   onUpdate(result, reason) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec,
       null,
       [result, reason],
@@ -7651,7 +7793,13 @@ glic.mojom.CaptureRegionObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('CaptureRegionObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -7689,7 +7837,7 @@ glic.mojom.CaptureRegionObserverReceiver = class {
         // Try Method 0: OnUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec.$);
+             decoder.decodeStructInline(glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUpdate (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -7706,7 +7854,7 @@ glic.mojom.CaptureRegionObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec.$);
+          const params = decoder.decodeStructInline(glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onUpdate');
           const result = this.impl.onUpdate(params.result, params.reason);
           break;

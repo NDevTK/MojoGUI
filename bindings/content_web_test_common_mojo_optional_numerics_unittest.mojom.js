@@ -3,6 +3,66 @@
 // Module: content.optional_numerics_unittest.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var content = content || {};
@@ -830,12 +890,56 @@ content.optional_numerics_unittest.mojom.ParamsRemote = class {
 content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('Params', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   sendNullBool(optional_bool) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec,
       [optional_bool],
@@ -843,9 +947,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullUint8(optional_uint8) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec,
       [optional_uint8],
@@ -853,9 +956,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullInt8(optional_int8) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec,
       [optional_int8],
@@ -863,9 +965,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullUint16(optional_uint16) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec,
       [optional_uint16],
@@ -873,9 +974,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullInt16(optional_int16) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec,
       [optional_int16],
@@ -883,9 +983,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullUint32(optional_uint32) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec,
       [optional_uint32],
@@ -893,9 +992,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullInt32(optional_int32) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec,
       [optional_int32],
@@ -903,9 +1001,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullUint64(optional_uint64) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec,
       [optional_uint64],
@@ -913,9 +1010,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullInt64(optional_int64) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec,
       [optional_int64],
@@ -923,9 +1019,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullFloat(optional_float) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec,
       [optional_float],
@@ -933,9 +1028,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullDouble(optional_double) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec,
       [optional_double],
@@ -943,9 +1037,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullEnum(optional_enum) {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[11],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec,
       [optional_enum],
@@ -953,9 +1046,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullBools(optional_bools) {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[12],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec,
       [optional_bools],
@@ -963,9 +1055,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullInt16s(optional_int16s) {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[13],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec,
       [optional_int16s],
@@ -973,9 +1064,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullUint32s(optional_uint32s) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[14],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec,
       [optional_uint32s],
@@ -983,9 +1073,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullDoubles(optional_doubles) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[15],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec,
       [optional_doubles],
@@ -993,9 +1082,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullEnums(optional_enums) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[16],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec,
       [optional_enums],
@@ -1003,9 +1091,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullBoolMap(values) {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[17],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec,
       [values],
@@ -1013,9 +1100,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullDoubleMap(values) {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[18],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec,
       [values],
@@ -1023,9 +1109,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullEnumMap(values) {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[19],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec,
       [values],
@@ -1033,9 +1118,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalBool(optional_bool) {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[20],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec,
       [optional_bool],
@@ -1043,9 +1127,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalUint8(optional_uint8) {
-    // Ordinal: 21
     return this.proxy.sendMessage(
-      21,  // ordinal
+      this.ordinals[21],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec,
       [optional_uint8],
@@ -1053,9 +1136,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalInt8(optional_int8) {
-    // Ordinal: 22
     return this.proxy.sendMessage(
-      22,  // ordinal
+      this.ordinals[22],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec,
       [optional_int8],
@@ -1063,9 +1145,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalUint16(optional_uint16) {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[23],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec,
       [optional_uint16],
@@ -1073,9 +1154,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalInt16(optional_int16) {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[24],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec,
       [optional_int16],
@@ -1083,9 +1163,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalUint32(optional_uint32) {
-    // Ordinal: 25
     return this.proxy.sendMessage(
-      25,  // ordinal
+      this.ordinals[25],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec,
       [optional_uint32],
@@ -1093,9 +1172,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalInt32(optional_int32) {
-    // Ordinal: 26
     return this.proxy.sendMessage(
-      26,  // ordinal
+      this.ordinals[26],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec,
       [optional_int32],
@@ -1103,9 +1181,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalUint64(optional_uint64) {
-    // Ordinal: 27
     return this.proxy.sendMessage(
-      27,  // ordinal
+      this.ordinals[27],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec,
       [optional_uint64],
@@ -1113,9 +1190,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalInt64(optional_int64) {
-    // Ordinal: 28
     return this.proxy.sendMessage(
-      28,  // ordinal
+      this.ordinals[28],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec,
       [optional_int64],
@@ -1123,9 +1199,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalFloat(optional_float) {
-    // Ordinal: 29
     return this.proxy.sendMessage(
-      29,  // ordinal
+      this.ordinals[29],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec,
       [optional_float],
@@ -1133,9 +1208,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalDouble(optional_double) {
-    // Ordinal: 30
     return this.proxy.sendMessage(
-      30,  // ordinal
+      this.ordinals[30],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec,
       [optional_double],
@@ -1143,9 +1217,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalEnum(optional_enum) {
-    // Ordinal: 31
     return this.proxy.sendMessage(
-      31,  // ordinal
+      this.ordinals[31],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec,
       [optional_enum],
@@ -1153,9 +1226,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalBools(optional_enums) {
-    // Ordinal: 32
     return this.proxy.sendMessage(
-      32,  // ordinal
+      this.ordinals[32],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec,
       [optional_enums],
@@ -1163,9 +1235,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalInt16s(optional_int16s) {
-    // Ordinal: 33
     return this.proxy.sendMessage(
-      33,  // ordinal
+      this.ordinals[33],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec,
       [optional_int16s],
@@ -1173,9 +1244,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalUint32s(optional_uint32s) {
-    // Ordinal: 34
     return this.proxy.sendMessage(
-      34,  // ordinal
+      this.ordinals[34],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec,
       [optional_uint32s],
@@ -1183,9 +1253,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalDoubles(optional_doubles) {
-    // Ordinal: 35
     return this.proxy.sendMessage(
-      35,  // ordinal
+      this.ordinals[35],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec,
       [optional_doubles],
@@ -1193,9 +1262,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalEnums(optional_enums) {
-    // Ordinal: 36
     return this.proxy.sendMessage(
-      36,  // ordinal
+      this.ordinals[36],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec,
       [optional_enums],
@@ -1203,9 +1271,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalBoolMap(values) {
-    // Ordinal: 37
     return this.proxy.sendMessage(
-      37,  // ordinal
+      this.ordinals[37],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec,
       [values],
@@ -1213,9 +1280,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalDoubleMap(values) {
-    // Ordinal: 38
     return this.proxy.sendMessage(
-      38,  // ordinal
+      this.ordinals[38],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec,
       [values],
@@ -1223,9 +1289,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendOptionalEnumMap(values) {
-    // Ordinal: 39
     return this.proxy.sendMessage(
-      39,  // ordinal
+      this.ordinals[39],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec,
       [values],
@@ -1233,9 +1298,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendNullStructWithOptionalNumerics(s) {
-    // Ordinal: 40
     return this.proxy.sendMessage(
-      40,  // ordinal
+      this.ordinals[40],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec,
       [s],
@@ -1243,9 +1307,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendStructWithNullOptionalNumerics(s) {
-    // Ordinal: 41
     return this.proxy.sendMessage(
-      41,  // ordinal
+      this.ordinals[41],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec,
       [s],
@@ -1253,9 +1316,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
   }
 
   sendStructWithOptionalNumerics(s) {
-    // Ordinal: 42
     return this.proxy.sendMessage(
-      42,  // ordinal
+      this.ordinals[42],  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec,
       [s],
@@ -1279,49 +1341,55 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
-    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
-    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
-    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
-    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
-    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
-    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
-    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
-    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
-    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
-    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
-    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
-    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
-    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
-    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
-    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
-    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
-    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
-    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
-    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
-    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
-    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
-    this.ordinalMap.set(32, 32); // Default ordinal 32 -> Index 32
-    this.ordinalMap.set(33, 33); // Default ordinal 33 -> Index 33
-    this.ordinalMap.set(34, 34); // Default ordinal 34 -> Index 34
-    this.ordinalMap.set(35, 35); // Default ordinal 35 -> Index 35
-    this.ordinalMap.set(36, 36); // Default ordinal 36 -> Index 36
-    this.ordinalMap.set(37, 37); // Default ordinal 37 -> Index 37
-    this.ordinalMap.set(38, 38); // Default ordinal 38 -> Index 38
-    this.ordinalMap.set(39, 39); // Default ordinal 39 -> Index 39
-    this.ordinalMap.set(40, 40); // Default ordinal 40 -> Index 40
-    this.ordinalMap.set(41, 41); // Default ordinal 41 -> Index 41
-    this.ordinalMap.set(42, 42); // Default ordinal 42 -> Index 42
+    const ordinals = window.mojoScrambler.getOrdinals('Params', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1359,7 +1427,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 0: SendNullBool
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullBool (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1370,7 +1438,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 1: SendNullUint8
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullUint8 (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1381,7 +1449,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 2: SendNullInt8
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullInt8 (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1392,7 +1460,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 3: SendNullUint16
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullUint16 (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1403,7 +1471,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 4: SendNullInt16
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullInt16 (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1414,7 +1482,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 5: SendNullUint32
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullUint32 (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1425,7 +1493,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 6: SendNullInt32
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullInt32 (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1436,7 +1504,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 7: SendNullUint64
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullUint64 (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1447,7 +1515,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 8: SendNullInt64
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullInt64 (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1458,7 +1526,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 9: SendNullFloat
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullFloat (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1469,7 +1537,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 10: SendNullDouble
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullDouble (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1480,7 +1548,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 11: SendNullEnum
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullEnum (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1491,7 +1559,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 12: SendNullBools
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullBools (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1502,7 +1570,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 13: SendNullInt16s
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullInt16s (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1513,7 +1581,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 14: SendNullUint32s
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullUint32s (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1524,7 +1592,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 15: SendNullDoubles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullDoubles (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1535,7 +1603,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 16: SendNullEnums
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullEnums (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1546,7 +1614,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 17: SendNullBoolMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullBoolMap (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1557,7 +1625,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 18: SendNullDoubleMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullDoubleMap (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1568,7 +1636,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 19: SendNullEnumMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullEnumMap (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1579,7 +1647,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 20: SendOptionalBool
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalBool (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1590,7 +1658,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 21: SendOptionalUint8
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalUint8 (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1601,7 +1669,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 22: SendOptionalInt8
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalInt8 (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1612,7 +1680,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 23: SendOptionalUint16
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalUint16 (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1623,7 +1691,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 24: SendOptionalInt16
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalInt16 (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1634,7 +1702,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 25: SendOptionalUint32
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalUint32 (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1645,7 +1713,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 26: SendOptionalInt32
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalInt32 (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1656,7 +1724,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 27: SendOptionalUint64
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalUint64 (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1667,7 +1735,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 28: SendOptionalInt64
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalInt64 (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1678,7 +1746,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 29: SendOptionalFloat
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalFloat (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1689,7 +1757,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 30: SendOptionalDouble
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalDouble (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1700,7 +1768,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 31: SendOptionalEnum
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalEnum (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -1711,7 +1779,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 32: SendOptionalBools
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalBools (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -1722,7 +1790,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 33: SendOptionalInt16s
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalInt16s (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -1733,7 +1801,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 34: SendOptionalUint32s
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalUint32s (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -1744,7 +1812,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 35: SendOptionalDoubles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalDoubles (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -1755,7 +1823,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 36: SendOptionalEnums
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalEnums (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -1766,7 +1834,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 37: SendOptionalBoolMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalBoolMap (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
@@ -1777,7 +1845,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 38: SendOptionalDoubleMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalDoubleMap (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
@@ -1788,7 +1856,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 39: SendOptionalEnumMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendOptionalEnumMap (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
@@ -1799,7 +1867,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 40: SendNullStructWithOptionalNumerics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNullStructWithOptionalNumerics (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
@@ -1810,7 +1878,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 41: SendStructWithNullOptionalNumerics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendStructWithNullOptionalNumerics (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
@@ -1821,7 +1889,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         // Try Method 42: SendStructWithOptionalNumerics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendStructWithOptionalNumerics (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
@@ -1838,7 +1906,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBool');
           const result = this.impl.sendNullBool(params.optional_bool);
           if (header.expectsResponse) {
@@ -1851,7 +1919,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint8');
           const result = this.impl.sendNullUint8(params.optional_uint8);
           if (header.expectsResponse) {
@@ -1864,7 +1932,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt8');
           const result = this.impl.sendNullInt8(params.optional_int8);
           if (header.expectsResponse) {
@@ -1877,7 +1945,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint16');
           const result = this.impl.sendNullUint16(params.optional_uint16);
           if (header.expectsResponse) {
@@ -1890,7 +1958,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt16');
           const result = this.impl.sendNullInt16(params.optional_int16);
           if (header.expectsResponse) {
@@ -1903,7 +1971,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint32');
           const result = this.impl.sendNullUint32(params.optional_uint32);
           if (header.expectsResponse) {
@@ -1916,7 +1984,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt32');
           const result = this.impl.sendNullInt32(params.optional_int32);
           if (header.expectsResponse) {
@@ -1929,7 +1997,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint64');
           const result = this.impl.sendNullUint64(params.optional_uint64);
           if (header.expectsResponse) {
@@ -1942,7 +2010,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt64');
           const result = this.impl.sendNullInt64(params.optional_int64);
           if (header.expectsResponse) {
@@ -1955,7 +2023,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullFloat');
           const result = this.impl.sendNullFloat(params.optional_float);
           if (header.expectsResponse) {
@@ -1968,7 +2036,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDouble');
           const result = this.impl.sendNullDouble(params.optional_double);
           if (header.expectsResponse) {
@@ -1981,7 +2049,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnum');
           const result = this.impl.sendNullEnum(params.optional_enum);
           if (header.expectsResponse) {
@@ -1994,7 +2062,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBools');
           const result = this.impl.sendNullBools(params.optional_bools);
           if (header.expectsResponse) {
@@ -2007,7 +2075,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt16s');
           const result = this.impl.sendNullInt16s(params.optional_int16s);
           if (header.expectsResponse) {
@@ -2020,7 +2088,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint32s');
           const result = this.impl.sendNullUint32s(params.optional_uint32s);
           if (header.expectsResponse) {
@@ -2033,7 +2101,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDoubles');
           const result = this.impl.sendNullDoubles(params.optional_doubles);
           if (header.expectsResponse) {
@@ -2046,7 +2114,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnums');
           const result = this.impl.sendNullEnums(params.optional_enums);
           if (header.expectsResponse) {
@@ -2059,7 +2127,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBoolMap');
           const result = this.impl.sendNullBoolMap(params.values);
           if (header.expectsResponse) {
@@ -2072,7 +2140,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDoubleMap');
           const result = this.impl.sendNullDoubleMap(params.values);
           if (header.expectsResponse) {
@@ -2085,7 +2153,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnumMap');
           const result = this.impl.sendNullEnumMap(params.values);
           if (header.expectsResponse) {
@@ -2098,7 +2166,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBool');
           const result = this.impl.sendOptionalBool(params.optional_bool);
           if (header.expectsResponse) {
@@ -2111,7 +2179,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint8');
           const result = this.impl.sendOptionalUint8(params.optional_uint8);
           if (header.expectsResponse) {
@@ -2124,7 +2192,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt8');
           const result = this.impl.sendOptionalInt8(params.optional_int8);
           if (header.expectsResponse) {
@@ -2137,7 +2205,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint16');
           const result = this.impl.sendOptionalUint16(params.optional_uint16);
           if (header.expectsResponse) {
@@ -2150,7 +2218,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt16');
           const result = this.impl.sendOptionalInt16(params.optional_int16);
           if (header.expectsResponse) {
@@ -2163,7 +2231,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint32');
           const result = this.impl.sendOptionalUint32(params.optional_uint32);
           if (header.expectsResponse) {
@@ -2176,7 +2244,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt32');
           const result = this.impl.sendOptionalInt32(params.optional_int32);
           if (header.expectsResponse) {
@@ -2189,7 +2257,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint64');
           const result = this.impl.sendOptionalUint64(params.optional_uint64);
           if (header.expectsResponse) {
@@ -2202,7 +2270,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt64');
           const result = this.impl.sendOptionalInt64(params.optional_int64);
           if (header.expectsResponse) {
@@ -2215,7 +2283,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalFloat');
           const result = this.impl.sendOptionalFloat(params.optional_float);
           if (header.expectsResponse) {
@@ -2228,7 +2296,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDouble');
           const result = this.impl.sendOptionalDouble(params.optional_double);
           if (header.expectsResponse) {
@@ -2241,7 +2309,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnum');
           const result = this.impl.sendOptionalEnum(params.optional_enum);
           if (header.expectsResponse) {
@@ -2254,7 +2322,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBools');
           const result = this.impl.sendOptionalBools(params.optional_enums);
           if (header.expectsResponse) {
@@ -2267,7 +2335,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt16s');
           const result = this.impl.sendOptionalInt16s(params.optional_int16s);
           if (header.expectsResponse) {
@@ -2280,7 +2348,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint32s');
           const result = this.impl.sendOptionalUint32s(params.optional_uint32s);
           if (header.expectsResponse) {
@@ -2293,7 +2361,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDoubles');
           const result = this.impl.sendOptionalDoubles(params.optional_doubles);
           if (header.expectsResponse) {
@@ -2306,7 +2374,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnums');
           const result = this.impl.sendOptionalEnums(params.optional_enums);
           if (header.expectsResponse) {
@@ -2319,7 +2387,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBoolMap');
           const result = this.impl.sendOptionalBoolMap(params.values);
           if (header.expectsResponse) {
@@ -2332,7 +2400,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDoubleMap');
           const result = this.impl.sendOptionalDoubleMap(params.values);
           if (header.expectsResponse) {
@@ -2345,7 +2413,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnumMap');
           const result = this.impl.sendOptionalEnumMap(params.values);
           if (header.expectsResponse) {
@@ -2358,7 +2426,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullStructWithOptionalNumerics');
           const result = this.impl.sendNullStructWithOptionalNumerics(params.s);
           if (header.expectsResponse) {
@@ -2371,7 +2439,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendStructWithNullOptionalNumerics');
           const result = this.impl.sendStructWithNullOptionalNumerics(params.s);
           if (header.expectsResponse) {
@@ -2384,7 +2452,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendStructWithOptionalNumerics');
           const result = this.impl.sendStructWithOptionalNumerics(params.s);
           if (header.expectsResponse) {
@@ -2970,12 +3038,56 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemote = class {
 content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('ResponseParams', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   getNullBool() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec,
       [],
@@ -2983,9 +3095,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullUint8() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec,
       [],
@@ -2993,9 +3104,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullInt8() {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec,
       [],
@@ -3003,9 +3113,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullUint16() {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec,
       [],
@@ -3013,9 +3122,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullInt16() {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec,
       [],
@@ -3023,9 +3131,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullUint32() {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec,
       [],
@@ -3033,9 +3140,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullInt32() {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec,
       [],
@@ -3043,9 +3149,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullUint64() {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec,
       [],
@@ -3053,9 +3158,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullInt64() {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec,
       [],
@@ -3063,9 +3167,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullFloat() {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec,
       [],
@@ -3073,9 +3176,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullDouble() {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec,
       [],
@@ -3083,9 +3185,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullEnum() {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[11],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec,
       [],
@@ -3093,9 +3194,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullBools() {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[12],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec,
       [],
@@ -3103,9 +3203,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullInt16s() {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[13],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec,
       [],
@@ -3113,9 +3212,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullUint32s() {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[14],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec,
       [],
@@ -3123,9 +3221,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullDoubles() {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[15],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec,
       [],
@@ -3133,9 +3230,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullEnums() {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[16],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec,
       [],
@@ -3143,9 +3239,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullBoolMap() {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[17],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec,
       [],
@@ -3153,9 +3248,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullInt32Map() {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[18],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec,
       [],
@@ -3163,9 +3257,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullEnumMap() {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[19],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec,
       [],
@@ -3173,9 +3266,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalBool(value) {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[20],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec,
       [value],
@@ -3183,9 +3275,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalUint8(value) {
-    // Ordinal: 21
     return this.proxy.sendMessage(
-      21,  // ordinal
+      this.ordinals[21],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec,
       [value],
@@ -3193,9 +3284,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalInt8(value) {
-    // Ordinal: 22
     return this.proxy.sendMessage(
-      22,  // ordinal
+      this.ordinals[22],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec,
       [value],
@@ -3203,9 +3293,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalUint16(value) {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[23],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec,
       [value],
@@ -3213,9 +3302,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalInt16(value) {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[24],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec,
       [value],
@@ -3223,9 +3311,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalUint32(value) {
-    // Ordinal: 25
     return this.proxy.sendMessage(
-      25,  // ordinal
+      this.ordinals[25],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec,
       [value],
@@ -3233,9 +3320,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalInt32(value) {
-    // Ordinal: 26
     return this.proxy.sendMessage(
-      26,  // ordinal
+      this.ordinals[26],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec,
       [value],
@@ -3243,9 +3329,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalUint64(value) {
-    // Ordinal: 27
     return this.proxy.sendMessage(
-      27,  // ordinal
+      this.ordinals[27],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec,
       [value],
@@ -3253,9 +3338,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalInt64(value) {
-    // Ordinal: 28
     return this.proxy.sendMessage(
-      28,  // ordinal
+      this.ordinals[28],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec,
       [value],
@@ -3263,9 +3347,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalFloat(value) {
-    // Ordinal: 29
     return this.proxy.sendMessage(
-      29,  // ordinal
+      this.ordinals[29],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec,
       [value],
@@ -3273,9 +3356,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalDouble(value) {
-    // Ordinal: 30
     return this.proxy.sendMessage(
-      30,  // ordinal
+      this.ordinals[30],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec,
       [value],
@@ -3283,9 +3365,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalEnum(value) {
-    // Ordinal: 31
     return this.proxy.sendMessage(
-      31,  // ordinal
+      this.ordinals[31],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec,
       [value],
@@ -3293,9 +3374,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalBools(value) {
-    // Ordinal: 32
     return this.proxy.sendMessage(
-      32,  // ordinal
+      this.ordinals[32],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec,
       [value],
@@ -3303,9 +3383,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalInt16s(value) {
-    // Ordinal: 33
     return this.proxy.sendMessage(
-      33,  // ordinal
+      this.ordinals[33],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec,
       [value],
@@ -3313,9 +3392,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalUint32s(value) {
-    // Ordinal: 34
     return this.proxy.sendMessage(
-      34,  // ordinal
+      this.ordinals[34],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec,
       [value],
@@ -3323,9 +3401,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalDoubles(value) {
-    // Ordinal: 35
     return this.proxy.sendMessage(
-      35,  // ordinal
+      this.ordinals[35],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec,
       [value],
@@ -3333,9 +3410,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalEnums(value) {
-    // Ordinal: 36
     return this.proxy.sendMessage(
-      36,  // ordinal
+      this.ordinals[36],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec,
       [value],
@@ -3343,9 +3419,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalBoolMap(key, value) {
-    // Ordinal: 37
     return this.proxy.sendMessage(
-      37,  // ordinal
+      this.ordinals[37],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec,
       [key, value],
@@ -3353,9 +3428,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalFloatMap(key, value) {
-    // Ordinal: 38
     return this.proxy.sendMessage(
-      38,  // ordinal
+      this.ordinals[38],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec,
       [key, value],
@@ -3363,9 +3437,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getOptionalEnumMap(key, value) {
-    // Ordinal: 39
     return this.proxy.sendMessage(
-      39,  // ordinal
+      this.ordinals[39],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec,
       [key, value],
@@ -3373,9 +3446,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getNullStructWithOptionalNumerics() {
-    // Ordinal: 40
     return this.proxy.sendMessage(
-      40,  // ordinal
+      this.ordinals[40],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec,
       [],
@@ -3383,9 +3455,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getStructWithNullOptionalNumerics() {
-    // Ordinal: 41
     return this.proxy.sendMessage(
-      41,  // ordinal
+      this.ordinals[41],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec,
       [],
@@ -3393,9 +3464,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
   }
 
   getStructWithOptionalNumerics(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value) {
-    // Ordinal: 42
     return this.proxy.sendMessage(
-      42,  // ordinal
+      this.ordinals[42],  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec,
       [bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value],
@@ -3419,49 +3489,55 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
-    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
-    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
-    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
-    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
-    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
-    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
-    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
-    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
-    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
-    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
-    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
-    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
-    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
-    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
-    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
-    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
-    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
-    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
-    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
-    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
-    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
-    this.ordinalMap.set(32, 32); // Default ordinal 32 -> Index 32
-    this.ordinalMap.set(33, 33); // Default ordinal 33 -> Index 33
-    this.ordinalMap.set(34, 34); // Default ordinal 34 -> Index 34
-    this.ordinalMap.set(35, 35); // Default ordinal 35 -> Index 35
-    this.ordinalMap.set(36, 36); // Default ordinal 36 -> Index 36
-    this.ordinalMap.set(37, 37); // Default ordinal 37 -> Index 37
-    this.ordinalMap.set(38, 38); // Default ordinal 38 -> Index 38
-    this.ordinalMap.set(39, 39); // Default ordinal 39 -> Index 39
-    this.ordinalMap.set(40, 40); // Default ordinal 40 -> Index 40
-    this.ordinalMap.set(41, 41); // Default ordinal 41 -> Index 41
-    this.ordinalMap.set(42, 42); // Default ordinal 42 -> Index 42
+    const ordinals = window.mojoScrambler.getOrdinals('ResponseParams', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -3499,7 +3575,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 0: GetNullBool
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullBool (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3510,7 +3586,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 1: GetNullUint8
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullUint8 (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -3521,7 +3597,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 2: GetNullInt8
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullInt8 (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -3532,7 +3608,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 3: GetNullUint16
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullUint16 (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -3543,7 +3619,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 4: GetNullInt16
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullInt16 (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -3554,7 +3630,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 5: GetNullUint32
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullUint32 (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -3565,7 +3641,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 6: GetNullInt32
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullInt32 (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -3576,7 +3652,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 7: GetNullUint64
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullUint64 (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -3587,7 +3663,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 8: GetNullInt64
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullInt64 (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -3598,7 +3674,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 9: GetNullFloat
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullFloat (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -3609,7 +3685,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 10: GetNullDouble
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullDouble (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -3620,7 +3696,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 11: GetNullEnum
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullEnum (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -3631,7 +3707,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 12: GetNullBools
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullBools (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -3642,7 +3718,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 13: GetNullInt16s
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullInt16s (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -3653,7 +3729,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 14: GetNullUint32s
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullUint32s (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -3664,7 +3740,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 15: GetNullDoubles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullDoubles (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -3675,7 +3751,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 16: GetNullEnums
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullEnums (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -3686,7 +3762,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 17: GetNullBoolMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullBoolMap (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -3697,7 +3773,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 18: GetNullInt32Map
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullInt32Map (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -3708,7 +3784,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 19: GetNullEnumMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullEnumMap (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -3719,7 +3795,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 20: GetOptionalBool
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalBool (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -3730,7 +3806,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 21: GetOptionalUint8
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalUint8 (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -3741,7 +3817,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 22: GetOptionalInt8
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalInt8 (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -3752,7 +3828,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 23: GetOptionalUint16
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalUint16 (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -3763,7 +3839,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 24: GetOptionalInt16
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalInt16 (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -3774,7 +3850,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 25: GetOptionalUint32
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalUint32 (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -3785,7 +3861,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 26: GetOptionalInt32
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalInt32 (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -3796,7 +3872,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 27: GetOptionalUint64
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalUint64 (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -3807,7 +3883,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 28: GetOptionalInt64
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalInt64 (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -3818,7 +3894,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 29: GetOptionalFloat
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalFloat (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -3829,7 +3905,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 30: GetOptionalDouble
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalDouble (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -3840,7 +3916,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 31: GetOptionalEnum
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalEnum (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -3851,7 +3927,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 32: GetOptionalBools
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalBools (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -3862,7 +3938,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 33: GetOptionalInt16s
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalInt16s (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -3873,7 +3949,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 34: GetOptionalUint32s
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalUint32s (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -3884,7 +3960,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 35: GetOptionalDoubles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalDoubles (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -3895,7 +3971,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 36: GetOptionalEnums
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalEnums (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -3906,7 +3982,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 37: GetOptionalBoolMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalBoolMap (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
@@ -3917,7 +3993,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 38: GetOptionalFloatMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalFloatMap (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
@@ -3928,7 +4004,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 39: GetOptionalEnumMap
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionalEnumMap (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
@@ -3939,7 +4015,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 40: GetNullStructWithOptionalNumerics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNullStructWithOptionalNumerics (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
@@ -3950,7 +4026,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 41: GetStructWithNullOptionalNumerics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStructWithNullOptionalNumerics (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
@@ -3961,7 +4037,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         // Try Method 42: GetStructWithOptionalNumerics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStructWithOptionalNumerics (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
@@ -3978,7 +4054,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullBool');
           const result = this.impl.getNullBool();
           if (header.expectsResponse) {
@@ -3991,7 +4067,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullUint8');
           const result = this.impl.getNullUint8();
           if (header.expectsResponse) {
@@ -4004,7 +4080,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt8');
           const result = this.impl.getNullInt8();
           if (header.expectsResponse) {
@@ -4017,7 +4093,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullUint16');
           const result = this.impl.getNullUint16();
           if (header.expectsResponse) {
@@ -4030,7 +4106,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt16');
           const result = this.impl.getNullInt16();
           if (header.expectsResponse) {
@@ -4043,7 +4119,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullUint32');
           const result = this.impl.getNullUint32();
           if (header.expectsResponse) {
@@ -4056,7 +4132,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt32');
           const result = this.impl.getNullInt32();
           if (header.expectsResponse) {
@@ -4069,7 +4145,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullUint64');
           const result = this.impl.getNullUint64();
           if (header.expectsResponse) {
@@ -4082,7 +4158,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt64');
           const result = this.impl.getNullInt64();
           if (header.expectsResponse) {
@@ -4095,7 +4171,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullFloat');
           const result = this.impl.getNullFloat();
           if (header.expectsResponse) {
@@ -4108,7 +4184,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullDouble');
           const result = this.impl.getNullDouble();
           if (header.expectsResponse) {
@@ -4121,7 +4197,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullEnum');
           const result = this.impl.getNullEnum();
           if (header.expectsResponse) {
@@ -4134,7 +4210,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullBools');
           const result = this.impl.getNullBools();
           if (header.expectsResponse) {
@@ -4147,7 +4223,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt16s');
           const result = this.impl.getNullInt16s();
           if (header.expectsResponse) {
@@ -4160,7 +4236,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullUint32s');
           const result = this.impl.getNullUint32s();
           if (header.expectsResponse) {
@@ -4173,7 +4249,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullDoubles');
           const result = this.impl.getNullDoubles();
           if (header.expectsResponse) {
@@ -4186,7 +4262,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullEnums');
           const result = this.impl.getNullEnums();
           if (header.expectsResponse) {
@@ -4199,7 +4275,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullBoolMap');
           const result = this.impl.getNullBoolMap();
           if (header.expectsResponse) {
@@ -4212,7 +4288,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt32Map');
           const result = this.impl.getNullInt32Map();
           if (header.expectsResponse) {
@@ -4225,7 +4301,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullEnumMap');
           const result = this.impl.getNullEnumMap();
           if (header.expectsResponse) {
@@ -4238,7 +4314,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBool');
           const result = this.impl.getOptionalBool(params.value);
           if (header.expectsResponse) {
@@ -4251,7 +4327,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint8');
           const result = this.impl.getOptionalUint8(params.value);
           if (header.expectsResponse) {
@@ -4264,7 +4340,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt8');
           const result = this.impl.getOptionalInt8(params.value);
           if (header.expectsResponse) {
@@ -4277,7 +4353,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint16');
           const result = this.impl.getOptionalUint16(params.value);
           if (header.expectsResponse) {
@@ -4290,7 +4366,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt16');
           const result = this.impl.getOptionalInt16(params.value);
           if (header.expectsResponse) {
@@ -4303,7 +4379,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint32');
           const result = this.impl.getOptionalUint32(params.value);
           if (header.expectsResponse) {
@@ -4316,7 +4392,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt32');
           const result = this.impl.getOptionalInt32(params.value);
           if (header.expectsResponse) {
@@ -4329,7 +4405,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint64');
           const result = this.impl.getOptionalUint64(params.value);
           if (header.expectsResponse) {
@@ -4342,7 +4418,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt64');
           const result = this.impl.getOptionalInt64(params.value);
           if (header.expectsResponse) {
@@ -4355,7 +4431,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalFloat');
           const result = this.impl.getOptionalFloat(params.value);
           if (header.expectsResponse) {
@@ -4368,7 +4444,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalDouble');
           const result = this.impl.getOptionalDouble(params.value);
           if (header.expectsResponse) {
@@ -4381,7 +4457,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnum');
           const result = this.impl.getOptionalEnum(params.value);
           if (header.expectsResponse) {
@@ -4394,7 +4470,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBools');
           const result = this.impl.getOptionalBools(params.value);
           if (header.expectsResponse) {
@@ -4407,7 +4483,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt16s');
           const result = this.impl.getOptionalInt16s(params.value);
           if (header.expectsResponse) {
@@ -4420,7 +4496,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint32s');
           const result = this.impl.getOptionalUint32s(params.value);
           if (header.expectsResponse) {
@@ -4433,7 +4509,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalDoubles');
           const result = this.impl.getOptionalDoubles(params.value);
           if (header.expectsResponse) {
@@ -4446,7 +4522,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnums');
           const result = this.impl.getOptionalEnums(params.value);
           if (header.expectsResponse) {
@@ -4459,7 +4535,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBoolMap');
           const result = this.impl.getOptionalBoolMap(params.key, params.value);
           if (header.expectsResponse) {
@@ -4472,7 +4548,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalFloatMap');
           const result = this.impl.getOptionalFloatMap(params.key, params.value);
           if (header.expectsResponse) {
@@ -4485,7 +4561,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnumMap');
           const result = this.impl.getOptionalEnumMap(params.key, params.value);
           if (header.expectsResponse) {
@@ -4498,7 +4574,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullStructWithOptionalNumerics');
           const result = this.impl.getNullStructWithOptionalNumerics();
           if (header.expectsResponse) {
@@ -4511,7 +4587,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getStructWithNullOptionalNumerics');
           const result = this.impl.getStructWithNullOptionalNumerics();
           if (header.expectsResponse) {
@@ -4524,7 +4600,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getStructWithOptionalNumerics');
           const result = this.impl.getStructWithOptionalNumerics(params.bool_value, params.uint8_value, params.int8_value, params.uint16_value, params.int16_value, params.uint32_value, params.int32_value, params.uint64_value, params.int64_value, params.float_value, params.double_value, params.enum_value);
           if (header.expectsResponse) {
@@ -4602,12 +4678,15 @@ content.optional_numerics_unittest.mojom.InterfaceV0Remote = class {
 content.optional_numerics_unittest.mojom.InterfaceV0RemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('InterfaceV0', [
+      { explicit: 1 },
+      { explicit: 2 },
+    ]);
   }
 
   methodWithVersionedParams() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[0],  // ordinal
       content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec,
       content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec,
       [],
@@ -4615,9 +4694,8 @@ content.optional_numerics_unittest.mojom.InterfaceV0RemoteCallHandler = class {
   }
 
   methodWithVersionedStruct(s) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[1],  // ordinal
       content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec,
       content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec,
       [s],
@@ -4641,8 +4719,14 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(1, 0); // Default ordinal 1 -> Index 0
-    this.ordinalMap.set(2, 1); // Default ordinal 2 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('InterfaceV0', [
+      { explicit: 1 },
+      { explicit: 2 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -4680,7 +4764,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
         // Try Method 0: MethodWithVersionedParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MethodWithVersionedParams (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -4691,7 +4775,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
         // Try Method 1: MethodWithVersionedStruct
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MethodWithVersionedStruct (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -4708,7 +4792,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedParams');
           const result = this.impl.methodWithVersionedParams();
           if (header.expectsResponse) {
@@ -4721,7 +4805,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedStruct');
           const result = this.impl.methodWithVersionedStruct(params.s);
           if (header.expectsResponse) {
@@ -4845,12 +4929,15 @@ content.optional_numerics_unittest.mojom.InterfaceV2Remote = class {
 content.optional_numerics_unittest.mojom.InterfaceV2RemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('InterfaceV2', [
+      { explicit: 1 },
+      { explicit: 2 },
+    ]);
   }
 
   methodWithVersionedParams(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[0],  // ordinal
       content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec,
       content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec,
       [bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value],
@@ -4858,9 +4945,8 @@ content.optional_numerics_unittest.mojom.InterfaceV2RemoteCallHandler = class {
   }
 
   methodWithVersionedStruct(s) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[1],  // ordinal
       content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec,
       content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec,
       [s],
@@ -4884,8 +4970,14 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(1, 0); // Default ordinal 1 -> Index 0
-    this.ordinalMap.set(2, 1); // Default ordinal 2 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('InterfaceV2', [
+      { explicit: 1 },
+      { explicit: 2 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -4923,7 +5015,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
         // Try Method 0: MethodWithVersionedParams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MethodWithVersionedParams (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -4934,7 +5026,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
         // Try Method 1: MethodWithVersionedStruct
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec.$);
+             decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MethodWithVersionedStruct (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -4951,7 +5043,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedParams');
           const result = this.impl.methodWithVersionedParams(params.bool_value, params.uint8_value, params.int8_value, params.uint16_value, params.int16_value, params.uint32_value, params.int32_value, params.uint64_value, params.int64_value, params.float_value, params.double_value, params.enum_value);
           if (header.expectsResponse) {
@@ -4964,7 +5056,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec.$);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedStruct');
           const result = this.impl.methodWithVersionedStruct(params.s);
           if (header.expectsResponse) {

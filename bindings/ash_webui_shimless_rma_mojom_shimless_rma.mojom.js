@@ -3,6 +3,66 @@
 // Module: ash.shimless_rma.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var ash = ash || {};
@@ -618,12 +678,14 @@ ash.shimless_rma.mojom.ErrorObserverRemote = class {
 ash.shimless_rma.mojom.ErrorObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('ErrorObserver', [
+      { explicit: null },
+    ]);
   }
 
   onError(error) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec,
       null,
       [error],
@@ -647,7 +709,13 @@ ash.shimless_rma.mojom.ErrorObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('ErrorObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -685,7 +753,7 @@ ash.shimless_rma.mojom.ErrorObserverReceiver = class {
         // Try Method 0: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -702,7 +770,7 @@ ash.shimless_rma.mojom.ErrorObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
@@ -760,12 +828,14 @@ ash.shimless_rma.mojom.OsUpdateObserverRemote = class {
 ash.shimless_rma.mojom.OsUpdateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('OsUpdateObserver', [
+      { explicit: null },
+    ]);
   }
 
   onOsUpdateProgressUpdated(operation, progress, update_error_code) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec,
       null,
       [operation, progress, update_error_code],
@@ -789,7 +859,13 @@ ash.shimless_rma.mojom.OsUpdateObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('OsUpdateObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -827,7 +903,7 @@ ash.shimless_rma.mojom.OsUpdateObserverReceiver = class {
         // Try Method 0: OnOsUpdateProgressUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOsUpdateProgressUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -844,7 +920,7 @@ ash.shimless_rma.mojom.OsUpdateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onOsUpdateProgressUpdated');
           const result = this.impl.onOsUpdateProgressUpdated(params.operation, params.progress, params.update_error_code);
           break;
@@ -906,12 +982,15 @@ ash.shimless_rma.mojom.CalibrationObserverRemote = class {
 ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('CalibrationObserver', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onCalibrationUpdated(componentStatus) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec,
       null,
       [componentStatus],
@@ -919,9 +998,8 @@ ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandler = class {
   }
 
   onCalibrationStepComplete(status) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec,
       null,
       [status],
@@ -945,8 +1023,14 @@ ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('CalibrationObserver', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -984,7 +1068,7 @@ ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
         // Try Method 0: OnCalibrationUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCalibrationUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -995,7 +1079,7 @@ ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
         // Try Method 1: OnCalibrationStepComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCalibrationStepComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1012,14 +1096,14 @@ ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onCalibrationUpdated');
           const result = this.impl.onCalibrationUpdated(params.componentStatus);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onCalibrationStepComplete');
           const result = this.impl.onCalibrationStepComplete(params.status);
           break;
@@ -1077,12 +1161,14 @@ ash.shimless_rma.mojom.ProvisioningObserverRemote = class {
 ash.shimless_rma.mojom.ProvisioningObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('ProvisioningObserver', [
+      { explicit: null },
+    ]);
   }
 
   onProvisioningUpdated(status, progress, error) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec,
       null,
       [status, progress, error],
@@ -1106,7 +1192,13 @@ ash.shimless_rma.mojom.ProvisioningObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('ProvisioningObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1144,7 +1236,7 @@ ash.shimless_rma.mojom.ProvisioningObserverReceiver = class {
         // Try Method 0: OnProvisioningUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProvisioningUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1161,7 +1253,7 @@ ash.shimless_rma.mojom.ProvisioningObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onProvisioningUpdated');
           const result = this.impl.onProvisioningUpdated(params.status, params.progress, params.error);
           break;
@@ -1217,12 +1309,14 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemote = class {
 ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('HardwareWriteProtectionStateObserver', [
+      { explicit: null },
+    ]);
   }
 
   onHardwareWriteProtectionStateChanged(enabled) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec,
       null,
       [enabled],
@@ -1246,7 +1340,13 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('HardwareWriteProtectionStateObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1284,7 +1384,7 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver = class {
         // Try Method 0: OnHardwareWriteProtectionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHardwareWriteProtectionStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1301,7 +1401,7 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onHardwareWriteProtectionStateChanged');
           const result = this.impl.onHardwareWriteProtectionStateChanged(params.enabled);
           break;
@@ -1357,12 +1457,14 @@ ash.shimless_rma.mojom.PowerCableStateObserverRemote = class {
 ash.shimless_rma.mojom.PowerCableStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('PowerCableStateObserver', [
+      { explicit: null },
+    ]);
   }
 
   onPowerCableStateChanged(plugged_in) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec,
       null,
       [plugged_in],
@@ -1386,7 +1488,13 @@ ash.shimless_rma.mojom.PowerCableStateObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('PowerCableStateObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1424,7 +1532,7 @@ ash.shimless_rma.mojom.PowerCableStateObserverReceiver = class {
         // Try Method 0: OnPowerCableStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPowerCableStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1441,7 +1549,7 @@ ash.shimless_rma.mojom.PowerCableStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onPowerCableStateChanged');
           const result = this.impl.onPowerCableStateChanged(params.plugged_in);
           break;
@@ -1497,12 +1605,14 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverRemote = class {
 ash.shimless_rma.mojom.ExternalDiskStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('ExternalDiskStateObserver', [
+      { explicit: null },
+    ]);
   }
 
   onExternalDiskStateChanged(detected) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec,
       null,
       [detected],
@@ -1526,7 +1636,13 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('ExternalDiskStateObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1564,7 +1680,7 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver = class {
         // Try Method 0: OnExternalDiskStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnExternalDiskStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1581,7 +1697,7 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onExternalDiskStateChanged');
           const result = this.impl.onExternalDiskStateChanged(params.detected);
           break;
@@ -1637,12 +1753,14 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemote = class {
 ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('HardwareVerificationStatusObserver', [
+      { explicit: null },
+    ]);
   }
 
   onHardwareVerificationResult(result) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec,
       null,
       [result],
@@ -1666,7 +1784,13 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('HardwareVerificationStatusObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1704,7 +1828,7 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver = class {
         // Try Method 0: OnHardwareVerificationResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHardwareVerificationResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1721,7 +1845,7 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onHardwareVerificationResult');
           const result = this.impl.onHardwareVerificationResult(params.result);
           break;
@@ -1779,12 +1903,14 @@ ash.shimless_rma.mojom.FinalizationObserverRemote = class {
 ash.shimless_rma.mojom.FinalizationObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('FinalizationObserver', [
+      { explicit: null },
+    ]);
   }
 
   onFinalizationUpdated(status, progress, error) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec,
       null,
       [status, progress, error],
@@ -1808,7 +1934,13 @@ ash.shimless_rma.mojom.FinalizationObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('FinalizationObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1846,7 +1978,7 @@ ash.shimless_rma.mojom.FinalizationObserverReceiver = class {
         // Try Method 0: OnFinalizationUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFinalizationUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1863,7 +1995,7 @@ ash.shimless_rma.mojom.FinalizationObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onFinalizationUpdated');
           const result = this.impl.onFinalizationUpdated(params.status, params.progress, params.error);
           break;
@@ -1919,12 +2051,14 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemote = class {
 ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('UpdateRoFirmwareObserver', [
+      { explicit: null },
+    ]);
   }
 
   onUpdateRoFirmwareStatusChanged(status) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec,
       null,
       [status],
@@ -1948,7 +2082,13 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('UpdateRoFirmwareObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1986,7 +2126,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver = class {
         // Try Method 0: OnUpdateRoFirmwareStatusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUpdateRoFirmwareStatusChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2003,7 +2143,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onUpdateRoFirmwareStatusChanged');
           const result = this.impl.onUpdateRoFirmwareStatusChanged(params.status);
           break;
@@ -2814,12 +2954,87 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemote = class {
 ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('ShimlessRmaService', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   getCurrentState() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec,
       [],
@@ -2827,9 +3042,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getStateProperties() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec,
       [],
@@ -2837,9 +3051,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   transitionPreviousState() {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec,
       [],
@@ -2847,9 +3060,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   abortRma() {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec,
       [],
@@ -2857,9 +3069,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   beginFinalization() {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec,
       [],
@@ -2867,9 +3078,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   trackConfiguredNetworks() {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec,
       null,
       [],
@@ -2877,9 +3087,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   networkSelectionComplete() {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec,
       [],
@@ -2887,9 +3096,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getCurrentOsVersion() {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec,
       [],
@@ -2897,9 +3105,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   checkForOsUpdates() {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec,
       [],
@@ -2907,9 +3114,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   updateOs() {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec,
       [],
@@ -2917,9 +3123,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   updateOsSkipped() {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec,
       [],
@@ -2927,9 +3132,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   setSameOwner() {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[11],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec,
       [],
@@ -2937,9 +3141,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   setDifferentOwner() {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[12],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec,
       [],
@@ -2947,9 +3150,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   setWipeDevice(should_wipe_device) {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[13],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec,
       [should_wipe_device],
@@ -2957,9 +3159,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   setManuallyDisableWriteProtect() {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[14],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec,
       [],
@@ -2967,9 +3168,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   setRsuDisableWriteProtect() {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[15],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec,
       [],
@@ -2977,9 +3177,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getRsuDisableWriteProtectChallenge() {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[16],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec,
       [],
@@ -2987,9 +3186,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getRsuDisableWriteProtectHwid() {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[17],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec,
       [],
@@ -2997,9 +3195,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getRsuDisableWriteProtectChallengeQrCode() {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[18],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec,
       [],
@@ -3007,9 +3204,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   setRsuDisableWriteProtectCode(code) {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[19],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec,
       [code],
@@ -3017,9 +3213,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   writeProtectManuallyDisabled() {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[20],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec,
       [],
@@ -3027,9 +3222,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getWriteProtectDisableCompleteAction() {
-    // Ordinal: 21
     return this.proxy.sendMessage(
-      21,  // ordinal
+      this.ordinals[21],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec,
       [],
@@ -3037,9 +3231,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   confirmManualWpDisableComplete() {
-    // Ordinal: 22
     return this.proxy.sendMessage(
-      22,  // ordinal
+      this.ordinals[22],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec,
       [],
@@ -3047,9 +3240,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getComponentList() {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[23],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec,
       [],
@@ -3057,9 +3249,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   setComponentList(components) {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[24],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec,
       [components],
@@ -3067,9 +3258,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   reworkMainboard() {
-    // Ordinal: 25
     return this.proxy.sendMessage(
-      25,  // ordinal
+      this.ordinals[25],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec,
       [],
@@ -3077,9 +3267,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   roFirmwareUpdateComplete() {
-    // Ordinal: 26
     return this.proxy.sendMessage(
-      26,  // ordinal
+      this.ordinals[26],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec,
       [],
@@ -3087,9 +3276,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   shutdownForRestock() {
-    // Ordinal: 27
     return this.proxy.sendMessage(
-      27,  // ordinal
+      this.ordinals[27],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec,
       [],
@@ -3097,9 +3285,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   continueFinalizationAfterRestock() {
-    // Ordinal: 28
     return this.proxy.sendMessage(
-      28,  // ordinal
+      this.ordinals[28],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec,
       [],
@@ -3107,9 +3294,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getRegionList() {
-    // Ordinal: 29
     return this.proxy.sendMessage(
-      29,  // ordinal
+      this.ordinals[29],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec,
       [],
@@ -3117,9 +3303,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getSkuList() {
-    // Ordinal: 30
     return this.proxy.sendMessage(
-      30,  // ordinal
+      this.ordinals[30],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec,
       [],
@@ -3127,9 +3312,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getCustomLabelList() {
-    // Ordinal: 31
     return this.proxy.sendMessage(
-      31,  // ordinal
+      this.ordinals[31],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec,
       [],
@@ -3137,9 +3321,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getSkuDescriptionList() {
-    // Ordinal: 32
     return this.proxy.sendMessage(
-      32,  // ordinal
+      this.ordinals[32],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec,
       [],
@@ -3147,9 +3330,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getOriginalSerialNumber() {
-    // Ordinal: 33
     return this.proxy.sendMessage(
-      33,  // ordinal
+      this.ordinals[33],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec,
       [],
@@ -3157,9 +3339,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getOriginalRegion() {
-    // Ordinal: 34
     return this.proxy.sendMessage(
-      34,  // ordinal
+      this.ordinals[34],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec,
       [],
@@ -3167,9 +3348,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getOriginalSku() {
-    // Ordinal: 35
     return this.proxy.sendMessage(
-      35,  // ordinal
+      this.ordinals[35],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec,
       [],
@@ -3177,9 +3357,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getOriginalCustomLabel() {
-    // Ordinal: 36
     return this.proxy.sendMessage(
-      36,  // ordinal
+      this.ordinals[36],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec,
       [],
@@ -3187,9 +3366,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getOriginalDramPartNumber() {
-    // Ordinal: 37
     return this.proxy.sendMessage(
-      37,  // ordinal
+      this.ordinals[37],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec,
       [],
@@ -3197,9 +3375,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getOriginalFeatureLevel() {
-    // Ordinal: 38
     return this.proxy.sendMessage(
-      38,  // ordinal
+      this.ordinals[38],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec,
       [],
@@ -3207,9 +3384,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   setDeviceInformation(serial_number, region_index, sku_index, custom_label_index, dram_part_number, is_chassis_branded, hw_compliance_version) {
-    // Ordinal: 39
     return this.proxy.sendMessage(
-      39,  // ordinal
+      this.ordinals[39],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec,
       [serial_number, region_index, sku_index, custom_label_index, dram_part_number, is_chassis_branded, hw_compliance_version],
@@ -3217,9 +3393,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getCalibrationComponentList() {
-    // Ordinal: 40
     return this.proxy.sendMessage(
-      40,  // ordinal
+      this.ordinals[40],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec,
       [],
@@ -3227,9 +3402,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getCalibrationSetupInstructions() {
-    // Ordinal: 41
     return this.proxy.sendMessage(
-      41,  // ordinal
+      this.ordinals[41],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec,
       [],
@@ -3237,9 +3411,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   startCalibration(components) {
-    // Ordinal: 42
     return this.proxy.sendMessage(
-      42,  // ordinal
+      this.ordinals[42],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec,
       [components],
@@ -3247,9 +3420,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   runCalibrationStep() {
-    // Ordinal: 43
     return this.proxy.sendMessage(
-      43,  // ordinal
+      this.ordinals[43],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec,
       [],
@@ -3257,9 +3429,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   continueCalibration() {
-    // Ordinal: 44
     return this.proxy.sendMessage(
-      44,  // ordinal
+      this.ordinals[44],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec,
       [],
@@ -3267,9 +3438,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   calibrationComplete() {
-    // Ordinal: 45
     return this.proxy.sendMessage(
-      45,  // ordinal
+      this.ordinals[45],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec,
       [],
@@ -3277,9 +3447,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   retryProvisioning() {
-    // Ordinal: 46
     return this.proxy.sendMessage(
-      46,  // ordinal
+      this.ordinals[46],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec,
       [],
@@ -3287,9 +3456,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   provisioningComplete() {
-    // Ordinal: 47
     return this.proxy.sendMessage(
-      47,  // ordinal
+      this.ordinals[47],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec,
       [],
@@ -3297,9 +3465,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   retryFinalization() {
-    // Ordinal: 48
     return this.proxy.sendMessage(
-      48,  // ordinal
+      this.ordinals[48],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec,
       [],
@@ -3307,9 +3474,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   finalizationComplete() {
-    // Ordinal: 49
     return this.proxy.sendMessage(
-      49,  // ordinal
+      this.ordinals[49],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec,
       [],
@@ -3317,9 +3483,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   writeProtectManuallyEnabled() {
-    // Ordinal: 50
     return this.proxy.sendMessage(
-      50,  // ordinal
+      this.ordinals[50],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec,
       [],
@@ -3327,9 +3492,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getLog() {
-    // Ordinal: 51
     return this.proxy.sendMessage(
-      51,  // ordinal
+      this.ordinals[51],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec,
       [],
@@ -3337,9 +3501,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   saveLog() {
-    // Ordinal: 52
     return this.proxy.sendMessage(
-      52,  // ordinal
+      this.ordinals[52],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec,
       [],
@@ -3347,9 +3510,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getPowerwashRequired() {
-    // Ordinal: 53
     return this.proxy.sendMessage(
-      53,  // ordinal
+      this.ordinals[53],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec,
       [],
@@ -3357,9 +3519,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   launchDiagnostics() {
-    // Ordinal: 54
     return this.proxy.sendMessage(
-      54,  // ordinal
+      this.ordinals[54],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec,
       null,
       [],
@@ -3367,9 +3528,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   endRma(shutdown_method) {
-    // Ordinal: 55
     return this.proxy.sendMessage(
-      55,  // ordinal
+      this.ordinals[55],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec,
       [shutdown_method],
@@ -3377,9 +3537,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   shutDownAfterHardwareError() {
-    // Ordinal: 56
     return this.proxy.sendMessage(
-      56,  // ordinal
+      this.ordinals[56],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec,
       null,
       [],
@@ -3387,9 +3546,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   criticalErrorExitToLogin() {
-    // Ordinal: 57
     return this.proxy.sendMessage(
-      57,  // ordinal
+      this.ordinals[57],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec,
       [],
@@ -3397,9 +3555,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   criticalErrorReboot() {
-    // Ordinal: 58
     return this.proxy.sendMessage(
-      58,  // ordinal
+      this.ordinals[58],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec,
       [],
@@ -3407,9 +3564,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   get3pDiagnosticsProvider() {
-    // Ordinal: 59
     return this.proxy.sendMessage(
-      59,  // ordinal
+      this.ordinals[59],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec,
       [],
@@ -3417,9 +3573,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   getInstallable3pDiagnosticsAppPath() {
-    // Ordinal: 60
     return this.proxy.sendMessage(
-      60,  // ordinal
+      this.ordinals[60],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec,
       [],
@@ -3427,9 +3582,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   installLastFound3pDiagnosticsApp() {
-    // Ordinal: 61
     return this.proxy.sendMessage(
-      61,  // ordinal
+      this.ordinals[61],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec,
       [],
@@ -3437,9 +3591,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   completeLast3pDiagnosticsInstallation(is_approved) {
-    // Ordinal: 62
     return this.proxy.sendMessage(
-      62,  // ordinal
+      this.ordinals[62],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec,
       [is_approved],
@@ -3447,9 +3600,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   show3pDiagnosticsApp() {
-    // Ordinal: 63
     return this.proxy.sendMessage(
-      63,  // ordinal
+      this.ordinals[63],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec,
       [],
@@ -3457,9 +3609,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   observeError(observer) {
-    // Ordinal: 64
     return this.proxy.sendMessage(
-      64,  // ordinal
+      this.ordinals[64],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec,
       null,
       [observer],
@@ -3467,9 +3618,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   observeOsUpdateProgress(observer) {
-    // Ordinal: 65
     return this.proxy.sendMessage(
-      65,  // ordinal
+      this.ordinals[65],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec,
       null,
       [observer],
@@ -3477,9 +3627,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   observeCalibrationProgress(observer) {
-    // Ordinal: 66
     return this.proxy.sendMessage(
-      66,  // ordinal
+      this.ordinals[66],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec,
       null,
       [observer],
@@ -3487,9 +3636,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   observeProvisioningProgress(observer) {
-    // Ordinal: 67
     return this.proxy.sendMessage(
-      67,  // ordinal
+      this.ordinals[67],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec,
       null,
       [observer],
@@ -3497,9 +3645,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   observeHardwareWriteProtectionState(observer) {
-    // Ordinal: 68
     return this.proxy.sendMessage(
-      68,  // ordinal
+      this.ordinals[68],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec,
       null,
       [observer],
@@ -3507,9 +3654,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   observePowerCableState(observer) {
-    // Ordinal: 69
     return this.proxy.sendMessage(
-      69,  // ordinal
+      this.ordinals[69],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec,
       null,
       [observer],
@@ -3517,9 +3663,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   observeExternalDiskState(observer) {
-    // Ordinal: 70
     return this.proxy.sendMessage(
-      70,  // ordinal
+      this.ordinals[70],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec,
       null,
       [observer],
@@ -3527,9 +3672,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   observeHardwareVerificationStatus(observer) {
-    // Ordinal: 71
     return this.proxy.sendMessage(
-      71,  // ordinal
+      this.ordinals[71],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec,
       null,
       [observer],
@@ -3537,9 +3681,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   observeFinalizationStatus(observer) {
-    // Ordinal: 72
     return this.proxy.sendMessage(
-      72,  // ordinal
+      this.ordinals[72],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec,
       null,
       [observer],
@@ -3547,9 +3690,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
   }
 
   observeRoFirmwareUpdateProgress(observer) {
-    // Ordinal: 73
     return this.proxy.sendMessage(
-      73,  // ordinal
+      this.ordinals[73],  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec,
       null,
       [observer],
@@ -3573,80 +3715,86 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
-    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
-    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
-    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
-    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
-    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
-    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
-    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
-    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
-    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
-    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
-    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
-    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
-    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
-    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
-    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
-    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
-    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
-    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
-    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
-    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
-    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
-    this.ordinalMap.set(32, 32); // Default ordinal 32 -> Index 32
-    this.ordinalMap.set(33, 33); // Default ordinal 33 -> Index 33
-    this.ordinalMap.set(34, 34); // Default ordinal 34 -> Index 34
-    this.ordinalMap.set(35, 35); // Default ordinal 35 -> Index 35
-    this.ordinalMap.set(36, 36); // Default ordinal 36 -> Index 36
-    this.ordinalMap.set(37, 37); // Default ordinal 37 -> Index 37
-    this.ordinalMap.set(38, 38); // Default ordinal 38 -> Index 38
-    this.ordinalMap.set(39, 39); // Default ordinal 39 -> Index 39
-    this.ordinalMap.set(40, 40); // Default ordinal 40 -> Index 40
-    this.ordinalMap.set(41, 41); // Default ordinal 41 -> Index 41
-    this.ordinalMap.set(42, 42); // Default ordinal 42 -> Index 42
-    this.ordinalMap.set(43, 43); // Default ordinal 43 -> Index 43
-    this.ordinalMap.set(44, 44); // Default ordinal 44 -> Index 44
-    this.ordinalMap.set(45, 45); // Default ordinal 45 -> Index 45
-    this.ordinalMap.set(46, 46); // Default ordinal 46 -> Index 46
-    this.ordinalMap.set(47, 47); // Default ordinal 47 -> Index 47
-    this.ordinalMap.set(48, 48); // Default ordinal 48 -> Index 48
-    this.ordinalMap.set(49, 49); // Default ordinal 49 -> Index 49
-    this.ordinalMap.set(50, 50); // Default ordinal 50 -> Index 50
-    this.ordinalMap.set(51, 51); // Default ordinal 51 -> Index 51
-    this.ordinalMap.set(52, 52); // Default ordinal 52 -> Index 52
-    this.ordinalMap.set(53, 53); // Default ordinal 53 -> Index 53
-    this.ordinalMap.set(54, 54); // Default ordinal 54 -> Index 54
-    this.ordinalMap.set(55, 55); // Default ordinal 55 -> Index 55
-    this.ordinalMap.set(56, 56); // Default ordinal 56 -> Index 56
-    this.ordinalMap.set(57, 57); // Default ordinal 57 -> Index 57
-    this.ordinalMap.set(58, 58); // Default ordinal 58 -> Index 58
-    this.ordinalMap.set(59, 59); // Default ordinal 59 -> Index 59
-    this.ordinalMap.set(60, 60); // Default ordinal 60 -> Index 60
-    this.ordinalMap.set(61, 61); // Default ordinal 61 -> Index 61
-    this.ordinalMap.set(62, 62); // Default ordinal 62 -> Index 62
-    this.ordinalMap.set(63, 63); // Default ordinal 63 -> Index 63
-    this.ordinalMap.set(64, 64); // Default ordinal 64 -> Index 64
-    this.ordinalMap.set(65, 65); // Default ordinal 65 -> Index 65
-    this.ordinalMap.set(66, 66); // Default ordinal 66 -> Index 66
-    this.ordinalMap.set(67, 67); // Default ordinal 67 -> Index 67
-    this.ordinalMap.set(68, 68); // Default ordinal 68 -> Index 68
-    this.ordinalMap.set(69, 69); // Default ordinal 69 -> Index 69
-    this.ordinalMap.set(70, 70); // Default ordinal 70 -> Index 70
-    this.ordinalMap.set(71, 71); // Default ordinal 71 -> Index 71
-    this.ordinalMap.set(72, 72); // Default ordinal 72 -> Index 72
-    this.ordinalMap.set(73, 73); // Default ordinal 73 -> Index 73
+    const ordinals = window.mojoScrambler.getOrdinals('ShimlessRmaService', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -3684,7 +3832,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 0: GetCurrentState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCurrentState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3695,7 +3843,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 1: GetStateProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStateProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -3706,7 +3854,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 2: TransitionPreviousState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TransitionPreviousState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -3717,7 +3865,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 3: AbortRma
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AbortRma (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -3728,7 +3876,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 4: BeginFinalization
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFinalization (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -3739,7 +3887,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 5: TrackConfiguredNetworks
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TrackConfiguredNetworks (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -3750,7 +3898,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 6: NetworkSelectionComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NetworkSelectionComplete (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -3761,7 +3909,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 7: GetCurrentOsVersion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCurrentOsVersion (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -3772,7 +3920,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 8: CheckForOsUpdates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckForOsUpdates (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -3783,7 +3931,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 9: UpdateOs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOs (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -3794,7 +3942,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 10: UpdateOsSkipped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOsSkipped (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -3805,7 +3953,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 11: SetSameOwner
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSameOwner (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -3816,7 +3964,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 12: SetDifferentOwner
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDifferentOwner (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -3827,7 +3975,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 13: SetWipeDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWipeDevice (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -3838,7 +3986,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 14: SetManuallyDisableWriteProtect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetManuallyDisableWriteProtect (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -3849,7 +3997,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 15: SetRsuDisableWriteProtect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRsuDisableWriteProtect (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -3860,7 +4008,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 16: GetRsuDisableWriteProtectChallenge
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRsuDisableWriteProtectChallenge (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -3871,7 +4019,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 17: GetRsuDisableWriteProtectHwid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRsuDisableWriteProtectHwid (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -3882,7 +4030,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 18: GetRsuDisableWriteProtectChallengeQrCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRsuDisableWriteProtectChallengeQrCode (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -3893,7 +4041,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 19: SetRsuDisableWriteProtectCode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRsuDisableWriteProtectCode (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -3904,7 +4052,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 20: WriteProtectManuallyDisabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteProtectManuallyDisabled (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -3915,7 +4063,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 21: GetWriteProtectDisableCompleteAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWriteProtectDisableCompleteAction (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -3926,7 +4074,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 22: ConfirmManualWpDisableComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfirmManualWpDisableComplete (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -3937,7 +4085,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 23: GetComponentList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetComponentList (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -3948,7 +4096,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 24: SetComponentList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetComponentList (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -3959,7 +4107,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 25: ReworkMainboard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReworkMainboard (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -3970,7 +4118,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 26: RoFirmwareUpdateComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RoFirmwareUpdateComplete (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -3981,7 +4129,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 27: ShutdownForRestock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShutdownForRestock (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -3992,7 +4140,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 28: ContinueFinalizationAfterRestock
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContinueFinalizationAfterRestock (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -4003,7 +4151,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 29: GetRegionList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRegionList (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -4014,7 +4162,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 30: GetSkuList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSkuList (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -4025,7 +4173,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 31: GetCustomLabelList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCustomLabelList (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -4036,7 +4184,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 32: GetSkuDescriptionList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSkuDescriptionList (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -4047,7 +4195,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 33: GetOriginalSerialNumber
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalSerialNumber (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -4058,7 +4206,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 34: GetOriginalRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalRegion (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -4069,7 +4217,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 35: GetOriginalSku
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalSku (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -4080,7 +4228,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 36: GetOriginalCustomLabel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalCustomLabel (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -4091,7 +4239,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 37: GetOriginalDramPartNumber
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalDramPartNumber (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
@@ -4102,7 +4250,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 38: GetOriginalFeatureLevel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalFeatureLevel (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
@@ -4113,7 +4261,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 39: SetDeviceInformation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDeviceInformation (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
@@ -4124,7 +4272,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 40: GetCalibrationComponentList
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCalibrationComponentList (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
@@ -4135,7 +4283,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 41: GetCalibrationSetupInstructions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCalibrationSetupInstructions (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
@@ -4146,7 +4294,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 42: StartCalibration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartCalibration (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
@@ -4157,7 +4305,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 43: RunCalibrationStep
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunCalibrationStep (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
@@ -4168,7 +4316,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 44: ContinueCalibration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContinueCalibration (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
@@ -4179,7 +4327,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 45: CalibrationComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CalibrationComplete (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
@@ -4190,7 +4338,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 46: RetryProvisioning
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RetryProvisioning (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
@@ -4201,7 +4349,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 47: ProvisioningComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProvisioningComplete (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
@@ -4212,7 +4360,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 48: RetryFinalization
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RetryFinalization (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
@@ -4223,7 +4371,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 49: FinalizationComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FinalizationComplete (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
@@ -4234,7 +4382,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 50: WriteProtectManuallyEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteProtectManuallyEnabled (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
@@ -4245,7 +4393,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 51: GetLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLog (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
@@ -4256,7 +4404,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 52: SaveLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveLog (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
@@ -4267,7 +4415,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 53: GetPowerwashRequired
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPowerwashRequired (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;
@@ -4278,7 +4426,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 54: LaunchDiagnostics
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchDiagnostics (54)');
              this.mapOrdinal(header.ordinal, 54);
              dispatchId = 54;
@@ -4289,7 +4437,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 55: EndRma
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EndRma (55)');
              this.mapOrdinal(header.ordinal, 55);
              dispatchId = 55;
@@ -4300,7 +4448,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 56: ShutDownAfterHardwareError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShutDownAfterHardwareError (56)');
              this.mapOrdinal(header.ordinal, 56);
              dispatchId = 56;
@@ -4311,7 +4459,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 57: CriticalErrorExitToLogin
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CriticalErrorExitToLogin (57)');
              this.mapOrdinal(header.ordinal, 57);
              dispatchId = 57;
@@ -4322,7 +4470,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 58: CriticalErrorReboot
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CriticalErrorReboot (58)');
              this.mapOrdinal(header.ordinal, 58);
              dispatchId = 58;
@@ -4333,7 +4481,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 59: Get3pDiagnosticsProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Get3pDiagnosticsProvider (59)');
              this.mapOrdinal(header.ordinal, 59);
              dispatchId = 59;
@@ -4344,7 +4492,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 60: GetInstallable3pDiagnosticsAppPath
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInstallable3pDiagnosticsAppPath (60)');
              this.mapOrdinal(header.ordinal, 60);
              dispatchId = 60;
@@ -4355,7 +4503,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 61: InstallLastFound3pDiagnosticsApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallLastFound3pDiagnosticsApp (61)');
              this.mapOrdinal(header.ordinal, 61);
              dispatchId = 61;
@@ -4366,7 +4514,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 62: CompleteLast3pDiagnosticsInstallation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompleteLast3pDiagnosticsInstallation (62)');
              this.mapOrdinal(header.ordinal, 62);
              dispatchId = 62;
@@ -4377,7 +4525,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 63: Show3pDiagnosticsApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Show3pDiagnosticsApp (63)');
              this.mapOrdinal(header.ordinal, 63);
              dispatchId = 63;
@@ -4388,7 +4536,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 64: ObserveError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveError (64)');
              this.mapOrdinal(header.ordinal, 64);
              dispatchId = 64;
@@ -4399,7 +4547,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 65: ObserveOsUpdateProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveOsUpdateProgress (65)');
              this.mapOrdinal(header.ordinal, 65);
              dispatchId = 65;
@@ -4410,7 +4558,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 66: ObserveCalibrationProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveCalibrationProgress (66)');
              this.mapOrdinal(header.ordinal, 66);
              dispatchId = 66;
@@ -4421,7 +4569,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 67: ObserveProvisioningProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveProvisioningProgress (67)');
              this.mapOrdinal(header.ordinal, 67);
              dispatchId = 67;
@@ -4432,7 +4580,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 68: ObserveHardwareWriteProtectionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveHardwareWriteProtectionState (68)');
              this.mapOrdinal(header.ordinal, 68);
              dispatchId = 68;
@@ -4443,7 +4591,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 69: ObservePowerCableState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObservePowerCableState (69)');
              this.mapOrdinal(header.ordinal, 69);
              dispatchId = 69;
@@ -4454,7 +4602,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 70: ObserveExternalDiskState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveExternalDiskState (70)');
              this.mapOrdinal(header.ordinal, 70);
              dispatchId = 70;
@@ -4465,7 +4613,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 71: ObserveHardwareVerificationStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveHardwareVerificationStatus (71)');
              this.mapOrdinal(header.ordinal, 71);
              dispatchId = 71;
@@ -4476,7 +4624,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 72: ObserveFinalizationStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveFinalizationStatus (72)');
              this.mapOrdinal(header.ordinal, 72);
              dispatchId = 72;
@@ -4487,7 +4635,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         // Try Method 73: ObserveRoFirmwareUpdateProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec.$);
+             decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveRoFirmwareUpdateProgress (73)');
              this.mapOrdinal(header.ordinal, 73);
              dispatchId = 73;
@@ -4504,7 +4652,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getCurrentState');
           const result = this.impl.getCurrentState();
           if (header.expectsResponse) {
@@ -4517,7 +4665,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getStateProperties');
           const result = this.impl.getStateProperties();
           if (header.expectsResponse) {
@@ -4530,7 +4678,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.transitionPreviousState');
           const result = this.impl.transitionPreviousState();
           if (header.expectsResponse) {
@@ -4543,7 +4691,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.abortRma');
           const result = this.impl.abortRma();
           if (header.expectsResponse) {
@@ -4556,7 +4704,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.beginFinalization');
           const result = this.impl.beginFinalization();
           if (header.expectsResponse) {
@@ -4569,14 +4717,14 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.trackConfiguredNetworks');
           const result = this.impl.trackConfiguredNetworks();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.networkSelectionComplete');
           const result = this.impl.networkSelectionComplete();
           if (header.expectsResponse) {
@@ -4589,7 +4737,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getCurrentOsVersion');
           const result = this.impl.getCurrentOsVersion();
           if (header.expectsResponse) {
@@ -4602,7 +4750,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.checkForOsUpdates');
           const result = this.impl.checkForOsUpdates();
           if (header.expectsResponse) {
@@ -4615,7 +4763,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOs');
           const result = this.impl.updateOs();
           if (header.expectsResponse) {
@@ -4628,7 +4776,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOsSkipped');
           const result = this.impl.updateOsSkipped();
           if (header.expectsResponse) {
@@ -4641,7 +4789,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setSameOwner');
           const result = this.impl.setSameOwner();
           if (header.expectsResponse) {
@@ -4654,7 +4802,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setDifferentOwner');
           const result = this.impl.setDifferentOwner();
           if (header.expectsResponse) {
@@ -4667,7 +4815,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setWipeDevice');
           const result = this.impl.setWipeDevice(params.should_wipe_device);
           if (header.expectsResponse) {
@@ -4680,7 +4828,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setManuallyDisableWriteProtect');
           const result = this.impl.setManuallyDisableWriteProtect();
           if (header.expectsResponse) {
@@ -4693,7 +4841,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setRsuDisableWriteProtect');
           const result = this.impl.setRsuDisableWriteProtect();
           if (header.expectsResponse) {
@@ -4706,7 +4854,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getRsuDisableWriteProtectChallenge');
           const result = this.impl.getRsuDisableWriteProtectChallenge();
           if (header.expectsResponse) {
@@ -4719,7 +4867,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getRsuDisableWriteProtectHwid');
           const result = this.impl.getRsuDisableWriteProtectHwid();
           if (header.expectsResponse) {
@@ -4732,7 +4880,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getRsuDisableWriteProtectChallengeQrCode');
           const result = this.impl.getRsuDisableWriteProtectChallengeQrCode();
           if (header.expectsResponse) {
@@ -4745,7 +4893,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setRsuDisableWriteProtectCode');
           const result = this.impl.setRsuDisableWriteProtectCode(params.code);
           if (header.expectsResponse) {
@@ -4758,7 +4906,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.writeProtectManuallyDisabled');
           const result = this.impl.writeProtectManuallyDisabled();
           if (header.expectsResponse) {
@@ -4771,7 +4919,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getWriteProtectDisableCompleteAction');
           const result = this.impl.getWriteProtectDisableCompleteAction();
           if (header.expectsResponse) {
@@ -4784,7 +4932,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.confirmManualWpDisableComplete');
           const result = this.impl.confirmManualWpDisableComplete();
           if (header.expectsResponse) {
@@ -4797,7 +4945,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getComponentList');
           const result = this.impl.getComponentList();
           if (header.expectsResponse) {
@@ -4810,7 +4958,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setComponentList');
           const result = this.impl.setComponentList(params.components);
           if (header.expectsResponse) {
@@ -4823,7 +4971,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.reworkMainboard');
           const result = this.impl.reworkMainboard();
           if (header.expectsResponse) {
@@ -4836,7 +4984,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.roFirmwareUpdateComplete');
           const result = this.impl.roFirmwareUpdateComplete();
           if (header.expectsResponse) {
@@ -4849,7 +4997,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.shutdownForRestock');
           const result = this.impl.shutdownForRestock();
           if (header.expectsResponse) {
@@ -4862,7 +5010,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.continueFinalizationAfterRestock');
           const result = this.impl.continueFinalizationAfterRestock();
           if (header.expectsResponse) {
@@ -4875,7 +5023,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegionList');
           const result = this.impl.getRegionList();
           if (header.expectsResponse) {
@@ -4888,7 +5036,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getSkuList');
           const result = this.impl.getSkuList();
           if (header.expectsResponse) {
@@ -4901,7 +5049,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getCustomLabelList');
           const result = this.impl.getCustomLabelList();
           if (header.expectsResponse) {
@@ -4914,7 +5062,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getSkuDescriptionList');
           const result = this.impl.getSkuDescriptionList();
           if (header.expectsResponse) {
@@ -4927,7 +5075,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalSerialNumber');
           const result = this.impl.getOriginalSerialNumber();
           if (header.expectsResponse) {
@@ -4940,7 +5088,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalRegion');
           const result = this.impl.getOriginalRegion();
           if (header.expectsResponse) {
@@ -4953,7 +5101,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalSku');
           const result = this.impl.getOriginalSku();
           if (header.expectsResponse) {
@@ -4966,7 +5114,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalCustomLabel');
           const result = this.impl.getOriginalCustomLabel();
           if (header.expectsResponse) {
@@ -4979,7 +5127,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalDramPartNumber');
           const result = this.impl.getOriginalDramPartNumber();
           if (header.expectsResponse) {
@@ -4992,7 +5140,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalFeatureLevel');
           const result = this.impl.getOriginalFeatureLevel();
           if (header.expectsResponse) {
@@ -5005,7 +5153,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setDeviceInformation');
           const result = this.impl.setDeviceInformation(params.serial_number, params.region_index, params.sku_index, params.custom_label_index, params.dram_part_number, params.is_chassis_branded, params.hw_compliance_version);
           if (header.expectsResponse) {
@@ -5018,7 +5166,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getCalibrationComponentList');
           const result = this.impl.getCalibrationComponentList();
           if (header.expectsResponse) {
@@ -5031,7 +5179,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getCalibrationSetupInstructions');
           const result = this.impl.getCalibrationSetupInstructions();
           if (header.expectsResponse) {
@@ -5044,7 +5192,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startCalibration');
           const result = this.impl.startCalibration(params.components);
           if (header.expectsResponse) {
@@ -5057,7 +5205,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 43: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runCalibrationStep');
           const result = this.impl.runCalibrationStep();
           if (header.expectsResponse) {
@@ -5070,7 +5218,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 44: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.continueCalibration');
           const result = this.impl.continueCalibration();
           if (header.expectsResponse) {
@@ -5083,7 +5231,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 45: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.calibrationComplete');
           const result = this.impl.calibrationComplete();
           if (header.expectsResponse) {
@@ -5096,7 +5244,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 46: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.retryProvisioning');
           const result = this.impl.retryProvisioning();
           if (header.expectsResponse) {
@@ -5109,7 +5257,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 47: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.provisioningComplete');
           const result = this.impl.provisioningComplete();
           if (header.expectsResponse) {
@@ -5122,7 +5270,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 48: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.retryFinalization');
           const result = this.impl.retryFinalization();
           if (header.expectsResponse) {
@@ -5135,7 +5283,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 49: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.finalizationComplete');
           const result = this.impl.finalizationComplete();
           if (header.expectsResponse) {
@@ -5148,7 +5296,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.writeProtectManuallyEnabled');
           const result = this.impl.writeProtectManuallyEnabled();
           if (header.expectsResponse) {
@@ -5161,7 +5309,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 51: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getLog');
           const result = this.impl.getLog();
           if (header.expectsResponse) {
@@ -5174,7 +5322,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 52: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.saveLog');
           const result = this.impl.saveLog();
           if (header.expectsResponse) {
@@ -5187,7 +5335,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 53: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getPowerwashRequired');
           const result = this.impl.getPowerwashRequired();
           if (header.expectsResponse) {
@@ -5200,14 +5348,14 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 54: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.launchDiagnostics');
           const result = this.impl.launchDiagnostics();
           break;
         }
         case 55: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.endRma');
           const result = this.impl.endRma(params.shutdown_method);
           if (header.expectsResponse) {
@@ -5220,14 +5368,14 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 56: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.shutDownAfterHardwareError');
           const result = this.impl.shutDownAfterHardwareError();
           break;
         }
         case 57: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.criticalErrorExitToLogin');
           const result = this.impl.criticalErrorExitToLogin();
           if (header.expectsResponse) {
@@ -5240,7 +5388,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 58: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.criticalErrorReboot');
           const result = this.impl.criticalErrorReboot();
           if (header.expectsResponse) {
@@ -5253,7 +5401,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 59: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.get3pDiagnosticsProvider');
           const result = this.impl.get3pDiagnosticsProvider();
           if (header.expectsResponse) {
@@ -5266,7 +5414,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 60: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getInstallable3pDiagnosticsAppPath');
           const result = this.impl.getInstallable3pDiagnosticsAppPath();
           if (header.expectsResponse) {
@@ -5279,7 +5427,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 61: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.installLastFound3pDiagnosticsApp');
           const result = this.impl.installLastFound3pDiagnosticsApp();
           if (header.expectsResponse) {
@@ -5292,7 +5440,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 62: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.completeLast3pDiagnosticsInstallation');
           const result = this.impl.completeLast3pDiagnosticsInstallation(params.is_approved);
           if (header.expectsResponse) {
@@ -5305,7 +5453,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 63: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.show3pDiagnosticsApp');
           const result = this.impl.show3pDiagnosticsApp();
           if (header.expectsResponse) {
@@ -5318,70 +5466,70 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 64: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.observeError');
           const result = this.impl.observeError(params.observer);
           break;
         }
         case 65: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.observeOsUpdateProgress');
           const result = this.impl.observeOsUpdateProgress(params.observer);
           break;
         }
         case 66: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.observeCalibrationProgress');
           const result = this.impl.observeCalibrationProgress(params.observer);
           break;
         }
         case 67: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.observeProvisioningProgress');
           const result = this.impl.observeProvisioningProgress(params.observer);
           break;
         }
         case 68: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.observeHardwareWriteProtectionState');
           const result = this.impl.observeHardwareWriteProtectionState(params.observer);
           break;
         }
         case 69: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.observePowerCableState');
           const result = this.impl.observePowerCableState(params.observer);
           break;
         }
         case 70: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.observeExternalDiskState');
           const result = this.impl.observeExternalDiskState(params.observer);
           break;
         }
         case 71: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.observeHardwareVerificationStatus');
           const result = this.impl.observeHardwareVerificationStatus(params.observer);
           break;
         }
         case 72: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.observeFinalizationStatus');
           const result = this.impl.observeFinalizationStatus(params.observer);
           break;
         }
         case 73: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.observeRoFirmwareUpdateProgress');
           const result = this.impl.observeRoFirmwareUpdateProgress(params.observer);
           break;

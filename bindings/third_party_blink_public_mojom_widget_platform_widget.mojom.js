@@ -3,6 +3,66 @@
 // Module: blink.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var blink = blink || {};
@@ -86,12 +146,14 @@ blink.mojom.WidgetCompositorRemote = class {
 blink.mojom.WidgetCompositorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('WidgetCompositor', [
+      { explicit: null },
+    ]);
   }
 
   visualStateRequest() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec,
       blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec,
       [],
@@ -115,7 +177,13 @@ blink.mojom.WidgetCompositorReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('WidgetCompositor', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -153,7 +221,7 @@ blink.mojom.WidgetCompositorReceiver = class {
         // Try Method 0: VisualStateRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VisualStateRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -170,7 +238,7 @@ blink.mojom.WidgetCompositorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.visualStateRequest');
           const result = this.impl.visualStateRequest();
           if (header.expectsResponse) {
@@ -284,12 +352,21 @@ blink.mojom.WidgetHostRemote = class {
 blink.mojom.WidgetHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('WidgetHost', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   setCursor(cursor) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       blink.mojom.WidgetHost_SetCursor_ParamsSpec,
       null,
       [cursor],
@@ -297,9 +374,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
   }
 
   updateTooltipUnderCursor(tooltip_text, text_direction_hint) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec,
       null,
       [tooltip_text, text_direction_hint],
@@ -307,9 +383,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
   }
 
   updateTooltipFromKeyboard(tooltip_text, text_direction_hint, bounds) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec,
       null,
       [tooltip_text, text_direction_hint, bounds],
@@ -317,9 +392,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
   }
 
   clearKeyboardTriggeredTooltip() {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec,
       null,
       [],
@@ -327,9 +401,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
   }
 
   textInputStateChanged(state) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec,
       null,
       [state],
@@ -337,9 +410,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
   }
 
   selectionBoundsChanged(anchor_rect, anchor_dir, focus_rect, focus_dir, bounding_box_rect, is_anchor_first) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec,
       null,
       [anchor_rect, anchor_dir, focus_rect, focus_dir, bounding_box_rect, is_anchor_first],
@@ -347,9 +419,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
   }
 
   createFrameSink(compositor_frame_sink_receiver, compositor_frame_sink_client, render_input_router_client) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec,
       null,
       [compositor_frame_sink_receiver, compositor_frame_sink_client, render_input_router_client],
@@ -357,9 +428,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
   }
 
   registerRenderFrameMetadataObserver(render_frame_metadata_observer_client_receiver, render_frame_metadata_observer) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec,
       null,
       [render_frame_metadata_observer_client_receiver, render_frame_metadata_observer],
@@ -383,14 +453,20 @@ blink.mojom.WidgetHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    const ordinals = window.mojoScrambler.getOrdinals('WidgetHost', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -428,7 +504,7 @@ blink.mojom.WidgetHostReceiver = class {
         // Try Method 0: SetCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.WidgetHost_SetCursor_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.WidgetHost_SetCursor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCursor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -439,7 +515,7 @@ blink.mojom.WidgetHostReceiver = class {
         // Try Method 1: UpdateTooltipUnderCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTooltipUnderCursor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -450,7 +526,7 @@ blink.mojom.WidgetHostReceiver = class {
         // Try Method 2: UpdateTooltipFromKeyboard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTooltipFromKeyboard (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -461,7 +537,7 @@ blink.mojom.WidgetHostReceiver = class {
         // Try Method 3: ClearKeyboardTriggeredTooltip
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearKeyboardTriggeredTooltip (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -472,7 +548,7 @@ blink.mojom.WidgetHostReceiver = class {
         // Try Method 4: TextInputStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TextInputStateChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -483,7 +559,7 @@ blink.mojom.WidgetHostReceiver = class {
         // Try Method 5: SelectionBoundsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectionBoundsChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -494,7 +570,7 @@ blink.mojom.WidgetHostReceiver = class {
         // Try Method 6: CreateFrameSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFrameSink (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -505,7 +581,7 @@ blink.mojom.WidgetHostReceiver = class {
         // Try Method 7: RegisterRenderFrameMetadataObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterRenderFrameMetadataObserver (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -522,56 +598,56 @@ blink.mojom.WidgetHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_SetCursor_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_SetCursor_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setCursor');
           const result = this.impl.setCursor(params.cursor);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTooltipUnderCursor');
           const result = this.impl.updateTooltipUnderCursor(params.tooltip_text, params.text_direction_hint);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTooltipFromKeyboard');
           const result = this.impl.updateTooltipFromKeyboard(params.tooltip_text, params.text_direction_hint, params.bounds);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.clearKeyboardTriggeredTooltip');
           const result = this.impl.clearKeyboardTriggeredTooltip();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.textInputStateChanged');
           const result = this.impl.textInputStateChanged(params.state);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.selectionBoundsChanged');
           const result = this.impl.selectionBoundsChanged(params.anchor_rect, params.anchor_dir, params.focus_rect, params.focus_dir, params.bounding_box_rect, params.is_anchor_first);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createFrameSink');
           const result = this.impl.createFrameSink(params.compositor_frame_sink_receiver, params.compositor_frame_sink_client, params.render_input_router_client);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.registerRenderFrameMetadataObserver');
           const result = this.impl.registerRenderFrameMetadataObserver(params.render_frame_metadata_observer_client_receiver, params.render_frame_metadata_observer);
           break;
@@ -678,12 +754,21 @@ blink.mojom.WidgetRemote = class {
 blink.mojom.WidgetRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('Widget', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   forceRedraw() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       blink.mojom.Widget_ForceRedraw_ParamsSpec,
       blink.mojom.Widget_ForceRedraw_ResponseParamsSpec,
       [],
@@ -691,9 +776,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
   }
 
   updateVisualProperties(visual_properties) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       blink.mojom.Widget_UpdateVisualProperties_ParamsSpec,
       null,
       [visual_properties],
@@ -701,9 +785,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
   }
 
   updateScreenRects(widget_screen_rect, window_screen_rect) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       blink.mojom.Widget_UpdateScreenRects_ParamsSpec,
       blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec,
       [widget_screen_rect, window_screen_rect],
@@ -711,9 +794,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
   }
 
   wasHidden() {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       blink.mojom.Widget_WasHidden_ParamsSpec,
       null,
       [],
@@ -721,9 +803,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
   }
 
   wasShown(was_evicted, record_tab_switch_time_request) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       blink.mojom.Widget_WasShown_ParamsSpec,
       null,
       [was_evicted, record_tab_switch_time_request],
@@ -731,9 +812,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
   }
 
   requestSuccessfulPresentationTimeForNextFrame(visible_time_request) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec,
       null,
       [visible_time_request],
@@ -741,9 +821,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
   }
 
   cancelSuccessfulPresentationTimeRequest() {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec,
       null,
       [],
@@ -751,9 +830,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
   }
 
   setupBrowserRenderInputRouterConnections(browser_client) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec,
       null,
       [browser_client],
@@ -777,14 +855,20 @@ blink.mojom.WidgetReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    const ordinals = window.mojoScrambler.getOrdinals('Widget', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -822,7 +906,7 @@ blink.mojom.WidgetReceiver = class {
         // Try Method 0: ForceRedraw
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.Widget_ForceRedraw_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.Widget_ForceRedraw_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceRedraw (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -833,7 +917,7 @@ blink.mojom.WidgetReceiver = class {
         // Try Method 1: UpdateVisualProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.Widget_UpdateVisualProperties_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.Widget_UpdateVisualProperties_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateVisualProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -844,7 +928,7 @@ blink.mojom.WidgetReceiver = class {
         // Try Method 2: UpdateScreenRects
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.Widget_UpdateScreenRects_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.Widget_UpdateScreenRects_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateScreenRects (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -855,7 +939,7 @@ blink.mojom.WidgetReceiver = class {
         // Try Method 3: WasHidden
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.Widget_WasHidden_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.Widget_WasHidden_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WasHidden (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -866,7 +950,7 @@ blink.mojom.WidgetReceiver = class {
         // Try Method 4: WasShown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.Widget_WasShown_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.Widget_WasShown_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WasShown (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -877,7 +961,7 @@ blink.mojom.WidgetReceiver = class {
         // Try Method 5: RequestSuccessfulPresentationTimeForNextFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSuccessfulPresentationTimeForNextFrame (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -888,7 +972,7 @@ blink.mojom.WidgetReceiver = class {
         // Try Method 6: CancelSuccessfulPresentationTimeRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelSuccessfulPresentationTimeRequest (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -899,7 +983,7 @@ blink.mojom.WidgetReceiver = class {
         // Try Method 7: SetupBrowserRenderInputRouterConnections
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetupBrowserRenderInputRouterConnections (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -916,7 +1000,7 @@ blink.mojom.WidgetReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_ForceRedraw_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_ForceRedraw_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.forceRedraw');
           const result = this.impl.forceRedraw();
           if (header.expectsResponse) {
@@ -929,14 +1013,14 @@ blink.mojom.WidgetReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_UpdateVisualProperties_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_UpdateVisualProperties_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVisualProperties');
           const result = this.impl.updateVisualProperties(params.visual_properties);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_UpdateScreenRects_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_UpdateScreenRects_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateScreenRects');
           const result = this.impl.updateScreenRects(params.widget_screen_rect, params.window_screen_rect);
           if (header.expectsResponse) {
@@ -949,35 +1033,35 @@ blink.mojom.WidgetReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_WasHidden_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_WasHidden_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.wasHidden');
           const result = this.impl.wasHidden();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_WasShown_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_WasShown_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.wasShown');
           const result = this.impl.wasShown(params.was_evicted, params.record_tab_switch_time_request);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSuccessfulPresentationTimeForNextFrame');
           const result = this.impl.requestSuccessfulPresentationTimeForNextFrame(params.visible_time_request);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelSuccessfulPresentationTimeRequest');
           const result = this.impl.cancelSuccessfulPresentationTimeRequest();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setupBrowserRenderInputRouterConnections');
           const result = this.impl.setupBrowserRenderInputRouterConnections(params.browser_client);
           break;
@@ -1048,12 +1132,16 @@ blink.mojom.RenderInputRouterClientRemote = class {
 blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('RenderInputRouterClient', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   getWidgetInputHandler(request, host, from_viz) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec,
       null,
       [request, host, from_viz],
@@ -1061,9 +1149,8 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
   }
 
   showContextMenu(source_type, location) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec,
       null,
       [source_type, location],
@@ -1071,9 +1158,8 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
   }
 
   bindInputTargetClient(host) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec,
       null,
       [host],
@@ -1097,9 +1183,15 @@ blink.mojom.RenderInputRouterClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    const ordinals = window.mojoScrambler.getOrdinals('RenderInputRouterClient', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1137,7 +1229,7 @@ blink.mojom.RenderInputRouterClientReceiver = class {
         // Try Method 0: GetWidgetInputHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWidgetInputHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1148,7 +1240,7 @@ blink.mojom.RenderInputRouterClientReceiver = class {
         // Try Method 1: ShowContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1159,7 +1251,7 @@ blink.mojom.RenderInputRouterClientReceiver = class {
         // Try Method 2: BindInputTargetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindInputTargetClient (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1176,21 +1268,21 @@ blink.mojom.RenderInputRouterClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getWidgetInputHandler');
           const result = this.impl.getWidgetInputHandler(params.request, params.host, params.from_viz);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.source_type, params.location);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInputTargetClient');
           const result = this.impl.bindInputTargetClient(params.host);
           break;

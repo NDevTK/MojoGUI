@@ -3,6 +3,66 @@
 // Module: arc.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var arc = arc || {};
@@ -478,12 +538,32 @@ arc.mojom.AppHostRemote = class {
 arc.mojom.AppHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('AppHost', [
+      { explicit: 2 },
+      { explicit: 0 },
+      { explicit: 8 },
+      { explicit: 13 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 17 },
+      { explicit: 18 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 7 },
+      { explicit: 11 },
+      { explicit: 14 },
+      { explicit: 15 },
+      { explicit: 16 },
+      { explicit: 19 },
+      { explicit: 20 },
+    ]);
   }
 
   onAppAddedDeprecated(app) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec,
       null,
       [app],
@@ -491,9 +571,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onAppListRefreshed(apps) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[1],  // ordinal
       arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec,
       null,
       [apps],
@@ -501,9 +580,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onPackageAdded(arcPackageInfo) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[2],  // ordinal
       arc.mojom.AppHost_OnPackageAdded_ParamsSpec,
       null,
       [arcPackageInfo],
@@ -511,9 +589,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onPackageAppListRefreshed(package_name, apps) {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[3],  // ordinal
       arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec,
       null,
       [package_name, apps],
@@ -521,9 +598,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onPackageListRefreshed(packages) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[4],  // ordinal
       arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec,
       null,
       [packages],
@@ -531,9 +607,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onPackageModified(arcPackageInfo) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[5],  // ordinal
       arc.mojom.AppHost_OnPackageModified_ParamsSpec,
       null,
       [arcPackageInfo],
@@ -541,9 +616,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onPackageRemoved(package_name) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[6],  // ordinal
       arc.mojom.AppHost_OnPackageRemoved_ParamsSpec,
       null,
       [package_name],
@@ -551,9 +625,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onTaskCreated(task_id, package_name, activity, name, intent, session_id) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[7],  // ordinal
       arc.mojom.AppHost_OnTaskCreated_ParamsSpec,
       null,
       [task_id, package_name, activity, name, intent, session_id],
@@ -561,9 +634,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onTaskDescriptionUpdated(task_id, label, icon_png_data) {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[8],  // ordinal
       arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec,
       null,
       [task_id, label, icon_png_data],
@@ -571,9 +643,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onTaskDescriptionChanged(task_id, label, icon, primary_color, status_bar_color) {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[9],  // ordinal
       arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec,
       null,
       [task_id, label, icon, primary_color, status_bar_color],
@@ -581,9 +652,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onTaskDestroyed(task_id) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[10],  // ordinal
       arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec,
       null,
       [task_id],
@@ -591,9 +661,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onTaskSetActive(task_id) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[11],  // ordinal
       arc.mojom.AppHost_OnTaskSetActive_ParamsSpec,
       null,
       [task_id],
@@ -601,9 +670,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onNotificationsEnabledChanged(package_name, enabled) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[12],  // ordinal
       arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec,
       null,
       [package_name, enabled],
@@ -611,9 +679,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onInstallShortcut(shortcut) {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[13],  // ordinal
       arc.mojom.AppHost_OnInstallShortcut_ParamsSpec,
       null,
       [shortcut],
@@ -621,9 +688,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onInstallationStarted(package_name) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[14],  // ordinal
       arc.mojom.AppHost_OnInstallationStarted_ParamsSpec,
       null,
       [package_name],
@@ -631,9 +697,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onInstallationFinished(result) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[15],  // ordinal
       arc.mojom.AppHost_OnInstallationFinished_ParamsSpec,
       null,
       [result],
@@ -641,9 +706,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onUninstallShortcut(package_name, intent_uri) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[16],  // ordinal
       arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec,
       null,
       [package_name, intent_uri],
@@ -651,9 +715,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onInstallationProgressChanged(package_name, progress) {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[17],  // ordinal
       arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec,
       null,
       [package_name, progress],
@@ -661,9 +724,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
   }
 
   onInstallationActiveChanged(package_name, active) {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[18],  // ordinal
       arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec,
       null,
       [package_name, active],
@@ -687,25 +749,31 @@ arc.mojom.AppHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(2, 0); // Default ordinal 2 -> Index 0
-    this.ordinalMap.set(0, 1); // Default ordinal 0 -> Index 1
-    this.ordinalMap.set(8, 2); // Default ordinal 8 -> Index 2
-    this.ordinalMap.set(13, 3); // Default ordinal 13 -> Index 3
-    this.ordinalMap.set(9, 4); // Default ordinal 9 -> Index 4
-    this.ordinalMap.set(10, 5); // Default ordinal 10 -> Index 5
-    this.ordinalMap.set(3, 6); // Default ordinal 3 -> Index 6
-    this.ordinalMap.set(4, 7); // Default ordinal 4 -> Index 7
-    this.ordinalMap.set(17, 8); // Default ordinal 17 -> Index 8
-    this.ordinalMap.set(18, 9); // Default ordinal 18 -> Index 9
-    this.ordinalMap.set(5, 10); // Default ordinal 5 -> Index 10
-    this.ordinalMap.set(6, 11); // Default ordinal 6 -> Index 11
-    this.ordinalMap.set(7, 12); // Default ordinal 7 -> Index 12
-    this.ordinalMap.set(11, 13); // Default ordinal 11 -> Index 13
-    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
-    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
-    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
-    this.ordinalMap.set(19, 17); // Default ordinal 19 -> Index 17
-    this.ordinalMap.set(20, 18); // Default ordinal 20 -> Index 18
+    const ordinals = window.mojoScrambler.getOrdinals('AppHost', [
+      { explicit: 2 },
+      { explicit: 0 },
+      { explicit: 8 },
+      { explicit: 13 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 17 },
+      { explicit: 18 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 7 },
+      { explicit: 11 },
+      { explicit: 14 },
+      { explicit: 15 },
+      { explicit: 16 },
+      { explicit: 19 },
+      { explicit: 20 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -743,7 +811,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 0: OnAppAddedDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppAddedDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -754,7 +822,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 1: OnAppListRefreshed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppListRefreshed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -765,7 +833,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 2: OnPackageAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnPackageAdded_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnPackageAdded_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackageAdded (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -776,7 +844,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 3: OnPackageAppListRefreshed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackageAppListRefreshed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -787,7 +855,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 4: OnPackageListRefreshed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackageListRefreshed (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -798,7 +866,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 5: OnPackageModified
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnPackageModified_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnPackageModified_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackageModified (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -809,7 +877,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 6: OnPackageRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnPackageRemoved_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnPackageRemoved_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPackageRemoved (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -820,7 +888,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 7: OnTaskCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnTaskCreated_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnTaskCreated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTaskCreated (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -831,7 +899,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 8: OnTaskDescriptionUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTaskDescriptionUpdated (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -842,7 +910,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 9: OnTaskDescriptionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTaskDescriptionChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -853,7 +921,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 10: OnTaskDestroyed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTaskDestroyed (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -864,7 +932,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 11: OnTaskSetActive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnTaskSetActive_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnTaskSetActive_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTaskSetActive (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -875,7 +943,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 12: OnNotificationsEnabledChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationsEnabledChanged (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -886,7 +954,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 13: OnInstallShortcut
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnInstallShortcut_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnInstallShortcut_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallShortcut (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -897,7 +965,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 14: OnInstallationStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationStarted_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationStarted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallationStarted (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -908,7 +976,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 15: OnInstallationFinished
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationFinished_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationFinished_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallationFinished (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -919,7 +987,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 16: OnUninstallShortcut
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUninstallShortcut (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -930,7 +998,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 17: OnInstallationProgressChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallationProgressChanged (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -941,7 +1009,7 @@ arc.mojom.AppHostReceiver = class {
         // Try Method 18: OnInstallationActiveChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInstallationActiveChanged (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -958,133 +1026,133 @@ arc.mojom.AppHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppAddedDeprecated');
           const result = this.impl.onAppAddedDeprecated(params.app);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppListRefreshed');
           const result = this.impl.onAppListRefreshed(params.apps);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnPackageAdded_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnPackageAdded_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackageAdded');
           const result = this.impl.onPackageAdded(params.arcPackageInfo);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackageAppListRefreshed');
           const result = this.impl.onPackageAppListRefreshed(params.package_name, params.apps);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackageListRefreshed');
           const result = this.impl.onPackageListRefreshed(params.packages);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnPackageModified_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnPackageModified_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackageModified');
           const result = this.impl.onPackageModified(params.arcPackageInfo);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnPackageRemoved_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnPackageRemoved_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackageRemoved');
           const result = this.impl.onPackageRemoved(params.package_name);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnTaskCreated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnTaskCreated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onTaskCreated');
           const result = this.impl.onTaskCreated(params.task_id, params.package_name, params.activity, params.name, params.intent, params.session_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onTaskDescriptionUpdated');
           const result = this.impl.onTaskDescriptionUpdated(params.task_id, params.label, params.icon_png_data);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onTaskDescriptionChanged');
           const result = this.impl.onTaskDescriptionChanged(params.task_id, params.label, params.icon, params.primary_color, params.status_bar_color);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onTaskDestroyed');
           const result = this.impl.onTaskDestroyed(params.task_id);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnTaskSetActive_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnTaskSetActive_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onTaskSetActive');
           const result = this.impl.onTaskSetActive(params.task_id);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationsEnabledChanged');
           const result = this.impl.onNotificationsEnabledChanged(params.package_name, params.enabled);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnInstallShortcut_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnInstallShortcut_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallShortcut');
           const result = this.impl.onInstallShortcut(params.shortcut);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationStarted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationStarted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallationStarted');
           const result = this.impl.onInstallationStarted(params.package_name);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationFinished_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationFinished_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallationFinished');
           const result = this.impl.onInstallationFinished(params.result);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onUninstallShortcut');
           const result = this.impl.onUninstallShortcut(params.package_name, params.intent_uri);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallationProgressChanged');
           const result = this.impl.onInstallationProgressChanged(params.package_name, params.progress);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallationActiveChanged');
           const result = this.impl.onInstallationActiveChanged(params.package_name, params.active);
           break;
@@ -1420,12 +1488,43 @@ arc.mojom.AppInstanceRemote = class {
 arc.mojom.AppInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('AppInstance', [
+      { explicit: 21 },
+      { explicit: 8 },
+      { explicit: 11 },
+      { explicit: 38 },
+      { explicit: 24 },
+      { explicit: 39 },
+      { explicit: 40 },
+      { explicit: 27 },
+      { explicit: 35 },
+      { explicit: 28 },
+      { explicit: 36 },
+      { explicit: 30 },
+      { explicit: 37 },
+      { explicit: 14 },
+      { explicit: 7 },
+      { explicit: 9 },
+      { explicit: 15 },
+      { explicit: 20 },
+      { explicit: 10 },
+      { explicit: 32 },
+      { explicit: 25 },
+      { explicit: 5 },
+      { explicit: 42 },
+      { explicit: 33 },
+      { explicit: 26 },
+      { explicit: 23 },
+      { explicit: 16 },
+      { explicit: 34 },
+      { explicit: 41 },
+      { explicit: 43 },
+    ]);
   }
 
   init(host_remote) {
-    // Ordinal: 21
     return this.proxy.sendMessage(
-      21,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.AppInstance_Init_ParamsSpec,
       arc.mojom.AppInstance_Init_ResponseParamsSpec,
       [host_remote],
@@ -1433,9 +1532,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   closeTask(task_id) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[1],  // ordinal
       arc.mojom.AppInstance_CloseTask_ParamsSpec,
       null,
       [task_id],
@@ -1443,9 +1541,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   installPackage(arcPackageInfo) {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[2],  // ordinal
       arc.mojom.AppInstance_InstallPackage_ParamsSpec,
       null,
       [arcPackageInfo],
@@ -1453,9 +1550,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   launchAppWithWindowInfo(package_name, activity, window_info) {
-    // Ordinal: 38
     return this.proxy.sendMessage(
-      38,  // ordinal
+      this.ordinals[3],  // ordinal
       arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec,
       null,
       [package_name, activity, window_info],
@@ -1463,9 +1559,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   launchAppShortcutItem(package_name, shortcut_id, display_id) {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[4],  // ordinal
       arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec,
       null,
       [package_name, shortcut_id, display_id],
@@ -1473,9 +1568,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   launchIntentWithWindowInfo(intent_uri, window_info) {
-    // Ordinal: 39
     return this.proxy.sendMessage(
-      39,  // ordinal
+      this.ordinals[5],  // ordinal
       arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec,
       null,
       [intent_uri, window_info],
@@ -1483,9 +1577,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   updateWindowInfo(window_info) {
-    // Ordinal: 40
     return this.proxy.sendMessage(
-      40,  // ordinal
+      this.ordinals[6],  // ordinal
       arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec,
       null,
       [window_info],
@@ -1493,9 +1586,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   requestAppIcon(package_name, activity, pixel_size) {
-    // Ordinal: 27
     return this.proxy.sendMessage(
-      27,  // ordinal
+      this.ordinals[7],  // ordinal
       arc.mojom.AppInstance_RequestAppIcon_ParamsSpec,
       arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec,
       [package_name, activity, pixel_size],
@@ -1503,9 +1595,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   getAppIcon(package_name, activity, pixel_size) {
-    // Ordinal: 35
     return this.proxy.sendMessage(
-      35,  // ordinal
+      this.ordinals[8],  // ordinal
       arc.mojom.AppInstance_GetAppIcon_ParamsSpec,
       arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec,
       [package_name, activity, pixel_size],
@@ -1513,9 +1604,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   requestShortcutIcon(icon_resource_id, pixel_size) {
-    // Ordinal: 28
     return this.proxy.sendMessage(
-      28,  // ordinal
+      this.ordinals[9],  // ordinal
       arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec,
       arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec,
       [icon_resource_id, pixel_size],
@@ -1523,9 +1613,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   getAppShortcutIcon(icon_resource_id, pixel_size) {
-    // Ordinal: 36
     return this.proxy.sendMessage(
-      36,  // ordinal
+      this.ordinals[10],  // ordinal
       arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec,
       arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec,
       [icon_resource_id, pixel_size],
@@ -1533,9 +1622,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   requestPackageIcon(package_name, pixel_size, normalize) {
-    // Ordinal: 30
     return this.proxy.sendMessage(
-      30,  // ordinal
+      this.ordinals[11],  // ordinal
       arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec,
       arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec,
       [package_name, pixel_size, normalize],
@@ -1543,9 +1631,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   getPackageIcon(package_name, pixel_size, normalize) {
-    // Ordinal: 37
     return this.proxy.sendMessage(
-      37,  // ordinal
+      this.ordinals[12],  // ordinal
       arc.mojom.AppInstance_GetPackageIcon_ParamsSpec,
       arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec,
       [package_name, pixel_size, normalize],
@@ -1553,9 +1640,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   removeCachedIcon(icon_resource_id) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[13],  // ordinal
       arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec,
       null,
       [icon_resource_id],
@@ -1563,9 +1649,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   setTaskActive(task_id) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[14],  // ordinal
       arc.mojom.AppInstance_SetTaskActive_ParamsSpec,
       null,
       [task_id],
@@ -1573,9 +1658,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   showPackageInfoDeprecated(package_name, dimension_on_screen) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[15],  // ordinal
       arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec,
       null,
       [package_name, dimension_on_screen],
@@ -1583,9 +1667,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   showPackageInfoOnPageDeprecated(package_name, page, dimension_on_screen) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[16],  // ordinal
       arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec,
       null,
       [package_name, page, dimension_on_screen],
@@ -1593,9 +1676,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   showPackageInfoOnPage(package_name, page, display_id) {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[17],  // ordinal
       arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec,
       null,
       [package_name, page, display_id],
@@ -1603,9 +1685,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   setNotificationsEnabled(package_name, enabled) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[18],  // ordinal
       arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec,
       null,
       [package_name, enabled],
@@ -1613,9 +1694,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   startPaiFlow() {
-    // Ordinal: 32
     return this.proxy.sendMessage(
-      32,  // ordinal
+      this.ordinals[19],  // ordinal
       arc.mojom.AppInstance_StartPaiFlow_ParamsSpec,
       arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec,
       [],
@@ -1623,9 +1703,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   startFastAppReinstallFlow(arc_package_names) {
-    // Ordinal: 25
     return this.proxy.sendMessage(
-      25,  // ordinal
+      this.ordinals[20],  // ordinal
       arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec,
       null,
       [arc_package_names],
@@ -1633,9 +1712,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   uninstallPackage(package_name) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[21],  // ordinal
       arc.mojom.AppInstance_UninstallPackage_ParamsSpec,
       null,
       [package_name],
@@ -1643,9 +1721,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   updateAppDetails(package_name) {
-    // Ordinal: 42
     return this.proxy.sendMessage(
-      42,  // ordinal
+      this.ordinals[22],  // ordinal
       arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec,
       null,
       [package_name],
@@ -1653,9 +1730,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   getAndroidId() {
-    // Ordinal: 33
     return this.proxy.sendMessage(
-      33,  // ordinal
+      this.ordinals[23],  // ordinal
       arc.mojom.AppInstance_GetAndroidId_ParamsSpec,
       arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec,
       [],
@@ -1663,9 +1739,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   getAppShortcutGlobalQueryItems(query, max_results) {
-    // Ordinal: 26
     return this.proxy.sendMessage(
-      26,  // ordinal
+      this.ordinals[24],  // ordinal
       arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec,
       arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec,
       [query, max_results],
@@ -1673,9 +1748,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   getAppShortcutItems(package_name) {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[25],  // ordinal
       arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec,
       arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec,
       [package_name],
@@ -1683,9 +1757,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   getRecentAndSuggestedAppsFromPlayStore(query, max_results) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[26],  // ordinal
       arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec,
       arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec,
       [query, max_results],
@@ -1693,9 +1766,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   isInstallable(package_name) {
-    // Ordinal: 34
     return this.proxy.sendMessage(
-      34,  // ordinal
+      this.ordinals[27],  // ordinal
       arc.mojom.AppInstance_IsInstallable_ParamsSpec,
       arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec,
       [package_name],
@@ -1703,9 +1775,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   getAppCategory(package_name) {
-    // Ordinal: 41
     return this.proxy.sendMessage(
-      41,  // ordinal
+      this.ordinals[28],  // ordinal
       arc.mojom.AppInstance_GetAppCategory_ParamsSpec,
       arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec,
       [package_name],
@@ -1713,9 +1784,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
   }
 
   setAppLocale(package_name, locale_tag) {
-    // Ordinal: 43
     return this.proxy.sendMessage(
-      43,  // ordinal
+      this.ordinals[29],  // ordinal
       arc.mojom.AppInstance_SetAppLocale_ParamsSpec,
       null,
       [package_name, locale_tag],
@@ -1739,36 +1809,42 @@ arc.mojom.AppInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(21, 0); // Default ordinal 21 -> Index 0
-    this.ordinalMap.set(8, 1); // Default ordinal 8 -> Index 1
-    this.ordinalMap.set(11, 2); // Default ordinal 11 -> Index 2
-    this.ordinalMap.set(38, 3); // Default ordinal 38 -> Index 3
-    this.ordinalMap.set(24, 4); // Default ordinal 24 -> Index 4
-    this.ordinalMap.set(39, 5); // Default ordinal 39 -> Index 5
-    this.ordinalMap.set(40, 6); // Default ordinal 40 -> Index 6
-    this.ordinalMap.set(27, 7); // Default ordinal 27 -> Index 7
-    this.ordinalMap.set(35, 8); // Default ordinal 35 -> Index 8
-    this.ordinalMap.set(28, 9); // Default ordinal 28 -> Index 9
-    this.ordinalMap.set(36, 10); // Default ordinal 36 -> Index 10
-    this.ordinalMap.set(30, 11); // Default ordinal 30 -> Index 11
-    this.ordinalMap.set(37, 12); // Default ordinal 37 -> Index 12
-    this.ordinalMap.set(14, 13); // Default ordinal 14 -> Index 13
-    this.ordinalMap.set(7, 14); // Default ordinal 7 -> Index 14
-    this.ordinalMap.set(9, 15); // Default ordinal 9 -> Index 15
-    this.ordinalMap.set(15, 16); // Default ordinal 15 -> Index 16
-    this.ordinalMap.set(20, 17); // Default ordinal 20 -> Index 17
-    this.ordinalMap.set(10, 18); // Default ordinal 10 -> Index 18
-    this.ordinalMap.set(32, 19); // Default ordinal 32 -> Index 19
-    this.ordinalMap.set(25, 20); // Default ordinal 25 -> Index 20
-    this.ordinalMap.set(5, 21); // Default ordinal 5 -> Index 21
-    this.ordinalMap.set(42, 22); // Default ordinal 42 -> Index 22
-    this.ordinalMap.set(33, 23); // Default ordinal 33 -> Index 23
-    this.ordinalMap.set(26, 24); // Default ordinal 26 -> Index 24
-    this.ordinalMap.set(23, 25); // Default ordinal 23 -> Index 25
-    this.ordinalMap.set(16, 26); // Default ordinal 16 -> Index 26
-    this.ordinalMap.set(34, 27); // Default ordinal 34 -> Index 27
-    this.ordinalMap.set(41, 28); // Default ordinal 41 -> Index 28
-    this.ordinalMap.set(43, 29); // Default ordinal 43 -> Index 29
+    const ordinals = window.mojoScrambler.getOrdinals('AppInstance', [
+      { explicit: 21 },
+      { explicit: 8 },
+      { explicit: 11 },
+      { explicit: 38 },
+      { explicit: 24 },
+      { explicit: 39 },
+      { explicit: 40 },
+      { explicit: 27 },
+      { explicit: 35 },
+      { explicit: 28 },
+      { explicit: 36 },
+      { explicit: 30 },
+      { explicit: 37 },
+      { explicit: 14 },
+      { explicit: 7 },
+      { explicit: 9 },
+      { explicit: 15 },
+      { explicit: 20 },
+      { explicit: 10 },
+      { explicit: 32 },
+      { explicit: 25 },
+      { explicit: 5 },
+      { explicit: 42 },
+      { explicit: 33 },
+      { explicit: 26 },
+      { explicit: 23 },
+      { explicit: 16 },
+      { explicit: 34 },
+      { explicit: 41 },
+      { explicit: 43 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1806,7 +1882,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_Init_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_Init_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1817,7 +1893,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 1: CloseTask
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_CloseTask_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_CloseTask_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseTask (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1828,7 +1904,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 2: InstallPackage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_InstallPackage_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_InstallPackage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallPackage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1839,7 +1915,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 3: LaunchAppWithWindowInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchAppWithWindowInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1850,7 +1926,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 4: LaunchAppShortcutItem
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchAppShortcutItem (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1861,7 +1937,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 5: LaunchIntentWithWindowInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchIntentWithWindowInfo (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1872,7 +1948,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 6: UpdateWindowInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateWindowInfo (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1883,7 +1959,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 7: RequestAppIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_RequestAppIcon_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_RequestAppIcon_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestAppIcon (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1894,7 +1970,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 8: GetAppIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_GetAppIcon_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_GetAppIcon_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppIcon (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1905,7 +1981,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 9: RequestShortcutIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestShortcutIcon (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1916,7 +1992,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 10: GetAppShortcutIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppShortcutIcon (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1927,7 +2003,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 11: RequestPackageIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPackageIcon (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1938,7 +2014,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 12: GetPackageIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_GetPackageIcon_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_GetPackageIcon_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPackageIcon (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1949,7 +2025,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 13: RemoveCachedIcon
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveCachedIcon (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1960,7 +2036,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 14: SetTaskActive
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_SetTaskActive_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_SetTaskActive_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTaskActive (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1971,7 +2047,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 15: ShowPackageInfoDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowPackageInfoDeprecated (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1982,7 +2058,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 16: ShowPackageInfoOnPageDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowPackageInfoOnPageDeprecated (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1993,7 +2069,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 17: ShowPackageInfoOnPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowPackageInfoOnPage (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -2004,7 +2080,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 18: SetNotificationsEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNotificationsEnabled (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -2015,7 +2091,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 19: StartPaiFlow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_StartPaiFlow_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_StartPaiFlow_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPaiFlow (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -2026,7 +2102,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 20: StartFastAppReinstallFlow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartFastAppReinstallFlow (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -2037,7 +2113,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 21: UninstallPackage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_UninstallPackage_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_UninstallPackage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninstallPackage (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -2048,7 +2124,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 22: UpdateAppDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAppDetails (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -2059,7 +2135,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 23: GetAndroidId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_GetAndroidId_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_GetAndroidId_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAndroidId (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -2070,7 +2146,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 24: GetAppShortcutGlobalQueryItems
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppShortcutGlobalQueryItems (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -2081,7 +2157,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 25: GetAppShortcutItems
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppShortcutItems (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -2092,7 +2168,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 26: GetRecentAndSuggestedAppsFromPlayStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRecentAndSuggestedAppsFromPlayStore (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -2103,7 +2179,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 27: IsInstallable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_IsInstallable_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_IsInstallable_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsInstallable (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -2114,7 +2190,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 28: GetAppCategory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_GetAppCategory_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_GetAppCategory_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppCategory (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -2125,7 +2201,7 @@ arc.mojom.AppInstanceReceiver = class {
         // Try Method 29: SetAppLocale
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.AppInstance_SetAppLocale_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.AppInstance_SetAppLocale_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAppLocale (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -2142,7 +2218,7 @@ arc.mojom.AppInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_Init_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_Init_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -2155,49 +2231,49 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_CloseTask_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_CloseTask_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.closeTask');
           const result = this.impl.closeTask(params.task_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_InstallPackage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_InstallPackage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.installPackage');
           const result = this.impl.installPackage(params.arcPackageInfo);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.launchAppWithWindowInfo');
           const result = this.impl.launchAppWithWindowInfo(params.package_name, params.activity, params.window_info);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.launchAppShortcutItem');
           const result = this.impl.launchAppShortcutItem(params.package_name, params.shortcut_id, params.display_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.launchIntentWithWindowInfo');
           const result = this.impl.launchIntentWithWindowInfo(params.intent_uri, params.window_info);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateWindowInfo');
           const result = this.impl.updateWindowInfo(params.window_info);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_RequestAppIcon_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_RequestAppIcon_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestAppIcon');
           const result = this.impl.requestAppIcon(params.package_name, params.activity, params.pixel_size);
           if (header.expectsResponse) {
@@ -2210,7 +2286,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAppIcon_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAppIcon_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppIcon');
           const result = this.impl.getAppIcon(params.package_name, params.activity, params.pixel_size);
           if (header.expectsResponse) {
@@ -2223,7 +2299,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestShortcutIcon');
           const result = this.impl.requestShortcutIcon(params.icon_resource_id, params.pixel_size);
           if (header.expectsResponse) {
@@ -2236,7 +2312,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppShortcutIcon');
           const result = this.impl.getAppShortcutIcon(params.icon_resource_id, params.pixel_size);
           if (header.expectsResponse) {
@@ -2249,7 +2325,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPackageIcon');
           const result = this.impl.requestPackageIcon(params.package_name, params.pixel_size, params.normalize);
           if (header.expectsResponse) {
@@ -2262,7 +2338,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetPackageIcon_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetPackageIcon_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getPackageIcon');
           const result = this.impl.getPackageIcon(params.package_name, params.pixel_size, params.normalize);
           if (header.expectsResponse) {
@@ -2275,49 +2351,49 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.removeCachedIcon');
           const result = this.impl.removeCachedIcon(params.icon_resource_id);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_SetTaskActive_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_SetTaskActive_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setTaskActive');
           const result = this.impl.setTaskActive(params.task_id);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.showPackageInfoDeprecated');
           const result = this.impl.showPackageInfoDeprecated(params.package_name, params.dimension_on_screen);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.showPackageInfoOnPageDeprecated');
           const result = this.impl.showPackageInfoOnPageDeprecated(params.package_name, params.page, params.dimension_on_screen);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.showPackageInfoOnPage');
           const result = this.impl.showPackageInfoOnPage(params.package_name, params.page, params.display_id);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setNotificationsEnabled');
           const result = this.impl.setNotificationsEnabled(params.package_name, params.enabled);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_StartPaiFlow_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_StartPaiFlow_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startPaiFlow');
           const result = this.impl.startPaiFlow();
           if (header.expectsResponse) {
@@ -2330,28 +2406,28 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startFastAppReinstallFlow');
           const result = this.impl.startFastAppReinstallFlow(params.arc_package_names);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_UninstallPackage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_UninstallPackage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.uninstallPackage');
           const result = this.impl.uninstallPackage(params.package_name);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAppDetails');
           const result = this.impl.updateAppDetails(params.package_name);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAndroidId_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAndroidId_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getAndroidId');
           const result = this.impl.getAndroidId();
           if (header.expectsResponse) {
@@ -2364,7 +2440,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppShortcutGlobalQueryItems');
           const result = this.impl.getAppShortcutGlobalQueryItems(params.query, params.max_results);
           if (header.expectsResponse) {
@@ -2377,7 +2453,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppShortcutItems');
           const result = this.impl.getAppShortcutItems(params.package_name);
           if (header.expectsResponse) {
@@ -2390,7 +2466,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getRecentAndSuggestedAppsFromPlayStore');
           const result = this.impl.getRecentAndSuggestedAppsFromPlayStore(params.query, params.max_results);
           if (header.expectsResponse) {
@@ -2403,7 +2479,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_IsInstallable_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_IsInstallable_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.isInstallable');
           const result = this.impl.isInstallable(params.package_name);
           if (header.expectsResponse) {
@@ -2416,7 +2492,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAppCategory_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_GetAppCategory_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppCategory');
           const result = this.impl.getAppCategory(params.package_name);
           if (header.expectsResponse) {
@@ -2429,7 +2505,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AppInstance_SetAppLocale_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.AppInstance_SetAppLocale_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setAppLocale');
           const result = this.impl.setAppLocale(params.package_name, params.locale_tag);
           break;

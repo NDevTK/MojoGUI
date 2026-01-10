@@ -3,6 +3,66 @@
 // Module: tracing.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var tracing = tracing || {};
@@ -73,12 +133,15 @@ tracing.mojom.BackgroundTracingAgentClientRemote = class {
 tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgentClient', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onInitialized() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec,
       null,
       [],
@@ -86,9 +149,8 @@ tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
   }
 
   onTriggerBackgroundTrace(rule, histogram_value, flow_id) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec,
       null,
       [rule, histogram_value, flow_id],
@@ -112,8 +174,14 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgentClient', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -151,7 +219,7 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
         // Try Method 0: OnInitialized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$);
+             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInitialized (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -162,7 +230,7 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
         // Try Method 1: OnTriggerBackgroundTrace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$);
+             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTriggerBackgroundTrace (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -179,14 +247,14 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onInitialized');
           const result = this.impl.onInitialized();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onTriggerBackgroundTrace');
           const result = this.impl.onTriggerBackgroundTrace(params.rule, params.histogram_value, params.flow_id);
           break;
@@ -251,12 +319,15 @@ tracing.mojom.BackgroundTracingAgentRemote = class {
 tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgent', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   setUMACallback(rule, histogram_name, histogram_lower_value, histogram_upper_value) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec,
       null,
       [rule, histogram_name, histogram_lower_value, histogram_upper_value],
@@ -264,9 +335,8 @@ tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
   }
 
   clearUMACallback(rule) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec,
       null,
       [rule],
@@ -290,8 +360,14 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgent', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -329,7 +405,7 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
         // Try Method 0: SetUMACallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$);
+             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUMACallback (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -340,7 +416,7 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
         // Try Method 1: ClearUMACallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$);
+             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUMACallback (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -357,14 +433,14 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setUMACallback');
           const result = this.impl.setUMACallback(params.rule, params.histogram_name, params.histogram_lower_value, params.histogram_upper_value);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUMACallback');
           const result = this.impl.clearUMACallback(params.rule);
           break;
@@ -422,12 +498,14 @@ tracing.mojom.BackgroundTracingAgentProviderRemote = class {
 tracing.mojom.BackgroundTracingAgentProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgentProvider', [
+      { explicit: null },
+    ]);
   }
 
   create(tracing_process_id, client, agent) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec,
       null,
       [tracing_process_id, client, agent],
@@ -451,7 +529,13 @@ tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('BackgroundTracingAgentProvider', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -489,7 +573,7 @@ tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$);
+             decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -506,7 +590,7 @@ tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.tracing_process_id, params.client, params.agent);
           break;

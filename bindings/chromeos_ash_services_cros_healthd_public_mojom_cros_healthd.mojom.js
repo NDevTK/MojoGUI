@@ -3,6 +3,66 @@
 // Module: ash.cros_healthd.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var ash = ash || {};
@@ -738,12 +798,62 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemote = class {
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdDiagnosticsService', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 7 },
+      { explicit: 8 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 32 },
+      { explicit: 11 },
+      { explicit: 12 },
+      { explicit: 13 },
+      { explicit: 14 },
+      { explicit: 15 },
+      { explicit: 16 },
+      { explicit: 17 },
+      { explicit: 18 },
+      { explicit: 19 },
+      { explicit: 20 },
+      { explicit: 21 },
+      { explicit: 22 },
+      { explicit: 23 },
+      { explicit: 24 },
+      { explicit: 25 },
+      { explicit: 26 },
+      { explicit: 27 },
+      { explicit: 28 },
+      { explicit: 29 },
+      { explicit: 30 },
+      { explicit: 31 },
+      { explicit: 33 },
+      { explicit: 34 },
+      { explicit: 35 },
+      { explicit: 36 },
+      { explicit: 37 },
+      { explicit: 38 },
+      { explicit: 39 },
+      { explicit: 40 },
+      { explicit: 41 },
+      { explicit: 42 },
+      { explicit: 43 },
+      { explicit: 44 },
+      { explicit: 45 },
+      { explicit: 46 },
+      { explicit: 47 },
+      { explicit: 48 },
+    ]);
   }
 
   getAvailableRoutines() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec,
       [],
@@ -751,9 +861,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   getRoutineUpdate(id, command, include_output) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec,
       [id, command, include_output],
@@ -761,9 +870,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runUrandomRoutine(length_seconds) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec,
       [length_seconds],
@@ -771,9 +879,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runBatteryCapacityRoutine() {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec,
       [],
@@ -781,9 +888,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runBatteryHealthRoutine() {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec,
       [],
@@ -791,9 +897,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runSmartctlCheckRoutine(percentage_used_threshold) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec,
       [percentage_used_threshold],
@@ -801,9 +906,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runAcPowerRoutine(expected_status, expected_power_type) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec,
       [expected_status, expected_power_type],
@@ -811,9 +915,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runCpuCacheRoutine(length_seconds) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec,
       [length_seconds],
@@ -821,9 +924,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runCpuStressRoutine(length_seconds) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec,
       [length_seconds],
@@ -831,9 +933,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runFloatingPointAccuracyRoutine(length_seconds) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec,
       [length_seconds],
@@ -841,9 +942,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   dEPRECATED_RunNvmeWearLevelRoutineWithThreshold(wear_level_threshold) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec,
       [wear_level_threshold],
@@ -851,9 +951,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   dEPRECATED_RunNvmeWearLevelRoutine(wear_level_threshold) {
-    // Ordinal: 32
     return this.proxy.sendMessage(
-      32,  // ordinal
+      this.ordinals[11],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec,
       [wear_level_threshold],
@@ -861,9 +960,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runNvmeSelfTestRoutine(nvme_self_test_type) {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[12],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec,
       [nvme_self_test_type],
@@ -871,9 +969,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runDiskReadRoutine(type, length_seconds, file_size_mb) {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[13],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec,
       [type, length_seconds, file_size_mb],
@@ -881,9 +978,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runPrimeSearchRoutine(length_seconds) {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[14],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec,
       [length_seconds],
@@ -891,9 +987,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runBatteryDischargeRoutine(length_seconds, maximum_discharge_percent_allowed) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[15],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec,
       [length_seconds, maximum_discharge_percent_allowed],
@@ -901,9 +996,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runBatteryChargeRoutine(length_seconds, minimum_charge_percent_required) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[16],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec,
       [length_seconds, minimum_charge_percent_required],
@@ -911,9 +1005,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runMemoryRoutine(max_testing_mem_kib) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[17],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec,
       [max_testing_mem_kib],
@@ -921,9 +1014,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runLanConnectivityRoutine() {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[18],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec,
       [],
@@ -931,9 +1023,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runSignalStrengthRoutine() {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[19],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec,
       [],
@@ -941,9 +1032,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runGatewayCanBePingedRoutine() {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[20],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec,
       [],
@@ -951,9 +1041,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runHasSecureWiFiConnectionRoutine() {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[21],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec,
       [],
@@ -961,9 +1050,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runDnsResolverPresentRoutine() {
-    // Ordinal: 21
     return this.proxy.sendMessage(
-      21,  // ordinal
+      this.ordinals[22],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec,
       [],
@@ -971,9 +1059,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runDnsLatencyRoutine() {
-    // Ordinal: 22
     return this.proxy.sendMessage(
-      22,  // ordinal
+      this.ordinals[23],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec,
       [],
@@ -981,9 +1068,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runDnsResolutionRoutine() {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[24],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec,
       [],
@@ -991,9 +1077,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runCaptivePortalRoutine() {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[25],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec,
       [],
@@ -1001,9 +1086,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runHttpFirewallRoutine() {
-    // Ordinal: 25
     return this.proxy.sendMessage(
-      25,  // ordinal
+      this.ordinals[26],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec,
       [],
@@ -1011,9 +1095,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runHttpsFirewallRoutine() {
-    // Ordinal: 26
     return this.proxy.sendMessage(
-      26,  // ordinal
+      this.ordinals[27],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec,
       [],
@@ -1021,9 +1104,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runHttpsLatencyRoutine() {
-    // Ordinal: 27
     return this.proxy.sendMessage(
-      27,  // ordinal
+      this.ordinals[28],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec,
       [],
@@ -1031,9 +1113,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runVideoConferencingRoutine(stun_server_hostname) {
-    // Ordinal: 28
     return this.proxy.sendMessage(
-      28,  // ordinal
+      this.ordinals[29],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec,
       [stun_server_hostname],
@@ -1041,9 +1122,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runArcHttpRoutine() {
-    // Ordinal: 29
     return this.proxy.sendMessage(
-      29,  // ordinal
+      this.ordinals[30],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec,
       [],
@@ -1051,9 +1131,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runArcPingRoutine() {
-    // Ordinal: 30
     return this.proxy.sendMessage(
-      30,  // ordinal
+      this.ordinals[31],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec,
       [],
@@ -1061,9 +1140,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runArcDnsResolutionRoutine() {
-    // Ordinal: 31
     return this.proxy.sendMessage(
-      31,  // ordinal
+      this.ordinals[32],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec,
       [],
@@ -1071,9 +1149,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runSensitiveSensorRoutine() {
-    // Ordinal: 33
     return this.proxy.sendMessage(
-      33,  // ordinal
+      this.ordinals[33],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec,
       [],
@@ -1081,9 +1158,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runFingerprintRoutine() {
-    // Ordinal: 34
     return this.proxy.sendMessage(
-      34,  // ordinal
+      this.ordinals[34],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec,
       [],
@@ -1091,9 +1167,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runFingerprintAliveRoutine() {
-    // Ordinal: 35
     return this.proxy.sendMessage(
-      35,  // ordinal
+      this.ordinals[35],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec,
       [],
@@ -1101,9 +1176,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runPrivacyScreenRoutine(target_state) {
-    // Ordinal: 36
     return this.proxy.sendMessage(
-      36,  // ordinal
+      this.ordinals[36],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec,
       [target_state],
@@ -1111,9 +1185,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   dEPRECATED_RunLedLitUpRoutine(name, color, replier) {
-    // Ordinal: 37
     return this.proxy.sendMessage(
-      37,  // ordinal
+      this.ordinals[37],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec,
       [name, color, replier],
@@ -1121,9 +1194,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runEmmcLifetimeRoutine() {
-    // Ordinal: 38
     return this.proxy.sendMessage(
-      38,  // ordinal
+      this.ordinals[38],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec,
       [],
@@ -1131,9 +1203,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   dEPRECATED_RunAudioSetVolumeRoutine(node_id, volume, mute_on) {
-    // Ordinal: 39
     return this.proxy.sendMessage(
-      39,  // ordinal
+      this.ordinals[39],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec,
       [node_id, volume, mute_on],
@@ -1141,9 +1212,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   dEPRECATED_RunAudioSetGainRoutine(node_id, gain, deprecated_mute_on) {
-    // Ordinal: 40
     return this.proxy.sendMessage(
-      40,  // ordinal
+      this.ordinals[40],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec,
       [node_id, gain, deprecated_mute_on],
@@ -1151,9 +1221,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runBluetoothPowerRoutine() {
-    // Ordinal: 41
     return this.proxy.sendMessage(
-      41,  // ordinal
+      this.ordinals[41],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec,
       [],
@@ -1161,9 +1230,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runBluetoothDiscoveryRoutine() {
-    // Ordinal: 42
     return this.proxy.sendMessage(
-      42,  // ordinal
+      this.ordinals[42],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec,
       [],
@@ -1171,9 +1239,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runBluetoothScanningRoutine(length_seconds) {
-    // Ordinal: 43
     return this.proxy.sendMessage(
-      43,  // ordinal
+      this.ordinals[43],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec,
       [length_seconds],
@@ -1181,9 +1248,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runBluetoothPairingRoutine(peripheral_id) {
-    // Ordinal: 44
     return this.proxy.sendMessage(
-      44,  // ordinal
+      this.ordinals[44],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec,
       [peripheral_id],
@@ -1191,9 +1257,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runPowerButtonRoutine(timeout_seconds) {
-    // Ordinal: 45
     return this.proxy.sendMessage(
-      45,  // ordinal
+      this.ordinals[45],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec,
       [timeout_seconds],
@@ -1201,9 +1266,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runAudioDriverRoutine() {
-    // Ordinal: 46
     return this.proxy.sendMessage(
-      46,  // ordinal
+      this.ordinals[46],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec,
       [],
@@ -1211,9 +1275,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runUfsLifetimeRoutine() {
-    // Ordinal: 47
     return this.proxy.sendMessage(
-      47,  // ordinal
+      this.ordinals[47],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec,
       [],
@@ -1221,9 +1284,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
   }
 
   runFanRoutine() {
-    // Ordinal: 48
     return this.proxy.sendMessage(
-      48,  // ordinal
+      this.ordinals[48],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec,
       [],
@@ -1247,55 +1309,61 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
-    this.ordinalMap.set(32, 11); // Default ordinal 32 -> Index 11
-    this.ordinalMap.set(11, 12); // Default ordinal 11 -> Index 12
-    this.ordinalMap.set(12, 13); // Default ordinal 12 -> Index 13
-    this.ordinalMap.set(13, 14); // Default ordinal 13 -> Index 14
-    this.ordinalMap.set(14, 15); // Default ordinal 14 -> Index 15
-    this.ordinalMap.set(15, 16); // Default ordinal 15 -> Index 16
-    this.ordinalMap.set(16, 17); // Default ordinal 16 -> Index 17
-    this.ordinalMap.set(17, 18); // Default ordinal 17 -> Index 18
-    this.ordinalMap.set(18, 19); // Default ordinal 18 -> Index 19
-    this.ordinalMap.set(19, 20); // Default ordinal 19 -> Index 20
-    this.ordinalMap.set(20, 21); // Default ordinal 20 -> Index 21
-    this.ordinalMap.set(21, 22); // Default ordinal 21 -> Index 22
-    this.ordinalMap.set(22, 23); // Default ordinal 22 -> Index 23
-    this.ordinalMap.set(23, 24); // Default ordinal 23 -> Index 24
-    this.ordinalMap.set(24, 25); // Default ordinal 24 -> Index 25
-    this.ordinalMap.set(25, 26); // Default ordinal 25 -> Index 26
-    this.ordinalMap.set(26, 27); // Default ordinal 26 -> Index 27
-    this.ordinalMap.set(27, 28); // Default ordinal 27 -> Index 28
-    this.ordinalMap.set(28, 29); // Default ordinal 28 -> Index 29
-    this.ordinalMap.set(29, 30); // Default ordinal 29 -> Index 30
-    this.ordinalMap.set(30, 31); // Default ordinal 30 -> Index 31
-    this.ordinalMap.set(31, 32); // Default ordinal 31 -> Index 32
-    this.ordinalMap.set(33, 33); // Default ordinal 33 -> Index 33
-    this.ordinalMap.set(34, 34); // Default ordinal 34 -> Index 34
-    this.ordinalMap.set(35, 35); // Default ordinal 35 -> Index 35
-    this.ordinalMap.set(36, 36); // Default ordinal 36 -> Index 36
-    this.ordinalMap.set(37, 37); // Default ordinal 37 -> Index 37
-    this.ordinalMap.set(38, 38); // Default ordinal 38 -> Index 38
-    this.ordinalMap.set(39, 39); // Default ordinal 39 -> Index 39
-    this.ordinalMap.set(40, 40); // Default ordinal 40 -> Index 40
-    this.ordinalMap.set(41, 41); // Default ordinal 41 -> Index 41
-    this.ordinalMap.set(42, 42); // Default ordinal 42 -> Index 42
-    this.ordinalMap.set(43, 43); // Default ordinal 43 -> Index 43
-    this.ordinalMap.set(44, 44); // Default ordinal 44 -> Index 44
-    this.ordinalMap.set(45, 45); // Default ordinal 45 -> Index 45
-    this.ordinalMap.set(46, 46); // Default ordinal 46 -> Index 46
-    this.ordinalMap.set(47, 47); // Default ordinal 47 -> Index 47
-    this.ordinalMap.set(48, 48); // Default ordinal 48 -> Index 48
+    const ordinals = window.mojoScrambler.getOrdinals('CrosHealthdDiagnosticsService', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 7 },
+      { explicit: 8 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 32 },
+      { explicit: 11 },
+      { explicit: 12 },
+      { explicit: 13 },
+      { explicit: 14 },
+      { explicit: 15 },
+      { explicit: 16 },
+      { explicit: 17 },
+      { explicit: 18 },
+      { explicit: 19 },
+      { explicit: 20 },
+      { explicit: 21 },
+      { explicit: 22 },
+      { explicit: 23 },
+      { explicit: 24 },
+      { explicit: 25 },
+      { explicit: 26 },
+      { explicit: 27 },
+      { explicit: 28 },
+      { explicit: 29 },
+      { explicit: 30 },
+      { explicit: 31 },
+      { explicit: 33 },
+      { explicit: 34 },
+      { explicit: 35 },
+      { explicit: 36 },
+      { explicit: 37 },
+      { explicit: 38 },
+      { explicit: 39 },
+      { explicit: 40 },
+      { explicit: 41 },
+      { explicit: 42 },
+      { explicit: 43 },
+      { explicit: 44 },
+      { explicit: 45 },
+      { explicit: 46 },
+      { explicit: 47 },
+      { explicit: 48 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1333,7 +1401,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 0: GetAvailableRoutines
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAvailableRoutines (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1344,7 +1412,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 1: GetRoutineUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRoutineUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1355,7 +1423,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 2: RunUrandomRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunUrandomRoutine (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1366,7 +1434,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 3: RunBatteryCapacityRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryCapacityRoutine (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1377,7 +1445,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 4: RunBatteryHealthRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryHealthRoutine (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1388,7 +1456,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 5: RunSmartctlCheckRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunSmartctlCheckRoutine (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1399,7 +1467,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 6: RunAcPowerRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunAcPowerRoutine (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1410,7 +1478,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 7: RunCpuCacheRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunCpuCacheRoutine (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1421,7 +1489,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 8: RunCpuStressRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunCpuStressRoutine (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1432,7 +1500,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 9: RunFloatingPointAccuracyRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunFloatingPointAccuracyRoutine (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1443,7 +1511,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 10: DEPRECATED_RunNvmeWearLevelRoutineWithThreshold
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_RunNvmeWearLevelRoutineWithThreshold (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1454,7 +1522,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 11: DEPRECATED_RunNvmeWearLevelRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_RunNvmeWearLevelRoutine (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1465,7 +1533,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 12: RunNvmeSelfTestRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunNvmeSelfTestRoutine (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1476,7 +1544,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 13: RunDiskReadRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDiskReadRoutine (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1487,7 +1555,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 14: RunPrimeSearchRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunPrimeSearchRoutine (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1498,7 +1566,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 15: RunBatteryDischargeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryDischargeRoutine (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1509,7 +1577,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 16: RunBatteryChargeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBatteryChargeRoutine (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1520,7 +1588,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 17: RunMemoryRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunMemoryRoutine (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1531,7 +1599,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 18: RunLanConnectivityRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunLanConnectivityRoutine (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1542,7 +1610,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 19: RunSignalStrengthRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunSignalStrengthRoutine (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1553,7 +1621,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 20: RunGatewayCanBePingedRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunGatewayCanBePingedRoutine (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1564,7 +1632,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 21: RunHasSecureWiFiConnectionRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHasSecureWiFiConnectionRoutine (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1575,7 +1643,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 22: RunDnsResolverPresentRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsResolverPresentRoutine (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1586,7 +1654,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 23: RunDnsLatencyRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsLatencyRoutine (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1597,7 +1665,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 24: RunDnsResolutionRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsResolutionRoutine (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1608,7 +1676,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 25: RunCaptivePortalRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunCaptivePortalRoutine (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1619,7 +1687,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 26: RunHttpFirewallRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHttpFirewallRoutine (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1630,7 +1698,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 27: RunHttpsFirewallRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHttpsFirewallRoutine (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1641,7 +1709,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 28: RunHttpsLatencyRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHttpsLatencyRoutine (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1652,7 +1720,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 29: RunVideoConferencingRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunVideoConferencingRoutine (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1663,7 +1731,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 30: RunArcHttpRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunArcHttpRoutine (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1674,7 +1742,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 31: RunArcPingRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunArcPingRoutine (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -1685,7 +1753,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 32: RunArcDnsResolutionRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunArcDnsResolutionRoutine (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -1696,7 +1764,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 33: RunSensitiveSensorRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunSensitiveSensorRoutine (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -1707,7 +1775,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 34: RunFingerprintRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunFingerprintRoutine (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -1718,7 +1786,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 35: RunFingerprintAliveRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunFingerprintAliveRoutine (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -1729,7 +1797,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 36: RunPrivacyScreenRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunPrivacyScreenRoutine (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -1740,7 +1808,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 37: DEPRECATED_RunLedLitUpRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_RunLedLitUpRoutine (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
@@ -1751,7 +1819,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 38: RunEmmcLifetimeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunEmmcLifetimeRoutine (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
@@ -1762,7 +1830,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 39: DEPRECATED_RunAudioSetVolumeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_RunAudioSetVolumeRoutine (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
@@ -1773,7 +1841,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 40: DEPRECATED_RunAudioSetGainRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_RunAudioSetGainRoutine (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
@@ -1784,7 +1852,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 41: RunBluetoothPowerRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothPowerRoutine (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
@@ -1795,7 +1863,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 42: RunBluetoothDiscoveryRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothDiscoveryRoutine (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
@@ -1806,7 +1874,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 43: RunBluetoothScanningRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothScanningRoutine (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
@@ -1817,7 +1885,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 44: RunBluetoothPairingRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunBluetoothPairingRoutine (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
@@ -1828,7 +1896,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 45: RunPowerButtonRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunPowerButtonRoutine (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
@@ -1839,7 +1907,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 46: RunAudioDriverRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunAudioDriverRoutine (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
@@ -1850,7 +1918,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 47: RunUfsLifetimeRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunUfsLifetimeRoutine (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
@@ -1861,7 +1929,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         // Try Method 48: RunFanRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunFanRoutine (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
@@ -1878,7 +1946,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getAvailableRoutines');
           const result = this.impl.getAvailableRoutines();
           if (header.expectsResponse) {
@@ -1891,7 +1959,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getRoutineUpdate');
           const result = this.impl.getRoutineUpdate(params.id, params.command, params.include_output);
           if (header.expectsResponse) {
@@ -1904,7 +1972,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runUrandomRoutine');
           const result = this.impl.runUrandomRoutine(params.length_seconds);
           if (header.expectsResponse) {
@@ -1917,7 +1985,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runBatteryCapacityRoutine');
           const result = this.impl.runBatteryCapacityRoutine();
           if (header.expectsResponse) {
@@ -1930,7 +1998,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runBatteryHealthRoutine');
           const result = this.impl.runBatteryHealthRoutine();
           if (header.expectsResponse) {
@@ -1943,7 +2011,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runSmartctlCheckRoutine');
           const result = this.impl.runSmartctlCheckRoutine(params.percentage_used_threshold);
           if (header.expectsResponse) {
@@ -1956,7 +2024,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runAcPowerRoutine');
           const result = this.impl.runAcPowerRoutine(params.expected_status, params.expected_power_type);
           if (header.expectsResponse) {
@@ -1969,7 +2037,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runCpuCacheRoutine');
           const result = this.impl.runCpuCacheRoutine(params.length_seconds);
           if (header.expectsResponse) {
@@ -1982,7 +2050,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runCpuStressRoutine');
           const result = this.impl.runCpuStressRoutine(params.length_seconds);
           if (header.expectsResponse) {
@@ -1995,7 +2063,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runFloatingPointAccuracyRoutine');
           const result = this.impl.runFloatingPointAccuracyRoutine(params.length_seconds);
           if (header.expectsResponse) {
@@ -2008,7 +2076,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunNvmeWearLevelRoutineWithThreshold');
           const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutineWithThreshold(params.wear_level_threshold);
           if (header.expectsResponse) {
@@ -2021,7 +2089,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunNvmeWearLevelRoutine');
           const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutine(params.wear_level_threshold);
           if (header.expectsResponse) {
@@ -2034,7 +2102,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runNvmeSelfTestRoutine');
           const result = this.impl.runNvmeSelfTestRoutine(params.nvme_self_test_type);
           if (header.expectsResponse) {
@@ -2047,7 +2115,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runDiskReadRoutine');
           const result = this.impl.runDiskReadRoutine(params.type, params.length_seconds, params.file_size_mb);
           if (header.expectsResponse) {
@@ -2060,7 +2128,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runPrimeSearchRoutine');
           const result = this.impl.runPrimeSearchRoutine(params.length_seconds);
           if (header.expectsResponse) {
@@ -2073,7 +2141,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runBatteryDischargeRoutine');
           const result = this.impl.runBatteryDischargeRoutine(params.length_seconds, params.maximum_discharge_percent_allowed);
           if (header.expectsResponse) {
@@ -2086,7 +2154,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runBatteryChargeRoutine');
           const result = this.impl.runBatteryChargeRoutine(params.length_seconds, params.minimum_charge_percent_required);
           if (header.expectsResponse) {
@@ -2099,7 +2167,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runMemoryRoutine');
           const result = this.impl.runMemoryRoutine(params.max_testing_mem_kib);
           if (header.expectsResponse) {
@@ -2112,7 +2180,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runLanConnectivityRoutine');
           const result = this.impl.runLanConnectivityRoutine();
           if (header.expectsResponse) {
@@ -2125,7 +2193,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runSignalStrengthRoutine');
           const result = this.impl.runSignalStrengthRoutine();
           if (header.expectsResponse) {
@@ -2138,7 +2206,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runGatewayCanBePingedRoutine');
           const result = this.impl.runGatewayCanBePingedRoutine();
           if (header.expectsResponse) {
@@ -2151,7 +2219,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runHasSecureWiFiConnectionRoutine');
           const result = this.impl.runHasSecureWiFiConnectionRoutine();
           if (header.expectsResponse) {
@@ -2164,7 +2232,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolverPresentRoutine');
           const result = this.impl.runDnsResolverPresentRoutine();
           if (header.expectsResponse) {
@@ -2177,7 +2245,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsLatencyRoutine');
           const result = this.impl.runDnsLatencyRoutine();
           if (header.expectsResponse) {
@@ -2190,7 +2258,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolutionRoutine');
           const result = this.impl.runDnsResolutionRoutine();
           if (header.expectsResponse) {
@@ -2203,7 +2271,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runCaptivePortalRoutine');
           const result = this.impl.runCaptivePortalRoutine();
           if (header.expectsResponse) {
@@ -2216,7 +2284,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpFirewallRoutine');
           const result = this.impl.runHttpFirewallRoutine();
           if (header.expectsResponse) {
@@ -2229,7 +2297,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpsFirewallRoutine');
           const result = this.impl.runHttpsFirewallRoutine();
           if (header.expectsResponse) {
@@ -2242,7 +2310,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpsLatencyRoutine');
           const result = this.impl.runHttpsLatencyRoutine();
           if (header.expectsResponse) {
@@ -2255,7 +2323,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runVideoConferencingRoutine');
           const result = this.impl.runVideoConferencingRoutine(params.stun_server_hostname);
           if (header.expectsResponse) {
@@ -2268,7 +2336,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcHttpRoutine');
           const result = this.impl.runArcHttpRoutine();
           if (header.expectsResponse) {
@@ -2281,7 +2349,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcPingRoutine');
           const result = this.impl.runArcPingRoutine();
           if (header.expectsResponse) {
@@ -2294,7 +2362,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcDnsResolutionRoutine');
           const result = this.impl.runArcDnsResolutionRoutine();
           if (header.expectsResponse) {
@@ -2307,7 +2375,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runSensitiveSensorRoutine');
           const result = this.impl.runSensitiveSensorRoutine();
           if (header.expectsResponse) {
@@ -2320,7 +2388,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runFingerprintRoutine');
           const result = this.impl.runFingerprintRoutine();
           if (header.expectsResponse) {
@@ -2333,7 +2401,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runFingerprintAliveRoutine');
           const result = this.impl.runFingerprintAliveRoutine();
           if (header.expectsResponse) {
@@ -2346,7 +2414,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runPrivacyScreenRoutine');
           const result = this.impl.runPrivacyScreenRoutine(params.target_state);
           if (header.expectsResponse) {
@@ -2359,7 +2427,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunLedLitUpRoutine');
           const result = this.impl.dEPRECATED_RunLedLitUpRoutine(params.name, params.color, params.replier);
           if (header.expectsResponse) {
@@ -2372,7 +2440,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runEmmcLifetimeRoutine');
           const result = this.impl.runEmmcLifetimeRoutine();
           if (header.expectsResponse) {
@@ -2385,7 +2453,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunAudioSetVolumeRoutine');
           const result = this.impl.dEPRECATED_RunAudioSetVolumeRoutine(params.node_id, params.volume, params.mute_on);
           if (header.expectsResponse) {
@@ -2398,7 +2466,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunAudioSetGainRoutine');
           const result = this.impl.dEPRECATED_RunAudioSetGainRoutine(params.node_id, params.gain, params.deprecated_mute_on);
           if (header.expectsResponse) {
@@ -2411,7 +2479,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothPowerRoutine');
           const result = this.impl.runBluetoothPowerRoutine();
           if (header.expectsResponse) {
@@ -2424,7 +2492,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothDiscoveryRoutine');
           const result = this.impl.runBluetoothDiscoveryRoutine();
           if (header.expectsResponse) {
@@ -2437,7 +2505,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 43: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothScanningRoutine');
           const result = this.impl.runBluetoothScanningRoutine(params.length_seconds);
           if (header.expectsResponse) {
@@ -2450,7 +2518,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 44: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothPairingRoutine');
           const result = this.impl.runBluetoothPairingRoutine(params.peripheral_id);
           if (header.expectsResponse) {
@@ -2463,7 +2531,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 45: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runPowerButtonRoutine');
           const result = this.impl.runPowerButtonRoutine(params.timeout_seconds);
           if (header.expectsResponse) {
@@ -2476,7 +2544,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 46: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runAudioDriverRoutine');
           const result = this.impl.runAudioDriverRoutine();
           if (header.expectsResponse) {
@@ -2489,7 +2557,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 47: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runUfsLifetimeRoutine');
           const result = this.impl.runUfsLifetimeRoutine();
           if (header.expectsResponse) {
@@ -2502,7 +2570,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 48: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runFanRoutine');
           const result = this.impl.runFanRoutine();
           if (header.expectsResponse) {
@@ -2619,12 +2687,22 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemote = class {
 ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdEventService', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 7 },
+      { explicit: 8 },
+    ]);
   }
 
   dEPRECATED_AddBluetoothObserver(observer) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec,
       null,
       [observer],
@@ -2632,9 +2710,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
   }
 
   dEPRECATED_AddLidObserver(observer) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec,
       null,
       [observer],
@@ -2642,9 +2719,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
   }
 
   dEPRECATED_AddPowerObserver(observer) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec,
       null,
       [observer],
@@ -2652,9 +2728,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
   }
 
   addNetworkObserver(observer) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec,
       null,
       [observer],
@@ -2662,9 +2737,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
   }
 
   dEPRECATED_AddAudioObserver(observer) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec,
       null,
       [observer],
@@ -2672,9 +2746,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
   }
 
   dEPRECATED_AddThunderboltObserver(observer) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec,
       null,
       [observer],
@@ -2682,9 +2755,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
   }
 
   dEPRECATED_AddUsbObserver(observer) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec,
       null,
       [observer],
@@ -2692,9 +2764,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
   }
 
   addEventObserver(category, observer) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec,
       null,
       [category, observer],
@@ -2702,9 +2773,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
   }
 
   isEventSupported(category) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec,
       [category],
@@ -2728,15 +2798,21 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    const ordinals = window.mojoScrambler.getOrdinals('CrosHealthdEventService', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 7 },
+      { explicit: 8 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -2774,7 +2850,7 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
         // Try Method 0: DEPRECATED_AddBluetoothObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_AddBluetoothObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2785,7 +2861,7 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
         // Try Method 1: DEPRECATED_AddLidObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_AddLidObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2796,7 +2872,7 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
         // Try Method 2: DEPRECATED_AddPowerObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_AddPowerObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2807,7 +2883,7 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
         // Try Method 3: AddNetworkObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddNetworkObserver (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2818,7 +2894,7 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
         // Try Method 4: DEPRECATED_AddAudioObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_AddAudioObserver (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2829,7 +2905,7 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
         // Try Method 5: DEPRECATED_AddThunderboltObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_AddThunderboltObserver (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2840,7 +2916,7 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
         // Try Method 6: DEPRECATED_AddUsbObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DEPRECATED_AddUsbObserver (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2851,7 +2927,7 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
         // Try Method 7: AddEventObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddEventObserver (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2862,7 +2938,7 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
         // Try Method 8: IsEventSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsEventSupported (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2879,63 +2955,63 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddBluetoothObserver');
           const result = this.impl.dEPRECATED_AddBluetoothObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddLidObserver');
           const result = this.impl.dEPRECATED_AddLidObserver(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddPowerObserver');
           const result = this.impl.dEPRECATED_AddPowerObserver(params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.addNetworkObserver');
           const result = this.impl.addNetworkObserver(params.observer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddAudioObserver');
           const result = this.impl.dEPRECATED_AddAudioObserver(params.observer);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddThunderboltObserver');
           const result = this.impl.dEPRECATED_AddThunderboltObserver(params.observer);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddUsbObserver');
           const result = this.impl.dEPRECATED_AddUsbObserver(params.observer);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.addEventObserver');
           const result = this.impl.addEventObserver(params.category, params.observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.isEventSupported');
           const result = this.impl.isEventSupported(params.category);
           if (header.expectsResponse) {
@@ -3028,12 +3104,16 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceRemote = class {
 ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdProbeService', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+    ]);
   }
 
   probeProcessInfo(process_id) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec,
       [process_id],
@@ -3041,9 +3121,8 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallHandler = class {
   }
 
   probeTelemetryInfo(categories) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
       [categories],
@@ -3051,9 +3130,8 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallHandler = class {
   }
 
   probeMultipleProcessInfo(process_ids, ignore_single_process_error) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec,
       [process_ids, ignore_single_process_error],
@@ -3077,9 +3155,15 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    const ordinals = window.mojoScrambler.getOrdinals('CrosHealthdProbeService', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -3117,7 +3201,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
         // Try Method 0: ProbeProcessInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProbeProcessInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3128,7 +3212,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
         // Try Method 1: ProbeTelemetryInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProbeTelemetryInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -3139,7 +3223,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
         // Try Method 2: ProbeMultipleProcessInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec.$);
+             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProbeMultipleProcessInfo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -3156,7 +3240,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.probeProcessInfo');
           const result = this.impl.probeProcessInfo(params.process_id);
           if (header.expectsResponse) {
@@ -3169,7 +3253,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.probeTelemetryInfo');
           const result = this.impl.probeTelemetryInfo(params.categories);
           if (header.expectsResponse) {
@@ -3182,7 +3266,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec.$);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.probeMultipleProcessInfo');
           const result = this.impl.probeMultipleProcessInfo(params.process_ids, params.ignore_single_process_error);
           if (header.expectsResponse) {

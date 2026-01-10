@@ -3,6 +3,66 @@
 // Module: blink.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var blink = blink || {};
@@ -185,12 +245,24 @@ blink.mojom.AbortableAdAuctionRemote = class {
 blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('AbortableAdAuction', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   resolvedPromiseParam(auction, field, json_value) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec,
       null,
       [auction, field, json_value],
@@ -198,9 +270,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
   }
 
   resolvedPerBuyerSignalsPromise(auction, per_buyer_signals) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec,
       null,
       [auction, per_buyer_signals],
@@ -208,9 +279,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
   }
 
   resolvedBuyerTkvSignalsPromise(auction, buyer, json_value) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec,
       null,
       [auction, buyer, json_value],
@@ -218,9 +288,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
   }
 
   resolvedBuyerTimeoutsPromise(auction, field, buyer_timeouts) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec,
       null,
       [auction, field, buyer_timeouts],
@@ -228,9 +297,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
   }
 
   resolvedBuyerCurrenciesPromise(auction, per_buyer_currencies) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec,
       null,
       [auction, per_buyer_currencies],
@@ -238,9 +306,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
   }
 
   resolvedDirectFromSellerSignalsPromise(auction, direct_from_seller_signals) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec,
       null,
       [auction, direct_from_seller_signals],
@@ -248,9 +315,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
   }
 
   resolvedDirectFromSellerSignalsHeaderAdSlotPromise(auction, direct_from_seller_signals_header_ad_slot) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec,
       null,
       [auction, direct_from_seller_signals_header_ad_slot],
@@ -258,9 +324,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
   }
 
   resolvedDeprecatedRenderURLReplacementsPromise(auction, deprecated_render_url_replacements) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec,
       null,
       [auction, deprecated_render_url_replacements],
@@ -268,9 +333,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
   }
 
   resolvedAuctionAdResponsePromise(auction, result) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec,
       null,
       [auction, result],
@@ -278,9 +342,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
   }
 
   resolvedAdditionalBids(auction) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec,
       null,
       [auction],
@@ -288,9 +351,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
   }
 
   abort() {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       blink.mojom.AbortableAdAuction_Abort_ParamsSpec,
       null,
       [],
@@ -314,17 +376,23 @@ blink.mojom.AbortableAdAuctionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    const ordinals = window.mojoScrambler.getOrdinals('AbortableAdAuction', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -362,7 +430,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         // Try Method 0: ResolvedPromiseParam
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolvedPromiseParam (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -373,7 +441,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         // Try Method 1: ResolvedPerBuyerSignalsPromise
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolvedPerBuyerSignalsPromise (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -384,7 +452,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         // Try Method 2: ResolvedBuyerTkvSignalsPromise
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolvedBuyerTkvSignalsPromise (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -395,7 +463,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         // Try Method 3: ResolvedBuyerTimeoutsPromise
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolvedBuyerTimeoutsPromise (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -406,7 +474,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         // Try Method 4: ResolvedBuyerCurrenciesPromise
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolvedBuyerCurrenciesPromise (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -417,7 +485,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         // Try Method 5: ResolvedDirectFromSellerSignalsPromise
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolvedDirectFromSellerSignalsPromise (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -428,7 +496,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         // Try Method 6: ResolvedDirectFromSellerSignalsHeaderAdSlotPromise
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolvedDirectFromSellerSignalsHeaderAdSlotPromise (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -439,7 +507,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         // Try Method 7: ResolvedDeprecatedRenderURLReplacementsPromise
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolvedDeprecatedRenderURLReplacementsPromise (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -450,7 +518,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         // Try Method 8: ResolvedAuctionAdResponsePromise
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolvedAuctionAdResponsePromise (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -461,7 +529,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         // Try Method 9: ResolvedAdditionalBids
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolvedAdditionalBids (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -472,7 +540,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         // Try Method 10: Abort
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_Abort_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AbortableAdAuction_Abort_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Abort (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -489,77 +557,77 @@ blink.mojom.AbortableAdAuctionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedPromiseParam');
           const result = this.impl.resolvedPromiseParam(params.auction, params.field, params.json_value);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedPerBuyerSignalsPromise');
           const result = this.impl.resolvedPerBuyerSignalsPromise(params.auction, params.per_buyer_signals);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedBuyerTkvSignalsPromise');
           const result = this.impl.resolvedBuyerTkvSignalsPromise(params.auction, params.buyer, params.json_value);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedBuyerTimeoutsPromise');
           const result = this.impl.resolvedBuyerTimeoutsPromise(params.auction, params.field, params.buyer_timeouts);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedBuyerCurrenciesPromise');
           const result = this.impl.resolvedBuyerCurrenciesPromise(params.auction, params.per_buyer_currencies);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedDirectFromSellerSignalsPromise');
           const result = this.impl.resolvedDirectFromSellerSignalsPromise(params.auction, params.direct_from_seller_signals);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedDirectFromSellerSignalsHeaderAdSlotPromise');
           const result = this.impl.resolvedDirectFromSellerSignalsHeaderAdSlotPromise(params.auction, params.direct_from_seller_signals_header_ad_slot);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedDeprecatedRenderURLReplacementsPromise');
           const result = this.impl.resolvedDeprecatedRenderURLReplacementsPromise(params.auction, params.deprecated_render_url_replacements);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedAuctionAdResponsePromise');
           const result = this.impl.resolvedAuctionAdResponsePromise(params.auction, params.result);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedAdditionalBids');
           const result = this.impl.resolvedAdditionalBids(params.auction);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_Abort_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AbortableAdAuction_Abort_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort();
           break;
@@ -735,12 +803,24 @@ blink.mojom.AdAuctionServiceRemote = class {
 blink.mojom.AdAuctionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('AdAuctionService', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   createAdRequest(config) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec,
       blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec,
       [config],
@@ -748,9 +828,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
   }
 
   finalizeAd(ads_guid, config) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec,
       blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec,
       [ads_guid, config],
@@ -758,9 +837,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
   }
 
   runAdAuction(config, abort_receiver) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec,
       blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec,
       [config, abort_receiver],
@@ -768,9 +846,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
   }
 
   joinInterestGroup(group) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec,
       blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec,
       [group],
@@ -778,9 +855,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
   }
 
   leaveInterestGroup(owner, name) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec,
       blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec,
       [owner, name],
@@ -788,9 +864,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
   }
 
   leaveInterestGroupForDocument() {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec,
       null,
       [],
@@ -798,9 +873,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
   }
 
   clearOriginJoinedInterestGroups(owner, interest_groups_to_keep) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec,
       blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec,
       [owner, interest_groups_to_keep],
@@ -808,9 +882,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
   }
 
   updateAdInterestGroups() {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec,
       null,
       [],
@@ -818,9 +891,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
   }
 
   deprecatedGetURLFromURN(uuid_url, send_reports) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec,
       blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec,
       [uuid_url, send_reports],
@@ -828,9 +900,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
   }
 
   deprecatedReplaceInURN(uuid_url, replacements) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec,
       blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec,
       [uuid_url, replacements],
@@ -838,9 +909,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
   }
 
   getInterestGroupAdAuctionData(sellers, config) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec,
       blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec,
       [sellers, config],
@@ -864,17 +934,23 @@ blink.mojom.AdAuctionServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    const ordinals = window.mojoScrambler.getOrdinals('AdAuctionService', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -912,7 +988,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         // Try Method 0: CreateAdRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAdRequest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -923,7 +999,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         // Try Method 1: FinalizeAd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FinalizeAd (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -934,7 +1010,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         // Try Method 2: RunAdAuction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunAdAuction (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -945,7 +1021,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         // Try Method 3: JoinInterestGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> JoinInterestGroup (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -956,7 +1032,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         // Try Method 4: LeaveInterestGroup
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LeaveInterestGroup (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -967,7 +1043,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         // Try Method 5: LeaveInterestGroupForDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LeaveInterestGroupForDocument (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -978,7 +1054,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         // Try Method 6: ClearOriginJoinedInterestGroups
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearOriginJoinedInterestGroups (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -989,7 +1065,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         // Try Method 7: UpdateAdInterestGroups
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAdInterestGroups (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1000,7 +1076,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         // Try Method 8: DeprecatedGetURLFromURN
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeprecatedGetURLFromURN (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1011,7 +1087,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         // Try Method 9: DeprecatedReplaceInURN
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeprecatedReplaceInURN (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1022,7 +1098,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         // Try Method 10: GetInterestGroupAdAuctionData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInterestGroupAdAuctionData (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1039,7 +1115,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createAdRequest');
           const result = this.impl.createAdRequest(params.config);
           if (header.expectsResponse) {
@@ -1052,7 +1128,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.finalizeAd');
           const result = this.impl.finalizeAd(params.ads_guid, params.config);
           if (header.expectsResponse) {
@@ -1065,7 +1141,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runAdAuction');
           const result = this.impl.runAdAuction(params.config, params.abort_receiver);
           if (header.expectsResponse) {
@@ -1078,7 +1154,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.joinInterestGroup');
           const result = this.impl.joinInterestGroup(params.group);
           if (header.expectsResponse) {
@@ -1091,7 +1167,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.leaveInterestGroup');
           const result = this.impl.leaveInterestGroup(params.owner, params.name);
           if (header.expectsResponse) {
@@ -1104,14 +1180,14 @@ blink.mojom.AdAuctionServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.leaveInterestGroupForDocument');
           const result = this.impl.leaveInterestGroupForDocument();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.clearOriginJoinedInterestGroups');
           const result = this.impl.clearOriginJoinedInterestGroups(params.owner, params.interest_groups_to_keep);
           if (header.expectsResponse) {
@@ -1124,14 +1200,14 @@ blink.mojom.AdAuctionServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAdInterestGroups');
           const result = this.impl.updateAdInterestGroups();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.deprecatedGetURLFromURN');
           const result = this.impl.deprecatedGetURLFromURN(params.uuid_url, params.send_reports);
           if (header.expectsResponse) {
@@ -1144,7 +1220,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.deprecatedReplaceInURN');
           const result = this.impl.deprecatedReplaceInURN(params.uuid_url, params.replacements);
           if (header.expectsResponse) {
@@ -1157,7 +1233,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getInterestGroupAdAuctionData');
           const result = this.impl.getInterestGroupAdAuctionData(params.sellers, params.config);
           if (header.expectsResponse) {

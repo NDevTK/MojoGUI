@@ -3,6 +3,66 @@
 // Module: storage.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var storage = storage || {};
@@ -157,12 +217,24 @@ storage.mojom.SessionStorageControlRemote = class {
 storage.mojom.SessionStorageControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('SessionStorageControl', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   bindNamespace(namespace_id, receiver) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec,
       null,
       [namespace_id, receiver],
@@ -170,9 +242,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
   }
 
   bindStorageArea(storage_key, namespace_id, receiver) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec,
       null,
       [storage_key, namespace_id, receiver],
@@ -180,9 +251,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
   }
 
   getUsage() {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       storage.mojom.SessionStorageControl_GetUsage_ParamsSpec,
       storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec,
       [],
@@ -190,9 +260,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
   }
 
   deleteStorage(storage_key, namespace_id) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec,
       storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec,
       [storage_key, namespace_id],
@@ -200,9 +269,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
   }
 
   cleanUpStorage() {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec,
       storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec,
       [],
@@ -210,9 +278,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
   }
 
   scavengeUnusedNamespaces() {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec,
       null,
       [],
@@ -220,9 +287,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
   }
 
   flush() {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       storage.mojom.SessionStorageControl_Flush_ParamsSpec,
       null,
       [],
@@ -230,9 +296,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
   }
 
   purgeMemory() {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec,
       null,
       [],
@@ -240,9 +305,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
   }
 
   createNamespace(namespace_id) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec,
       null,
       [namespace_id],
@@ -250,9 +314,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
   }
 
   cloneNamespace(namespace_id_to_clone, clone_namespace_id, clone_type) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec,
       null,
       [namespace_id_to_clone, clone_namespace_id, clone_type],
@@ -260,9 +323,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
   }
 
   deleteNamespace(namespace_id, should_persist) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec,
       null,
       [namespace_id, should_persist],
@@ -286,17 +348,23 @@ storage.mojom.SessionStorageControlReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    const ordinals = window.mojoScrambler.getOrdinals('SessionStorageControl', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -334,7 +402,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 0: BindNamespace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec.$);
+             decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindNamespace (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -345,7 +413,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 1: BindStorageArea
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec.$);
+             decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindStorageArea (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -356,7 +424,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 2: GetUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(storage.mojom.SessionStorageControl_GetUsage_ParamsSpec.$);
+             decoder.decodeStructInline(storage.mojom.SessionStorageControl_GetUsage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUsage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -367,7 +435,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 3: DeleteStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec.$);
+             decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteStorage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -378,7 +446,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 4: CleanUpStorage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec.$);
+             decoder.decodeStructInline(storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CleanUpStorage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -389,7 +457,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 5: ScavengeUnusedNamespaces
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec.$);
+             decoder.decodeStructInline(storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScavengeUnusedNamespaces (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -400,7 +468,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 6: Flush
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(storage.mojom.SessionStorageControl_Flush_ParamsSpec.$);
+             decoder.decodeStructInline(storage.mojom.SessionStorageControl_Flush_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -411,7 +479,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 7: PurgeMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec.$);
+             decoder.decodeStructInline(storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PurgeMemory (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -422,7 +490,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 8: CreateNamespace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec.$);
+             decoder.decodeStructInline(storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNamespace (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -433,7 +501,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 9: CloneNamespace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec.$);
+             decoder.decodeStructInline(storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloneNamespace (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -444,7 +512,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         // Try Method 10: DeleteNamespace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec.$);
+             decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteNamespace (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -461,21 +529,21 @@ storage.mojom.SessionStorageControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec.$);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.bindNamespace');
           const result = this.impl.bindNamespace(params.namespace_id, params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec.$);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.bindStorageArea');
           const result = this.impl.bindStorageArea(params.storage_key, params.namespace_id, params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_GetUsage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_GetUsage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getUsage');
           const result = this.impl.getUsage();
           if (header.expectsResponse) {
@@ -488,7 +556,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteStorage');
           const result = this.impl.deleteStorage(params.storage_key, params.namespace_id);
           if (header.expectsResponse) {
@@ -501,7 +569,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.cleanUpStorage');
           const result = this.impl.cleanUpStorage();
           if (header.expectsResponse) {
@@ -514,42 +582,42 @@ storage.mojom.SessionStorageControlReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec.$);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.scavengeUnusedNamespaces');
           const result = this.impl.scavengeUnusedNamespaces();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_Flush_ParamsSpec.$);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_Flush_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec.$);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.purgeMemory');
           const result = this.impl.purgeMemory();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec.$);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createNamespace');
           const result = this.impl.createNamespace(params.namespace_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec.$);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneNamespace');
           const result = this.impl.cloneNamespace(params.namespace_id_to_clone, params.clone_namespace_id, params.clone_type);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec.$);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteNamespace');
           const result = this.impl.deleteNamespace(params.namespace_id, params.should_persist);
           break;

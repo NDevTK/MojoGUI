@@ -3,6 +3,66 @@
 // Module: arc.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var arc = arc || {};
@@ -153,12 +213,21 @@ arc.mojom.InputConnectionRemote = class {
 arc.mojom.InputConnectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('InputConnection', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 7 },
+    ]);
   }
 
   commitText(text, new_cursor_pos) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.InputConnection_CommitText_ParamsSpec,
       null,
       [text, new_cursor_pos],
@@ -166,9 +235,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
   }
 
   deleteSurroundingText(before, after) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec,
       null,
       [before, after],
@@ -176,9 +244,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
   }
 
   finishComposingText() {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       arc.mojom.InputConnection_FinishComposingText_ParamsSpec,
       null,
       [],
@@ -186,9 +253,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
   }
 
   requestTextInputState() {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       arc.mojom.InputConnection_RequestTextInputState_ParamsSpec,
       arc.mojom.InputConnection_RequestTextInputState_ResponseParamsSpec,
       [],
@@ -196,9 +262,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
   }
 
   setComposingText(text, new_cursor_pos, new_selection_range) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       arc.mojom.InputConnection_SetComposingText_ParamsSpec,
       null,
       [text, new_cursor_pos, new_selection_range],
@@ -206,9 +271,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
   }
 
   setSelection(new_selection_range) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       arc.mojom.InputConnection_SetSelection_ParamsSpec,
       null,
       [new_selection_range],
@@ -216,9 +280,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
   }
 
   sendKeyEvent(key_event_data) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       arc.mojom.InputConnection_SendKeyEvent_ParamsSpec,
       null,
       [key_event_data],
@@ -226,9 +289,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
   }
 
   setCompositionRange(new_range) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       arc.mojom.InputConnection_SetCompositionRange_ParamsSpec,
       null,
       [new_range],
@@ -252,14 +314,20 @@ arc.mojom.InputConnectionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    const ordinals = window.mojoScrambler.getOrdinals('InputConnection', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 7 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -297,7 +365,7 @@ arc.mojom.InputConnectionReceiver = class {
         // Try Method 0: CommitText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputConnection_CommitText_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputConnection_CommitText_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitText (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -308,7 +376,7 @@ arc.mojom.InputConnectionReceiver = class {
         // Try Method 1: DeleteSurroundingText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteSurroundingText (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -319,7 +387,7 @@ arc.mojom.InputConnectionReceiver = class {
         // Try Method 2: FinishComposingText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputConnection_FinishComposingText_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputConnection_FinishComposingText_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FinishComposingText (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -330,7 +398,7 @@ arc.mojom.InputConnectionReceiver = class {
         // Try Method 3: RequestTextInputState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputConnection_RequestTextInputState_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputConnection_RequestTextInputState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTextInputState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -341,7 +409,7 @@ arc.mojom.InputConnectionReceiver = class {
         // Try Method 4: SetComposingText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputConnection_SetComposingText_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputConnection_SetComposingText_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetComposingText (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -352,7 +420,7 @@ arc.mojom.InputConnectionReceiver = class {
         // Try Method 5: SetSelection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputConnection_SetSelection_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputConnection_SetSelection_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSelection (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -363,7 +431,7 @@ arc.mojom.InputConnectionReceiver = class {
         // Try Method 6: SendKeyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputConnection_SendKeyEvent_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputConnection_SendKeyEvent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendKeyEvent (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -374,7 +442,7 @@ arc.mojom.InputConnectionReceiver = class {
         // Try Method 7: SetCompositionRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputConnection_SetCompositionRange_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputConnection_SetCompositionRange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCompositionRange (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -391,28 +459,28 @@ arc.mojom.InputConnectionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_CommitText_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_CommitText_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.commitText');
           const result = this.impl.commitText(params.text, params.new_cursor_pos);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteSurroundingText');
           const result = this.impl.deleteSurroundingText(params.before, params.after);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_FinishComposingText_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_FinishComposingText_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.finishComposingText');
           const result = this.impl.finishComposingText();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_RequestTextInputState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_RequestTextInputState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestTextInputState');
           const result = this.impl.requestTextInputState();
           if (header.expectsResponse) {
@@ -425,28 +493,28 @@ arc.mojom.InputConnectionReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetComposingText_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetComposingText_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setComposingText');
           const result = this.impl.setComposingText(params.text, params.new_cursor_pos, params.new_selection_range);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetSelection_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetSelection_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setSelection');
           const result = this.impl.setSelection(params.new_selection_range);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SendKeyEvent_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SendKeyEvent_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendKeyEvent');
           const result = this.impl.sendKeyEvent(params.key_event_data);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetCompositionRange_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetCompositionRange_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setCompositionRange');
           const result = this.impl.setCompositionRange(params.new_range);
           break;
@@ -514,12 +582,16 @@ arc.mojom.InputMethodManagerHostRemote = class {
 arc.mojom.InputMethodManagerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('InputMethodManagerHost', [
+      { explicit: 0 },
+      { explicit: 2 },
+      { explicit: 1 },
+    ]);
   }
 
   onActiveImeChanged(ime_id) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec,
       null,
       [ime_id],
@@ -527,9 +599,8 @@ arc.mojom.InputMethodManagerHostRemoteCallHandler = class {
   }
 
   onImeDisabled(ime_id) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[1],  // ordinal
       arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec,
       null,
       [ime_id],
@@ -537,9 +608,8 @@ arc.mojom.InputMethodManagerHostRemoteCallHandler = class {
   }
 
   onImeInfoChanged(ime_infos) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[2],  // ordinal
       arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec,
       null,
       [ime_infos],
@@ -563,9 +633,15 @@ arc.mojom.InputMethodManagerHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(2, 1); // Default ordinal 2 -> Index 1
-    this.ordinalMap.set(1, 2); // Default ordinal 1 -> Index 2
+    const ordinals = window.mojoScrambler.getOrdinals('InputMethodManagerHost', [
+      { explicit: 0 },
+      { explicit: 2 },
+      { explicit: 1 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -603,7 +679,7 @@ arc.mojom.InputMethodManagerHostReceiver = class {
         // Try Method 0: OnActiveImeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActiveImeChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -614,7 +690,7 @@ arc.mojom.InputMethodManagerHostReceiver = class {
         // Try Method 1: OnImeDisabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImeDisabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -625,7 +701,7 @@ arc.mojom.InputMethodManagerHostReceiver = class {
         // Try Method 2: OnImeInfoChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImeInfoChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -642,21 +718,21 @@ arc.mojom.InputMethodManagerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onActiveImeChanged');
           const result = this.impl.onActiveImeChanged(params.ime_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onImeDisabled');
           const result = this.impl.onImeDisabled(params.ime_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onImeInfoChanged');
           const result = this.impl.onImeInfoChanged(params.ime_infos);
           break;
@@ -765,12 +841,20 @@ arc.mojom.InputMethodManagerInstanceRemote = class {
 arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('InputMethodManagerInstance', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 6 },
+    ]);
   }
 
   init(host_remote) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.InputMethodManagerInstance_Init_ParamsSpec,
       arc.mojom.InputMethodManagerInstance_Init_ResponseParamsSpec,
       [host_remote],
@@ -778,9 +862,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
   }
 
   enableIme(ime_id, enable) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec,
       arc.mojom.InputMethodManagerInstance_EnableIme_ResponseParamsSpec,
       [ime_id, enable],
@@ -788,9 +871,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
   }
 
   switchImeTo(ime_id) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec,
       arc.mojom.InputMethodManagerInstance_SwitchImeTo_ResponseParamsSpec,
       [ime_id],
@@ -798,9 +880,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
   }
 
   focus(connection, initial_state) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec,
       null,
       [connection, initial_state],
@@ -808,9 +889,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
   }
 
   updateTextInputState(state) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec,
       null,
       [state],
@@ -818,9 +898,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
   }
 
   showVirtualKeyboard() {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec,
       null,
       [],
@@ -828,9 +907,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
   }
 
   hideVirtualKeyboard() {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec,
       null,
       [],
@@ -854,13 +932,19 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    const ordinals = window.mojoScrambler.getOrdinals('InputMethodManagerInstance', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 6 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -898,7 +982,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Init_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Init_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -909,7 +993,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         // Try Method 1: EnableIme
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableIme (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -920,7 +1004,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         // Try Method 2: SwitchImeTo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SwitchImeTo (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -931,7 +1015,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         // Try Method 3: Focus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Focus (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -942,7 +1026,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         // Try Method 4: UpdateTextInputState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTextInputState (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -953,7 +1037,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         // Try Method 5: ShowVirtualKeyboard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowVirtualKeyboard (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -964,7 +1048,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         // Try Method 6: HideVirtualKeyboard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HideVirtualKeyboard (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -981,7 +1065,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Init_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Init_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -994,7 +1078,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.enableIme');
           const result = this.impl.enableIme(params.ime_id, params.enable);
           if (header.expectsResponse) {
@@ -1007,7 +1091,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.switchImeTo');
           const result = this.impl.switchImeTo(params.ime_id);
           if (header.expectsResponse) {
@@ -1020,28 +1104,28 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.focus');
           const result = this.impl.focus(params.connection, params.initial_state);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTextInputState');
           const result = this.impl.updateTextInputState(params.state);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.showVirtualKeyboard');
           const result = this.impl.showVirtualKeyboard();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.hideVirtualKeyboard');
           const result = this.impl.hideVirtualKeyboard();
           break;

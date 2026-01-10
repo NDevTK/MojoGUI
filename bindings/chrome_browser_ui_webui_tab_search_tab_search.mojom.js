@@ -3,6 +3,66 @@
 // Module: tab_search.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var tab_search = tab_search || {};
@@ -302,12 +362,14 @@ tab_search.mojom.PageHandlerFactoryRemote = class {
 tab_search.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+      { explicit: null },
+    ]);
   }
 
   createPageHandler(page, handler) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler],
@@ -331,7 +393,13 @@ tab_search.mojom.PageHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -369,7 +437,7 @@ tab_search.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -386,7 +454,7 @@ tab_search.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -670,12 +738,46 @@ tab_search.mojom.PageHandlerRemote = class {
 tab_search.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   closeTab(tab_id) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       tab_search.mojom.PageHandler_CloseTab_ParamsSpec,
       null,
       [tab_id],
@@ -683,9 +785,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   closeWebUiTab() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec,
       null,
       [],
@@ -693,9 +794,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   declutterTabs(tab_ids, urls) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec,
       null,
       [tab_ids, urls],
@@ -703,9 +803,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   acceptTabOrganization(session_id, organization_id, tabs) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec,
       null,
       [session_id, organization_id, tabs],
@@ -713,9 +812,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   rejectTabOrganization(session_id, organization_id) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec,
       null,
       [session_id, organization_id],
@@ -723,9 +821,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   renameTabOrganization(session_id, organization_id, name) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec,
       null,
       [session_id, organization_id, name],
@@ -733,9 +830,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   excludeFromStaleTabs(tab_id) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec,
       null,
       [tab_id],
@@ -743,9 +839,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   excludeFromDuplicateTabs(url) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec,
       null,
       [url],
@@ -753,9 +848,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   getProfileData() {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       tab_search.mojom.PageHandler_GetProfileData_ParamsSpec,
       tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec,
       [],
@@ -763,9 +857,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   getUnusedTabs() {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec,
       tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec,
       [],
@@ -773,9 +866,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   getTabSearchSection() {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec,
       tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec,
       [],
@@ -783,9 +875,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   getTabOrganizationFeature() {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[11],  // ordinal
       tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec,
       tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec,
       [],
@@ -793,9 +884,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   getTabOrganizationSession() {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[12],  // ordinal
       tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec,
       tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec,
       [],
@@ -803,9 +893,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   getTabOrganizationModelStrategy() {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[13],  // ordinal
       tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec,
       tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec,
       [],
@@ -813,9 +902,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   getIsSplit() {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[14],  // ordinal
       tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec,
       tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec,
       [],
@@ -823,9 +911,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   switchToTab(switch_to_tab_info) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[15],  // ordinal
       tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec,
       null,
       [switch_to_tab_info],
@@ -833,9 +920,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   openRecentlyClosedEntry(session_id) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[16],  // ordinal
       tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec,
       null,
       [session_id],
@@ -843,9 +929,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   requestTabOrganization() {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[17],  // ordinal
       tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec,
       null,
       [],
@@ -853,9 +938,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   removeTabFromOrganization(session_id, organization_id, tab) {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[18],  // ordinal
       tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec,
       null,
       [session_id, organization_id, tab],
@@ -863,9 +947,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   rejectSession(session_id) {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[19],  // ordinal
       tab_search.mojom.PageHandler_RejectSession_ParamsSpec,
       null,
       [session_id],
@@ -873,9 +956,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   replaceActiveSplitTab(replacement_tab_id) {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[20],  // ordinal
       tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec,
       null,
       [replacement_tab_id],
@@ -883,9 +965,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   restartSession() {
-    // Ordinal: 21
     return this.proxy.sendMessage(
-      21,  // ordinal
+      this.ordinals[21],  // ordinal
       tab_search.mojom.PageHandler_RestartSession_ParamsSpec,
       null,
       [],
@@ -893,9 +974,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   saveRecentlyClosedExpandedPref(expanded) {
-    // Ordinal: 22
     return this.proxy.sendMessage(
-      22,  // ordinal
+      this.ordinals[22],  // ordinal
       tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec,
       null,
       [expanded],
@@ -903,9 +983,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   setOrganizationFeature(feature) {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[23],  // ordinal
       tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec,
       null,
       [feature],
@@ -913,9 +992,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   startTabGroupTutorial() {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[24],  // ordinal
       tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec,
       null,
       [],
@@ -923,9 +1001,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   triggerFeedback(session_id) {
-    // Ordinal: 25
     return this.proxy.sendMessage(
-      25,  // ordinal
+      this.ordinals[25],  // ordinal
       tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec,
       null,
       [session_id],
@@ -933,9 +1010,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   triggerSignIn() {
-    // Ordinal: 26
     return this.proxy.sendMessage(
-      26,  // ordinal
+      this.ordinals[26],  // ordinal
       tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec,
       null,
       [],
@@ -943,9 +1019,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   openHelpPage() {
-    // Ordinal: 27
     return this.proxy.sendMessage(
-      27,  // ordinal
+      this.ordinals[27],  // ordinal
       tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec,
       null,
       [],
@@ -953,9 +1028,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   setTabOrganizationModelStrategy(strategy) {
-    // Ordinal: 28
     return this.proxy.sendMessage(
-      28,  // ordinal
+      this.ordinals[28],  // ordinal
       tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec,
       null,
       [strategy],
@@ -963,9 +1037,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   setTabOrganizationUserInstruction(user_instruction) {
-    // Ordinal: 29
     return this.proxy.sendMessage(
-      29,  // ordinal
+      this.ordinals[29],  // ordinal
       tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec,
       null,
       [user_instruction],
@@ -973,9 +1046,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   setUserFeedback(session_id, feedback) {
-    // Ordinal: 30
     return this.proxy.sendMessage(
-      30,  // ordinal
+      this.ordinals[30],  // ordinal
       tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec,
       null,
       [session_id, feedback],
@@ -983,9 +1055,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   notifyOrganizationUIReadyToShow() {
-    // Ordinal: 31
     return this.proxy.sendMessage(
-      31,  // ordinal
+      this.ordinals[31],  // ordinal
       tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec,
       null,
       [],
@@ -993,9 +1064,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   notifySearchUIReadyToShow() {
-    // Ordinal: 32
     return this.proxy.sendMessage(
-      32,  // ordinal
+      this.ordinals[32],  // ordinal
       tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec,
       null,
       [],
@@ -1019,39 +1089,45 @@ tab_search.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
-    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
-    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
-    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
-    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
-    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
-    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
-    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
-    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
-    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
-    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
-    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
-    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
-    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
-    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
-    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
-    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
-    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
-    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
-    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
-    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
-    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
-    this.ordinalMap.set(32, 32); // Default ordinal 32 -> Index 32
+    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1089,7 +1165,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 0: CloseTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_CloseTab_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_CloseTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseTab (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1100,7 +1176,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 1: CloseWebUiTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseWebUiTab (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1111,7 +1187,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 2: DeclutterTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeclutterTabs (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1122,7 +1198,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 3: AcceptTabOrganization
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptTabOrganization (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1133,7 +1209,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 4: RejectTabOrganization
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RejectTabOrganization (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1144,7 +1220,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 5: RenameTabOrganization
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenameTabOrganization (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1155,7 +1231,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 6: ExcludeFromStaleTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExcludeFromStaleTabs (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1166,7 +1242,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 7: ExcludeFromDuplicateTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExcludeFromDuplicateTabs (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1177,7 +1253,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 8: GetProfileData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetProfileData_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetProfileData_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProfileData (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1188,7 +1264,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 9: GetUnusedTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUnusedTabs (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1199,7 +1275,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 10: GetTabSearchSection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabSearchSection (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1210,7 +1286,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 11: GetTabOrganizationFeature
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabOrganizationFeature (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1221,7 +1297,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 12: GetTabOrganizationSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabOrganizationSession (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1232,7 +1308,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 13: GetTabOrganizationModelStrategy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabOrganizationModelStrategy (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1243,7 +1319,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 14: GetIsSplit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsSplit (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1254,7 +1330,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 15: SwitchToTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SwitchToTab (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1265,7 +1341,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 16: OpenRecentlyClosedEntry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenRecentlyClosedEntry (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1276,7 +1352,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 17: RequestTabOrganization
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTabOrganization (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1287,7 +1363,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 18: RemoveTabFromOrganization
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveTabFromOrganization (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1298,7 +1374,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 19: RejectSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_RejectSession_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_RejectSession_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RejectSession (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1309,7 +1385,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 20: ReplaceActiveSplitTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReplaceActiveSplitTab (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1320,7 +1396,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 21: RestartSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_RestartSession_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_RestartSession_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestartSession (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1331,7 +1407,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 22: SaveRecentlyClosedExpandedPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveRecentlyClosedExpandedPref (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1342,7 +1418,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 23: SetOrganizationFeature
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOrganizationFeature (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1353,7 +1429,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 24: StartTabGroupTutorial
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartTabGroupTutorial (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1364,7 +1440,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 25: TriggerFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerFeedback (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1375,7 +1451,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 26: TriggerSignIn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerSignIn (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1386,7 +1462,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 27: OpenHelpPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenHelpPage (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1397,7 +1473,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 28: SetTabOrganizationModelStrategy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTabOrganizationModelStrategy (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1408,7 +1484,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 29: SetTabOrganizationUserInstruction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTabOrganizationUserInstruction (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1419,7 +1495,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 30: SetUserFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserFeedback (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1430,7 +1506,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 31: NotifyOrganizationUIReadyToShow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyOrganizationUIReadyToShow (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -1441,7 +1517,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         // Try Method 32: NotifySearchUIReadyToShow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySearchUIReadyToShow (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -1458,63 +1534,63 @@ tab_search.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_CloseTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_CloseTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.closeTab');
           const result = this.impl.closeTab(params.tab_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.closeWebUiTab');
           const result = this.impl.closeWebUiTab();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.declutterTabs');
           const result = this.impl.declutterTabs(params.tab_ids, params.urls);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.acceptTabOrganization');
           const result = this.impl.acceptTabOrganization(params.session_id, params.organization_id, params.tabs);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.rejectTabOrganization');
           const result = this.impl.rejectTabOrganization(params.session_id, params.organization_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.renameTabOrganization');
           const result = this.impl.renameTabOrganization(params.session_id, params.organization_id, params.name);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.excludeFromStaleTabs');
           const result = this.impl.excludeFromStaleTabs(params.tab_id);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.excludeFromDuplicateTabs');
           const result = this.impl.excludeFromDuplicateTabs(params.url);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetProfileData_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetProfileData_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getProfileData');
           const result = this.impl.getProfileData();
           if (header.expectsResponse) {
@@ -1527,7 +1603,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getUnusedTabs');
           const result = this.impl.getUnusedTabs();
           if (header.expectsResponse) {
@@ -1540,7 +1616,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabSearchSection');
           const result = this.impl.getTabSearchSection();
           if (header.expectsResponse) {
@@ -1553,7 +1629,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabOrganizationFeature');
           const result = this.impl.getTabOrganizationFeature();
           if (header.expectsResponse) {
@@ -1566,7 +1642,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabOrganizationSession');
           const result = this.impl.getTabOrganizationSession();
           if (header.expectsResponse) {
@@ -1579,7 +1655,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabOrganizationModelStrategy');
           const result = this.impl.getTabOrganizationModelStrategy();
           if (header.expectsResponse) {
@@ -1592,7 +1668,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getIsSplit');
           const result = this.impl.getIsSplit();
           if (header.expectsResponse) {
@@ -1605,126 +1681,126 @@ tab_search.mojom.PageHandlerReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.switchToTab');
           const result = this.impl.switchToTab(params.switch_to_tab_info);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openRecentlyClosedEntry');
           const result = this.impl.openRecentlyClosedEntry(params.session_id);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestTabOrganization');
           const result = this.impl.requestTabOrganization();
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.removeTabFromOrganization');
           const result = this.impl.removeTabFromOrganization(params.session_id, params.organization_id, params.tab);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RejectSession_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RejectSession_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.rejectSession');
           const result = this.impl.rejectSession(params.session_id);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.replaceActiveSplitTab');
           const result = this.impl.replaceActiveSplitTab(params.replacement_tab_id);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RestartSession_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_RestartSession_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.restartSession');
           const result = this.impl.restartSession();
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.saveRecentlyClosedExpandedPref');
           const result = this.impl.saveRecentlyClosedExpandedPref(params.expanded);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setOrganizationFeature');
           const result = this.impl.setOrganizationFeature(params.feature);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startTabGroupTutorial');
           const result = this.impl.startTabGroupTutorial();
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerFeedback');
           const result = this.impl.triggerFeedback(params.session_id);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerSignIn');
           const result = this.impl.triggerSignIn();
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openHelpPage');
           const result = this.impl.openHelpPage();
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setTabOrganizationModelStrategy');
           const result = this.impl.setTabOrganizationModelStrategy(params.strategy);
           break;
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setTabOrganizationUserInstruction');
           const result = this.impl.setTabOrganizationUserInstruction(params.user_instruction);
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserFeedback');
           const result = this.impl.setUserFeedback(params.session_id, params.feedback);
           break;
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyOrganizationUIReadyToShow');
           const result = this.impl.notifyOrganizationUIReadyToShow();
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySearchUIReadyToShow');
           const result = this.impl.notifySearchUIReadyToShow();
           break;
@@ -1844,12 +1920,25 @@ tab_search.mojom.PageRemote = class {
 tab_search.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   tabOrganizationSessionUpdated(session) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec,
       null,
       [session],
@@ -1857,9 +1946,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
   }
 
   tabOrganizationModelStrategyUpdated(strategy) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec,
       null,
       [strategy],
@@ -1867,9 +1955,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
   }
 
   hostWindowChanged() {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       tab_search.mojom.Page_HostWindowChanged_ParamsSpec,
       null,
       [],
@@ -1877,9 +1964,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
   }
 
   tabsChanged(profile_tabs) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       tab_search.mojom.Page_TabsChanged_ParamsSpec,
       null,
       [profile_tabs],
@@ -1887,9 +1973,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
   }
 
   tabUpdated(tabUpdateInfo) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       tab_search.mojom.Page_TabUpdated_ParamsSpec,
       null,
       [tabUpdateInfo],
@@ -1897,9 +1982,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
   }
 
   tabsRemoved(tabsRemovedInfo) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       tab_search.mojom.Page_TabsRemoved_ParamsSpec,
       null,
       [tabsRemovedInfo],
@@ -1907,9 +1991,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
   }
 
   tabSearchSectionChanged(section) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec,
       null,
       [section],
@@ -1917,9 +2000,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
   }
 
   tabOrganizationFeatureChanged(feature) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec,
       null,
       [feature],
@@ -1927,9 +2009,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
   }
 
   showFREChanged(show) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       tab_search.mojom.Page_ShowFREChanged_ParamsSpec,
       null,
       [show],
@@ -1937,9 +2018,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
   }
 
   tabOrganizationEnabledChanged(enabled) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec,
       null,
       [enabled],
@@ -1947,9 +2027,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
   }
 
   unusedTabsChanged(tabs) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec,
       null,
       [tabs],
@@ -1957,9 +2036,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
   }
 
   tabUnsplit() {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[11],  // ordinal
       tab_search.mojom.Page_TabUnsplit_ParamsSpec,
       null,
       [],
@@ -1983,18 +2061,24 @@ tab_search.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
-    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -2032,7 +2116,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 0: TabOrganizationSessionUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabOrganizationSessionUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2043,7 +2127,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 1: TabOrganizationModelStrategyUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabOrganizationModelStrategyUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2054,7 +2138,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 2: HostWindowChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_HostWindowChanged_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_HostWindowChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HostWindowChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2065,7 +2149,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 3: TabsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_TabsChanged_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_TabsChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabsChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2076,7 +2160,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 4: TabUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_TabUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_TabUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabUpdated (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2087,7 +2171,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 5: TabsRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_TabsRemoved_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_TabsRemoved_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabsRemoved (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2098,7 +2182,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 6: TabSearchSectionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabSearchSectionChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2109,7 +2193,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 7: TabOrganizationFeatureChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabOrganizationFeatureChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2120,7 +2204,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 8: ShowFREChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_ShowFREChanged_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_ShowFREChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowFREChanged (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2131,7 +2215,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 9: TabOrganizationEnabledChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabOrganizationEnabledChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2142,7 +2226,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 10: UnusedTabsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnusedTabsChanged (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2153,7 +2237,7 @@ tab_search.mojom.PageReceiver = class {
         // Try Method 11: TabUnsplit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_search.mojom.Page_TabUnsplit_ParamsSpec.$);
+             decoder.decodeStructInline(tab_search.mojom.Page_TabUnsplit_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabUnsplit (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -2170,84 +2254,84 @@ tab_search.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.tabOrganizationSessionUpdated');
           const result = this.impl.tabOrganizationSessionUpdated(params.session);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.tabOrganizationModelStrategyUpdated');
           const result = this.impl.tabOrganizationModelStrategyUpdated(params.strategy);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_HostWindowChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_HostWindowChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.hostWindowChanged');
           const result = this.impl.hostWindowChanged();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabsChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabsChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.tabsChanged');
           const result = this.impl.tabsChanged(params.profile_tabs);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.tabUpdated');
           const result = this.impl.tabUpdated(params.tabUpdateInfo);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabsRemoved_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabsRemoved_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.tabsRemoved');
           const result = this.impl.tabsRemoved(params.tabsRemovedInfo);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.tabSearchSectionChanged');
           const result = this.impl.tabSearchSectionChanged(params.section);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.tabOrganizationFeatureChanged');
           const result = this.impl.tabOrganizationFeatureChanged(params.feature);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_ShowFREChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_ShowFREChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.showFREChanged');
           const result = this.impl.showFREChanged(params.show);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.tabOrganizationEnabledChanged');
           const result = this.impl.tabOrganizationEnabledChanged(params.enabled);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.unusedTabsChanged');
           const result = this.impl.unusedTabsChanged(params.tabs);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabUnsplit_ParamsSpec.$);
+          const params = decoder.decodeStructInline(tab_search.mojom.Page_TabUnsplit_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.tabUnsplit');
           const result = this.impl.tabUnsplit();
           break;

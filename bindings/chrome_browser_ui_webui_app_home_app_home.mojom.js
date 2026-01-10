@@ -3,6 +3,66 @@
 // Module: app_home.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var app_home = app_home || {};
@@ -119,12 +179,14 @@ app_home.mojom.PageHandlerFactoryRemote = class {
 app_home.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+      { explicit: null },
+    ]);
   }
 
   createPageHandler(page, handler) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler],
@@ -148,7 +210,13 @@ app_home.mojom.PageHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -186,7 +254,7 @@ app_home.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -203,7 +271,7 @@ app_home.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -330,12 +398,23 @@ app_home.mojom.PageHandlerRemote = class {
 app_home.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   getApps() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       app_home.mojom.PageHandler_GetApps_ParamsSpec,
       app_home.mojom.PageHandler_GetApps_ResponseParamsSpec,
       [],
@@ -343,9 +422,8 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   getDeprecationLinkString() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec,
       app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec,
       [],
@@ -353,9 +431,8 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   uninstallApp(app_id) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       app_home.mojom.PageHandler_UninstallApp_ParamsSpec,
       null,
       [app_id],
@@ -363,9 +440,8 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   showAppSettings(app_id) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec,
       null,
       [app_id],
@@ -373,9 +449,8 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   createAppShortcut(app_id) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec,
       app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec,
       [app_id],
@@ -383,9 +458,8 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   launchApp(app_id, click_event) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       app_home.mojom.PageHandler_LaunchApp_ParamsSpec,
       null,
       [app_id, click_event],
@@ -393,9 +467,8 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   setRunOnOsLoginMode(app_id, run_on_os_login_mode) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec,
       null,
       [app_id, run_on_os_login_mode],
@@ -403,9 +476,8 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   launchDeprecatedAppDialog() {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec,
       null,
       [],
@@ -413,9 +485,8 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   installAppLocally(app_id) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec,
       null,
       [app_id],
@@ -423,9 +494,8 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
   }
 
   setUserDisplayMode(app_id, display_mode) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec,
       null,
       [app_id, display_mode],
@@ -449,16 +519,22 @@ app_home.mojom.PageHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    const ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -496,7 +572,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.PageHandler_GetApps_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_GetApps_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetApps (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -507,7 +583,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 1: GetDeprecationLinkString
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeprecationLinkString (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -518,7 +594,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 2: UninstallApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_UninstallApp_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UninstallApp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -529,7 +605,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 3: ShowAppSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowAppSettings (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -540,7 +616,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 4: CreateAppShortcut
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAppShortcut (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -551,7 +627,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 5: LaunchApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchApp_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchApp (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -562,7 +638,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 6: SetRunOnOsLoginMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRunOnOsLoginMode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -573,7 +649,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 7: LaunchDeprecatedAppDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchDeprecatedAppDialog (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -584,7 +660,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 8: InstallAppLocally
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallAppLocally (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -595,7 +671,7 @@ app_home.mojom.PageHandlerReceiver = class {
         // Try Method 9: SetUserDisplayMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserDisplayMode (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -612,7 +688,7 @@ app_home.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_GetApps_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_GetApps_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getApps');
           const result = this.impl.getApps();
           if (header.expectsResponse) {
@@ -625,7 +701,7 @@ app_home.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeprecationLinkString');
           const result = this.impl.getDeprecationLinkString();
           if (header.expectsResponse) {
@@ -638,21 +714,21 @@ app_home.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_UninstallApp_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.uninstallApp');
           const result = this.impl.uninstallApp(params.app_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.showAppSettings');
           const result = this.impl.showAppSettings(params.app_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createAppShortcut');
           const result = this.impl.createAppShortcut(params.app_id);
           if (header.expectsResponse) {
@@ -665,35 +741,35 @@ app_home.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchApp_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.launchApp');
           const result = this.impl.launchApp(params.app_id, params.click_event);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setRunOnOsLoginMode');
           const result = this.impl.setRunOnOsLoginMode(params.app_id, params.run_on_os_login_mode);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.launchDeprecatedAppDialog');
           const result = this.impl.launchDeprecatedAppDialog();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.installAppLocally');
           const result = this.impl.installAppLocally(params.app_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserDisplayMode');
           const result = this.impl.setUserDisplayMode(params.app_id, params.display_mode);
           break;
@@ -761,12 +837,16 @@ app_home.mojom.PageRemote = class {
 app_home.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('Page', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   addApp(app_info) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       app_home.mojom.Page_AddApp_ParamsSpec,
       null,
       [app_info],
@@ -774,9 +854,8 @@ app_home.mojom.PageRemoteCallHandler = class {
   }
 
   removeApp(app_info) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       app_home.mojom.Page_RemoveApp_ParamsSpec,
       null,
       [app_info],
@@ -784,9 +863,8 @@ app_home.mojom.PageRemoteCallHandler = class {
   }
 
   updateApp(app_info) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       app_home.mojom.Page_UpdateApp_ParamsSpec,
       null,
       [app_info],
@@ -810,9 +888,15 @@ app_home.mojom.PageReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    const ordinals = window.mojoScrambler.getOrdinals('Page', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -850,7 +934,7 @@ app_home.mojom.PageReceiver = class {
         // Try Method 0: AddApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.Page_AddApp_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.Page_AddApp_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddApp (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -861,7 +945,7 @@ app_home.mojom.PageReceiver = class {
         // Try Method 1: RemoveApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.Page_RemoveApp_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.Page_RemoveApp_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -872,7 +956,7 @@ app_home.mojom.PageReceiver = class {
         // Try Method 2: UpdateApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(app_home.mojom.Page_UpdateApp_ParamsSpec.$);
+             decoder.decodeStructInline(app_home.mojom.Page_UpdateApp_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateApp (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -889,21 +973,21 @@ app_home.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.Page_AddApp_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.Page_AddApp_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.addApp');
           const result = this.impl.addApp(params.app_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.Page_RemoveApp_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.Page_RemoveApp_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.removeApp');
           const result = this.impl.removeApp(params.app_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(app_home.mojom.Page_UpdateApp_ParamsSpec.$);
+          const params = decoder.decodeStructInline(app_home.mojom.Page_UpdateApp_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateApp');
           const result = this.impl.updateApp(params.app_info);
           break;

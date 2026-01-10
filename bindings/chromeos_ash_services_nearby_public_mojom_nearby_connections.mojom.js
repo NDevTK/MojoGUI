@@ -3,6 +3,66 @@
 // Module: nearby.connections.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var nearby = nearby || {};
@@ -120,12 +180,15 @@ nearby.connections.mojom.EndpointDiscoveryListenerRemote = class {
 nearby.connections.mojom.EndpointDiscoveryListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('EndpointDiscoveryListener', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onEndpointFound(endpoint_id, info) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec,
       null,
       [endpoint_id, info],
@@ -133,9 +196,8 @@ nearby.connections.mojom.EndpointDiscoveryListenerRemoteCallHandler = class {
   }
 
   onEndpointLost(endpoint_id) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec,
       null,
       [endpoint_id],
@@ -159,8 +221,14 @@ nearby.connections.mojom.EndpointDiscoveryListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('EndpointDiscoveryListener', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -198,7 +266,7 @@ nearby.connections.mojom.EndpointDiscoveryListenerReceiver = class {
         // Try Method 0: OnEndpointFound
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEndpointFound (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -209,7 +277,7 @@ nearby.connections.mojom.EndpointDiscoveryListenerReceiver = class {
         // Try Method 1: OnEndpointLost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEndpointLost (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -226,14 +294,14 @@ nearby.connections.mojom.EndpointDiscoveryListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onEndpointFound');
           const result = this.impl.onEndpointFound(params.endpoint_id, params.info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onEndpointLost');
           const result = this.impl.onEndpointLost(params.endpoint_id);
           break;
@@ -316,12 +384,18 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemote = class {
 nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('ConnectionLifecycleListener', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onConnectionInitiated(endpoint_id, info) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec,
       null,
       [endpoint_id, info],
@@ -329,9 +403,8 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
   }
 
   onConnectionAccepted(endpoint_id) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec,
       null,
       [endpoint_id],
@@ -339,9 +412,8 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
   }
 
   onConnectionRejected(endpoint_id, status) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec,
       null,
       [endpoint_id, status],
@@ -349,9 +421,8 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
   }
 
   onDisconnected(endpoint_id) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec,
       null,
       [endpoint_id],
@@ -359,9 +430,8 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
   }
 
   onBandwidthChanged(endpoint_id, medium) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec,
       null,
       [endpoint_id, medium],
@@ -385,11 +455,17 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    const ordinals = window.mojoScrambler.getOrdinals('ConnectionLifecycleListener', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -427,7 +503,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
         // Try Method 0: OnConnectionInitiated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionInitiated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -438,7 +514,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
         // Try Method 1: OnConnectionAccepted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionAccepted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -449,7 +525,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
         // Try Method 2: OnConnectionRejected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionRejected (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -460,7 +536,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
         // Try Method 3: OnDisconnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDisconnected (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -471,7 +547,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
         // Try Method 4: OnBandwidthChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBandwidthChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -488,35 +564,35 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionInitiated');
           const result = this.impl.onConnectionInitiated(params.endpoint_id, params.info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionAccepted');
           const result = this.impl.onConnectionAccepted(params.endpoint_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionRejected');
           const result = this.impl.onConnectionRejected(params.endpoint_id, params.status);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onDisconnected');
           const result = this.impl.onDisconnected(params.endpoint_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onBandwidthChanged');
           const result = this.impl.onBandwidthChanged(params.endpoint_id, params.medium);
           break;
@@ -580,12 +656,15 @@ nearby.connections.mojom.PayloadListenerRemote = class {
 nearby.connections.mojom.PayloadListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('PayloadListener', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onPayloadReceived(endpoint_id, payload) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec,
       null,
       [endpoint_id, payload],
@@ -593,9 +672,8 @@ nearby.connections.mojom.PayloadListenerRemoteCallHandler = class {
   }
 
   onPayloadTransferUpdate(endpoint_id, update) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec,
       null,
       [endpoint_id, update],
@@ -619,8 +697,14 @@ nearby.connections.mojom.PayloadListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('PayloadListener', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -658,7 +742,7 @@ nearby.connections.mojom.PayloadListenerReceiver = class {
         // Try Method 0: OnPayloadReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPayloadReceived (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -669,7 +753,7 @@ nearby.connections.mojom.PayloadListenerReceiver = class {
         // Try Method 1: OnPayloadTransferUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPayloadTransferUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -686,14 +770,14 @@ nearby.connections.mojom.PayloadListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onPayloadReceived');
           const result = this.impl.onPayloadReceived(params.endpoint_id, params.payload);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onPayloadTransferUpdate');
           const result = this.impl.onPayloadTransferUpdate(params.endpoint_id, params.update);
           break;
@@ -770,12 +854,17 @@ nearby.connections.mojom.ConnectionListenerV3Remote = class {
 nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('ConnectionListenerV3', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onConnectionInitiatedV3(endpoint_id, info) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec,
       null,
       [endpoint_id, info],
@@ -783,9 +872,8 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
   }
 
   onConnectionResultV3(endpoint_id, resolution) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec,
       null,
       [endpoint_id, resolution],
@@ -793,9 +881,8 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
   }
 
   onDisconnectedV3(endpoint_id) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec,
       null,
       [endpoint_id],
@@ -803,9 +890,8 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
   }
 
   onBandwidthChangedV3(endpoint_id, bandwidth_info) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec,
       null,
       [endpoint_id, bandwidth_info],
@@ -829,10 +915,16 @@ nearby.connections.mojom.ConnectionListenerV3Receiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    const ordinals = window.mojoScrambler.getOrdinals('ConnectionListenerV3', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -870,7 +962,7 @@ nearby.connections.mojom.ConnectionListenerV3Receiver = class {
         // Try Method 0: OnConnectionInitiatedV3
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionInitiatedV3 (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -881,7 +973,7 @@ nearby.connections.mojom.ConnectionListenerV3Receiver = class {
         // Try Method 1: OnConnectionResultV3
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionResultV3 (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -892,7 +984,7 @@ nearby.connections.mojom.ConnectionListenerV3Receiver = class {
         // Try Method 2: OnDisconnectedV3
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDisconnectedV3 (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -903,7 +995,7 @@ nearby.connections.mojom.ConnectionListenerV3Receiver = class {
         // Try Method 3: OnBandwidthChangedV3
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBandwidthChangedV3 (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -920,28 +1012,28 @@ nearby.connections.mojom.ConnectionListenerV3Receiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionInitiatedV3');
           const result = this.impl.onConnectionInitiatedV3(params.endpoint_id, params.info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionResultV3');
           const result = this.impl.onConnectionResultV3(params.endpoint_id, params.resolution);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onDisconnectedV3');
           const result = this.impl.onDisconnectedV3(params.endpoint_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onBandwidthChangedV3');
           const result = this.impl.onBandwidthChangedV3(params.endpoint_id, params.bandwidth_info);
           break;
@@ -1005,12 +1097,15 @@ nearby.connections.mojom.PayloadListenerV3Remote = class {
 nearby.connections.mojom.PayloadListenerV3RemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('PayloadListenerV3', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onPayloadReceivedV3(endpoint_id, payload) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec,
       null,
       [endpoint_id, payload],
@@ -1018,9 +1113,8 @@ nearby.connections.mojom.PayloadListenerV3RemoteCallHandler = class {
   }
 
   onPayloadTransferUpdateV3(endpoint_id, update) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec,
       null,
       [endpoint_id, update],
@@ -1044,8 +1138,14 @@ nearby.connections.mojom.PayloadListenerV3Receiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('PayloadListenerV3', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1083,7 +1183,7 @@ nearby.connections.mojom.PayloadListenerV3Receiver = class {
         // Try Method 0: OnPayloadReceivedV3
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPayloadReceivedV3 (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1094,7 +1194,7 @@ nearby.connections.mojom.PayloadListenerV3Receiver = class {
         // Try Method 1: OnPayloadTransferUpdateV3
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPayloadTransferUpdateV3 (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1111,14 +1211,14 @@ nearby.connections.mojom.PayloadListenerV3Receiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onPayloadReceivedV3');
           const result = this.impl.onPayloadReceivedV3(params.endpoint_id, params.payload);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onPayloadTransferUpdateV3');
           const result = this.impl.onPayloadTransferUpdateV3(params.endpoint_id, params.update);
           break;
@@ -1420,12 +1520,32 @@ nearby.connections.mojom.NearbyConnectionsRemote = class {
 nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('NearbyConnections', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   startAdvertising(service_id, endpoint_info, options, listener) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec,
       [service_id, endpoint_info, options, listener],
@@ -1433,9 +1553,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   stopAdvertising(service_id) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec,
       [service_id],
@@ -1443,9 +1562,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   startDiscovery(service_id, options, listener) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec,
       [service_id, options, listener],
@@ -1453,9 +1571,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   stopDiscovery(service_id) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec,
       [service_id],
@@ -1463,9 +1580,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   injectBluetoothEndpoint(service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec,
       [service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address],
@@ -1473,9 +1589,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   requestConnection(service_id, endpoint_info, endpoint_id, options, listener) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec,
       [service_id, endpoint_info, endpoint_id, options, listener],
@@ -1483,9 +1598,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   acceptConnection(service_id, endpoint_id, listener) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec,
       [service_id, endpoint_id, listener],
@@ -1493,9 +1607,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   rejectConnection(service_id, endpoint_id) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec,
       [service_id, endpoint_id],
@@ -1503,9 +1616,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   disconnectFromEndpoint(service_id, endpoint_id) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec,
       [service_id, endpoint_id],
@@ -1513,9 +1625,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   sendPayload(service_id, endpoint_ids, payload) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec,
       [service_id, endpoint_ids, payload],
@@ -1523,9 +1634,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   cancelPayload(service_id, payload_id) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec,
       [service_id, payload_id],
@@ -1533,9 +1643,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   stopAllEndpoints(service_id) {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[11],  // ordinal
       nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec,
       [service_id],
@@ -1543,9 +1652,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   initiateBandwidthUpgrade(service_id, endpoint_id) {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[12],  // ordinal
       nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec,
       [service_id, endpoint_id],
@@ -1553,9 +1661,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   registerPayloadFile(service_id, payload_id, input_file, output_file) {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[13],  // ordinal
       nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec,
       [service_id, payload_id, input_file, output_file],
@@ -1563,9 +1670,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   requestConnectionV3(service_id, remote_device, connection_options, listener) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[14],  // ordinal
       nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec,
       [service_id, remote_device, connection_options, listener],
@@ -1573,9 +1679,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   acceptConnectionV3(service_id, remote_device, listener) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[15],  // ordinal
       nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec,
       [service_id, remote_device, listener],
@@ -1583,9 +1688,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   rejectConnectionV3(service_id, remote_device) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[16],  // ordinal
       nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec,
       [service_id, remote_device],
@@ -1593,9 +1697,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   disconnectFromDeviceV3(service_id, remote_device) {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[17],  // ordinal
       nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec,
       [service_id, remote_device],
@@ -1603,9 +1706,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
   }
 
   registerServiceWithPresenceDeviceProvider(service_id) {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[18],  // ordinal
       nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec,
       null,
       [service_id],
@@ -1629,25 +1731,31 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
-    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
-    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
-    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
-    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
-    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
-    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
-    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
-    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    const ordinals = window.mojoScrambler.getOrdinals('NearbyConnections', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1685,7 +1793,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 0: StartAdvertising
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartAdvertising (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1696,7 +1804,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 1: StopAdvertising
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopAdvertising (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1707,7 +1815,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 2: StartDiscovery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDiscovery (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1718,7 +1826,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 3: StopDiscovery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopDiscovery (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1729,7 +1837,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 4: InjectBluetoothEndpoint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectBluetoothEndpoint (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1740,7 +1848,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 5: RequestConnection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestConnection (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1751,7 +1859,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 6: AcceptConnection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptConnection (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1762,7 +1870,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 7: RejectConnection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RejectConnection (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1773,7 +1881,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 8: DisconnectFromEndpoint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisconnectFromEndpoint (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1784,7 +1892,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 9: SendPayload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendPayload (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1795,7 +1903,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 10: CancelPayload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelPayload (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1806,7 +1914,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 11: StopAllEndpoints
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopAllEndpoints (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1817,7 +1925,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 12: InitiateBandwidthUpgrade
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitiateBandwidthUpgrade (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1828,7 +1936,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 13: RegisterPayloadFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterPayloadFile (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1839,7 +1947,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 14: RequestConnectionV3
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestConnectionV3 (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1850,7 +1958,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 15: AcceptConnectionV3
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptConnectionV3 (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1861,7 +1969,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 16: RejectConnectionV3
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RejectConnectionV3 (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1872,7 +1980,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 17: DisconnectFromDeviceV3
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisconnectFromDeviceV3 (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1883,7 +1991,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         // Try Method 18: RegisterServiceWithPresenceDeviceProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec.$);
+             decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterServiceWithPresenceDeviceProvider (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1900,7 +2008,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startAdvertising');
           const result = this.impl.startAdvertising(params.service_id, params.endpoint_info, params.options, params.listener);
           if (header.expectsResponse) {
@@ -1913,7 +2021,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.stopAdvertising');
           const result = this.impl.stopAdvertising(params.service_id);
           if (header.expectsResponse) {
@@ -1926,7 +2034,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startDiscovery');
           const result = this.impl.startDiscovery(params.service_id, params.options, params.listener);
           if (header.expectsResponse) {
@@ -1939,7 +2047,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDiscovery');
           const result = this.impl.stopDiscovery(params.service_id);
           if (header.expectsResponse) {
@@ -1952,7 +2060,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.injectBluetoothEndpoint');
           const result = this.impl.injectBluetoothEndpoint(params.service_id, params.endpoint_id, params.endpoint_info, params.remote_bluetooth_mac_address);
           if (header.expectsResponse) {
@@ -1965,7 +2073,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestConnection');
           const result = this.impl.requestConnection(params.service_id, params.endpoint_info, params.endpoint_id, params.options, params.listener);
           if (header.expectsResponse) {
@@ -1978,7 +2086,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.acceptConnection');
           const result = this.impl.acceptConnection(params.service_id, params.endpoint_id, params.listener);
           if (header.expectsResponse) {
@@ -1991,7 +2099,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.rejectConnection');
           const result = this.impl.rejectConnection(params.service_id, params.endpoint_id);
           if (header.expectsResponse) {
@@ -2004,7 +2112,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.disconnectFromEndpoint');
           const result = this.impl.disconnectFromEndpoint(params.service_id, params.endpoint_id);
           if (header.expectsResponse) {
@@ -2017,7 +2125,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendPayload');
           const result = this.impl.sendPayload(params.service_id, params.endpoint_ids, params.payload);
           if (header.expectsResponse) {
@@ -2030,7 +2138,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelPayload');
           const result = this.impl.cancelPayload(params.service_id, params.payload_id);
           if (header.expectsResponse) {
@@ -2043,7 +2151,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.stopAllEndpoints');
           const result = this.impl.stopAllEndpoints(params.service_id);
           if (header.expectsResponse) {
@@ -2056,7 +2164,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.initiateBandwidthUpgrade');
           const result = this.impl.initiateBandwidthUpgrade(params.service_id, params.endpoint_id);
           if (header.expectsResponse) {
@@ -2069,7 +2177,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.registerPayloadFile');
           const result = this.impl.registerPayloadFile(params.service_id, params.payload_id, params.input_file, params.output_file);
           if (header.expectsResponse) {
@@ -2082,7 +2190,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestConnectionV3');
           const result = this.impl.requestConnectionV3(params.service_id, params.remote_device, params.connection_options, params.listener);
           if (header.expectsResponse) {
@@ -2095,7 +2203,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.acceptConnectionV3');
           const result = this.impl.acceptConnectionV3(params.service_id, params.remote_device, params.listener);
           if (header.expectsResponse) {
@@ -2108,7 +2216,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.rejectConnectionV3');
           const result = this.impl.rejectConnectionV3(params.service_id, params.remote_device);
           if (header.expectsResponse) {
@@ -2121,7 +2229,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.disconnectFromDeviceV3');
           const result = this.impl.disconnectFromDeviceV3(params.service_id, params.remote_device);
           if (header.expectsResponse) {
@@ -2134,7 +2242,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec.$);
+          const params = decoder.decodeStructInline(nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.registerServiceWithPresenceDeviceProvider');
           const result = this.impl.registerServiceWithPresenceDeviceProvider(params.service_id);
           break;

@@ -3,6 +3,66 @@
 // Module: chromeos.network_diagnostics.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var chromeos = chromeos || {};
@@ -675,12 +735,31 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemote = class {
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('NetworkDiagnosticsRoutines', [
+      { explicit: 27 },
+      { explicit: 28 },
+      { explicit: 12 },
+      { explicit: 13 },
+      { explicit: 14 },
+      { explicit: 15 },
+      { explicit: 16 },
+      { explicit: 17 },
+      { explicit: 18 },
+      { explicit: 19 },
+      { explicit: 20 },
+      { explicit: 21 },
+      { explicit: 22 },
+      { explicit: 23 },
+      { explicit: 24 },
+      { explicit: 25 },
+      { explicit: 26 },
+      { explicit: 29 },
+    ]);
   }
 
   getResult(routine) {
-    // Ordinal: 27
     return this.proxy.sendMessage(
-      27,  // ordinal
+      this.ordinals[0],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec,
       [routine],
@@ -688,9 +767,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   getAllResults() {
-    // Ordinal: 28
     return this.proxy.sendMessage(
-      28,  // ordinal
+      this.ordinals[1],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec,
       [],
@@ -698,9 +776,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runLanConnectivity(source) {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[2],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec,
       [source],
@@ -708,9 +785,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runSignalStrength(source) {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[3],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec,
       [source],
@@ -718,9 +794,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runGatewayCanBePinged(source) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[4],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec,
       [source],
@@ -728,9 +803,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runHasSecureWiFiConnection(source) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[5],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec,
       [source],
@@ -738,9 +812,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runDnsResolverPresent(source) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[6],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec,
       [source],
@@ -748,9 +821,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runDnsLatency(source) {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[7],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec,
       [source],
@@ -758,9 +830,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runDnsResolution(source) {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[8],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec,
       [source],
@@ -768,9 +839,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runCaptivePortal(source) {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[9],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec,
       [source],
@@ -778,9 +848,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runHttpFirewall(source) {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[10],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec,
       [source],
@@ -788,9 +857,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runHttpsFirewall(source) {
-    // Ordinal: 21
     return this.proxy.sendMessage(
-      21,  // ordinal
+      this.ordinals[11],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec,
       [source],
@@ -798,9 +866,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runHttpsLatency(source) {
-    // Ordinal: 22
     return this.proxy.sendMessage(
-      22,  // ordinal
+      this.ordinals[12],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec,
       [source],
@@ -808,9 +875,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runVideoConferencing(stun_server_hostname, source) {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[13],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec,
       [stun_server_hostname, source],
@@ -818,9 +884,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runArcHttp(source) {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[14],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec,
       [source],
@@ -828,9 +893,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runArcPing(source) {
-    // Ordinal: 25
     return this.proxy.sendMessage(
-      25,  // ordinal
+      this.ordinals[15],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec,
       [source],
@@ -838,9 +902,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runArcDnsResolution(source) {
-    // Ordinal: 26
     return this.proxy.sendMessage(
-      26,  // ordinal
+      this.ordinals[16],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec,
       [source],
@@ -848,9 +911,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
   }
 
   runGoogleServicesConnectivity(source) {
-    // Ordinal: 29
     return this.proxy.sendMessage(
-      29,  // ordinal
+      this.ordinals[17],  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec,
       [source],
@@ -874,24 +936,30 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(27, 0); // Default ordinal 27 -> Index 0
-    this.ordinalMap.set(28, 1); // Default ordinal 28 -> Index 1
-    this.ordinalMap.set(12, 2); // Default ordinal 12 -> Index 2
-    this.ordinalMap.set(13, 3); // Default ordinal 13 -> Index 3
-    this.ordinalMap.set(14, 4); // Default ordinal 14 -> Index 4
-    this.ordinalMap.set(15, 5); // Default ordinal 15 -> Index 5
-    this.ordinalMap.set(16, 6); // Default ordinal 16 -> Index 6
-    this.ordinalMap.set(17, 7); // Default ordinal 17 -> Index 7
-    this.ordinalMap.set(18, 8); // Default ordinal 18 -> Index 8
-    this.ordinalMap.set(19, 9); // Default ordinal 19 -> Index 9
-    this.ordinalMap.set(20, 10); // Default ordinal 20 -> Index 10
-    this.ordinalMap.set(21, 11); // Default ordinal 21 -> Index 11
-    this.ordinalMap.set(22, 12); // Default ordinal 22 -> Index 12
-    this.ordinalMap.set(23, 13); // Default ordinal 23 -> Index 13
-    this.ordinalMap.set(24, 14); // Default ordinal 24 -> Index 14
-    this.ordinalMap.set(25, 15); // Default ordinal 25 -> Index 15
-    this.ordinalMap.set(26, 16); // Default ordinal 26 -> Index 16
-    this.ordinalMap.set(29, 17); // Default ordinal 29 -> Index 17
+    const ordinals = window.mojoScrambler.getOrdinals('NetworkDiagnosticsRoutines', [
+      { explicit: 27 },
+      { explicit: 28 },
+      { explicit: 12 },
+      { explicit: 13 },
+      { explicit: 14 },
+      { explicit: 15 },
+      { explicit: 16 },
+      { explicit: 17 },
+      { explicit: 18 },
+      { explicit: 19 },
+      { explicit: 20 },
+      { explicit: 21 },
+      { explicit: 22 },
+      { explicit: 23 },
+      { explicit: 24 },
+      { explicit: 25 },
+      { explicit: 26 },
+      { explicit: 29 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -929,7 +997,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 0: GetResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -940,7 +1008,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 1: GetAllResults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllResults (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -951,7 +1019,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 2: RunLanConnectivity
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunLanConnectivity (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -962,7 +1030,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 3: RunSignalStrength
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunSignalStrength (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -973,7 +1041,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 4: RunGatewayCanBePinged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunGatewayCanBePinged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -984,7 +1052,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 5: RunHasSecureWiFiConnection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHasSecureWiFiConnection (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -995,7 +1063,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 6: RunDnsResolverPresent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsResolverPresent (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1006,7 +1074,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 7: RunDnsLatency
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsLatency (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1017,7 +1085,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 8: RunDnsResolution
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsResolution (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1028,7 +1096,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 9: RunCaptivePortal
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunCaptivePortal (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1039,7 +1107,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 10: RunHttpFirewall
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHttpFirewall (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1050,7 +1118,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 11: RunHttpsFirewall
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHttpsFirewall (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1061,7 +1129,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 12: RunHttpsLatency
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHttpsLatency (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1072,7 +1140,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 13: RunVideoConferencing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunVideoConferencing (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1083,7 +1151,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 14: RunArcHttp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunArcHttp (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1094,7 +1162,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 15: RunArcPing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunArcPing (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1105,7 +1173,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 16: RunArcDnsResolution
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunArcDnsResolution (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1116,7 +1184,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         // Try Method 17: RunGoogleServicesConnectivity
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec.$);
+             decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunGoogleServicesConnectivity (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1133,7 +1201,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getResult');
           const result = this.impl.getResult(params.routine);
           if (header.expectsResponse) {
@@ -1146,7 +1214,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllResults');
           const result = this.impl.getAllResults();
           if (header.expectsResponse) {
@@ -1159,7 +1227,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runLanConnectivity');
           const result = this.impl.runLanConnectivity(params.source);
           if (header.expectsResponse) {
@@ -1172,7 +1240,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runSignalStrength');
           const result = this.impl.runSignalStrength(params.source);
           if (header.expectsResponse) {
@@ -1185,7 +1253,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runGatewayCanBePinged');
           const result = this.impl.runGatewayCanBePinged(params.source);
           if (header.expectsResponse) {
@@ -1198,7 +1266,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runHasSecureWiFiConnection');
           const result = this.impl.runHasSecureWiFiConnection(params.source);
           if (header.expectsResponse) {
@@ -1211,7 +1279,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolverPresent');
           const result = this.impl.runDnsResolverPresent(params.source);
           if (header.expectsResponse) {
@@ -1224,7 +1292,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsLatency');
           const result = this.impl.runDnsLatency(params.source);
           if (header.expectsResponse) {
@@ -1237,7 +1305,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolution');
           const result = this.impl.runDnsResolution(params.source);
           if (header.expectsResponse) {
@@ -1250,7 +1318,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runCaptivePortal');
           const result = this.impl.runCaptivePortal(params.source);
           if (header.expectsResponse) {
@@ -1263,7 +1331,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpFirewall');
           const result = this.impl.runHttpFirewall(params.source);
           if (header.expectsResponse) {
@@ -1276,7 +1344,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpsFirewall');
           const result = this.impl.runHttpsFirewall(params.source);
           if (header.expectsResponse) {
@@ -1289,7 +1357,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpsLatency');
           const result = this.impl.runHttpsLatency(params.source);
           if (header.expectsResponse) {
@@ -1302,7 +1370,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runVideoConferencing');
           const result = this.impl.runVideoConferencing(params.stun_server_hostname, params.source);
           if (header.expectsResponse) {
@@ -1315,7 +1383,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcHttp');
           const result = this.impl.runArcHttp(params.source);
           if (header.expectsResponse) {
@@ -1328,7 +1396,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcPing');
           const result = this.impl.runArcPing(params.source);
           if (header.expectsResponse) {
@@ -1341,7 +1409,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcDnsResolution');
           const result = this.impl.runArcDnsResolution(params.source);
           if (header.expectsResponse) {
@@ -1354,7 +1422,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec.$);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.runGoogleServicesConnectivity');
           const result = this.impl.runGoogleServicesConnectivity(params.source);
           if (header.expectsResponse) {

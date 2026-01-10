@@ -3,6 +3,66 @@
 // Module: arc.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var arc = arc || {};
@@ -311,12 +371,22 @@ arc.mojom.NotificationsHostRemote = class {
 arc.mojom.NotificationsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('NotificationsHost', [
+      { explicit: 7 },
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 8 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 11 },
+    ]);
   }
 
   onDoNotDisturbStatusUpdated(status) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec,
       null,
       [status],
@@ -324,9 +394,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
   }
 
   onNotificationPosted(notification_data) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[1],  // ordinal
       arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec,
       null,
       [notification_data],
@@ -334,9 +403,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
   }
 
   onNotificationRemoved(key) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[2],  // ordinal
       arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec,
       null,
       [key],
@@ -344,9 +412,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
   }
 
   onNotificationUpdated(notification_data) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[3],  // ordinal
       arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec,
       null,
       [notification_data],
@@ -354,9 +421,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
   }
 
   openMessageCenter() {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[4],  // ordinal
       arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec,
       null,
       [],
@@ -364,9 +430,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
   }
 
   closeMessageCenter() {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[5],  // ordinal
       arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec,
       null,
       [],
@@ -374,9 +439,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
   }
 
   processUserAction(data) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[6],  // ordinal
       arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec,
       null,
       [data],
@@ -384,9 +448,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
   }
 
   onLockScreenSettingUpdated(setting) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[7],  // ordinal
       arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec,
       null,
       [setting],
@@ -394,9 +457,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
   }
 
   logInlineReplySent(key) {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[8],  // ordinal
       arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec,
       null,
       [key],
@@ -420,15 +482,21 @@ arc.mojom.NotificationsHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(7, 0); // Default ordinal 7 -> Index 0
-    this.ordinalMap.set(0, 1); // Default ordinal 0 -> Index 1
-    this.ordinalMap.set(1, 2); // Default ordinal 1 -> Index 2
-    this.ordinalMap.set(5, 3); // Default ordinal 5 -> Index 3
-    this.ordinalMap.set(6, 4); // Default ordinal 6 -> Index 4
-    this.ordinalMap.set(8, 5); // Default ordinal 8 -> Index 5
-    this.ordinalMap.set(9, 6); // Default ordinal 9 -> Index 6
-    this.ordinalMap.set(10, 7); // Default ordinal 10 -> Index 7
-    this.ordinalMap.set(11, 8); // Default ordinal 11 -> Index 8
+    const ordinals = window.mojoScrambler.getOrdinals('NotificationsHost', [
+      { explicit: 7 },
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 8 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 11 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -466,7 +534,7 @@ arc.mojom.NotificationsHostReceiver = class {
         // Try Method 0: OnDoNotDisturbStatusUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDoNotDisturbStatusUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -477,7 +545,7 @@ arc.mojom.NotificationsHostReceiver = class {
         // Try Method 1: OnNotificationPosted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationPosted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -488,7 +556,7 @@ arc.mojom.NotificationsHostReceiver = class {
         // Try Method 2: OnNotificationRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationRemoved (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -499,7 +567,7 @@ arc.mojom.NotificationsHostReceiver = class {
         // Try Method 3: OnNotificationUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationUpdated (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -510,7 +578,7 @@ arc.mojom.NotificationsHostReceiver = class {
         // Try Method 4: OpenMessageCenter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenMessageCenter (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -521,7 +589,7 @@ arc.mojom.NotificationsHostReceiver = class {
         // Try Method 5: CloseMessageCenter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseMessageCenter (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -532,7 +600,7 @@ arc.mojom.NotificationsHostReceiver = class {
         // Try Method 6: ProcessUserAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessUserAction (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -543,7 +611,7 @@ arc.mojom.NotificationsHostReceiver = class {
         // Try Method 7: OnLockScreenSettingUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLockScreenSettingUpdated (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -554,7 +622,7 @@ arc.mojom.NotificationsHostReceiver = class {
         // Try Method 8: LogInlineReplySent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogInlineReplySent (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -571,63 +639,63 @@ arc.mojom.NotificationsHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onDoNotDisturbStatusUpdated');
           const result = this.impl.onDoNotDisturbStatusUpdated(params.status);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationPosted');
           const result = this.impl.onNotificationPosted(params.notification_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationRemoved');
           const result = this.impl.onNotificationRemoved(params.key);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationUpdated');
           const result = this.impl.onNotificationUpdated(params.notification_data);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openMessageCenter');
           const result = this.impl.openMessageCenter();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.closeMessageCenter');
           const result = this.impl.closeMessageCenter();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.processUserAction');
           const result = this.impl.processUserAction(params.data);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onLockScreenSettingUpdated');
           const result = this.impl.onLockScreenSettingUpdated(params.setting);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.logInlineReplySent');
           const result = this.impl.logInlineReplySent(params.key);
           break;
@@ -775,12 +843,28 @@ arc.mojom.NotificationsInstanceRemote = class {
 arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('NotificationsInstance', [
+      { explicit: 5 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 6 },
+      { explicit: 7 },
+      { explicit: 8 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 11 },
+      { explicit: 12 },
+      { explicit: 13 },
+      { explicit: 14 },
+      { explicit: 15 },
+    ]);
   }
 
   init(host_remote) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.NotificationsInstance_Init_ParamsSpec,
       arc.mojom.NotificationsInstance_Init_ResponseParamsSpec,
       [host_remote],
@@ -788,9 +872,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   sendNotificationEventToAndroid(key, event) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec,
       null,
       [key, event],
@@ -798,9 +881,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   createNotificationWindow(key) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec,
       null,
       [key],
@@ -808,9 +890,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   closeNotificationWindow(key) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec,
       null,
       [key],
@@ -818,9 +899,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   openNotificationSettings(key) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec,
       null,
       [key],
@@ -828,9 +908,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   openNotificationSnoozeSettings(key) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[5],  // ordinal
       arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec,
       null,
       [key],
@@ -838,9 +917,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   setDoNotDisturbStatusOnAndroid(status) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[6],  // ordinal
       arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec,
       null,
       [status],
@@ -848,9 +926,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   cancelPress(key) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[7],  // ordinal
       arc.mojom.NotificationsInstance_CancelPress_ParamsSpec,
       null,
       [key],
@@ -858,9 +935,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   performDeferredUserAction(action_id) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[8],  // ordinal
       arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec,
       null,
       [action_id],
@@ -868,9 +944,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   cancelDeferredUserAction(action_id) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[9],  // ordinal
       arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec,
       null,
       [action_id],
@@ -878,9 +953,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   setLockScreenSettingOnAndroid(setting) {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[10],  // ordinal
       arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec,
       null,
       [setting],
@@ -888,9 +962,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   setNotificationConfiguration(configuration) {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[11],  // ordinal
       arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec,
       null,
       [configuration],
@@ -898,9 +971,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   onMessageCenterVisibilityChanged(visibility) {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[12],  // ordinal
       arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec,
       null,
       [visibility],
@@ -908,9 +980,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   sendNotificationButtonClickToAndroid(key, action_button_index, input) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[13],  // ordinal
       arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec,
       null,
       [key, action_button_index, input],
@@ -918,9 +989,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
   }
 
   popUpAppNotificationSettings(key) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[14],  // ordinal
       arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec,
       null,
       [key],
@@ -944,21 +1014,27 @@ arc.mojom.NotificationsInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(5, 0); // Default ordinal 5 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(6, 5); // Default ordinal 6 -> Index 5
-    this.ordinalMap.set(7, 6); // Default ordinal 7 -> Index 6
-    this.ordinalMap.set(8, 7); // Default ordinal 8 -> Index 7
-    this.ordinalMap.set(9, 8); // Default ordinal 9 -> Index 8
-    this.ordinalMap.set(10, 9); // Default ordinal 10 -> Index 9
-    this.ordinalMap.set(11, 10); // Default ordinal 11 -> Index 10
-    this.ordinalMap.set(12, 11); // Default ordinal 12 -> Index 11
-    this.ordinalMap.set(13, 12); // Default ordinal 13 -> Index 12
-    this.ordinalMap.set(14, 13); // Default ordinal 14 -> Index 13
-    this.ordinalMap.set(15, 14); // Default ordinal 15 -> Index 14
+    const ordinals = window.mojoScrambler.getOrdinals('NotificationsInstance', [
+      { explicit: 5 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 6 },
+      { explicit: 7 },
+      { explicit: 8 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 11 },
+      { explicit: 12 },
+      { explicit: 13 },
+      { explicit: 14 },
+      { explicit: 15 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -996,7 +1072,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_Init_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_Init_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1007,7 +1083,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 1: SendNotificationEventToAndroid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNotificationEventToAndroid (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1018,7 +1094,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 2: CreateNotificationWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNotificationWindow (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1029,7 +1105,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 3: CloseNotificationWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseNotificationWindow (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1040,7 +1116,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 4: OpenNotificationSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenNotificationSettings (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1051,7 +1127,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 5: OpenNotificationSnoozeSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenNotificationSnoozeSettings (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1062,7 +1138,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 6: SetDoNotDisturbStatusOnAndroid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDoNotDisturbStatusOnAndroid (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1073,7 +1149,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 7: CancelPress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_CancelPress_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_CancelPress_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelPress (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1084,7 +1160,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 8: PerformDeferredUserAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformDeferredUserAction (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1095,7 +1171,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 9: CancelDeferredUserAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelDeferredUserAction (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1106,7 +1182,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 10: SetLockScreenSettingOnAndroid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLockScreenSettingOnAndroid (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1117,7 +1193,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 11: SetNotificationConfiguration
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNotificationConfiguration (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1128,7 +1204,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 12: OnMessageCenterVisibilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessageCenterVisibilityChanged (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1139,7 +1215,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 13: SendNotificationButtonClickToAndroid
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNotificationButtonClickToAndroid (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1150,7 +1226,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
         // Try Method 14: PopUpAppNotificationSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PopUpAppNotificationSettings (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1167,7 +1243,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_Init_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_Init_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -1180,98 +1256,98 @@ arc.mojom.NotificationsInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNotificationEventToAndroid');
           const result = this.impl.sendNotificationEventToAndroid(params.key, params.event);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createNotificationWindow');
           const result = this.impl.createNotificationWindow(params.key);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.closeNotificationWindow');
           const result = this.impl.closeNotificationWindow(params.key);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openNotificationSettings');
           const result = this.impl.openNotificationSettings(params.key);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openNotificationSnoozeSettings');
           const result = this.impl.openNotificationSnoozeSettings(params.key);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setDoNotDisturbStatusOnAndroid');
           const result = this.impl.setDoNotDisturbStatusOnAndroid(params.status);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_CancelPress_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_CancelPress_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelPress');
           const result = this.impl.cancelPress(params.key);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.performDeferredUserAction');
           const result = this.impl.performDeferredUserAction(params.action_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelDeferredUserAction');
           const result = this.impl.cancelDeferredUserAction(params.action_id);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setLockScreenSettingOnAndroid');
           const result = this.impl.setLockScreenSettingOnAndroid(params.setting);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setNotificationConfiguration');
           const result = this.impl.setNotificationConfiguration(params.configuration);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessageCenterVisibilityChanged');
           const result = this.impl.onMessageCenterVisibilityChanged(params.visibility);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNotificationButtonClickToAndroid');
           const result = this.impl.sendNotificationButtonClickToAndroid(params.key, params.action_button_index, params.input);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.popUpAppNotificationSettings');
           const result = this.impl.popUpAppNotificationSettings(params.key);
           break;

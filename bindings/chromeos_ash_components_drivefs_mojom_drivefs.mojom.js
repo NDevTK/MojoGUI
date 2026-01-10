@@ -3,6 +3,66 @@
 // Module: drivefs.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var drivefs = drivefs || {};
@@ -680,12 +740,14 @@ drivefs.mojom.DriveFsBootstrapRemote = class {
 drivefs.mojom.DriveFsBootstrapRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('DriveFsBootstrap', [
+      { explicit: null },
+    ]);
   }
 
   init(config, drive_fs, delegate) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec,
       null,
       [config, drive_fs, delegate],
@@ -709,7 +771,13 @@ drivefs.mojom.DriveFsBootstrapReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('DriveFsBootstrap', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -747,7 +815,7 @@ drivefs.mojom.DriveFsBootstrapReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -764,7 +832,7 @@ drivefs.mojom.DriveFsBootstrapReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.config, params.drive_fs, params.delegate);
           break;
@@ -1193,12 +1261,50 @@ drivefs.mojom.DriveFsRemote = class {
 drivefs.mojom.DriveFsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('DriveFs', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   getMetadata(path) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       drivefs.mojom.DriveFs_GetMetadata_ParamsSpec,
       drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec,
       [path],
@@ -1206,9 +1312,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   setPinned(path, pinned) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       drivefs.mojom.DriveFs_SetPinned_ParamsSpec,
       drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec,
       [path, pinned],
@@ -1216,9 +1321,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   updateNetworkState(pause_syncing, is_offline) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec,
       null,
       [pause_syncing, is_offline],
@@ -1226,9 +1330,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   resetCache() {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       drivefs.mojom.DriveFs_ResetCache_ParamsSpec,
       drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec,
       [],
@@ -1236,9 +1339,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   getThumbnail(path, crop_to_square) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec,
       drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec,
       [path, crop_to_square],
@@ -1246,9 +1348,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   copyFile(source, target) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       drivefs.mojom.DriveFs_CopyFile_ParamsSpec,
       drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec,
       [source, target],
@@ -1256,9 +1357,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   startSearchQuery(query, query_params) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec,
       null,
       [query, query_params],
@@ -1266,9 +1366,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   fetchAllChangeLogs() {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec,
       null,
       [],
@@ -1276,9 +1375,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   fetchChangeLog(options) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec,
       null,
       [options],
@@ -1286,9 +1384,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   sendNativeMessageRequest(request) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec,
       drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec,
       [request],
@@ -1296,9 +1393,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   setStartupArguments(arguments) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec,
       drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec,
       [arguments],
@@ -1306,9 +1402,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   getStartupArguments() {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[11],  // ordinal
       drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec,
       drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec,
       [],
@@ -1316,9 +1411,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   setTracingEnabled(enabled) {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[12],  // ordinal
       drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec,
       null,
       [enabled],
@@ -1326,9 +1420,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   setNetworkingEnabled(enabled) {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[13],  // ordinal
       drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec,
       null,
       [enabled],
@@ -1336,9 +1429,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   forcePauseSyncing(enable) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[14],  // ordinal
       drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec,
       null,
       [enable],
@@ -1346,9 +1438,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   dumpAccountSettings() {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[15],  // ordinal
       drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec,
       null,
       [],
@@ -1356,9 +1447,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   loadAccountSettings() {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[16],  // ordinal
       drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec,
       null,
       [],
@@ -1366,9 +1456,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   createNativeHostSession(params, host, port) {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[17],  // ordinal
       drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec,
       null,
       [params, host, port],
@@ -1376,9 +1465,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   locateFilesByItemIds(item_ids) {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[18],  // ordinal
       drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec,
       drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec,
       [item_ids],
@@ -1386,9 +1474,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   getQuotaUsage() {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[19],  // ordinal
       drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec,
       drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec,
       [],
@@ -1396,9 +1483,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   toggleMirroring(enabled) {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[20],  // ordinal
       drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec,
       drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec,
       [enabled],
@@ -1406,9 +1492,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   toggleSyncForPath(path, status) {
-    // Ordinal: 21
     return this.proxy.sendMessage(
-      21,  // ordinal
+      this.ordinals[21],  // ordinal
       drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec,
       drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec,
       [path, status],
@@ -1416,9 +1501,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   getSyncingPaths() {
-    // Ordinal: 22
     return this.proxy.sendMessage(
-      22,  // ordinal
+      this.ordinals[22],  // ordinal
       drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec,
       drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec,
       [],
@@ -1426,9 +1510,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   pollHostedFilePinStates() {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[23],  // ordinal
       drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec,
       null,
       [],
@@ -1436,9 +1519,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   getPooledQuotaUsage() {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[24],  // ordinal
       drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec,
       drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec,
       [],
@@ -1446,9 +1528,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   setPinnedByStableId(stable_id, pinned) {
-    // Ordinal: 25
     return this.proxy.sendMessage(
-      25,  // ordinal
+      this.ordinals[25],  // ordinal
       drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec,
       drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec,
       [stable_id, pinned],
@@ -1456,9 +1537,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   getMetadataByStableId(stable_id) {
-    // Ordinal: 26
     return this.proxy.sendMessage(
-      26,  // ordinal
+      this.ordinals[26],  // ordinal
       drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec,
       drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec,
       [stable_id],
@@ -1466,9 +1546,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   cancelUploadByPath(path, cancel_mode) {
-    // Ordinal: 27
     return this.proxy.sendMessage(
-      27,  // ordinal
+      this.ordinals[27],  // ordinal
       drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec,
       null,
       [path, cancel_mode],
@@ -1476,9 +1555,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   setDocsOfflineEnabled(enabled) {
-    // Ordinal: 28
     return this.proxy.sendMessage(
-      28,  // ordinal
+      this.ordinals[28],  // ordinal
       drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec,
       drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec,
       [enabled],
@@ -1486,9 +1564,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   getOfflineFilesSpaceUsage() {
-    // Ordinal: 29
     return this.proxy.sendMessage(
-      29,  // ordinal
+      this.ordinals[29],  // ordinal
       drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec,
       drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec,
       [],
@@ -1496,9 +1573,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   clearOfflineFiles() {
-    // Ordinal: 30
     return this.proxy.sendMessage(
-      30,  // ordinal
+      this.ordinals[30],  // ordinal
       drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec,
       drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec,
       [],
@@ -1506,9 +1582,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   immediatelyUpload(path) {
-    // Ordinal: 31
     return this.proxy.sendMessage(
-      31,  // ordinal
+      this.ordinals[31],  // ordinal
       drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec,
       drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec,
       [path],
@@ -1516,9 +1591,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   updateFromPairedDoc(path) {
-    // Ordinal: 32
     return this.proxy.sendMessage(
-      32,  // ordinal
+      this.ordinals[32],  // ordinal
       drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec,
       drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec,
       [path],
@@ -1526,9 +1600,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   getItemFromCloudStore(path) {
-    // Ordinal: 33
     return this.proxy.sendMessage(
-      33,  // ordinal
+      this.ordinals[33],  // ordinal
       drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec,
       drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec,
       [path],
@@ -1536,9 +1609,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   getDocsOfflineStats() {
-    // Ordinal: 34
     return this.proxy.sendMessage(
-      34,  // ordinal
+      this.ordinals[34],  // ordinal
       drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec,
       drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec,
       [],
@@ -1546,9 +1618,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   getMirrorSyncStatusForFile(path) {
-    // Ordinal: 35
     return this.proxy.sendMessage(
-      35,  // ordinal
+      this.ordinals[35],  // ordinal
       drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec,
       drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec,
       [path],
@@ -1556,9 +1627,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
   }
 
   getMirrorSyncStatusForDirectory(path) {
-    // Ordinal: 36
     return this.proxy.sendMessage(
-      36,  // ordinal
+      this.ordinals[36],  // ordinal
       drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec,
       drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec,
       [path],
@@ -1582,43 +1652,49 @@ drivefs.mojom.DriveFsReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
-    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
-    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
-    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
-    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
-    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
-    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
-    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
-    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
-    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
-    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
-    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
-    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
-    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
-    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
-    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
-    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
-    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
-    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
-    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
-    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
-    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
-    this.ordinalMap.set(32, 32); // Default ordinal 32 -> Index 32
-    this.ordinalMap.set(33, 33); // Default ordinal 33 -> Index 33
-    this.ordinalMap.set(34, 34); // Default ordinal 34 -> Index 34
-    this.ordinalMap.set(35, 35); // Default ordinal 35 -> Index 35
-    this.ordinalMap.set(36, 36); // Default ordinal 36 -> Index 36
+    const ordinals = window.mojoScrambler.getOrdinals('DriveFs', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1656,7 +1732,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 0: GetMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadata_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadata_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMetadata (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1667,7 +1743,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 1: SetPinned
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinned_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinned_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPinned (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1678,7 +1754,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 2: UpdateNetworkState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateNetworkState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1689,7 +1765,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 3: ResetCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_ResetCache_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_ResetCache_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetCache (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1700,7 +1776,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 4: GetThumbnail
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetThumbnail (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1711,7 +1787,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 5: CopyFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_CopyFile_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_CopyFile_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyFile (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1722,7 +1798,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 6: StartSearchQuery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSearchQuery (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1733,7 +1809,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 7: FetchAllChangeLogs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchAllChangeLogs (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1744,7 +1820,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 8: FetchChangeLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchChangeLog (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1755,7 +1831,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 9: SendNativeMessageRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendNativeMessageRequest (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1766,7 +1842,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 10: SetStartupArguments
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetStartupArguments (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1777,7 +1853,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 11: GetStartupArguments
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStartupArguments (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1788,7 +1864,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 12: SetTracingEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTracingEnabled (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1799,7 +1875,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 13: SetNetworkingEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNetworkingEnabled (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1810,7 +1886,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 14: ForcePauseSyncing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForcePauseSyncing (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1821,7 +1897,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 15: DumpAccountSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpAccountSettings (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1832,7 +1908,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 16: LoadAccountSettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadAccountSettings (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1843,7 +1919,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 17: CreateNativeHostSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNativeHostSession (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1854,7 +1930,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 18: LocateFilesByItemIds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LocateFilesByItemIds (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1865,7 +1941,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 19: GetQuotaUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetQuotaUsage (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1876,7 +1952,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 20: ToggleMirroring
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleMirroring (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1887,7 +1963,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 21: ToggleSyncForPath
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleSyncForPath (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1898,7 +1974,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 22: GetSyncingPaths
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSyncingPaths (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -1909,7 +1985,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 23: PollHostedFilePinStates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PollHostedFilePinStates (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -1920,7 +1996,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 24: GetPooledQuotaUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPooledQuotaUsage (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -1931,7 +2007,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 25: SetPinnedByStableId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPinnedByStableId (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -1942,7 +2018,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 26: GetMetadataByStableId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMetadataByStableId (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -1953,7 +2029,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 27: CancelUploadByPath
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelUploadByPath (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -1964,7 +2040,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 28: SetDocsOfflineEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDocsOfflineEnabled (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -1975,7 +2051,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 29: GetOfflineFilesSpaceUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOfflineFilesSpaceUsage (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -1986,7 +2062,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 30: ClearOfflineFiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearOfflineFiles (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -1997,7 +2073,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 31: ImmediatelyUpload
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImmediatelyUpload (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -2008,7 +2084,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 32: UpdateFromPairedDoc
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateFromPairedDoc (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -2019,7 +2095,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 33: GetItemFromCloudStore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetItemFromCloudStore (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -2030,7 +2106,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 34: GetDocsOfflineStats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDocsOfflineStats (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -2041,7 +2117,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 35: GetMirrorSyncStatusForFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMirrorSyncStatusForFile (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -2052,7 +2128,7 @@ drivefs.mojom.DriveFsReceiver = class {
         // Try Method 36: GetMirrorSyncStatusForDirectory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMirrorSyncStatusForDirectory (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -2069,7 +2145,7 @@ drivefs.mojom.DriveFsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadata_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadata_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getMetadata');
           const result = this.impl.getMetadata(params.path);
           if (header.expectsResponse) {
@@ -2082,7 +2158,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinned_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinned_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setPinned');
           const result = this.impl.setPinned(params.path, params.pinned);
           if (header.expectsResponse) {
@@ -2095,14 +2171,14 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNetworkState');
           const result = this.impl.updateNetworkState(params.pause_syncing, params.is_offline);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ResetCache_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ResetCache_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.resetCache');
           const result = this.impl.resetCache();
           if (header.expectsResponse) {
@@ -2115,7 +2191,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getThumbnail');
           const result = this.impl.getThumbnail(params.path, params.crop_to_square);
           if (header.expectsResponse) {
@@ -2128,7 +2204,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CopyFile_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CopyFile_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.copyFile');
           const result = this.impl.copyFile(params.source, params.target);
           if (header.expectsResponse) {
@@ -2141,28 +2217,28 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startSearchQuery');
           const result = this.impl.startSearchQuery(params.query, params.query_params);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchAllChangeLogs');
           const result = this.impl.fetchAllChangeLogs();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchChangeLog');
           const result = this.impl.fetchChangeLog(params.options);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNativeMessageRequest');
           const result = this.impl.sendNativeMessageRequest(params.request);
           if (header.expectsResponse) {
@@ -2175,7 +2251,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setStartupArguments');
           const result = this.impl.setStartupArguments(params.arguments);
           if (header.expectsResponse) {
@@ -2188,7 +2264,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getStartupArguments');
           const result = this.impl.getStartupArguments();
           if (header.expectsResponse) {
@@ -2201,49 +2277,49 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setTracingEnabled');
           const result = this.impl.setTracingEnabled(params.enabled);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setNetworkingEnabled');
           const result = this.impl.setNetworkingEnabled(params.enabled);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.forcePauseSyncing');
           const result = this.impl.forcePauseSyncing(params.enable);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpAccountSettings');
           const result = this.impl.dumpAccountSettings();
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.loadAccountSettings');
           const result = this.impl.loadAccountSettings();
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createNativeHostSession');
           const result = this.impl.createNativeHostSession(params.params, params.host, params.port);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.locateFilesByItemIds');
           const result = this.impl.locateFilesByItemIds(params.item_ids);
           if (header.expectsResponse) {
@@ -2256,7 +2332,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuotaUsage');
           const result = this.impl.getQuotaUsage();
           if (header.expectsResponse) {
@@ -2269,7 +2345,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleMirroring');
           const result = this.impl.toggleMirroring(params.enabled);
           if (header.expectsResponse) {
@@ -2282,7 +2358,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleSyncForPath');
           const result = this.impl.toggleSyncForPath(params.path, params.status);
           if (header.expectsResponse) {
@@ -2295,7 +2371,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getSyncingPaths');
           const result = this.impl.getSyncingPaths();
           if (header.expectsResponse) {
@@ -2308,14 +2384,14 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.pollHostedFilePinStates');
           const result = this.impl.pollHostedFilePinStates();
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getPooledQuotaUsage');
           const result = this.impl.getPooledQuotaUsage();
           if (header.expectsResponse) {
@@ -2328,7 +2404,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setPinnedByStableId');
           const result = this.impl.setPinnedByStableId(params.stable_id, params.pinned);
           if (header.expectsResponse) {
@@ -2341,7 +2417,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getMetadataByStableId');
           const result = this.impl.getMetadataByStableId(params.stable_id);
           if (header.expectsResponse) {
@@ -2354,14 +2430,14 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelUploadByPath');
           const result = this.impl.cancelUploadByPath(params.path, params.cancel_mode);
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setDocsOfflineEnabled');
           const result = this.impl.setDocsOfflineEnabled(params.enabled);
           if (header.expectsResponse) {
@@ -2374,7 +2450,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getOfflineFilesSpaceUsage');
           const result = this.impl.getOfflineFilesSpaceUsage();
           if (header.expectsResponse) {
@@ -2387,7 +2463,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.clearOfflineFiles');
           const result = this.impl.clearOfflineFiles();
           if (header.expectsResponse) {
@@ -2400,7 +2476,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.immediatelyUpload');
           const result = this.impl.immediatelyUpload(params.path);
           if (header.expectsResponse) {
@@ -2413,7 +2489,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateFromPairedDoc');
           const result = this.impl.updateFromPairedDoc(params.path);
           if (header.expectsResponse) {
@@ -2426,7 +2502,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getItemFromCloudStore');
           const result = this.impl.getItemFromCloudStore(params.path);
           if (header.expectsResponse) {
@@ -2439,7 +2515,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getDocsOfflineStats');
           const result = this.impl.getDocsOfflineStats();
           if (header.expectsResponse) {
@@ -2452,7 +2528,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getMirrorSyncStatusForFile');
           const result = this.impl.getMirrorSyncStatusForFile(params.path);
           if (header.expectsResponse) {
@@ -2465,7 +2541,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getMirrorSyncStatusForDirectory');
           const result = this.impl.getMirrorSyncStatusForDirectory(params.path);
           if (header.expectsResponse) {
@@ -2678,12 +2754,33 @@ drivefs.mojom.DriveFsDelegateRemote = class {
 drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('DriveFsDelegate', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   getAccessToken(client_id, app_id, scopes) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec,
       drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec,
       [client_id, app_id, scopes],
@@ -2691,9 +2788,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onMounted() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec,
       null,
       [],
@@ -2701,9 +2797,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onMountFailed(retry_delay) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec,
       null,
       [retry_delay],
@@ -2711,9 +2806,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onUnmounted(retry_delay) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec,
       null,
       [retry_delay],
@@ -2721,9 +2815,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onSyncingStatusUpdate(status) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec,
       null,
       [status],
@@ -2731,9 +2824,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onFilesChanged(changes) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec,
       null,
       [changes],
@@ -2741,9 +2833,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onError(error) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec,
       null,
       [error],
@@ -2751,9 +2842,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onTeamDrivesListReady(team_drive_ids) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec,
       null,
       [team_drive_ids],
@@ -2761,9 +2851,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onTeamDriveChanged(team_drive_id, change_type) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec,
       null,
       [team_drive_id, change_type],
@@ -2771,9 +2860,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onHeartbeat() {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec,
       null,
       [],
@@ -2781,9 +2869,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   connectToExtension(params, port, host) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[10],  // ordinal
       drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec,
       drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec,
       [params, port, host],
@@ -2791,9 +2878,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   displayConfirmDialog(reason) {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[11],  // ordinal
       drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec,
       drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec,
       [reason],
@@ -2801,9 +2887,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   executeHttpRequest(request, delegate) {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[12],  // ordinal
       drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec,
       null,
       [request, delegate],
@@ -2811,9 +2896,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   getMachineRootID() {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[13],  // ordinal
       drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec,
       drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec,
       [],
@@ -2821,9 +2905,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   persistMachineRootID(doc_id) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[14],  // ordinal
       drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec,
       null,
       [doc_id],
@@ -2831,9 +2914,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onMirrorSyncingStatusUpdate(status) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[15],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec,
       null,
       [status],
@@ -2841,9 +2923,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onItemProgress(progress_event) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[16],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec,
       null,
       [progress_event],
@@ -2851,9 +2932,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   getAccessTokenWithExpiry(client_id, app_id, scopes) {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[17],  // ordinal
       drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec,
       drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec,
       [client_id, app_id, scopes],
@@ -2861,9 +2941,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onNotificationReceived(notification) {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[18],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec,
       null,
       [notification],
@@ -2871,9 +2950,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
   }
 
   onMirrorSyncError(error_list) {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[19],  // ordinal
       drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec,
       null,
       [error_list],
@@ -2897,26 +2975,32 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
-    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
-    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
-    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
-    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
-    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
-    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
-    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
-    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
-    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
-    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    const ordinals = window.mojoScrambler.getOrdinals('DriveFsDelegate', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -2954,7 +3038,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 0: GetAccessToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAccessToken (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2965,7 +3049,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 1: OnMounted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMounted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2976,7 +3060,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 2: OnMountFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMountFailed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2987,7 +3071,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 3: OnUnmounted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUnmounted (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2998,7 +3082,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 4: OnSyncingStatusUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSyncingStatusUpdate (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -3009,7 +3093,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 5: OnFilesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFilesChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -3020,7 +3104,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 6: OnError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -3031,7 +3115,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 7: OnTeamDrivesListReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTeamDrivesListReady (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -3042,7 +3126,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 8: OnTeamDriveChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTeamDriveChanged (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -3053,7 +3137,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 9: OnHeartbeat
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHeartbeat (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -3064,7 +3148,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 10: ConnectToExtension
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToExtension (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -3075,7 +3159,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 11: DisplayConfirmDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayConfirmDialog (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -3086,7 +3170,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 12: ExecuteHttpRequest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteHttpRequest (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -3097,7 +3181,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 13: GetMachineRootID
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMachineRootID (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -3108,7 +3192,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 14: PersistMachineRootID
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PersistMachineRootID (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -3119,7 +3203,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 15: OnMirrorSyncingStatusUpdate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMirrorSyncingStatusUpdate (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -3130,7 +3214,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 16: OnItemProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnItemProgress (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -3141,7 +3225,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 17: GetAccessTokenWithExpiry
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAccessTokenWithExpiry (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -3152,7 +3236,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 18: OnNotificationReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationReceived (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -3163,7 +3247,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         // Try Method 19: OnMirrorSyncError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMirrorSyncError (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -3180,7 +3264,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getAccessToken');
           const result = this.impl.getAccessToken(params.client_id, params.app_id, params.scopes);
           if (header.expectsResponse) {
@@ -3193,70 +3277,70 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onMounted');
           const result = this.impl.onMounted();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onMountFailed');
           const result = this.impl.onMountFailed(params.retry_delay);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnmounted');
           const result = this.impl.onUnmounted(params.retry_delay);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onSyncingStatusUpdate');
           const result = this.impl.onSyncingStatusUpdate(params.status);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onFilesChanged');
           const result = this.impl.onFilesChanged(params.changes);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onTeamDrivesListReady');
           const result = this.impl.onTeamDrivesListReady(params.team_drive_ids);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onTeamDriveChanged');
           const result = this.impl.onTeamDriveChanged(params.team_drive_id, params.change_type);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onHeartbeat');
           const result = this.impl.onHeartbeat();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToExtension');
           const result = this.impl.connectToExtension(params.params, params.port, params.host);
           if (header.expectsResponse) {
@@ -3269,7 +3353,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.displayConfirmDialog');
           const result = this.impl.displayConfirmDialog(params.reason);
           if (header.expectsResponse) {
@@ -3282,14 +3366,14 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.executeHttpRequest');
           const result = this.impl.executeHttpRequest(params.request, params.delegate);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getMachineRootID');
           const result = this.impl.getMachineRootID();
           if (header.expectsResponse) {
@@ -3302,28 +3386,28 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.persistMachineRootID');
           const result = this.impl.persistMachineRootID(params.doc_id);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onMirrorSyncingStatusUpdate');
           const result = this.impl.onMirrorSyncingStatusUpdate(params.status);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onItemProgress');
           const result = this.impl.onItemProgress(params.progress_event);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getAccessTokenWithExpiry');
           const result = this.impl.getAccessTokenWithExpiry(params.client_id, params.app_id, params.scopes);
           if (header.expectsResponse) {
@@ -3336,14 +3420,14 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationReceived');
           const result = this.impl.onNotificationReceived(params.notification);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onMirrorSyncError');
           const result = this.impl.onMirrorSyncError(params.error_list);
           break;
@@ -3405,12 +3489,14 @@ drivefs.mojom.SearchQueryRemote = class {
 drivefs.mojom.SearchQueryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('SearchQuery', [
+      { explicit: null },
+    ]);
   }
 
   getNextPage() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec,
       drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec,
       [],
@@ -3434,7 +3520,13 @@ drivefs.mojom.SearchQueryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('SearchQuery', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -3472,7 +3564,7 @@ drivefs.mojom.SearchQueryReceiver = class {
         // Try Method 0: GetNextPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNextPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3489,7 +3581,7 @@ drivefs.mojom.SearchQueryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getNextPage');
           const result = this.impl.getNextPage();
           if (header.expectsResponse) {
@@ -3569,12 +3661,17 @@ drivefs.mojom.HttpDelegateRemote = class {
 drivefs.mojom.HttpDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('HttpDelegate', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   getRequestBody(request_body) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec,
       null,
       [request_body],
@@ -3582,9 +3679,8 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
   }
 
   onReceiveResponse(response) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec,
       null,
       [response],
@@ -3592,9 +3688,8 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
   }
 
   onReceiveBody(response_body) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec,
       null,
       [response_body],
@@ -3602,9 +3697,8 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
   }
 
   onRequestComplete(status) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec,
       null,
       [status],
@@ -3628,10 +3722,16 @@ drivefs.mojom.HttpDelegateReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    const ordinals = window.mojoScrambler.getOrdinals('HttpDelegate', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -3669,7 +3769,7 @@ drivefs.mojom.HttpDelegateReceiver = class {
         // Try Method 0: GetRequestBody
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRequestBody (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3680,7 +3780,7 @@ drivefs.mojom.HttpDelegateReceiver = class {
         // Try Method 1: OnReceiveResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceiveResponse (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -3691,7 +3791,7 @@ drivefs.mojom.HttpDelegateReceiver = class {
         // Try Method 2: OnReceiveBody
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceiveBody (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -3702,7 +3802,7 @@ drivefs.mojom.HttpDelegateReceiver = class {
         // Try Method 3: OnRequestComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec.$);
+             decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestComplete (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -3719,28 +3819,28 @@ drivefs.mojom.HttpDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getRequestBody');
           const result = this.impl.getRequestBody(params.request_body);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveResponse');
           const result = this.impl.onReceiveResponse(params.response);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveBody');
           const result = this.impl.onReceiveBody(params.response_body);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec.$);
+          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestComplete');
           const result = this.impl.onRequestComplete(params.status);
           break;

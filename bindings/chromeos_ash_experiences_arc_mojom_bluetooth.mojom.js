@@ -3,6 +3,66 @@
 // Module: arc.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var arc = arc || {};
@@ -596,12 +656,14 @@ arc.mojom.RfcommListeningSocketClientRemote = class {
 arc.mojom.RfcommListeningSocketClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('RfcommListeningSocketClient', [
+      { explicit: 0 },
+    ]);
   }
 
   onAccepted(connection) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec,
       null,
       [connection],
@@ -625,7 +687,13 @@ arc.mojom.RfcommListeningSocketClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('RfcommListeningSocketClient', [
+      { explicit: 0 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -663,7 +731,7 @@ arc.mojom.RfcommListeningSocketClientReceiver = class {
         // Try Method 0: OnAccepted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAccepted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -680,7 +748,7 @@ arc.mojom.RfcommListeningSocketClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onAccepted');
           const result = this.impl.onAccepted(params.connection);
           break;
@@ -741,12 +809,15 @@ arc.mojom.RfcommConnectingSocketClientRemote = class {
 arc.mojom.RfcommConnectingSocketClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('RfcommConnectingSocketClient', [
+      { explicit: 0 },
+      { explicit: 1 },
+    ]);
   }
 
   onConnected(connection) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec,
       null,
       [connection],
@@ -754,9 +825,8 @@ arc.mojom.RfcommConnectingSocketClientRemoteCallHandler = class {
   }
 
   onConnectFailed() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       arc.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec,
       null,
       [],
@@ -780,8 +850,14 @@ arc.mojom.RfcommConnectingSocketClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('RfcommConnectingSocketClient', [
+      { explicit: 0 },
+      { explicit: 1 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -819,7 +895,7 @@ arc.mojom.RfcommConnectingSocketClientReceiver = class {
         // Try Method 0: OnConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnected (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -830,7 +906,7 @@ arc.mojom.RfcommConnectingSocketClientReceiver = class {
         // Try Method 1: OnConnectFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectFailed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -847,14 +923,14 @@ arc.mojom.RfcommConnectingSocketClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnected');
           const result = this.impl.onConnected(params.connection);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectFailed');
           const result = this.impl.onConnectFailed();
           break;
@@ -910,12 +986,14 @@ arc.mojom.BluetoothListenSocketClientRemote = class {
 arc.mojom.BluetoothListenSocketClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('BluetoothListenSocketClient', [
+      { explicit: 0 },
+    ]);
   }
 
   onAccepted(connection) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec,
       null,
       [connection],
@@ -939,7 +1017,13 @@ arc.mojom.BluetoothListenSocketClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('BluetoothListenSocketClient', [
+      { explicit: 0 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -977,7 +1061,7 @@ arc.mojom.BluetoothListenSocketClientReceiver = class {
         // Try Method 0: OnAccepted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAccepted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -994,7 +1078,7 @@ arc.mojom.BluetoothListenSocketClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onAccepted');
           const result = this.impl.onAccepted(params.connection);
           break;
@@ -1055,12 +1139,15 @@ arc.mojom.BluetoothConnectSocketClientRemote = class {
 arc.mojom.BluetoothConnectSocketClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('BluetoothConnectSocketClient', [
+      { explicit: 0 },
+      { explicit: 1 },
+    ]);
   }
 
   onConnected(connection) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec,
       null,
       [connection],
@@ -1068,9 +1155,8 @@ arc.mojom.BluetoothConnectSocketClientRemoteCallHandler = class {
   }
 
   onConnectFailed() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       arc.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec,
       null,
       [],
@@ -1094,8 +1180,14 @@ arc.mojom.BluetoothConnectSocketClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('BluetoothConnectSocketClient', [
+      { explicit: 0 },
+      { explicit: 1 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1133,7 +1225,7 @@ arc.mojom.BluetoothConnectSocketClientReceiver = class {
         // Try Method 0: OnConnected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnected (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1144,7 +1236,7 @@ arc.mojom.BluetoothConnectSocketClientReceiver = class {
         // Try Method 1: OnConnectFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectFailed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1161,14 +1253,14 @@ arc.mojom.BluetoothConnectSocketClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnected');
           const result = this.impl.onConnected(params.connection);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectFailed');
           const result = this.impl.onConnectFailed();
           break;
@@ -1646,12 +1738,53 @@ arc.mojom.BluetoothHostRemote = class {
 arc.mojom.BluetoothHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('BluetoothHost', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 8 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 11 },
+      { explicit: 12 },
+      { explicit: 13 },
+      { explicit: 14 },
+      { explicit: 15 },
+      { explicit: 16 },
+      { explicit: 17 },
+      { explicit: 18 },
+      { explicit: 19 },
+      { explicit: 22 },
+      { explicit: 23 },
+      { explicit: 24 },
+      { explicit: 25 },
+      { explicit: 44 },
+      { explicit: 26 },
+      { explicit: 27 },
+      { explicit: 28 },
+      { explicit: 30 },
+      { explicit: 31 },
+      { explicit: 32 },
+      { explicit: 33 },
+      { explicit: 34 },
+      { explicit: 35 },
+      { explicit: 36 },
+      { explicit: 37 },
+      { explicit: 38 },
+      { explicit: 39 },
+      { explicit: 40 },
+      { explicit: 41 },
+      { explicit: 42 },
+      { explicit: 43 },
+      { explicit: 47 },
+      { explicit: 48 },
+    ]);
   }
 
   enableAdapter() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.BluetoothHost_EnableAdapter_ParamsSpec,
       arc.mojom.BluetoothHost_EnableAdapter_ResponseParamsSpec,
       [],
@@ -1659,9 +1792,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   disableAdapter() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       arc.mojom.BluetoothHost_DisableAdapter_ParamsSpec,
       arc.mojom.BluetoothHost_DisableAdapter_ResponseParamsSpec,
       [],
@@ -1669,9 +1801,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   getAdapterProperty(type) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       arc.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec,
       null,
       [type],
@@ -1679,9 +1810,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   setAdapterProperty(property) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       arc.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec,
       null,
       [property],
@@ -1689,9 +1819,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   startDiscovery() {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[4],  // ordinal
       arc.mojom.BluetoothHost_StartDiscovery_ParamsSpec,
       null,
       [],
@@ -1699,9 +1828,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   cancelDiscovery() {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[5],  // ordinal
       arc.mojom.BluetoothHost_CancelDiscovery_ParamsSpec,
       null,
       [],
@@ -1709,9 +1837,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   createBond(addr, transport) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[6],  // ordinal
       arc.mojom.BluetoothHost_CreateBond_ParamsSpec,
       null,
       [addr, transport],
@@ -1719,9 +1846,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   removeBond(addr) {
-    // Ordinal: 11
     return this.proxy.sendMessage(
-      11,  // ordinal
+      this.ordinals[7],  // ordinal
       arc.mojom.BluetoothHost_RemoveBond_ParamsSpec,
       null,
       [addr],
@@ -1729,9 +1855,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   cancelBond(addr) {
-    // Ordinal: 12
     return this.proxy.sendMessage(
-      12,  // ordinal
+      this.ordinals[8],  // ordinal
       arc.mojom.BluetoothHost_CancelBond_ParamsSpec,
       null,
       [addr],
@@ -1739,9 +1864,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   getConnectionState(addr) {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[9],  // ordinal
       arc.mojom.BluetoothHost_GetConnectionState_ParamsSpec,
       arc.mojom.BluetoothHost_GetConnectionState_ResponseParamsSpec,
       [addr],
@@ -1749,9 +1873,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   startLEScan() {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[10],  // ordinal
       arc.mojom.BluetoothHost_StartLEScan_ParamsSpec,
       null,
       [],
@@ -1759,9 +1882,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   stopLEScan() {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[11],  // ordinal
       arc.mojom.BluetoothHost_StopLEScan_ParamsSpec,
       null,
       [],
@@ -1769,9 +1891,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   connectLEDevice(remote_addr) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[12],  // ordinal
       arc.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec,
       null,
       [remote_addr],
@@ -1779,9 +1900,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   disconnectLEDevice(remote_addr) {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[13],  // ordinal
       arc.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec,
       null,
       [remote_addr],
@@ -1789,9 +1909,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   searchService(remote_addr) {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[14],  // ordinal
       arc.mojom.BluetoothHost_SearchService_ParamsSpec,
       null,
       [remote_addr],
@@ -1799,9 +1918,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   getGattDB(remote_addr) {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[15],  // ordinal
       arc.mojom.BluetoothHost_GetGattDB_ParamsSpec,
       null,
       [remote_addr],
@@ -1809,9 +1927,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   readGattCharacteristic(remote_addr, service_id, char_id) {
-    // Ordinal: 22
     return this.proxy.sendMessage(
-      22,  // ordinal
+      this.ordinals[16],  // ordinal
       arc.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec,
       arc.mojom.BluetoothHost_ReadGattCharacteristic_ResponseParamsSpec,
       [remote_addr, service_id, char_id],
@@ -1819,9 +1936,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   writeGattCharacteristic(remote_addr, service_id, char_id, value, prepare) {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[17],  // ordinal
       arc.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec,
       arc.mojom.BluetoothHost_WriteGattCharacteristic_ResponseParamsSpec,
       [remote_addr, service_id, char_id, value, prepare],
@@ -1829,9 +1945,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   readGattDescriptor(remote_addr, service_id, char_id, desc_id) {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[18],  // ordinal
       arc.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec,
       arc.mojom.BluetoothHost_ReadGattDescriptor_ResponseParamsSpec,
       [remote_addr, service_id, char_id, desc_id],
@@ -1839,9 +1954,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   writeGattDescriptor(remote_addr, service_id, char_id, desc_id, value) {
-    // Ordinal: 25
     return this.proxy.sendMessage(
-      25,  // ordinal
+      this.ordinals[19],  // ordinal
       arc.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec,
       arc.mojom.BluetoothHost_WriteGattDescriptor_ResponseParamsSpec,
       [remote_addr, service_id, char_id, desc_id, value],
@@ -1849,9 +1963,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   executeWrite(remote_addr, execute) {
-    // Ordinal: 44
     return this.proxy.sendMessage(
-      44,  // ordinal
+      this.ordinals[20],  // ordinal
       arc.mojom.BluetoothHost_ExecuteWrite_ParamsSpec,
       arc.mojom.BluetoothHost_ExecuteWrite_ResponseParamsSpec,
       [remote_addr, execute],
@@ -1859,9 +1972,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   registerForGattNotification(remote_addr, service_id, char_id) {
-    // Ordinal: 26
     return this.proxy.sendMessage(
-      26,  // ordinal
+      this.ordinals[21],  // ordinal
       arc.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec,
       arc.mojom.BluetoothHost_RegisterForGattNotification_ResponseParamsSpec,
       [remote_addr, service_id, char_id],
@@ -1869,9 +1981,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   deregisterForGattNotification(remote_addr, service_id, char_id) {
-    // Ordinal: 27
     return this.proxy.sendMessage(
-      27,  // ordinal
+      this.ordinals[22],  // ordinal
       arc.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec,
       arc.mojom.BluetoothHost_DeregisterForGattNotification_ResponseParamsSpec,
       [remote_addr, service_id, char_id],
@@ -1879,9 +1990,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   readRemoteRssi(remote_addr) {
-    // Ordinal: 28
     return this.proxy.sendMessage(
-      28,  // ordinal
+      this.ordinals[23],  // ordinal
       arc.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec,
       arc.mojom.BluetoothHost_ReadRemoteRssi_ResponseParamsSpec,
       [remote_addr],
@@ -1889,9 +1999,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   addService(service_id, num_handles) {
-    // Ordinal: 30
     return this.proxy.sendMessage(
-      30,  // ordinal
+      this.ordinals[24],  // ordinal
       arc.mojom.BluetoothHost_AddService_ParamsSpec,
       arc.mojom.BluetoothHost_AddService_ResponseParamsSpec,
       [service_id, num_handles],
@@ -1899,9 +2008,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   addCharacteristic(service_handle, uuid, properties, permissions) {
-    // Ordinal: 31
     return this.proxy.sendMessage(
-      31,  // ordinal
+      this.ordinals[25],  // ordinal
       arc.mojom.BluetoothHost_AddCharacteristic_ParamsSpec,
       arc.mojom.BluetoothHost_AddCharacteristic_ResponseParamsSpec,
       [service_handle, uuid, properties, permissions],
@@ -1909,9 +2017,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   addDescriptor(service_handle, uuid, permissions) {
-    // Ordinal: 32
     return this.proxy.sendMessage(
-      32,  // ordinal
+      this.ordinals[26],  // ordinal
       arc.mojom.BluetoothHost_AddDescriptor_ParamsSpec,
       arc.mojom.BluetoothHost_AddDescriptor_ResponseParamsSpec,
       [service_handle, uuid, permissions],
@@ -1919,9 +2026,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   startService(service_handle) {
-    // Ordinal: 33
     return this.proxy.sendMessage(
-      33,  // ordinal
+      this.ordinals[27],  // ordinal
       arc.mojom.BluetoothHost_StartService_ParamsSpec,
       arc.mojom.BluetoothHost_StartService_ResponseParamsSpec,
       [service_handle],
@@ -1929,9 +2035,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   stopService(service_handle) {
-    // Ordinal: 34
     return this.proxy.sendMessage(
-      34,  // ordinal
+      this.ordinals[28],  // ordinal
       arc.mojom.BluetoothHost_StopService_ParamsSpec,
       arc.mojom.BluetoothHost_StopService_ResponseParamsSpec,
       [service_handle],
@@ -1939,9 +2044,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   deleteService(service_handle) {
-    // Ordinal: 35
     return this.proxy.sendMessage(
-      35,  // ordinal
+      this.ordinals[29],  // ordinal
       arc.mojom.BluetoothHost_DeleteService_ParamsSpec,
       arc.mojom.BluetoothHost_DeleteService_ResponseParamsSpec,
       [service_handle],
@@ -1949,9 +2053,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   sendIndication(attribute_handle, address, confirm, value) {
-    // Ordinal: 36
     return this.proxy.sendMessage(
-      36,  // ordinal
+      this.ordinals[30],  // ordinal
       arc.mojom.BluetoothHost_SendIndication_ParamsSpec,
       arc.mojom.BluetoothHost_SendIndication_ResponseParamsSpec,
       [attribute_handle, address, confirm, value],
@@ -1959,9 +2062,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   getSdpRecords(remote_addr, target_uuid) {
-    // Ordinal: 37
     return this.proxy.sendMessage(
-      37,  // ordinal
+      this.ordinals[31],  // ordinal
       arc.mojom.BluetoothHost_GetSdpRecords_ParamsSpec,
       null,
       [remote_addr, target_uuid],
@@ -1969,9 +2071,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   createSdpRecord(record) {
-    // Ordinal: 38
     return this.proxy.sendMessage(
-      38,  // ordinal
+      this.ordinals[32],  // ordinal
       arc.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec,
       arc.mojom.BluetoothHost_CreateSdpRecord_ResponseParamsSpec,
       [record],
@@ -1979,9 +2080,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   removeSdpRecord(service_handle) {
-    // Ordinal: 39
     return this.proxy.sendMessage(
-      39,  // ordinal
+      this.ordinals[33],  // ordinal
       arc.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec,
       arc.mojom.BluetoothHost_RemoveSdpRecord_ResponseParamsSpec,
       [service_handle],
@@ -1989,9 +2089,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   reserveAdvertisementHandle() {
-    // Ordinal: 40
     return this.proxy.sendMessage(
-      40,  // ordinal
+      this.ordinals[34],  // ordinal
       arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec,
       arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ResponseParamsSpec,
       [],
@@ -1999,9 +2098,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   enableAdvertisement(adv_handle, adv) {
-    // Ordinal: 41
     return this.proxy.sendMessage(
-      41,  // ordinal
+      this.ordinals[35],  // ordinal
       arc.mojom.BluetoothHost_EnableAdvertisement_ParamsSpec,
       arc.mojom.BluetoothHost_EnableAdvertisement_ResponseParamsSpec,
       [adv_handle, adv],
@@ -2009,9 +2107,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   releaseAdvertisementHandle(adv_handle) {
-    // Ordinal: 42
     return this.proxy.sendMessage(
-      42,  // ordinal
+      this.ordinals[36],  // ordinal
       arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec,
       arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ResponseParamsSpec,
       [adv_handle],
@@ -2019,9 +2116,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   disableAdvertisement(adv_handle) {
-    // Ordinal: 43
     return this.proxy.sendMessage(
-      43,  // ordinal
+      this.ordinals[37],  // ordinal
       arc.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec,
       arc.mojom.BluetoothHost_DisableAdvertisement_ResponseParamsSpec,
       [adv_handle],
@@ -2029,9 +2125,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   bluetoothSocketListen(sock_type, sock_flags, port) {
-    // Ordinal: 47
     return this.proxy.sendMessage(
-      47,  // ordinal
+      this.ordinals[38],  // ordinal
       arc.mojom.BluetoothHost_BluetoothSocketListen_ParamsSpec,
       arc.mojom.BluetoothHost_BluetoothSocketListen_ResponseParamsSpec,
       [sock_type, sock_flags, port],
@@ -2039,9 +2134,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
   }
 
   bluetoothSocketConnect(sock_type, sock_flags, remote_addr, remote_port) {
-    // Ordinal: 48
     return this.proxy.sendMessage(
-      48,  // ordinal
+      this.ordinals[39],  // ordinal
       arc.mojom.BluetoothHost_BluetoothSocketConnect_ParamsSpec,
       arc.mojom.BluetoothHost_BluetoothSocketConnect_ResponseParamsSpec,
       [sock_type, sock_flags, remote_addr, remote_port],
@@ -2065,46 +2159,52 @@ arc.mojom.BluetoothHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(8, 4); // Default ordinal 8 -> Index 4
-    this.ordinalMap.set(9, 5); // Default ordinal 9 -> Index 5
-    this.ordinalMap.set(10, 6); // Default ordinal 10 -> Index 6
-    this.ordinalMap.set(11, 7); // Default ordinal 11 -> Index 7
-    this.ordinalMap.set(12, 8); // Default ordinal 12 -> Index 8
-    this.ordinalMap.set(13, 9); // Default ordinal 13 -> Index 9
-    this.ordinalMap.set(14, 10); // Default ordinal 14 -> Index 10
-    this.ordinalMap.set(15, 11); // Default ordinal 15 -> Index 11
-    this.ordinalMap.set(16, 12); // Default ordinal 16 -> Index 12
-    this.ordinalMap.set(17, 13); // Default ordinal 17 -> Index 13
-    this.ordinalMap.set(18, 14); // Default ordinal 18 -> Index 14
-    this.ordinalMap.set(19, 15); // Default ordinal 19 -> Index 15
-    this.ordinalMap.set(22, 16); // Default ordinal 22 -> Index 16
-    this.ordinalMap.set(23, 17); // Default ordinal 23 -> Index 17
-    this.ordinalMap.set(24, 18); // Default ordinal 24 -> Index 18
-    this.ordinalMap.set(25, 19); // Default ordinal 25 -> Index 19
-    this.ordinalMap.set(44, 20); // Default ordinal 44 -> Index 20
-    this.ordinalMap.set(26, 21); // Default ordinal 26 -> Index 21
-    this.ordinalMap.set(27, 22); // Default ordinal 27 -> Index 22
-    this.ordinalMap.set(28, 23); // Default ordinal 28 -> Index 23
-    this.ordinalMap.set(30, 24); // Default ordinal 30 -> Index 24
-    this.ordinalMap.set(31, 25); // Default ordinal 31 -> Index 25
-    this.ordinalMap.set(32, 26); // Default ordinal 32 -> Index 26
-    this.ordinalMap.set(33, 27); // Default ordinal 33 -> Index 27
-    this.ordinalMap.set(34, 28); // Default ordinal 34 -> Index 28
-    this.ordinalMap.set(35, 29); // Default ordinal 35 -> Index 29
-    this.ordinalMap.set(36, 30); // Default ordinal 36 -> Index 30
-    this.ordinalMap.set(37, 31); // Default ordinal 37 -> Index 31
-    this.ordinalMap.set(38, 32); // Default ordinal 38 -> Index 32
-    this.ordinalMap.set(39, 33); // Default ordinal 39 -> Index 33
-    this.ordinalMap.set(40, 34); // Default ordinal 40 -> Index 34
-    this.ordinalMap.set(41, 35); // Default ordinal 41 -> Index 35
-    this.ordinalMap.set(42, 36); // Default ordinal 42 -> Index 36
-    this.ordinalMap.set(43, 37); // Default ordinal 43 -> Index 37
-    this.ordinalMap.set(47, 38); // Default ordinal 47 -> Index 38
-    this.ordinalMap.set(48, 39); // Default ordinal 48 -> Index 39
+    const ordinals = window.mojoScrambler.getOrdinals('BluetoothHost', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 8 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 11 },
+      { explicit: 12 },
+      { explicit: 13 },
+      { explicit: 14 },
+      { explicit: 15 },
+      { explicit: 16 },
+      { explicit: 17 },
+      { explicit: 18 },
+      { explicit: 19 },
+      { explicit: 22 },
+      { explicit: 23 },
+      { explicit: 24 },
+      { explicit: 25 },
+      { explicit: 44 },
+      { explicit: 26 },
+      { explicit: 27 },
+      { explicit: 28 },
+      { explicit: 30 },
+      { explicit: 31 },
+      { explicit: 32 },
+      { explicit: 33 },
+      { explicit: 34 },
+      { explicit: 35 },
+      { explicit: 36 },
+      { explicit: 37 },
+      { explicit: 38 },
+      { explicit: 39 },
+      { explicit: 40 },
+      { explicit: 41 },
+      { explicit: 42 },
+      { explicit: 43 },
+      { explicit: 47 },
+      { explicit: 48 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -2142,7 +2242,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 0: EnableAdapter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_EnableAdapter_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_EnableAdapter_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableAdapter (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2153,7 +2253,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 1: DisableAdapter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_DisableAdapter_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_DisableAdapter_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableAdapter (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2164,7 +2264,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 2: GetAdapterProperty
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAdapterProperty (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2175,7 +2275,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 3: SetAdapterProperty
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAdapterProperty (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2186,7 +2286,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 4: StartDiscovery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_StartDiscovery_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_StartDiscovery_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDiscovery (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2197,7 +2297,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 5: CancelDiscovery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_CancelDiscovery_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_CancelDiscovery_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelDiscovery (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2208,7 +2308,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 6: CreateBond
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_CreateBond_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_CreateBond_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBond (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2219,7 +2319,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 7: RemoveBond
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_RemoveBond_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_RemoveBond_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveBond (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -2230,7 +2330,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 8: CancelBond
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_CancelBond_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_CancelBond_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelBond (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -2241,7 +2341,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 9: GetConnectionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_GetConnectionState_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_GetConnectionState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetConnectionState (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -2252,7 +2352,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 10: StartLEScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_StartLEScan_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_StartLEScan_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartLEScan (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -2263,7 +2363,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 11: StopLEScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_StopLEScan_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_StopLEScan_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopLEScan (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -2274,7 +2374,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 12: ConnectLEDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectLEDevice (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -2285,7 +2385,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 13: DisconnectLEDevice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisconnectLEDevice (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -2296,7 +2396,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 14: SearchService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_SearchService_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_SearchService_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SearchService (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -2307,7 +2407,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 15: GetGattDB
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_GetGattDB_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_GetGattDB_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGattDB (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -2318,7 +2418,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 16: ReadGattCharacteristic
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadGattCharacteristic (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -2329,7 +2429,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 17: WriteGattCharacteristic
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteGattCharacteristic (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -2340,7 +2440,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 18: ReadGattDescriptor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadGattDescriptor (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -2351,7 +2451,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 19: WriteGattDescriptor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteGattDescriptor (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -2362,7 +2462,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 20: ExecuteWrite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_ExecuteWrite_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_ExecuteWrite_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteWrite (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -2373,7 +2473,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 21: RegisterForGattNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterForGattNotification (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -2384,7 +2484,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 22: DeregisterForGattNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeregisterForGattNotification (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -2395,7 +2495,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 23: ReadRemoteRssi
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadRemoteRssi (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -2406,7 +2506,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 24: AddService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_AddService_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_AddService_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddService (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -2417,7 +2517,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 25: AddCharacteristic
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_AddCharacteristic_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_AddCharacteristic_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddCharacteristic (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -2428,7 +2528,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 26: AddDescriptor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_AddDescriptor_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_AddDescriptor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDescriptor (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -2439,7 +2539,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 27: StartService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_StartService_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_StartService_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartService (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -2450,7 +2550,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 28: StopService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_StopService_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_StopService_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopService (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -2461,7 +2561,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 29: DeleteService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_DeleteService_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_DeleteService_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteService (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -2472,7 +2572,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 30: SendIndication
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_SendIndication_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_SendIndication_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendIndication (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -2483,7 +2583,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 31: GetSdpRecords
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_GetSdpRecords_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_GetSdpRecords_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSdpRecords (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -2494,7 +2594,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 32: CreateSdpRecord
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSdpRecord (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
@@ -2505,7 +2605,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 33: RemoveSdpRecord
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveSdpRecord (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
@@ -2516,7 +2616,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 34: ReserveAdvertisementHandle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReserveAdvertisementHandle (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
@@ -2527,7 +2627,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 35: EnableAdvertisement
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_EnableAdvertisement_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_EnableAdvertisement_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableAdvertisement (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
@@ -2538,7 +2638,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 36: ReleaseAdvertisementHandle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReleaseAdvertisementHandle (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
@@ -2549,7 +2649,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 37: DisableAdvertisement
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableAdvertisement (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
@@ -2560,7 +2660,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 38: BluetoothSocketListen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_BluetoothSocketListen_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_BluetoothSocketListen_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BluetoothSocketListen (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
@@ -2571,7 +2671,7 @@ arc.mojom.BluetoothHostReceiver = class {
         // Try Method 39: BluetoothSocketConnect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothHost_BluetoothSocketConnect_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothHost_BluetoothSocketConnect_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BluetoothSocketConnect (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
@@ -2588,7 +2688,7 @@ arc.mojom.BluetoothHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_EnableAdapter_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_EnableAdapter_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAdapter');
           const result = this.impl.enableAdapter();
           if (header.expectsResponse) {
@@ -2601,7 +2701,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_DisableAdapter_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_DisableAdapter_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.disableAdapter');
           const result = this.impl.disableAdapter();
           if (header.expectsResponse) {
@@ -2614,56 +2714,56 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getAdapterProperty');
           const result = this.impl.getAdapterProperty(params.type);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setAdapterProperty');
           const result = this.impl.setAdapterProperty(params.property);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_StartDiscovery_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_StartDiscovery_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startDiscovery');
           const result = this.impl.startDiscovery();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_CancelDiscovery_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_CancelDiscovery_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelDiscovery');
           const result = this.impl.cancelDiscovery();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_CreateBond_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_CreateBond_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createBond');
           const result = this.impl.createBond(params.addr, params.transport);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_RemoveBond_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_RemoveBond_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.removeBond');
           const result = this.impl.removeBond(params.addr);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_CancelBond_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_CancelBond_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelBond');
           const result = this.impl.cancelBond(params.addr);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_GetConnectionState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_GetConnectionState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getConnectionState');
           const result = this.impl.getConnectionState(params.addr);
           if (header.expectsResponse) {
@@ -2676,49 +2776,49 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_StartLEScan_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_StartLEScan_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startLEScan');
           const result = this.impl.startLEScan();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_StopLEScan_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_StopLEScan_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.stopLEScan');
           const result = this.impl.stopLEScan();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.connectLEDevice');
           const result = this.impl.connectLEDevice(params.remote_addr);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.disconnectLEDevice');
           const result = this.impl.disconnectLEDevice(params.remote_addr);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_SearchService_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_SearchService_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.searchService');
           const result = this.impl.searchService(params.remote_addr);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_GetGattDB_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_GetGattDB_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getGattDB');
           const result = this.impl.getGattDB(params.remote_addr);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.readGattCharacteristic');
           const result = this.impl.readGattCharacteristic(params.remote_addr, params.service_id, params.char_id);
           if (header.expectsResponse) {
@@ -2731,7 +2831,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.writeGattCharacteristic');
           const result = this.impl.writeGattCharacteristic(params.remote_addr, params.service_id, params.char_id, params.value, params.prepare);
           if (header.expectsResponse) {
@@ -2744,7 +2844,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.readGattDescriptor');
           const result = this.impl.readGattDescriptor(params.remote_addr, params.service_id, params.char_id, params.desc_id);
           if (header.expectsResponse) {
@@ -2757,7 +2857,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.writeGattDescriptor');
           const result = this.impl.writeGattDescriptor(params.remote_addr, params.service_id, params.char_id, params.desc_id, params.value);
           if (header.expectsResponse) {
@@ -2770,7 +2870,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ExecuteWrite_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ExecuteWrite_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.executeWrite');
           const result = this.impl.executeWrite(params.remote_addr, params.execute);
           if (header.expectsResponse) {
@@ -2783,7 +2883,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.registerForGattNotification');
           const result = this.impl.registerForGattNotification(params.remote_addr, params.service_id, params.char_id);
           if (header.expectsResponse) {
@@ -2796,7 +2896,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.deregisterForGattNotification');
           const result = this.impl.deregisterForGattNotification(params.remote_addr, params.service_id, params.char_id);
           if (header.expectsResponse) {
@@ -2809,7 +2909,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.readRemoteRssi');
           const result = this.impl.readRemoteRssi(params.remote_addr);
           if (header.expectsResponse) {
@@ -2822,7 +2922,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_AddService_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_AddService_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.addService');
           const result = this.impl.addService(params.service_id, params.num_handles);
           if (header.expectsResponse) {
@@ -2835,7 +2935,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_AddCharacteristic_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_AddCharacteristic_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.addCharacteristic');
           const result = this.impl.addCharacteristic(params.service_handle, params.uuid, params.properties, params.permissions);
           if (header.expectsResponse) {
@@ -2848,7 +2948,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_AddDescriptor_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_AddDescriptor_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.addDescriptor');
           const result = this.impl.addDescriptor(params.service_handle, params.uuid, params.permissions);
           if (header.expectsResponse) {
@@ -2861,7 +2961,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_StartService_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_StartService_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startService');
           const result = this.impl.startService(params.service_handle);
           if (header.expectsResponse) {
@@ -2874,7 +2974,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_StopService_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_StopService_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.stopService');
           const result = this.impl.stopService(params.service_handle);
           if (header.expectsResponse) {
@@ -2887,7 +2987,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_DeleteService_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_DeleteService_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteService');
           const result = this.impl.deleteService(params.service_handle);
           if (header.expectsResponse) {
@@ -2900,7 +3000,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_SendIndication_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_SendIndication_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendIndication');
           const result = this.impl.sendIndication(params.attribute_handle, params.address, params.confirm, params.value);
           if (header.expectsResponse) {
@@ -2913,14 +3013,14 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_GetSdpRecords_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_GetSdpRecords_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getSdpRecords');
           const result = this.impl.getSdpRecords(params.remote_addr, params.target_uuid);
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createSdpRecord');
           const result = this.impl.createSdpRecord(params.record);
           if (header.expectsResponse) {
@@ -2933,7 +3033,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.removeSdpRecord');
           const result = this.impl.removeSdpRecord(params.service_handle);
           if (header.expectsResponse) {
@@ -2946,7 +3046,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.reserveAdvertisementHandle');
           const result = this.impl.reserveAdvertisementHandle();
           if (header.expectsResponse) {
@@ -2959,7 +3059,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_EnableAdvertisement_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_EnableAdvertisement_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAdvertisement');
           const result = this.impl.enableAdvertisement(params.adv_handle, params.adv);
           if (header.expectsResponse) {
@@ -2972,7 +3072,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.releaseAdvertisementHandle');
           const result = this.impl.releaseAdvertisementHandle(params.adv_handle);
           if (header.expectsResponse) {
@@ -2985,7 +3085,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.disableAdvertisement');
           const result = this.impl.disableAdvertisement(params.adv_handle);
           if (header.expectsResponse) {
@@ -2998,7 +3098,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_BluetoothSocketListen_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_BluetoothSocketListen_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.bluetoothSocketListen');
           const result = this.impl.bluetoothSocketListen(params.sock_type, params.sock_flags, params.port);
           if (header.expectsResponse) {
@@ -3011,7 +3111,7 @@ arc.mojom.BluetoothHostReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_BluetoothSocketConnect_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothHost_BluetoothSocketConnect_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.bluetoothSocketConnect');
           const result = this.impl.bluetoothSocketConnect(params.sock_type, params.sock_flags, params.remote_addr, params.remote_port);
           if (header.expectsResponse) {
@@ -3235,12 +3335,32 @@ arc.mojom.BluetoothInstanceRemote = class {
 arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('BluetoothInstance', [
+      { explicit: 18 },
+      { explicit: 1 },
+      { explicit: 3 },
+      { explicit: 22 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 23 },
+      { explicit: 21 },
+      { explicit: 8 },
+      { explicit: 16 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 13 },
+      { explicit: 24 },
+      { explicit: 14 },
+      { explicit: 15 },
+      { explicit: 20 },
+      { explicit: 19 },
+      { explicit: 17 },
+    ]);
   }
 
   init(host_remote) {
-    // Ordinal: 18
     return this.proxy.sendMessage(
-      18,  // ordinal
+      this.ordinals[0],  // ordinal
       arc.mojom.BluetoothInstance_Init_ParamsSpec,
       arc.mojom.BluetoothInstance_Init_ResponseParamsSpec,
       [host_remote],
@@ -3248,9 +3368,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onAdapterProperties(status, properties) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       arc.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec,
       null,
       [status, properties],
@@ -3258,9 +3377,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onDeviceFound(properties) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[2],  // ordinal
       arc.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec,
       null,
       [properties],
@@ -3268,9 +3386,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onDevicePropertiesChanged(remote_addr, properties) {
-    // Ordinal: 22
     return this.proxy.sendMessage(
-      22,  // ordinal
+      this.ordinals[3],  // ordinal
       arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec,
       null,
       [remote_addr, properties],
@@ -3278,9 +3395,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onDiscoveryStateChanged(state) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       arc.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec,
       null,
       [state],
@@ -3288,9 +3404,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onBondStateChanged(status, remote_addr, state) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       arc.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec,
       null,
       [status, remote_addr, state],
@@ -3298,9 +3413,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onConnectionStateChanged(remote_addr, device_type, connected) {
-    // Ordinal: 23
     return this.proxy.sendMessage(
-      23,  // ordinal
+      this.ordinals[6],  // ordinal
       arc.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec,
       null,
       [remote_addr, device_type, connected],
@@ -3308,9 +3422,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onLEDeviceFound(addr, rssi, eir) {
-    // Ordinal: 21
     return this.proxy.sendMessage(
-      21,  // ordinal
+      this.ordinals[7],  // ordinal
       arc.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec,
       null,
       [addr, rssi, eir],
@@ -3318,9 +3431,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onLEConnectionStateChange(remote_addr, connected) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       arc.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec,
       null,
       [remote_addr, connected],
@@ -3328,9 +3440,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onLEDeviceAddressChange(old_addr, new_addr) {
-    // Ordinal: 16
     return this.proxy.sendMessage(
-      16,  // ordinal
+      this.ordinals[9],  // ordinal
       arc.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec,
       null,
       [old_addr, new_addr],
@@ -3338,9 +3449,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onSearchComplete(remote_addr, status) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[10],  // ordinal
       arc.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec,
       null,
       [remote_addr, status],
@@ -3348,9 +3458,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onGetGattDB(remote_addr, db) {
-    // Ordinal: 10
     return this.proxy.sendMessage(
-      10,  // ordinal
+      this.ordinals[11],  // ordinal
       arc.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec,
       null,
       [remote_addr, db],
@@ -3358,9 +3467,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onGattNotify(remote_addr, service_id, char_id, is_notify, value) {
-    // Ordinal: 13
     return this.proxy.sendMessage(
-      13,  // ordinal
+      this.ordinals[12],  // ordinal
       arc.mojom.BluetoothInstance_OnGattNotify_ParamsSpec,
       null,
       [remote_addr, service_id, char_id, is_notify, value],
@@ -3368,9 +3476,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onServiceChanged(remote_addr) {
-    // Ordinal: 24
     return this.proxy.sendMessage(
-      24,  // ordinal
+      this.ordinals[13],  // ordinal
       arc.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec,
       null,
       [remote_addr],
@@ -3378,9 +3485,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   requestGattRead(address, attribute_handle, offset, is_long, attribute_type) {
-    // Ordinal: 14
     return this.proxy.sendMessage(
-      14,  // ordinal
+      this.ordinals[14],  // ordinal
       arc.mojom.BluetoothInstance_RequestGattRead_ParamsSpec,
       arc.mojom.BluetoothInstance_RequestGattRead_ResponseParamsSpec,
       [address, attribute_handle, offset, is_long, attribute_type],
@@ -3388,9 +3494,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   requestGattWrite(address, attribute_handle, offset, value, attribute_type, is_prepare) {
-    // Ordinal: 15
     return this.proxy.sendMessage(
-      15,  // ordinal
+      this.ordinals[15],  // ordinal
       arc.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec,
       arc.mojom.BluetoothInstance_RequestGattWrite_ResponseParamsSpec,
       [address, attribute_handle, offset, value, attribute_type, is_prepare],
@@ -3398,9 +3503,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   requestGattExecuteWrite(address, execute) {
-    // Ordinal: 20
     return this.proxy.sendMessage(
-      20,  // ordinal
+      this.ordinals[16],  // ordinal
       arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec,
       arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ResponseParamsSpec,
       [address, execute],
@@ -3408,9 +3512,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onMTUReceived(remote_addr, mtu) {
-    // Ordinal: 19
     return this.proxy.sendMessage(
-      19,  // ordinal
+      this.ordinals[17],  // ordinal
       arc.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec,
       null,
       [remote_addr, mtu],
@@ -3418,9 +3521,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
   }
 
   onGetSdpRecords(status, remote_addr, target_uuid, records) {
-    // Ordinal: 17
     return this.proxy.sendMessage(
-      17,  // ordinal
+      this.ordinals[18],  // ordinal
       arc.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec,
       null,
       [status, remote_addr, target_uuid, records],
@@ -3444,25 +3546,31 @@ arc.mojom.BluetoothInstanceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(18, 0); // Default ordinal 18 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(3, 2); // Default ordinal 3 -> Index 2
-    this.ordinalMap.set(22, 3); // Default ordinal 22 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(23, 6); // Default ordinal 23 -> Index 6
-    this.ordinalMap.set(21, 7); // Default ordinal 21 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(16, 9); // Default ordinal 16 -> Index 9
-    this.ordinalMap.set(9, 10); // Default ordinal 9 -> Index 10
-    this.ordinalMap.set(10, 11); // Default ordinal 10 -> Index 11
-    this.ordinalMap.set(13, 12); // Default ordinal 13 -> Index 12
-    this.ordinalMap.set(24, 13); // Default ordinal 24 -> Index 13
-    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
-    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
-    this.ordinalMap.set(20, 16); // Default ordinal 20 -> Index 16
-    this.ordinalMap.set(19, 17); // Default ordinal 19 -> Index 17
-    this.ordinalMap.set(17, 18); // Default ordinal 17 -> Index 18
+    const ordinals = window.mojoScrambler.getOrdinals('BluetoothInstance', [
+      { explicit: 18 },
+      { explicit: 1 },
+      { explicit: 3 },
+      { explicit: 22 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 23 },
+      { explicit: 21 },
+      { explicit: 8 },
+      { explicit: 16 },
+      { explicit: 9 },
+      { explicit: 10 },
+      { explicit: 13 },
+      { explicit: 24 },
+      { explicit: 14 },
+      { explicit: 15 },
+      { explicit: 20 },
+      { explicit: 19 },
+      { explicit: 17 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -3500,7 +3608,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_Init_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_Init_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3511,7 +3619,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 1: OnAdapterProperties
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdapterProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -3522,7 +3630,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 2: OnDeviceFound
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceFound (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -3533,7 +3641,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 3: OnDevicePropertiesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDevicePropertiesChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -3544,7 +3652,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 4: OnDiscoveryStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDiscoveryStateChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -3555,7 +3663,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 5: OnBondStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBondStateChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -3566,7 +3674,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 6: OnConnectionStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionStateChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -3577,7 +3685,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 7: OnLEDeviceFound
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLEDeviceFound (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -3588,7 +3696,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 8: OnLEConnectionStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLEConnectionStateChange (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -3599,7 +3707,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 9: OnLEDeviceAddressChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLEDeviceAddressChange (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -3610,7 +3718,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 10: OnSearchComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSearchComplete (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -3621,7 +3729,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 11: OnGetGattDB
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGetGattDB (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -3632,7 +3740,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 12: OnGattNotify
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGattNotify_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGattNotify_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGattNotify (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -3643,7 +3751,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 13: OnServiceChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceChanged (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -3654,7 +3762,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 14: RequestGattRead
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattRead_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattRead_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGattRead (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -3665,7 +3773,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 15: RequestGattWrite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGattWrite (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -3676,7 +3784,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 16: RequestGattExecuteWrite
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGattExecuteWrite (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -3687,7 +3795,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 17: OnMTUReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMTUReceived (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -3698,7 +3806,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         // Try Method 18: OnGetSdpRecords
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec.$);
+             decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGetSdpRecords (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -3715,7 +3823,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_Init_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_Init_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -3728,98 +3836,98 @@ arc.mojom.BluetoothInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdapterProperties');
           const result = this.impl.onAdapterProperties(params.status, params.properties);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceFound');
           const result = this.impl.onDeviceFound(params.properties);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onDevicePropertiesChanged');
           const result = this.impl.onDevicePropertiesChanged(params.remote_addr, params.properties);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onDiscoveryStateChanged');
           const result = this.impl.onDiscoveryStateChanged(params.state);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onBondStateChanged');
           const result = this.impl.onBondStateChanged(params.status, params.remote_addr, params.state);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionStateChanged');
           const result = this.impl.onConnectionStateChanged(params.remote_addr, params.device_type, params.connected);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onLEDeviceFound');
           const result = this.impl.onLEDeviceFound(params.addr, params.rssi, params.eir);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onLEConnectionStateChange');
           const result = this.impl.onLEConnectionStateChange(params.remote_addr, params.connected);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onLEDeviceAddressChange');
           const result = this.impl.onLEDeviceAddressChange(params.old_addr, params.new_addr);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onSearchComplete');
           const result = this.impl.onSearchComplete(params.remote_addr, params.status);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onGetGattDB');
           const result = this.impl.onGetGattDB(params.remote_addr, params.db);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGattNotify_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGattNotify_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onGattNotify');
           const result = this.impl.onGattNotify(params.remote_addr, params.service_id, params.char_id, params.is_notify, params.value);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceChanged');
           const result = this.impl.onServiceChanged(params.remote_addr);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattRead_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattRead_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestGattRead');
           const result = this.impl.requestGattRead(params.address, params.attribute_handle, params.offset, params.is_long, params.attribute_type);
           if (header.expectsResponse) {
@@ -3832,7 +3940,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestGattWrite');
           const result = this.impl.requestGattWrite(params.address, params.attribute_handle, params.offset, params.value, params.attribute_type, params.is_prepare);
           if (header.expectsResponse) {
@@ -3845,7 +3953,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestGattExecuteWrite');
           const result = this.impl.requestGattExecuteWrite(params.address, params.execute);
           if (header.expectsResponse) {
@@ -3858,14 +3966,14 @@ arc.mojom.BluetoothInstanceReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onMTUReceived');
           const result = this.impl.onMTUReceived(params.remote_addr, params.mtu);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec.$);
+          const params = decoder.decodeStructInline(arc.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onGetSdpRecords');
           const result = this.impl.onGetSdpRecords(params.status, params.remote_addr, params.target_uuid, params.records);
           break;

@@ -3,6 +3,66 @@
 // Module: media.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var media = media || {};
@@ -88,12 +148,14 @@ media.mojom.RemoterFactoryRemote = class {
 media.mojom.RemoterFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('RemoterFactory', [
+      { explicit: null },
+    ]);
   }
 
   create(source, remoter) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       media.mojom.RemoterFactory_Create_ParamsSpec,
       null,
       [source, remoter],
@@ -117,7 +179,13 @@ media.mojom.RemoterFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('RemoterFactory', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -155,7 +223,7 @@ media.mojom.RemoterFactoryReceiver = class {
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemoterFactory_Create_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemoterFactory_Create_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -172,7 +240,7 @@ media.mojom.RemoterFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemoterFactory_Create_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemoterFactory_Create_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.source, params.remoter);
           break;
@@ -238,12 +306,15 @@ media.mojom.RemotingDataStreamSenderRemote = class {
 media.mojom.RemotingDataStreamSenderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('RemotingDataStreamSender', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   sendFrame(frame) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec,
       media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec,
       [frame],
@@ -251,9 +322,8 @@ media.mojom.RemotingDataStreamSenderRemoteCallHandler = class {
   }
 
   cancelInFlightData() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec,
       null,
       [],
@@ -277,8 +347,14 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('RemotingDataStreamSender', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -316,7 +392,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
         // Try Method 0: SendFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -327,7 +403,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
         // Try Method 1: CancelInFlightData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelInFlightData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -344,7 +420,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendFrame');
           const result = this.impl.sendFrame(params.frame);
           if (header.expectsResponse) {
@@ -357,7 +433,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelInFlightData');
           const result = this.impl.cancelInFlightData();
           break;
@@ -449,12 +525,19 @@ media.mojom.RemoterRemote = class {
 media.mojom.RemoterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('Remoter', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   start() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       media.mojom.Remoter_Start_ParamsSpec,
       null,
       [],
@@ -462,9 +545,8 @@ media.mojom.RemoterRemoteCallHandler = class {
   }
 
   startWithPermissionAlreadyGranted() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec,
       null,
       [],
@@ -472,9 +554,8 @@ media.mojom.RemoterRemoteCallHandler = class {
   }
 
   startDataStreams(audio_pipe, video_pipe, audio_sender, video_sender) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       media.mojom.Remoter_StartDataStreams_ParamsSpec,
       null,
       [audio_pipe, video_pipe, audio_sender, video_sender],
@@ -482,9 +563,8 @@ media.mojom.RemoterRemoteCallHandler = class {
   }
 
   stop(reason) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       media.mojom.Remoter_Stop_ParamsSpec,
       null,
       [reason],
@@ -492,9 +572,8 @@ media.mojom.RemoterRemoteCallHandler = class {
   }
 
   sendMessageToSink(message) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       media.mojom.Remoter_SendMessageToSink_ParamsSpec,
       null,
       [message],
@@ -502,9 +581,8 @@ media.mojom.RemoterRemoteCallHandler = class {
   }
 
   estimateTransmissionCapacity() {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec,
       media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec,
       [],
@@ -528,12 +606,18 @@ media.mojom.RemoterReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    const ordinals = window.mojoScrambler.getOrdinals('Remoter', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -571,7 +655,7 @@ media.mojom.RemoterReceiver = class {
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.Remoter_Start_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.Remoter_Start_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -582,7 +666,7 @@ media.mojom.RemoterReceiver = class {
         // Try Method 1: StartWithPermissionAlreadyGranted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartWithPermissionAlreadyGranted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -593,7 +677,7 @@ media.mojom.RemoterReceiver = class {
         // Try Method 2: StartDataStreams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.Remoter_StartDataStreams_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.Remoter_StartDataStreams_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDataStreams (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -604,7 +688,7 @@ media.mojom.RemoterReceiver = class {
         // Try Method 3: Stop
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.Remoter_Stop_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.Remoter_Stop_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -615,7 +699,7 @@ media.mojom.RemoterReceiver = class {
         // Try Method 4: SendMessageToSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.Remoter_SendMessageToSink_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.Remoter_SendMessageToSink_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendMessageToSink (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -626,7 +710,7 @@ media.mojom.RemoterReceiver = class {
         // Try Method 5: EstimateTransmissionCapacity
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EstimateTransmissionCapacity (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -643,42 +727,42 @@ media.mojom.RemoterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_Start_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_Start_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startWithPermissionAlreadyGranted');
           const result = this.impl.startWithPermissionAlreadyGranted();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_StartDataStreams_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_StartDataStreams_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataStreams');
           const result = this.impl.startDataStreams(params.audio_pipe, params.video_pipe, params.audio_sender, params.video_sender);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_Stop_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_Stop_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop(params.reason);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_SendMessageToSink_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_SendMessageToSink_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessageToSink');
           const result = this.impl.sendMessageToSink(params.message);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.estimateTransmissionCapacity');
           const result = this.impl.estimateTransmissionCapacity();
           if (header.expectsResponse) {
@@ -768,12 +852,19 @@ media.mojom.RemotingSourceRemote = class {
 media.mojom.RemotingSourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('RemotingSource', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onSinkAvailable(metadata) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec,
       null,
       [metadata],
@@ -781,9 +872,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
   }
 
   onSinkGone() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       media.mojom.RemotingSource_OnSinkGone_ParamsSpec,
       null,
       [],
@@ -791,9 +881,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
   }
 
   onStarted() {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       media.mojom.RemotingSource_OnStarted_ParamsSpec,
       null,
       [],
@@ -801,9 +890,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
   }
 
   onStartFailed(reason) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       media.mojom.RemotingSource_OnStartFailed_ParamsSpec,
       null,
       [reason],
@@ -811,9 +899,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
   }
 
   onMessageFromSink(message) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec,
       null,
       [message],
@@ -821,9 +908,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
   }
 
   onStopped(reason) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       media.mojom.RemotingSource_OnStopped_ParamsSpec,
       null,
       [reason],
@@ -847,12 +933,18 @@ media.mojom.RemotingSourceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    const ordinals = window.mojoScrambler.getOrdinals('RemotingSource', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -890,7 +982,7 @@ media.mojom.RemotingSourceReceiver = class {
         // Try Method 0: OnSinkAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSinkAvailable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -901,7 +993,7 @@ media.mojom.RemotingSourceReceiver = class {
         // Try Method 1: OnSinkGone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkGone_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkGone_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSinkGone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -912,7 +1004,7 @@ media.mojom.RemotingSourceReceiver = class {
         // Try Method 2: OnStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingSource_OnStarted_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingSource_OnStarted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStarted (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -923,7 +1015,7 @@ media.mojom.RemotingSourceReceiver = class {
         // Try Method 3: OnStartFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingSource_OnStartFailed_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingSource_OnStartFailed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStartFailed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -934,7 +1026,7 @@ media.mojom.RemotingSourceReceiver = class {
         // Try Method 4: OnMessageFromSink
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessageFromSink (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -945,7 +1037,7 @@ media.mojom.RemotingSourceReceiver = class {
         // Try Method 5: OnStopped
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingSource_OnStopped_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingSource_OnStopped_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStopped (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -962,42 +1054,42 @@ media.mojom.RemotingSourceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onSinkAvailable');
           const result = this.impl.onSinkAvailable(params.metadata);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkGone_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkGone_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onSinkGone');
           const result = this.impl.onSinkGone();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStarted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStarted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onStarted');
           const result = this.impl.onStarted();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStartFailed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStartFailed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onStartFailed');
           const result = this.impl.onStartFailed(params.reason);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessageFromSink');
           const result = this.impl.onMessageFromSink(params.message);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStopped_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStopped_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped(params.reason);
           break;
@@ -1079,12 +1171,18 @@ media.mojom.RemoteeRemote = class {
 media.mojom.RemoteeRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('Remotee', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onRemotingSinkReady(sink) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec,
       null,
       [sink],
@@ -1092,9 +1190,8 @@ media.mojom.RemoteeRemoteCallHandler = class {
   }
 
   sendMessageToSource(message) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       media.mojom.Remotee_SendMessageToSource_ParamsSpec,
       null,
       [message],
@@ -1102,9 +1199,8 @@ media.mojom.RemoteeRemoteCallHandler = class {
   }
 
   startDataStreams(audio_stream, video_stream) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       media.mojom.Remotee_StartDataStreams_ParamsSpec,
       null,
       [audio_stream, video_stream],
@@ -1112,9 +1208,8 @@ media.mojom.RemoteeRemoteCallHandler = class {
   }
 
   onFlushUntil(audio_frame_count, video_frame_count) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       media.mojom.Remotee_OnFlushUntil_ParamsSpec,
       null,
       [audio_frame_count, video_frame_count],
@@ -1122,9 +1217,8 @@ media.mojom.RemoteeRemoteCallHandler = class {
   }
 
   onVideoNaturalSizeChange(size) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec,
       null,
       [size],
@@ -1148,11 +1242,17 @@ media.mojom.RemoteeReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    const ordinals = window.mojoScrambler.getOrdinals('Remotee', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1190,7 +1290,7 @@ media.mojom.RemoteeReceiver = class {
         // Try Method 0: OnRemotingSinkReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemotingSinkReady (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1201,7 +1301,7 @@ media.mojom.RemoteeReceiver = class {
         // Try Method 1: SendMessageToSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.Remotee_SendMessageToSource_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.Remotee_SendMessageToSource_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendMessageToSource (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1212,7 +1312,7 @@ media.mojom.RemoteeReceiver = class {
         // Try Method 2: StartDataStreams
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.Remotee_StartDataStreams_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.Remotee_StartDataStreams_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDataStreams (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1223,7 +1323,7 @@ media.mojom.RemoteeReceiver = class {
         // Try Method 3: OnFlushUntil
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.Remotee_OnFlushUntil_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.Remotee_OnFlushUntil_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFlushUntil (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1234,7 +1334,7 @@ media.mojom.RemoteeReceiver = class {
         // Try Method 4: OnVideoNaturalSizeChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVideoNaturalSizeChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1251,35 +1351,35 @@ media.mojom.RemoteeReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemotingSinkReady');
           const result = this.impl.onRemotingSinkReady(params.sink);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remotee_SendMessageToSource_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.Remotee_SendMessageToSource_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessageToSource');
           const result = this.impl.sendMessageToSource(params.message);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remotee_StartDataStreams_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.Remotee_StartDataStreams_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataStreams');
           const result = this.impl.startDataStreams(params.audio_stream, params.video_stream);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remotee_OnFlushUntil_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.Remotee_OnFlushUntil_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onFlushUntil');
           const result = this.impl.onFlushUntil(params.audio_frame_count, params.video_frame_count);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoNaturalSizeChange');
           const result = this.impl.onVideoNaturalSizeChange(params.size);
           break;
@@ -1335,12 +1435,14 @@ media.mojom.RemotingSinkRemote = class {
 media.mojom.RemotingSinkRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('RemotingSink', [
+      { explicit: null },
+    ]);
   }
 
   onMessageFromSource(message) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec,
       null,
       [message],
@@ -1364,7 +1466,13 @@ media.mojom.RemotingSinkReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('RemotingSink', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1402,7 +1510,7 @@ media.mojom.RemotingSinkReceiver = class {
         // Try Method 0: OnMessageFromSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMessageFromSource (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1419,7 +1527,7 @@ media.mojom.RemotingSinkReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessageFromSource');
           const result = this.impl.onMessageFromSource(params.message);
           break;
@@ -1488,12 +1596,16 @@ media.mojom.RemotingDataStreamReceiverRemote = class {
 media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('RemotingDataStreamReceiver', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   initializeDataPipe(data_pipe) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec,
       null,
       [data_pipe],
@@ -1501,9 +1613,8 @@ media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
   }
 
   receiveFrame(frame_count, buffer) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec,
       null,
       [frame_count, buffer],
@@ -1511,9 +1622,8 @@ media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
   }
 
   flushUntil(frame_count) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec,
       null,
       [frame_count],
@@ -1537,9 +1647,15 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    const ordinals = window.mojoScrambler.getOrdinals('RemotingDataStreamReceiver', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1577,7 +1693,7 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
         // Try Method 0: InitializeDataPipe
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeDataPipe (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1588,7 +1704,7 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
         // Try Method 1: ReceiveFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReceiveFrame (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1599,7 +1715,7 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
         // Try Method 2: FlushUntil
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec.$);
+             decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushUntil (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1616,21 +1732,21 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeDataPipe');
           const result = this.impl.initializeDataPipe(params.data_pipe);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.receiveFrame');
           const result = this.impl.receiveFrame(params.frame_count, params.buffer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec.$);
+          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.flushUntil');
           const result = this.impl.flushUntil(params.frame_count);
           break;

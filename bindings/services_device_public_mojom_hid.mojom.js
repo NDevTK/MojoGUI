@@ -3,6 +3,66 @@
 // Module: device.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var device = device || {};
@@ -404,12 +464,16 @@ device.mojom.HidManagerClientRemote = class {
 device.mojom.HidManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('HidManagerClient', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+    ]);
   }
 
   deviceAdded(device_info) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.HidManagerClient_DeviceAdded_ParamsSpec,
       null,
       [device_info],
@@ -417,9 +481,8 @@ device.mojom.HidManagerClientRemoteCallHandler = class {
   }
 
   deviceRemoved(device_info) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec,
       null,
       [device_info],
@@ -427,9 +490,8 @@ device.mojom.HidManagerClientRemoteCallHandler = class {
   }
 
   deviceChanged(device_info) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       device.mojom.HidManagerClient_DeviceChanged_ParamsSpec,
       null,
       [device_info],
@@ -453,9 +515,15 @@ device.mojom.HidManagerClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    const ordinals = window.mojoScrambler.getOrdinals('HidManagerClient', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -493,7 +561,7 @@ device.mojom.HidManagerClientReceiver = class {
         // Try Method 0: DeviceAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceAdded_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeviceAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -504,7 +572,7 @@ device.mojom.HidManagerClientReceiver = class {
         // Try Method 1: DeviceRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeviceRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -515,7 +583,7 @@ device.mojom.HidManagerClientReceiver = class {
         // Try Method 2: DeviceChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeviceChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -532,21 +600,21 @@ device.mojom.HidManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceAdded_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceAdded');
           const result = this.impl.deviceAdded(params.device_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceRemoved');
           const result = this.impl.deviceRemoved(params.device_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceChanged');
           const result = this.impl.deviceChanged(params.device_info);
           break;
@@ -641,12 +709,17 @@ device.mojom.HidManagerRemote = class {
 device.mojom.HidManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('HidManager', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+    ]);
   }
 
   getDevicesAndSetClient(client) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec,
       device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec,
       [client],
@@ -654,9 +727,8 @@ device.mojom.HidManagerRemoteCallHandler = class {
   }
 
   getDevices() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       device.mojom.HidManager_GetDevices_ParamsSpec,
       device.mojom.HidManager_GetDevices_ResponseParamsSpec,
       [],
@@ -664,9 +736,8 @@ device.mojom.HidManagerRemoteCallHandler = class {
   }
 
   connect(device_guid, connection_client, watcher, allow_protected_reports, allow_fido_reports) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       device.mojom.HidManager_Connect_ParamsSpec,
       device.mojom.HidManager_Connect_ResponseParamsSpec,
       [device_guid, connection_client, watcher, allow_protected_reports, allow_fido_reports],
@@ -674,9 +745,8 @@ device.mojom.HidManagerRemoteCallHandler = class {
   }
 
   addReceiver(receiver) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       device.mojom.HidManager_AddReceiver_ParamsSpec,
       null,
       [receiver],
@@ -700,10 +770,16 @@ device.mojom.HidManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    const ordinals = window.mojoScrambler.getOrdinals('HidManager', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -741,7 +817,7 @@ device.mojom.HidManagerReceiver = class {
         // Try Method 0: GetDevicesAndSetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevicesAndSetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -752,7 +828,7 @@ device.mojom.HidManagerReceiver = class {
         // Try Method 1: GetDevices
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidManager_GetDevices_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidManager_GetDevices_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevices (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -763,7 +839,7 @@ device.mojom.HidManagerReceiver = class {
         // Try Method 2: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidManager_Connect_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidManager_Connect_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -774,7 +850,7 @@ device.mojom.HidManagerReceiver = class {
         // Try Method 3: AddReceiver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidManager_AddReceiver_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidManager_AddReceiver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddReceiver (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -791,7 +867,7 @@ device.mojom.HidManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevicesAndSetClient');
           const result = this.impl.getDevicesAndSetClient(params.client);
           if (header.expectsResponse) {
@@ -804,7 +880,7 @@ device.mojom.HidManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManager_GetDevices_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_GetDevices_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
@@ -817,7 +893,7 @@ device.mojom.HidManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManager_Connect_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_Connect_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.device_guid, params.connection_client, params.watcher, params.allow_protected_reports, params.allow_fido_reports);
           if (header.expectsResponse) {
@@ -830,7 +906,7 @@ device.mojom.HidManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManager_AddReceiver_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_AddReceiver_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.addReceiver');
           const result = this.impl.addReceiver(params.receiver);
           break;
@@ -932,12 +1008,17 @@ device.mojom.HidConnectionRemote = class {
 device.mojom.HidConnectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('HidConnection', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+    ]);
   }
 
   read() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.HidConnection_Read_ParamsSpec,
       device.mojom.HidConnection_Read_ResponseParamsSpec,
       [],
@@ -945,9 +1026,8 @@ device.mojom.HidConnectionRemoteCallHandler = class {
   }
 
   write(report_id, buffer) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       device.mojom.HidConnection_Write_ParamsSpec,
       device.mojom.HidConnection_Write_ResponseParamsSpec,
       [report_id, buffer],
@@ -955,9 +1035,8 @@ device.mojom.HidConnectionRemoteCallHandler = class {
   }
 
   getFeatureReport(report_id) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       device.mojom.HidConnection_GetFeatureReport_ParamsSpec,
       device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec,
       [report_id],
@@ -965,9 +1044,8 @@ device.mojom.HidConnectionRemoteCallHandler = class {
   }
 
   sendFeatureReport(report_id, buffer) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       device.mojom.HidConnection_SendFeatureReport_ParamsSpec,
       device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec,
       [report_id, buffer],
@@ -991,10 +1069,16 @@ device.mojom.HidConnectionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    const ordinals = window.mojoScrambler.getOrdinals('HidConnection', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1032,7 +1116,7 @@ device.mojom.HidConnectionReceiver = class {
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidConnection_Read_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidConnection_Read_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1043,7 +1127,7 @@ device.mojom.HidConnectionReceiver = class {
         // Try Method 1: Write
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidConnection_Write_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidConnection_Write_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Write (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1054,7 +1138,7 @@ device.mojom.HidConnectionReceiver = class {
         // Try Method 2: GetFeatureReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidConnection_GetFeatureReport_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeatureReport (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1065,7 +1149,7 @@ device.mojom.HidConnectionReceiver = class {
         // Try Method 3: SendFeatureReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidConnection_SendFeatureReport_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendFeatureReport (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1082,7 +1166,7 @@ device.mojom.HidConnectionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidConnection_Read_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_Read_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read();
           if (header.expectsResponse) {
@@ -1095,7 +1179,7 @@ device.mojom.HidConnectionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidConnection_Write_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_Write_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.report_id, params.buffer);
           if (header.expectsResponse) {
@@ -1108,7 +1192,7 @@ device.mojom.HidConnectionReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_GetFeatureReport_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getFeatureReport');
           const result = this.impl.getFeatureReport(params.report_id);
           if (header.expectsResponse) {
@@ -1121,7 +1205,7 @@ device.mojom.HidConnectionReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_SendFeatureReport_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.sendFeatureReport');
           const result = this.impl.sendFeatureReport(params.report_id, params.buffer);
           if (header.expectsResponse) {
@@ -1184,12 +1268,14 @@ device.mojom.HidConnectionClientRemote = class {
 device.mojom.HidConnectionClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('HidConnectionClient', [
+      { explicit: 0 },
+    ]);
   }
 
   onInputReport(report_id, buffer) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.HidConnectionClient_OnInputReport_ParamsSpec,
       null,
       [report_id, buffer],
@@ -1213,7 +1299,13 @@ device.mojom.HidConnectionClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('HidConnectionClient', [
+      { explicit: 0 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1251,7 +1343,7 @@ device.mojom.HidConnectionClientReceiver = class {
         // Try Method 0: OnInputReport
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.HidConnectionClient_OnInputReport_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInputReport (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1268,7 +1360,7 @@ device.mojom.HidConnectionClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.HidConnectionClient_OnInputReport_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onInputReport');
           const result = this.impl.onInputReport(params.report_id, params.buffer);
           break;
@@ -1318,6 +1410,8 @@ device.mojom.HidConnectionWatcherRemote = class {
 device.mojom.HidConnectionWatcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('HidConnectionWatcher', [
+    ]);
   }
 
 };
@@ -1337,6 +1431,12 @@ device.mojom.HidConnectionWatcherReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('HidConnectionWatcher', [
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }

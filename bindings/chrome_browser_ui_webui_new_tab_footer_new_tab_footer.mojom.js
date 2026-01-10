@@ -3,6 +3,66 @@
 // Module: new_tab_footer.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var new_tab_footer = new_tab_footer || {};
@@ -95,12 +155,14 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryRemote = class {
 new_tab_footer.mojom.NewTabFooterHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('NewTabFooterHandlerFactory', [
+      { explicit: null },
+    ]);
   }
 
   createNewTabFooterHandler(document, handler) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec,
       null,
       [document, handler],
@@ -124,7 +186,13 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('NewTabFooterHandlerFactory', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -162,7 +230,7 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver = class {
         // Try Method 0: CreateNewTabFooterHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNewTabFooterHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -179,7 +247,7 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createNewTabFooterHandler');
           const result = this.impl.createNewTabFooterHandler(params.document, params.handler);
           break;
@@ -276,12 +344,22 @@ new_tab_footer.mojom.NewTabFooterHandlerRemote = class {
 new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('NewTabFooterHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   updateNtpExtensionName() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec,
       null,
       [],
@@ -289,9 +367,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
   }
 
   updateManagementNotice() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec,
       null,
       [],
@@ -299,9 +376,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
   }
 
   updateAttachedTabState() {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec,
       null,
       [],
@@ -309,9 +385,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
   }
 
   updateBackgroundAttribution() {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec,
       null,
       [],
@@ -319,9 +394,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
   }
 
   openExtensionOptionsPageWithFallback() {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec,
       null,
       [],
@@ -329,9 +403,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
   }
 
   openManagementPage() {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec,
       null,
       [],
@@ -339,9 +412,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
   }
 
   openUrlInCurrentTab(url) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec,
       null,
       [url],
@@ -349,9 +421,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
   }
 
   showContextMenu(point) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec,
       null,
       [point],
@@ -359,9 +430,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
   }
 
   notifyCustomizationButtonVisible() {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec,
       null,
       [],
@@ -385,15 +455,21 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    const ordinals = window.mojoScrambler.getOrdinals('NewTabFooterHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -431,7 +507,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         // Try Method 0: UpdateNtpExtensionName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateNtpExtensionName (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -442,7 +518,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         // Try Method 1: UpdateManagementNotice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateManagementNotice (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -453,7 +529,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         // Try Method 2: UpdateAttachedTabState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAttachedTabState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -464,7 +540,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         // Try Method 3: UpdateBackgroundAttribution
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateBackgroundAttribution (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -475,7 +551,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         // Try Method 4: OpenExtensionOptionsPageWithFallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenExtensionOptionsPageWithFallback (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -486,7 +562,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         // Try Method 5: OpenManagementPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenManagementPage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -497,7 +573,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         // Try Method 6: OpenUrlInCurrentTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenUrlInCurrentTab (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -508,7 +584,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         // Try Method 7: ShowContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -519,7 +595,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         // Try Method 8: NotifyCustomizationButtonVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyCustomizationButtonVisible (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -536,63 +612,63 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNtpExtensionName');
           const result = this.impl.updateNtpExtensionName();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateManagementNotice');
           const result = this.impl.updateManagementNotice();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAttachedTabState');
           const result = this.impl.updateAttachedTabState();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateBackgroundAttribution');
           const result = this.impl.updateBackgroundAttribution();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openExtensionOptionsPageWithFallback');
           const result = this.impl.openExtensionOptionsPageWithFallback();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openManagementPage');
           const result = this.impl.openManagementPage();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInCurrentTab');
           const result = this.impl.openUrlInCurrentTab(params.url);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.point);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyCustomizationButtonVisible');
           const result = this.impl.notifyCustomizationButtonVisible();
           break;
@@ -667,12 +743,17 @@ new_tab_footer.mojom.NewTabFooterDocumentRemote = class {
 new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('NewTabFooterDocument', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   setNtpExtensionName(name) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec,
       null,
       [name],
@@ -680,9 +761,8 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
   }
 
   setManagementNotice(notice) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec,
       null,
       [notice],
@@ -690,9 +770,8 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
   }
 
   attachedTabStateUpdated(ntp_type, can_customize_chrome) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec,
       null,
       [ntp_type, can_customize_chrome],
@@ -700,9 +779,8 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
   }
 
   setBackgroundAttribution(background_image_attribution) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec,
       null,
       [background_image_attribution],
@@ -726,10 +804,16 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    const ordinals = window.mojoScrambler.getOrdinals('NewTabFooterDocument', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -767,7 +851,7 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
         // Try Method 0: SetNtpExtensionName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNtpExtensionName (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -778,7 +862,7 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
         // Try Method 1: SetManagementNotice
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetManagementNotice (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -789,7 +873,7 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
         // Try Method 2: AttachedTabStateUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachedTabStateUpdated (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -800,7 +884,7 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
         // Try Method 3: SetBackgroundAttribution
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec.$);
+             decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundAttribution (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -817,28 +901,28 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setNtpExtensionName');
           const result = this.impl.setNtpExtensionName(params.name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setManagementNotice');
           const result = this.impl.setManagementNotice(params.notice);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.attachedTabStateUpdated');
           const result = this.impl.attachedTabStateUpdated(params.ntp_type, params.can_customize_chrome);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec.$);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundAttribution');
           const result = this.impl.setBackgroundAttribution(params.background_image_attribution);
           break;

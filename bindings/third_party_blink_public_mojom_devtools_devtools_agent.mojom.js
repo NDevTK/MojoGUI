@@ -3,6 +3,66 @@
 // Module: blink.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var blink = blink || {};
@@ -118,12 +178,16 @@ blink.mojom.DevToolsAgentRemote = class {
 blink.mojom.DevToolsAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('DevToolsAgent', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   attachDevToolsSession(host, session, io_session, reattach_session_state, script_to_evaluate_on_load, client_expects_binary_responses, client_is_trusted, session_id, session_waits_for_debugger) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec,
       null,
       [host, session, io_session, reattach_session_state, script_to_evaluate_on_load, client_expects_binary_responses, client_is_trusted, session_id, session_waits_for_debugger],
@@ -131,9 +195,8 @@ blink.mojom.DevToolsAgentRemoteCallHandler = class {
   }
 
   inspectElement(point) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       blink.mojom.DevToolsAgent_InspectElement_ParamsSpec,
       null,
       [point],
@@ -141,9 +204,8 @@ blink.mojom.DevToolsAgentRemoteCallHandler = class {
   }
 
   reportChildTargets(report, wait_for_debugger) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec,
       blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec,
       [report, wait_for_debugger],
@@ -167,9 +229,15 @@ blink.mojom.DevToolsAgentReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    const ordinals = window.mojoScrambler.getOrdinals('DevToolsAgent', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -207,7 +275,7 @@ blink.mojom.DevToolsAgentReceiver = class {
         // Try Method 0: AttachDevToolsSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachDevToolsSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -218,7 +286,7 @@ blink.mojom.DevToolsAgentReceiver = class {
         // Try Method 1: InspectElement
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DevToolsAgent_InspectElement_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.DevToolsAgent_InspectElement_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InspectElement (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -229,7 +297,7 @@ blink.mojom.DevToolsAgentReceiver = class {
         // Try Method 2: ReportChildTargets
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportChildTargets (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -246,21 +314,21 @@ blink.mojom.DevToolsAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.attachDevToolsSession');
           const result = this.impl.attachDevToolsSession(params.host, params.session, params.io_session, params.reattach_session_state, params.script_to_evaluate_on_load, params.client_expects_binary_responses, params.client_is_trusted, params.session_id, params.session_waits_for_debugger);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_InspectElement_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_InspectElement_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.inspectElement');
           const result = this.impl.inspectElement(params.point);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.reportChildTargets');
           const result = this.impl.reportChildTargets(params.report, params.wait_for_debugger);
           if (header.expectsResponse) {
@@ -343,12 +411,17 @@ blink.mojom.DevToolsAgentHostRemote = class {
 blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('DevToolsAgentHost', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   childTargetCreated(worker_devtools_agent, worker_devtools_agent_host, url, name, devtools_worker_token, waiting_for_debugger, context_type) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec,
       null,
       [worker_devtools_agent, worker_devtools_agent_host, url, name, devtools_worker_token, waiting_for_debugger, context_type],
@@ -356,9 +429,8 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
   }
 
   mainThreadDebuggerPaused() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec,
       null,
       [],
@@ -366,9 +438,8 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
   }
 
   mainThreadDebuggerResumed() {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec,
       null,
       [],
@@ -376,9 +447,8 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
   }
 
   bringToForeground() {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec,
       null,
       [],
@@ -402,10 +472,16 @@ blink.mojom.DevToolsAgentHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    const ordinals = window.mojoScrambler.getOrdinals('DevToolsAgentHost', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -443,7 +519,7 @@ blink.mojom.DevToolsAgentHostReceiver = class {
         // Try Method 0: ChildTargetCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChildTargetCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -454,7 +530,7 @@ blink.mojom.DevToolsAgentHostReceiver = class {
         // Try Method 1: MainThreadDebuggerPaused
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MainThreadDebuggerPaused (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -465,7 +541,7 @@ blink.mojom.DevToolsAgentHostReceiver = class {
         // Try Method 2: MainThreadDebuggerResumed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MainThreadDebuggerResumed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -476,7 +552,7 @@ blink.mojom.DevToolsAgentHostReceiver = class {
         // Try Method 3: BringToForeground
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BringToForeground (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -493,28 +569,28 @@ blink.mojom.DevToolsAgentHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.childTargetCreated');
           const result = this.impl.childTargetCreated(params.worker_devtools_agent, params.worker_devtools_agent_host, params.url, params.name, params.devtools_worker_token, params.waiting_for_debugger, params.context_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.mainThreadDebuggerPaused');
           const result = this.impl.mainThreadDebuggerPaused();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.mainThreadDebuggerResumed');
           const result = this.impl.mainThreadDebuggerResumed();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.bringToForeground');
           const result = this.impl.bringToForeground();
           break;
@@ -577,12 +653,15 @@ blink.mojom.DevToolsSessionRemote = class {
 blink.mojom.DevToolsSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('DevToolsSession', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   dispatchProtocolCommand(call_id, method, message) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec,
       null,
       [call_id, method, message],
@@ -590,9 +669,8 @@ blink.mojom.DevToolsSessionRemoteCallHandler = class {
   }
 
   unpauseAndTerminate() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec,
       null,
       [],
@@ -616,8 +694,14 @@ blink.mojom.DevToolsSessionReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('DevToolsSession', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -655,7 +739,7 @@ blink.mojom.DevToolsSessionReceiver = class {
         // Try Method 0: DispatchProtocolCommand
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchProtocolCommand (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -666,7 +750,7 @@ blink.mojom.DevToolsSessionReceiver = class {
         // Try Method 1: UnpauseAndTerminate
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnpauseAndTerminate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -683,14 +767,14 @@ blink.mojom.DevToolsSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchProtocolCommand');
           const result = this.impl.dispatchProtocolCommand(params.call_id, params.method, params.message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.unpauseAndTerminate');
           const result = this.impl.unpauseAndTerminate();
           break;
@@ -755,12 +839,15 @@ blink.mojom.DevToolsSessionHostRemote = class {
 blink.mojom.DevToolsSessionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('DevToolsSessionHost', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   dispatchProtocolResponse(message, call_id, updates) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec,
       null,
       [message, call_id, updates],
@@ -768,9 +855,8 @@ blink.mojom.DevToolsSessionHostRemoteCallHandler = class {
   }
 
   dispatchProtocolNotification(message, updates) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec,
       null,
       [message, updates],
@@ -794,8 +880,14 @@ blink.mojom.DevToolsSessionHostReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('DevToolsSessionHost', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -833,7 +925,7 @@ blink.mojom.DevToolsSessionHostReceiver = class {
         // Try Method 0: DispatchProtocolResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchProtocolResponse (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -844,7 +936,7 @@ blink.mojom.DevToolsSessionHostReceiver = class {
         // Try Method 1: DispatchProtocolNotification
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec.$);
+             decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchProtocolNotification (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -861,14 +953,14 @@ blink.mojom.DevToolsSessionHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchProtocolResponse');
           const result = this.impl.dispatchProtocolResponse(params.message, params.call_id, params.updates);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec.$);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchProtocolNotification');
           const result = this.impl.dispatchProtocolNotification(params.message, params.updates);
           break;

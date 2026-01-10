@@ -3,6 +3,66 @@
 // Module: device.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var device = device || {};
@@ -952,12 +1012,19 @@ device.mojom.VRServiceRemote = class {
 device.mojom.VRServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('VRService', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   setClient(client) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.VRService_SetClient_ParamsSpec,
       null,
       [client],
@@ -965,9 +1032,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
   }
 
   requestSession(options) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       device.mojom.VRService_RequestSession_ParamsSpec,
       device.mojom.VRService_RequestSession_ResponseParamsSpec,
       [options],
@@ -975,9 +1041,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
   }
 
   supportsSession(options) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       device.mojom.VRService_SupportsSession_ParamsSpec,
       device.mojom.VRService_SupportsSession_ResponseParamsSpec,
       [options],
@@ -985,9 +1050,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
   }
 
   exitPresent() {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       device.mojom.VRService_ExitPresent_ParamsSpec,
       device.mojom.VRService_ExitPresent_ResponseParamsSpec,
       [],
@@ -995,9 +1059,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
   }
 
   setFramesThrottled(throttled) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       device.mojom.VRService_SetFramesThrottled_ParamsSpec,
       null,
       [throttled],
@@ -1005,9 +1068,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
   }
 
   makeXrCompatible() {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       device.mojom.VRService_MakeXrCompatible_ParamsSpec,
       device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec,
       [],
@@ -1031,12 +1093,18 @@ device.mojom.VRServiceReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    const ordinals = window.mojoScrambler.getOrdinals('VRService', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1074,7 +1142,7 @@ device.mojom.VRServiceReceiver = class {
         // Try Method 0: SetClient
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.VRService_SetClient_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.VRService_SetClient_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1085,7 +1153,7 @@ device.mojom.VRServiceReceiver = class {
         // Try Method 1: RequestSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.VRService_RequestSession_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.VRService_RequestSession_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1096,7 +1164,7 @@ device.mojom.VRServiceReceiver = class {
         // Try Method 2: SupportsSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.VRService_SupportsSession_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.VRService_SupportsSession_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SupportsSession (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1107,7 +1175,7 @@ device.mojom.VRServiceReceiver = class {
         // Try Method 3: ExitPresent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.VRService_ExitPresent_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.VRService_ExitPresent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExitPresent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1118,7 +1186,7 @@ device.mojom.VRServiceReceiver = class {
         // Try Method 4: SetFramesThrottled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.VRService_SetFramesThrottled_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.VRService_SetFramesThrottled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFramesThrottled (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1129,7 +1197,7 @@ device.mojom.VRServiceReceiver = class {
         // Try Method 5: MakeXrCompatible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.VRService_MakeXrCompatible_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.VRService_MakeXrCompatible_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeXrCompatible (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1146,14 +1214,14 @@ device.mojom.VRServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_SetClient_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.VRService_SetClient_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_RequestSession_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.VRService_RequestSession_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSession');
           const result = this.impl.requestSession(params.options);
           if (header.expectsResponse) {
@@ -1166,7 +1234,7 @@ device.mojom.VRServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_SupportsSession_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.VRService_SupportsSession_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.supportsSession');
           const result = this.impl.supportsSession(params.options);
           if (header.expectsResponse) {
@@ -1179,7 +1247,7 @@ device.mojom.VRServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_ExitPresent_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.VRService_ExitPresent_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.exitPresent');
           const result = this.impl.exitPresent();
           if (header.expectsResponse) {
@@ -1192,14 +1260,14 @@ device.mojom.VRServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_SetFramesThrottled_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.VRService_SetFramesThrottled_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setFramesThrottled');
           const result = this.impl.setFramesThrottled(params.throttled);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_MakeXrCompatible_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.VRService_MakeXrCompatible_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.makeXrCompatible');
           const result = this.impl.makeXrCompatible();
           if (header.expectsResponse) {
@@ -1261,12 +1329,14 @@ device.mojom.XRSessionMetricsRecorderRemote = class {
 device.mojom.XRSessionMetricsRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('XRSessionMetricsRecorder', [
+      { explicit: null },
+    ]);
   }
 
   reportFeatureUsed(feature) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec,
       null,
       [feature],
@@ -1290,7 +1360,13 @@ device.mojom.XRSessionMetricsRecorderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('XRSessionMetricsRecorder', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1328,7 +1404,7 @@ device.mojom.XRSessionMetricsRecorderReceiver = class {
         // Try Method 0: ReportFeatureUsed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportFeatureUsed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1345,7 +1421,7 @@ device.mojom.XRSessionMetricsRecorderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.reportFeatureUsed');
           const result = this.impl.reportFeatureUsed(params.feature);
           break;
@@ -1400,12 +1476,14 @@ device.mojom.VRServiceClientRemote = class {
 device.mojom.VRServiceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('VRServiceClient', [
+      { explicit: null },
+    ]);
   }
 
   onDeviceChanged() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec,
       null,
       [],
@@ -1429,7 +1507,13 @@ device.mojom.VRServiceClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    const ordinals = window.mojoScrambler.getOrdinals('VRServiceClient', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1467,7 +1551,7 @@ device.mojom.VRServiceClientReceiver = class {
         // Try Method 0: OnDeviceChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1484,7 +1568,7 @@ device.mojom.VRServiceClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceChanged');
           const result = this.impl.onDeviceChanged();
           break;
@@ -1588,12 +1672,18 @@ device.mojom.XREnvironmentIntegrationProviderRemote = class {
 device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('XREnvironmentIntegrationProvider', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   subscribeToHitTest(native_origin_information, entity_types, ray) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec,
       device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec,
       [native_origin_information, entity_types, ray],
@@ -1601,9 +1691,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
   }
 
   subscribeToHitTestForTransientInput(profile_name, entity_types, ray) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec,
       device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec,
       [profile_name, entity_types, ray],
@@ -1611,9 +1700,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
   }
 
   unsubscribeFromHitTest(subscription_id) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec,
       null,
       [subscription_id],
@@ -1621,9 +1709,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
   }
 
   createAnchor(native_origin_information, native_origin_from_anchor, plane_id) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec,
       device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec,
       [native_origin_information, native_origin_from_anchor, plane_id],
@@ -1631,9 +1718,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
   }
 
   detachAnchor(anchor_id) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec,
       null,
       [anchor_id],
@@ -1657,11 +1743,17 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    const ordinals = window.mojoScrambler.getOrdinals('XREnvironmentIntegrationProvider', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1699,7 +1791,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         // Try Method 0: SubscribeToHitTest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToHitTest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1710,7 +1802,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         // Try Method 1: SubscribeToHitTestForTransientInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToHitTestForTransientInput (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1721,7 +1813,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         // Try Method 2: UnsubscribeFromHitTest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnsubscribeFromHitTest (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1732,7 +1824,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         // Try Method 3: CreateAnchor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAnchor (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1743,7 +1835,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         // Try Method 4: DetachAnchor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetachAnchor (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1760,7 +1852,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToHitTest');
           const result = this.impl.subscribeToHitTest(params.native_origin_information, params.entity_types, params.ray);
           if (header.expectsResponse) {
@@ -1773,7 +1865,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToHitTestForTransientInput');
           const result = this.impl.subscribeToHitTestForTransientInput(params.profile_name, params.entity_types, params.ray);
           if (header.expectsResponse) {
@@ -1786,14 +1878,14 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.unsubscribeFromHitTest');
           const result = this.impl.unsubscribeFromHitTest(params.subscription_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createAnchor');
           const result = this.impl.createAnchor(params.native_origin_information, params.native_origin_from_anchor, params.plane_id);
           if (header.expectsResponse) {
@@ -1806,7 +1898,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.detachAnchor');
           const result = this.impl.detachAnchor(params.anchor_id);
           break;
@@ -1874,12 +1966,15 @@ device.mojom.XRFrameDataProviderRemote = class {
 device.mojom.XRFrameDataProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('XRFrameDataProvider', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   getFrameData(options) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec,
       device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec,
       [options],
@@ -1887,9 +1982,8 @@ device.mojom.XRFrameDataProviderRemoteCallHandler = class {
   }
 
   getEnvironmentIntegrationProvider(environment_provider) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec,
       null,
       [environment_provider],
@@ -1913,8 +2007,14 @@ device.mojom.XRFrameDataProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('XRFrameDataProvider', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1952,7 +2052,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
         // Try Method 0: GetFrameData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFrameData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1963,7 +2063,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
         // Try Method 1: GetEnvironmentIntegrationProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEnvironmentIntegrationProvider (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1980,7 +2080,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getFrameData');
           const result = this.impl.getFrameData(params.options);
           if (header.expectsResponse) {
@@ -1993,7 +2093,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getEnvironmentIntegrationProvider');
           const result = this.impl.getEnvironmentIntegrationProvider(params.environment_provider);
           break;
@@ -2083,12 +2183,18 @@ device.mojom.XRPresentationProviderRemote = class {
 device.mojom.XRPresentationProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('XRPresentationProvider', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   updateLayerBounds(frame_id, left_bounds, right_bounds, source_size) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec,
       null,
       [frame_id, left_bounds, right_bounds, source_size],
@@ -2096,9 +2202,8 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
   }
 
   submitFrameMissing(frame_id, sync_token) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec,
       null,
       [frame_id, sync_token],
@@ -2106,9 +2211,8 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
   }
 
   submitFrame(frame_id, time_waited) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec,
       null,
       [frame_id, time_waited],
@@ -2116,9 +2220,8 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
   }
 
   submitFrameWithTextureHandle(frame_id, texture, sync_token) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec,
       null,
       [frame_id, texture, sync_token],
@@ -2126,9 +2229,8 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
   }
 
   submitFrameDrawnIntoTexture(frame_id, layer_ids, sync_token, time_waited) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec,
       null,
       [frame_id, layer_ids, sync_token, time_waited],
@@ -2152,11 +2254,17 @@ device.mojom.XRPresentationProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    const ordinals = window.mojoScrambler.getOrdinals('XRPresentationProvider', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -2194,7 +2302,7 @@ device.mojom.XRPresentationProviderReceiver = class {
         // Try Method 0: UpdateLayerBounds
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateLayerBounds (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2205,7 +2313,7 @@ device.mojom.XRPresentationProviderReceiver = class {
         // Try Method 1: SubmitFrameMissing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitFrameMissing (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2216,7 +2324,7 @@ device.mojom.XRPresentationProviderReceiver = class {
         // Try Method 2: SubmitFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitFrame (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2227,7 +2335,7 @@ device.mojom.XRPresentationProviderReceiver = class {
         // Try Method 3: SubmitFrameWithTextureHandle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitFrameWithTextureHandle (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2238,7 +2346,7 @@ device.mojom.XRPresentationProviderReceiver = class {
         // Try Method 4: SubmitFrameDrawnIntoTexture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitFrameDrawnIntoTexture (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2255,35 +2363,35 @@ device.mojom.XRPresentationProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLayerBounds');
           const result = this.impl.updateLayerBounds(params.frame_id, params.left_bounds, params.right_bounds, params.source_size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrameMissing');
           const result = this.impl.submitFrameMissing(params.frame_id, params.sync_token);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrame');
           const result = this.impl.submitFrame(params.frame_id, params.time_waited);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrameWithTextureHandle');
           const result = this.impl.submitFrameWithTextureHandle(params.frame_id, params.texture, params.sync_token);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrameDrawnIntoTexture');
           const result = this.impl.submitFrameDrawnIntoTexture(params.frame_id, params.layer_ids, params.sync_token, params.time_waited);
           break;
@@ -2350,12 +2458,16 @@ device.mojom.XRPresentationClientRemote = class {
 device.mojom.XRPresentationClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('XRPresentationClient', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onSubmitFrameTransferred(success) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec,
       null,
       [success],
@@ -2363,9 +2475,8 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
   }
 
   onSubmitFrameRendered() {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec,
       null,
       [],
@@ -2373,9 +2484,8 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
   }
 
   onSubmitFrameGpuFence(gpu_fence_handle) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec,
       null,
       [gpu_fence_handle],
@@ -2399,9 +2509,15 @@ device.mojom.XRPresentationClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    const ordinals = window.mojoScrambler.getOrdinals('XRPresentationClient', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -2439,7 +2555,7 @@ device.mojom.XRPresentationClientReceiver = class {
         // Try Method 0: OnSubmitFrameTransferred
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSubmitFrameTransferred (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2450,7 +2566,7 @@ device.mojom.XRPresentationClientReceiver = class {
         // Try Method 1: OnSubmitFrameRendered
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSubmitFrameRendered (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2461,7 +2577,7 @@ device.mojom.XRPresentationClientReceiver = class {
         // Try Method 2: OnSubmitFrameGpuFence
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSubmitFrameGpuFence (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2478,21 +2594,21 @@ device.mojom.XRPresentationClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmitFrameTransferred');
           const result = this.impl.onSubmitFrameTransferred(params.success);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmitFrameRendered');
           const result = this.impl.onSubmitFrameRendered();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmitFrameGpuFence');
           const result = this.impl.onSubmitFrameGpuFence(params.gpu_fence_handle);
           break;
@@ -2553,12 +2669,15 @@ device.mojom.XRSessionClientRemote = class {
 device.mojom.XRSessionClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('XRSessionClient', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onExitPresent() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.XRSessionClient_OnExitPresent_ParamsSpec,
       null,
       [],
@@ -2566,9 +2685,8 @@ device.mojom.XRSessionClientRemoteCallHandler = class {
   }
 
   onVisibilityStateChanged(visibility_state) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec,
       null,
       [visibility_state],
@@ -2592,8 +2710,14 @@ device.mojom.XRSessionClientReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('XRSessionClient', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -2631,7 +2755,7 @@ device.mojom.XRSessionClientReceiver = class {
         // Try Method 0: OnExitPresent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRSessionClient_OnExitPresent_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRSessionClient_OnExitPresent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnExitPresent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2642,7 +2766,7 @@ device.mojom.XRSessionClientReceiver = class {
         // Try Method 1: OnVisibilityStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVisibilityStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2659,14 +2783,14 @@ device.mojom.XRSessionClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRSessionClient_OnExitPresent_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRSessionClient_OnExitPresent_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onExitPresent');
           const result = this.impl.onExitPresent();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisibilityStateChanged');
           const result = this.impl.onVisibilityStateChanged(params.visibility_state);
           break;
@@ -2747,12 +2871,17 @@ device.mojom.XRLayerManagerRemote = class {
 device.mojom.XRLayerManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('XRLayerManager', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   createCompositionLayer(create_data) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec,
       device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec,
       [create_data],
@@ -2760,9 +2889,8 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
   }
 
   destroyCompositionLayer(layer_id) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec,
       null,
       [layer_id],
@@ -2770,9 +2898,8 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
   }
 
   updateCompositionLayer(layer_id, update_data) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec,
       null,
       [layer_id, update_data],
@@ -2780,9 +2907,8 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
   }
 
   setEnabledCompositionLayers(layer_ids) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec,
       null,
       [layer_ids],
@@ -2806,10 +2932,16 @@ device.mojom.XRLayerManagerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    const ordinals = window.mojoScrambler.getOrdinals('XRLayerManager', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -2847,7 +2979,7 @@ device.mojom.XRLayerManagerReceiver = class {
         // Try Method 0: CreateCompositionLayer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCompositionLayer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2858,7 +2990,7 @@ device.mojom.XRLayerManagerReceiver = class {
         // Try Method 1: DestroyCompositionLayer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyCompositionLayer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2869,7 +3001,7 @@ device.mojom.XRLayerManagerReceiver = class {
         // Try Method 2: UpdateCompositionLayer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCompositionLayer (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -2880,7 +3012,7 @@ device.mojom.XRLayerManagerReceiver = class {
         // Try Method 3: SetEnabledCompositionLayers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEnabledCompositionLayers (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2897,7 +3029,7 @@ device.mojom.XRLayerManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.createCompositionLayer');
           const result = this.impl.createCompositionLayer(params.create_data);
           if (header.expectsResponse) {
@@ -2910,21 +3042,21 @@ device.mojom.XRLayerManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyCompositionLayer');
           const result = this.impl.destroyCompositionLayer(params.layer_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCompositionLayer');
           const result = this.impl.updateCompositionLayer(params.layer_id, params.update_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setEnabledCompositionLayers');
           const result = this.impl.setEnabledCompositionLayers(params.layer_ids);
           break;
@@ -2986,12 +3118,15 @@ device.mojom.WebXrInternalsRendererListenerRemote = class {
 device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('WebXrInternalsRendererListener', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   onFrameData(xrframe_statistics) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec,
       null,
       [xrframe_statistics],
@@ -2999,9 +3134,8 @@ device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
   }
 
   onConsoleLog(xrlogging_statistics) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec,
       null,
       [xrlogging_statistics],
@@ -3025,8 +3159,14 @@ device.mojom.WebXrInternalsRendererListenerReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('WebXrInternalsRendererListener', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -3064,7 +3204,7 @@ device.mojom.WebXrInternalsRendererListenerReceiver = class {
         // Try Method 0: OnFrameData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3075,7 +3215,7 @@ device.mojom.WebXrInternalsRendererListenerReceiver = class {
         // Try Method 1: OnConsoleLog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec.$);
+             decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConsoleLog (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -3092,14 +3232,14 @@ device.mojom.WebXrInternalsRendererListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameData');
           const result = this.impl.onFrameData(params.xrframe_statistics);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec.$);
+          const params = decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.onConsoleLog');
           const result = this.impl.onConsoleLog(params.xrlogging_statistics);
           break;

@@ -3,6 +3,66 @@
 // Module: discards.mojom
 
 'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const ua = navigator.userAgent;
+        const m = ua.match(/Chrome\/([\d.]+)/);
+        const v = m ? m[1] : "145.0.7625.0";
+        const p = v.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
 
 // Module namespace
 var discards = discards || {};
@@ -241,12 +301,21 @@ discards.mojom.DetailsProviderRemote = class {
 discards.mojom.DetailsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('DetailsProvider', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   getTabDiscardsInfo() {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec,
       discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec,
       [],
@@ -254,9 +323,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
   }
 
   setAutoDiscardable(tab_id, is_auto_discardable) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec,
       discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec,
       [tab_id, is_auto_discardable],
@@ -264,9 +332,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
   }
 
   discardById(tab_id, reason) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       discards.mojom.DetailsProvider_DiscardById_ParamsSpec,
       discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec,
       [tab_id, reason],
@@ -274,9 +341,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
   }
 
   freezeById(tab_id) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       discards.mojom.DetailsProvider_FreezeById_ParamsSpec,
       null,
       [tab_id],
@@ -284,9 +350,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
   }
 
   loadById(tab_id) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       discards.mojom.DetailsProvider_LoadById_ParamsSpec,
       null,
       [tab_id],
@@ -294,9 +359,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
   }
 
   discard() {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       discards.mojom.DetailsProvider_Discard_ParamsSpec,
       discards.mojom.DetailsProvider_Discard_ResponseParamsSpec,
       [],
@@ -304,9 +368,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
   }
 
   toggleBatterySaverMode() {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec,
       null,
       [],
@@ -314,9 +377,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
   }
 
   refreshPerformanceTabCpuMeasurements() {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec,
       null,
       [],
@@ -340,14 +402,20 @@ discards.mojom.DetailsProviderReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    const ordinals = window.mojoScrambler.getOrdinals('DetailsProvider', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -385,7 +453,7 @@ discards.mojom.DetailsProviderReceiver = class {
         // Try Method 0: GetTabDiscardsInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabDiscardsInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -396,7 +464,7 @@ discards.mojom.DetailsProviderReceiver = class {
         // Try Method 1: SetAutoDiscardable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAutoDiscardable (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -407,7 +475,7 @@ discards.mojom.DetailsProviderReceiver = class {
         // Try Method 2: DiscardById
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.DetailsProvider_DiscardById_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.DetailsProvider_DiscardById_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DiscardById (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -418,7 +486,7 @@ discards.mojom.DetailsProviderReceiver = class {
         // Try Method 3: FreezeById
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.DetailsProvider_FreezeById_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.DetailsProvider_FreezeById_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FreezeById (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -429,7 +497,7 @@ discards.mojom.DetailsProviderReceiver = class {
         // Try Method 4: LoadById
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.DetailsProvider_LoadById_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.DetailsProvider_LoadById_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadById (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -440,7 +508,7 @@ discards.mojom.DetailsProviderReceiver = class {
         // Try Method 5: Discard
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.DetailsProvider_Discard_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.DetailsProvider_Discard_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Discard (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -451,7 +519,7 @@ discards.mojom.DetailsProviderReceiver = class {
         // Try Method 6: ToggleBatterySaverMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleBatterySaverMode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -462,7 +530,7 @@ discards.mojom.DetailsProviderReceiver = class {
         // Try Method 7: RefreshPerformanceTabCpuMeasurements
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshPerformanceTabCpuMeasurements (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -479,7 +547,7 @@ discards.mojom.DetailsProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabDiscardsInfo');
           const result = this.impl.getTabDiscardsInfo();
           if (header.expectsResponse) {
@@ -492,7 +560,7 @@ discards.mojom.DetailsProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoDiscardable');
           const result = this.impl.setAutoDiscardable(params.tab_id, params.is_auto_discardable);
           if (header.expectsResponse) {
@@ -505,7 +573,7 @@ discards.mojom.DetailsProviderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_DiscardById_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_DiscardById_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.discardById');
           const result = this.impl.discardById(params.tab_id, params.reason);
           if (header.expectsResponse) {
@@ -518,21 +586,21 @@ discards.mojom.DetailsProviderReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_FreezeById_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_FreezeById_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.freezeById');
           const result = this.impl.freezeById(params.tab_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_LoadById_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_LoadById_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.loadById');
           const result = this.impl.loadById(params.tab_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_Discard_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_Discard_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.discard');
           const result = this.impl.discard();
           if (header.expectsResponse) {
@@ -545,14 +613,14 @@ discards.mojom.DetailsProviderReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleBatterySaverMode');
           const result = this.impl.toggleBatterySaverMode();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.refreshPerformanceTabCpuMeasurements');
           const result = this.impl.refreshPerformanceTabCpuMeasurements();
           break;
@@ -662,12 +730,23 @@ discards.mojom.GraphChangeStreamRemote = class {
 discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('GraphChangeStream', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   frameCreated(frame) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec,
       null,
       [frame],
@@ -675,9 +754,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   }
 
   pageCreated(pages) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       discards.mojom.GraphChangeStream_PageCreated_ParamsSpec,
       null,
       [pages],
@@ -685,9 +763,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   }
 
   processCreated(process) {
-    // Ordinal: 2
     return this.proxy.sendMessage(
-      2,  // ordinal
+      this.ordinals[2],  // ordinal
       discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec,
       null,
       [process],
@@ -695,9 +772,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   }
 
   workerCreated(worker) {
-    // Ordinal: 3
     return this.proxy.sendMessage(
-      3,  // ordinal
+      this.ordinals[3],  // ordinal
       discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec,
       null,
       [worker],
@@ -705,9 +781,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   }
 
   frameChanged(frame) {
-    // Ordinal: 4
     return this.proxy.sendMessage(
-      4,  // ordinal
+      this.ordinals[4],  // ordinal
       discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec,
       null,
       [frame],
@@ -715,9 +790,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   }
 
   pageChanged(page) {
-    // Ordinal: 5
     return this.proxy.sendMessage(
-      5,  // ordinal
+      this.ordinals[5],  // ordinal
       discards.mojom.GraphChangeStream_PageChanged_ParamsSpec,
       null,
       [page],
@@ -725,9 +799,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   }
 
   processChanged(process) {
-    // Ordinal: 6
     return this.proxy.sendMessage(
-      6,  // ordinal
+      this.ordinals[6],  // ordinal
       discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec,
       null,
       [process],
@@ -735,9 +808,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   }
 
   workerChanged(worker) {
-    // Ordinal: 7
     return this.proxy.sendMessage(
-      7,  // ordinal
+      this.ordinals[7],  // ordinal
       discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec,
       null,
       [worker],
@@ -745,9 +817,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   }
 
   favIconDataAvailable(favicon) {
-    // Ordinal: 8
     return this.proxy.sendMessage(
-      8,  // ordinal
+      this.ordinals[8],  // ordinal
       discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec,
       null,
       [favicon],
@@ -755,9 +826,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
   }
 
   nodeDeleted(node_id) {
-    // Ordinal: 9
     return this.proxy.sendMessage(
-      9,  // ordinal
+      this.ordinals[9],  // ordinal
       discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec,
       null,
       [node_id],
@@ -781,16 +851,22 @@ discards.mojom.GraphChangeStreamReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
-    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
-    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
-    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
-    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
-    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
-    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
-    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
-    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    const ordinals = window.mojoScrambler.getOrdinals('GraphChangeStream', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -828,7 +904,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 0: FrameCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FrameCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -839,7 +915,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 1: PageCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphChangeStream_PageCreated_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphChangeStream_PageCreated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageCreated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -850,7 +926,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 2: ProcessCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessCreated (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -861,7 +937,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 3: WorkerCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WorkerCreated (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -872,7 +948,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 4: FrameChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FrameChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -883,7 +959,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 5: PageChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphChangeStream_PageChanged_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphChangeStream_PageChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -894,7 +970,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 6: ProcessChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -905,7 +981,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 7: WorkerChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WorkerChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -916,7 +992,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 8: FavIconDataAvailable
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FavIconDataAvailable (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -927,7 +1003,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
         // Try Method 9: NodeDeleted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NodeDeleted (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -944,70 +1020,70 @@ discards.mojom.GraphChangeStreamReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.frameCreated');
           const result = this.impl.frameCreated(params.frame);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_PageCreated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_PageCreated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.pageCreated');
           const result = this.impl.pageCreated(params.pages);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.processCreated');
           const result = this.impl.processCreated(params.process);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.workerCreated');
           const result = this.impl.workerCreated(params.worker);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.frameChanged');
           const result = this.impl.frameChanged(params.frame);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_PageChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_PageChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.pageChanged');
           const result = this.impl.pageChanged(params.page);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.processChanged');
           const result = this.impl.processChanged(params.process);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.workerChanged');
           const result = this.impl.workerChanged(params.worker);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.favIconDataAvailable');
           const result = this.impl.favIconDataAvailable(params.favicon);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.nodeDeleted');
           const result = this.impl.nodeDeleted(params.node_id);
           break;
@@ -1075,12 +1151,15 @@ discards.mojom.GraphDumpRemote = class {
 discards.mojom.GraphDumpRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('GraphDump', [
+      { explicit: null },
+      { explicit: null },
+    ]);
   }
 
   subscribeToChanges(change_subscriber) {
-    // Ordinal: 0
     return this.proxy.sendMessage(
-      0,  // ordinal
+      this.ordinals[0],  // ordinal
       discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec,
       null,
       [change_subscriber],
@@ -1088,9 +1167,8 @@ discards.mojom.GraphDumpRemoteCallHandler = class {
   }
 
   requestNodeDescriptions(node_ids) {
-    // Ordinal: 1
     return this.proxy.sendMessage(
-      1,  // ordinal
+      this.ordinals[1],  // ordinal
       discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec,
       discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec,
       [node_ids],
@@ -1114,8 +1192,14 @@ discards.mojom.GraphDumpReceiver = class {
     this.impl = impl;
     this.endpoint = null;
     this.ordinalMap = new Map();
-    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
-    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    const ordinals = window.mojoScrambler.getOrdinals('GraphDump', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+    });
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
@@ -1153,7 +1237,7 @@ discards.mojom.GraphDumpReceiver = class {
         // Try Method 0: SubscribeToChanges
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToChanges (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1164,7 +1248,7 @@ discards.mojom.GraphDumpReceiver = class {
         // Try Method 1: RequestNodeDescriptions
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec.$);
+             decoder.decodeStructInline(discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNodeDescriptions (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1181,14 +1265,14 @@ discards.mojom.GraphDumpReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToChanges');
           const result = this.impl.subscribeToChanges(params.change_subscriber);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec.$);
+          const params = decoder.decodeStructInline(discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec);
           console.log('[GeneratedReceiver] Calling impl.requestNodeDescriptions');
           const result = this.impl.requestNodeDescriptions(params.node_ids);
           if (header.expectsResponse) {
