@@ -154,8 +154,9 @@ arc.mojom.ArcWifiHostRemoteCallHandler = class {
 
 arc.mojom.ArcWifiHost.getRemote = function() {
   let remote = new arc.mojom.ArcWifiHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ArcWifiHost',
     'context');
   return remote.$;
@@ -254,8 +255,9 @@ arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
 
 arc.mojom.ArcWifiInstance.getRemote = function() {
   let remote = new arc.mojom.ArcWifiInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ArcWifiInstance',
     'context');
   return remote.$;

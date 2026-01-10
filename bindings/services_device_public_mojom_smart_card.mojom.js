@@ -382,8 +382,9 @@ device.mojom.SmartCardTransactionRemoteCallHandler = class {
 
 device.mojom.SmartCardTransaction.getRemote = function() {
   let remote = new device.mojom.SmartCardTransactionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.SmartCardTransaction',
     'context');
   return remote.$;
@@ -585,8 +586,9 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
 
 device.mojom.SmartCardConnection.getRemote = function() {
   let remote = new device.mojom.SmartCardConnectionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.SmartCardConnection',
     'context');
   return remote.$;
@@ -648,8 +650,9 @@ device.mojom.SmartCardConnectionWatcherRemoteCallHandler = class {
 
 device.mojom.SmartCardConnectionWatcher.getRemote = function() {
   let remote = new device.mojom.SmartCardConnectionWatcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.SmartCardConnectionWatcher',
     'context');
   return remote.$;
@@ -786,8 +789,9 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
 
 device.mojom.SmartCardContext.getRemote = function() {
   let remote = new device.mojom.SmartCardContextRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.SmartCardContext',
     'context');
   return remote.$;
@@ -855,8 +859,9 @@ device.mojom.SmartCardContextFactoryRemoteCallHandler = class {
 
 device.mojom.SmartCardContextFactory.getRemote = function() {
   let remote = new device.mojom.SmartCardContextFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.SmartCardContextFactory',
     'context');
   return remote.$;

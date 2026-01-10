@@ -195,8 +195,9 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
 
 ash.settings.app_notification.mojom.AppNotificationsHandler.getRemote = function() {
   let remote = new ash.settings.app_notification.mojom.AppNotificationsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.app_notification.mojom.AppNotificationsHandler',
     'context');
   return remote.$;
@@ -275,8 +276,9 @@ ash.settings.app_notification.mojom.AppNotificationsObserverRemoteCallHandler = 
 
 ash.settings.app_notification.mojom.AppNotificationsObserver.getRemote = function() {
   let remote = new ash.settings.app_notification.mojom.AppNotificationsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.app_notification.mojom.AppNotificationsObserver',
     'context');
   return remote.$;

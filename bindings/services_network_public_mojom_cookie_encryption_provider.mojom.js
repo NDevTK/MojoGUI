@@ -72,8 +72,9 @@ network.mojom.CookieEncryptionProviderRemoteCallHandler = class {
 
 network.mojom.CookieEncryptionProvider.getRemote = function() {
   let remote = new network.mojom.CookieEncryptionProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.CookieEncryptionProvider',
     'context');
   return remote.$;

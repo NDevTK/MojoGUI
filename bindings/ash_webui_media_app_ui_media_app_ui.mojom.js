@@ -84,8 +84,9 @@ ash.media_app_ui.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.media_app_ui.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -282,8 +283,9 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.PageHandler.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.media_app_ui.mojom.PageHandler',
     'context');
   return remote.$;

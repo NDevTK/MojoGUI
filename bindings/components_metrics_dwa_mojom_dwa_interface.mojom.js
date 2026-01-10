@@ -66,8 +66,9 @@ metrics.dwa.mojom.DwaRecorderClientInterfaceRemoteCallHandler = class {
 
 metrics.dwa.mojom.DwaRecorderClientInterface.getRemote = function() {
   let remote = new metrics.dwa.mojom.DwaRecorderClientInterfaceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'metrics.dwa.mojom.DwaRecorderClientInterface',
     'context');
   return remote.$;
@@ -130,8 +131,9 @@ metrics.dwa.mojom.DwaRecorderInterfaceRemoteCallHandler = class {
 
 metrics.dwa.mojom.DwaRecorderInterface.getRemote = function() {
   let remote = new metrics.dwa.mojom.DwaRecorderInterfaceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'metrics.dwa.mojom.DwaRecorderInterface',
     'context');
   return remote.$;
@@ -195,8 +197,9 @@ metrics.dwa.mojom.DwaRecorderFactoryRemoteCallHandler = class {
 
 metrics.dwa.mojom.DwaRecorderFactory.getRemote = function() {
   let remote = new metrics.dwa.mojom.DwaRecorderFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'metrics.dwa.mojom.DwaRecorderFactory',
     'context');
   return remote.$;

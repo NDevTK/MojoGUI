@@ -84,8 +84,9 @@ chrome.mojom.UtilReadIconRemoteCallHandler = class {
 
 chrome.mojom.UtilReadIcon.getRemote = function() {
   let remote = new chrome.mojom.UtilReadIconRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.UtilReadIcon',
     'context');
   return remote.$;

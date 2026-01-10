@@ -133,8 +133,9 @@ device.mojom.WakeLockProviderRemoteCallHandler = class {
 
 device.mojom.WakeLockProvider.getRemote = function() {
   let remote = new device.mojom.WakeLockProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.WakeLockProvider',
     'context');
   return remote.$;
@@ -197,8 +198,9 @@ device.mojom.WakeLockObserverRemoteCallHandler = class {
 
 device.mojom.WakeLockObserver.getRemote = function() {
   let remote = new device.mojom.WakeLockObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.WakeLockObserver',
     'context');
   return remote.$;

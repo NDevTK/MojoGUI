@@ -71,8 +71,9 @@ ash.file_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.file_manager.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.file_manager.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.file_manager.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -119,8 +120,9 @@ ash.file_manager.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.file_manager.mojom.PageHandler.getRemote = function() {
   let remote = new ash.file_manager.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.file_manager.mojom.PageHandler',
     'context');
   return remote.$;
@@ -167,8 +169,9 @@ ash.file_manager.mojom.PageRemoteCallHandler = class {
 
 ash.file_manager.mojom.Page.getRemote = function() {
   let remote = new ash.file_manager.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.file_manager.mojom.Page',
     'context');
   return remote.$;

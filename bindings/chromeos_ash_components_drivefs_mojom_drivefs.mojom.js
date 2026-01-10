@@ -700,8 +700,9 @@ drivefs.mojom.DriveFsBootstrapRemoteCallHandler = class {
 
 drivefs.mojom.DriveFsBootstrap.getRemote = function() {
   let remote = new drivefs.mojom.DriveFsBootstrapRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'drivefs.mojom.DriveFsBootstrap',
     'context');
   return remote.$;
@@ -1497,8 +1498,9 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
 
 drivefs.mojom.DriveFs.getRemote = function() {
   let remote = new drivefs.mojom.DriveFsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'drivefs.mojom.DriveFs',
     'context');
   return remote.$;
@@ -1902,8 +1904,9 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
 
 drivefs.mojom.DriveFsDelegate.getRemote = function() {
   let remote = new drivefs.mojom.DriveFsDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'drivefs.mojom.DriveFsDelegate',
     'context');
   return remote.$;
@@ -1972,8 +1975,9 @@ drivefs.mojom.SearchQueryRemoteCallHandler = class {
 
 drivefs.mojom.SearchQuery.getRemote = function() {
   let remote = new drivefs.mojom.SearchQueryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'drivefs.mojom.SearchQuery',
     'context');
   return remote.$;
@@ -2084,8 +2088,9 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
 
 drivefs.mojom.HttpDelegate.getRemote = function() {
   let remote = new drivefs.mojom.HttpDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'drivefs.mojom.HttpDelegate',
     'context');
   return remote.$;

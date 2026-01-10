@@ -117,8 +117,9 @@ global_media_controls.mojom.DeviceListHostRemoteCallHandler = class {
 
 global_media_controls.mojom.DeviceListHost.getRemote = function() {
   let remote = new global_media_controls.mojom.DeviceListHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'global_media_controls.mojom.DeviceListHost',
     'context');
   return remote.$;
@@ -196,8 +197,9 @@ global_media_controls.mojom.DeviceListClientRemoteCallHandler = class {
 
 global_media_controls.mojom.DeviceListClient.getRemote = function() {
   let remote = new global_media_controls.mojom.DeviceListClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'global_media_controls.mojom.DeviceListClient',
     'context');
   return remote.$;
@@ -295,8 +297,9 @@ global_media_controls.mojom.DeviceServiceRemoteCallHandler = class {
 
 global_media_controls.mojom.DeviceService.getRemote = function() {
   let remote = new global_media_controls.mojom.DeviceServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'global_media_controls.mojom.DeviceService',
     'context');
   return remote.$;
@@ -483,8 +486,9 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
 
 global_media_controls.mojom.DevicePickerProvider.getRemote = function() {
   let remote = new global_media_controls.mojom.DevicePickerProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'global_media_controls.mojom.DevicePickerProvider',
     'context');
   return remote.$;
@@ -591,8 +595,9 @@ global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
 
 global_media_controls.mojom.DevicePickerObserver.getRemote = function() {
   let remote = new global_media_controls.mojom.DevicePickerObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'global_media_controls.mojom.DevicePickerObserver',
     'context');
   return remote.$;

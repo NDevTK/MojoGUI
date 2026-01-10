@@ -256,8 +256,9 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
 
 mantis.mojom.MantisProcessor.getRemote = function() {
   let remote = new mantis.mojom.MantisProcessorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mantis.mojom.MantisProcessor',
     'context');
   return remote.$;

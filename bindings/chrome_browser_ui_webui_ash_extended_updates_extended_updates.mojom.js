@@ -85,8 +85,9 @@ ash.extended_updates.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.extended_updates.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.extended_updates.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.extended_updates.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -190,8 +191,9 @@ ash.extended_updates.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.extended_updates.mojom.PageHandler.getRemote = function() {
   let remote = new ash.extended_updates.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.extended_updates.mojom.PageHandler',
     'context');
   return remote.$;
@@ -238,8 +240,9 @@ ash.extended_updates.mojom.PageRemoteCallHandler = class {
 
 ash.extended_updates.mojom.Page.getRemote = function() {
   let remote = new ash.extended_updates.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.extended_updates.mojom.Page',
     'context');
   return remote.$;

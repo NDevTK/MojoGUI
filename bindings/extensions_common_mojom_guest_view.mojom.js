@@ -98,8 +98,9 @@ extensions.mojom.GuestViewRemoteCallHandler = class {
 
 extensions.mojom.GuestView.getRemote = function() {
   let remote = new extensions.mojom.GuestViewRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mojom.GuestView',
     'context');
   return remote.$;
@@ -216,8 +217,9 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
 
 extensions.mojom.MimeHandlerViewContainerManager.getRemote = function() {
   let remote = new extensions.mojom.MimeHandlerViewContainerManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mojom.MimeHandlerViewContainerManager',
     'context');
   return remote.$;

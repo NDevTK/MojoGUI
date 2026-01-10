@@ -72,8 +72,9 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemoteCallHandler = class {
 
 gcpw_hid.mojom.GaiaCredentialProviderHidBroker.getRemote = function() {
   let remote = new gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'gcpw_hid.mojom.GaiaCredentialProviderHidBroker',
     'context');
   return remote.$;

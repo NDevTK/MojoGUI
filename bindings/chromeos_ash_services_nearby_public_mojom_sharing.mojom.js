@@ -158,8 +158,9 @@ sharing.mojom.SharingRemoteCallHandler = class {
 
 sharing.mojom.Sharing.getRemote = function() {
   let remote = new sharing.mojom.SharingRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sharing.mojom.Sharing',
     'context');
   return remote.$;

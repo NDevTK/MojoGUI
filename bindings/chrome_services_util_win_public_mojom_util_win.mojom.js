@@ -335,8 +335,9 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
 
 chrome.mojom.UtilWin.getRemote = function() {
   let remote = new chrome.mojom.UtilWinRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.UtilWin',
     'context');
   return remote.$;
@@ -403,8 +404,9 @@ chrome.mojom.ProcessorMetricsRemoteCallHandler = class {
 
 chrome.mojom.ProcessorMetrics.getRemote = function() {
   let remote = new chrome.mojom.ProcessorMetricsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.ProcessorMetrics',
     'context');
   return remote.$;

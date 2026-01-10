@@ -475,8 +475,9 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
 
 payments.mojom.PaymentRequestClient.getRemote = function() {
   let remote = new payments.mojom.PaymentRequestClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'payments.mojom.PaymentRequestClient',
     'context');
   return remote.$;
@@ -667,8 +668,9 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
 
 payments.mojom.PaymentRequest.getRemote = function() {
   let remote = new payments.mojom.PaymentRequestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'payments.mojom.PaymentRequest',
     'context');
   return remote.$;

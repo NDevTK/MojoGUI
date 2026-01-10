@@ -409,8 +409,9 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
 
 filesystem.mojom.Directory.getRemote = function() {
   let remote = new filesystem.mojom.DirectoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'filesystem.mojom.Directory',
     'context');
   return remote.$;

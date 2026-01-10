@@ -168,8 +168,9 @@ ash.auth.mojom.FactorObserverRemoteCallHandler = class {
 
 ash.auth.mojom.FactorObserver.getRemote = function() {
   let remote = new ash.auth.mojom.FactorObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.auth.mojom.FactorObserver',
     'context');
   return remote.$;
@@ -340,8 +341,9 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
 
 ash.auth.mojom.AuthFactorConfig.getRemote = function() {
   let remote = new ash.auth.mojom.AuthFactorConfigRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.auth.mojom.AuthFactorConfig',
     'context');
   return remote.$;
@@ -411,8 +413,9 @@ ash.auth.mojom.RecoveryFactorEditorRemoteCallHandler = class {
 
 ash.auth.mojom.RecoveryFactorEditor.getRemote = function() {
   let remote = new ash.auth.mojom.RecoveryFactorEditorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.auth.mojom.RecoveryFactorEditor',
     'context');
   return remote.$;
@@ -572,8 +575,9 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
 
 ash.auth.mojom.PinFactorEditor.getRemote = function() {
   let remote = new ash.auth.mojom.PinFactorEditorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.auth.mojom.PinFactorEditor',
     'context');
   return remote.$;
@@ -756,8 +760,9 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
 
 ash.auth.mojom.PasswordFactorEditor.getRemote = function() {
   let remote = new ash.auth.mojom.PasswordFactorEditorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.auth.mojom.PasswordFactorEditor',
     'context');
   return remote.$;

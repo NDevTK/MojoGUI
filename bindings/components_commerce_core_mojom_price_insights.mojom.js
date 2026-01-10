@@ -84,8 +84,9 @@ commerce.price_insights.mojom.PriceInsightsHandlerRemoteCallHandler = class {
 
 commerce.price_insights.mojom.PriceInsightsHandler.getRemote = function() {
   let remote = new commerce.price_insights.mojom.PriceInsightsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce.price_insights.mojom.PriceInsightsHandler',
     'context');
   return remote.$;
@@ -148,8 +149,9 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactoryRemoteCallHandler = cla
 
 commerce.price_insights.mojom.PriceInsightsHandlerFactory.getRemote = function() {
   let remote = new commerce.price_insights.mojom.PriceInsightsHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce.price_insights.mojom.PriceInsightsHandlerFactory',
     'context');
   return remote.$;

@@ -65,8 +65,9 @@ notifications_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 notifications_internals.mojom.PageHandler.getRemote = function() {
   let remote = new notifications_internals.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'notifications_internals.mojom.PageHandler',
     'context');
   return remote.$;

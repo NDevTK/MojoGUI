@@ -150,8 +150,9 @@ nearby.connections.mojom.EndpointDiscoveryListenerRemoteCallHandler = class {
 
 nearby.connections.mojom.EndpointDiscoveryListener.getRemote = function() {
   let remote = new nearby.connections.mojom.EndpointDiscoveryListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby.connections.mojom.EndpointDiscoveryListener',
     'context');
   return remote.$;
@@ -281,8 +282,9 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
 
 nearby.connections.mojom.ConnectionLifecycleListener.getRemote = function() {
   let remote = new nearby.connections.mojom.ConnectionLifecycleListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby.connections.mojom.ConnectionLifecycleListener',
     'context');
   return remote.$;
@@ -363,8 +365,9 @@ nearby.connections.mojom.PayloadListenerRemoteCallHandler = class {
 
 nearby.connections.mojom.PayloadListener.getRemote = function() {
   let remote = new nearby.connections.mojom.PayloadListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby.connections.mojom.PayloadListener',
     'context');
   return remote.$;
@@ -478,8 +481,9 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
 
 nearby.connections.mojom.ConnectionListenerV3.getRemote = function() {
   let remote = new nearby.connections.mojom.ConnectionListenerV3Remote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby.connections.mojom.ConnectionListenerV3',
     'context');
   return remote.$;
@@ -560,8 +564,9 @@ nearby.connections.mojom.PayloadListenerV3RemoteCallHandler = class {
 
 nearby.connections.mojom.PayloadListenerV3.getRemote = function() {
   let remote = new nearby.connections.mojom.PayloadListenerV3Remote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby.connections.mojom.PayloadListenerV3',
     'context');
   return remote.$;
@@ -1050,8 +1055,9 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
 
 nearby.connections.mojom.NearbyConnections.getRemote = function() {
   let remote = new nearby.connections.mojom.NearbyConnectionsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby.connections.mojom.NearbyConnections',
     'context');
   return remote.$;

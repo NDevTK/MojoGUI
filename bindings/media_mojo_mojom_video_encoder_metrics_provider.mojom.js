@@ -134,8 +134,9 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
 
 media.mojom.VideoEncoderMetricsProvider.getRemote = function() {
   let remote = new media.mojom.VideoEncoderMetricsProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoEncoderMetricsProvider',
     'context');
   return remote.$;

@@ -384,8 +384,9 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
 
 security_interstitials.mojom.InterstitialCommands.getRemote = function() {
   let remote = new security_interstitials.mojom.InterstitialCommandsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'security_interstitials.mojom.InterstitialCommands',
     'context');
   return remote.$;

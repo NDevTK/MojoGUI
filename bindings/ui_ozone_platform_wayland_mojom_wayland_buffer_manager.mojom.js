@@ -190,8 +190,9 @@ ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler = class {
 
 ui.ozone.mojom.WaylandBufferManagerHost.getRemote = function() {
   let remote = new ui.ozone.mojom.WaylandBufferManagerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ui.ozone.mojom.WaylandBufferManagerHost',
     'context');
   return remote.$;
@@ -297,8 +298,9 @@ ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler = class {
 
 ui.ozone.mojom.WaylandBufferManagerGpu.getRemote = function() {
   let remote = new ui.ozone.mojom.WaylandBufferManagerGpuRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ui.ozone.mojom.WaylandBufferManagerGpu',
     'context');
   return remote.$;

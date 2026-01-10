@@ -132,8 +132,9 @@ blink.mojom.AIWriterRemoteCallHandler = class {
 
 blink.mojom.AIWriter.getRemote = function() {
   let remote = new blink.mojom.AIWriterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AIWriter',
     'context');
   return remote.$;

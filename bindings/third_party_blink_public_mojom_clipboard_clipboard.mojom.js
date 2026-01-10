@@ -146,8 +146,9 @@ blink.mojom.ClipboardListenerRemoteCallHandler = class {
 
 blink.mojom.ClipboardListener.getRemote = function() {
   let remote = new blink.mojom.ClipboardListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ClipboardListener',
     'context');
   return remote.$;
@@ -660,8 +661,9 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
 
 blink.mojom.ClipboardHost.getRemote = function() {
   let remote = new blink.mojom.ClipboardHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ClipboardHost',
     'context');
   return remote.$;

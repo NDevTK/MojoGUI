@@ -67,8 +67,9 @@ payments.facilitated.mojom.PaymentLinkHandlerRemoteCallHandler = class {
 
 payments.facilitated.mojom.PaymentLinkHandler.getRemote = function() {
   let remote = new payments.facilitated.mojom.PaymentLinkHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'payments.facilitated.mojom.PaymentLinkHandler',
     'context');
   return remote.$;

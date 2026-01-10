@@ -239,8 +239,9 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
 
 video_capture.mojom.PushVideoStreamSubscription.getRemote = function() {
   let remote = new video_capture.mojom.PushVideoStreamSubscriptionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'video_capture.mojom.PushVideoStreamSubscription',
     'context');
   return remote.$;
@@ -313,8 +314,9 @@ video_capture.mojom.VideoSourceRemoteCallHandler = class {
 
 video_capture.mojom.VideoSource.getRemote = function() {
   let remote = new video_capture.mojom.VideoSourceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'video_capture.mojom.VideoSource',
     'context');
   return remote.$;

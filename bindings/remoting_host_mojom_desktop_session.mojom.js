@@ -536,8 +536,9 @@ remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
 
 remoting.mojom.DesktopSessionRequestHandler.getRemote = function() {
   let remote = new remoting.mojom.DesktopSessionRequestHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.DesktopSessionRequestHandler',
     'context');
   return remote.$;
@@ -635,8 +636,9 @@ remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
 
 remoting.mojom.DesktopSessionManager.getRemote = function() {
   let remote = new remoting.mojom.DesktopSessionManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.DesktopSessionManager',
     'context');
   return remote.$;
@@ -707,8 +709,9 @@ remoting.mojom.DesktopSessionAgentRemoteCallHandler = class {
 
 remoting.mojom.DesktopSessionAgent.getRemote = function() {
   let remote = new remoting.mojom.DesktopSessionAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.DesktopSessionAgent',
     'context');
   return remote.$;
@@ -798,8 +801,9 @@ remoting.mojom.FileWriterRemoteCallHandler = class {
 
 remoting.mojom.FileWriter.getRemote = function() {
   let remote = new remoting.mojom.FileWriterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.FileWriter',
     'context');
   return remote.$;
@@ -868,8 +872,9 @@ remoting.mojom.FileReaderRemoteCallHandler = class {
 
 remoting.mojom.FileReader.getRemote = function() {
   let remote = new remoting.mojom.FileReaderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.FileReader',
     'context');
   return remote.$;
@@ -1152,8 +1157,9 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
 
 remoting.mojom.DesktopSessionControl.getRemote = function() {
   let remote = new remoting.mojom.DesktopSessionControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.DesktopSessionControl',
     'context');
   return remote.$;
@@ -1231,8 +1237,9 @@ remoting.mojom.VideoCapturerRemoteCallHandler = class {
 
 remoting.mojom.VideoCapturer.getRemote = function() {
   let remote = new remoting.mojom.VideoCapturerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.VideoCapturer',
     'context');
   return remote.$;
@@ -1329,8 +1336,9 @@ remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
 
 remoting.mojom.VideoCapturerEventHandler.getRemote = function() {
   let remote = new remoting.mojom.VideoCapturerEventHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.VideoCapturerEventHandler',
     'context');
   return remote.$;
@@ -1521,8 +1529,9 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
 
 remoting.mojom.DesktopSessionEventHandler.getRemote = function() {
   let remote = new remoting.mojom.DesktopSessionEventHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.DesktopSessionEventHandler',
     'context');
   return remote.$;
@@ -1587,8 +1596,9 @@ remoting.mojom.DesktopSessionStateHandlerRemoteCallHandler = class {
 
 remoting.mojom.DesktopSessionStateHandler.getRemote = function() {
   let remote = new remoting.mojom.DesktopSessionStateHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.DesktopSessionStateHandler',
     'context');
   return remote.$;
@@ -1653,8 +1663,9 @@ remoting.mojom.WorkerProcessControlRemoteCallHandler = class {
 
 remoting.mojom.WorkerProcessControl.getRemote = function() {
   let remote = new remoting.mojom.WorkerProcessControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.WorkerProcessControl',
     'context');
   return remote.$;

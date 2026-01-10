@@ -126,8 +126,9 @@ arc.mojom.TtsHostRemoteCallHandler = class {
 
 arc.mojom.TtsHost.getRemote = function() {
   let remote = new arc.mojom.TtsHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.TtsHost',
     'context');
   return remote.$;
@@ -241,8 +242,9 @@ arc.mojom.TtsInstanceRemoteCallHandler = class {
 
 arc.mojom.TtsInstance.getRemote = function() {
   let remote = new arc.mojom.TtsInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.TtsInstance',
     'context');
   return remote.$;

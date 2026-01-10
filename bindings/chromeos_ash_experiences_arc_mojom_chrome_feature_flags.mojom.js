@@ -97,8 +97,9 @@ arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = class {
 
 arc.mojom.ChromeFeatureFlagsInstance.getRemote = function() {
   let remote = new arc.mojom.ChromeFeatureFlagsInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ChromeFeatureFlagsInstance',
     'context');
   return remote.$;

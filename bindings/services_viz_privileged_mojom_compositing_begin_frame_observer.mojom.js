@@ -66,8 +66,9 @@ viz.mojom.BeginFrameObserverRemoteCallHandler = class {
 
 viz.mojom.BeginFrameObserver.getRemote = function() {
   let remote = new viz.mojom.BeginFrameObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.BeginFrameObserver',
     'context');
   return remote.$;

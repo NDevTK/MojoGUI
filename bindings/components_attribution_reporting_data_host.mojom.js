@@ -149,8 +149,9 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
 
 attribution_reporting.mojom.DataHost.getRemote = function() {
   let remote = new attribution_reporting.mojom.DataHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'attribution_reporting.mojom.DataHost',
     'context');
   return remote.$;

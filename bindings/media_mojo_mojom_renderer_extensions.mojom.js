@@ -99,8 +99,9 @@ media.mojom.FlingingRendererClientExtensionRemoteCallHandler = class {
 
 media.mojom.FlingingRendererClientExtension.getRemote = function() {
   let remote = new media.mojom.FlingingRendererClientExtensionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.FlingingRendererClientExtension',
     'context');
   return remote.$;
@@ -207,8 +208,9 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
 
 media.mojom.MediaFoundationRendererExtension.getRemote = function() {
   let remote = new media.mojom.MediaFoundationRendererExtensionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaFoundationRendererExtension',
     'context');
   return remote.$;
@@ -255,8 +257,9 @@ media.mojom.MediaFoundationRendererObserverRemoteCallHandler = class {
 
 media.mojom.MediaFoundationRendererObserver.getRemote = function() {
   let remote = new media.mojom.MediaFoundationRendererObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaFoundationRendererObserver',
     'context');
   return remote.$;
@@ -319,8 +322,9 @@ media.mojom.MediaFoundationRendererNotifierRemoteCallHandler = class {
 
 media.mojom.MediaFoundationRendererNotifier.getRemote = function() {
   let remote = new media.mojom.MediaFoundationRendererNotifierRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaFoundationRendererNotifier',
     'context');
   return remote.$;

@@ -84,8 +84,9 @@ blink.mojom.AecDumpAgentRemoteCallHandler = class {
 
 blink.mojom.AecDumpAgent.getRemote = function() {
   let remote = new blink.mojom.AecDumpAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AecDumpAgent',
     'context');
   return remote.$;
@@ -148,8 +149,9 @@ blink.mojom.AecDumpManagerRemoteCallHandler = class {
 
 blink.mojom.AecDumpManager.getRemote = function() {
   let remote = new blink.mojom.AecDumpManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AecDumpManager',
     'context');
   return remote.$;

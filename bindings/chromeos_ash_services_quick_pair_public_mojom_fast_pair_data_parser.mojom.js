@@ -341,8 +341,9 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
 
 ash.quick_pair.mojom.FastPairDataParser.getRemote = function() {
   let remote = new ash.quick_pair.mojom.FastPairDataParserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.quick_pair.mojom.FastPairDataParser',
     'context');
   return remote.$;

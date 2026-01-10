@@ -129,8 +129,9 @@ chromeos.tts.mojom.TtsServiceRemoteCallHandler = class {
 
 chromeos.tts.mojom.TtsService.getRemote = function() {
   let remote = new chromeos.tts.mojom.TtsServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.tts.mojom.TtsService',
     'context');
   return remote.$;
@@ -306,8 +307,9 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
 
 chromeos.tts.mojom.GoogleTtsStream.getRemote = function() {
   let remote = new chromeos.tts.mojom.GoogleTtsStreamRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.tts.mojom.GoogleTtsStream',
     'context');
   return remote.$;
@@ -454,8 +456,9 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
 
 chromeos.tts.mojom.PlaybackTtsStream.getRemote = function() {
   let remote = new chromeos.tts.mojom.PlaybackTtsStreamRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.tts.mojom.PlaybackTtsStream',
     'context');
   return remote.$;
@@ -563,8 +566,9 @@ chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = class {
 
 chromeos.tts.mojom.TtsEventObserver.getRemote = function() {
   let remote = new chromeos.tts.mojom.TtsEventObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.tts.mojom.TtsEventObserver',
     'context');
   return remote.$;

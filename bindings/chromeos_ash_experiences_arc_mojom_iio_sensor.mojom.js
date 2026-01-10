@@ -72,8 +72,9 @@ arc.mojom.IioSensorHostRemoteCallHandler = class {
 
 arc.mojom.IioSensorHost.getRemote = function() {
   let remote = new arc.mojom.IioSensorHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.IioSensorHost',
     'context');
   return remote.$;
@@ -157,8 +158,9 @@ arc.mojom.IioSensorInstanceRemoteCallHandler = class {
 
 arc.mojom.IioSensorInstance.getRemote = function() {
   let remote = new arc.mojom.IioSensorInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.IioSensorInstance',
     'context');
   return remote.$;

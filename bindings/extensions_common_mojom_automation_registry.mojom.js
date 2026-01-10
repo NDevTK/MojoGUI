@@ -66,8 +66,9 @@ extensions.mojom.RendererAutomationRegistryRemoteCallHandler = class {
 
 extensions.mojom.RendererAutomationRegistry.getRemote = function() {
   let remote = new extensions.mojom.RendererAutomationRegistryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mojom.RendererAutomationRegistry',
     'context');
   return remote.$;

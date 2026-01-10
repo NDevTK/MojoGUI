@@ -412,8 +412,9 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
 
 history_clusters.mojom.PageHandler.getRemote = function() {
   let remote = new history_clusters.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'history_clusters.mojom.PageHandler',
     'context');
   return remote.$;
@@ -556,8 +557,9 @@ history_clusters.mojom.PageRemoteCallHandler = class {
 
 history_clusters.mojom.Page.getRemote = function() {
   let remote = new history_clusters.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'history_clusters.mojom.Page',
     'context');
   return remote.$;

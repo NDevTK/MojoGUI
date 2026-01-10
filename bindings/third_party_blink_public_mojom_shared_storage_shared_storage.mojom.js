@@ -171,8 +171,9 @@ blink.mojom.SharedStorageWorkletHostRemoteCallHandler = class {
 
 blink.mojom.SharedStorageWorkletHost.getRemote = function() {
   let remote = new blink.mojom.SharedStorageWorkletHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SharedStorageWorkletHost',
     'context');
   return remote.$;
@@ -317,8 +318,9 @@ blink.mojom.SharedStorageDocumentServiceRemoteCallHandler = class {
 
 blink.mojom.SharedStorageDocumentService.getRemote = function() {
   let remote = new blink.mojom.SharedStorageDocumentServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SharedStorageDocumentService',
     'context');
   return remote.$;

@@ -90,8 +90,9 @@ ax.mojom.AssistiveTechnologyControllerRemoteCallHandler = class {
 
 ax.mojom.AssistiveTechnologyController.getRemote = function() {
   let remote = new ax.mojom.AssistiveTechnologyControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.AssistiveTechnologyController',
     'context');
   return remote.$;
@@ -188,8 +189,9 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
 
 ax.mojom.AccessibilityService.getRemote = function() {
   let remote = new ax.mojom.AccessibilityServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.AccessibilityService',
     'context');
   return remote.$;
@@ -364,8 +366,9 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
 
 ax.mojom.AccessibilityServiceClient.getRemote = function() {
   let remote = new ax.mojom.AccessibilityServiceClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.AccessibilityServiceClient',
     'context');
   return remote.$;

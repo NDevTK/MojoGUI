@@ -80,8 +80,9 @@ chromecast.mojom.ActivityWindowRemoteCallHandler = class {
 
 chromecast.mojom.ActivityWindow.getRemote = function() {
   let remote = new chromecast.mojom.ActivityWindowRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.ActivityWindow',
     'context');
   return remote.$;

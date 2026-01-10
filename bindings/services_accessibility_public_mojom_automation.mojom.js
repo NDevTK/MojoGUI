@@ -167,8 +167,9 @@ ax.mojom.AutomationRemoteCallHandler = class {
 
 ax.mojom.Automation.getRemote = function() {
   let remote = new ax.mojom.AutomationRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.Automation',
     'context');
   return remote.$;

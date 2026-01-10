@@ -87,8 +87,9 @@ content.mojom.FontCacheWinRemoteCallHandler = class {
 
 content.mojom.FontCacheWin.getRemote = function() {
   let remote = new content.mojom.FontCacheWinRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.FontCacheWin',
     'context');
   return remote.$;

@@ -78,8 +78,9 @@ ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.office_fallback.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.office_fallback.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.office_fallback.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -142,8 +143,9 @@ ash.office_fallback.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.office_fallback.mojom.PageHandler.getRemote = function() {
   let remote = new ash.office_fallback.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.office_fallback.mojom.PageHandler',
     'context');
   return remote.$;

@@ -134,8 +134,9 @@ private_aggregation_internals.mojom.ObserverRemoteCallHandler = class {
 
 private_aggregation_internals.mojom.Observer.getRemote = function() {
   let remote = new private_aggregation_internals.mojom.ObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'private_aggregation_internals.mojom.Observer',
     'context');
   return remote.$;
@@ -244,8 +245,9 @@ private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
 
 private_aggregation_internals.mojom.Handler.getRemote = function() {
   let remote = new private_aggregation_internals.mojom.HandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'private_aggregation_internals.mojom.Handler',
     'context');
   return remote.$;
@@ -309,8 +311,9 @@ private_aggregation_internals.mojom.FactoryRemoteCallHandler = class {
 
 private_aggregation_internals.mojom.Factory.getRemote = function() {
   let remote = new private_aggregation_internals.mojom.FactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'private_aggregation_internals.mojom.Factory',
     'context');
   return remote.$;

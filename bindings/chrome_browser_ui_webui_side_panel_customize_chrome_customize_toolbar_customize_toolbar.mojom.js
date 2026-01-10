@@ -143,8 +143,9 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemoteCallHandle
 
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory.getRemote = function() {
   let remote = new side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory',
     'context');
   return remote.$;
@@ -286,8 +287,9 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
 
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler.getRemote = function() {
   let remote = new side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.customize_chrome.mojom.CustomizeToolbarHandler',
     'context');
   return remote.$;
@@ -366,8 +368,9 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientRemoteCallHandler = clas
 
 side_panel.customize_chrome.mojom.CustomizeToolbarClient.getRemote = function() {
   let remote = new side_panel.customize_chrome.mojom.CustomizeToolbarClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.customize_chrome.mojom.CustomizeToolbarClient',
     'context');
   return remote.$;

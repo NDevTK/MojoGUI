@@ -68,8 +68,9 @@ media.mojom.VideoDecoderFactoryProcessRemoteCallHandler = class {
 
 media.mojom.VideoDecoderFactoryProcess.getRemote = function() {
   let remote = new media.mojom.VideoDecoderFactoryProcessRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoDecoderFactoryProcess',
     'context');
   return remote.$;

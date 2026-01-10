@@ -264,8 +264,9 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
 
 screen_ai.mojom.ScreenAIAnnotator.getRemote = function() {
   let remote = new screen_ai.mojom.ScreenAIAnnotatorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'screen_ai.mojom.ScreenAIAnnotator',
     'context');
   return remote.$;
@@ -395,8 +396,9 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
 
 screen_ai.mojom.Screen2xMainContentExtractor.getRemote = function() {
   let remote = new screen_ai.mojom.Screen2xMainContentExtractorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'screen_ai.mojom.Screen2xMainContentExtractor',
     'context');
   return remote.$;
@@ -459,8 +461,9 @@ screen_ai.mojom.OCRServiceRemoteCallHandler = class {
 
 screen_ai.mojom.OCRService.getRemote = function() {
   let remote = new screen_ai.mojom.OCRServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'screen_ai.mojom.OCRService',
     'context');
   return remote.$;
@@ -523,8 +526,9 @@ screen_ai.mojom.MainContentExtractionServiceRemoteCallHandler = class {
 
 screen_ai.mojom.MainContentExtractionService.getRemote = function() {
   let remote = new screen_ai.mojom.MainContentExtractionServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'screen_ai.mojom.MainContentExtractionService',
     'context');
   return remote.$;

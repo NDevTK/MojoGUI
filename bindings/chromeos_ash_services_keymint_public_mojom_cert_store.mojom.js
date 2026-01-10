@@ -123,8 +123,9 @@ arc.keymint.mojom.CertStoreInstanceRemoteCallHandler = class {
 
 arc.keymint.mojom.CertStoreInstance.getRemote = function() {
   let remote = new arc.keymint.mojom.CertStoreInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.keymint.mojom.CertStoreInstance',
     'context');
   return remote.$;

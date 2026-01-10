@@ -71,8 +71,9 @@ commerce_web_extractor.mojom.CommerceWebExtractorRemoteCallHandler = class {
 
 commerce_web_extractor.mojom.CommerceWebExtractor.getRemote = function() {
   let remote = new commerce_web_extractor.mojom.CommerceWebExtractorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce_web_extractor.mojom.CommerceWebExtractor',
     'context');
   return remote.$;

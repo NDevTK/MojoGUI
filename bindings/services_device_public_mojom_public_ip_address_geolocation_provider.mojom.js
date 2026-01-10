@@ -70,8 +70,9 @@ device.mojom.PublicIpAddressGeolocationProviderRemoteCallHandler = class {
 
 device.mojom.PublicIpAddressGeolocationProvider.getRemote = function() {
   let remote = new device.mojom.PublicIpAddressGeolocationProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.PublicIpAddressGeolocationProvider',
     'context');
   return remote.$;

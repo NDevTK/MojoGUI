@@ -146,8 +146,9 @@ blink.mojom.DigitalIdentityRequestRemoteCallHandler = class {
 
 blink.mojom.DigitalIdentityRequest.getRemote = function() {
   let remote = new blink.mojom.DigitalIdentityRequestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DigitalIdentityRequest',
     'context');
   return remote.$;

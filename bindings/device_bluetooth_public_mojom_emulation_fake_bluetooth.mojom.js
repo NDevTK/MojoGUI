@@ -288,8 +288,9 @@ bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
 
 bluetooth.mojom.FakeBluetooth.getRemote = function() {
   let remote = new bluetooth.mojom.FakeBluetoothRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.FakeBluetooth',
     'context');
   return remote.$;
@@ -963,8 +964,9 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
 bluetooth.mojom.FakeCentral.getRemote = function() {
   let remote = new bluetooth.mojom.FakeCentralRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.FakeCentral',
     'context');
   return remote.$;
@@ -1065,8 +1067,9 @@ bluetooth.mojom.FakeCentralClientRemoteCallHandler = class {
 
 bluetooth.mojom.FakeCentralClient.getRemote = function() {
   let remote = new bluetooth.mojom.FakeCentralClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.FakeCentralClient',
     'context');
   return remote.$;

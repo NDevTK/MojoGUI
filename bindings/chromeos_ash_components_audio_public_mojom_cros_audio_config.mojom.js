@@ -170,8 +170,9 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverRemoteCallHandler = class {
 
 ash.audio_config.mojom.AudioSystemPropertiesObserver.getRemote = function() {
   let remote = new ash.audio_config.mojom.AudioSystemPropertiesObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.audio_config.mojom.AudioSystemPropertiesObserver',
     'context');
   return remote.$;
@@ -425,8 +426,9 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
 
 ash.audio_config.mojom.CrosAudioConfig.getRemote = function() {
   let remote = new ash.audio_config.mojom.CrosAudioConfigRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.audio_config.mojom.CrosAudioConfig',
     'context');
   return remote.$;

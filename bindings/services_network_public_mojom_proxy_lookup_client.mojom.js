@@ -67,8 +67,9 @@ network.mojom.ProxyLookupClientRemoteCallHandler = class {
 
 network.mojom.ProxyLookupClient.getRemote = function() {
   let remote = new network.mojom.ProxyLookupClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.ProxyLookupClient',
     'context');
   return remote.$;

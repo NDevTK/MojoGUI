@@ -90,8 +90,9 @@ media.mojom.AndroidOverlayProviderRemoteCallHandler = class {
 
 media.mojom.AndroidOverlayProvider.getRemote = function() {
   let remote = new media.mojom.AndroidOverlayProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AndroidOverlayProvider',
     'context');
   return remote.$;
@@ -154,8 +155,9 @@ media.mojom.AndroidOverlayRemoteCallHandler = class {
 
 media.mojom.AndroidOverlay.getRemote = function() {
   let remote = new media.mojom.AndroidOverlayRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AndroidOverlay',
     'context');
   return remote.$;
@@ -269,8 +271,9 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
 
 media.mojom.AndroidOverlayClient.getRemote = function() {
   let remote = new media.mojom.AndroidOverlayClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AndroidOverlayClient',
     'context');
   return remote.$;

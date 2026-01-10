@@ -339,8 +339,9 @@ arc.mojom.KeymasterHostRemoteCallHandler = class {
 
 arc.mojom.KeymasterHost.getRemote = function() {
   let remote = new arc.mojom.KeymasterHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.KeymasterHost',
     'context');
   return remote.$;
@@ -408,8 +409,9 @@ arc.mojom.KeymasterInstanceRemoteCallHandler = class {
 
 arc.mojom.KeymasterInstance.getRemote = function() {
   let remote = new arc.mojom.KeymasterInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.KeymasterInstance',
     'context');
   return remote.$;
@@ -758,8 +760,9 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
 
 arc.mojom.KeymasterServer.getRemote = function() {
   let remote = new arc.mojom.KeymasterServerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.KeymasterServer',
     'context');
   return remote.$;

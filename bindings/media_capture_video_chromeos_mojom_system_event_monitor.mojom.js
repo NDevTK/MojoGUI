@@ -104,8 +104,9 @@ cros.mojom.CrosDisplayObserverRemoteCallHandler = class {
 
 cros.mojom.CrosDisplayObserver.getRemote = function() {
   let remote = new cros.mojom.CrosDisplayObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CrosDisplayObserver',
     'context');
   return remote.$;
@@ -168,8 +169,9 @@ cros.mojom.CrosLidObserverRemoteCallHandler = class {
 
 cros.mojom.CrosLidObserver.getRemote = function() {
   let remote = new cros.mojom.CrosLidObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CrosLidObserver',
     'context');
   return remote.$;
@@ -251,8 +253,9 @@ cros.mojom.CrosPowerObserverRemoteCallHandler = class {
 
 cros.mojom.CrosPowerObserver.getRemote = function() {
   let remote = new cros.mojom.CrosPowerObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CrosPowerObserver',
     'context');
   return remote.$;
@@ -364,8 +367,9 @@ cros.mojom.CrosSystemEventMonitorRemoteCallHandler = class {
 
 cros.mojom.CrosSystemEventMonitor.getRemote = function() {
   let remote = new cros.mojom.CrosSystemEventMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CrosSystemEventMonitor',
     'context');
   return remote.$;

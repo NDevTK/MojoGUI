@@ -361,8 +361,9 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
 
 autofill.mojom.AutofillDriver.getRemote = function() {
   let remote = new autofill.mojom.AutofillDriverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'autofill.mojom.AutofillDriver',
     'context');
   return remote.$;
@@ -622,8 +623,9 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
 
 autofill.mojom.PasswordManagerDriver.getRemote = function() {
   let remote = new autofill.mojom.PasswordManagerDriverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'autofill.mojom.PasswordManagerDriver',
     'context');
   return remote.$;
@@ -783,8 +785,9 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
 
 autofill.mojom.PasswordGenerationDriver.getRemote = function() {
   let remote = new autofill.mojom.PasswordGenerationDriverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'autofill.mojom.PasswordGenerationDriver',
     'context');
   return remote.$;

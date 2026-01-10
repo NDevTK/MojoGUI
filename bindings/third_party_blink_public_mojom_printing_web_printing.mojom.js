@@ -373,8 +373,9 @@ blink.mojom.WebPrintJobStateObserverRemoteCallHandler = class {
 
 blink.mojom.WebPrintJobStateObserver.getRemote = function() {
   let remote = new blink.mojom.WebPrintJobStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebPrintJobStateObserver',
     'context');
   return remote.$;
@@ -436,8 +437,9 @@ blink.mojom.WebPrintJobControllerRemoteCallHandler = class {
 
 blink.mojom.WebPrintJobController.getRemote = function() {
   let remote = new blink.mojom.WebPrintJobControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebPrintJobController',
     'context');
   return remote.$;
@@ -528,8 +530,9 @@ blink.mojom.WebPrinterRemoteCallHandler = class {
 
 blink.mojom.WebPrinter.getRemote = function() {
   let remote = new blink.mojom.WebPrinterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebPrinter',
     'context');
   return remote.$;
@@ -597,8 +600,9 @@ blink.mojom.WebPrintingServiceRemoteCallHandler = class {
 
 blink.mojom.WebPrintingService.getRemote = function() {
   let remote = new blink.mojom.WebPrintingServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebPrintingService',
     'context');
   return remote.$;

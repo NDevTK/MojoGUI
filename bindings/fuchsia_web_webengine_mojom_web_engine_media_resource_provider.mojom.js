@@ -95,8 +95,9 @@ mojom.WebEngineMediaResourceProviderRemoteCallHandler = class {
 
 mojom.WebEngineMediaResourceProvider.getRemote = function() {
   let remote = new mojom.WebEngineMediaResourceProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojom.WebEngineMediaResourceProvider',
     'context');
   return remote.$;

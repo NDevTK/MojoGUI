@@ -219,8 +219,9 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
 
 font_data_service.mojom.FontDataService.getRemote = function() {
   let remote = new font_data_service.mojom.FontDataServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'font_data_service.mojom.FontDataService',
     'context');
   return remote.$;

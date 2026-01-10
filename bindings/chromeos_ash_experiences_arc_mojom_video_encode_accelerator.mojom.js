@@ -305,8 +305,9 @@ arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
 
 arc.mojom.VideoEncodeAccelerator.getRemote = function() {
   let remote = new arc.mojom.VideoEncodeAcceleratorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VideoEncodeAccelerator',
     'context');
   return remote.$;
@@ -387,8 +388,9 @@ arc.mojom.VideoEncodeClientRemoteCallHandler = class {
 
 arc.mojom.VideoEncodeClient.getRemote = function() {
   let remote = new arc.mojom.VideoEncodeClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VideoEncodeClient',
     'context');
   return remote.$;

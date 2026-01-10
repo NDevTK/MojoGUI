@@ -123,8 +123,9 @@ blink.mojom.SpeechSynthesisVoiceListObserverRemoteCallHandler = class {
 
 blink.mojom.SpeechSynthesisVoiceListObserver.getRemote = function() {
   let remote = new blink.mojom.SpeechSynthesisVoiceListObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SpeechSynthesisVoiceListObserver',
     'context');
   return remote.$;
@@ -281,8 +282,9 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
 
 blink.mojom.SpeechSynthesisClient.getRemote = function() {
   let remote = new blink.mojom.SpeechSynthesisClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SpeechSynthesisClient',
     'context');
   return remote.$;
@@ -407,8 +409,9 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
 
 blink.mojom.SpeechSynthesis.getRemote = function() {
   let remote = new blink.mojom.SpeechSynthesisRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SpeechSynthesis',
     'context');
   return remote.$;

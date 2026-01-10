@@ -68,8 +68,9 @@ content.mojom.RouteProviderRemoteCallHandler = class {
 
 content.mojom.RouteProvider.getRemote = function() {
   let remote = new content.mojom.RouteProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.RouteProvider',
     'context');
   return remote.$;

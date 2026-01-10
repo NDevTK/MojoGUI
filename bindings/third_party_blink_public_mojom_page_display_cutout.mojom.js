@@ -96,8 +96,9 @@ blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
 
 blink.mojom.DisplayCutoutHost.getRemote = function() {
   let remote = new blink.mojom.DisplayCutoutHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DisplayCutoutHost',
     'context');
   return remote.$;
@@ -160,8 +161,9 @@ blink.mojom.DisplayCutoutClientRemoteCallHandler = class {
 
 blink.mojom.DisplayCutoutClient.getRemote = function() {
   let remote = new blink.mojom.DisplayCutoutClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DisplayCutoutClient',
     'context');
   return remote.$;

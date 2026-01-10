@@ -367,8 +367,9 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
 
 chrome.mojom.ChromeRenderFrame.getRemote = function() {
   let remote = new chrome.mojom.ChromeRenderFrameRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.ChromeRenderFrame',
     'context');
   return remote.$;

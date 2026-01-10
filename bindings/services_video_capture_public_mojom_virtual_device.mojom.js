@@ -110,8 +110,9 @@ video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
 
 video_capture.mojom.SharedMemoryVirtualDevice.getRemote = function() {
   let remote = new video_capture.mojom.SharedMemoryVirtualDeviceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'video_capture.mojom.SharedMemoryVirtualDevice',
     'context');
   return remote.$;
@@ -224,8 +225,9 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
 
 video_capture.mojom.TextureVirtualDevice.getRemote = function() {
   let remote = new video_capture.mojom.TextureVirtualDeviceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'video_capture.mojom.TextureVirtualDevice',
     'context');
   return remote.$;
@@ -338,8 +340,9 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
 
 video_capture.mojom.GpuMemoryBufferVirtualDevice.getRemote = function() {
   let remote = new video_capture.mojom.GpuMemoryBufferVirtualDeviceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'video_capture.mojom.GpuMemoryBufferVirtualDevice',
     'context');
   return remote.$;

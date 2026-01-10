@@ -113,8 +113,9 @@ ash.focus_mode.mojom.MediaClientRemoteCallHandler = class {
 
 ash.focus_mode.mojom.MediaClient.getRemote = function() {
   let remote = new ash.focus_mode.mojom.MediaClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.focus_mode.mojom.MediaClient',
     'context');
   return remote.$;
@@ -229,8 +230,9 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
 
 ash.focus_mode.mojom.TrackProvider.getRemote = function() {
   let remote = new ash.focus_mode.mojom.TrackProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.focus_mode.mojom.TrackProvider',
     'context');
   return remote.$;

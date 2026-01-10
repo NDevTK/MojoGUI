@@ -131,8 +131,9 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
 
 viz.mojom.ExternalBeginFrameController.getRemote = function() {
   let remote = new viz.mojom.ExternalBeginFrameControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.ExternalBeginFrameController',
     'context');
   return remote.$;
@@ -228,8 +229,9 @@ viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
 
 viz.mojom.ExternalBeginFrameControllerClient.getRemote = function() {
   let remote = new viz.mojom.ExternalBeginFrameControllerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.ExternalBeginFrameControllerClient',
     'context');
   return remote.$;

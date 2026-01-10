@@ -67,8 +67,9 @@ ash.cros_healthd.mojom.AshEventReporterRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.AshEventReporter.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.AshEventReporterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.AshEventReporter',
     'context');
   return remote.$;

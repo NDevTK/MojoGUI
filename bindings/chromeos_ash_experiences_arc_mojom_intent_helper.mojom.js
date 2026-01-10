@@ -404,8 +404,9 @@ arc.mojom.CustomTabSessionRemoteCallHandler = class {
 
 arc.mojom.CustomTabSession.getRemote = function() {
   let remote = new arc.mojom.CustomTabSessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.CustomTabSession',
     'context');
   return remote.$;
@@ -789,8 +790,9 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
 
 arc.mojom.IntentHelperHost.getRemote = function() {
   let remote = new arc.mojom.IntentHelperHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.IntentHelperHost',
     'context');
   return remote.$;
@@ -1145,8 +1147,9 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
 
 arc.mojom.IntentHelperInstance.getRemote = function() {
   let remote = new arc.mojom.IntentHelperInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.IntentHelperInstance',
     'context');
   return remote.$;

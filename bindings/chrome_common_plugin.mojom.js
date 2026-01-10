@@ -107,8 +107,9 @@ chrome.mojom.PluginHostRemoteCallHandler = class {
 
 chrome.mojom.PluginHost.getRemote = function() {
   let remote = new chrome.mojom.PluginHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.PluginHost',
     'context');
   return remote.$;
@@ -172,8 +173,9 @@ chrome.mojom.PluginAuthHostRemoteCallHandler = class {
 
 chrome.mojom.PluginAuthHost.getRemote = function() {
   let remote = new chrome.mojom.PluginAuthHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.PluginAuthHost',
     'context');
   return remote.$;
@@ -244,8 +246,9 @@ chrome.mojom.PluginInfoHostRemoteCallHandler = class {
 
 chrome.mojom.PluginInfoHost.getRemote = function() {
   let remote = new chrome.mojom.PluginInfoHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.PluginInfoHost',
     'context');
   return remote.$;

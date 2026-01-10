@@ -81,8 +81,9 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCa
 
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.getRemote = function() {
   let remote = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory',
     'context');
   return remote.$;
@@ -160,8 +161,9 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandl
 
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler.getRemote = function() {
   let remote = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler',
     'context');
   return remote.$;
@@ -224,8 +226,9 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemoteCallHandle
 
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient.getRemote = function() {
   let remote = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient',
     'context');
   return remote.$;

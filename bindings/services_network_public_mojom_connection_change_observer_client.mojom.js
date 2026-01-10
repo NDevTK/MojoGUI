@@ -117,8 +117,9 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
 
 network.mojom.ConnectionChangeObserverClient.getRemote = function() {
   let remote = new network.mojom.ConnectionChangeObserverClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.ConnectionChangeObserverClient',
     'context');
   return remote.$;

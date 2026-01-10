@@ -175,8 +175,9 @@ chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
 
 chromeos.cfm.mojom.MeetDevicesInfo.getRemote = function() {
   let remote = new chromeos.cfm.mojom.MeetDevicesInfoRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cfm.mojom.MeetDevicesInfo',
     'context');
   return remote.$;
@@ -239,8 +240,9 @@ chromeos.cfm.mojom.PolicyInfoObserverRemoteCallHandler = class {
 
 chromeos.cfm.mojom.PolicyInfoObserver.getRemote = function() {
   let remote = new chromeos.cfm.mojom.PolicyInfoObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cfm.mojom.PolicyInfoObserver',
     'context');
   return remote.$;

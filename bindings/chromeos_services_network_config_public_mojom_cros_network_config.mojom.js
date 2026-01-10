@@ -1895,8 +1895,9 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
 
 chromeos.network_config.mojom.CrosNetworkConfig.getRemote = function() {
   let remote = new chromeos.network_config.mojom.CrosNetworkConfigRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.network_config.mojom.CrosNetworkConfig',
     'context');
   return remote.$;
@@ -2051,8 +2052,9 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
 
 chromeos.network_config.mojom.CrosNetworkConfigObserver.getRemote = function() {
   let remote = new chromeos.network_config.mojom.CrosNetworkConfigObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.network_config.mojom.CrosNetworkConfigObserver',
     'context');
   return remote.$;

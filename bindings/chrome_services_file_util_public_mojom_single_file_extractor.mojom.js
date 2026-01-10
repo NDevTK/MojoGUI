@@ -78,8 +78,9 @@ chrome.mojom.SingleFileExtractorRemoteCallHandler = class {
 
 chrome.mojom.SingleFileExtractor.getRemote = function() {
   let remote = new chrome.mojom.SingleFileExtractorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.SingleFileExtractor',
     'context');
   return remote.$;
@@ -143,8 +144,9 @@ chrome.mojom.SingleFileExtractorListenerRemoteCallHandler = class {
 
 chrome.mojom.SingleFileExtractorListener.getRemote = function() {
   let remote = new chrome.mojom.SingleFileExtractorListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.SingleFileExtractorListener',
     'context');
   return remote.$;

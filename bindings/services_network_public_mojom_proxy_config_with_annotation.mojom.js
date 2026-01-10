@@ -105,8 +105,9 @@ network.mojom.ProxyConfigClientRemoteCallHandler = class {
 
 network.mojom.ProxyConfigClient.getRemote = function() {
   let remote = new network.mojom.ProxyConfigClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.ProxyConfigClient',
     'context');
   return remote.$;
@@ -168,8 +169,9 @@ network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
 
 network.mojom.ProxyConfigPollerClient.getRemote = function() {
   let remote = new network.mojom.ProxyConfigPollerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.ProxyConfigPollerClient',
     'context');
   return remote.$;
@@ -249,8 +251,9 @@ network.mojom.ProxyErrorClientRemoteCallHandler = class {
 
 network.mojom.ProxyErrorClient.getRemote = function() {
   let remote = new network.mojom.ProxyErrorClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.ProxyErrorClient',
     'context');
   return remote.$;

@@ -134,8 +134,9 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
 
 ash.screens_oobe.mojom.ConsumerUpdatePageHandler.getRemote = function() {
   let remote = new ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.screens_oobe.mojom.ConsumerUpdatePageHandler',
     'context');
   return remote.$;
@@ -263,8 +264,9 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
 
 ash.screens_oobe.mojom.ConsumerUpdatePage.getRemote = function() {
   let remote = new ash.screens_oobe.mojom.ConsumerUpdatePageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.screens_oobe.mojom.ConsumerUpdatePage',
     'context');
   return remote.$;
@@ -341,8 +343,9 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerRemoteCallHandler = class {
 
 ash.screens_oobe.mojom.PackagedLicensePageHandler.getRemote = function() {
   let remote = new ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.screens_oobe.mojom.PackagedLicensePageHandler',
     'context');
   return remote.$;

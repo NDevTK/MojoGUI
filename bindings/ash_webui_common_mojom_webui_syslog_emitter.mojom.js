@@ -67,8 +67,9 @@ ash.common.mojom.WebUiSyslogEmitterRemoteCallHandler = class {
 
 ash.common.mojom.WebUiSyslogEmitter.getRemote = function() {
   let remote = new ash.common.mojom.WebUiSyslogEmitterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.common.mojom.WebUiSyslogEmitter',
     'context');
   return remote.$;

@@ -241,8 +241,9 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.getRemote = function() {
   let remote = new ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler',
     'context');
   return remote.$;
@@ -321,8 +322,9 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemoteCallHa
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsObserver.getRemote = function() {
   let remote = new ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver',
     'context');
   return remote.$;

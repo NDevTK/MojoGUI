@@ -73,8 +73,9 @@ chromecast.mojom.ActivityUrlFilterConfigurationRemoteCallHandler = class {
 
 chromecast.mojom.ActivityUrlFilterConfiguration.getRemote = function() {
   let remote = new chromecast.mojom.ActivityUrlFilterConfigurationRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.ActivityUrlFilterConfiguration',
     'context');
   return remote.$;

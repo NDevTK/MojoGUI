@@ -134,8 +134,9 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
 
 remoting.mojom.RemotingHostControl.getRemote = function() {
   let remote = new remoting.mojom.RemotingHostControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.RemotingHostControl',
     'context');
   return remote.$;
@@ -216,8 +217,9 @@ remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
 
 remoting.mojom.DesktopSessionConnectionEvents.getRemote = function() {
   let remote = new remoting.mojom.DesktopSessionConnectionEventsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.DesktopSessionConnectionEvents',
     'context');
   return remote.$;
@@ -377,8 +379,9 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
 
 remoting.mojom.HostStatusObserver.getRemote = function() {
   let remote = new remoting.mojom.HostStatusObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.HostStatusObserver',
     'context');
   return remote.$;

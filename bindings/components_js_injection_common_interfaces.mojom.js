@@ -150,8 +150,9 @@ js_injection.mojom.JsToBrowserMessagingRemoteCallHandler = class {
 
 js_injection.mojom.JsToBrowserMessaging.getRemote = function() {
   let remote = new js_injection.mojom.JsToBrowserMessagingRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'js_injection.mojom.JsToBrowserMessaging',
     'context');
   return remote.$;
@@ -213,8 +214,9 @@ js_injection.mojom.JsObjectsClientRemoteCallHandler = class {
 
 js_injection.mojom.JsObjectsClient.getRemote = function() {
   let remote = new js_injection.mojom.JsObjectsClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'js_injection.mojom.JsObjectsClient',
     'context');
   return remote.$;
@@ -277,8 +279,9 @@ js_injection.mojom.BrowserToJsMessagingFactoryRemoteCallHandler = class {
 
 js_injection.mojom.BrowserToJsMessagingFactory.getRemote = function() {
   let remote = new js_injection.mojom.BrowserToJsMessagingFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'js_injection.mojom.BrowserToJsMessagingFactory',
     'context');
   return remote.$;
@@ -341,8 +344,9 @@ js_injection.mojom.BrowserToJsMessagingRemoteCallHandler = class {
 
 js_injection.mojom.BrowserToJsMessaging.getRemote = function() {
   let remote = new js_injection.mojom.BrowserToJsMessagingRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'js_injection.mojom.BrowserToJsMessaging',
     'context');
   return remote.$;
@@ -438,8 +442,9 @@ js_injection.mojom.JsCommunicationRemoteCallHandler = class {
 
 js_injection.mojom.JsCommunication.getRemote = function() {
   let remote = new js_injection.mojom.JsCommunicationRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'js_injection.mojom.JsCommunication',
     'context');
   return remote.$;

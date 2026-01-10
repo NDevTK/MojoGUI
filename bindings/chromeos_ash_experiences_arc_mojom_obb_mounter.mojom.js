@@ -102,8 +102,9 @@ arc.mojom.ObbMounterHostRemoteCallHandler = class {
 
 arc.mojom.ObbMounterHost.getRemote = function() {
   let remote = new arc.mojom.ObbMounterHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ObbMounterHost',
     'context');
   return remote.$;
@@ -171,8 +172,9 @@ arc.mojom.ObbMounterInstanceRemoteCallHandler = class {
 
 arc.mojom.ObbMounterInstance.getRemote = function() {
   let remote = new arc.mojom.ObbMounterInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ObbMounterInstance',
     'context');
   return remote.$;

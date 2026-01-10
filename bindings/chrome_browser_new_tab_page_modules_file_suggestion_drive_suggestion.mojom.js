@@ -103,8 +103,9 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
 
 file_suggestion.mojom.DriveSuggestionHandler.getRemote = function() {
   let remote = new file_suggestion.mojom.DriveSuggestionHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'file_suggestion.mojom.DriveSuggestionHandler',
     'context');
   return remote.$;

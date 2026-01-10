@@ -129,8 +129,9 @@ blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler = class {
 
 blink.mojom.DedicatedWorkerHostFactoryClient.getRemote = function() {
   let remote = new blink.mojom.DedicatedWorkerHostFactoryClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DedicatedWorkerHostFactoryClient',
     'context');
   return remote.$;
@@ -199,8 +200,9 @@ blink.mojom.DedicatedWorkerHostFactoryRemoteCallHandler = class {
 
 blink.mojom.DedicatedWorkerHostFactory.getRemote = function() {
   let remote = new blink.mojom.DedicatedWorkerHostFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DedicatedWorkerHostFactory',
     'context');
   return remote.$;

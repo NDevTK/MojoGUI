@@ -117,8 +117,9 @@ autofill_ml_internals.mojom.PageRemoteCallHandler = class {
 
 autofill_ml_internals.mojom.Page.getRemote = function() {
   let remote = new autofill_ml_internals.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'autofill_ml_internals.mojom.Page',
     'context');
   return remote.$;
@@ -181,8 +182,9 @@ autofill_ml_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 autofill_ml_internals.mojom.PageHandler.getRemote = function() {
   let remote = new autofill_ml_internals.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'autofill_ml_internals.mojom.PageHandler',
     'context');
   return remote.$;

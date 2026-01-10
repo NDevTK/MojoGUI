@@ -146,8 +146,9 @@ content.mojom.RendererHostRemoteCallHandler = class {
 
 content.mojom.RendererHost.getRemote = function() {
   let remote = new content.mojom.RendererHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.RendererHost',
     'context');
   return remote.$;

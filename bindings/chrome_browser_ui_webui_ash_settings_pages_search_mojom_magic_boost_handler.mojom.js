@@ -70,8 +70,9 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemoteCallHandler = cla
 
 ash.settings.magic_boost_handler.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.magic_boost_handler.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -133,8 +134,9 @@ ash.settings.magic_boost_handler.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.settings.magic_boost_handler.mojom.PageHandler.getRemote = function() {
   let remote = new ash.settings.magic_boost_handler.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.magic_boost_handler.mojom.PageHandler',
     'context');
   return remote.$;

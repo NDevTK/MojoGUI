@@ -289,8 +289,9 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
 
 network.mojom.SimpleCacheEntry.getRemote = function() {
   let remote = new network.mojom.SimpleCacheEntryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.SimpleCacheEntry',
     'context');
   return remote.$;
@@ -358,8 +359,9 @@ network.mojom.SimpleCacheEntryEnumeratorRemoteCallHandler = class {
 
 network.mojom.SimpleCacheEntryEnumerator.getRemote = function() {
   let remote = new network.mojom.SimpleCacheEntryEnumeratorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.SimpleCacheEntryEnumerator',
     'context');
   return remote.$;
@@ -531,8 +533,9 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
 
 network.mojom.SimpleCache.getRemote = function() {
   let remote = new network.mojom.SimpleCacheRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.SimpleCache',
     'context');
   return remote.$;
@@ -1179,8 +1182,9 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
 
 network.mojom.NetworkServiceTest.getRemote = function() {
   let remote = new network.mojom.NetworkServiceTestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.NetworkServiceTest',
     'context');
   return remote.$;

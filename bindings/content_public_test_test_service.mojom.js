@@ -344,8 +344,9 @@ content.mojom.TestServiceRemoteCallHandler = class {
 
 content.mojom.TestService.getRemote = function() {
   let remote = new content.mojom.TestServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.TestService',
     'context');
   return remote.$;

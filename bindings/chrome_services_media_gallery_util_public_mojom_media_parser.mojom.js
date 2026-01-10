@@ -225,8 +225,9 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
 
 chrome.mojom.MediaParser.getRemote = function() {
   let remote = new chrome.mojom.MediaParserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.MediaParser',
     'context');
   return remote.$;
@@ -296,8 +297,9 @@ chrome.mojom.MediaParserFactoryRemoteCallHandler = class {
 
 chrome.mojom.MediaParserFactory.getRemote = function() {
   let remote = new chrome.mojom.MediaParserFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.MediaParserFactory',
     'context');
   return remote.$;
@@ -367,8 +369,9 @@ chrome.mojom.MediaDataSourceRemoteCallHandler = class {
 
 chrome.mojom.MediaDataSource.getRemote = function() {
   let remote = new chrome.mojom.MediaDataSourceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.MediaDataSource',
     'context');
   return remote.$;

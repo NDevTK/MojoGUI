@@ -125,8 +125,9 @@ blink.mojom.InnerTextAgentRemoteCallHandler = class {
 
 blink.mojom.InnerTextAgent.getRemote = function() {
   let remote = new blink.mojom.InnerTextAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.InnerTextAgent',
     'context');
   return remote.$;

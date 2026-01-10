@@ -192,8 +192,9 @@ media.mojom.AudioLogRemoteCallHandler = class {
 
 media.mojom.AudioLog.getRemote = function() {
   let remote = new media.mojom.AudioLogRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioLog',
     'context');
   return remote.$;
@@ -258,8 +259,9 @@ media.mojom.AudioLogFactoryRemoteCallHandler = class {
 
 media.mojom.AudioLogFactory.getRemote = function() {
   let remote = new media.mojom.AudioLogFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioLogFactory',
     'context');
   return remote.$;

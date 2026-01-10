@@ -73,8 +73,9 @@ web_app.mojom.WebAppShortcutCopierRemoteCallHandler = class {
 
 web_app.mojom.WebAppShortcutCopier.getRemote = function() {
   let remote = new web_app.mojom.WebAppShortcutCopierRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'web_app.mojom.WebAppShortcutCopier',
     'context');
   return remote.$;

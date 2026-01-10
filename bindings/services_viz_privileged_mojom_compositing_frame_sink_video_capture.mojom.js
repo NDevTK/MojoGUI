@@ -144,8 +144,9 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler = class {
 
 viz.mojom.FrameSinkVideoConsumerFrameCallbacks.getRemote = function() {
   let remote = new viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.FrameSinkVideoConsumerFrameCallbacks',
     'context');
   return remote.$;
@@ -273,8 +274,9 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
 
 viz.mojom.FrameSinkVideoConsumer.getRemote = function() {
   let remote = new viz.mojom.FrameSinkVideoConsumerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.FrameSinkVideoConsumer',
     'context');
   return remote.$;
@@ -501,8 +503,9 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
 
 viz.mojom.FrameSinkVideoCapturer.getRemote = function() {
   let remote = new viz.mojom.FrameSinkVideoCapturerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.FrameSinkVideoCapturer',
     'context');
   return remote.$;
@@ -598,8 +601,9 @@ viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
 
 viz.mojom.FrameSinkVideoCaptureOverlay.getRemote = function() {
   let remote = new viz.mojom.FrameSinkVideoCaptureOverlayRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.FrameSinkVideoCaptureOverlay',
     'context');
   return remote.$;

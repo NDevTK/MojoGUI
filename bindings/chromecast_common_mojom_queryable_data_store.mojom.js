@@ -67,8 +67,9 @@ chromecast.shell.mojom.QueryableDataStoreRemoteCallHandler = class {
 
 chromecast.shell.mojom.QueryableDataStore.getRemote = function() {
   let remote = new chromecast.shell.mojom.QueryableDataStoreRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.shell.mojom.QueryableDataStore',
     'context');
   return remote.$;

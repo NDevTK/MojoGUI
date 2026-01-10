@@ -97,8 +97,9 @@ blink.mojom.ManagedConfigurationObserverRemoteCallHandler = class {
 
 blink.mojom.ManagedConfigurationObserver.getRemote = function() {
   let remote = new blink.mojom.ManagedConfigurationObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ManagedConfigurationObserver',
     'context');
   return remote.$;
@@ -250,8 +251,9 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
 
 blink.mojom.DeviceAPIService.getRemote = function() {
   let remote = new blink.mojom.DeviceAPIServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DeviceAPIService',
     'context');
   return remote.$;
@@ -336,8 +338,9 @@ blink.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
 
 blink.mojom.ManagedConfigurationService.getRemote = function() {
   let remote = new blink.mojom.ManagedConfigurationServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ManagedConfigurationService',
     'context');
   return remote.$;

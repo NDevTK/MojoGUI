@@ -393,8 +393,9 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
 
 network.mojom.DevToolsObserver.getRemote = function() {
   let remote = new network.mojom.DevToolsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.DevToolsObserver',
     'context');
   return remote.$;

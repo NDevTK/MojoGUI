@@ -218,8 +218,9 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
 
 commerce.price_tracking.mojom.PriceTrackingHandler.getRemote = function() {
   let remote = new commerce.price_tracking.mojom.PriceTrackingHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce.price_tracking.mojom.PriceTrackingHandler',
     'context');
   return remote.$;
@@ -331,8 +332,9 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
 
 commerce.price_tracking.mojom.Page.getRemote = function() {
   let remote = new commerce.price_tracking.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce.price_tracking.mojom.Page',
     'context');
   return remote.$;
@@ -396,8 +398,9 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemoteCallHandler = cla
 
 commerce.price_tracking.mojom.PriceTrackingHandlerFactory.getRemote = function() {
   let remote = new commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce.price_tracking.mojom.PriceTrackingHandlerFactory',
     'context');
   return remote.$;

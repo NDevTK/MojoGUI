@@ -119,8 +119,9 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
 
 chrome.mojom.FileUtilService.getRemote = function() {
   let remote = new chrome.mojom.FileUtilServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.FileUtilService',
     'context');
   return remote.$;

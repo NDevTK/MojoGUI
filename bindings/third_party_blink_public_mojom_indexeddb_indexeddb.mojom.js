@@ -613,8 +613,9 @@ blink.mojom.IDBFactoryClientRemoteCallHandler = class {
 
 blink.mojom.IDBFactoryClient.getRemote = function() {
   let remote = new blink.mojom.IDBFactoryClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.IDBFactoryClient',
     'context');
   return remote.$;
@@ -727,8 +728,9 @@ blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class {
 
 blink.mojom.IDBDatabaseCallbacks.getRemote = function() {
   let remote = new blink.mojom.IDBDatabaseCallbacksRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.IDBDatabaseCallbacks',
     'context');
   return remote.$;
@@ -858,8 +860,9 @@ blink.mojom.IDBCursorRemoteCallHandler = class {
 
 blink.mojom.IDBCursor.getRemote = function() {
   let remote = new blink.mojom.IDBCursorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.IDBCursor',
     'context');
   return remote.$;
@@ -1016,8 +1019,9 @@ blink.mojom.IDBTransactionRemoteCallHandler = class {
 
 blink.mojom.IDBTransaction.getRemote = function() {
   let remote = new blink.mojom.IDBTransactionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.IDBTransaction',
     'context');
   return remote.$;
@@ -1097,8 +1101,9 @@ blink.mojom.IDBDatabaseGetAllResultSinkRemoteCallHandler = class {
 
 blink.mojom.IDBDatabaseGetAllResultSink.getRemote = function() {
   let remote = new blink.mojom.IDBDatabaseGetAllResultSinkRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.IDBDatabaseGetAllResultSink',
     'context');
   return remote.$;
@@ -1479,8 +1484,9 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
 
 blink.mojom.IDBDatabase.getRemote = function() {
   let remote = new blink.mojom.IDBDatabaseRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.IDBDatabase',
     'context');
   return remote.$;
@@ -1589,8 +1595,9 @@ blink.mojom.IDBFactoryRemoteCallHandler = class {
 
 blink.mojom.IDBFactory.getRemote = function() {
   let remote = new blink.mojom.IDBFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.IDBFactory',
     'context');
   return remote.$;

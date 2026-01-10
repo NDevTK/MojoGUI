@@ -385,8 +385,9 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
 
 autofill.mojom.AutofillAgent.getRemote = function() {
   let remote = new autofill.mojom.AutofillAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'autofill.mojom.AutofillAgent',
     'context');
   return remote.$;
@@ -680,8 +681,9 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
 
 autofill.mojom.PasswordAutofillAgent.getRemote = function() {
   let remote = new autofill.mojom.PasswordAutofillAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'autofill.mojom.PasswordAutofillAgent',
     'context');
   return remote.$;
@@ -811,8 +813,9 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
 
 autofill.mojom.PasswordGenerationAgent.getRemote = function() {
   let remote = new autofill.mojom.PasswordGenerationAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'autofill.mojom.PasswordGenerationAgent',
     'context');
   return remote.$;

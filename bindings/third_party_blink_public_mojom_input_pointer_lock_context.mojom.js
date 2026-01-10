@@ -73,8 +73,9 @@ blink.mojom.PointerLockContextRemoteCallHandler = class {
 
 blink.mojom.PointerLockContext.getRemote = function() {
   let remote = new blink.mojom.PointerLockContextRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PointerLockContext',
     'context');
   return remote.$;

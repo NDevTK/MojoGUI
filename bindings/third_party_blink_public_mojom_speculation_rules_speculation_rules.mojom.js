@@ -153,8 +153,9 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
 
 blink.mojom.SpeculationHost.getRemote = function() {
   let remote = new blink.mojom.SpeculationHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SpeculationHost',
     'context');
   return remote.$;

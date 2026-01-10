@@ -151,8 +151,9 @@ blink.mojom.SharedStorageEntriesListenerRemoteCallHandler = class {
 
 blink.mojom.SharedStorageEntriesListener.getRemote = function() {
   let remote = new blink.mojom.SharedStorageEntriesListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SharedStorageEntriesListener',
     'context');
   return remote.$;
@@ -401,8 +402,9 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
 
 blink.mojom.SharedStorageWorkletServiceClient.getRemote = function() {
   let remote = new blink.mojom.SharedStorageWorkletServiceClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SharedStorageWorkletServiceClient',
     'context');
   return remote.$;
@@ -549,8 +551,9 @@ blink.mojom.SharedStorageWorkletServiceRemoteCallHandler = class {
 
 blink.mojom.SharedStorageWorkletService.getRemote = function() {
   let remote = new blink.mojom.SharedStorageWorkletServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SharedStorageWorkletService',
     'context');
   return remote.$;

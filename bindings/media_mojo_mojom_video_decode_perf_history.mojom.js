@@ -73,8 +73,9 @@ media.mojom.VideoDecodePerfHistoryRemoteCallHandler = class {
 
 media.mojom.VideoDecodePerfHistory.getRemote = function() {
   let remote = new media.mojom.VideoDecodePerfHistoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoDecodePerfHistory',
     'context');
   return remote.$;

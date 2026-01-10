@@ -235,8 +235,9 @@ media.mojom.SpeechRecognitionContextRemoteCallHandler = class {
 
 media.mojom.SpeechRecognitionContext.getRemote = function() {
   let remote = new media.mojom.SpeechRecognitionContextRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.SpeechRecognitionContext',
     'context');
   return remote.$;
@@ -363,8 +364,9 @@ media.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
 
 media.mojom.SpeechRecognitionRecognizer.getRemote = function() {
   let remote = new media.mojom.SpeechRecognitionRecognizerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.SpeechRecognitionRecognizer',
     'context');
   return remote.$;
@@ -479,8 +481,9 @@ media.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
 
 media.mojom.SpeechRecognitionRecognizerClient.getRemote = function() {
   let remote = new media.mojom.SpeechRecognitionRecognizerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.SpeechRecognitionRecognizerClient',
     'context');
   return remote.$;
@@ -575,8 +578,9 @@ media.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler = class {
 
 media.mojom.SpeechRecognitionBrowserObserver.getRemote = function() {
   let remote = new media.mojom.SpeechRecognitionBrowserObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.SpeechRecognitionBrowserObserver',
     'context');
   return remote.$;
@@ -659,8 +663,9 @@ media.mojom.SpeechRecognitionSurfaceRemoteCallHandler = class {
 
 media.mojom.SpeechRecognitionSurface.getRemote = function() {
   let remote = new media.mojom.SpeechRecognitionSurfaceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.SpeechRecognitionSurface',
     'context');
   return remote.$;
@@ -737,8 +742,9 @@ media.mojom.SpeechRecognitionSurfaceClientRemoteCallHandler = class {
 
 media.mojom.SpeechRecognitionSurfaceClient.getRemote = function() {
   let remote = new media.mojom.SpeechRecognitionSurfaceClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.SpeechRecognitionSurfaceClient',
     'context');
   return remote.$;
@@ -832,8 +838,9 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler = class {
 
 media.mojom.SpeechRecognitionClientBrowserInterface.getRemote = function() {
   let remote = new media.mojom.SpeechRecognitionClientBrowserInterfaceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.SpeechRecognitionClientBrowserInterface',
     'context');
   return remote.$;

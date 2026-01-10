@@ -119,8 +119,9 @@ arc.mojom.MemoryInstanceRemoteCallHandler = class {
 
 arc.mojom.MemoryInstance.getRemote = function() {
   let remote = new arc.mojom.MemoryInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.MemoryInstance',
     'context');
   return remote.$;

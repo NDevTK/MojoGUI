@@ -98,8 +98,9 @@ chromecast.mojom.ApiBindingsRemoteCallHandler = class {
 
 chromecast.mojom.ApiBindings.getRemote = function() {
   let remote = new chromecast.mojom.ApiBindingsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.ApiBindings',
     'context');
   return remote.$;

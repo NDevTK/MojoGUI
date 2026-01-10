@@ -239,8 +239,9 @@ ash.cfm.mojom.XuCameraRemoteCallHandler = class {
 
 ash.cfm.mojom.XuCamera.getRemote = function() {
   let remote = new ash.cfm.mojom.XuCameraRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cfm.mojom.XuCamera',
     'context');
   return remote.$;

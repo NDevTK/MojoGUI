@@ -76,8 +76,9 @@ quick_answers.mojom.SpellCheckServiceRemoteCallHandler = class {
 
 quick_answers.mojom.SpellCheckService.getRemote = function() {
   let remote = new quick_answers.mojom.SpellCheckServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'quick_answers.mojom.SpellCheckService',
     'context');
   return remote.$;
@@ -146,8 +147,9 @@ quick_answers.mojom.SpellCheckDictionaryRemoteCallHandler = class {
 
 quick_answers.mojom.SpellCheckDictionary.getRemote = function() {
   let remote = new quick_answers.mojom.SpellCheckDictionaryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'quick_answers.mojom.SpellCheckDictionary',
     'context');
   return remote.$;

@@ -153,8 +153,9 @@ ash.ime.mojom.JpUnusedRemoteCallHandler = class {
 
 ash.ime.mojom.JpUnused.getRemote = function() {
   let remote = new ash.ime.mojom.JpUnusedRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.ime.mojom.JpUnused',
     'context');
   return remote.$;

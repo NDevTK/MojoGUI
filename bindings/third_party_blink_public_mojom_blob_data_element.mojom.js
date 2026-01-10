@@ -171,8 +171,9 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
 
 blink.mojom.BytesProvider.getRemote = function() {
   let remote = new blink.mojom.BytesProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BytesProvider',
     'context');
   return remote.$;

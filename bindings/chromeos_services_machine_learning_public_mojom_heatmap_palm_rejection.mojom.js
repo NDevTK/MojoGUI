@@ -111,8 +111,9 @@ chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemoteCallHandler = cl
 
 chromeos.machine_learning.mojom.HeatmapPalmRejectionClient.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient',
     'context');
   return remote.$;

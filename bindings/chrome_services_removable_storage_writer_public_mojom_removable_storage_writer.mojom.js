@@ -102,8 +102,9 @@ chrome.mojom.RemovableStorageWriterRemoteCallHandler = class {
 
 chrome.mojom.RemovableStorageWriter.getRemote = function() {
   let remote = new chrome.mojom.RemovableStorageWriterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.RemovableStorageWriter',
     'context');
   return remote.$;
@@ -182,8 +183,9 @@ chrome.mojom.RemovableStorageWriterClientRemoteCallHandler = class {
 
 chrome.mojom.RemovableStorageWriterClient.getRemote = function() {
   let remote = new chrome.mojom.RemovableStorageWriterClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.RemovableStorageWriterClient',
     'context');
   return remote.$;

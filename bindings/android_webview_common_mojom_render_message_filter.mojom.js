@@ -67,8 +67,9 @@ android_webview.mojom.RenderMessageFilterRemoteCallHandler = class {
 
 android_webview.mojom.RenderMessageFilter.getRemote = function() {
   let remote = new android_webview.mojom.RenderMessageFilterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'android_webview.mojom.RenderMessageFilter',
     'context');
   return remote.$;

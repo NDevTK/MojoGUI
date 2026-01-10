@@ -123,8 +123,9 @@ image_annotation.mojom.ImageProcessorRemoteCallHandler = class {
 
 image_annotation.mojom.ImageProcessor.getRemote = function() {
   let remote = new image_annotation.mojom.ImageProcessorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'image_annotation.mojom.ImageProcessor',
     'context');
   return remote.$;
@@ -195,8 +196,9 @@ image_annotation.mojom.AnnotatorRemoteCallHandler = class {
 
 image_annotation.mojom.Annotator.getRemote = function() {
   let remote = new image_annotation.mojom.AnnotatorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'image_annotation.mojom.Annotator',
     'context');
   return remote.$;
@@ -259,8 +261,9 @@ image_annotation.mojom.ImageAnnotationServiceRemoteCallHandler = class {
 
 image_annotation.mojom.ImageAnnotationService.getRemote = function() {
   let remote = new image_annotation.mojom.ImageAnnotationServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'image_annotation.mojom.ImageAnnotationService',
     'context');
   return remote.$;

@@ -96,8 +96,9 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigRemoteCallHandler = class
 
 ash.rollback_network_config.mojom.RollbackNetworkConfig.getRemote = function() {
   let remote = new ash.rollback_network_config.mojom.RollbackNetworkConfigRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.rollback_network_config.mojom.RollbackNetworkConfig',
     'context');
   return remote.$;

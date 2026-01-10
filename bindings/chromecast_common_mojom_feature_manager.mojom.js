@@ -75,8 +75,9 @@ chromecast.shell.mojom.FeatureManagerRemoteCallHandler = class {
 
 chromecast.shell.mojom.FeatureManager.getRemote = function() {
   let remote = new chromecast.shell.mojom.FeatureManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.shell.mojom.FeatureManager',
     'context');
   return remote.$;

@@ -208,8 +208,9 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
 
 storage.mojom.IdbInternalsHandler.getRemote = function() {
   let remote = new storage.mojom.IdbInternalsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.IdbInternalsHandler',
     'context');
   return remote.$;

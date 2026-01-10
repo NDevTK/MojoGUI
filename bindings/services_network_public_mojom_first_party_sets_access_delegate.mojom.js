@@ -101,8 +101,9 @@ network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
 
 network.mojom.FirstPartySetsAccessDelegate.getRemote = function() {
   let remote = new network.mojom.FirstPartySetsAccessDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.FirstPartySetsAccessDelegate',
     'context');
   return remote.$;

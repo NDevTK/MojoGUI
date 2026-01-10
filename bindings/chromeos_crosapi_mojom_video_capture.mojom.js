@@ -186,8 +186,9 @@ crosapi.mojom.ScopedAccessPermissionRemoteCallHandler = class {
 
 crosapi.mojom.ScopedAccessPermission.getRemote = function() {
   let remote = new crosapi.mojom.ScopedAccessPermissionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.ScopedAccessPermission',
     'context');
   return remote.$;
@@ -471,8 +472,9 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
 
 crosapi.mojom.VideoFrameHandler.getRemote = function() {
   let remote = new crosapi.mojom.VideoFrameHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.VideoFrameHandler',
     'context');
   return remote.$;
@@ -661,8 +663,9 @@ crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
 
 crosapi.mojom.VideoCaptureDevice.getRemote = function() {
   let remote = new crosapi.mojom.VideoCaptureDeviceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.VideoCaptureDevice',
     'context');
   return remote.$;
@@ -753,8 +756,9 @@ crosapi.mojom.VideoCaptureDeviceFactoryRemoteCallHandler = class {
 
 crosapi.mojom.VideoCaptureDeviceFactory.getRemote = function() {
   let remote = new crosapi.mojom.VideoCaptureDeviceFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.VideoCaptureDeviceFactory',
     'context');
   return remote.$;

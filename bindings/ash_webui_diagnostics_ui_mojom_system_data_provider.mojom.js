@@ -187,8 +187,9 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.BatteryChargeStatusObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.BatteryChargeStatusObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.BatteryChargeStatusObserver',
     'context');
   return remote.$;
@@ -251,8 +252,9 @@ ash.diagnostics.mojom.BatteryHealthObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.BatteryHealthObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.BatteryHealthObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.BatteryHealthObserver',
     'context');
   return remote.$;
@@ -315,8 +317,9 @@ ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.MemoryUsageObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.MemoryUsageObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.MemoryUsageObserver',
     'context');
   return remote.$;
@@ -379,8 +382,9 @@ ash.diagnostics.mojom.CpuUsageObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.CpuUsageObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.CpuUsageObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.CpuUsageObserver',
     'context');
   return remote.$;
@@ -533,8 +537,9 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
 
 ash.diagnostics.mojom.SystemDataProvider.getRemote = function() {
   let remote = new ash.diagnostics.mojom.SystemDataProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.SystemDataProvider',
     'context');
   return remote.$;

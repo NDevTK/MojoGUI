@@ -777,8 +777,9 @@ content.mojom.MojoEchoRemoteCallHandler = class {
 
 content.mojom.MojoEcho.getRemote = function() {
   let remote = new content.mojom.MojoEchoRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.MojoEcho',
     'context');
   return remote.$;

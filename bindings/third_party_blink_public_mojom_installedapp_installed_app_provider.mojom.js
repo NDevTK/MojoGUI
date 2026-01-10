@@ -76,8 +76,9 @@ blink.mojom.InstalledAppProviderRemoteCallHandler = class {
 
 blink.mojom.InstalledAppProvider.getRemote = function() {
   let remote = new blink.mojom.InstalledAppProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.InstalledAppProvider',
     'context');
   return remote.$;

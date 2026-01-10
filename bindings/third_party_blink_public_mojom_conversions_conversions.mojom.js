@@ -118,8 +118,9 @@ blink.mojom.AttributionHostRemoteCallHandler = class {
 
 blink.mojom.AttributionHost.getRemote = function() {
   let remote = new blink.mojom.AttributionHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AttributionHost',
     'context');
   return remote.$;

@@ -136,8 +136,9 @@ proxy_resolver.mojom.HostResolverRequestClientRemoteCallHandler = class {
 
 proxy_resolver.mojom.HostResolverRequestClient.getRemote = function() {
   let remote = new proxy_resolver.mojom.HostResolverRequestClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'proxy_resolver.mojom.HostResolverRequestClient',
     'context');
   return remote.$;
@@ -202,8 +203,9 @@ proxy_resolver.mojom.ProxyResolverRemoteCallHandler = class {
 
 proxy_resolver.mojom.ProxyResolver.getRemote = function() {
   let remote = new proxy_resolver.mojom.ProxyResolverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'proxy_resolver.mojom.ProxyResolver',
     'context');
   return remote.$;
@@ -319,8 +321,9 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
 
 proxy_resolver.mojom.ProxyResolverRequestClient.getRemote = function() {
   let remote = new proxy_resolver.mojom.ProxyResolverRequestClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'proxy_resolver.mojom.ProxyResolverRequestClient',
     'context');
   return remote.$;
@@ -385,8 +388,9 @@ proxy_resolver.mojom.ProxyResolverFactoryRemoteCallHandler = class {
 
 proxy_resolver.mojom.ProxyResolverFactory.getRemote = function() {
   let remote = new proxy_resolver.mojom.ProxyResolverFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'proxy_resolver.mojom.ProxyResolverFactory',
     'context');
   return remote.$;
@@ -501,8 +505,9 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
 
 proxy_resolver.mojom.ProxyResolverFactoryRequestClient.getRemote = function() {
   let remote = new proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'proxy_resolver.mojom.ProxyResolverFactoryRequestClient',
     'context');
   return remote.$;
@@ -572,8 +577,9 @@ proxy_resolver.mojom.SystemProxyResolverRemoteCallHandler = class {
 
 proxy_resolver.mojom.SystemProxyResolver.getRemote = function() {
   let remote = new proxy_resolver.mojom.SystemProxyResolverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'proxy_resolver.mojom.SystemProxyResolver',
     'context');
   return remote.$;

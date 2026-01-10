@@ -166,8 +166,9 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
 
 blink.mojom.StorageAreaObserver.getRemote = function() {
   let remote = new blink.mojom.StorageAreaObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.StorageAreaObserver',
     'context');
   return remote.$;
@@ -347,8 +348,9 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
 
 blink.mojom.StorageArea.getRemote = function() {
   let remote = new blink.mojom.StorageAreaRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.StorageArea',
     'context');
   return remote.$;

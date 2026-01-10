@@ -860,8 +860,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
 
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.getRemote = function() {
   let remote = new chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines',
     'context');
   return remote.$;

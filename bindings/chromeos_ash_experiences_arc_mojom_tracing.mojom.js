@@ -119,8 +119,9 @@ arc.mojom.TracingInstanceRemoteCallHandler = class {
 
 arc.mojom.TracingInstance.getRemote = function() {
   let remote = new arc.mojom.TracingInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.TracingInstance',
     'context');
   return remote.$;

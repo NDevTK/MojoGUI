@@ -69,8 +69,9 @@ chrome.mojom.FontPrewarmerRemoteCallHandler = class {
 
 chrome.mojom.FontPrewarmer.getRemote = function() {
   let remote = new chrome.mojom.FontPrewarmerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.FontPrewarmer',
     'context');
   return remote.$;
@@ -138,8 +139,9 @@ chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler = class {
 
 chrome.mojom.RenderFrameFontFamilyAccessor.getRemote = function() {
   let remote = new chrome.mojom.RenderFrameFontFamilyAccessorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.RenderFrameFontFamilyAccessor',
     'context');
   return remote.$;

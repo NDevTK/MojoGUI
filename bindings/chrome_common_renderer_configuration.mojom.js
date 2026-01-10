@@ -125,8 +125,9 @@ chrome.mojom.BoundSessionRequestThrottledHandlerRemoteCallHandler = class {
 
 chrome.mojom.BoundSessionRequestThrottledHandler.getRemote = function() {
   let remote = new chrome.mojom.BoundSessionRequestThrottledHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.BoundSessionRequestThrottledHandler',
     'context');
   return remote.$;
@@ -188,8 +189,9 @@ chrome.mojom.ChromeOSListenerRemoteCallHandler = class {
 
 chrome.mojom.ChromeOSListener.getRemote = function() {
   let remote = new chrome.mojom.ChromeOSListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.ChromeOSListener',
     'context');
   return remote.$;
@@ -287,8 +289,9 @@ chrome.mojom.RendererConfigurationRemoteCallHandler = class {
 
 chrome.mojom.RendererConfiguration.getRemote = function() {
   let remote = new chrome.mojom.RendererConfigurationRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.RendererConfiguration',
     'context');
   return remote.$;

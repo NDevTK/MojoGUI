@@ -66,8 +66,9 @@ blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler = class {
 
 blink.mojom.SubresourceLoaderUpdater.getRemote = function() {
   let remote = new blink.mojom.SubresourceLoaderUpdaterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SubresourceLoaderUpdater',
     'context');
   return remote.$;

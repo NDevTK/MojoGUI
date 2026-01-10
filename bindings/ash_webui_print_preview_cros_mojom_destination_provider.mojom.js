@@ -76,8 +76,9 @@ ash.printing.print_preview.mojom.DestinationProviderRemoteCallHandler = class {
 
 ash.printing.print_preview.mojom.DestinationProvider.getRemote = function() {
   let remote = new ash.printing.print_preview.mojom.DestinationProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.printing.print_preview.mojom.DestinationProvider',
     'context');
   return remote.$;

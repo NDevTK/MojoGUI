@@ -152,8 +152,9 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
 
 ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.getRemote = function() {
   let remote = new ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage',
     'context');
   return remote.$;

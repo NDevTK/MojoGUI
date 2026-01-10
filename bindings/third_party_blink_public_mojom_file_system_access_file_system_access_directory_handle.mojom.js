@@ -124,8 +124,9 @@ blink.mojom.FileSystemAccessDirectoryEntriesListenerRemoteCallHandler = class {
 
 blink.mojom.FileSystemAccessDirectoryEntriesListener.getRemote = function() {
   let remote = new blink.mojom.FileSystemAccessDirectoryEntriesListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FileSystemAccessDirectoryEntriesListener',
     'context');
   return remote.$;
@@ -454,8 +455,9 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
 
 blink.mojom.FileSystemAccessDirectoryHandle.getRemote = function() {
   let remote = new blink.mojom.FileSystemAccessDirectoryHandleRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FileSystemAccessDirectoryHandle',
     'context');
   return remote.$;

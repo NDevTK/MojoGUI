@@ -168,8 +168,9 @@ blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler = class {
 
 blink.mojom.EmbeddedWorkerInstanceClient.getRemote = function() {
   let remote = new blink.mojom.EmbeddedWorkerInstanceClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.EmbeddedWorkerInstanceClient',
     'context');
   return remote.$;
@@ -375,8 +376,9 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
 
 blink.mojom.EmbeddedWorkerInstanceHost.getRemote = function() {
   let remote = new blink.mojom.EmbeddedWorkerInstanceHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.EmbeddedWorkerInstanceHost',
     'context');
   return remote.$;

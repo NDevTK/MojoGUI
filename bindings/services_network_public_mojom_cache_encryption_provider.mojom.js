@@ -72,8 +72,9 @@ network.mojom.CacheEncryptionProviderRemoteCallHandler = class {
 
 network.mojom.CacheEncryptionProvider.getRemote = function() {
   let remote = new network.mojom.CacheEncryptionProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.CacheEncryptionProvider',
     'context');
   return remote.$;

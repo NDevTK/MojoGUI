@@ -75,8 +75,9 @@ blink.mojom.AutoplayConfigurationClientRemoteCallHandler = class {
 
 blink.mojom.AutoplayConfigurationClient.getRemote = function() {
   let remote = new blink.mojom.AutoplayConfigurationClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AutoplayConfigurationClient',
     'context');
   return remote.$;

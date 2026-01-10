@@ -112,8 +112,9 @@ password_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 password_manager.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new password_manager.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'password_manager.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -407,8 +408,9 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
 
 password_manager.mojom.PageHandler.getRemote = function() {
   let remote = new password_manager.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'password_manager.mojom.PageHandler',
     'context');
   return remote.$;
@@ -455,8 +457,9 @@ password_manager.mojom.PageRemoteCallHandler = class {
 
 password_manager.mojom.Page.getRemote = function() {
   let remote = new password_manager.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'password_manager.mojom.Page',
     'context');
   return remote.$;

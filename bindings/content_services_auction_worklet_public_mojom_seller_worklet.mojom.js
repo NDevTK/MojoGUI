@@ -168,8 +168,9 @@ auction_worklet.mojom.ScoreAdClientRemoteCallHandler = class {
 
 auction_worklet.mojom.ScoreAdClient.getRemote = function() {
   let remote = new auction_worklet.mojom.ScoreAdClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'auction_worklet.mojom.ScoreAdClient',
     'context');
   return remote.$;
@@ -333,8 +334,9 @@ auction_worklet.mojom.SellerWorkletRemoteCallHandler = class {
 
 auction_worklet.mojom.SellerWorklet.getRemote = function() {
   let remote = new auction_worklet.mojom.SellerWorkletRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'auction_worklet.mojom.SellerWorklet',
     'context');
   return remote.$;

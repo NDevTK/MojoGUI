@@ -99,8 +99,9 @@ network.mojom.SSLConfigClientRemoteCallHandler = class {
 
 network.mojom.SSLConfigClient.getRemote = function() {
   let remote = new network.mojom.SSLConfigClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.SSLConfigClient',
     'context');
   return remote.$;

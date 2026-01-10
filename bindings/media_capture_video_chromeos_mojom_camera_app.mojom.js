@@ -212,8 +212,9 @@ cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
 
 cros.mojom.CameraAppDeviceProvider.getRemote = function() {
   let remote = new cros.mojom.CameraAppDeviceProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CameraAppDeviceProvider',
     'context');
   return remote.$;
@@ -349,8 +350,9 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
 
 cros.mojom.CameraAppDeviceBridge.getRemote = function() {
   let remote = new cros.mojom.CameraAppDeviceBridgeRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CameraAppDeviceBridge',
     'context');
   return remote.$;
@@ -672,8 +674,9 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
 
 cros.mojom.CameraAppDevice.getRemote = function() {
   let remote = new cros.mojom.CameraAppDeviceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CameraAppDevice',
     'context');
   return remote.$;
@@ -736,8 +739,9 @@ cros.mojom.ResultMetadataObserverRemoteCallHandler = class {
 
 cros.mojom.ResultMetadataObserver.getRemote = function() {
   let remote = new cros.mojom.ResultMetadataObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.ResultMetadataObserver',
     'context');
   return remote.$;
@@ -799,8 +803,9 @@ cros.mojom.CameraEventObserverRemoteCallHandler = class {
 
 cros.mojom.CameraEventObserver.getRemote = function() {
   let remote = new cros.mojom.CameraEventObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CameraEventObserver',
     'context');
   return remote.$;
@@ -863,8 +868,9 @@ cros.mojom.DocumentCornersObserverRemoteCallHandler = class {
 
 cros.mojom.DocumentCornersObserver.getRemote = function() {
   let remote = new cros.mojom.DocumentCornersObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.DocumentCornersObserver',
     'context');
   return remote.$;
@@ -927,8 +933,9 @@ cros.mojom.CameraInfoObserverRemoteCallHandler = class {
 
 cros.mojom.CameraInfoObserver.getRemote = function() {
   let remote = new cros.mojom.CameraInfoObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CameraInfoObserver',
     'context');
   return remote.$;
@@ -993,8 +1000,9 @@ cros.mojom.StillCaptureResultObserverRemoteCallHandler = class {
 
 cros.mojom.StillCaptureResultObserver.getRemote = function() {
   let remote = new cros.mojom.StillCaptureResultObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.StillCaptureResultObserver',
     'context');
   return remote.$;

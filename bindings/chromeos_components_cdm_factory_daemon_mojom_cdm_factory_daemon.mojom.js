@@ -154,8 +154,9 @@ chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
 
 chromeos.cdm.mojom.CdmFactory.getRemote = function() {
   let remote = new chromeos.cdm.mojom.CdmFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cdm.mojom.CdmFactory',
     'context');
   return remote.$;
@@ -401,8 +402,9 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
 
 chromeos.cdm.mojom.CdmFactoryDaemon.getRemote = function() {
   let remote = new chromeos.cdm.mojom.CdmFactoryDaemonRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cdm.mojom.CdmFactoryDaemon',
     'context');
   return remote.$;

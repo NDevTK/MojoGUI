@@ -97,8 +97,9 @@ chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
 
 chrome.mojom.OfflinePageAutoFetcher.getRemote = function() {
   let remote = new chrome.mojom.OfflinePageAutoFetcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.OfflinePageAutoFetcher',
     'context');
   return remote.$;

@@ -116,8 +116,9 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
 
 dom_distiller.mojom.DistillerJavaScriptService.getRemote = function() {
   let remote = new dom_distiller.mojom.DistillerJavaScriptServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'dom_distiller.mojom.DistillerJavaScriptService',
     'context');
   return remote.$;

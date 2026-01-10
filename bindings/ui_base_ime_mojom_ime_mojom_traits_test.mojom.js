@@ -73,8 +73,9 @@ ui.mojom.IMEStructTraitsTestRemoteCallHandler = class {
 
 ui.mojom.IMEStructTraitsTest.getRemote = function() {
   let remote = new ui.mojom.IMEStructTraitsTestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ui.mojom.IMEStructTraitsTest',
     'context');
   return remote.$;

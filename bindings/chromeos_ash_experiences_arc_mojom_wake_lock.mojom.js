@@ -98,8 +98,9 @@ arc.mojom.WakeLockHostRemoteCallHandler = class {
 
 arc.mojom.WakeLockHost.getRemote = function() {
   let remote = new arc.mojom.WakeLockHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.WakeLockHost',
     'context');
   return remote.$;
@@ -167,8 +168,9 @@ arc.mojom.WakeLockInstanceRemoteCallHandler = class {
 
 arc.mojom.WakeLockInstance.getRemote = function() {
   let remote = new arc.mojom.WakeLockInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.WakeLockInstance',
     'context');
   return remote.$;

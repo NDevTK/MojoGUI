@@ -238,8 +238,9 @@ coral.mojom.TitleObserverRemoteCallHandler = class {
 
 coral.mojom.TitleObserver.getRemote = function() {
   let remote = new coral.mojom.TitleObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'coral.mojom.TitleObserver',
     'context');
   return remote.$;
@@ -331,8 +332,9 @@ coral.mojom.CoralProcessorRemoteCallHandler = class {
 
 coral.mojom.CoralProcessor.getRemote = function() {
   let remote = new coral.mojom.CoralProcessorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'coral.mojom.CoralProcessor',
     'context');
   return remote.$;
@@ -457,8 +459,9 @@ coral.mojom.CoralServiceRemoteCallHandler = class {
 
 coral.mojom.CoralService.getRemote = function() {
   let remote = new coral.mojom.CoralServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'coral.mojom.CoralService',
     'context');
   return remote.$;

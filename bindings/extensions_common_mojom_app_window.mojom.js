@@ -65,8 +65,9 @@ extensions.mojom.AppWindowRemoteCallHandler = class {
 
 extensions.mojom.AppWindow.getRemote = function() {
   let remote = new extensions.mojom.AppWindowRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mojom.AppWindow',
     'context');
   return remote.$;

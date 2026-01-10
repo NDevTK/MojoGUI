@@ -137,8 +137,9 @@ storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
 
 storage.mojom.BlobDataItemReader.getRemote = function() {
   let remote = new storage.mojom.BlobDataItemReaderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.BlobDataItemReader',
     'context');
   return remote.$;
@@ -262,8 +263,9 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
 
 storage.mojom.BlobStorageContext.getRemote = function() {
   let remote = new storage.mojom.BlobStorageContextRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.BlobStorageContext',
     'context');
   return remote.$;

@@ -64,8 +64,9 @@ mojom.ModuleEventSinkRemoteCallHandler = class {
 
 mojom.ModuleEventSink.getRemote = function() {
   let remote = new mojom.ModuleEventSinkRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojom.ModuleEventSink',
     'context');
   return remote.$;

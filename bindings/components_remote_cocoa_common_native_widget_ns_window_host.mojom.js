@@ -1091,8 +1091,9 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost.getRemote = function() {
   let remote = new remote_cocoa.mojom.NativeWidgetNSWindowHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remote_cocoa.mojom.NativeWidgetNSWindowHost',
     'context');
   return remote.$;

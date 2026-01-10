@@ -141,8 +141,9 @@ storage.mojom.FileLockRemoteCallHandler = class {
 
 storage.mojom.FileLock.getRemote = function() {
   let remote = new storage.mojom.FileLockRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.FileLock',
     'context');
   return remote.$;
@@ -411,8 +412,9 @@ storage.mojom.DirectoryRemoteCallHandler = class {
 
 storage.mojom.Directory.getRemote = function() {
   let remote = new storage.mojom.DirectoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.Directory',
     'context');
   return remote.$;

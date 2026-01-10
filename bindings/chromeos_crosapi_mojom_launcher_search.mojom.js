@@ -194,8 +194,9 @@ crosapi.mojom.SearchResultsPublisherRemoteCallHandler = class {
 
 crosapi.mojom.SearchResultsPublisher.getRemote = function() {
   let remote = new crosapi.mojom.SearchResultsPublisherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.SearchResultsPublisher',
     'context');
   return remote.$;
@@ -264,8 +265,9 @@ crosapi.mojom.SearchControllerRemoteCallHandler = class {
 
 crosapi.mojom.SearchController.getRemote = function() {
   let remote = new crosapi.mojom.SearchControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.SearchController',
     'context');
   return remote.$;
@@ -328,8 +330,9 @@ crosapi.mojom.SearchResultConsumerRemoteCallHandler = class {
 
 crosapi.mojom.SearchResultConsumer.getRemote = function() {
   let remote = new crosapi.mojom.SearchResultConsumerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.SearchResultConsumer',
     'context');
   return remote.$;

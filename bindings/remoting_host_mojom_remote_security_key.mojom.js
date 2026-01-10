@@ -72,8 +72,9 @@ remoting.mojom.SecurityKeyForwarderRemoteCallHandler = class {
 
 remoting.mojom.SecurityKeyForwarder.getRemote = function() {
   let remote = new remoting.mojom.SecurityKeyForwarderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.SecurityKeyForwarder',
     'context');
   return remote.$;

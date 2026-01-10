@@ -95,8 +95,9 @@ media.mojom.FuchsiaMediaCdmProviderRemoteCallHandler = class {
 
 media.mojom.FuchsiaMediaCdmProvider.getRemote = function() {
   let remote = new media.mojom.FuchsiaMediaCdmProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.FuchsiaMediaCdmProvider',
     'context');
   return remote.$;
@@ -182,8 +183,9 @@ media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = class {
 
 media.mojom.FuchsiaMediaCodecProvider.getRemote = function() {
   let remote = new media.mojom.FuchsiaMediaCodecProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.FuchsiaMediaCodecProvider',
     'context');
   return remote.$;

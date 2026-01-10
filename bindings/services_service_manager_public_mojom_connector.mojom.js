@@ -113,8 +113,9 @@ service_manager.mojom.ProcessMetadataRemoteCallHandler = class {
 
 service_manager.mojom.ProcessMetadata.getRemote = function() {
   let remote = new service_manager.mojom.ProcessMetadataRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'service_manager.mojom.ProcessMetadata',
     'context');
   return remote.$;
@@ -272,8 +273,9 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
 
 service_manager.mojom.Connector.getRemote = function() {
   let remote = new service_manager.mojom.ConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'service_manager.mojom.Connector',
     'context');
   return remote.$;

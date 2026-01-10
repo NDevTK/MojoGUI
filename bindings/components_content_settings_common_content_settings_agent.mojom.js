@@ -82,8 +82,9 @@ content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {
 
 content_settings.mojom.ContentSettingsAgent.getRemote = function() {
   let remote = new content_settings.mojom.ContentSettingsAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content_settings.mojom.ContentSettingsAgent',
     'context');
   return remote.$;

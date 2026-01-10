@@ -75,8 +75,9 @@ ash.trash_service.mojom.TrashServiceRemoteCallHandler = class {
 
 ash.trash_service.mojom.TrashService.getRemote = function() {
   let remote = new ash.trash_service.mojom.TrashServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.trash_service.mojom.TrashService',
     'context');
   return remote.$;

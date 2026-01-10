@@ -108,8 +108,9 @@ segmentation_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 segmentation_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new segmentation_internals.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'segmentation_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -221,8 +222,9 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 segmentation_internals.mojom.PageHandler.getRemote = function() {
   let remote = new segmentation_internals.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'segmentation_internals.mojom.PageHandler',
     'context');
   return remote.$;
@@ -302,8 +304,9 @@ segmentation_internals.mojom.PageRemoteCallHandler = class {
 
 segmentation_internals.mojom.Page.getRemote = function() {
   let remote = new segmentation_internals.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'segmentation_internals.mojom.Page',
     'context');
   return remote.$;

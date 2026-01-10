@@ -159,8 +159,9 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
 
 webnn.mojom.WebNNTensor.getRemote = function() {
   let remote = new webnn.mojom.WebNNTensorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webnn.mojom.WebNNTensor',
     'context');
   return remote.$;

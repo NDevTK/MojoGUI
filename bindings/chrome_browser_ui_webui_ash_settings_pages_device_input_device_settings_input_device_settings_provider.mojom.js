@@ -176,8 +176,9 @@ ash.settings.mojom.KeyboardSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.KeyboardSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.KeyboardSettingsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.KeyboardSettingsObserver',
     'context');
   return remote.$;
@@ -240,8 +241,9 @@ ash.settings.mojom.TouchpadSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.TouchpadSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.TouchpadSettingsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.TouchpadSettingsObserver',
     'context');
   return remote.$;
@@ -304,8 +306,9 @@ ash.settings.mojom.PointingStickSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.PointingStickSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.PointingStickSettingsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.PointingStickSettingsObserver',
     'context');
   return remote.$;
@@ -384,8 +387,9 @@ ash.settings.mojom.MouseSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.MouseSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.MouseSettingsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.MouseSettingsObserver',
     'context');
   return remote.$;
@@ -448,8 +452,9 @@ ash.settings.mojom.ButtonPressObserverRemoteCallHandler = class {
 
 ash.settings.mojom.ButtonPressObserver.getRemote = function() {
   let remote = new ash.settings.mojom.ButtonPressObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.ButtonPressObserver',
     'context');
   return remote.$;
@@ -512,8 +517,9 @@ ash.settings.mojom.GraphicsTabletSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.GraphicsTabletSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.GraphicsTabletSettingsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.GraphicsTabletSettingsObserver',
     'context');
   return remote.$;
@@ -576,8 +582,9 @@ ash.settings.mojom.KeyboardBrightnessObserverRemoteCallHandler = class {
 
 ash.settings.mojom.KeyboardBrightnessObserver.getRemote = function() {
   let remote = new ash.settings.mojom.KeyboardBrightnessObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.KeyboardBrightnessObserver',
     'context');
   return remote.$;
@@ -640,8 +647,9 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverRemoteCallHandler = class {
 
 ash.settings.mojom.KeyboardAmbientLightSensorObserver.getRemote = function() {
   let remote = new ash.settings.mojom.KeyboardAmbientLightSensorObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.KeyboardAmbientLightSensorObserver',
     'context');
   return remote.$;
@@ -704,8 +712,9 @@ ash.settings.mojom.LidStateObserverRemoteCallHandler = class {
 
 ash.settings.mojom.LidStateObserver.getRemote = function() {
   let remote = new ash.settings.mojom.LidStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.LidStateObserver',
     'context');
   return remote.$;
@@ -1261,8 +1270,9 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
 
 ash.settings.mojom.InputDeviceSettingsProvider.getRemote = function() {
   let remote = new ash.settings.mojom.InputDeviceSettingsProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.InputDeviceSettingsProvider',
     'context');
   return remote.$;

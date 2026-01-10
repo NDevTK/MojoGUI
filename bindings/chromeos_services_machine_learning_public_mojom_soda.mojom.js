@@ -304,8 +304,9 @@ chromeos.machine_learning.mojom.SodaClientRemoteCallHandler = class {
 
 chromeos.machine_learning.mojom.SodaClient.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.SodaClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.machine_learning.mojom.SodaClient',
     'context');
   return remote.$;
@@ -413,8 +414,9 @@ chromeos.machine_learning.mojom.SodaRecognizerRemoteCallHandler = class {
 
 chromeos.machine_learning.mojom.SodaRecognizer.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.SodaRecognizerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.machine_learning.mojom.SodaRecognizer',
     'context');
   return remote.$;

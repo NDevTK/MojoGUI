@@ -73,8 +73,9 @@ data_decoder.mojom.CborParserRemoteCallHandler = class {
 
 data_decoder.mojom.CborParser.getRemote = function() {
   let remote = new data_decoder.mojom.CborParserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'data_decoder.mojom.CborParser',
     'context');
   return remote.$;

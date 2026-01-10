@@ -317,8 +317,9 @@ tab_search.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 tab_search.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new tab_search.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tab_search.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -929,8 +930,9 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
 
 tab_search.mojom.PageHandler.getRemote = function() {
   let remote = new tab_search.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tab_search.mojom.PageHandler',
     'context');
   return remote.$;
@@ -1167,8 +1169,9 @@ tab_search.mojom.PageRemoteCallHandler = class {
 
 tab_search.mojom.Page.getRemote = function() {
   let remote = new tab_search.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tab_search.mojom.Page',
     'context');
   return remote.$;

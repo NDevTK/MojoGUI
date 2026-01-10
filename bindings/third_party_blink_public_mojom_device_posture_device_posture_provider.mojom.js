@@ -115,8 +115,9 @@ blink.mojom.DevicePostureProviderRemoteCallHandler = class {
 
 blink.mojom.DevicePostureProvider.getRemote = function() {
   let remote = new blink.mojom.DevicePostureProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DevicePostureProvider',
     'context');
   return remote.$;
@@ -179,8 +180,9 @@ blink.mojom.DevicePostureClientRemoteCallHandler = class {
 
 blink.mojom.DevicePostureClient.getRemote = function() {
   let remote = new blink.mojom.DevicePostureClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DevicePostureClient',
     'context');
   return remote.$;

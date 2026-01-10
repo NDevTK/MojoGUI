@@ -121,8 +121,9 @@ blink.mojom.AnnotationAgentRemoteCallHandler = class {
 
 blink.mojom.AnnotationAgent.getRemote = function() {
   let remote = new blink.mojom.AnnotationAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AnnotationAgent',
     'context');
   return remote.$;
@@ -186,8 +187,9 @@ blink.mojom.AnnotationAgentHostRemoteCallHandler = class {
 
 blink.mojom.AnnotationAgentHost.getRemote = function() {
   let remote = new blink.mojom.AnnotationAgentHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AnnotationAgentHost',
     'context');
   return remote.$;
@@ -295,8 +297,9 @@ blink.mojom.AnnotationAgentContainerRemoteCallHandler = class {
 
 blink.mojom.AnnotationAgentContainer.getRemote = function() {
   let remote = new blink.mojom.AnnotationAgentContainerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AnnotationAgentContainer',
     'context');
   return remote.$;

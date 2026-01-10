@@ -181,8 +181,9 @@ smbfs.mojom.SmbFsBootstrapRemoteCallHandler = class {
 
 smbfs.mojom.SmbFsBootstrap.getRemote = function() {
   let remote = new smbfs.mojom.SmbFsBootstrapRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'smbfs.mojom.SmbFsBootstrap',
     'context');
   return remote.$;
@@ -272,8 +273,9 @@ smbfs.mojom.SmbFsRemoteCallHandler = class {
 
 smbfs.mojom.SmbFs.getRemote = function() {
   let remote = new smbfs.mojom.SmbFsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'smbfs.mojom.SmbFs',
     'context');
   return remote.$;
@@ -341,8 +343,9 @@ smbfs.mojom.SmbFsDelegateRemoteCallHandler = class {
 
 smbfs.mojom.SmbFsDelegate.getRemote = function() {
   let remote = new smbfs.mojom.SmbFsDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'smbfs.mojom.SmbFsDelegate',
     'context');
   return remote.$;

@@ -68,8 +68,9 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemoteCallHandler = class 
 
 chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver.getRemote = function() {
   let remote = new chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver',
     'context');
   return remote.$;
@@ -132,8 +133,9 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemoteCallHandler = class {
 
 chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject.getRemote = function() {
   let remote = new chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject',
     'context');
   return remote.$;

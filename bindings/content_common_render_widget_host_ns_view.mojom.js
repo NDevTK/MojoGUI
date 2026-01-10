@@ -169,8 +169,9 @@ remote_cocoa.mojom.PopupMenuRunnerRemoteCallHandler = class {
 
 remote_cocoa.mojom.PopupMenuRunner.getRemote = function() {
   let remote = new remote_cocoa.mojom.PopupMenuRunnerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remote_cocoa.mojom.PopupMenuRunner',
     'context');
   return remote.$;
@@ -649,8 +650,9 @@ remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandler = class {
 
 remote_cocoa.mojom.RenderWidgetHostNSView.getRemote = function() {
   let remote = new remote_cocoa.mojom.RenderWidgetHostNSViewRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remote_cocoa.mojom.RenderWidgetHostNSView',
     'context');
   return remote.$;
@@ -1361,8 +1363,9 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHandler = class {
 
 remote_cocoa.mojom.RenderWidgetHostNSViewHost.getRemote = function() {
   let remote = new remote_cocoa.mojom.RenderWidgetHostNSViewHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remote_cocoa.mojom.RenderWidgetHostNSViewHost',
     'context');
   return remote.$;

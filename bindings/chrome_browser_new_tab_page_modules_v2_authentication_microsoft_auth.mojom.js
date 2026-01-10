@@ -104,8 +104,9 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
 
 ntp.authentication.mojom.MicrosoftAuthPageHandler.getRemote = function() {
   let remote = new ntp.authentication.mojom.MicrosoftAuthPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ntp.authentication.mojom.MicrosoftAuthPageHandler',
     'context');
   return remote.$;

@@ -148,8 +148,9 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
 
 ash.camera_app.mojom.PdfBuilder.getRemote = function() {
   let remote = new ash.camera_app.mojom.PdfBuilderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.PdfBuilder',
     'context');
   return remote.$;

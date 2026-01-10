@@ -132,8 +132,9 @@ emoji_picker.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 emoji_picker.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new emoji_picker.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'emoji_picker.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -475,8 +476,9 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
 
 emoji_picker.mojom.PageHandler.getRemote = function() {
   let remote = new emoji_picker.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'emoji_picker.mojom.PageHandler',
     'context');
   return remote.$;

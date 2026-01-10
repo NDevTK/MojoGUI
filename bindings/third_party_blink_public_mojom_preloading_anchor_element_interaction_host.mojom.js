@@ -146,8 +146,9 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
 
 blink.mojom.AnchorElementInteractionHost.getRemote = function() {
   let remote = new blink.mojom.AnchorElementInteractionHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AnchorElementInteractionHost',
     'context');
   return remote.$;

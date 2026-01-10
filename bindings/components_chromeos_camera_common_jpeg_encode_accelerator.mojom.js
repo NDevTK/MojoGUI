@@ -153,8 +153,9 @@ chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHandler = class {
 
 chromeos_camera.mojom.JpegEncodeAccelerator.getRemote = function() {
   let remote = new chromeos_camera.mojom.JpegEncodeAcceleratorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos_camera.mojom.JpegEncodeAccelerator',
     'context');
   return remote.$;

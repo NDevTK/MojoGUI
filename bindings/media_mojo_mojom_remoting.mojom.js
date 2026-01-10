@@ -105,8 +105,9 @@ media.mojom.RemoterFactoryRemoteCallHandler = class {
 
 media.mojom.RemoterFactory.getRemote = function() {
   let remote = new media.mojom.RemoterFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.RemoterFactory',
     'context');
   return remote.$;
@@ -189,8 +190,9 @@ media.mojom.RemotingDataStreamSenderRemoteCallHandler = class {
 
 media.mojom.RemotingDataStreamSender.getRemote = function() {
   let remote = new media.mojom.RemotingDataStreamSenderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.RemotingDataStreamSender',
     'context');
   return remote.$;
@@ -339,8 +341,9 @@ media.mojom.RemoterRemoteCallHandler = class {
 
 media.mojom.Remoter.getRemote = function() {
   let remote = new media.mojom.RemoterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.Remoter',
     'context');
   return remote.$;
@@ -481,8 +484,9 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
 
 media.mojom.RemotingSource.getRemote = function() {
   let remote = new media.mojom.RemotingSourceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.RemotingSource',
     'context');
   return remote.$;
@@ -611,8 +615,9 @@ media.mojom.RemoteeRemoteCallHandler = class {
 
 media.mojom.Remotee.getRemote = function() {
   let remote = new media.mojom.RemoteeRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.Remotee',
     'context');
   return remote.$;
@@ -675,8 +680,9 @@ media.mojom.RemotingSinkRemoteCallHandler = class {
 
 media.mojom.RemotingSink.getRemote = function() {
   let remote = new media.mojom.RemotingSinkRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.RemotingSink',
     'context');
   return remote.$;
@@ -772,8 +778,9 @@ media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
 
 media.mojom.RemotingDataStreamReceiver.getRemote = function() {
   let remote = new media.mojom.RemotingDataStreamReceiverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.RemotingDataStreamReceiver',
     'context');
   return remote.$;

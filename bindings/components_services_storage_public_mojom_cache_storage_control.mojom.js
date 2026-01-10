@@ -105,8 +105,9 @@ storage.mojom.CacheStorageObserverRemoteCallHandler = class {
 
 storage.mojom.CacheStorageObserver.getRemote = function() {
   let remote = new storage.mojom.CacheStorageObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.CacheStorageObserver',
     'context');
   return remote.$;
@@ -207,8 +208,9 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
 
 storage.mojom.CacheStorageControl.getRemote = function() {
   let remote = new storage.mojom.CacheStorageControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.CacheStorageControl',
     'context');
   return remote.$;

@@ -353,8 +353,9 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
 
 media_session.mojom.MediaSessionObserver.getRemote = function() {
   let remote = new media_session.mojom.MediaSessionObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_session.mojom.MediaSessionObserver',
     'context');
   return remote.$;
@@ -857,8 +858,9 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
 
 media_session.mojom.MediaSession.getRemote = function() {
   let remote = new media_session.mojom.MediaSessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_session.mojom.MediaSession',
     'context');
   return remote.$;

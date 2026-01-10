@@ -73,8 +73,9 @@ metrics.mojom.CallStackProfileCollectorTestRemoteCallHandler = class {
 
 metrics.mojom.CallStackProfileCollectorTest.getRemote = function() {
   let remote = new metrics.mojom.CallStackProfileCollectorTestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'metrics.mojom.CallStackProfileCollectorTest',
     'context');
   return remote.$;

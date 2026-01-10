@@ -72,8 +72,9 @@ blink.mojom.HyphenationRemoteCallHandler = class {
 
 blink.mojom.Hyphenation.getRemote = function() {
   let remote = new blink.mojom.HyphenationRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.Hyphenation',
     'context');
   return remote.$;

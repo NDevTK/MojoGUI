@@ -80,8 +80,9 @@ prerender.mojom.NoStatePrefetchCancelerRemoteCallHandler = class {
 
 prerender.mojom.NoStatePrefetchCanceler.getRemote = function() {
   let remote = new prerender.mojom.NoStatePrefetchCancelerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'prerender.mojom.NoStatePrefetchCanceler',
     'context');
   return remote.$;

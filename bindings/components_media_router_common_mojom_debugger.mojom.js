@@ -105,8 +105,9 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
 
 media_router.mojom.Debugger.getRemote = function() {
   let remote = new media_router.mojom.DebuggerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_router.mojom.Debugger',
     'context');
   return remote.$;

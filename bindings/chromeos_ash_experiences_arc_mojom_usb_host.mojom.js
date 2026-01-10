@@ -131,8 +131,9 @@ arc.mojom.UsbHostHostRemoteCallHandler = class {
 
 arc.mojom.UsbHostHost.getRemote = function() {
   let remote = new arc.mojom.UsbHostHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.UsbHostHost',
     'context');
   return remote.$;
@@ -234,8 +235,9 @@ arc.mojom.UsbHostInstanceRemoteCallHandler = class {
 
 arc.mojom.UsbHostInstance.getRemote = function() {
   let remote = new arc.mojom.UsbHostInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.UsbHostInstance',
     'context');
   return remote.$;

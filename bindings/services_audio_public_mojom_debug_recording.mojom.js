@@ -108,8 +108,9 @@ audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
 
 audio.mojom.DebugRecordingFileProvider.getRemote = function() {
   let remote = new audio.mojom.DebugRecordingFileProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'audio.mojom.DebugRecordingFileProvider',
     'context');
   return remote.$;
@@ -172,8 +173,9 @@ audio.mojom.DebugRecordingRemoteCallHandler = class {
 
 audio.mojom.DebugRecording.getRemote = function() {
   let remote = new audio.mojom.DebugRecordingRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'audio.mojom.DebugRecording',
     'context');
   return remote.$;

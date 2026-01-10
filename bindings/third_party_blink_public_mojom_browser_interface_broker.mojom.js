@@ -65,8 +65,9 @@ blink.mojom.BrowserInterfaceBrokerRemoteCallHandler = class {
 
 blink.mojom.BrowserInterfaceBroker.getRemote = function() {
   let remote = new blink.mojom.BrowserInterfaceBrokerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BrowserInterfaceBroker',
     'context');
   return remote.$;

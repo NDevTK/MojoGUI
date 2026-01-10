@@ -82,8 +82,9 @@ ash.crostini_installer.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.crostini_installer.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.crostini_installer.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.crostini_installer.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -215,8 +216,9 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.crostini_installer.mojom.PageHandler.getRemote = function() {
   let remote = new ash.crostini_installer.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.crostini_installer.mojom.PageHandler',
     'context');
   return remote.$;
@@ -326,8 +328,9 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
 
 ash.crostini_installer.mojom.Page.getRemote = function() {
   let remote = new ash.crostini_installer.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.crostini_installer.mojom.Page',
     'context');
   return remote.$;

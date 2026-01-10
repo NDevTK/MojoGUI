@@ -222,8 +222,9 @@ chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = class {
 
 chromeos.cdm.mojom.BrowserCdmFactory.getRemote = function() {
   let remote = new chromeos.cdm.mojom.BrowserCdmFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cdm.mojom.BrowserCdmFactory',
     'context');
   return remote.$;

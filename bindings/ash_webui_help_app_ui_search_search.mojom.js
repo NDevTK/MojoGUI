@@ -99,8 +99,9 @@ ash.help_app.mojom.SearchResultsObserverRemoteCallHandler = class {
 
 ash.help_app.mojom.SearchResultsObserver.getRemote = function() {
   let remote = new ash.help_app.mojom.SearchResultsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.help_app.mojom.SearchResultsObserver',
     'context');
   return remote.$;
@@ -207,8 +208,9 @@ ash.help_app.mojom.SearchHandlerRemoteCallHandler = class {
 
 ash.help_app.mojom.SearchHandler.getRemote = function() {
   let remote = new ash.help_app.mojom.SearchHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.help_app.mojom.SearchHandler',
     'context');
   return remote.$;

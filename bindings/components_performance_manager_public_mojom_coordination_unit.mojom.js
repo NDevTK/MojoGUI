@@ -277,8 +277,9 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
 
 performance_manager.mojom.DocumentCoordinationUnit.getRemote = function() {
   let remote = new performance_manager.mojom.DocumentCoordinationUnitRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'performance_manager.mojom.DocumentCoordinationUnit',
     'context');
   return remote.$;
@@ -425,8 +426,9 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
 
 performance_manager.mojom.ProcessCoordinationUnit.getRemote = function() {
   let remote = new performance_manager.mojom.ProcessCoordinationUnitRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'performance_manager.mojom.ProcessCoordinationUnit',
     'context');
   return remote.$;
@@ -495,8 +497,9 @@ performance_manager.mojom.ChildProcessCoordinationUnitRemoteCallHandler = class 
 
 performance_manager.mojom.ChildProcessCoordinationUnit.getRemote = function() {
   let remote = new performance_manager.mojom.ChildProcessCoordinationUnitRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'performance_manager.mojom.ChildProcessCoordinationUnit',
     'context');
   return remote.$;

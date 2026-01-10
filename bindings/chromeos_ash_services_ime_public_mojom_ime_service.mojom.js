@@ -125,8 +125,9 @@ ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
 
 ash.ime.mojom.InputEngineManager.getRemote = function() {
   let remote = new ash.ime.mojom.InputEngineManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.ime.mojom.InputEngineManager',
     'context');
   return remote.$;
@@ -196,8 +197,9 @@ ash.ime.mojom.PlatformAccessProviderRemoteCallHandler = class {
 
 ash.ime.mojom.PlatformAccessProvider.getRemote = function() {
   let remote = new ash.ime.mojom.PlatformAccessProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.ime.mojom.PlatformAccessProvider',
     'context');
   return remote.$;
@@ -292,8 +294,9 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
 
 ash.ime.mojom.ImeService.getRemote = function() {
   let remote = new ash.ime.mojom.ImeServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.ime.mojom.ImeService',
     'context');
   return remote.$;

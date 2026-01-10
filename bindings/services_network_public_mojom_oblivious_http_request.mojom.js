@@ -136,8 +136,9 @@ network.mojom.ObliviousHttpClientRemoteCallHandler = class {
 
 network.mojom.ObliviousHttpClient.getRemote = function() {
   let remote = new network.mojom.ObliviousHttpClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.ObliviousHttpClient',
     'context');
   return remote.$;

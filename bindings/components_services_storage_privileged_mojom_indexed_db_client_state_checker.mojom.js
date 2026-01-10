@@ -102,8 +102,9 @@ storage.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
 
 storage.mojom.IndexedDBClientStateChecker.getRemote = function() {
   let remote = new storage.mojom.IndexedDBClientStateCheckerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.IndexedDBClientStateChecker',
     'context');
   return remote.$;
@@ -150,8 +151,9 @@ storage.mojom.IndexedDBClientKeepActiveRemoteCallHandler = class {
 
 storage.mojom.IndexedDBClientKeepActive.getRemote = function() {
   let remote = new storage.mojom.IndexedDBClientKeepActiveRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.IndexedDBClientKeepActive',
     'context');
   return remote.$;

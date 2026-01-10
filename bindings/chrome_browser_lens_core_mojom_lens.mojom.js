@@ -172,8 +172,9 @@ lens.mojom.LensPageHandlerFactoryRemoteCallHandler = class {
 
 lens.mojom.LensPageHandlerFactory.getRemote = function() {
   let remote = new lens.mojom.LensPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'lens.mojom.LensPageHandlerFactory',
     'context');
   return remote.$;
@@ -681,8 +682,9 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
 
 lens.mojom.LensPageHandler.getRemote = function() {
   let remote = new lens.mojom.LensPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'lens.mojom.LensPageHandler',
     'context');
   return remote.$;
@@ -1029,8 +1031,9 @@ lens.mojom.LensPageRemoteCallHandler = class {
 
 lens.mojom.LensPage.getRemote = function() {
   let remote = new lens.mojom.LensPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'lens.mojom.LensPage',
     'context');
   return remote.$;

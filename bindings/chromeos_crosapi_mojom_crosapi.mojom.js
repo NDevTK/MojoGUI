@@ -417,8 +417,9 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
 
 crosapi.mojom.Crosapi.getRemote = function() {
   let remote = new crosapi.mojom.CrosapiRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.Crosapi',
     'context');
   return remote.$;

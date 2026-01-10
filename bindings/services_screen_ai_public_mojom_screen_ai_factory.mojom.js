@@ -73,8 +73,9 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
 
 screen_ai.mojom.ScreenAIServiceShutdownHandler.getRemote = function() {
   let remote = new screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'screen_ai.mojom.ScreenAIServiceShutdownHandler',
     'context');
   return remote.$;
@@ -185,8 +186,9 @@ screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
 
 screen_ai.mojom.ScreenAIServiceFactory.getRemote = function() {
   let remote = new screen_ai.mojom.ScreenAIServiceFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'screen_ai.mojom.ScreenAIServiceFactory',
     'context');
   return remote.$;

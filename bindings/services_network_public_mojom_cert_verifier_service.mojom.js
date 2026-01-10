@@ -102,8 +102,9 @@ cert_verifier.mojom.URLLoaderFactoryConnectorRemoteCallHandler = class {
 
 cert_verifier.mojom.URLLoaderFactoryConnector.getRemote = function() {
   let remote = new cert_verifier.mojom.URLLoaderFactoryConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cert_verifier.mojom.URLLoaderFactoryConnector',
     'context');
   return remote.$;
@@ -226,8 +227,9 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
 
 cert_verifier.mojom.CertVerifierService.getRemote = function() {
   let remote = new cert_verifier.mojom.CertVerifierServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cert_verifier.mojom.CertVerifierService',
     'context');
   return remote.$;
@@ -289,8 +291,9 @@ cert_verifier.mojom.CertVerifierServiceClientRemoteCallHandler = class {
 
 cert_verifier.mojom.CertVerifierServiceClient.getRemote = function() {
   let remote = new cert_verifier.mojom.CertVerifierServiceClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cert_verifier.mojom.CertVerifierServiceClient',
     'context');
   return remote.$;
@@ -354,8 +357,9 @@ cert_verifier.mojom.CertVerifierRequestRemoteCallHandler = class {
 
 cert_verifier.mojom.CertVerifierRequest.getRemote = function() {
   let remote = new cert_verifier.mojom.CertVerifierRequestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cert_verifier.mojom.CertVerifierRequest',
     'context');
   return remote.$;

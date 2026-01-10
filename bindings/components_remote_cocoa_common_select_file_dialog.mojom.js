@@ -102,8 +102,9 @@ remote_cocoa.mojom.SelectFileDialogRemoteCallHandler = class {
 
 remote_cocoa.mojom.SelectFileDialog.getRemote = function() {
   let remote = new remote_cocoa.mojom.SelectFileDialogRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remote_cocoa.mojom.SelectFileDialog',
     'context');
   return remote.$;

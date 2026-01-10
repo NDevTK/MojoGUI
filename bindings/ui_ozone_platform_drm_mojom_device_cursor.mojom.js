@@ -92,8 +92,9 @@ ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
 
 ui.ozone.mojom.DeviceCursor.getRemote = function() {
   let remote = new ui.ozone.mojom.DeviceCursorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ui.ozone.mojom.DeviceCursor',
     'context');
   return remote.$;

@@ -295,8 +295,9 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
 
 ash.hotspot_config.mojom.CrosHotspotConfig.getRemote = function() {
   let remote = new ash.hotspot_config.mojom.CrosHotspotConfigRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.hotspot_config.mojom.CrosHotspotConfig',
     'context');
   return remote.$;
@@ -358,8 +359,9 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverRemoteCallHandler = class {
 
 ash.hotspot_config.mojom.CrosHotspotConfigObserver.getRemote = function() {
   let remote = new ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.hotspot_config.mojom.CrosHotspotConfigObserver',
     'context');
   return remote.$;
@@ -437,8 +439,9 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverRemoteCallHandler = class {
 
 ash.hotspot_config.mojom.HotspotEnabledStateObserver.getRemote = function() {
   let remote = new ash.hotspot_config.mojom.HotspotEnabledStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.hotspot_config.mojom.HotspotEnabledStateObserver',
     'context');
   return remote.$;

@@ -1255,8 +1255,9 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService',
     'context');
   return remote.$;
@@ -1454,8 +1455,9 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdEventService.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdEventServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.CrosHealthdEventService',
     'context');
   return remote.$;
@@ -1569,8 +1571,9 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdProbeService.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdProbeServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.CrosHealthdProbeService',
     'context');
   return remote.$;

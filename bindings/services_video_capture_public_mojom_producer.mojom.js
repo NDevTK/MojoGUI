@@ -89,8 +89,9 @@ video_capture.mojom.ProducerRemoteCallHandler = class {
 
 video_capture.mojom.Producer.getRemote = function() {
   let remote = new video_capture.mojom.ProducerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'video_capture.mojom.Producer',
     'context');
   return remote.$;

@@ -90,8 +90,9 @@ ash.common.mojom.ShortcutInputObserverRemoteCallHandler = class {
 
 ash.common.mojom.ShortcutInputObserver.getRemote = function() {
   let remote = new ash.common.mojom.ShortcutInputObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.common.mojom.ShortcutInputObserver',
     'context');
   return remote.$;
@@ -169,8 +170,9 @@ ash.common.mojom.ShortcutInputProviderRemoteCallHandler = class {
 
 ash.common.mojom.ShortcutInputProvider.getRemote = function() {
   let remote = new ash.common.mojom.ShortcutInputProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.common.mojom.ShortcutInputProvider',
     'context');
   return remote.$;

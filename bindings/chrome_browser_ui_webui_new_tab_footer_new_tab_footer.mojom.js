@@ -112,8 +112,9 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryRemoteCallHandler = class {
 
 new_tab_footer.mojom.NewTabFooterHandlerFactory.getRemote = function() {
   let remote = new new_tab_footer.mojom.NewTabFooterHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'new_tab_footer.mojom.NewTabFooterHandlerFactory',
     'context');
   return remote.$;
@@ -297,8 +298,9 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
 
 new_tab_footer.mojom.NewTabFooterHandler.getRemote = function() {
   let remote = new new_tab_footer.mojom.NewTabFooterHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'new_tab_footer.mojom.NewTabFooterHandler',
     'context');
   return remote.$;
@@ -410,8 +412,9 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
 
 new_tab_footer.mojom.NewTabFooterDocument.getRemote = function() {
   let remote = new new_tab_footer.mojom.NewTabFooterDocumentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'new_tab_footer.mojom.NewTabFooterDocument',
     'context');
   return remote.$;

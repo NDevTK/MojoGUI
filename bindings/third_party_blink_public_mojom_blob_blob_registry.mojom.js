@@ -76,8 +76,9 @@ blink.mojom.ProgressClientRemoteCallHandler = class {
 
 blink.mojom.ProgressClient.getRemote = function() {
   let remote = new blink.mojom.ProgressClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ProgressClient',
     'context');
   return remote.$;
@@ -175,8 +176,9 @@ blink.mojom.BlobRegistryRemoteCallHandler = class {
 
 blink.mojom.BlobRegistry.getRemote = function() {
   let remote = new blink.mojom.BlobRegistryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BlobRegistry',
     'context');
   return remote.$;

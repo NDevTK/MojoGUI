@@ -70,8 +70,9 @@ device.mojom.PowerMonitorRemoteCallHandler = class {
 
 device.mojom.PowerMonitor.getRemote = function() {
   let remote = new device.mojom.PowerMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.PowerMonitor',
     'context');
   return remote.$;
@@ -164,8 +165,9 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
 
 device.mojom.PowerMonitorClient.getRemote = function() {
   let remote = new device.mojom.PowerMonitorClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.PowerMonitorClient',
     'context');
   return remote.$;

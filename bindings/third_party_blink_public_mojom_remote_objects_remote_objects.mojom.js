@@ -236,8 +236,9 @@ blink.mojom.RemoteObjectHostRemoteCallHandler = class {
 
 blink.mojom.RemoteObjectHost.getRemote = function() {
   let remote = new blink.mojom.RemoteObjectHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RemoteObjectHost',
     'context');
   return remote.$;
@@ -365,8 +366,9 @@ blink.mojom.RemoteObjectRemoteCallHandler = class {
 
 blink.mojom.RemoteObject.getRemote = function() {
   let remote = new blink.mojom.RemoteObjectRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RemoteObject',
     'context');
   return remote.$;
@@ -430,8 +432,9 @@ blink.mojom.RemoteObjectGatewayFactoryRemoteCallHandler = class {
 
 blink.mojom.RemoteObjectGatewayFactory.getRemote = function() {
   let remote = new blink.mojom.RemoteObjectGatewayFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RemoteObjectGatewayFactory',
     'context');
   return remote.$;
@@ -511,8 +514,9 @@ blink.mojom.RemoteObjectGatewayRemoteCallHandler = class {
 
 blink.mojom.RemoteObjectGateway.getRemote = function() {
   let remote = new blink.mojom.RemoteObjectGatewayRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RemoteObjectGateway',
     'context');
   return remote.$;

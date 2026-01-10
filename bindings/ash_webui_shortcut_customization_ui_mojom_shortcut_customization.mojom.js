@@ -172,8 +172,9 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemoteCallHandler = 
 
 ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver.getRemote = function() {
   let remote = new ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver',
     'context');
   return remote.$;
@@ -235,8 +236,9 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserverRemoteCallHandler = class 
 
 ash.shortcut_customization.mojom.PolicyUpdatedObserver.getRemote = function() {
   let remote = new ash.shortcut_customization.mojom.PolicyUpdatedObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shortcut_customization.mojom.PolicyUpdatedObserver',
     'context');
   return remote.$;
@@ -691,8 +693,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.getRemote = function() {
   let remote = new ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shortcut_customization.mojom.AcceleratorConfigurationProvider',
     'context');
   return remote.$;

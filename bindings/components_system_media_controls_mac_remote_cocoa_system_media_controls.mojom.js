@@ -271,8 +271,9 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
 
 system_media_controls.mojom.SystemMediaControls.getRemote = function() {
   let remote = new system_media_controls.mojom.SystemMediaControlsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'system_media_controls.mojom.SystemMediaControls',
     'context');
   return remote.$;
@@ -455,8 +456,9 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
 
 system_media_controls.mojom.SystemMediaControlsObserver.getRemote = function() {
   let remote = new system_media_controls.mojom.SystemMediaControlsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'system_media_controls.mojom.SystemMediaControlsObserver',
     'context');
   return remote.$;

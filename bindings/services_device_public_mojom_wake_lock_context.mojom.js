@@ -69,8 +69,9 @@ device.mojom.WakeLockContextRemoteCallHandler = class {
 
 device.mojom.WakeLockContext.getRemote = function() {
   let remote = new device.mojom.WakeLockContextRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.WakeLockContext',
     'context');
   return remote.$;

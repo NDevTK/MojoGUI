@@ -323,8 +323,9 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
 
 ash.ime.mojom.InputMethodUserDataService.getRemote = function() {
   let remote = new ash.ime.mojom.InputMethodUserDataServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.ime.mojom.InputMethodUserDataService',
     'context');
   return remote.$;

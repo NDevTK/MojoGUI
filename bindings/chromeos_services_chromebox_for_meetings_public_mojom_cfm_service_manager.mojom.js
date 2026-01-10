@@ -70,8 +70,9 @@ chromeos.cfm.mojom.DisconnectReasonRemoteCallHandler = class {
 
 chromeos.cfm.mojom.DisconnectReason.getRemote = function() {
   let remote = new chromeos.cfm.mojom.DisconnectReasonRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cfm.mojom.DisconnectReason',
     'context');
   return remote.$;
@@ -164,8 +165,9 @@ chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler = class {
 
 chromeos.cfm.mojom.CfmServiceContext.getRemote = function() {
   let remote = new chromeos.cfm.mojom.CfmServiceContextRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cfm.mojom.CfmServiceContext',
     'context');
   return remote.$;
@@ -228,8 +230,9 @@ chromeos.cfm.mojom.CfmServiceAdaptorRemoteCallHandler = class {
 
 chromeos.cfm.mojom.CfmServiceAdaptor.getRemote = function() {
   let remote = new chromeos.cfm.mojom.CfmServiceAdaptorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cfm.mojom.CfmServiceAdaptor',
     'context');
   return remote.$;

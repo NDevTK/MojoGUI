@@ -242,8 +242,9 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
 
 arc.mojom.InputConnection.getRemote = function() {
   let remote = new arc.mojom.InputConnectionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.InputConnection',
     'context');
   return remote.$;
@@ -338,8 +339,9 @@ arc.mojom.InputMethodManagerHostRemoteCallHandler = class {
 
 arc.mojom.InputMethodManagerHost.getRemote = function() {
   let remote = new arc.mojom.InputMethodManagerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.InputMethodManagerHost',
     'context');
   return remote.$;
@@ -515,8 +517,9 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
 
 arc.mojom.InputMethodManagerInstance.getRemote = function() {
   let remote = new arc.mojom.InputMethodManagerInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.InputMethodManagerInstance',
     'context');
   return remote.$;

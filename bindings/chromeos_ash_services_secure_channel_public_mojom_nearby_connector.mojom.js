@@ -129,8 +129,9 @@ ash.secure_channel.mojom.NearbyConnectionStateListenerRemoteCallHandler = class 
 
 ash.secure_channel.mojom.NearbyConnectionStateListener.getRemote = function() {
   let remote = new ash.secure_channel.mojom.NearbyConnectionStateListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.secure_channel.mojom.NearbyConnectionStateListener',
     'context');
   return remote.$;
@@ -199,8 +200,9 @@ ash.secure_channel.mojom.NearbyMessageSenderRemoteCallHandler = class {
 
 ash.secure_channel.mojom.NearbyMessageSender.getRemote = function() {
   let remote = new ash.secure_channel.mojom.NearbyMessageSenderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.secure_channel.mojom.NearbyMessageSender',
     'context');
   return remote.$;
@@ -263,8 +265,9 @@ ash.secure_channel.mojom.NearbyMessageReceiverRemoteCallHandler = class {
 
 ash.secure_channel.mojom.NearbyMessageReceiver.getRemote = function() {
   let remote = new ash.secure_channel.mojom.NearbyMessageReceiverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.secure_channel.mojom.NearbyMessageReceiver',
     'context');
   return remote.$;
@@ -335,8 +338,9 @@ ash.secure_channel.mojom.NearbyFilePayloadHandlerRemoteCallHandler = class {
 
 ash.secure_channel.mojom.NearbyFilePayloadHandler.getRemote = function() {
   let remote = new ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.secure_channel.mojom.NearbyFilePayloadHandler',
     'context');
   return remote.$;
@@ -409,8 +413,9 @@ ash.secure_channel.mojom.NearbyConnectorRemoteCallHandler = class {
 
 ash.secure_channel.mojom.NearbyConnector.getRemote = function() {
   let remote = new ash.secure_channel.mojom.NearbyConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.secure_channel.mojom.NearbyConnector',
     'context');
   return remote.$;

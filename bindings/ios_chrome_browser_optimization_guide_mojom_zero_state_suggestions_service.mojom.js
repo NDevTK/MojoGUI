@@ -87,8 +87,9 @@ ai.mojom.ZeroStateSuggestionsServiceRemoteCallHandler = class {
 
 ai.mojom.ZeroStateSuggestionsService.getRemote = function() {
   let remote = new ai.mojom.ZeroStateSuggestionsServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ai.mojom.ZeroStateSuggestionsService',
     'context');
   return remote.$;

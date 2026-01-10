@@ -145,8 +145,9 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
 
 data_decoder.mojom.Gzipper.getRemote = function() {
   let remote = new data_decoder.mojom.GzipperRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'data_decoder.mojom.Gzipper',
     'context');
   return remote.$;

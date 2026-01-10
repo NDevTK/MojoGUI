@@ -64,8 +64,9 @@ blink.mojom.CloseListenerRemoteCallHandler = class {
 
 blink.mojom.CloseListener.getRemote = function() {
   let remote = new blink.mojom.CloseListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.CloseListener',
     'context');
   return remote.$;

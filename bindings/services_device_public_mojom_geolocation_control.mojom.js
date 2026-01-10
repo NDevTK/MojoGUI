@@ -64,8 +64,9 @@ device.mojom.GeolocationControlRemoteCallHandler = class {
 
 device.mojom.GeolocationControl.getRemote = function() {
   let remote = new device.mojom.GeolocationControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.GeolocationControl',
     'context');
   return remote.$;

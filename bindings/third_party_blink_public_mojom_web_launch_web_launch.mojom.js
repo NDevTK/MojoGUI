@@ -86,8 +86,9 @@ blink.mojom.WebLaunchServiceRemoteCallHandler = class {
 
 blink.mojom.WebLaunchService.getRemote = function() {
   let remote = new blink.mojom.WebLaunchServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebLaunchService',
     'context');
   return remote.$;

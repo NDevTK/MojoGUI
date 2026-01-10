@@ -92,8 +92,9 @@ glic.mojom.FrePageHandlerFactoryRemoteCallHandler = class {
 
 glic.mojom.FrePageHandlerFactory.getRemote = function() {
   let remote = new glic.mojom.FrePageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.FrePageHandlerFactory',
     'context');
   return remote.$;
@@ -284,8 +285,9 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
 
 glic.mojom.FrePageHandler.getRemote = function() {
   let remote = new glic.mojom.FrePageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.FrePageHandler',
     'context');
   return remote.$;

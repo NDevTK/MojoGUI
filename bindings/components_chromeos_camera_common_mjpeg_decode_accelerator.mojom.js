@@ -172,8 +172,9 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHandler = class {
 
 chromeos_camera.mojom.MjpegDecodeAccelerator.getRemote = function() {
   let remote = new chromeos_camera.mojom.MjpegDecodeAcceleratorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos_camera.mojom.MjpegDecodeAccelerator',
     'context');
   return remote.$;

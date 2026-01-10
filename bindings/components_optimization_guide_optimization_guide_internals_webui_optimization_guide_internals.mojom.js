@@ -166,8 +166,9 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 optimization_guide_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new optimization_guide_internals.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'optimization_guide_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -234,8 +235,9 @@ optimization_guide_internals.mojom.PageRemoteCallHandler = class {
 
 optimization_guide_internals.mojom.Page.getRemote = function() {
   let remote = new optimization_guide_internals.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'optimization_guide_internals.mojom.Page',
     'context');
   return remote.$;

@@ -345,8 +345,9 @@ network.mojom.UDPSocketRemoteCallHandler = class {
 
 network.mojom.UDPSocket.getRemote = function() {
   let remote = new network.mojom.UDPSocketRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.UDPSocket',
     'context');
   return remote.$;
@@ -411,8 +412,9 @@ network.mojom.UDPSocketListenerRemoteCallHandler = class {
 
 network.mojom.UDPSocketListener.getRemote = function() {
   let remote = new network.mojom.UDPSocketListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.UDPSocketListener',
     'context');
   return remote.$;

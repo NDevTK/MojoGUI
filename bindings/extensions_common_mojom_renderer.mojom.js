@@ -504,8 +504,9 @@ extensions.mojom.RendererRemoteCallHandler = class {
 
 extensions.mojom.Renderer.getRemote = function() {
   let remote = new extensions.mojom.RendererRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mojom.Renderer',
     'context');
   return remote.$;

@@ -107,8 +107,9 @@ sharing.mojom.IncomingMessagesListenerRemoteCallHandler = class {
 
 sharing.mojom.IncomingMessagesListener.getRemote = function() {
   let remote = new sharing.mojom.IncomingMessagesListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sharing.mojom.IncomingMessagesListener',
     'context');
   return remote.$;
@@ -170,8 +171,9 @@ sharing.mojom.ReceiveMessagesSessionRemoteCallHandler = class {
 
 sharing.mojom.ReceiveMessagesSession.getRemote = function() {
   let remote = new sharing.mojom.ReceiveMessagesSessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sharing.mojom.ReceiveMessagesSession',
     'context');
   return remote.$;
@@ -268,8 +270,9 @@ sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
 
 sharing.mojom.WebRtcSignalingMessenger.getRemote = function() {
   let remote = new sharing.mojom.WebRtcSignalingMessengerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sharing.mojom.WebRtcSignalingMessenger',
     'context');
   return remote.$;

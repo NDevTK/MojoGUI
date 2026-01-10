@@ -100,8 +100,9 @@ arc.mojom.CompatibilityModeInstanceRemoteCallHandler = class {
 
 arc.mojom.CompatibilityModeInstance.getRemote = function() {
   let remote = new arc.mojom.CompatibilityModeInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.CompatibilityModeInstance',
     'context');
   return remote.$;

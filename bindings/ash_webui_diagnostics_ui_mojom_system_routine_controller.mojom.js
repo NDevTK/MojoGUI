@@ -141,8 +141,9 @@ ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
 
 ash.diagnostics.mojom.RoutineRunner.getRemote = function() {
   let remote = new ash.diagnostics.mojom.RoutineRunnerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.RoutineRunner',
     'context');
   return remote.$;
@@ -227,8 +228,9 @@ ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
 
 ash.diagnostics.mojom.SystemRoutineController.getRemote = function() {
   let remote = new ash.diagnostics.mojom.SystemRoutineControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.SystemRoutineController',
     'context');
   return remote.$;

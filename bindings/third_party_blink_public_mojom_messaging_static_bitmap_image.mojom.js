@@ -94,8 +94,9 @@ blink.mojom.ImageReleaseCallbackRemoteCallHandler = class {
 
 blink.mojom.ImageReleaseCallback.getRemote = function() {
   let remote = new blink.mojom.ImageReleaseCallbackRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ImageReleaseCallback',
     'context');
   return remote.$;

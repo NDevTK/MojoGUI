@@ -114,8 +114,9 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemoteCallHandler = class
 
 theme_color_picker.mojom.ThemeColorPickerHandlerFactory.getRemote = function() {
   let remote = new theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'theme_color_picker.mojom.ThemeColorPickerHandlerFactory',
     'context');
   return remote.$;
@@ -277,8 +278,9 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
 
 theme_color_picker.mojom.ThemeColorPickerHandler.getRemote = function() {
   let remote = new theme_color_picker.mojom.ThemeColorPickerHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'theme_color_picker.mojom.ThemeColorPickerHandler',
     'context');
   return remote.$;
@@ -341,8 +343,9 @@ theme_color_picker.mojom.ThemeColorPickerClientRemoteCallHandler = class {
 
 theme_color_picker.mojom.ThemeColorPickerClient.getRemote = function() {
   let remote = new theme_color_picker.mojom.ThemeColorPickerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'theme_color_picker.mojom.ThemeColorPickerClient',
     'context');
   return remote.$;

@@ -254,8 +254,9 @@ auction_worklet.mojom.GenerateBidClientRemoteCallHandler = class {
 
 auction_worklet.mojom.GenerateBidClient.getRemote = function() {
   let remote = new auction_worklet.mojom.GenerateBidClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'auction_worklet.mojom.GenerateBidClient',
     'context');
   return remote.$;
@@ -325,8 +326,9 @@ auction_worklet.mojom.GenerateBidFinalizerRemoteCallHandler = class {
 
 auction_worklet.mojom.GenerateBidFinalizer.getRemote = function() {
   let remote = new auction_worklet.mojom.GenerateBidFinalizerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'auction_worklet.mojom.GenerateBidFinalizer',
     'context');
   return remote.$;
@@ -497,8 +499,9 @@ auction_worklet.mojom.BidderWorkletRemoteCallHandler = class {
 
 auction_worklet.mojom.BidderWorklet.getRemote = function() {
   let remote = new auction_worklet.mojom.BidderWorkletRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'auction_worklet.mojom.BidderWorklet',
     'context');
   return remote.$;

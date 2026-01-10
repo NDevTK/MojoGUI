@@ -223,8 +223,9 @@ network.mojom.ResolveHostHandleRemoteCallHandler = class {
 
 network.mojom.ResolveHostHandle.getRemote = function() {
   let remote = new network.mojom.ResolveHostHandleRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.ResolveHostHandle',
     'context');
   return remote.$;
@@ -322,8 +323,9 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
 
 network.mojom.ResolveHostClient.getRemote = function() {
   let remote = new network.mojom.ResolveHostClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.ResolveHostClient',
     'context');
   return remote.$;
@@ -441,8 +443,9 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
 
 network.mojom.MdnsListenClient.getRemote = function() {
   let remote = new network.mojom.MdnsListenClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.MdnsListenClient',
     'context');
   return remote.$;
@@ -532,8 +535,9 @@ network.mojom.HostResolverRemoteCallHandler = class {
 
 network.mojom.HostResolver.getRemote = function() {
   let remote = new network.mojom.HostResolverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.HostResolver',
     'context');
   return remote.$;
@@ -595,8 +599,9 @@ network.mojom.DnsConfigChangeManagerClientRemoteCallHandler = class {
 
 network.mojom.DnsConfigChangeManagerClient.getRemote = function() {
   let remote = new network.mojom.DnsConfigChangeManagerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.DnsConfigChangeManagerClient',
     'context');
   return remote.$;
@@ -659,8 +664,9 @@ network.mojom.DnsConfigChangeManagerRemoteCallHandler = class {
 
 network.mojom.DnsConfigChangeManager.getRemote = function() {
   let remote = new network.mojom.DnsConfigChangeManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.DnsConfigChangeManager',
     'context');
   return remote.$;

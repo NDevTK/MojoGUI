@@ -90,8 +90,9 @@ network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
 
 network.mojom.P2PTrustedSocketManagerClient.getRemote = function() {
   let remote = new network.mojom.P2PTrustedSocketManagerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.P2PTrustedSocketManagerClient',
     'context');
   return remote.$;
@@ -202,8 +203,9 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
 
 network.mojom.P2PTrustedSocketManager.getRemote = function() {
   let remote = new network.mojom.P2PTrustedSocketManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.P2PTrustedSocketManager',
     'context');
   return remote.$;

@@ -92,8 +92,9 @@ chromeos.machine_learning.mojom.GraphExecutorRemoteCallHandler = class {
 
 chromeos.machine_learning.mojom.GraphExecutor.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.GraphExecutorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.machine_learning.mojom.GraphExecutor',
     'context');
   return remote.$;

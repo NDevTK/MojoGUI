@@ -291,8 +291,9 @@ nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
 
 nearby_share.mojom.NearbyShareSettingsObserver.getRemote = function() {
   let remote = new nearby_share.mojom.NearbyShareSettingsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby_share.mojom.NearbyShareSettingsObserver',
     'context');
   return remote.$;
@@ -663,8 +664,9 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
 
 nearby_share.mojom.NearbyShareSettings.getRemote = function() {
   let remote = new nearby_share.mojom.NearbyShareSettingsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby_share.mojom.NearbyShareSettings',
     'context');
   return remote.$;
@@ -744,8 +746,9 @@ nearby_share.mojom.DownloadContactsObserverRemoteCallHandler = class {
 
 nearby_share.mojom.DownloadContactsObserver.getRemote = function() {
   let remote = new nearby_share.mojom.DownloadContactsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby_share.mojom.DownloadContactsObserver',
     'context');
   return remote.$;
@@ -839,8 +842,9 @@ nearby_share.mojom.ContactManagerRemoteCallHandler = class {
 
 nearby_share.mojom.ContactManager.getRemote = function() {
   let remote = new nearby_share.mojom.ContactManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby_share.mojom.ContactManager',
     'context');
   return remote.$;

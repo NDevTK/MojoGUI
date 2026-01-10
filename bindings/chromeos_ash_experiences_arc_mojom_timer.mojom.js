@@ -148,8 +148,9 @@ arc.mojom.TimerHostRemoteCallHandler = class {
 
 arc.mojom.TimerHost.getRemote = function() {
   let remote = new arc.mojom.TimerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.TimerHost',
     'context');
   return remote.$;
@@ -217,8 +218,9 @@ arc.mojom.TimerInstanceRemoteCallHandler = class {
 
 arc.mojom.TimerInstance.getRemote = function() {
   let remote = new arc.mojom.TimerInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.TimerInstance',
     'context');
   return remote.$;

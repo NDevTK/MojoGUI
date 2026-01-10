@@ -118,8 +118,9 @@ media.mojom.KeySystemSupportObserverRemoteCallHandler = class {
 
 media.mojom.KeySystemSupportObserver.getRemote = function() {
   let remote = new media.mojom.KeySystemSupportObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.KeySystemSupportObserver',
     'context');
   return remote.$;
@@ -182,8 +183,9 @@ media.mojom.KeySystemSupportRemoteCallHandler = class {
 
 media.mojom.KeySystemSupport.getRemote = function() {
   let remote = new media.mojom.KeySystemSupportRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.KeySystemSupport',
     'context');
   return remote.$;

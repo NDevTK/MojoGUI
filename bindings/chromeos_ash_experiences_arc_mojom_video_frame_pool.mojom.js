@@ -110,8 +110,9 @@ arc.mojom.VideoFramePoolRemoteCallHandler = class {
 
 arc.mojom.VideoFramePool.getRemote = function() {
   let remote = new arc.mojom.VideoFramePoolRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VideoFramePool',
     'context');
   return remote.$;
@@ -182,8 +183,9 @@ arc.mojom.VideoFramePoolClientRemoteCallHandler = class {
 
 arc.mojom.VideoFramePoolClient.getRemote = function() {
   let remote = new arc.mojom.VideoFramePoolClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VideoFramePoolClient',
     'context');
   return remote.$;

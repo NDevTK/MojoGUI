@@ -121,8 +121,9 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
 
 data_decoder.mojom.StructuredHeadersParser.getRemote = function() {
   let remote = new data_decoder.mojom.StructuredHeadersParserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'data_decoder.mojom.StructuredHeadersParser',
     'context');
   return remote.$;

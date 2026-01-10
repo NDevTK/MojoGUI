@@ -284,8 +284,9 @@ device.mojom.NFCRemoteCallHandler = class {
 
 device.mojom.NFC.getRemote = function() {
   let remote = new device.mojom.NFCRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.NFC',
     'context');
   return remote.$;
@@ -366,8 +367,9 @@ device.mojom.NFCClientRemoteCallHandler = class {
 
 device.mojom.NFCClient.getRemote = function() {
   let remote = new device.mojom.NFCClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.NFCClient',
     'context');
   return remote.$;
@@ -447,8 +449,9 @@ device.mojom.RawNFCClientRemoteCallHandler = class {
 
 device.mojom.RawNFCClient.getRemote = function() {
   let remote = new device.mojom.RawNFCClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.RawNFCClient',
     'context');
   return remote.$;

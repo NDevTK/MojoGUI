@@ -229,8 +229,9 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
 
 device.mojom.UsbDeviceManager.getRemote = function() {
   let remote = new device.mojom.UsbDeviceManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.UsbDeviceManager',
     'context');
   return remote.$;

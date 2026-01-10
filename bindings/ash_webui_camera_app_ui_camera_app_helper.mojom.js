@@ -281,8 +281,9 @@ ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.TabletModeMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.TabletModeMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.TabletModeMonitor',
     'context');
   return remote.$;
@@ -345,8 +346,9 @@ ash.camera_app.mojom.ScreenStateMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.ScreenStateMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.ScreenStateMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.ScreenStateMonitor',
     'context');
   return remote.$;
@@ -409,8 +411,9 @@ ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.ScreenLockedMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.ScreenLockedMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.ScreenLockedMonitor',
     'context');
   return remote.$;
@@ -473,8 +476,9 @@ ash.camera_app.mojom.ExternalScreenMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.ExternalScreenMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.ExternalScreenMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.ExternalScreenMonitor',
     'context');
   return remote.$;
@@ -542,8 +546,9 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.CameraUsageOwnershipMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.CameraUsageOwnershipMonitor',
     'context');
   return remote.$;
@@ -606,8 +611,9 @@ ash.camera_app.mojom.LidStateMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.LidStateMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.LidStateMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.LidStateMonitor',
     'context');
   return remote.$;
@@ -670,8 +676,9 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.SWPrivacySwitchMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.SWPrivacySwitchMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.SWPrivacySwitchMonitor',
     'context');
   return remote.$;
@@ -750,8 +757,9 @@ ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.WindowStateMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.WindowStateMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.WindowStateMonitor',
     'context');
   return remote.$;
@@ -814,8 +822,9 @@ ash.camera_app.mojom.StorageMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.StorageMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.StorageMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.StorageMonitor',
     'context');
   return remote.$;
@@ -1005,8 +1014,9 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
 
 ash.camera_app.mojom.WindowStateController.getRemote = function() {
   let remote = new ash.camera_app.mojom.WindowStateControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.WindowStateController',
     'context');
   return remote.$;
@@ -1692,8 +1702,9 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
 
 ash.camera_app.mojom.CameraAppHelper.getRemote = function() {
   let remote = new ash.camera_app.mojom.CameraAppHelperRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.CameraAppHelper',
     'context');
   return remote.$;

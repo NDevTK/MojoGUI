@@ -73,8 +73,9 @@ ash.vm.mojom.VmDiagnosticsProviderRemoteCallHandler = class {
 
 ash.vm.mojom.VmDiagnosticsProvider.getRemote = function() {
   let remote = new ash.vm.mojom.VmDiagnosticsProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.vm.mojom.VmDiagnosticsProvider',
     'context');
   return remote.$;

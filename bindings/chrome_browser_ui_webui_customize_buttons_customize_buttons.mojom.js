@@ -82,8 +82,9 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemoteCallHandler = class 
 
 customize_buttons.mojom.CustomizeButtonsHandlerFactory.getRemote = function() {
   let remote = new customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'customize_buttons.mojom.CustomizeButtonsHandlerFactory',
     'context');
   return remote.$;
@@ -178,8 +179,9 @@ customize_buttons.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
 
 customize_buttons.mojom.CustomizeButtonsHandler.getRemote = function() {
   let remote = new customize_buttons.mojom.CustomizeButtonsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'customize_buttons.mojom.CustomizeButtonsHandler',
     'context');
   return remote.$;
@@ -242,8 +244,9 @@ customize_buttons.mojom.CustomizeButtonsDocumentRemoteCallHandler = class {
 
 customize_buttons.mojom.CustomizeButtonsDocument.getRemote = function() {
   let remote = new customize_buttons.mojom.CustomizeButtonsDocumentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'customize_buttons.mojom.CustomizeButtonsDocument',
     'context');
   return remote.$;

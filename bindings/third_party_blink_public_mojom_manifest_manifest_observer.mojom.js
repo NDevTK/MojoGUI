@@ -66,8 +66,9 @@ blink.mojom.ManifestUrlChangeObserverRemoteCallHandler = class {
 
 blink.mojom.ManifestUrlChangeObserver.getRemote = function() {
   let remote = new blink.mojom.ManifestUrlChangeObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ManifestUrlChangeObserver',
     'context');
   return remote.$;

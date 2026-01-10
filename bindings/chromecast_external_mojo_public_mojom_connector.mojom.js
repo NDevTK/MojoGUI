@@ -94,8 +94,9 @@ chromecast.external_mojo.mojom.ExternalServiceRemoteCallHandler = class {
 
 chromecast.external_mojo.mojom.ExternalService.getRemote = function() {
   let remote = new chromecast.external_mojo.mojom.ExternalServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.external_mojo.mojom.ExternalService',
     'context');
   return remote.$;
@@ -229,8 +230,9 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
 
 chromecast.external_mojo.mojom.ExternalConnector.getRemote = function() {
   let remote = new chromecast.external_mojo.mojom.ExternalConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.external_mojo.mojom.ExternalConnector',
     'context');
   return remote.$;

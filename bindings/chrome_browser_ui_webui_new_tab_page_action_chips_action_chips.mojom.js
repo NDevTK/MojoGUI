@@ -102,8 +102,9 @@ action_chips.mojom.ActionChipsHandlerRemoteCallHandler = class {
 
 action_chips.mojom.ActionChipsHandler.getRemote = function() {
   let remote = new action_chips.mojom.ActionChipsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'action_chips.mojom.ActionChipsHandler',
     'context');
   return remote.$;
@@ -166,8 +167,9 @@ action_chips.mojom.PageRemoteCallHandler = class {
 
 action_chips.mojom.Page.getRemote = function() {
   let remote = new action_chips.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'action_chips.mojom.Page',
     'context');
   return remote.$;
@@ -231,8 +233,9 @@ action_chips.mojom.ActionChipsHandlerFactoryRemoteCallHandler = class {
 
 action_chips.mojom.ActionChipsHandlerFactory.getRemote = function() {
   let remote = new action_chips.mojom.ActionChipsHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'action_chips.mojom.ActionChipsHandlerFactory',
     'context');
   return remote.$;

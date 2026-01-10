@@ -81,8 +81,9 @@ arc.mojom.SystemStateHostRemoteCallHandler = class {
 
 arc.mojom.SystemStateHost.getRemote = function() {
   let remote = new arc.mojom.SystemStateHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.SystemStateHost',
     'context');
   return remote.$;
@@ -150,8 +151,9 @@ arc.mojom.SystemStateInstanceRemoteCallHandler = class {
 
 arc.mojom.SystemStateInstance.getRemote = function() {
   let remote = new arc.mojom.SystemStateInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.SystemStateInstance',
     'context');
   return remote.$;

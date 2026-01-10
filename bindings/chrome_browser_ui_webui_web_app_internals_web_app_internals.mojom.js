@@ -518,8 +518,9 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
 
 mojom.WebAppInternalsHandler.getRemote = function() {
   let remote = new mojom.WebAppInternalsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojom.WebAppInternalsHandler',
     'context');
   return remote.$;

@@ -112,8 +112,9 @@ network.mojom.URLLoaderRemoteCallHandler = class {
 
 network.mojom.URLLoader.getRemote = function() {
   let remote = new network.mojom.URLLoaderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.URLLoader',
     'context');
   return remote.$;
@@ -265,8 +266,9 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
 
 network.mojom.URLLoaderClient.getRemote = function() {
   let remote = new network.mojom.URLLoaderClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.URLLoaderClient',
     'context');
   return remote.$;

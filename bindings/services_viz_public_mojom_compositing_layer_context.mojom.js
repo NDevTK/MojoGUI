@@ -209,8 +209,9 @@ viz.mojom.LayerContextRemoteCallHandler = class {
 
 viz.mojom.LayerContext.getRemote = function() {
   let remote = new viz.mojom.LayerContextRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.LayerContext',
     'context');
   return remote.$;
@@ -290,8 +291,9 @@ viz.mojom.LayerContextClientRemoteCallHandler = class {
 
 viz.mojom.LayerContextClient.getRemote = function() {
   let remote = new viz.mojom.LayerContextClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.LayerContextClient',
     'context');
   return remote.$;

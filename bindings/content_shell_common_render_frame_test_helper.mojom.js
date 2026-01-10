@@ -73,8 +73,9 @@ content.mojom.RenderFrameTestHelperRemoteCallHandler = class {
 
 content.mojom.RenderFrameTestHelper.getRemote = function() {
   let remote = new content.mojom.RenderFrameTestHelperRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.RenderFrameTestHelper',
     'context');
   return remote.$;

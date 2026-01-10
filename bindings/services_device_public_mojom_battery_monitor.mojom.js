@@ -72,8 +72,9 @@ device.mojom.BatteryMonitorRemoteCallHandler = class {
 
 device.mojom.BatteryMonitor.getRemote = function() {
   let remote = new device.mojom.BatteryMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.BatteryMonitor',
     'context');
   return remote.$;

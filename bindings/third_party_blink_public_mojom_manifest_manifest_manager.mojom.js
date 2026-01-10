@@ -151,8 +151,9 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
 
 blink.mojom.ManifestManager.getRemote = function() {
   let remote = new blink.mojom.ManifestManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ManifestManager',
     'context');
   return remote.$;

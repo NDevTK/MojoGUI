@@ -299,8 +299,9 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
 
 extensions.mojom.LocalFrame.getRemote = function() {
   let remote = new extensions.mojom.LocalFrameRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mojom.LocalFrame',
     'context');
   return remote.$;
@@ -594,8 +595,9 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
 
 extensions.mojom.LocalFrameHost.getRemote = function() {
   let remote = new extensions.mojom.LocalFrameHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mojom.LocalFrameHost',
     'context');
   return remote.$;

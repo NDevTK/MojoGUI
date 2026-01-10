@@ -166,8 +166,9 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
 
 blink.mojom.CodeCacheHost.getRemote = function() {
   let remote = new blink.mojom.CodeCacheHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.CodeCacheHost',
     'context');
   return remote.$;

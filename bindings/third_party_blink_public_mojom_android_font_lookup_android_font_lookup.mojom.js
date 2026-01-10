@@ -118,8 +118,9 @@ blink.mojom.AndroidFontLookupRemoteCallHandler = class {
 
 blink.mojom.AndroidFontLookup.getRemote = function() {
   let remote = new blink.mojom.AndroidFontLookupRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AndroidFontLookup',
     'context');
   return remote.$;

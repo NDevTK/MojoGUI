@@ -81,8 +81,9 @@ audio.mojom.MlModelManagerRemoteCallHandler = class {
 
 audio.mojom.MlModelManager.getRemote = function() {
   let remote = new audio.mojom.MlModelManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'audio.mojom.MlModelManager',
     'context');
   return remote.$;

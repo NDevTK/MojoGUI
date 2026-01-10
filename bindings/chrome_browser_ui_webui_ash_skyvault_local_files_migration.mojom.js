@@ -100,8 +100,9 @@ policy.local_user_files.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 policy.local_user_files.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new policy.local_user_files.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'policy.local_user_files.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -201,8 +202,9 @@ policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
 
 policy.local_user_files.mojom.PageHandler.getRemote = function() {
   let remote = new policy.local_user_files.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'policy.local_user_files.mojom.PageHandler',
     'context');
   return remote.$;
@@ -265,8 +267,9 @@ policy.local_user_files.mojom.PageRemoteCallHandler = class {
 
 policy.local_user_files.mojom.Page.getRemote = function() {
   let remote = new policy.local_user_files.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'policy.local_user_files.mojom.Page',
     'context');
   return remote.$;

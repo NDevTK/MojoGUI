@@ -153,8 +153,9 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemoteCallHandler 
 
 certificate_manager.mojom.CertificateManagerPageHandlerFactory.getRemote = function() {
   let remote = new certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'certificate_manager.mojom.CertificateManagerPageHandlerFactory',
     'context');
   return remote.$;
@@ -376,8 +377,9 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
 
 certificate_manager.mojom.CertificateManagerPageHandler.getRemote = function() {
   let remote = new certificate_manager.mojom.CertificateManagerPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'certificate_manager.mojom.CertificateManagerPageHandler',
     'context');
   return remote.$;
@@ -499,8 +501,9 @@ certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
 
 certificate_manager.mojom.CertificateManagerPage.getRemote = function() {
   let remote = new certificate_manager.mojom.CertificateManagerPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'certificate_manager.mojom.CertificateManagerPage',
     'context');
   return remote.$;

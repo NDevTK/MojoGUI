@@ -120,8 +120,9 @@ suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 suggest_internals.mojom.PageHandler.getRemote = function() {
   let remote = new suggest_internals.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'suggest_internals.mojom.PageHandler',
     'context');
   return remote.$;
@@ -216,8 +217,9 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
 
 suggest_internals.mojom.Page.getRemote = function() {
   let remote = new suggest_internals.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'suggest_internals.mojom.Page',
     'context');
   return remote.$;

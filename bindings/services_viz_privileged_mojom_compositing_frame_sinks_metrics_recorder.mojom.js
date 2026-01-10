@@ -160,8 +160,9 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
 
 viz.mojom.FrameSinksMetricsRecorder.getRemote = function() {
   let remote = new viz.mojom.FrameSinksMetricsRecorderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.FrameSinksMetricsRecorder',
     'context');
   return remote.$;

@@ -153,8 +153,9 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
 
 payments.mojom.PaymentHandlerHost.getRemote = function() {
   let remote = new payments.mojom.PaymentHandlerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'payments.mojom.PaymentHandlerHost',
     'context');
   return remote.$;

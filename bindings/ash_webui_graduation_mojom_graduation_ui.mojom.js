@@ -152,8 +152,9 @@ ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {
 
 ash.graduation_ui.mojom.GraduationUiHandler.getRemote = function() {
   let remote = new ash.graduation_ui.mojom.GraduationUiHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.graduation_ui.mojom.GraduationUiHandler',
     'context');
   return remote.$;

@@ -121,8 +121,9 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
 
 content_capture.mojom.ContentCaptureReceiver.getRemote = function() {
   let remote = new content_capture.mojom.ContentCaptureReceiverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content_capture.mojom.ContentCaptureReceiver',
     'context');
   return remote.$;
@@ -199,8 +200,9 @@ content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
 
 content_capture.mojom.ContentCaptureSender.getRemote = function() {
   let remote = new content_capture.mojom.ContentCaptureSenderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content_capture.mojom.ContentCaptureSender',
     'context');
   return remote.$;

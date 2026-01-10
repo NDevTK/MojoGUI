@@ -601,8 +601,9 @@ ax.android.mojom.AccessibilityHelperHostRemoteCallHandler = class {
 
 ax.android.mojom.AccessibilityHelperHost.getRemote = function() {
   let remote = new ax.android.mojom.AccessibilityHelperHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.android.mojom.AccessibilityHelperHost',
     'context');
   return remote.$;
@@ -784,8 +785,9 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
 
 ax.android.mojom.AccessibilityHelperInstance.getRemote = function() {
   let remote = new ax.android.mojom.AccessibilityHelperInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.android.mojom.AccessibilityHelperInstance',
     'context');
   return remote.$;

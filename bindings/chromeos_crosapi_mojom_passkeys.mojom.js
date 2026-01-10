@@ -199,8 +199,9 @@ crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = class {
 
 crosapi.mojom.PasskeyAuthenticator.getRemote = function() {
   let remote = new crosapi.mojom.PasskeyAuthenticatorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.PasskeyAuthenticator',
     'context');
   return remote.$;

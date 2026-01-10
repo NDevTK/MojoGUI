@@ -101,8 +101,9 @@ history_sync_optin.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 history_sync_optin.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new history_sync_optin.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'history_sync_optin.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -210,8 +211,9 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
 
 history_sync_optin.mojom.PageHandler.getRemote = function() {
   let remote = new history_sync_optin.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'history_sync_optin.mojom.PageHandler',
     'context');
   return remote.$;
@@ -290,8 +292,9 @@ history_sync_optin.mojom.PageRemoteCallHandler = class {
 
 history_sync_optin.mojom.Page.getRemote = function() {
   let remote = new history_sync_optin.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'history_sync_optin.mojom.Page',
     'context');
   return remote.$;

@@ -439,8 +439,9 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
 
 chromeos.cdm.mojom.ContentDecryptionModule.getRemote = function() {
   let remote = new chromeos.cdm.mojom.ContentDecryptionModuleRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cdm.mojom.ContentDecryptionModule',
     'context');
   return remote.$;
@@ -556,8 +557,9 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
 
 chromeos.cdm.mojom.ContentDecryptionModuleClient.getRemote = function() {
   let remote = new chromeos.cdm.mojom.ContentDecryptionModuleClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cdm.mojom.ContentDecryptionModuleClient',
     'context');
   return remote.$;

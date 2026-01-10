@@ -66,8 +66,9 @@ blink.mojom.ServiceWorkerRunningStatusCallbackRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerRunningStatusCallback.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerRunningStatusCallbackRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ServiceWorkerRunningStatusCallback',
     'context');
   return remote.$;

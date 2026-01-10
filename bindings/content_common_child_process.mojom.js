@@ -116,8 +116,9 @@ content.mojom.ChildProcessHostRemoteCallHandler = class {
 
 content.mojom.ChildProcessHost.getRemote = function() {
   let remote = new content.mojom.ChildProcessHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.ChildProcessHost',
     'context');
   return remote.$;
@@ -395,8 +396,9 @@ content.mojom.ChildProcessRemoteCallHandler = class {
 
 content.mojom.ChildProcess.getRemote = function() {
   let remote = new content.mojom.ChildProcessRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.ChildProcess',
     'context');
   return remote.$;

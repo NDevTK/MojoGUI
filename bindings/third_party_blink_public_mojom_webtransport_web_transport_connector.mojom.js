@@ -70,8 +70,9 @@ blink.mojom.WebTransportConnectorRemoteCallHandler = class {
 
 blink.mojom.WebTransportConnector.getRemote = function() {
   let remote = new blink.mojom.WebTransportConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebTransportConnector',
     'context');
   return remote.$;

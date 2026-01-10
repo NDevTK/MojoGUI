@@ -484,8 +484,9 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
 
 media_router.mojom.MediaRouteProvider.getRemote = function() {
   let remote = new media_router.mojom.MediaRouteProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_router.mojom.MediaRouteProvider',
     'context');
   return remote.$;
@@ -743,8 +744,9 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
 
 media_router.mojom.MediaRouter.getRemote = function() {
   let remote = new media_router.mojom.MediaRouterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_router.mojom.MediaRouter',
     'context');
   return remote.$;

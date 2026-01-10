@@ -236,8 +236,9 @@ content.mojom.NavigationClientRemoteCallHandler = class {
 
 content.mojom.NavigationClient.getRemote = function() {
   let remote = new content.mojom.NavigationClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.NavigationClient',
     'context');
   return remote.$;

@@ -202,8 +202,9 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
 
 content.mojom.SandboxSupport.getRemote = function() {
   let remote = new content.mojom.SandboxSupportRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.SandboxSupport',
     'context');
   return remote.$;

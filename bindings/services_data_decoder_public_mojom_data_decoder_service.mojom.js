@@ -174,8 +174,9 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
 
 data_decoder.mojom.DataDecoderService.getRemote = function() {
   let remote = new data_decoder.mojom.DataDecoderServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'data_decoder.mojom.DataDecoderService',
     'context');
   return remote.$;

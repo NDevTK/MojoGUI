@@ -121,8 +121,9 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
 
 mirroring.mojom.MirroringService.getRemote = function() {
   let remote = new mirroring.mojom.MirroringServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mirroring.mojom.MirroringService',
     'context');
   return remote.$;

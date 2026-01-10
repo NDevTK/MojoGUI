@@ -472,8 +472,9 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
 
 media.mojom.MediaMetricsProvider.getRemote = function() {
   let remote = new media.mojom.MediaMetricsProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaMetricsProvider',
     'context');
   return remote.$;

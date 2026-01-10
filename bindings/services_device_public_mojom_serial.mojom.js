@@ -277,8 +277,9 @@ device.mojom.SerialPortManagerRemoteCallHandler = class {
 
 device.mojom.SerialPortManager.getRemote = function() {
   let remote = new device.mojom.SerialPortManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.SerialPortManager',
     'context');
   return remote.$;
@@ -373,8 +374,9 @@ device.mojom.SerialPortManagerClientRemoteCallHandler = class {
 
 device.mojom.SerialPortManagerClient.getRemote = function() {
   let remote = new device.mojom.SerialPortManagerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.SerialPortManagerClient',
     'context');
   return remote.$;
@@ -601,8 +603,9 @@ device.mojom.SerialPortRemoteCallHandler = class {
 
 device.mojom.SerialPort.getRemote = function() {
   let remote = new device.mojom.SerialPortRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.SerialPort',
     'context');
   return remote.$;
@@ -681,8 +684,9 @@ device.mojom.SerialPortClientRemoteCallHandler = class {
 
 device.mojom.SerialPortClient.getRemote = function() {
   let remote = new device.mojom.SerialPortClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.SerialPortClient',
     'context');
   return remote.$;
@@ -729,8 +733,9 @@ device.mojom.SerialPortConnectionWatcherRemoteCallHandler = class {
 
 device.mojom.SerialPortConnectionWatcher.getRemote = function() {
   let remote = new device.mojom.SerialPortConnectionWatcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.SerialPortConnectionWatcher',
     'context');
   return remote.$;

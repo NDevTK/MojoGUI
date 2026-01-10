@@ -192,8 +192,9 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
 
 media.mojom.AudioDecoder.getRemote = function() {
   let remote = new media.mojom.AudioDecoderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioDecoder',
     'context');
   return remote.$;
@@ -272,8 +273,9 @@ media.mojom.AudioDecoderClientRemoteCallHandler = class {
 
 media.mojom.AudioDecoderClient.getRemote = function() {
   let remote = new media.mojom.AudioDecoderClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioDecoderClient',
     'context');
   return remote.$;

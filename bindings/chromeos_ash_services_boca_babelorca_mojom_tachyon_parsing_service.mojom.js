@@ -117,8 +117,9 @@ ash.babelorca.mojom.TachyonParsingServiceRemoteCallHandler = class {
 
 ash.babelorca.mojom.TachyonParsingService.getRemote = function() {
   let remote = new ash.babelorca.mojom.TachyonParsingServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.babelorca.mojom.TachyonParsingService',
     'context');
   return remote.$;

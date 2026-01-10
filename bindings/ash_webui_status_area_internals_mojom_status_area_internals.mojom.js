@@ -265,8 +265,9 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
 
 ash.mojom.status_area_internals.PageHandler.getRemote = function() {
   let remote = new ash.mojom.status_area_internals.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.mojom.status_area_internals.PageHandler',
     'context');
   return remote.$;

@@ -185,8 +185,9 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
 
 ash.settings.mojom.UserActionRecorder.getRemote = function() {
   let remote = new ash.settings.mojom.UserActionRecorderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.UserActionRecorder',
     'context');
   return remote.$;

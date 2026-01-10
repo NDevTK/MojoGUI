@@ -87,8 +87,9 @@ blink.mojom.ShareServiceRemoteCallHandler = class {
 
 blink.mojom.ShareService.getRemote = function() {
   let remote = new blink.mojom.ShareServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ShareService',
     'context');
   return remote.$;

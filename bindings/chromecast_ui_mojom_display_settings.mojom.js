@@ -204,8 +204,9 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
 
 chromecast.mojom.DisplaySettings.getRemote = function() {
   let remote = new chromecast.mojom.DisplaySettingsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.DisplaySettings',
     'context');
   return remote.$;
@@ -268,8 +269,9 @@ chromecast.mojom.DisplaySettingsObserverRemoteCallHandler = class {
 
 chromecast.mojom.DisplaySettingsObserver.getRemote = function() {
   let remote = new chromecast.mojom.DisplaySettingsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.DisplaySettingsObserver',
     'context');
   return remote.$;

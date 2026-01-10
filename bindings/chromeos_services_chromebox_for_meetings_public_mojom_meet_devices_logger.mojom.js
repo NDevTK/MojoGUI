@@ -118,8 +118,9 @@ chromeos.cfm.mojom.LoggerStateObserverRemoteCallHandler = class {
 
 chromeos.cfm.mojom.LoggerStateObserver.getRemote = function() {
   let remote = new chromeos.cfm.mojom.LoggerStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cfm.mojom.LoggerStateObserver',
     'context');
   return remote.$;
@@ -205,8 +206,9 @@ chromeos.cfm.mojom.MeetDevicesLoggerRemoteCallHandler = class {
 
 chromeos.cfm.mojom.MeetDevicesLogger.getRemote = function() {
   let remote = new chromeos.cfm.mojom.MeetDevicesLoggerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cfm.mojom.MeetDevicesLogger',
     'context');
   return remote.$;

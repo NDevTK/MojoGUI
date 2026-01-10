@@ -82,8 +82,9 @@ remoting.mojom.RemoteUrlOpenerRemoteCallHandler = class {
 
 remoting.mojom.RemoteUrlOpener.getRemote = function() {
   let remote = new remoting.mojom.RemoteUrlOpenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.RemoteUrlOpener',
     'context');
   return remote.$;

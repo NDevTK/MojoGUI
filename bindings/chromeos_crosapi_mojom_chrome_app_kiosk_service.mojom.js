@@ -134,8 +134,9 @@ crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandler = class {
 
 crosapi.mojom.ChromeKioskLaunchController.getRemote = function() {
   let remote = new crosapi.mojom.ChromeKioskLaunchControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.ChromeKioskLaunchController',
     'context');
   return remote.$;
@@ -198,8 +199,9 @@ crosapi.mojom.ChromeAppKioskServiceRemoteCallHandler = class {
 
 crosapi.mojom.ChromeAppKioskService.getRemote = function() {
   let remote = new crosapi.mojom.ChromeAppKioskServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.ChromeAppKioskService',
     'context');
   return remote.$;

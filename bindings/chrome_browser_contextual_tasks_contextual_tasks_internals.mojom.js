@@ -101,8 +101,9 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRemot
 
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory.getRemote = function() {
   let remote = new contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory',
     'context');
   return remote.$;
@@ -171,8 +172,9 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemoteCallHa
 
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.getRemote = function() {
   let remote = new contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler',
     'context');
   return remote.$;
@@ -238,8 +240,9 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemoteCallHandler =
 
 contextual_tasks_internals.mojom.ContextualTasksInternalsPage.getRemote = function() {
   let remote = new contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'contextual_tasks_internals.mojom.ContextualTasksInternalsPage',
     'context');
   return remote.$;

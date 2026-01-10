@@ -161,8 +161,9 @@ ash.firmware_update.mojom.UpdateObserverRemoteCallHandler = class {
 
 ash.firmware_update.mojom.UpdateObserver.getRemote = function() {
   let remote = new ash.firmware_update.mojom.UpdateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.firmware_update.mojom.UpdateObserver',
     'context');
   return remote.$;
@@ -225,8 +226,9 @@ ash.firmware_update.mojom.DeviceRequestObserverRemoteCallHandler = class {
 
 ash.firmware_update.mojom.DeviceRequestObserver.getRemote = function() {
   let remote = new ash.firmware_update.mojom.DeviceRequestObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.firmware_update.mojom.DeviceRequestObserver',
     'context');
   return remote.$;
@@ -289,8 +291,9 @@ ash.firmware_update.mojom.UpdateProgressObserverRemoteCallHandler = class {
 
 ash.firmware_update.mojom.UpdateProgressObserver.getRemote = function() {
   let remote = new ash.firmware_update.mojom.UpdateProgressObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.firmware_update.mojom.UpdateProgressObserver',
     'context');
   return remote.$;
@@ -396,8 +399,9 @@ ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
 
 ash.firmware_update.mojom.UpdateProvider.getRemote = function() {
   let remote = new ash.firmware_update.mojom.UpdateProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.firmware_update.mojom.UpdateProvider',
     'context');
   return remote.$;
@@ -493,8 +497,9 @@ ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
 
 ash.firmware_update.mojom.InstallController.getRemote = function() {
   let remote = new ash.firmware_update.mojom.InstallControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.firmware_update.mojom.InstallController',
     'context');
   return remote.$;
@@ -556,8 +561,9 @@ ash.firmware_update.mojom.SystemUtilsRemoteCallHandler = class {
 
 ash.firmware_update.mojom.SystemUtils.getRemote = function() {
   let remote = new ash.firmware_update.mojom.SystemUtilsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.firmware_update.mojom.SystemUtils',
     'context');
   return remote.$;

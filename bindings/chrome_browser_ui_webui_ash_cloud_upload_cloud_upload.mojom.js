@@ -216,8 +216,9 @@ ash.cloud_upload.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.cloud_upload.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.cloud_upload.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cloud_upload.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -548,8 +549,9 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.cloud_upload.mojom.PageHandler.getRemote = function() {
   let remote = new ash.cloud_upload.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cloud_upload.mojom.PageHandler',
     'context');
   return remote.$;

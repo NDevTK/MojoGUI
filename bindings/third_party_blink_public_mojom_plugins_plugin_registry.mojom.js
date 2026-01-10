@@ -94,8 +94,9 @@ blink.mojom.PluginRegistryRemoteCallHandler = class {
 
 blink.mojom.PluginRegistry.getRemote = function() {
   let remote = new blink.mojom.PluginRegistryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PluginRegistry',
     'context');
   return remote.$;

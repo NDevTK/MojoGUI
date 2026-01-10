@@ -75,8 +75,9 @@ blink.mojom.SharedWorkerConnectorRemoteCallHandler = class {
 
 blink.mojom.SharedWorkerConnector.getRemote = function() {
   let remote = new blink.mojom.SharedWorkerConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SharedWorkerConnector',
     'context');
   return remote.$;

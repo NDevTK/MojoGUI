@@ -69,8 +69,9 @@ offline_pages.mojom.MhtmlPageNotifierRemoteCallHandler = class {
 
 offline_pages.mojom.MhtmlPageNotifier.getRemote = function() {
   let remote = new offline_pages.mojom.MhtmlPageNotifierRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'offline_pages.mojom.MhtmlPageNotifier',
     'context');
   return remote.$;

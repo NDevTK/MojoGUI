@@ -383,8 +383,9 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
 
 blink.mojom.MediaDevicesDispatcherHost.getRemote = function() {
   let remote = new blink.mojom.MediaDevicesDispatcherHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.MediaDevicesDispatcherHost',
     'context');
   return remote.$;
@@ -448,8 +449,9 @@ blink.mojom.MediaDevicesListenerRemoteCallHandler = class {
 
 blink.mojom.MediaDevicesListener.getRemote = function() {
   let remote = new blink.mojom.MediaDevicesListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.MediaDevicesListener',
     'context');
   return remote.$;

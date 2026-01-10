@@ -212,8 +212,9 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
 
 device.mojom.FingerprintObserver.getRemote = function() {
   let remote = new device.mojom.FingerprintObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.FingerprintObserver',
     'context');
   return remote.$;
@@ -482,8 +483,9 @@ device.mojom.FingerprintRemoteCallHandler = class {
 
 device.mojom.Fingerprint.getRemote = function() {
   let remote = new device.mojom.FingerprintRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.Fingerprint',
     'context');
   return remote.$;

@@ -138,8 +138,9 @@ blink.mojom.FileSystemCancellableOperationRemoteCallHandler = class {
 
 blink.mojom.FileSystemCancellableOperation.getRemote = function() {
   let remote = new blink.mojom.FileSystemCancellableOperationRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FileSystemCancellableOperation',
     'context');
   return remote.$;
@@ -236,8 +237,9 @@ blink.mojom.FileSystemOperationListenerRemoteCallHandler = class {
 
 blink.mojom.FileSystemOperationListener.getRemote = function() {
   let remote = new blink.mojom.FileSystemOperationListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FileSystemOperationListener',
     'context');
   return remote.$;
@@ -299,8 +301,9 @@ blink.mojom.ReceivedSnapshotListenerRemoteCallHandler = class {
 
 blink.mojom.ReceivedSnapshotListener.getRemote = function() {
   let remote = new blink.mojom.ReceivedSnapshotListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ReceivedSnapshotListener',
     'context');
   return remote.$;
@@ -741,8 +744,9 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
 
 blink.mojom.FileSystemManager.getRemote = function() {
   let remote = new blink.mojom.FileSystemManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FileSystemManager',
     'context');
   return remote.$;

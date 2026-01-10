@@ -118,8 +118,9 @@ network.mojom.P2PNetworkNotificationClientRemoteCallHandler = class {
 
 network.mojom.P2PNetworkNotificationClient.getRemote = function() {
   let remote = new network.mojom.P2PNetworkNotificationClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.P2PNetworkNotificationClient',
     'context');
   return remote.$;
@@ -229,8 +230,9 @@ network.mojom.P2PSocketManagerRemoteCallHandler = class {
 
 network.mojom.P2PSocketManager.getRemote = function() {
   let remote = new network.mojom.P2PSocketManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.P2PSocketManager',
     'context');
   return remote.$;
@@ -327,8 +329,9 @@ network.mojom.P2PSocketRemoteCallHandler = class {
 
 network.mojom.P2PSocket.getRemote = function() {
   let remote = new network.mojom.P2PSocketRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.P2PSocket',
     'context');
   return remote.$;
@@ -440,8 +443,9 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
 
 network.mojom.P2PSocketClient.getRemote = function() {
   let remote = new network.mojom.P2PSocketClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.P2PSocketClient',
     'context');
   return remote.$;

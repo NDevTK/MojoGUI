@@ -125,8 +125,9 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
 
 auction_worklet.mojom.AuctionNetworkEventsHandler.getRemote = function() {
   let remote = new auction_worklet.mojom.AuctionNetworkEventsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'auction_worklet.mojom.AuctionNetworkEventsHandler',
     'context');
   return remote.$;

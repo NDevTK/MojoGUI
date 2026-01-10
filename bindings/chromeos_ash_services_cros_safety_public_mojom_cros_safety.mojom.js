@@ -131,8 +131,9 @@ ash.cros_safety.mojom.CloudSafetySessionRemoteCallHandler = class {
 
 ash.cros_safety.mojom.CloudSafetySession.getRemote = function() {
   let remote = new ash.cros_safety.mojom.CloudSafetySessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_safety.mojom.CloudSafetySession',
     'context');
   return remote.$;
@@ -225,8 +226,9 @@ ash.cros_safety.mojom.OnDeviceSafetySessionRemoteCallHandler = class {
 
 ash.cros_safety.mojom.OnDeviceSafetySession.getRemote = function() {
   let remote = new ash.cros_safety.mojom.OnDeviceSafetySessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_safety.mojom.OnDeviceSafetySession',
     'context');
   return remote.$;

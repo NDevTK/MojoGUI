@@ -122,8 +122,9 @@ webnn.mojom.WebNNContextProviderRemoteCallHandler = class {
 
 webnn.mojom.WebNNContextProvider.getRemote = function() {
   let remote = new webnn.mojom.WebNNContextProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webnn.mojom.WebNNContextProvider',
     'context');
   return remote.$;

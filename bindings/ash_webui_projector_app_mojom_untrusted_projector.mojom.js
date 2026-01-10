@@ -325,8 +325,9 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
 
 ash.projector.mojom.UntrustedProjectorPageHandler.getRemote = function() {
   let remote = new ash.projector.mojom.UntrustedProjectorPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.projector.mojom.UntrustedProjectorPageHandler',
     'context');
   return remote.$;
@@ -451,8 +452,9 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
 
 ash.projector.mojom.UntrustedProjectorPage.getRemote = function() {
   let remote = new ash.projector.mojom.UntrustedProjectorPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.projector.mojom.UntrustedProjectorPage',
     'context');
   return remote.$;
@@ -516,8 +518,9 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler = clas
 
 ash.projector.mojom.UntrustedProjectorPageHandlerFactory.getRemote = function() {
   let remote = new ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.projector.mojom.UntrustedProjectorPageHandlerFactory',
     'context');
   return remote.$;

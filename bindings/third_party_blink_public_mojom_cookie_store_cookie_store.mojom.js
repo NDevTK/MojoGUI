@@ -135,8 +135,9 @@ blink.mojom.CookieStoreRemoteCallHandler = class {
 
 blink.mojom.CookieStore.getRemote = function() {
   let remote = new blink.mojom.CookieStoreRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.CookieStore',
     'context');
   return remote.$;

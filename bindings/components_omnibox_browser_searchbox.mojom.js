@@ -713,8 +713,9 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
 
 searchbox.mojom.PageHandler.getRemote = function() {
   let remote = new searchbox.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'searchbox.mojom.PageHandler',
     'context');
   return remote.$;
@@ -988,8 +989,9 @@ searchbox.mojom.PageRemoteCallHandler = class {
 
 searchbox.mojom.Page.getRemote = function() {
   let remote = new searchbox.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'searchbox.mojom.Page',
     'context');
   return remote.$;

@@ -702,8 +702,9 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
 
 ash.camera_app.mojom.EventsSender.getRemote = function() {
   let remote = new ash.camera_app.mojom.EventsSenderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.camera_app.mojom.EventsSender',
     'context');
   return remote.$;

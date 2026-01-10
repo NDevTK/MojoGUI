@@ -213,8 +213,9 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
 
 unexportable_keys.mojom.UnexportableKeyService.getRemote = function() {
   let remote = new unexportable_keys.mojom.UnexportableKeyServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'unexportable_keys.mojom.UnexportableKeyService',
     'context');
   return remote.$;

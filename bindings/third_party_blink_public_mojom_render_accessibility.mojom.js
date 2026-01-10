@@ -122,8 +122,9 @@ blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
 
 blink.mojom.RenderAccessibilityHost.getRemote = function() {
   let remote = new blink.mojom.RenderAccessibilityHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RenderAccessibilityHost',
     'context');
   return remote.$;
@@ -258,8 +259,9 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
 
 blink.mojom.RenderAccessibility.getRemote = function() {
   let remote = new blink.mojom.RenderAccessibilityRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RenderAccessibility',
     'context');
   return remote.$;

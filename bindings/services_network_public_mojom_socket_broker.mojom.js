@@ -100,8 +100,9 @@ network.mojom.SocketBrokerRemoteCallHandler = class {
 
 network.mojom.SocketBroker.getRemote = function() {
   let remote = new network.mojom.SocketBrokerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.SocketBroker',
     'context');
   return remote.$;

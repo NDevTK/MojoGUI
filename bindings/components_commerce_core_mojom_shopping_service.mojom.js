@@ -224,8 +224,9 @@ shopping_service.mojom.ShoppingServiceHandlerFactoryRemoteCallHandler = class {
 
 shopping_service.mojom.ShoppingServiceHandlerFactory.getRemote = function() {
   let remote = new shopping_service.mojom.ShoppingServiceHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'shopping_service.mojom.ShoppingServiceHandlerFactory',
     'context');
   return remote.$;
@@ -685,8 +686,9 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
 
 shopping_service.mojom.ShoppingServiceHandler.getRemote = function() {
   let remote = new shopping_service.mojom.ShoppingServiceHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'shopping_service.mojom.ShoppingServiceHandler',
     'context');
   return remote.$;

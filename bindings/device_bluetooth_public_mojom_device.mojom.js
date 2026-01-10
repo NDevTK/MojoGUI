@@ -357,8 +357,9 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
 
 bluetooth.mojom.Device.getRemote = function() {
   let remote = new bluetooth.mojom.DeviceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.Device',
     'context');
   return remote.$;

@@ -99,8 +99,9 @@ crosapi.mojom.TelemetryManagementServiceRemoteCallHandler = class {
 
 crosapi.mojom.TelemetryManagementService.getRemote = function() {
   let remote = new crosapi.mojom.TelemetryManagementServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.TelemetryManagementService',
     'context');
   return remote.$;

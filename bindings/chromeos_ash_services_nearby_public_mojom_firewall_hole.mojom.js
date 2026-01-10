@@ -55,8 +55,9 @@ sharing.mojom.FirewallHoleRemoteCallHandler = class {
 
 sharing.mojom.FirewallHole.getRemote = function() {
   let remote = new sharing.mojom.FirewallHoleRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sharing.mojom.FirewallHole',
     'context');
   return remote.$;
@@ -125,8 +126,9 @@ sharing.mojom.FirewallHoleFactoryRemoteCallHandler = class {
 
 sharing.mojom.FirewallHoleFactory.getRemote = function() {
   let remote = new sharing.mojom.FirewallHoleFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sharing.mojom.FirewallHoleFactory',
     'context');
   return remote.$;

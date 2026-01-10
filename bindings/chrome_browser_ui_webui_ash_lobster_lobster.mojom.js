@@ -338,8 +338,9 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
 
 lobster.mojom.UntrustedLobsterPageHandler.getRemote = function() {
   let remote = new lobster.mojom.UntrustedLobsterPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'lobster.mojom.UntrustedLobsterPageHandler',
     'context');
   return remote.$;

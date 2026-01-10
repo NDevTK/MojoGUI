@@ -110,8 +110,9 @@ arc.mojom.WallpaperHostRemoteCallHandler = class {
 
 arc.mojom.WallpaperHost.getRemote = function() {
   let remote = new arc.mojom.WallpaperHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.WallpaperHost',
     'context');
   return remote.$;
@@ -195,8 +196,9 @@ arc.mojom.WallpaperInstanceRemoteCallHandler = class {
 
 arc.mojom.WallpaperInstance.getRemote = function() {
   let remote = new arc.mojom.WallpaperInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.WallpaperInstance',
     'context');
   return remote.$;

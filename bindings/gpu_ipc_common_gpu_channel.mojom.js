@@ -820,8 +820,9 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
 
 gpu.mojom.GpuChannel.getRemote = function() {
   let remote = new gpu.mojom.GpuChannelRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'gpu.mojom.GpuChannel',
     'context');
   return remote.$;
@@ -974,8 +975,9 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
 
 gpu.mojom.CommandBuffer.getRemote = function() {
   let remote = new gpu.mojom.CommandBufferRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'gpu.mojom.CommandBuffer',
     'context');
   return remote.$;
@@ -1103,8 +1105,9 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
 
 gpu.mojom.CommandBufferClient.getRemote = function() {
   let remote = new gpu.mojom.CommandBufferClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'gpu.mojom.CommandBufferClient',
     'context');
   return remote.$;
@@ -1205,8 +1208,9 @@ gpu.mojom.DCOMPTextureRemoteCallHandler = class {
 
 gpu.mojom.DCOMPTexture.getRemote = function() {
   let remote = new gpu.mojom.DCOMPTextureRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'gpu.mojom.DCOMPTexture',
     'context');
   return remote.$;
@@ -1285,8 +1289,9 @@ gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
 
 gpu.mojom.DCOMPTextureClient.getRemote = function() {
   let remote = new gpu.mojom.DCOMPTextureClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'gpu.mojom.DCOMPTextureClient',
     'context');
   return remote.$;
@@ -1349,8 +1354,9 @@ gpu.mojom.OverlayStateObserverRemoteCallHandler = class {
 
 gpu.mojom.OverlayStateObserver.getRemote = function() {
   let remote = new gpu.mojom.OverlayStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'gpu.mojom.OverlayStateObserver',
     'context');
   return remote.$;

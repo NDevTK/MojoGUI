@@ -79,8 +79,9 @@ watermark.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 watermark.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new watermark.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'watermark.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -158,8 +159,9 @@ watermark.mojom.PageHandlerRemoteCallHandler = class {
 
 watermark.mojom.PageHandler.getRemote = function() {
   let remote = new watermark.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'watermark.mojom.PageHandler',
     'context');
   return remote.$;

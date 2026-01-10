@@ -330,8 +330,9 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 feed_internals.mojom.PageHandler.getRemote = function() {
   let remote = new feed_internals.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'feed_internals.mojom.PageHandler',
     'context');
   return remote.$;

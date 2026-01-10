@@ -67,8 +67,9 @@ audio.mojom.DeviceListenerRemoteCallHandler = class {
 
 audio.mojom.DeviceListener.getRemote = function() {
   let remote = new audio.mojom.DeviceListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'audio.mojom.DeviceListener',
     'context');
   return remote.$;
@@ -131,8 +132,9 @@ audio.mojom.DeviceNotifierRemoteCallHandler = class {
 
 audio.mojom.DeviceNotifier.getRemote = function() {
   let remote = new audio.mojom.DeviceNotifierRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'audio.mojom.DeviceNotifier',
     'context');
   return remote.$;

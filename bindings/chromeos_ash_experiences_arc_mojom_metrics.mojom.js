@@ -977,8 +977,9 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
 
 arc.mojom.MetricsHost.getRemote = function() {
   let remote = new arc.mojom.MetricsHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.MetricsHost',
     'context');
   return remote.$;
@@ -1068,8 +1069,9 @@ arc.mojom.MetricsInstanceRemoteCallHandler = class {
 
 arc.mojom.MetricsInstance.getRemote = function() {
   let remote = new arc.mojom.MetricsInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.MetricsInstance',
     'context');
   return remote.$;

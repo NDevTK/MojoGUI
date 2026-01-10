@@ -79,8 +79,9 @@ omnibox_popup_aim.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 omnibox_popup_aim.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new omnibox_popup_aim.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'omnibox_popup_aim.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -158,8 +159,9 @@ omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = class {
 
 omnibox_popup_aim.mojom.PageHandler.getRemote = function() {
   let remote = new omnibox_popup_aim.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'omnibox_popup_aim.mojom.PageHandler',
     'context');
   return remote.$;
@@ -275,8 +277,9 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
 
 omnibox_popup_aim.mojom.Page.getRemote = function() {
   let remote = new omnibox_popup_aim.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'omnibox_popup_aim.mojom.Page',
     'context');
   return remote.$;

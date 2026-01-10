@@ -161,8 +161,9 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
 
 blink.mojom.CredentialManager.getRemote = function() {
   let remote = new blink.mojom.CredentialManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.CredentialManager',
     'context');
   return remote.$;

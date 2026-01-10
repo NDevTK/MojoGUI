@@ -71,8 +71,9 @@ network.mojom.DhcpWpadUrlClientRemoteCallHandler = class {
 
 network.mojom.DhcpWpadUrlClient.getRemote = function() {
   let remote = new network.mojom.DhcpWpadUrlClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.DhcpWpadUrlClient',
     'context');
   return remote.$;

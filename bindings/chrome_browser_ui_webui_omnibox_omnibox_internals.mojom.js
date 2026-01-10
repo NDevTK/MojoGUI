@@ -290,8 +290,9 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
 
 mojom.OmniboxPageHandler.getRemote = function() {
   let remote = new mojom.OmniboxPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojom.OmniboxPageHandler',
     'context');
   return remote.$;
@@ -408,8 +409,9 @@ mojom.OmniboxPageRemoteCallHandler = class {
 
 mojom.OmniboxPage.getRemote = function() {
   let remote = new mojom.OmniboxPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojom.OmniboxPage',
     'context');
   return remote.$;

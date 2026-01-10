@@ -118,8 +118,9 @@ ax.mojom.UserInputRemoteCallHandler = class {
 
 ax.mojom.UserInput.getRemote = function() {
   let remote = new ax.mojom.UserInputRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.UserInput',
     'context');
   return remote.$;

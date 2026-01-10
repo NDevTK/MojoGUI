@@ -113,8 +113,9 @@ chromeos.network_health.mojom.NetworkEventsObserverRemoteCallHandler = class {
 
 chromeos.network_health.mojom.NetworkEventsObserver.getRemote = function() {
   let remote = new chromeos.network_health.mojom.NetworkEventsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.network_health.mojom.NetworkEventsObserver',
     'context');
   return remote.$;
@@ -240,8 +241,9 @@ chromeos.network_health.mojom.NetworkHealthServiceRemoteCallHandler = class {
 
 chromeos.network_health.mojom.NetworkHealthService.getRemote = function() {
   let remote = new chromeos.network_health.mojom.NetworkHealthServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.network_health.mojom.NetworkHealthService',
     'context');
   return remote.$;

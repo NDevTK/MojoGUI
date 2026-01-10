@@ -72,8 +72,9 @@ network.mojom.NetworkQualityEstimatorManagerClientRemoteCallHandler = class {
 
 network.mojom.NetworkQualityEstimatorManagerClient.getRemote = function() {
   let remote = new network.mojom.NetworkQualityEstimatorManagerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.NetworkQualityEstimatorManagerClient',
     'context');
   return remote.$;
@@ -136,8 +137,9 @@ network.mojom.NetworkQualityEstimatorManagerRemoteCallHandler = class {
 
 network.mojom.NetworkQualityEstimatorManager.getRemote = function() {
   let remote = new network.mojom.NetworkQualityEstimatorManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.NetworkQualityEstimatorManager',
     'context');
   return remote.$;

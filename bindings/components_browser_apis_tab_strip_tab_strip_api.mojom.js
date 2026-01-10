@@ -216,8 +216,9 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
 
 tabs_api.mojom.TabStripService.getRemote = function() {
   let remote = new tabs_api.mojom.TabStripServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tabs_api.mojom.TabStripService',
     'context');
   return remote.$;
@@ -280,8 +281,9 @@ tabs_api.mojom.TabsObserverRemoteCallHandler = class {
 
 tabs_api.mojom.TabsObserver.getRemote = function() {
   let remote = new tabs_api.mojom.TabsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tabs_api.mojom.TabsObserver',
     'context');
   return remote.$;

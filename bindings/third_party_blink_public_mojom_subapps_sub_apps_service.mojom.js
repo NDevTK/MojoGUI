@@ -171,8 +171,9 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
 
 blink.mojom.SubAppsService.getRemote = function() {
   let remote = new blink.mojom.SubAppsServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SubAppsService',
     'context');
   return remote.$;

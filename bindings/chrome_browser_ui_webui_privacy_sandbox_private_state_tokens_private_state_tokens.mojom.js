@@ -80,8 +80,9 @@ private_state_tokens.mojom.PrivateStateTokensPageHandlerRemoteCallHandler = clas
 
 private_state_tokens.mojom.PrivateStateTokensPageHandler.getRemote = function() {
   let remote = new private_state_tokens.mojom.PrivateStateTokensPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'private_state_tokens.mojom.PrivateStateTokensPageHandler',
     'context');
   return remote.$;

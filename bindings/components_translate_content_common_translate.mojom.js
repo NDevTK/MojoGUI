@@ -133,8 +133,9 @@ translate.mojom.TranslateAgentRemoteCallHandler = class {
 
 translate.mojom.TranslateAgent.getRemote = function() {
   let remote = new translate.mojom.TranslateAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'translate.mojom.TranslateAgent',
     'context');
   return remote.$;
@@ -199,8 +200,9 @@ translate.mojom.ContentTranslateDriverRemoteCallHandler = class {
 
 translate.mojom.ContentTranslateDriver.getRemote = function() {
   let remote = new translate.mojom.ContentTranslateDriverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'translate.mojom.ContentTranslateDriver',
     'context');
   return remote.$;

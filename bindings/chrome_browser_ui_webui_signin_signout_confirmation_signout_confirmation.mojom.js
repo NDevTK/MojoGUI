@@ -99,8 +99,9 @@ signout_confirmation.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 signout_confirmation.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new signout_confirmation.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'signout_confirmation.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -225,8 +226,9 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
 
 signout_confirmation.mojom.PageHandler.getRemote = function() {
   let remote = new signout_confirmation.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'signout_confirmation.mojom.PageHandler',
     'context');
   return remote.$;
@@ -289,8 +291,9 @@ signout_confirmation.mojom.PageRemoteCallHandler = class {
 
 signout_confirmation.mojom.Page.getRemote = function() {
   let remote = new signout_confirmation.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'signout_confirmation.mojom.Page',
     'context');
   return remote.$;

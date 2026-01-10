@@ -174,8 +174,9 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
 
 add_supervision.mojom.AddSupervisionHandler.getRemote = function() {
   let remote = new add_supervision.mojom.AddSupervisionHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'add_supervision.mojom.AddSupervisionHandler',
     'context');
   return remote.$;

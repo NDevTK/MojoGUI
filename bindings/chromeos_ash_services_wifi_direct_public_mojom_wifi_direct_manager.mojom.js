@@ -179,8 +179,9 @@ ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
 
 ash.wifi_direct.mojom.WifiDirectManager.getRemote = function() {
   let remote = new ash.wifi_direct.mojom.WifiDirectManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.wifi_direct.mojom.WifiDirectManager',
     'context');
   return remote.$;
@@ -270,8 +271,9 @@ ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandler = class {
 
 ash.wifi_direct.mojom.WifiDirectConnection.getRemote = function() {
   let remote = new ash.wifi_direct.mojom.WifiDirectConnectionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.wifi_direct.mojom.WifiDirectConnection',
     'context');
   return remote.$;

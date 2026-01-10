@@ -97,8 +97,9 @@ network.mojom.ProxyResolvingSocketRemoteCallHandler = class {
 
 network.mojom.ProxyResolvingSocket.getRemote = function() {
   let remote = new network.mojom.ProxyResolvingSocketRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.ProxyResolvingSocket',
     'context');
   return remote.$;
@@ -176,8 +177,9 @@ network.mojom.ProxyResolvingSocketFactoryRemoteCallHandler = class {
 
 network.mojom.ProxyResolvingSocketFactory.getRemote = function() {
   let remote = new network.mojom.ProxyResolvingSocketFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.ProxyResolvingSocketFactory',
     'context');
   return remote.$;

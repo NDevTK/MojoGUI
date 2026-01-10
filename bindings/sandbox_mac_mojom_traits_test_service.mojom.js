@@ -73,8 +73,9 @@ sandbox.mac.mojom.TraitsTestServiceRemoteCallHandler = class {
 
 sandbox.mac.mojom.TraitsTestService.getRemote = function() {
   let remote = new sandbox.mac.mojom.TraitsTestServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sandbox.mac.mojom.TraitsTestService',
     'context');
   return remote.$;

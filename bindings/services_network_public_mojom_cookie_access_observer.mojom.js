@@ -102,8 +102,9 @@ network.mojom.CookieAccessObserverRemoteCallHandler = class {
 
 network.mojom.CookieAccessObserver.getRemote = function() {
   let remote = new network.mojom.CookieAccessObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.CookieAccessObserver',
     'context');
   return remote.$;

@@ -376,8 +376,9 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
 
 remote_cocoa.mojom.TextInputHost.getRemote = function() {
   let remote = new remote_cocoa.mojom.TextInputHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remote_cocoa.mojom.TextInputHost',
     'context');
   return remote.$;

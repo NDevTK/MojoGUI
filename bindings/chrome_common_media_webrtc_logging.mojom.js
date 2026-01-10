@@ -94,8 +94,9 @@ chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
 
 chrome.mojom.WebRtcLoggingClient.getRemote = function() {
   let remote = new chrome.mojom.WebRtcLoggingClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.WebRtcLoggingClient',
     'context');
   return remote.$;
@@ -173,8 +174,9 @@ chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
 
 chrome.mojom.WebRtcLoggingAgent.getRemote = function() {
   let remote = new chrome.mojom.WebRtcLoggingAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.WebRtcLoggingAgent',
     'context');
   return remote.$;

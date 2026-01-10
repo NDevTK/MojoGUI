@@ -99,8 +99,9 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHand
 
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.getRemote = function() {
   let remote = new new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory',
     'context');
   return remote.$;
@@ -210,8 +211,9 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
 
 new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.getRemote = function() {
   let remote = new new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler',
     'context');
   return remote.$;

@@ -72,8 +72,9 @@ wallet.mojom.ImageExtractorRemoteCallHandler = class {
 
 wallet.mojom.ImageExtractor.getRemote = function() {
   let remote = new wallet.mojom.ImageExtractorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'wallet.mojom.ImageExtractor',
     'context');
   return remote.$;

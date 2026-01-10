@@ -190,8 +190,9 @@ handwriting.mojom.HandwritingRecognizerRemoteCallHandler = class {
 
 handwriting.mojom.HandwritingRecognizer.getRemote = function() {
   let remote = new handwriting.mojom.HandwritingRecognizerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'handwriting.mojom.HandwritingRecognizer',
     'context');
   return remote.$;
@@ -283,8 +284,9 @@ handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
 
 handwriting.mojom.HandwritingRecognitionService.getRemote = function() {
   let remote = new handwriting.mojom.HandwritingRecognitionServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'handwriting.mojom.HandwritingRecognitionService',
     'context');
   return remote.$;

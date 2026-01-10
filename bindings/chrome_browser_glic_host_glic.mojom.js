@@ -1150,8 +1150,9 @@ glic.mojom.PreloadPageRemoteCallHandler = class {
 
 glic.mojom.PreloadPage.getRemote = function() {
   let remote = new glic.mojom.PreloadPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.PreloadPage',
     'context');
   return remote.$;
@@ -1245,8 +1246,9 @@ glic.mojom.PageRemoteCallHandler = class {
 
 glic.mojom.Page.getRemote = function() {
   let remote = new glic.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.Page',
     'context');
   return remote.$;
@@ -1314,8 +1316,9 @@ glic.mojom.GlicPreloadHandlerRemoteCallHandler = class {
 
 glic.mojom.GlicPreloadHandler.getRemote = function() {
   let remote = new glic.mojom.GlicPreloadHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.GlicPreloadHandler',
     'context');
   return remote.$;
@@ -1379,8 +1382,9 @@ glic.mojom.GlicPreloadHandlerFactoryRemoteCallHandler = class {
 
 glic.mojom.GlicPreloadHandlerFactory.getRemote = function() {
   let remote = new glic.mojom.GlicPreloadHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.GlicPreloadHandlerFactory',
     'context');
   return remote.$;
@@ -1444,8 +1448,9 @@ glic.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 glic.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new glic.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -1685,8 +1690,9 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
 
 glic.mojom.PageHandler.getRemote = function() {
   let remote = new glic.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.PageHandler',
     'context');
   return remote.$;
@@ -1749,8 +1755,9 @@ glic.mojom.PinCandidatesObserverRemoteCallHandler = class {
 
 glic.mojom.PinCandidatesObserver.getRemote = function() {
   let remote = new glic.mojom.PinCandidatesObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.PinCandidatesObserver',
     'context');
   return remote.$;
@@ -3397,8 +3404,9 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
 glic.mojom.WebClientHandler.getRemote = function() {
   let remote = new glic.mojom.WebClientHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.WebClientHandler',
     'context');
   return remote.$;
@@ -3461,8 +3469,9 @@ glic.mojom.TabDataHandlerRemoteCallHandler = class {
 
 glic.mojom.TabDataHandler.getRemote = function() {
   let remote = new glic.mojom.TabDataHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.TabDataHandler',
     'context');
   return remote.$;
@@ -4074,8 +4083,9 @@ glic.mojom.WebClientRemoteCallHandler = class {
 
 glic.mojom.WebClient.getRemote = function() {
   let remote = new glic.mojom.WebClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.WebClient',
     'context');
   return remote.$;
@@ -4139,8 +4149,9 @@ glic.mojom.CaptureRegionObserverRemoteCallHandler = class {
 
 glic.mojom.CaptureRegionObserver.getRemote = function() {
   let remote = new glic.mojom.CaptureRegionObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'glic.mojom.CaptureRegionObserver',
     'context');
   return remote.$;

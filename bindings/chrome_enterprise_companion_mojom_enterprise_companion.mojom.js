@@ -105,8 +105,9 @@ enterprise_companion.mojom.EnterpriseCompanionRemoteCallHandler = class {
 
 enterprise_companion.mojom.EnterpriseCompanion.getRemote = function() {
   let remote = new enterprise_companion.mojom.EnterpriseCompanionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'enterprise_companion.mojom.EnterpriseCompanion',
     'context');
   return remote.$;

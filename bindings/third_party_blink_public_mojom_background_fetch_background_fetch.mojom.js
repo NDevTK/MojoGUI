@@ -214,8 +214,9 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
 
 blink.mojom.BackgroundFetchRegistrationObserver.getRemote = function() {
   let remote = new blink.mojom.BackgroundFetchRegistrationObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BackgroundFetchRegistrationObserver',
     'context');
   return remote.$;
@@ -358,8 +359,9 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
 
 blink.mojom.BackgroundFetchService.getRemote = function() {
   let remote = new blink.mojom.BackgroundFetchServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BackgroundFetchService',
     'context');
   return remote.$;
@@ -490,8 +492,9 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
 
 blink.mojom.BackgroundFetchRegistrationService.getRemote = function() {
   let remote = new blink.mojom.BackgroundFetchRegistrationServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BackgroundFetchRegistrationService',
     'context');
   return remote.$;

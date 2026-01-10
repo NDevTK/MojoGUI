@@ -79,8 +79,9 @@ content.mojom.TestInterfaceForDeferRemoteCallHandler = class {
 
 content.mojom.TestInterfaceForDefer.getRemote = function() {
   let remote = new content.mojom.TestInterfaceForDeferRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.TestInterfaceForDefer',
     'context');
   return remote.$;
@@ -127,8 +128,9 @@ content.mojom.TestInterfaceForGrantRemoteCallHandler = class {
 
 content.mojom.TestInterfaceForGrant.getRemote = function() {
   let remote = new content.mojom.TestInterfaceForGrantRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.TestInterfaceForGrant',
     'context');
   return remote.$;
@@ -175,8 +177,9 @@ content.mojom.TestInterfaceForCancelRemoteCallHandler = class {
 
 content.mojom.TestInterfaceForCancel.getRemote = function() {
   let remote = new content.mojom.TestInterfaceForCancelRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.TestInterfaceForCancel',
     'context');
   return remote.$;
@@ -223,8 +226,9 @@ content.mojom.TestInterfaceForUnexpectedRemoteCallHandler = class {
 
 content.mojom.TestInterfaceForUnexpected.getRemote = function() {
   let remote = new content.mojom.TestInterfaceForUnexpectedRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.TestInterfaceForUnexpected',
     'context');
   return remote.$;
@@ -286,8 +290,9 @@ content.mojom.MojoContextProviderRemoteCallHandler = class {
 
 content.mojom.MojoContextProvider.getRemote = function() {
   let remote = new content.mojom.MojoContextProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.MojoContextProvider',
     'context');
   return remote.$;

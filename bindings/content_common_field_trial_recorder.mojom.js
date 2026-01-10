@@ -65,8 +65,9 @@ content.mojom.FieldTrialRecorderRemoteCallHandler = class {
 
 content.mojom.FieldTrialRecorder.getRemote = function() {
   let remote = new content.mojom.FieldTrialRecorderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.FieldTrialRecorder',
     'context');
   return remote.$;

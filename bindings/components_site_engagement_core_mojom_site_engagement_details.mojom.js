@@ -101,8 +101,9 @@ site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {
 
 site_engagement.mojom.SiteEngagementDetailsProvider.getRemote = function() {
   let remote = new site_engagement.mojom.SiteEngagementDetailsProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'site_engagement.mojom.SiteEngagementDetailsProvider',
     'context');
   return remote.$;

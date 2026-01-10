@@ -103,8 +103,9 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
 
 auction_worklet.mojom.TrustedSignalsCacheClient.getRemote = function() {
   let remote = new auction_worklet.mojom.TrustedSignalsCacheClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'auction_worklet.mojom.TrustedSignalsCacheClient',
     'context');
   return remote.$;
@@ -168,8 +169,9 @@ auction_worklet.mojom.TrustedSignalsCacheRemoteCallHandler = class {
 
 auction_worklet.mojom.TrustedSignalsCache.getRemote = function() {
   let remote = new auction_worklet.mojom.TrustedSignalsCacheRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'auction_worklet.mojom.TrustedSignalsCache',
     'context');
   return remote.$;

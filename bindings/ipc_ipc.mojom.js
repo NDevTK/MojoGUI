@@ -93,8 +93,9 @@ IPC.mojom.ChannelRemoteCallHandler = class {
 
 IPC.mojom.Channel.getRemote = function() {
   let remote = new IPC.mojom.ChannelRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'IPC.mojom.Channel',
     'context');
   return remote.$;
@@ -141,8 +142,9 @@ IPC.mojom.ChannelBootstrapRemoteCallHandler = class {
 
 IPC.mojom.ChannelBootstrap.getRemote = function() {
   let remote = new IPC.mojom.ChannelBootstrapRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'IPC.mojom.ChannelBootstrap',
     'context');
   return remote.$;

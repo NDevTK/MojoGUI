@@ -74,8 +74,9 @@ media.mojom.CdmServiceRemoteCallHandler = class {
 
 media.mojom.CdmService.getRemote = function() {
   let remote = new media.mojom.CdmServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.CdmService',
     'context');
   return remote.$;
@@ -143,8 +144,9 @@ media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
 
 media.mojom.SeatbeltExtensionTokenProvider.getRemote = function() {
   let remote = new media.mojom.SeatbeltExtensionTokenProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.SeatbeltExtensionTokenProvider',
     'context');
   return remote.$;
@@ -209,8 +211,9 @@ media.mojom.CdmServiceBrokerRemoteCallHandler = class {
 
 media.mojom.CdmServiceBroker.getRemote = function() {
   let remote = new media.mojom.CdmServiceBrokerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.CdmServiceBroker',
     'context');
   return remote.$;

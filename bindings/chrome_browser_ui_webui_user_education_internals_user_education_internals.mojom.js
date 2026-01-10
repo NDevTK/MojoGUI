@@ -533,8 +533,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
 
 mojom.user_education_internals.UserEducationInternalsPageHandler.getRemote = function() {
   let remote = new mojom.user_education_internals.UserEducationInternalsPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojom.user_education_internals.UserEducationInternalsPageHandler',
     'context');
   return remote.$;

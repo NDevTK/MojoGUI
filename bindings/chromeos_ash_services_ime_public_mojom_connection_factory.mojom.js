@@ -109,8 +109,9 @@ ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class {
 
 ash.ime.mojom.ConnectionFactory.getRemote = function() {
   let remote = new ash.ime.mojom.ConnectionFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.ime.mojom.ConnectionFactory',
     'context');
   return remote.$;

@@ -93,8 +93,9 @@ device.mojom.ScreenOrientationRemoteCallHandler = class {
 
 device.mojom.ScreenOrientation.getRemote = function() {
   let remote = new device.mojom.ScreenOrientationRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.ScreenOrientation',
     'context');
   return remote.$;
@@ -162,8 +163,9 @@ device.mojom.ScreenOrientationListenerRemoteCallHandler = class {
 
 device.mojom.ScreenOrientationListener.getRemote = function() {
   let remote = new device.mojom.ScreenOrientationListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.ScreenOrientationListener',
     'context');
   return remote.$;

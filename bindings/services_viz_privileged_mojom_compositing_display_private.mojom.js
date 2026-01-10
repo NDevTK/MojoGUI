@@ -388,8 +388,9 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
 
 viz.mojom.DisplayPrivate.getRemote = function() {
   let remote = new viz.mojom.DisplayPrivateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.DisplayPrivate',
     'context');
   return remote.$;
@@ -564,8 +565,9 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
 
 viz.mojom.DisplayClient.getRemote = function() {
   let remote = new viz.mojom.DisplayClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.DisplayClient',
     'context');
   return remote.$;

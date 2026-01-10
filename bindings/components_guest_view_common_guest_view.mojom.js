@@ -53,8 +53,9 @@ guest_view.mojom.ViewHandleRemoteCallHandler = class {
 
 guest_view.mojom.ViewHandle.getRemote = function() {
   let remote = new guest_view.mojom.ViewHandleRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'guest_view.mojom.ViewHandle',
     'context');
   return remote.$;
@@ -142,8 +143,9 @@ guest_view.mojom.GuestViewHostRemoteCallHandler = class {
 
 guest_view.mojom.GuestViewHost.getRemote = function() {
   let remote = new guest_view.mojom.GuestViewHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'guest_view.mojom.GuestViewHost',
     'context');
   return remote.$;

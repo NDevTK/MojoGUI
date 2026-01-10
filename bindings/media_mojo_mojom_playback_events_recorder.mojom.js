@@ -197,8 +197,9 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
 
 media.mojom.PlaybackEventsRecorder.getRemote = function() {
   let remote = new media.mojom.PlaybackEventsRecorderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.PlaybackEventsRecorder',
     'context');
   return remote.$;

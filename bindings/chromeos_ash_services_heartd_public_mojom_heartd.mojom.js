@@ -158,8 +158,9 @@ ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
 
 ash.heartd.mojom.HeartdControl.getRemote = function() {
   let remote = new ash.heartd.mojom.HeartdControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.heartd.mojom.HeartdControl',
     'context');
   return remote.$;
@@ -230,8 +231,9 @@ ash.heartd.mojom.HeartbeatServiceRemoteCallHandler = class {
 
 ash.heartd.mojom.HeartbeatService.getRemote = function() {
   let remote = new ash.heartd.mojom.HeartbeatServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.heartd.mojom.HeartbeatService',
     'context');
   return remote.$;
@@ -319,8 +321,9 @@ ash.heartd.mojom.PacemakerRemoteCallHandler = class {
 
 ash.heartd.mojom.Pacemaker.getRemote = function() {
   let remote = new ash.heartd.mojom.PacemakerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.heartd.mojom.Pacemaker',
     'context');
   return remote.$;

@@ -95,8 +95,9 @@ auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
 
 auction_worklet.mojom.AuctionSharedStorageHost.getRemote = function() {
   let remote = new auction_worklet.mojom.AuctionSharedStorageHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'auction_worklet.mojom.AuctionSharedStorageHost',
     'context');
   return remote.$;

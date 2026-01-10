@@ -113,8 +113,9 @@ auction_worklet.mojom.LoadSellerWorkletClientRemoteCallHandler = class {
 
 auction_worklet.mojom.LoadSellerWorkletClient.getRemote = function() {
   let remote = new auction_worklet.mojom.LoadSellerWorkletClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'auction_worklet.mojom.LoadSellerWorkletClient',
     'context');
   return remote.$;
@@ -236,8 +237,9 @@ auction_worklet.mojom.AuctionWorkletServiceRemoteCallHandler = class {
 
 auction_worklet.mojom.AuctionWorkletService.getRemote = function() {
   let remote = new auction_worklet.mojom.AuctionWorkletServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'auction_worklet.mojom.AuctionWorkletService',
     'context');
   return remote.$;

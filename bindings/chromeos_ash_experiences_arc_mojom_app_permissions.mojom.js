@@ -114,8 +114,9 @@ arc.mojom.AppPermissionsInstanceRemoteCallHandler = class {
 
 arc.mojom.AppPermissionsInstance.getRemote = function() {
   let remote = new arc.mojom.AppPermissionsInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.AppPermissionsInstance',
     'context');
   return remote.$;

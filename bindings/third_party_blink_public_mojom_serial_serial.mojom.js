@@ -192,8 +192,9 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
 
 blink.mojom.SerialService.getRemote = function() {
   let remote = new blink.mojom.SerialServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SerialService',
     'context');
   return remote.$;
@@ -256,8 +257,9 @@ blink.mojom.SerialServiceClientRemoteCallHandler = class {
 
 blink.mojom.SerialServiceClient.getRemote = function() {
   let remote = new blink.mojom.SerialServiceClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SerialServiceClient',
     'context');
   return remote.$;

@@ -81,8 +81,9 @@ feed.mojom.RssLinkReaderRemoteCallHandler = class {
 
 feed.mojom.RssLinkReader.getRemote = function() {
   let remote = new feed.mojom.RssLinkReaderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'feed.mojom.RssLinkReader',
     'context');
   return remote.$;

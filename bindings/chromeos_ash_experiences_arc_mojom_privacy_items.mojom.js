@@ -126,8 +126,9 @@ arc.mojom.PrivacyItemsHostRemoteCallHandler = class {
 
 arc.mojom.PrivacyItemsHost.getRemote = function() {
   let remote = new arc.mojom.PrivacyItemsHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.PrivacyItemsHost',
     'context');
   return remote.$;
@@ -212,8 +213,9 @@ arc.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
 
 arc.mojom.PrivacyItemsInstance.getRemote = function() {
   let remote = new arc.mojom.PrivacyItemsInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.PrivacyItemsInstance',
     'context');
   return remote.$;

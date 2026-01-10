@@ -79,8 +79,9 @@ network.mojom.SystemDnsResolverRemoteCallHandler = class {
 
 network.mojom.SystemDnsResolver.getRemote = function() {
   let remote = new network.mojom.SystemDnsResolverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.SystemDnsResolver',
     'context');
   return remote.$;

@@ -223,8 +223,9 @@ blink.mojom.NavigationStateKeepAliveHandleRemoteCallHandler = class {
 
 blink.mojom.NavigationStateKeepAliveHandle.getRemote = function() {
   let remote = new blink.mojom.NavigationStateKeepAliveHandleRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.NavigationStateKeepAliveHandle',
     'context');
   return remote.$;
@@ -517,8 +518,9 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
 
 blink.mojom.RemoteFrameHost.getRemote = function() {
   let remote = new blink.mojom.RemoteFrameHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RemoteFrameHost',
     'context');
   return remote.$;
@@ -1117,8 +1119,9 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
 
 blink.mojom.RemoteFrame.getRemote = function() {
   let remote = new blink.mojom.RemoteFrameRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RemoteFrame',
     'context');
   return remote.$;
@@ -1181,8 +1184,9 @@ blink.mojom.RemoteMainFrameRemoteCallHandler = class {
 
 blink.mojom.RemoteMainFrame.getRemote = function() {
   let remote = new blink.mojom.RemoteMainFrameRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RemoteMainFrame',
     'context');
   return remote.$;
@@ -1296,8 +1300,9 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
 
 blink.mojom.RemoteMainFrameHost.getRemote = function() {
   let remote = new blink.mojom.RemoteMainFrameHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RemoteMainFrameHost',
     'context');
   return remote.$;

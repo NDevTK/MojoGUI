@@ -97,8 +97,9 @@ ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
 
 ai.mojom.AIPrototypingService.getRemote = function() {
   let remote = new ai.mojom.AIPrototypingServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ai.mojom.AIPrototypingService',
     'context');
   return remote.$;

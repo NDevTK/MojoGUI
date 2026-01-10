@@ -104,8 +104,9 @@ blink.mojom.LockScreenServiceRemoteCallHandler = class {
 
 blink.mojom.LockScreenService.getRemote = function() {
   let remote = new blink.mojom.LockScreenServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.LockScreenService',
     'context');
   return remote.$;

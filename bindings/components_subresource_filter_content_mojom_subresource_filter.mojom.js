@@ -77,8 +77,9 @@ subresource_filter.mojom.SubresourceFilterAgentRemoteCallHandler = class {
 
 subresource_filter.mojom.SubresourceFilterAgent.getRemote = function() {
   let remote = new subresource_filter.mojom.SubresourceFilterAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'subresource_filter.mojom.SubresourceFilterAgent',
     'context');
   return remote.$;
@@ -218,8 +219,9 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
 
 subresource_filter.mojom.SubresourceFilterHost.getRemote = function() {
   let remote = new subresource_filter.mojom.SubresourceFilterHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'subresource_filter.mojom.SubresourceFilterHost',
     'context');
   return remote.$;

@@ -87,8 +87,9 @@ blink.mojom.ColorChooserFactoryRemoteCallHandler = class {
 
 blink.mojom.ColorChooserFactory.getRemote = function() {
   let remote = new blink.mojom.ColorChooserFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ColorChooserFactory',
     'context');
   return remote.$;
@@ -151,8 +152,9 @@ blink.mojom.ColorChooserRemoteCallHandler = class {
 
 blink.mojom.ColorChooser.getRemote = function() {
   let remote = new blink.mojom.ColorChooserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ColorChooser',
     'context');
   return remote.$;
@@ -215,8 +217,9 @@ blink.mojom.ColorChooserClientRemoteCallHandler = class {
 
 blink.mojom.ColorChooserClient.getRemote = function() {
   let remote = new blink.mojom.ColorChooserClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ColorChooserClient',
     'context');
   return remote.$;
@@ -285,8 +288,9 @@ blink.mojom.EyeDropperChooserRemoteCallHandler = class {
 
 blink.mojom.EyeDropperChooser.getRemote = function() {
   let remote = new blink.mojom.EyeDropperChooserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.EyeDropperChooser',
     'context');
   return remote.$;

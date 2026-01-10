@@ -892,8 +892,9 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
 
 crosapi.mojom.KeystoreService.getRemote = function() {
   let remote = new crosapi.mojom.KeystoreServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.KeystoreService',
     'context');
   return remote.$;

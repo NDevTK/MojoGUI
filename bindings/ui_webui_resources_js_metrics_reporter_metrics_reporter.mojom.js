@@ -129,8 +129,9 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
 
 metrics_reporter.mojom.PageMetricsHost.getRemote = function() {
   let remote = new metrics_reporter.mojom.PageMetricsHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'metrics_reporter.mojom.PageMetricsHost',
     'context');
   return remote.$;
@@ -215,8 +216,9 @@ metrics_reporter.mojom.PageMetricsRemoteCallHandler = class {
 
 metrics_reporter.mojom.PageMetrics.getRemote = function() {
   let remote = new metrics_reporter.mojom.PageMetricsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'metrics_reporter.mojom.PageMetrics',
     'context');
   return remote.$;

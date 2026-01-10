@@ -129,8 +129,9 @@ arc.mojom.AppfuseHostRemoteCallHandler = class {
 
 arc.mojom.AppfuseHost.getRemote = function() {
   let remote = new arc.mojom.AppfuseHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.AppfuseHost',
     'context');
   return remote.$;
@@ -198,8 +199,9 @@ arc.mojom.AppfuseInstanceRemoteCallHandler = class {
 
 arc.mojom.AppfuseInstance.getRemote = function() {
   let remote = new arc.mojom.AppfuseInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.AppfuseInstance',
     'context');
   return remote.$;

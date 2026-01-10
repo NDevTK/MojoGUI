@@ -82,8 +82,9 @@ arc.mojom.NearbyShareSessionHostRemoteCallHandler = class {
 
 arc.mojom.NearbyShareSessionHost.getRemote = function() {
   let remote = new arc.mojom.NearbyShareSessionHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.NearbyShareSessionHost',
     'context');
   return remote.$;
@@ -145,8 +146,9 @@ arc.mojom.NearbyShareSessionInstanceRemoteCallHandler = class {
 
 arc.mojom.NearbyShareSessionInstance.getRemote = function() {
   let remote = new arc.mojom.NearbyShareSessionInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.NearbyShareSessionInstance',
     'context');
   return remote.$;
@@ -217,8 +219,9 @@ arc.mojom.NearbyShareHostRemoteCallHandler = class {
 
 arc.mojom.NearbyShareHost.getRemote = function() {
   let remote = new arc.mojom.NearbyShareHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.NearbyShareHost',
     'context');
   return remote.$;
@@ -286,8 +289,9 @@ arc.mojom.NearbyShareInstanceRemoteCallHandler = class {
 
 arc.mojom.NearbyShareInstance.getRemote = function() {
   let remote = new arc.mojom.NearbyShareInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.NearbyShareInstance',
     'context');
   return remote.$;

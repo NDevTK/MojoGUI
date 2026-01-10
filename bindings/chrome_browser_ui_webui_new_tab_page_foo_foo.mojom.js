@@ -81,8 +81,9 @@ foo.mojom.FooHandlerRemoteCallHandler = class {
 
 foo.mojom.FooHandler.getRemote = function() {
   let remote = new foo.mojom.FooHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'foo.mojom.FooHandler',
     'context');
   return remote.$;

@@ -114,8 +114,9 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler = clas
 
 related_website_sets.mojom.RelatedWebsiteSetsPageHandler.getRemote = function() {
   let remote = new related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'related_website_sets.mojom.RelatedWebsiteSetsPageHandler',
     'context');
   return remote.$;

@@ -118,8 +118,9 @@ printing.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {
 
 printing.mojom.PdfToPwgRasterConverter.getRemote = function() {
   let remote = new printing.mojom.PdfToPwgRasterConverterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.PdfToPwgRasterConverter',
     'context');
   return remote.$;

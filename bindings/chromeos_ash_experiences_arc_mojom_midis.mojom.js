@@ -119,8 +119,9 @@ arc.mojom.MidisClientRemoteCallHandler = class {
 
 arc.mojom.MidisClient.getRemote = function() {
   let remote = new arc.mojom.MidisClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.MidisClient',
     'context');
   return remote.$;
@@ -226,8 +227,9 @@ arc.mojom.MidisServerRemoteCallHandler = class {
 
 arc.mojom.MidisServer.getRemote = function() {
   let remote = new arc.mojom.MidisServerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.MidisServer',
     'context');
   return remote.$;
@@ -291,8 +293,9 @@ arc.mojom.MidisHostRemoteCallHandler = class {
 
 arc.mojom.MidisHost.getRemote = function() {
   let remote = new arc.mojom.MidisHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.MidisHost',
     'context');
   return remote.$;
@@ -360,8 +363,9 @@ arc.mojom.MidisInstanceRemoteCallHandler = class {
 
 arc.mojom.MidisInstance.getRemote = function() {
   let remote = new arc.mojom.MidisInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.MidisInstance',
     'context');
   return remote.$;

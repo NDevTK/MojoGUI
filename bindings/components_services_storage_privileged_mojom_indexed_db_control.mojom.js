@@ -127,8 +127,9 @@ storage.mojom.IndexedDBObserverRemoteCallHandler = class {
 
 storage.mojom.IndexedDBObserver.getRemote = function() {
   let remote = new storage.mojom.IndexedDBObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.IndexedDBObserver',
     'context');
   return remote.$;
@@ -368,8 +369,9 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
 
 storage.mojom.IndexedDBControl.getRemote = function() {
   let remote = new storage.mojom.IndexedDBControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.IndexedDBControl',
     'context');
   return remote.$;

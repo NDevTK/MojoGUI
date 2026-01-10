@@ -98,8 +98,9 @@ gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
 
 gfx.mojom.RangeTraitsTestService.getRemote = function() {
   let remote = new gfx.mojom.RangeTraitsTestServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'gfx.mojom.RangeTraitsTestService',
     'context');
   return remote.$;

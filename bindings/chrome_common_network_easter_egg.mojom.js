@@ -104,8 +104,9 @@ chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
 
 chrome.mojom.NetworkEasterEgg.getRemote = function() {
   let remote = new chrome.mojom.NetworkEasterEggRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.NetworkEasterEgg',
     'context');
   return remote.$;

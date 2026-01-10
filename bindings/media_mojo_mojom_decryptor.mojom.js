@@ -246,8 +246,9 @@ media.mojom.DecryptorRemoteCallHandler = class {
 
 media.mojom.Decryptor.getRemote = function() {
   let remote = new media.mojom.DecryptorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.Decryptor',
     'context');
   return remote.$;
@@ -294,8 +295,9 @@ media.mojom.FrameResourceReleaserRemoteCallHandler = class {
 
 media.mojom.FrameResourceReleaser.getRemote = function() {
   let remote = new media.mojom.FrameResourceReleaserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.FrameResourceReleaser',
     'context');
   return remote.$;

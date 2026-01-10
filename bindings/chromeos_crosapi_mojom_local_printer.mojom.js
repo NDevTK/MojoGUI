@@ -491,8 +491,9 @@ crosapi.mojom.PrintServerObserverRemoteCallHandler = class {
 
 crosapi.mojom.PrintServerObserver.getRemote = function() {
   let remote = new crosapi.mojom.PrintServerObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.PrintServerObserver',
     'context');
   return remote.$;
@@ -575,8 +576,9 @@ crosapi.mojom.PrintJobObserverRemoteCallHandler = class {
 
 crosapi.mojom.PrintJobObserver.getRemote = function() {
   let remote = new crosapi.mojom.PrintJobObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.PrintJobObserver',
     'context');
   return remote.$;
@@ -639,8 +641,9 @@ crosapi.mojom.LocalPrintersObserverRemoteCallHandler = class {
 
 crosapi.mojom.LocalPrintersObserver.getRemote = function() {
   let remote = new crosapi.mojom.LocalPrintersObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.LocalPrintersObserver',
     'context');
   return remote.$;
@@ -1052,8 +1055,9 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
 
 crosapi.mojom.LocalPrinter.getRemote = function() {
   let remote = new crosapi.mojom.LocalPrinterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.LocalPrinter',
     'context');
   return remote.$;

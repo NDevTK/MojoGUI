@@ -72,8 +72,9 @@ chromecast.mojom.JsChannelRemoteCallHandler = class {
 
 chromecast.mojom.JsChannel.getRemote = function() {
   let remote = new chromecast.mojom.JsChannelRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.JsChannel',
     'context');
   return remote.$;
@@ -153,8 +154,9 @@ chromecast.mojom.JsChannelClientRemoteCallHandler = class {
 
 chromecast.mojom.JsChannelClient.getRemote = function() {
   let remote = new chromecast.mojom.JsChannelClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.JsChannelClient',
     'context');
   return remote.$;
@@ -218,8 +220,9 @@ chromecast.mojom.JsChannelBindingProviderRemoteCallHandler = class {
 
 chromecast.mojom.JsChannelBindingProvider.getRemote = function() {
   let remote = new chromecast.mojom.JsChannelBindingProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.JsChannelBindingProvider',
     'context');
   return remote.$;

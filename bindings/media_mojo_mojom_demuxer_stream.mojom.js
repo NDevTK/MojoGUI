@@ -117,8 +117,9 @@ media.mojom.DemuxerStreamRemoteCallHandler = class {
 
 media.mojom.DemuxerStream.getRemote = function() {
   let remote = new media.mojom.DemuxerStreamRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.DemuxerStream',
     'context');
   return remote.$;

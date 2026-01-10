@@ -305,8 +305,9 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
 
 arc.mojom.ProcessInstance.getRemote = function() {
   let remote = new arc.mojom.ProcessInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ProcessInstance',
     'context');
   return remote.$;

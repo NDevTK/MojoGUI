@@ -367,8 +367,9 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
 
 blink.mojom.SynchronousCompositor.getRemote = function() {
   let remote = new blink.mojom.SynchronousCompositorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SynchronousCompositor',
     'context');
   return remote.$;
@@ -478,8 +479,9 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
 
 blink.mojom.SynchronousCompositorHost.getRemote = function() {
   let remote = new blink.mojom.SynchronousCompositorHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SynchronousCompositorHost',
     'context');
   return remote.$;
@@ -562,8 +564,9 @@ blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
 
 blink.mojom.SynchronousCompositorControlHost.getRemote = function() {
   let remote = new blink.mojom.SynchronousCompositorControlHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SynchronousCompositorControlHost',
     'context');
   return remote.$;

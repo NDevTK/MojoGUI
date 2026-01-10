@@ -290,8 +290,9 @@ printing.mojom.PrintRendererRemoteCallHandler = class {
 
 printing.mojom.PrintRenderer.getRemote = function() {
   let remote = new printing.mojom.PrintRendererRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.PrintRenderer',
     'context');
   return remote.$;
@@ -494,8 +495,9 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
 
 printing.mojom.PrintPreviewUI.getRemote = function() {
   let remote = new printing.mojom.PrintPreviewUIRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.PrintPreviewUI',
     'context');
   return remote.$;
@@ -721,8 +723,9 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
 
 printing.mojom.PrintRenderFrame.getRemote = function() {
   let remote = new printing.mojom.PrintRenderFrameRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.PrintRenderFrame',
     'context');
   return remote.$;
@@ -1018,8 +1021,9 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
 
 printing.mojom.PrintManagerHost.getRemote = function() {
   let remote = new printing.mojom.PrintManagerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.PrintManagerHost',
     'context');
   return remote.$;

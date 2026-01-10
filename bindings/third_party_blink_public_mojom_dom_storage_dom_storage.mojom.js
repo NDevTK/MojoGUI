@@ -79,8 +79,9 @@ blink.mojom.DomStorageProviderRemoteCallHandler = class {
 
 blink.mojom.DomStorageProvider.getRemote = function() {
   let remote = new blink.mojom.DomStorageProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DomStorageProvider',
     'context');
   return remote.$;
@@ -181,8 +182,9 @@ blink.mojom.DomStorageRemoteCallHandler = class {
 
 blink.mojom.DomStorage.getRemote = function() {
   let remote = new blink.mojom.DomStorageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DomStorage',
     'context');
   return remote.$;
@@ -259,8 +261,9 @@ blink.mojom.DomStorageClientRemoteCallHandler = class {
 
 blink.mojom.DomStorageClient.getRemote = function() {
   let remote = new blink.mojom.DomStorageClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DomStorageClient',
     'context');
   return remote.$;

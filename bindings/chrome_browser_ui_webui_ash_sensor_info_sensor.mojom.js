@@ -116,8 +116,9 @@ sensor.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 sensor.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new sensor.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sensor.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -194,8 +195,9 @@ sensor.mojom.PageHandlerRemoteCallHandler = class {
 
 sensor.mojom.PageHandler.getRemote = function() {
   let remote = new sensor.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sensor.mojom.PageHandler',
     'context');
   return remote.$;

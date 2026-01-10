@@ -161,8 +161,9 @@ blink.mojom.PushMessagingRemoteCallHandler = class {
 
 blink.mojom.PushMessaging.getRemote = function() {
   let remote = new blink.mojom.PushMessagingRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PushMessaging',
     'context');
   return remote.$;

@@ -223,8 +223,9 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
 
 extensions.mojom.ServiceWorkerHost.getRemote = function() {
   let remote = new extensions.mojom.ServiceWorkerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mojom.ServiceWorkerHost',
     'context');
   return remote.$;

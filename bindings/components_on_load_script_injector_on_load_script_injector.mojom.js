@@ -81,8 +81,9 @@ on_load_script_injector.mojom.OnLoadScriptInjectorRemoteCallHandler = class {
 
 on_load_script_injector.mojom.OnLoadScriptInjector.getRemote = function() {
   let remote = new on_load_script_injector.mojom.OnLoadScriptInjectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_load_script_injector.mojom.OnLoadScriptInjector',
     'context');
   return remote.$;

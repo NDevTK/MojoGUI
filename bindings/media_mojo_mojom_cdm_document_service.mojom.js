@@ -192,8 +192,9 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
 
 media.mojom.CdmDocumentService.getRemote = function() {
   let remote = new media.mojom.CdmDocumentServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.CdmDocumentService',
     'context');
   return remote.$;

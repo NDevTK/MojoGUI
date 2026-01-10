@@ -58,8 +58,9 @@ blink.mojom.ObservedFeatureRemoteCallHandler = class {
 
 blink.mojom.ObservedFeature.getRemote = function() {
   let remote = new blink.mojom.ObservedFeatureRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ObservedFeature',
     'context');
   return remote.$;
@@ -123,8 +124,9 @@ blink.mojom.FeatureObserverRemoteCallHandler = class {
 
 blink.mojom.FeatureObserver.getRemote = function() {
   let remote = new blink.mojom.FeatureObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FeatureObserver',
     'context');
   return remote.$;

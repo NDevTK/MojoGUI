@@ -152,8 +152,9 @@ optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
 
 optimization_guide.mojom.ModelSolution.getRemote = function() {
   let remote = new optimization_guide.mojom.ModelSolutionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'optimization_guide.mojom.ModelSolution',
     'context');
   return remote.$;
@@ -233,8 +234,9 @@ optimization_guide.mojom.ModelSubscriberRemoteCallHandler = class {
 
 optimization_guide.mojom.ModelSubscriber.getRemote = function() {
   let remote = new optimization_guide.mojom.ModelSubscriberRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'optimization_guide.mojom.ModelSubscriber',
     'context');
   return remote.$;
@@ -298,8 +300,9 @@ optimization_guide.mojom.ModelBrokerRemoteCallHandler = class {
 
 optimization_guide.mojom.ModelBroker.getRemote = function() {
   let remote = new optimization_guide.mojom.ModelBrokerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'optimization_guide.mojom.ModelBroker',
     'context');
   return remote.$;

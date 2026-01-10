@@ -106,8 +106,9 @@ arc.keymaster.mojom.CertStoreInstanceRemoteCallHandler = class {
 
 arc.keymaster.mojom.CertStoreInstance.getRemote = function() {
   let remote = new arc.keymaster.mojom.CertStoreInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.keymaster.mojom.CertStoreInstance',
     'context');
   return remote.$;

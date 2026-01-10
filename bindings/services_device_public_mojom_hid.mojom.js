@@ -440,8 +440,9 @@ device.mojom.HidManagerClientRemoteCallHandler = class {
 
 device.mojom.HidManagerClient.getRemote = function() {
   let remote = new device.mojom.HidManagerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.HidManagerClient',
     'context');
   return remote.$;
@@ -573,8 +574,9 @@ device.mojom.HidManagerRemoteCallHandler = class {
 
 device.mojom.HidManager.getRemote = function() {
   let remote = new device.mojom.HidManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.HidManager',
     'context');
   return remote.$;
@@ -713,8 +715,9 @@ device.mojom.HidConnectionRemoteCallHandler = class {
 
 device.mojom.HidConnection.getRemote = function() {
   let remote = new device.mojom.HidConnectionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.HidConnection',
     'context');
   return remote.$;
@@ -778,8 +781,9 @@ device.mojom.HidConnectionClientRemoteCallHandler = class {
 
 device.mojom.HidConnectionClient.getRemote = function() {
   let remote = new device.mojom.HidConnectionClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.HidConnectionClient',
     'context');
   return remote.$;
@@ -826,8 +830,9 @@ device.mojom.HidConnectionWatcherRemoteCallHandler = class {
 
 device.mojom.HidConnectionWatcher.getRemote = function() {
   let remote = new device.mojom.HidConnectionWatcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.HidConnectionWatcher',
     'context');
   return remote.$;

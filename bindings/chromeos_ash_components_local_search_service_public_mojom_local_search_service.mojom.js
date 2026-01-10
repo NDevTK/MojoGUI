@@ -99,8 +99,9 @@ ash.local_search_service.mojom.SearchMetricsReporterRemoteCallHandler = class {
 
 ash.local_search_service.mojom.SearchMetricsReporter.getRemote = function() {
   let remote = new ash.local_search_service.mojom.SearchMetricsReporterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.local_search_service.mojom.SearchMetricsReporter',
     'context');
   return remote.$;
@@ -172,8 +173,9 @@ ash.local_search_service.mojom.LocalSearchServiceRemoteCallHandler = class {
 
 ash.local_search_service.mojom.LocalSearchService.getRemote = function() {
   let remote = new ash.local_search_service.mojom.LocalSearchServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.local_search_service.mojom.LocalSearchService',
     'context');
   return remote.$;

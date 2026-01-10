@@ -663,8 +663,9 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver',
     'context');
   return remote.$;
@@ -741,8 +742,9 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdLidObserver.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdLidObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.CrosHealthdLidObserver',
     'context');
   return remote.$;
@@ -849,8 +851,9 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdPowerObserver.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.CrosHealthdPowerObserver',
     'context');
   return remote.$;
@@ -927,8 +930,9 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdAudioObserver.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.CrosHealthdAudioObserver',
     'context');
   return remote.$;
@@ -1035,8 +1039,9 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver',
     'context');
   return remote.$;
@@ -1115,8 +1120,9 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdUsbObserver.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.CrosHealthdUsbObserver',
     'context');
   return remote.$;
@@ -1193,8 +1199,9 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdSdCardObserver.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.CrosHealthdSdCardObserver',
     'context');
   return remote.$;
@@ -1257,8 +1264,9 @@ ash.cros_healthd.mojom.EventObserverRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.EventObserver.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.EventObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.EventObserver',
     'context');
   return remote.$;

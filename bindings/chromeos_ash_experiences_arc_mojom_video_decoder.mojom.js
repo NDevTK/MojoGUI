@@ -193,8 +193,9 @@ arc.mojom.VideoDecoderRemoteCallHandler = class {
 
 arc.mojom.VideoDecoder.getRemote = function() {
   let remote = new arc.mojom.VideoDecoderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VideoDecoder',
     'context');
   return remote.$;
@@ -275,8 +276,9 @@ arc.mojom.VideoDecoderClientRemoteCallHandler = class {
 
 arc.mojom.VideoDecoderClient.getRemote = function() {
   let remote = new arc.mojom.VideoDecoderClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VideoDecoderClient',
     'context');
   return remote.$;

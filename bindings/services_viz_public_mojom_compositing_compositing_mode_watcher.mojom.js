@@ -67,8 +67,9 @@ viz.mojom.CompositingModeWatcherRemoteCallHandler = class {
 
 viz.mojom.CompositingModeWatcher.getRemote = function() {
   let remote = new viz.mojom.CompositingModeWatcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.CompositingModeWatcher',
     'context');
   return remote.$;
@@ -131,8 +132,9 @@ viz.mojom.CompositingModeReporterRemoteCallHandler = class {
 
 viz.mojom.CompositingModeReporter.getRemote = function() {
   let remote = new viz.mojom.CompositingModeReporterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.CompositingModeReporter',
     'context');
   return remote.$;

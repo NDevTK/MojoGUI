@@ -187,8 +187,9 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
 
 device_signals.mojom.SystemSignalsService.getRemote = function() {
   let remote = new device_signals.mojom.SystemSignalsServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device_signals.mojom.SystemSignalsService',
     'context');
   return remote.$;

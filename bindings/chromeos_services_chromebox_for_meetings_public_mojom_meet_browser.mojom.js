@@ -73,8 +73,9 @@ ash.cfm.mojom.MeetBrowserRemoteCallHandler = class {
 
 ash.cfm.mojom.MeetBrowser.getRemote = function() {
   let remote = new ash.cfm.mojom.MeetBrowserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cfm.mojom.MeetBrowser',
     'context');
   return remote.$;

@@ -213,8 +213,9 @@ bluetooth.mojom.AdvertisementRemoteCallHandler = class {
 
 bluetooth.mojom.Advertisement.getRemote = function() {
   let remote = new bluetooth.mojom.AdvertisementRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.Advertisement',
     'context');
   return remote.$;
@@ -303,8 +304,9 @@ bluetooth.mojom.DiscoverySessionRemoteCallHandler = class {
 
 bluetooth.mojom.DiscoverySession.getRemote = function() {
   let remote = new bluetooth.mojom.DiscoverySessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.DiscoverySession',
     'context');
   return remote.$;
@@ -371,8 +373,9 @@ bluetooth.mojom.SocketRemoteCallHandler = class {
 
 bluetooth.mojom.Socket.getRemote = function() {
   let remote = new bluetooth.mojom.SocketRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.Socket',
     'context');
   return remote.$;
@@ -460,8 +463,9 @@ bluetooth.mojom.ServerSocketRemoteCallHandler = class {
 
 bluetooth.mojom.ServerSocket.getRemote = function() {
   let remote = new bluetooth.mojom.ServerSocketRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.ServerSocket',
     'context');
   return remote.$;
@@ -553,8 +557,9 @@ bluetooth.mojom.GattServiceRemoteCallHandler = class {
 
 bluetooth.mojom.GattService.getRemote = function() {
   let remote = new bluetooth.mojom.GattServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.GattService',
     'context');
   return remote.$;
@@ -626,8 +631,9 @@ bluetooth.mojom.GattServiceObserverRemoteCallHandler = class {
 
 bluetooth.mojom.GattServiceObserver.getRemote = function() {
   let remote = new bluetooth.mojom.GattServiceObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.GattServiceObserver',
     'context');
   return remote.$;
@@ -942,8 +948,9 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
 
 bluetooth.mojom.Adapter.getRemote = function() {
   let remote = new bluetooth.mojom.AdapterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.Adapter',
     'context');
   return remote.$;
@@ -1102,8 +1109,9 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
 
 bluetooth.mojom.AdapterObserver.getRemote = function() {
   let remote = new bluetooth.mojom.AdapterObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bluetooth.mojom.AdapterObserver',
     'context');
   return remote.$;

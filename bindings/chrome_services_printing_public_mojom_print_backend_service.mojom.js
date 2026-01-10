@@ -104,8 +104,9 @@ printing.mojom.UnsandboxedPrintBackendHostRemoteCallHandler = class {
 
 printing.mojom.UnsandboxedPrintBackendHost.getRemote = function() {
   let remote = new printing.mojom.UnsandboxedPrintBackendHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.UnsandboxedPrintBackendHost',
     'context');
   return remote.$;
@@ -168,8 +169,9 @@ printing.mojom.SandboxedPrintBackendHostRemoteCallHandler = class {
 
 printing.mojom.SandboxedPrintBackendHost.getRemote = function() {
   let remote = new printing.mojom.SandboxedPrintBackendHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.SandboxedPrintBackendHost',
     'context');
   return remote.$;
@@ -524,8 +526,9 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
 
 printing.mojom.PrintBackendService.getRemote = function() {
   let remote = new printing.mojom.PrintBackendServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.PrintBackendService',
     'context');
   return remote.$;

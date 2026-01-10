@@ -127,8 +127,9 @@ commerce.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler = class {
 
 commerce.mojom.CommerceInternalsHandlerFactory.getRemote = function() {
   let remote = new commerce.mojom.CommerceInternalsHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce.mojom.CommerceInternalsHandlerFactory',
     'context');
   return remote.$;
@@ -311,8 +312,9 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
 
 commerce.mojom.CommerceInternalsHandler.getRemote = function() {
   let remote = new commerce.mojom.CommerceInternalsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce.mojom.CommerceInternalsHandler',
     'context');
   return remote.$;
@@ -375,8 +377,9 @@ commerce.mojom.CommerceInternalsPageRemoteCallHandler = class {
 
 commerce.mojom.CommerceInternalsPage.getRemote = function() {
   let remote = new commerce.mojom.CommerceInternalsPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce.mojom.CommerceInternalsPage',
     'context');
   return remote.$;

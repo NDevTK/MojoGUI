@@ -92,8 +92,9 @@ blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
 
 blink.mojom.FetchLaterLoaderFactory.getRemote = function() {
   let remote = new blink.mojom.FetchLaterLoaderFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FetchLaterLoaderFactory',
     'context');
   return remote.$;
@@ -170,8 +171,9 @@ blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
 
 blink.mojom.FetchLaterLoader.getRemote = function() {
   let remote = new blink.mojom.FetchLaterLoaderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FetchLaterLoader',
     'context');
   return remote.$;

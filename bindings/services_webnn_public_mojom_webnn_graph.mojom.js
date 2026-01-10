@@ -1174,8 +1174,9 @@ webnn.mojom.WebNNGraphRemoteCallHandler = class {
 
 webnn.mojom.WebNNGraph.getRemote = function() {
   let remote = new webnn.mojom.WebNNGraphRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webnn.mojom.WebNNGraph',
     'context');
   return remote.$;

@@ -263,8 +263,9 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
 
 mac_notifications.mojom.MacNotificationService.getRemote = function() {
   let remote = new mac_notifications.mojom.MacNotificationServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mac_notifications.mojom.MacNotificationService',
     'context');
   return remote.$;
@@ -327,8 +328,9 @@ mac_notifications.mojom.MacNotificationActionHandlerRemoteCallHandler = class {
 
 mac_notifications.mojom.MacNotificationActionHandler.getRemote = function() {
   let remote = new mac_notifications.mojom.MacNotificationActionHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mac_notifications.mojom.MacNotificationActionHandler',
     'context');
   return remote.$;
@@ -392,8 +394,9 @@ mac_notifications.mojom.MacNotificationProviderRemoteCallHandler = class {
 
 mac_notifications.mojom.MacNotificationProvider.getRemote = function() {
   let remote = new mac_notifications.mojom.MacNotificationProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mac_notifications.mojom.MacNotificationProvider',
     'context');
   return remote.$;

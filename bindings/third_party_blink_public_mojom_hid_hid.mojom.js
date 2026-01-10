@@ -212,8 +212,9 @@ blink.mojom.HidServiceRemoteCallHandler = class {
 
 blink.mojom.HidService.getRemote = function() {
   let remote = new blink.mojom.HidServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.HidService',
     'context');
   return remote.$;

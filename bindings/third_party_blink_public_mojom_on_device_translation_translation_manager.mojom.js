@@ -138,8 +138,9 @@ blink.mojom.TranslationManagerCreateTranslatorClientRemoteCallHandler = class {
 
 blink.mojom.TranslationManagerCreateTranslatorClient.getRemote = function() {
   let remote = new blink.mojom.TranslationManagerCreateTranslatorClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.TranslationManagerCreateTranslatorClient',
     'context');
   return remote.$;
@@ -226,8 +227,9 @@ blink.mojom.TranslationManagerRemoteCallHandler = class {
 
 blink.mojom.TranslationManager.getRemote = function() {
   let remote = new blink.mojom.TranslationManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.TranslationManager',
     'context');
   return remote.$;

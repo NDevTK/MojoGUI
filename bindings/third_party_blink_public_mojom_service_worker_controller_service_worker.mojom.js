@@ -138,8 +138,9 @@ blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
 
 blink.mojom.ControllerServiceWorker.getRemote = function() {
   let remote = new blink.mojom.ControllerServiceWorkerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ControllerServiceWorker',
     'context');
   return remote.$;
@@ -202,8 +203,9 @@ blink.mojom.ControllerServiceWorkerConnectorRemoteCallHandler = class {
 
 blink.mojom.ControllerServiceWorkerConnector.getRemote = function() {
   let remote = new blink.mojom.ControllerServiceWorkerConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ControllerServiceWorkerConnector',
     'context');
   return remote.$;

@@ -97,8 +97,9 @@ blink.mojom.BadgeServiceRemoteCallHandler = class {
 
 blink.mojom.BadgeService.getRemote = function() {
   let remote = new blink.mojom.BadgeServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BadgeService',
     'context');
   return remote.$;

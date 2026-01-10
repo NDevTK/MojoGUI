@@ -253,8 +253,9 @@ arc.mojom.PowerHostRemoteCallHandler = class {
 
 arc.mojom.PowerHost.getRemote = function() {
   let remote = new arc.mojom.PowerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.PowerHost',
     'context');
   return remote.$;
@@ -473,8 +474,9 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
 
 arc.mojom.PowerInstance.getRemote = function() {
   let remote = new arc.mojom.PowerInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.PowerInstance',
     'context');
   return remote.$;

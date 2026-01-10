@@ -128,8 +128,9 @@ updater.mojom.PostRequestObserverRemoteCallHandler = class {
 
 updater.mojom.PostRequestObserver.getRemote = function() {
   let remote = new updater.mojom.PostRequestObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'updater.mojom.PostRequestObserver',
     'context');
   return remote.$;
@@ -228,8 +229,9 @@ updater.mojom.FileDownloadObserverRemoteCallHandler = class {
 
 updater.mojom.FileDownloadObserver.getRemote = function() {
   let remote = new updater.mojom.FileDownloadObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'updater.mojom.FileDownloadObserver',
     'context');
   return remote.$;
@@ -324,8 +326,9 @@ updater.mojom.FetchServiceRemoteCallHandler = class {
 
 updater.mojom.FetchService.getRemote = function() {
   let remote = new updater.mojom.FetchServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'updater.mojom.FetchService',
     'context');
   return remote.$;

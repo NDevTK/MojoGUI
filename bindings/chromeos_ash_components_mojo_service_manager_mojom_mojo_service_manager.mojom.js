@@ -237,8 +237,9 @@ chromeos.mojo_service_manager.mojom.ServiceManagerRemoteCallHandler = class {
 
 chromeos.mojo_service_manager.mojom.ServiceManager.getRemote = function() {
   let remote = new chromeos.mojo_service_manager.mojom.ServiceManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.mojo_service_manager.mojom.ServiceManager',
     'context');
   return remote.$;
@@ -302,8 +303,9 @@ chromeos.mojo_service_manager.mojom.ServiceProviderRemoteCallHandler = class {
 
 chromeos.mojo_service_manager.mojom.ServiceProvider.getRemote = function() {
   let remote = new chromeos.mojo_service_manager.mojom.ServiceProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.mojo_service_manager.mojom.ServiceProvider',
     'context');
   return remote.$;
@@ -366,8 +368,9 @@ chromeos.mojo_service_manager.mojom.ServiceObserverRemoteCallHandler = class {
 
 chromeos.mojo_service_manager.mojom.ServiceObserver.getRemote = function() {
   let remote = new chromeos.mojo_service_manager.mojom.ServiceObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.mojo_service_manager.mojom.ServiceObserver',
     'context');
   return remote.$;

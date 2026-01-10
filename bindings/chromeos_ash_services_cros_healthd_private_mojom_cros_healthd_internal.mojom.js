@@ -174,8 +174,9 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
 
 ash.cros_healthd.internal.mojom.ChromiumDataCollector.getRemote = function() {
   let remote = new ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.internal.mojom.ChromiumDataCollector',
     'context');
   return remote.$;

@@ -174,8 +174,9 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
 
 service_manager.mojom.ServiceManagerListener.getRemote = function() {
   let remote = new service_manager.mojom.ServiceManagerListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'service_manager.mojom.ServiceManagerListener',
     'context');
   return remote.$;
@@ -238,8 +239,9 @@ service_manager.mojom.ServiceManagerRemoteCallHandler = class {
 
 service_manager.mojom.ServiceManager.getRemote = function() {
   let remote = new service_manager.mojom.ServiceManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'service_manager.mojom.ServiceManager',
     'context');
   return remote.$;

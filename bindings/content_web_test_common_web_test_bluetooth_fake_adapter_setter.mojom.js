@@ -71,8 +71,9 @@ content.mojom.WebTestBluetoothFakeAdapterSetterRemoteCallHandler = class {
 
 content.mojom.WebTestBluetoothFakeAdapterSetter.getRemote = function() {
   let remote = new content.mojom.WebTestBluetoothFakeAdapterSetterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.WebTestBluetoothFakeAdapterSetter',
     'context');
   return remote.$;

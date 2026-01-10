@@ -99,8 +99,9 @@ bookmark_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 bookmark_bar.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new bookmark_bar.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bookmark_bar.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -184,8 +185,9 @@ bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
 
 bookmark_bar.mojom.PageHandler.getRemote = function() {
   let remote = new bookmark_bar.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bookmark_bar.mojom.PageHandler',
     'context');
   return remote.$;
@@ -293,8 +295,9 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
 
 bookmark_bar.mojom.Page.getRemote = function() {
   let remote = new bookmark_bar.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'bookmark_bar.mojom.Page',
     'context');
   return remote.$;

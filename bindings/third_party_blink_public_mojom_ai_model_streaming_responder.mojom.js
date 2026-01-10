@@ -146,8 +146,9 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
 
 blink.mojom.ModelStreamingResponder.getRemote = function() {
   let remote = new blink.mojom.ModelStreamingResponderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ModelStreamingResponder',
     'context');
   return remote.$;

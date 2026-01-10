@@ -111,8 +111,9 @@ storage.mojom.MockFailureInjectorRemoteCallHandler = class {
 
 storage.mojom.MockFailureInjector.getRemote = function() {
   let remote = new storage.mojom.MockFailureInjectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.MockFailureInjector',
     'context');
   return remote.$;
@@ -346,8 +347,9 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
 
 storage.mojom.IndexedDBControlTest.getRemote = function() {
   let remote = new storage.mojom.IndexedDBControlTestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.IndexedDBControlTest',
     'context');
   return remote.$;

@@ -107,8 +107,9 @@ blink.mojom.WidgetCompositorRemoteCallHandler = class {
 
 blink.mojom.WidgetCompositor.getRemote = function() {
   let remote = new blink.mojom.WidgetCompositorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WidgetCompositor',
     'context');
   return remote.$;
@@ -293,8 +294,9 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
 
 blink.mojom.WidgetHost.getRemote = function() {
   let remote = new blink.mojom.WidgetHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WidgetHost',
     'context');
   return remote.$;
@@ -478,8 +480,9 @@ blink.mojom.WidgetRemoteCallHandler = class {
 
 blink.mojom.Widget.getRemote = function() {
   let remote = new blink.mojom.WidgetRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.Widget',
     'context');
   return remote.$;
@@ -577,8 +580,9 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
 
 blink.mojom.RenderInputRouterClient.getRemote = function() {
   let remote = new blink.mojom.RenderInputRouterClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RenderInputRouterClient',
     'context');
   return remote.$;

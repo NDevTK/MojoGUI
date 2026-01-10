@@ -66,8 +66,9 @@ ui.mojom.ScenicGpuServiceRemoteCallHandler = class {
 
 ui.mojom.ScenicGpuService.getRemote = function() {
   let remote = new ui.mojom.ScenicGpuServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ui.mojom.ScenicGpuService',
     'context');
   return remote.$;

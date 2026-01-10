@@ -73,8 +73,9 @@ media_router.mojom.MediaRouterTraitsTestServiceRemoteCallHandler = class {
 
 media_router.mojom.MediaRouterTraitsTestService.getRemote = function() {
   let remote = new media_router.mojom.MediaRouterTraitsTestServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_router.mojom.MediaRouterTraitsTestService',
     'context');
   return remote.$;

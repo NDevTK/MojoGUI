@@ -52,8 +52,9 @@ arc.mojom.SharesheetHostRemoteCallHandler = class {
 
 arc.mojom.SharesheetHost.getRemote = function() {
   let remote = new arc.mojom.SharesheetHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.SharesheetHost',
     'context');
   return remote.$;
@@ -121,8 +122,9 @@ arc.mojom.SharesheetInstanceRemoteCallHandler = class {
 
 arc.mojom.SharesheetInstance.getRemote = function() {
   let remote = new arc.mojom.SharesheetInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.SharesheetInstance',
     'context');
   return remote.$;

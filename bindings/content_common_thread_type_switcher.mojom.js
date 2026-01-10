@@ -66,8 +66,9 @@ content.mojom.ThreadTypeSwitcherRemoteCallHandler = class {
 
 content.mojom.ThreadTypeSwitcher.getRemote = function() {
   let remote = new content.mojom.ThreadTypeSwitcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.ThreadTypeSwitcher',
     'context');
   return remote.$;

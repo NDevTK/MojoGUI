@@ -73,8 +73,9 @@ blink.mojom.GpuDataManagerRemoteCallHandler = class {
 
 blink.mojom.GpuDataManager.getRemote = function() {
   let remote = new blink.mojom.GpuDataManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.GpuDataManager',
     'context');
   return remote.$;

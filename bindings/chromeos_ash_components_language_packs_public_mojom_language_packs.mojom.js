@@ -129,8 +129,9 @@ ash.language.mojom.LanguagePacksObserverRemoteCallHandler = class {
 
 ash.language.mojom.LanguagePacksObserver.getRemote = function() {
   let remote = new ash.language.mojom.LanguagePacksObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.language.mojom.LanguagePacksObserver',
     'context');
   return remote.$;
@@ -283,8 +284,9 @@ ash.language.mojom.LanguagePacksRemoteCallHandler = class {
 
 ash.language.mojom.LanguagePacks.getRemote = function() {
   let remote = new ash.language.mojom.LanguagePacksRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.language.mojom.LanguagePacks',
     'context');
   return remote.$;

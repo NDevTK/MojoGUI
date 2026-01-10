@@ -250,8 +250,9 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
 
 commerce.product_specifications.mojom.ProductSpecificationsHandler.getRemote = function() {
   let remote = new commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce.product_specifications.mojom.ProductSpecificationsHandler',
     'context');
   return remote.$;
@@ -361,8 +362,9 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
 
 commerce.product_specifications.mojom.Page.getRemote = function() {
   let remote = new commerce.product_specifications.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce.product_specifications.mojom.Page',
     'context');
   return remote.$;
@@ -426,8 +428,9 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemoteC
 
 commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.getRemote = function() {
   let remote = new commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory',
     'context');
   return remote.$;

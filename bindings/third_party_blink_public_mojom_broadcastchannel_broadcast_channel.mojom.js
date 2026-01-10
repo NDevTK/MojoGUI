@@ -69,8 +69,9 @@ blink.mojom.BroadcastChannelClientRemoteCallHandler = class {
 
 blink.mojom.BroadcastChannelClient.getRemote = function() {
   let remote = new blink.mojom.BroadcastChannelClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BroadcastChannelClient',
     'context');
   return remote.$;
@@ -135,8 +136,9 @@ blink.mojom.BroadcastChannelProviderRemoteCallHandler = class {
 
 blink.mojom.BroadcastChannelProvider.getRemote = function() {
   let remote = new blink.mojom.BroadcastChannelProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BroadcastChannelProvider',
     'context');
   return remote.$;

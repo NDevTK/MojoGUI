@@ -190,8 +190,9 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
 
 ui.ozone.mojom.GesturePropertiesService.getRemote = function() {
   let remote = new ui.ozone.mojom.GesturePropertiesServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ui.ozone.mojom.GesturePropertiesService',
     'context');
   return remote.$;

@@ -95,8 +95,9 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
 
 actor.ui.mojom.ActorOverlayPageHandlerFactory.getRemote = function() {
   let remote = new actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'actor.ui.mojom.ActorOverlayPageHandlerFactory',
     'context');
   return remote.$;
@@ -180,8 +181,9 @@ actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
 
 actor.ui.mojom.ActorOverlayPageHandler.getRemote = function() {
   let remote = new actor.ui.mojom.ActorOverlayPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'actor.ui.mojom.ActorOverlayPageHandler',
     'context');
   return remote.$;
@@ -317,8 +319,9 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
 
 actor.ui.mojom.ActorOverlayPage.getRemote = function() {
   let remote = new actor.ui.mojom.ActorOverlayPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'actor.ui.mojom.ActorOverlayPage',
     'context');
   return remote.$;

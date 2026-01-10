@@ -213,8 +213,9 @@ ash.nearby.presence.mojom.ScanSessionRemoteCallHandler = class {
 
 ash.nearby.presence.mojom.ScanSession.getRemote = function() {
   let remote = new ash.nearby.presence.mojom.ScanSessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.nearby.presence.mojom.ScanSession',
     'context');
   return remote.$;
@@ -309,8 +310,9 @@ ash.nearby.presence.mojom.ScanObserverRemoteCallHandler = class {
 
 ash.nearby.presence.mojom.ScanObserver.getRemote = function() {
   let remote = new ash.nearby.presence.mojom.ScanObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.nearby.presence.mojom.ScanObserver',
     'context');
   return remote.$;
@@ -481,8 +483,9 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
 
 ash.nearby.presence.mojom.NearbyPresence.getRemote = function() {
   let remote = new ash.nearby.presence.mojom.NearbyPresenceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.nearby.presence.mojom.NearbyPresence',
     'context');
   return remote.$;

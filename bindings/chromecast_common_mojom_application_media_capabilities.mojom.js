@@ -78,8 +78,9 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemoteCallHandler = c
 
 chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver.getRemote = function() {
   let remote = new chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver',
     'context');
   return remote.$;
@@ -142,8 +143,9 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesRemoteCallHandler = class {
 
 chromecast.shell.mojom.ApplicationMediaCapabilities.getRemote = function() {
   let remote = new chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.shell.mojom.ApplicationMediaCapabilities',
     'context');
   return remote.$;

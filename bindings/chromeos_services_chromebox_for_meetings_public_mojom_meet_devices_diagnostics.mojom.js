@@ -99,8 +99,9 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandler = class {
 
 chromeos.cfm.mojom.MeetDevicesDiagnostics.getRemote = function() {
   let remote = new chromeos.cfm.mojom.MeetDevicesDiagnosticsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cfm.mojom.MeetDevicesDiagnostics',
     'context');
   return remote.$;

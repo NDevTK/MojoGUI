@@ -367,8 +367,9 @@ viz.mojom.GpuHostRemoteCallHandler = class {
 
 viz.mojom.GpuHost.getRemote = function() {
   let remote = new viz.mojom.GpuHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.GpuHost',
     'context');
   return remote.$;

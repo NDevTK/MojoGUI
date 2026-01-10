@@ -108,8 +108,9 @@ browser_command.mojom.CommandHandlerFactoryRemoteCallHandler = class {
 
 browser_command.mojom.CommandHandlerFactory.getRemote = function() {
   let remote = new browser_command.mojom.CommandHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'browser_command.mojom.CommandHandlerFactory',
     'context');
   return remote.$;
@@ -201,8 +202,9 @@ browser_command.mojom.CommandHandlerRemoteCallHandler = class {
 
 browser_command.mojom.CommandHandler.getRemote = function() {
   let remote = new browser_command.mojom.CommandHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'browser_command.mojom.CommandHandler',
     'context');
   return remote.$;

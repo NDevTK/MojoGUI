@@ -101,8 +101,9 @@ content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
 
 content.mojom.ChildMemoryConsumer.getRemote = function() {
   let remote = new content.mojom.ChildMemoryConsumerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.ChildMemoryConsumer',
     'context');
   return remote.$;
@@ -167,8 +168,9 @@ content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
 
 content.mojom.BrowserMemoryConsumerRegistry.getRemote = function() {
   let remote = new content.mojom.BrowserMemoryConsumerRegistryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.BrowserMemoryConsumerRegistry',
     'context');
   return remote.$;

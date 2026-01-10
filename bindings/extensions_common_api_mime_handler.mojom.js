@@ -114,8 +114,9 @@ extensions.mime_handler.MimeHandlerServiceRemoteCallHandler = class {
 
 extensions.mime_handler.MimeHandlerService.getRemote = function() {
   let remote = new extensions.mime_handler.MimeHandlerServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mime_handler.MimeHandlerService',
     'context');
   return remote.$;
@@ -183,8 +184,9 @@ extensions.mime_handler.BeforeUnloadControlRemoteCallHandler = class {
 
 extensions.mime_handler.BeforeUnloadControl.getRemote = function() {
   let remote = new extensions.mime_handler.BeforeUnloadControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mime_handler.BeforeUnloadControl',
     'context');
   return remote.$;

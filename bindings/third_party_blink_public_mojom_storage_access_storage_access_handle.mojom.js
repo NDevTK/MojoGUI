@@ -207,8 +207,9 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
 
 blink.mojom.StorageAccessHandle.getRemote = function() {
   let remote = new blink.mojom.StorageAccessHandleRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.StorageAccessHandle',
     'context');
   return remote.$;

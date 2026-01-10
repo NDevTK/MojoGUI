@@ -104,8 +104,9 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
 
 ntp.calendar.mojom.GoogleCalendarPageHandler.getRemote = function() {
   let remote = new ntp.calendar.mojom.GoogleCalendarPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ntp.calendar.mojom.GoogleCalendarPageHandler',
     'context');
   return remote.$;

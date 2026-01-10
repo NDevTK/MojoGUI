@@ -76,8 +76,9 @@ ash.common.mojom.AcceleratorFetcherObserverRemoteCallHandler = class {
 
 ash.common.mojom.AcceleratorFetcherObserver.getRemote = function() {
   let remote = new ash.common.mojom.AcceleratorFetcherObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.common.mojom.AcceleratorFetcherObserver',
     'context');
   return remote.$;
@@ -162,8 +163,9 @@ ash.common.mojom.AcceleratorFetcherRemoteCallHandler = class {
 
 ash.common.mojom.AcceleratorFetcher.getRemote = function() {
   let remote = new ash.common.mojom.AcceleratorFetcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.common.mojom.AcceleratorFetcher',
     'context');
   return remote.$;

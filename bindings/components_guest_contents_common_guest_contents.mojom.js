@@ -74,8 +74,9 @@ guest_contents.mojom.GuestContentsHostRemoteCallHandler = class {
 
 guest_contents.mojom.GuestContentsHost.getRemote = function() {
   let remote = new guest_contents.mojom.GuestContentsHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'guest_contents.mojom.GuestContentsHost',
     'context');
   return remote.$;

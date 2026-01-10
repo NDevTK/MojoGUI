@@ -330,8 +330,9 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
 
 media.mojom.MediaPlayer.getRemote = function() {
   let remote = new media.mojom.MediaPlayerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaPlayer',
     'context');
   return remote.$;
@@ -399,8 +400,9 @@ media.mojom.MediaPlayerObserverClientRemoteCallHandler = class {
 
 media.mojom.MediaPlayerObserverClient.getRemote = function() {
   let remote = new media.mojom.MediaPlayerObserverClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaPlayerObserverClient',
     'context');
   return remote.$;
@@ -655,8 +657,9 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
 
 media.mojom.MediaPlayerObserver.getRemote = function() {
   let remote = new media.mojom.MediaPlayerObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaPlayerObserver',
     'context');
   return remote.$;
@@ -721,8 +724,9 @@ media.mojom.MediaPlayerHostRemoteCallHandler = class {
 
 media.mojom.MediaPlayerHost.getRemote = function() {
   let remote = new media.mojom.MediaPlayerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaPlayerHost',
     'context');
   return remote.$;

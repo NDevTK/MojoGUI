@@ -190,8 +190,9 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
 
 ash.boca_receiver.mojom.UntrustedPage.getRemote = function() {
   let remote = new ash.boca_receiver.mojom.UntrustedPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.boca_receiver.mojom.UntrustedPage',
     'context');
   return remote.$;
@@ -254,8 +255,9 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
 
 ash.boca_receiver.mojom.UntrustedPageHandlerFactory.getRemote = function() {
   let remote = new ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.boca_receiver.mojom.UntrustedPageHandlerFactory',
     'context');
   return remote.$;

@@ -212,8 +212,9 @@ chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = class {
 
 chromeos.remote_apps.mojom.RemoteApps.getRemote = function() {
   let remote = new chromeos.remote_apps.mojom.RemoteAppsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.remote_apps.mojom.RemoteApps',
     'context');
   return remote.$;
@@ -278,8 +279,9 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryRemoteCallHandler = class {
 
 chromeos.remote_apps.mojom.RemoteAppsFactory.getRemote = function() {
   let remote = new chromeos.remote_apps.mojom.RemoteAppsFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.remote_apps.mojom.RemoteAppsFactory',
     'context');
   return remote.$;
@@ -343,8 +345,9 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemoteCallHandler = class {
 
 chromeos.remote_apps.mojom.RemoteAppLaunchObserver.getRemote = function() {
   let remote = new chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.remote_apps.mojom.RemoteAppLaunchObserver',
     'context');
   return remote.$;

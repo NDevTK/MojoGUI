@@ -218,8 +218,9 @@ chromeos.sensors.mojom.SensorServiceRemoteCallHandler = class {
 
 chromeos.sensors.mojom.SensorService.getRemote = function() {
   let remote = new chromeos.sensors.mojom.SensorServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.sensors.mojom.SensorService',
     'context');
   return remote.$;
@@ -423,8 +424,9 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
 
 chromeos.sensors.mojom.SensorDevice.getRemote = function() {
   let remote = new chromeos.sensors.mojom.SensorDeviceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.sensors.mojom.SensorDevice',
     'context');
   return remote.$;
@@ -503,8 +505,9 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteCallHandler = class {
 
 chromeos.sensors.mojom.SensorDeviceSamplesObserver.getRemote = function() {
   let remote = new chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.sensors.mojom.SensorDeviceSamplesObserver',
     'context');
   return remote.$;
@@ -568,8 +571,9 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemoteCallHandler = class 
 
 chromeos.sensors.mojom.SensorServiceNewDevicesObserver.getRemote = function() {
   let remote = new chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.sensors.mojom.SensorServiceNewDevicesObserver',
     'context');
   return remote.$;

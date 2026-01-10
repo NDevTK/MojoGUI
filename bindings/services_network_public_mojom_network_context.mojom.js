@@ -591,8 +591,9 @@ network.mojom.CustomProxyConnectionObserverRemoteCallHandler = class {
 
 network.mojom.CustomProxyConnectionObserver.getRemote = function() {
   let remote = new network.mojom.CustomProxyConnectionObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.CustomProxyConnectionObserver',
     'context');
   return remote.$;
@@ -660,8 +661,9 @@ network.mojom.CustomProxyConfigClientRemoteCallHandler = class {
 
 network.mojom.CustomProxyConfigClient.getRemote = function() {
   let remote = new network.mojom.CustomProxyConfigClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.CustomProxyConfigClient',
     'context');
   return remote.$;
@@ -757,8 +759,9 @@ network.mojom.TrustedHeaderClientRemoteCallHandler = class {
 
 network.mojom.TrustedHeaderClient.getRemote = function() {
   let remote = new network.mojom.TrustedHeaderClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.TrustedHeaderClient',
     'context');
   return remote.$;
@@ -839,8 +842,9 @@ network.mojom.TrustedURLLoaderHeaderClientRemoteCallHandler = class {
 
 network.mojom.TrustedURLLoaderHeaderClient.getRemote = function() {
   let remote = new network.mojom.TrustedURLLoaderHeaderClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.TrustedURLLoaderHeaderClient',
     'context');
   return remote.$;
@@ -887,8 +891,9 @@ network.mojom.PreloadedSharedDictionaryInfoHandleRemoteCallHandler = class {
 
 network.mojom.PreloadedSharedDictionaryInfoHandle.getRemote = function() {
   let remote = new network.mojom.PreloadedSharedDictionaryInfoHandleRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.PreloadedSharedDictionaryInfoHandle',
     'context');
   return remote.$;
@@ -2804,8 +2809,9 @@ network.mojom.NetworkContextRemoteCallHandler = class {
 
 network.mojom.NetworkContext.getRemote = function() {
   let remote = new network.mojom.NetworkContextRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.NetworkContext',
     'context');
   return remote.$;

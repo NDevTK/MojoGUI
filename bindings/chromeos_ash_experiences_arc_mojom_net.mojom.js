@@ -996,8 +996,9 @@ arc.mojom.NetHostRemoteCallHandler = class {
 
 arc.mojom.NetHost.getRemote = function() {
   let remote = new arc.mojom.NetHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.NetHost',
     'context');
   return remote.$;
@@ -1228,8 +1229,9 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
 
 arc.mojom.NetInstance.getRemote = function() {
   let remote = new arc.mojom.NetInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.NetInstance',
     'context');
   return remote.$;

@@ -95,8 +95,9 @@ blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {
 
 blink.mojom.FontUniqueNameLookup.getRemote = function() {
   let remote = new blink.mojom.FontUniqueNameLookupRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FontUniqueNameLookup',
     'context');
   return remote.$;

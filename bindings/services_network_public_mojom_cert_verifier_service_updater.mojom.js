@@ -140,8 +140,9 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
 
 cert_verifier.mojom.CertVerifierServiceUpdater.getRemote = function() {
   let remote = new cert_verifier.mojom.CertVerifierServiceUpdaterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cert_verifier.mojom.CertVerifierServiceUpdater',
     'context');
   return remote.$;

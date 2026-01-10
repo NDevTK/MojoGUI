@@ -213,8 +213,9 @@ ash.personalization_app.mojom.SeaPenObserverRemoteCallHandler = class {
 
 ash.personalization_app.mojom.SeaPenObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.SeaPenObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.SeaPenObserver',
     'context');
   return remote.$;
@@ -535,8 +536,9 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
 
 ash.personalization_app.mojom.SeaPenProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.SeaPenProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.SeaPenProvider',
     'context');
   return remote.$;

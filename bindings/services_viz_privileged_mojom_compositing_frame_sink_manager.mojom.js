@@ -588,8 +588,9 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
 
 viz.mojom.FrameSinkManager.getRemote = function() {
   let remote = new viz.mojom.FrameSinkManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.FrameSinkManager',
     'context');
   return remote.$;
@@ -758,8 +759,9 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
 
 viz.mojom.FrameSinkManagerClient.getRemote = function() {
   let remote = new viz.mojom.FrameSinkManagerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.FrameSinkManagerClient',
     'context');
   return remote.$;
@@ -824,8 +826,9 @@ viz.mojom.RendererInputRouterDelegateRegistryRemoteCallHandler = class {
 
 viz.mojom.RendererInputRouterDelegateRegistry.getRemote = function() {
   let remote = new viz.mojom.RendererInputRouterDelegateRegistryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.RendererInputRouterDelegateRegistry',
     'context');
   return remote.$;

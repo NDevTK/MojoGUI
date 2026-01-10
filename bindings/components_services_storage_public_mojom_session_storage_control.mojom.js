@@ -275,8 +275,9 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
 
 storage.mojom.SessionStorageControl.getRemote = function() {
   let remote = new storage.mojom.SessionStorageControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.SessionStorageControl',
     'context');
   return remote.$;

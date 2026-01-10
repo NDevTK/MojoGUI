@@ -83,8 +83,9 @@ blink.mojom.DocumentMetadataRemoteCallHandler = class {
 
 blink.mojom.DocumentMetadata.getRemote = function() {
   let remote = new blink.mojom.DocumentMetadataRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DocumentMetadata',
     'context');
   return remote.$;

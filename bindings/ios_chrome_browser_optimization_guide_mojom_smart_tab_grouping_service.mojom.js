@@ -87,8 +87,9 @@ ai.mojom.SmartTabGroupingServiceRemoteCallHandler = class {
 
 ai.mojom.SmartTabGroupingService.getRemote = function() {
   let remote = new ai.mojom.SmartTabGroupingServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ai.mojom.SmartTabGroupingService',
     'context');
   return remote.$;

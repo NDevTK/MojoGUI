@@ -159,8 +159,9 @@ media_session.mojom.AudioFocusObserverRemoteCallHandler = class {
 
 media_session.mojom.AudioFocusObserver.getRemote = function() {
   let remote = new media_session.mojom.AudioFocusObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_session.mojom.AudioFocusObserver',
     'context');
   return remote.$;
@@ -260,8 +261,9 @@ media_session.mojom.AudioFocusRequestClientRemoteCallHandler = class {
 
 media_session.mojom.AudioFocusRequestClient.getRemote = function() {
   let remote = new media_session.mojom.AudioFocusRequestClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_session.mojom.AudioFocusRequestClient',
     'context');
   return remote.$;
@@ -536,8 +538,9 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
 
 media_session.mojom.AudioFocusManager.getRemote = function() {
   let remote = new media_session.mojom.AudioFocusManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_session.mojom.AudioFocusManager',
     'context');
   return remote.$;
@@ -606,8 +609,9 @@ media_session.mojom.AudioFocusManagerDebugRemoteCallHandler = class {
 
 media_session.mojom.AudioFocusManagerDebug.getRemote = function() {
   let remote = new media_session.mojom.AudioFocusManagerDebugRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_session.mojom.AudioFocusManagerDebug',
     'context');
   return remote.$;

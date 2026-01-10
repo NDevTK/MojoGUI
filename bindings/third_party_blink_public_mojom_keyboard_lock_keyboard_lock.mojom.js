@@ -138,8 +138,9 @@ blink.mojom.KeyboardLockServiceRemoteCallHandler = class {
 
 blink.mojom.KeyboardLockService.getRemote = function() {
   let remote = new blink.mojom.KeyboardLockServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.KeyboardLockService',
     'context');
   return remote.$;

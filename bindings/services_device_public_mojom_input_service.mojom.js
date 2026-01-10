@@ -124,8 +124,9 @@ device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
 
 device.mojom.InputDeviceManagerClient.getRemote = function() {
   let remote = new device.mojom.InputDeviceManagerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.InputDeviceManagerClient',
     'context');
   return remote.$;
@@ -215,8 +216,9 @@ device.mojom.InputDeviceManagerRemoteCallHandler = class {
 
 device.mojom.InputDeviceManager.getRemote = function() {
   let remote = new device.mojom.InputDeviceManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.InputDeviceManager',
     'context');
   return remote.$;

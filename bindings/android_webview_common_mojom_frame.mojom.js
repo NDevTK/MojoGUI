@@ -174,8 +174,9 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
 
 android_webview.mojom.LocalMainFrame.getRemote = function() {
   let remote = new android_webview.mojom.LocalMainFrameRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'android_webview.mojom.LocalMainFrame',
     'context');
   return remote.$;
@@ -279,8 +280,9 @@ android_webview.mojom.FrameHostRemoteCallHandler = class {
 
 android_webview.mojom.FrameHost.getRemote = function() {
   let remote = new android_webview.mojom.FrameHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'android_webview.mojom.FrameHost',
     'context');
   return remote.$;

@@ -116,8 +116,9 @@ patch.mojom.FilePatcherRemoteCallHandler = class {
 
 patch.mojom.FilePatcher.getRemote = function() {
   let remote = new patch.mojom.FilePatcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'patch.mojom.FilePatcher',
     'context');
   return remote.$;

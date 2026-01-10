@@ -227,8 +227,9 @@ fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
 
 fuzz.mojom.FuzzDummyInterface.getRemote = function() {
   let remote = new fuzz.mojom.FuzzDummyInterfaceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'fuzz.mojom.FuzzDummyInterface',
     'context');
   return remote.$;
@@ -407,8 +408,9 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
 
 fuzz.mojom.FuzzInterface.getRemote = function() {
   let remote = new fuzz.mojom.FuzzInterfaceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'fuzz.mojom.FuzzInterface',
     'context');
   return remote.$;

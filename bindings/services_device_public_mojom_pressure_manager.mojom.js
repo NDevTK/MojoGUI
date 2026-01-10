@@ -168,8 +168,9 @@ device.mojom.PressureManagerRemoteCallHandler = class {
 
 device.mojom.PressureManager.getRemote = function() {
   let remote = new device.mojom.PressureManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.PressureManager',
     'context');
   return remote.$;
@@ -232,8 +233,9 @@ device.mojom.PressureClientRemoteCallHandler = class {
 
 device.mojom.PressureClient.getRemote = function() {
   let remote = new device.mojom.PressureClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.PressureClient',
     'context');
   return remote.$;

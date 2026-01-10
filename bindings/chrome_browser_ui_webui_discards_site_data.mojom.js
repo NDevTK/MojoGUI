@@ -153,8 +153,9 @@ discards.mojom.SiteDataProviderRemoteCallHandler = class {
 
 discards.mojom.SiteDataProvider.getRemote = function() {
   let remote = new discards.mojom.SiteDataProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'discards.mojom.SiteDataProvider',
     'context');
   return remote.$;

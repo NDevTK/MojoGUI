@@ -108,8 +108,9 @@ pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
 
 pdf.mojom.PdfThumbnailer.getRemote = function() {
   let remote = new pdf.mojom.PdfThumbnailerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'pdf.mojom.PdfThumbnailer',
     'context');
   return remote.$;

@@ -120,8 +120,9 @@ arc.mojom.VideoProtectedBufferAllocatorRemoteCallHandler = class {
 
 arc.mojom.VideoProtectedBufferAllocator.getRemote = function() {
   let remote = new arc.mojom.VideoProtectedBufferAllocatorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VideoProtectedBufferAllocator',
     'context');
   return remote.$;

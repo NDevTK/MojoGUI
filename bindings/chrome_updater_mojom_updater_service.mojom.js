@@ -538,8 +538,9 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
 
 updater.mojom.UpdateService.getRemote = function() {
   let remote = new updater.mojom.UpdateServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'updater.mojom.UpdateService',
     'context');
   return remote.$;
@@ -618,8 +619,9 @@ updater.mojom.StateChangeObserverRemoteCallHandler = class {
 
 updater.mojom.StateChangeObserver.getRemote = function() {
   let remote = new updater.mojom.StateChangeObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'updater.mojom.StateChangeObserver',
     'context');
   return remote.$;

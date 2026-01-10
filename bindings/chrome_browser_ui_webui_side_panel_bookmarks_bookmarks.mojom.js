@@ -149,8 +149,9 @@ side_panel.mojom.BookmarksPageHandlerFactoryRemoteCallHandler = class {
 
 side_panel.mojom.BookmarksPageHandlerFactory.getRemote = function() {
   let remote = new side_panel.mojom.BookmarksPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.mojom.BookmarksPageHandlerFactory',
     'context');
   return remote.$;
@@ -602,8 +603,9 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
 
 side_panel.mojom.BookmarksPageHandler.getRemote = function() {
   let remote = new side_panel.mojom.BookmarksPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.mojom.BookmarksPageHandler',
     'context');
   return remote.$;
@@ -736,8 +738,9 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
 
 side_panel.mojom.BookmarksPage.getRemote = function() {
   let remote = new side_panel.mojom.BookmarksPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.mojom.BookmarksPage',
     'context');
   return remote.$;

@@ -77,8 +77,9 @@ mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler = class {
 
 mirroring.mojom.AudioStreamCreatorClient.getRemote = function() {
   let remote = new mirroring.mojom.AudioStreamCreatorClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mirroring.mojom.AudioStreamCreatorClient',
     'context');
   return remote.$;
@@ -224,8 +225,9 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
 
 mirroring.mojom.ResourceProvider.getRemote = function() {
   let remote = new mirroring.mojom.ResourceProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mirroring.mojom.ResourceProvider',
     'context');
   return remote.$;

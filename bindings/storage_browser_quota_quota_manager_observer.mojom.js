@@ -86,8 +86,9 @@ storage.mojom.QuotaManagerObserverRemoteCallHandler = class {
 
 storage.mojom.QuotaManagerObserver.getRemote = function() {
   let remote = new storage.mojom.QuotaManagerObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.QuotaManagerObserver',
     'context');
   return remote.$;

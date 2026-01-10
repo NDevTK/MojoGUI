@@ -115,8 +115,9 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
 
 ash.mojom.scanner_feedback_ui.PageHandler.getRemote = function() {
   let remote = new ash.mojom.scanner_feedback_ui.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.mojom.scanner_feedback_ui.PageHandler',
     'context');
   return remote.$;

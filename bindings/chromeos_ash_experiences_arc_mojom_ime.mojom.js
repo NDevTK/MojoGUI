@@ -245,8 +245,9 @@ arc.mojom.ImeHostRemoteCallHandler = class {
 
 arc.mojom.ImeHost.getRemote = function() {
   let remote = new arc.mojom.ImeHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ImeHost',
     'context');
   return remote.$;
@@ -430,8 +431,9 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
 
 arc.mojom.ImeInstance.getRemote = function() {
   let remote = new arc.mojom.ImeInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ImeInstance',
     'context');
   return remote.$;

@@ -118,8 +118,9 @@ arc.mojom.AudioHostRemoteCallHandler = class {
 
 arc.mojom.AudioHost.getRemote = function() {
   let remote = new arc.mojom.AudioHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.AudioHost',
     'context');
   return remote.$;
@@ -252,8 +253,9 @@ arc.mojom.AudioInstanceRemoteCallHandler = class {
 
 arc.mojom.AudioInstance.getRemote = function() {
   let remote = new arc.mojom.AudioInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.AudioInstance',
     'context');
   return remote.$;

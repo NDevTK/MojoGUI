@@ -151,8 +151,9 @@ network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
 
 network.mojom.NetworkChangeManagerClient.getRemote = function() {
   let remote = new network.mojom.NetworkChangeManagerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.NetworkChangeManagerClient',
     'context');
   return remote.$;
@@ -252,8 +253,9 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
 
 network.mojom.NetworkChangeManager.getRemote = function() {
   let remote = new network.mojom.NetworkChangeManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.NetworkChangeManager',
     'context');
   return remote.$;

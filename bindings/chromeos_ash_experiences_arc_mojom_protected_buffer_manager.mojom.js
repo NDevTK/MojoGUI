@@ -144,8 +144,9 @@ arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {
 
 arc.mojom.ProtectedBufferManager.getRemote = function() {
   let remote = new arc.mojom.ProtectedBufferManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ProtectedBufferManager',
     'context');
   return remote.$;

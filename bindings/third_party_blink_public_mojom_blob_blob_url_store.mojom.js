@@ -134,8 +134,9 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
 
 blink.mojom.BlobURLStore.getRemote = function() {
   let remote = new blink.mojom.BlobURLStoreRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BlobURLStore',
     'context');
   return remote.$;
@@ -219,8 +220,9 @@ blink.mojom.BlobURLTokenRemoteCallHandler = class {
 
 blink.mojom.BlobURLToken.getRemote = function() {
   let remote = new blink.mojom.BlobURLTokenRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BlobURLToken',
     'context');
   return remote.$;

@@ -95,8 +95,9 @@ blink.mojom.FontAccessManagerRemoteCallHandler = class {
 
 blink.mojom.FontAccessManager.getRemote = function() {
   let remote = new blink.mojom.FontAccessManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FontAccessManager',
     'context');
   return remote.$;

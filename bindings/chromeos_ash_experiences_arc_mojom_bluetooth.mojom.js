@@ -611,8 +611,9 @@ arc.mojom.RfcommListeningSocketClientRemoteCallHandler = class {
 
 arc.mojom.RfcommListeningSocketClient.getRemote = function() {
   let remote = new arc.mojom.RfcommListeningSocketClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.RfcommListeningSocketClient',
     'context');
   return remote.$;
@@ -690,8 +691,9 @@ arc.mojom.RfcommConnectingSocketClientRemoteCallHandler = class {
 
 arc.mojom.RfcommConnectingSocketClient.getRemote = function() {
   let remote = new arc.mojom.RfcommConnectingSocketClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.RfcommConnectingSocketClient',
     'context');
   return remote.$;
@@ -754,8 +756,9 @@ arc.mojom.BluetoothListenSocketClientRemoteCallHandler = class {
 
 arc.mojom.BluetoothListenSocketClient.getRemote = function() {
   let remote = new arc.mojom.BluetoothListenSocketClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.BluetoothListenSocketClient',
     'context');
   return remote.$;
@@ -833,8 +836,9 @@ arc.mojom.BluetoothConnectSocketClientRemoteCallHandler = class {
 
 arc.mojom.BluetoothConnectSocketClient.getRemote = function() {
   let remote = new arc.mojom.BluetoothConnectSocketClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.BluetoothConnectSocketClient',
     'context');
   return remote.$;
@@ -1709,8 +1713,9 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
 
 arc.mojom.BluetoothHost.getRemote = function() {
   let remote = new arc.mojom.BluetoothHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.BluetoothHost',
     'context');
   return remote.$;
@@ -2115,8 +2120,9 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
 
 arc.mojom.BluetoothInstance.getRemote = function() {
   let remote = new arc.mojom.BluetoothInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.BluetoothInstance',
     'context');
   return remote.$;

@@ -238,8 +238,9 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
 
 media.mojom.WatchTimeRecorder.getRemote = function() {
   let remote = new media.mojom.WatchTimeRecorderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.WatchTimeRecorder',
     'context');
   return remote.$;

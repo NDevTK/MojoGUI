@@ -69,8 +69,9 @@ cros.mojom.VideoCaptureDeviceInfoObserverRemoteCallHandler = class {
 
 cros.mojom.VideoCaptureDeviceInfoObserver.getRemote = function() {
   let remote = new cros.mojom.VideoCaptureDeviceInfoObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.VideoCaptureDeviceInfoObserver',
     'context');
   return remote.$;
@@ -133,8 +134,9 @@ cros.mojom.VideoCaptureDeviceInfoMonitorRemoteCallHandler = class {
 
 cros.mojom.VideoCaptureDeviceInfoMonitor.getRemote = function() {
   let remote = new cros.mojom.VideoCaptureDeviceInfoMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.VideoCaptureDeviceInfoMonitor',
     'context');
   return remote.$;

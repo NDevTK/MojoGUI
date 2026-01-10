@@ -104,8 +104,9 @@ network.mojom.CrossOriginEmbedderPolicyReporterRemoteCallHandler = class {
 
 network.mojom.CrossOriginEmbedderPolicyReporter.getRemote = function() {
   let remote = new network.mojom.CrossOriginEmbedderPolicyReporterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.CrossOriginEmbedderPolicyReporter',
     'context');
   return remote.$;

@@ -386,8 +386,9 @@ memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
 
 memory_instrumentation.mojom.ClientProcess.getRemote = function() {
   let remote = new memory_instrumentation.mojom.ClientProcessRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'memory_instrumentation.mojom.ClientProcess',
     'context');
   return remote.$;
@@ -457,8 +458,9 @@ memory_instrumentation.mojom.HeapProfilerRemoteCallHandler = class {
 
 memory_instrumentation.mojom.HeapProfiler.getRemote = function() {
   let remote = new memory_instrumentation.mojom.HeapProfilerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'memory_instrumentation.mojom.HeapProfiler',
     'context');
   return remote.$;
@@ -527,8 +529,9 @@ memory_instrumentation.mojom.HeapProfilerHelperRemoteCallHandler = class {
 
 memory_instrumentation.mojom.HeapProfilerHelper.getRemote = function() {
   let remote = new memory_instrumentation.mojom.HeapProfilerHelperRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'memory_instrumentation.mojom.HeapProfilerHelper',
     'context');
   return remote.$;
@@ -673,8 +676,9 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
 
 memory_instrumentation.mojom.Coordinator.getRemote = function() {
   let remote = new memory_instrumentation.mojom.CoordinatorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'memory_instrumentation.mojom.Coordinator',
     'context');
   return remote.$;
@@ -738,8 +742,9 @@ memory_instrumentation.mojom.CoordinatorConnectorRemoteCallHandler = class {
 
 memory_instrumentation.mojom.CoordinatorConnector.getRemote = function() {
   let remote = new memory_instrumentation.mojom.CoordinatorConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'memory_instrumentation.mojom.CoordinatorConnector',
     'context');
   return remote.$;

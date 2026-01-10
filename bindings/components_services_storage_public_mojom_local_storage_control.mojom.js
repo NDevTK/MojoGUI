@@ -205,8 +205,9 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
 
 storage.mojom.LocalStorageControl.getRemote = function() {
   let remote = new storage.mojom.LocalStorageControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.LocalStorageControl',
     'context');
   return remote.$;

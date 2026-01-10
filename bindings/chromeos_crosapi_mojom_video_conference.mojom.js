@@ -217,8 +217,9 @@ crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
 
 crosapi.mojom.VideoConferenceManagerClient.getRemote = function() {
   let remote = new crosapi.mojom.VideoConferenceManagerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.VideoConferenceManagerClient',
     'context');
   return remote.$;

@@ -83,8 +83,9 @@ blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerWorkerClientRegistry.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerWorkerClientRegistryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ServiceWorkerWorkerClientRegistry',
     'context');
   return remote.$;

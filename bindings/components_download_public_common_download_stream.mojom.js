@@ -89,8 +89,9 @@ download.mojom.DownloadStreamClientRemoteCallHandler = class {
 
 download.mojom.DownloadStreamClient.getRemote = function() {
   let remote = new download.mojom.DownloadStreamClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'download.mojom.DownloadStreamClient',
     'context');
   return remote.$;

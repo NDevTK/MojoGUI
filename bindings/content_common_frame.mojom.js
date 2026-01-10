@@ -399,8 +399,9 @@ content.mojom.FrameHTMLSerializerHandlerRemoteCallHandler = class {
 
 content.mojom.FrameHTMLSerializerHandler.getRemote = function() {
   let remote = new content.mojom.FrameHTMLSerializerHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.FrameHTMLSerializerHandler',
     'context');
   return remote.$;
@@ -615,8 +616,9 @@ content.mojom.FrameRemoteCallHandler = class {
 
 content.mojom.Frame.getRemote = function() {
   let remote = new content.mojom.FrameRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.Frame',
     'context');
   return remote.$;
@@ -728,8 +730,9 @@ content.mojom.FrameBindingsControlRemoteCallHandler = class {
 
 content.mojom.FrameBindingsControl.getRemote = function() {
   let remote = new content.mojom.FrameBindingsControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.FrameBindingsControl',
     'context');
   return remote.$;
@@ -791,8 +794,9 @@ content.mojom.NavigationRendererCancellationListenerRemoteCallHandler = class {
 
 content.mojom.NavigationRendererCancellationListener.getRemote = function() {
   let remote = new content.mojom.NavigationRendererCancellationListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.NavigationRendererCancellationListener',
     'context');
   return remote.$;
@@ -1104,8 +1108,9 @@ content.mojom.FrameHostRemoteCallHandler = class {
 
 content.mojom.FrameHost.getRemote = function() {
   let remote = new content.mojom.FrameHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.FrameHost',
     'context');
   return remote.$;

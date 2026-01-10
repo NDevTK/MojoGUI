@@ -70,8 +70,9 @@ ash.common.mojom.ForceHiddenElementsVisibleObserverRemoteCallHandler = class {
 
 ash.common.mojom.ForceHiddenElementsVisibleObserver.getRemote = function() {
   let remote = new ash.common.mojom.ForceHiddenElementsVisibleObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.common.mojom.ForceHiddenElementsVisibleObserver',
     'context');
   return remote.$;
@@ -140,8 +141,9 @@ ash.common.mojom.AccessibilityFeaturesRemoteCallHandler = class {
 
 ash.common.mojom.AccessibilityFeatures.getRemote = function() {
   let remote = new ash.common.mojom.AccessibilityFeaturesRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.common.mojom.AccessibilityFeatures',
     'context');
   return remote.$;

@@ -84,8 +84,9 @@ network_hints.mojom.NetworkHintsHandlerRemoteCallHandler = class {
 
 network_hints.mojom.NetworkHintsHandler.getRemote = function() {
   let remote = new network_hints.mojom.NetworkHintsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network_hints.mojom.NetworkHintsHandler',
     'context');
   return remote.$;

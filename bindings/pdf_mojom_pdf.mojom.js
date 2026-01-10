@@ -125,8 +125,9 @@ pdf.mojom.SaveDataBufferHandlerRemoteCallHandler = class {
 
 pdf.mojom.SaveDataBufferHandler.getRemote = function() {
   let remote = new pdf.mojom.SaveDataBufferHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'pdf.mojom.SaveDataBufferHandler',
     'context');
   return remote.$;
@@ -312,8 +313,9 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
 
 pdf.mojom.PdfListener.getRemote = function() {
   let remote = new pdf.mojom.PdfListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'pdf.mojom.PdfListener',
     'context');
   return remote.$;
@@ -474,8 +476,9 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
 
 pdf.mojom.PdfHost.getRemote = function() {
   let remote = new pdf.mojom.PdfHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'pdf.mojom.PdfHost',
     'context');
   return remote.$;

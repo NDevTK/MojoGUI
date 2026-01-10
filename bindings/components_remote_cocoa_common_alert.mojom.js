@@ -111,8 +111,9 @@ remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
 
 remote_cocoa.mojom.AlertBridge.getRemote = function() {
   let remote = new remote_cocoa.mojom.AlertBridgeRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remote_cocoa.mojom.AlertBridge',
     'context');
   return remote.$;

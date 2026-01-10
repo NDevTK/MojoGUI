@@ -136,8 +136,9 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemoteCallHandler = class {
 
 ash.enhanced_network_tts.mojom.EnhancedNetworkTts.getRemote = function() {
   let remote = new ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.enhanced_network_tts.mojom.EnhancedNetworkTts',
     'context');
   return remote.$;
@@ -200,8 +201,9 @@ ash.enhanced_network_tts.mojom.AudioDataObserverRemoteCallHandler = class {
 
 ash.enhanced_network_tts.mojom.AudioDataObserver.getRemote = function() {
   let remote = new ash.enhanced_network_tts.mojom.AudioDataObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.enhanced_network_tts.mojom.AudioDataObserver',
     'context');
   return remote.$;

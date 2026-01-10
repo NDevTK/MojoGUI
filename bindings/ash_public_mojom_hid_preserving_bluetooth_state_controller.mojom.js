@@ -73,8 +73,9 @@ ash.mojom.HidPreservingBluetoothStateControllerRemoteCallHandler = class {
 
 ash.mojom.HidPreservingBluetoothStateController.getRemote = function() {
   let remote = new ash.mojom.HidPreservingBluetoothStateControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.mojom.HidPreservingBluetoothStateController',
     'context');
   return remote.$;

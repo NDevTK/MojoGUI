@@ -99,8 +99,9 @@ device.mojom.NFCProviderRemoteCallHandler = class {
 
 device.mojom.NFCProvider.getRemote = function() {
   let remote = new device.mojom.NFCProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.NFCProvider',
     'context');
   return remote.$;

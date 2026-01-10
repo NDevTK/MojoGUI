@@ -60,8 +60,9 @@ media.mojom.VideoDecoderTrackerRemoteCallHandler = class {
 
 media.mojom.VideoDecoderTracker.getRemote = function() {
   let remote = new media.mojom.VideoDecoderTrackerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoDecoderTracker',
     'context');
   return remote.$;
@@ -268,8 +269,9 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
 
 media.mojom.InterfaceFactory.getRemote = function() {
   let remote = new media.mojom.InterfaceFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.InterfaceFactory',
     'context');
   return remote.$;

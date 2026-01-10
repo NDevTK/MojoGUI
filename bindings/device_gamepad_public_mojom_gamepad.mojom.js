@@ -253,8 +253,9 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
 
 device.mojom.GamepadObserver.getRemote = function() {
   let remote = new device.mojom.GamepadObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.GamepadObserver',
     'context');
   return remote.$;
@@ -358,8 +359,9 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
 
 device.mojom.GamepadMonitor.getRemote = function() {
   let remote = new device.mojom.GamepadMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.GamepadMonitor',
     'context');
   return remote.$;
@@ -452,8 +454,9 @@ device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
 
 device.mojom.GamepadHapticsManager.getRemote = function() {
   let remote = new device.mojom.GamepadHapticsManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.GamepadHapticsManager',
     'context');
   return remote.$;

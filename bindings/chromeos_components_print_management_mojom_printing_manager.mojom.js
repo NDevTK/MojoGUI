@@ -176,8 +176,9 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverRemoteCallHandler = cl
 
 chromeos.printing.printing_manager.mojom.PrintJobsObserver.getRemote = function() {
   let remote = new chromeos.printing.printing_manager.mojom.PrintJobsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.printing.printing_manager.mojom.PrintJobsObserver',
     'context');
   return remote.$;
@@ -352,8 +353,9 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
 
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.getRemote = function() {
   let remote = new chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider',
     'context');
   return remote.$;
@@ -432,8 +434,9 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemoteCallHandler
 
 chromeos.printing.printing_manager.mojom.PrintManagementHandler.getRemote = function() {
   let remote = new chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.printing.printing_manager.mojom.PrintManagementHandler',
     'context');
   return remote.$;

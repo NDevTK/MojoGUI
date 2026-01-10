@@ -86,8 +86,9 @@ blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
 
 blink.mojom.FencedFrameOwnerHost.getRemote = function() {
   let remote = new blink.mojom.FencedFrameOwnerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FencedFrameOwnerHost',
     'context');
   return remote.$;

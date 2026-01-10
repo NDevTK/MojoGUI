@@ -99,8 +99,9 @@ tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
 
 tracing.mojom.BackgroundTracingAgentClient.getRemote = function() {
   let remote = new tracing.mojom.BackgroundTracingAgentClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracing.mojom.BackgroundTracingAgentClient',
     'context');
   return remote.$;
@@ -182,8 +183,9 @@ tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
 
 tracing.mojom.BackgroundTracingAgent.getRemote = function() {
   let remote = new tracing.mojom.BackgroundTracingAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracing.mojom.BackgroundTracingAgent',
     'context');
   return remote.$;
@@ -248,8 +250,9 @@ tracing.mojom.BackgroundTracingAgentProviderRemoteCallHandler = class {
 
 tracing.mojom.BackgroundTracingAgentProvider.getRemote = function() {
   let remote = new tracing.mojom.BackgroundTracingAgentProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracing.mojom.BackgroundTracingAgentProvider',
     'context');
   return remote.$;

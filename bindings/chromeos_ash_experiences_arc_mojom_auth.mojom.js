@@ -532,8 +532,9 @@ arc.mojom.AuthHostRemoteCallHandler = class {
 
 arc.mojom.AuthHost.getRemote = function() {
   let remote = new arc.mojom.AuthHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.AuthHost',
     'context');
   return remote.$;
@@ -676,8 +677,9 @@ arc.mojom.AuthInstanceRemoteCallHandler = class {
 
 arc.mojom.AuthInstance.getRemote = function() {
   let remote = new arc.mojom.AuthInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.AuthInstance',
     'context');
   return remote.$;

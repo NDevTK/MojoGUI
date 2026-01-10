@@ -65,8 +65,9 @@ mojo_base.mojom.BinderRemoteCallHandler = class {
 
 mojo_base.mojom.Binder.getRemote = function() {
   let remote = new mojo_base.mojom.BinderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojo_base.mojom.Binder',
     'context');
   return remote.$;

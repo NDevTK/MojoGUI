@@ -48,8 +48,9 @@ network.mojom.SocketConnectionTrackerRemoteCallHandler = class {
 
 network.mojom.SocketConnectionTracker.getRemote = function() {
   let remote = new network.mojom.SocketConnectionTrackerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.SocketConnectionTracker',
     'context');
   return remote.$;

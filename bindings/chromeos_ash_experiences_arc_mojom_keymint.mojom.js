@@ -754,8 +754,9 @@ arc.mojom.keymint.KeyMintHostRemoteCallHandler = class {
 
 arc.mojom.keymint.KeyMintHost.getRemote = function() {
   let remote = new arc.mojom.keymint.KeyMintHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.keymint.KeyMintHost',
     'context');
   return remote.$;
@@ -823,8 +824,9 @@ arc.mojom.keymint.KeyMintInstanceRemoteCallHandler = class {
 
 arc.mojom.keymint.KeyMintInstance.getRemote = function() {
   let remote = new arc.mojom.keymint.KeyMintInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.keymint.KeyMintInstance',
     'context');
   return remote.$;
@@ -1450,8 +1452,9 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
 
 arc.mojom.keymint.KeyMintServer.getRemote = function() {
   let remote = new arc.mojom.keymint.KeyMintServerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.keymint.KeyMintServer',
     'context');
   return remote.$;

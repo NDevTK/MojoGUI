@@ -196,8 +196,9 @@ storage.mojom.ServiceWorkerLiveVersionRefRemoteCallHandler = class {
 
 storage.mojom.ServiceWorkerLiveVersionRef.getRemote = function() {
   let remote = new storage.mojom.ServiceWorkerLiveVersionRefRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.ServiceWorkerLiveVersionRef',
     'context');
   return remote.$;
@@ -310,8 +311,9 @@ storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
 
 storage.mojom.ServiceWorkerResourceReader.getRemote = function() {
   let remote = new storage.mojom.ServiceWorkerResourceReaderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.ServiceWorkerResourceReader',
     'context');
   return remote.$;
@@ -402,8 +404,9 @@ storage.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
 
 storage.mojom.ServiceWorkerResourceWriter.getRemote = function() {
   let remote = new storage.mojom.ServiceWorkerResourceWriterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.ServiceWorkerResourceWriter',
     'context');
   return remote.$;
@@ -472,8 +475,9 @@ storage.mojom.ServiceWorkerResourceMetadataWriterRemoteCallHandler = class {
 
 storage.mojom.ServiceWorkerResourceMetadataWriter.getRemote = function() {
   let remote = new storage.mojom.ServiceWorkerResourceMetadataWriterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.ServiceWorkerResourceMetadataWriter',
     'context');
   return remote.$;
@@ -1481,8 +1485,9 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
 
 storage.mojom.ServiceWorkerStorageControl.getRemote = function() {
   let remote = new storage.mojom.ServiceWorkerStorageControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.ServiceWorkerStorageControl',
     'context');
   return remote.$;

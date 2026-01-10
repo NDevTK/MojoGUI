@@ -252,8 +252,9 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
 
 ash.secure_channel.mojom.Channel.getRemote = function() {
   let remote = new ash.secure_channel.mojom.ChannelRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.secure_channel.mojom.Channel',
     'context');
   return remote.$;
@@ -316,8 +317,9 @@ ash.secure_channel.mojom.MessageReceiverRemoteCallHandler = class {
 
 ash.secure_channel.mojom.MessageReceiver.getRemote = function() {
   let remote = new ash.secure_channel.mojom.MessageReceiverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.secure_channel.mojom.MessageReceiver',
     'context');
   return remote.$;
@@ -398,8 +400,9 @@ ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler = class {
 
 ash.secure_channel.mojom.ConnectionDelegate.getRemote = function() {
   let remote = new ash.secure_channel.mojom.ConnectionDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.secure_channel.mojom.ConnectionDelegate',
     'context');
   return remote.$;
@@ -496,8 +499,9 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
 
 ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.getRemote = function() {
   let remote = new ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger',
     'context');
   return remote.$;
@@ -625,8 +629,9 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
 
 ash.secure_channel.mojom.SecureChannel.getRemote = function() {
   let remote = new ash.secure_channel.mojom.SecureChannelRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.secure_channel.mojom.SecureChannel',
     'context');
   return remote.$;

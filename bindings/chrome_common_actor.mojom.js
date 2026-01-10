@@ -389,8 +389,9 @@ actor.mojom.JournalClientRemoteCallHandler = class {
 
 actor.mojom.JournalClient.getRemote = function() {
   let remote = new actor.mojom.JournalClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'actor.mojom.JournalClient',
     'context');
   return remote.$;
@@ -458,8 +459,9 @@ actor.mojom.PageStabilityMonitorRemoteCallHandler = class {
 
 actor.mojom.PageStabilityMonitor.getRemote = function() {
   let remote = new actor.mojom.PageStabilityMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'actor.mojom.PageStabilityMonitor',
     'context');
   return remote.$;

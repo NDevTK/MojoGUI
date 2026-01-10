@@ -432,8 +432,9 @@ network.mojom.CookieChangeListenerRemoteCallHandler = class {
 
 network.mojom.CookieChangeListener.getRemote = function() {
   let remote = new network.mojom.CookieChangeListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.CookieChangeListener',
     'context');
   return remote.$;
@@ -851,8 +852,9 @@ network.mojom.CookieManagerRemoteCallHandler = class {
 
 network.mojom.CookieManager.getRemote = function() {
   let remote = new network.mojom.CookieManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.CookieManager',
     'context');
   return remote.$;

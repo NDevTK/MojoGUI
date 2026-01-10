@@ -148,8 +148,9 @@ blink.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
 
 blink.mojom.AIManagerCreateWriterClient.getRemote = function() {
   let remote = new blink.mojom.AIManagerCreateWriterClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AIManagerCreateWriterClient',
     'context');
   return remote.$;
@@ -229,8 +230,9 @@ blink.mojom.AIManagerCreateRewriterClientRemoteCallHandler = class {
 
 blink.mojom.AIManagerCreateRewriterClient.getRemote = function() {
   let remote = new blink.mojom.AIManagerCreateRewriterClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AIManagerCreateRewriterClient',
     'context');
   return remote.$;
@@ -310,8 +312,9 @@ blink.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
 
 blink.mojom.AIManagerCreateSummarizerClient.getRemote = function() {
   let remote = new blink.mojom.AIManagerCreateSummarizerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AIManagerCreateSummarizerClient',
     'context');
   return remote.$;
@@ -391,8 +394,9 @@ blink.mojom.AIManagerCreateProofreaderClientRemoteCallHandler = class {
 
 blink.mojom.AIManagerCreateProofreaderClient.getRemote = function() {
   let remote = new blink.mojom.AIManagerCreateProofreaderClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AIManagerCreateProofreaderClient',
     'context');
   return remote.$;
@@ -671,8 +675,9 @@ blink.mojom.AIManagerRemoteCallHandler = class {
 
 blink.mojom.AIManager.getRemote = function() {
   let remote = new blink.mojom.AIManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AIManager',
     'context');
   return remote.$;

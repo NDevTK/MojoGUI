@@ -702,8 +702,9 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
 
 blink.mojom.Authenticator.getRemote = function() {
   let remote = new blink.mojom.AuthenticatorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.Authenticator',
     'context');
   return remote.$;

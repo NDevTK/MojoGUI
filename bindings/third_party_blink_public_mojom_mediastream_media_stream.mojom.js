@@ -407,8 +407,9 @@ blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = class {
 
 blink.mojom.MediaStreamDeviceObserver.getRemote = function() {
   let remote = new blink.mojom.MediaStreamDeviceObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.MediaStreamDeviceObserver',
     'context');
   return remote.$;
@@ -728,8 +729,9 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
 
 blink.mojom.MediaStreamDispatcherHost.getRemote = function() {
   let remote = new blink.mojom.MediaStreamDispatcherHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.MediaStreamDispatcherHost',
     'context');
   return remote.$;
@@ -810,8 +812,9 @@ blink.mojom.MediaStreamTrackMetricsHostRemoteCallHandler = class {
 
 blink.mojom.MediaStreamTrackMetricsHost.getRemote = function() {
   let remote = new blink.mojom.MediaStreamTrackMetricsHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.MediaStreamTrackMetricsHost',
     'context');
   return remote.$;

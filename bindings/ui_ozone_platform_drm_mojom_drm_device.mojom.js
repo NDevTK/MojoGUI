@@ -466,8 +466,9 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
 
 ui.ozone.mojom.DrmDevice.getRemote = function() {
   let remote = new ui.ozone.mojom.DrmDeviceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ui.ozone.mojom.DrmDevice',
     'context');
   return remote.$;

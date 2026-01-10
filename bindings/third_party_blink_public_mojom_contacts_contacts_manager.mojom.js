@@ -99,8 +99,9 @@ blink.mojom.ContactsManagerRemoteCallHandler = class {
 
 blink.mojom.ContactsManager.getRemote = function() {
   let remote = new blink.mojom.ContactsManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ContactsManager',
     'context');
   return remote.$;

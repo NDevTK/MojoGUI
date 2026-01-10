@@ -169,8 +169,9 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
 
 ntp.most_relevant_tab_resumption.mojom.PageHandler.getRemote = function() {
   let remote = new ntp.most_relevant_tab_resumption.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ntp.most_relevant_tab_resumption.mojom.PageHandler',
     'context');
   return remote.$;

@@ -264,8 +264,9 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
 
 chromecast.mojom.CastWebContentsObserver.getRemote = function() {
   let remote = new chromecast.mojom.CastWebContentsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.CastWebContentsObserver',
     'context');
   return remote.$;
@@ -547,8 +548,9 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
 
 chromecast.mojom.CastWebContents.getRemote = function() {
   let remote = new chromecast.mojom.CastWebContentsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.CastWebContents',
     'context');
   return remote.$;

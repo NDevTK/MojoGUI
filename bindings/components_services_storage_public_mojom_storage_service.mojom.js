@@ -145,8 +145,9 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
 
 storage.mojom.StorageService.getRemote = function() {
   let remote = new storage.mojom.StorageServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'storage.mojom.StorageService',
     'context');
   return remote.$;

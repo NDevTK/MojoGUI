@@ -430,8 +430,9 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
 
 blink.mojom.FederatedAuthRequest.getRemote = function() {
   let remote = new blink.mojom.FederatedAuthRequestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FederatedAuthRequest',
     'context');
   return remote.$;

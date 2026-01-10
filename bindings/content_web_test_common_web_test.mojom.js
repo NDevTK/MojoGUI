@@ -438,8 +438,9 @@ content.mojom.WebTestRenderFrameRemoteCallHandler = class {
 
 content.mojom.WebTestRenderFrame.getRemote = function() {
   let remote = new content.mojom.WebTestRenderFrameRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.WebTestRenderFrame',
     'context');
   return remote.$;
@@ -1159,8 +1160,9 @@ content.mojom.WebTestControlHostRemoteCallHandler = class {
 
 content.mojom.WebTestControlHost.getRemote = function() {
   let remote = new content.mojom.WebTestControlHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.WebTestControlHost',
     'context');
   return remote.$;
@@ -1223,8 +1225,9 @@ content.mojom.NonAssociatedWebTestControlHostRemoteCallHandler = class {
 
 content.mojom.NonAssociatedWebTestControlHost.getRemote = function() {
   let remote = new content.mojom.NonAssociatedWebTestControlHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.NonAssociatedWebTestControlHost',
     'context');
   return remote.$;

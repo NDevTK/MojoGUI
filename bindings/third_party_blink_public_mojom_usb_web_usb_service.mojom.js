@@ -165,8 +165,9 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
 
 blink.mojom.WebUsbService.getRemote = function() {
   let remote = new blink.mojom.WebUsbServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebUsbService',
     'context');
   return remote.$;

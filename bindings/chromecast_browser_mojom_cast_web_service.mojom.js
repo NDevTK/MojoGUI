@@ -192,8 +192,9 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
 
 chromecast.mojom.CastWebService.getRemote = function() {
   let remote = new chromecast.mojom.CastWebServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.CastWebService',
     'context');
   return remote.$;

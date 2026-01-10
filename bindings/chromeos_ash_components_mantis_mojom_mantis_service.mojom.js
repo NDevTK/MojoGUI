@@ -93,8 +93,9 @@ mantis.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
 
 mantis.mojom.PlatformModelProgressObserver.getRemote = function() {
   let remote = new mantis.mojom.PlatformModelProgressObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mantis.mojom.PlatformModelProgressObserver',
     'context');
   return remote.$;
@@ -187,8 +188,9 @@ mantis.mojom.MantisServiceRemoteCallHandler = class {
 
 mantis.mojom.MantisService.getRemote = function() {
   let remote = new mantis.mojom.MantisServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mantis.mojom.MantisService',
     'context');
   return remote.$;

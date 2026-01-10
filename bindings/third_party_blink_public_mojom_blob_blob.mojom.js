@@ -100,8 +100,9 @@ blink.mojom.BlobReaderClientRemoteCallHandler = class {
 
 blink.mojom.BlobReaderClient.getRemote = function() {
   let remote = new blink.mojom.BlobReaderClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BlobReaderClient',
     'context');
   return remote.$;
@@ -299,8 +300,9 @@ blink.mojom.BlobRemoteCallHandler = class {
 
 blink.mojom.Blob.getRemote = function() {
   let remote = new blink.mojom.BlobRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.Blob',
     'context');
   return remote.$;

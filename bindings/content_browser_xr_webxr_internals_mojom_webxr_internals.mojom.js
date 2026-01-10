@@ -182,8 +182,9 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
 
 webxr.mojom.WebXrInternalsHandler.getRemote = function() {
   let remote = new webxr.mojom.WebXrInternalsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webxr.mojom.WebXrInternalsHandler',
     'context');
   return remote.$;
@@ -358,8 +359,9 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
 
 webxr.mojom.XRInternalsSessionListener.getRemote = function() {
   let remote = new webxr.mojom.XRInternalsSessionListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webxr.mojom.XRInternalsSessionListener',
     'context');
   return remote.$;

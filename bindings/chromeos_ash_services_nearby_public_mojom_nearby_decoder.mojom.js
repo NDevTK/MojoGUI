@@ -99,8 +99,9 @@ sharing.mojom.NearbySharingDecoderRemoteCallHandler = class {
 
 sharing.mojom.NearbySharingDecoder.getRemote = function() {
   let remote = new sharing.mojom.NearbySharingDecoderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sharing.mojom.NearbySharingDecoder',
     'context');
   return remote.$;

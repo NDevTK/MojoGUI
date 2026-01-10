@@ -144,8 +144,9 @@ ash.settings.mojom.TabletModeObserverRemoteCallHandler = class {
 
 ash.settings.mojom.TabletModeObserver.getRemote = function() {
   let remote = new ash.settings.mojom.TabletModeObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.TabletModeObserver',
     'context');
   return remote.$;
@@ -207,8 +208,9 @@ ash.settings.mojom.DisplayConfigurationObserverRemoteCallHandler = class {
 
 ash.settings.mojom.DisplayConfigurationObserver.getRemote = function() {
   let remote = new ash.settings.mojom.DisplayConfigurationObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.DisplayConfigurationObserver',
     'context');
   return remote.$;
@@ -272,8 +274,9 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.DisplayBrightnessSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.DisplayBrightnessSettingsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.DisplayBrightnessSettingsObserver',
     'context');
   return remote.$;
@@ -336,8 +339,9 @@ ash.settings.mojom.AmbientLightSensorObserverRemoteCallHandler = class {
 
 ash.settings.mojom.AmbientLightSensorObserver.getRemote = function() {
   let remote = new ash.settings.mojom.AmbientLightSensorObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.AmbientLightSensorObserver',
     'context');
   return remote.$;
@@ -567,8 +571,9 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
 
 ash.settings.mojom.DisplaySettingsProvider.getRemote = function() {
   let remote = new ash.settings.mojom.DisplaySettingsProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.mojom.DisplaySettingsProvider',
     'context');
   return remote.$;

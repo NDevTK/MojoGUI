@@ -159,8 +159,9 @@ chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {
 
 chromeos.auth.mojom.InSessionAuth.getRemote = function() {
   let remote = new chromeos.auth.mojom.InSessionAuthRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.auth.mojom.InSessionAuth',
     'context');
   return remote.$;

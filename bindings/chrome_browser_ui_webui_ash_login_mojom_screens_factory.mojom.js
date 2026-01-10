@@ -303,8 +303,9 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
 
 ash.screens_factory.mojom.ScreensFactory.getRemote = function() {
   let remote = new ash.screens_factory.mojom.ScreensFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.screens_factory.mojom.ScreensFactory',
     'context');
   return remote.$;

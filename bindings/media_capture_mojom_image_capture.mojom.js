@@ -285,8 +285,9 @@ media.mojom.ImageCaptureRemoteCallHandler = class {
 
 media.mojom.ImageCapture.getRemote = function() {
   let remote = new media.mojom.ImageCaptureRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.ImageCapture',
     'context');
   return remote.$;

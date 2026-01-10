@@ -94,8 +94,9 @@ unexportable_keys_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 unexportable_keys_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new unexportable_keys_internals.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'unexportable_keys_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -185,8 +186,9 @@ unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 unexportable_keys_internals.mojom.PageHandler.getRemote = function() {
   let remote = new unexportable_keys_internals.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'unexportable_keys_internals.mojom.PageHandler',
     'context');
   return remote.$;
@@ -233,8 +235,9 @@ unexportable_keys_internals.mojom.PageRemoteCallHandler = class {
 
 unexportable_keys_internals.mojom.Page.getRemote = function() {
   let remote = new unexportable_keys_internals.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'unexportable_keys_internals.mojom.Page',
     'context');
   return remote.$;

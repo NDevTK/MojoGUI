@@ -397,8 +397,9 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
 
 page_load_metrics.mojom.PageLoadMetrics.getRemote = function() {
   let remote = new page_load_metrics.mojom.PageLoadMetricsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'page_load_metrics.mojom.PageLoadMetrics',
     'context');
   return remote.$;

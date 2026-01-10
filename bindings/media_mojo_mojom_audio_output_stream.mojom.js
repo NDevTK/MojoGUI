@@ -137,8 +137,9 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
 
 media.mojom.AudioOutputStream.getRemote = function() {
   let remote = new media.mojom.AudioOutputStreamRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioOutputStream',
     'context');
   return remote.$;
@@ -231,8 +232,9 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
 
 media.mojom.AudioOutputStreamObserver.getRemote = function() {
   let remote = new media.mojom.AudioOutputStreamObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioOutputStreamObserver',
     'context');
   return remote.$;
@@ -296,8 +298,9 @@ media.mojom.AudioOutputStreamProviderRemoteCallHandler = class {
 
 media.mojom.AudioOutputStreamProvider.getRemote = function() {
   let remote = new media.mojom.AudioOutputStreamProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioOutputStreamProvider',
     'context');
   return remote.$;
@@ -361,8 +364,9 @@ media.mojom.AudioOutputStreamProviderClientRemoteCallHandler = class {
 
 media.mojom.AudioOutputStreamProviderClient.getRemote = function() {
   let remote = new media.mojom.AudioOutputStreamProviderClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioOutputStreamProviderClient',
     'context');
   return remote.$;
@@ -425,8 +429,9 @@ media.mojom.DeviceSwitchInterfaceRemoteCallHandler = class {
 
 media.mojom.DeviceSwitchInterface.getRemote = function() {
   let remote = new media.mojom.DeviceSwitchInterfaceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.DeviceSwitchInterface',
     'context');
   return remote.$;

@@ -219,8 +219,9 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
 
 blink.mojom.PeerConnectionManager.getRemote = function() {
   let remote = new blink.mojom.PeerConnectionManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PeerConnectionManager',
     'context');
   return remote.$;
@@ -499,8 +500,9 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
 
 blink.mojom.PeerConnectionTrackerHost.getRemote = function() {
   let remote = new blink.mojom.PeerConnectionTrackerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PeerConnectionTrackerHost',
     'context');
   return remote.$;

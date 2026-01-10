@@ -98,8 +98,9 @@ gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
 
 gfx.mojom.ImageTraitsTestService.getRemote = function() {
   let remote = new gfx.mojom.ImageTraitsTestServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'gfx.mojom.ImageTraitsTestService',
     'context');
   return remote.$;

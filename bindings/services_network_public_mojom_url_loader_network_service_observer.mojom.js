@@ -164,8 +164,9 @@ network.mojom.ClientCertificateResponderRemoteCallHandler = class {
 
 network.mojom.ClientCertificateResponder.getRemote = function() {
   let remote = new network.mojom.ClientCertificateResponderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.ClientCertificateResponder',
     'context');
   return remote.$;
@@ -236,8 +237,9 @@ network.mojom.SSLPrivateKeyRemoteCallHandler = class {
 
 network.mojom.SSLPrivateKey.getRemote = function() {
   let remote = new network.mojom.SSLPrivateKeyRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.SSLPrivateKey',
     'context');
   return remote.$;
@@ -300,8 +302,9 @@ network.mojom.AuthChallengeResponderRemoteCallHandler = class {
 
 network.mojom.AuthChallengeResponder.getRemote = function() {
   let remote = new network.mojom.AuthChallengeResponderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.AuthChallengeResponder',
     'context');
   return remote.$;
@@ -592,8 +595,9 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
 
 network.mojom.URLLoaderNetworkServiceObserver.getRemote = function() {
   let remote = new network.mojom.URLLoaderNetworkServiceObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.URLLoaderNetworkServiceObserver',
     'context');
   return remote.$;

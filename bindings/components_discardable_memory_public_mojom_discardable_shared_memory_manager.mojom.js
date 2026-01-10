@@ -90,8 +90,9 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class
 
 discardable_memory.mojom.DiscardableSharedMemoryManager.getRemote = function() {
   let remote = new discardable_memory.mojom.DiscardableSharedMemoryManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'discardable_memory.mojom.DiscardableSharedMemoryManager',
     'context');
   return remote.$;

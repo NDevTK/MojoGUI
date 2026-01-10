@@ -70,8 +70,9 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemoteCallHandler = class {
 
 ash.mojom.demo_mode.UntrustedPageHandlerFactory.getRemote = function() {
   let remote = new ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.mojom.demo_mode.UntrustedPageHandlerFactory',
     'context');
   return remote.$;
@@ -149,8 +150,9 @@ ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
 
 ash.mojom.demo_mode.UntrustedPageHandler.getRemote = function() {
   let remote = new ash.mojom.demo_mode.UntrustedPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.mojom.demo_mode.UntrustedPageHandler',
     'context');
   return remote.$;

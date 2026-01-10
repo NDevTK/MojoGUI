@@ -81,8 +81,9 @@ media.mojom.CastApplicationMediaInfoManagerRemoteCallHandler = class {
 
 media.mojom.CastApplicationMediaInfoManager.getRemote = function() {
   let remote = new media.mojom.CastApplicationMediaInfoManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.CastApplicationMediaInfoManager',
     'context');
   return remote.$;

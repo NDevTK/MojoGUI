@@ -220,8 +220,9 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
 
 viz.mojom.CompositorFrameSink.getRemote = function() {
   let remote = new viz.mojom.CompositorFrameSinkRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.CompositorFrameSink',
     'context');
   return remote.$;
@@ -366,8 +367,9 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
 
 viz.mojom.CompositorFrameSinkClient.getRemote = function() {
   let remote = new viz.mojom.CompositorFrameSinkClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.CompositorFrameSinkClient',
     'context');
   return remote.$;

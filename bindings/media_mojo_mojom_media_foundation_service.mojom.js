@@ -75,8 +75,9 @@ media.mojom.GpuInfoObserverRemoteCallHandler = class {
 
 media.mojom.GpuInfoObserver.getRemote = function() {
   let remote = new media.mojom.GpuInfoObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.GpuInfoObserver',
     'context');
   return remote.$;
@@ -163,8 +164,9 @@ media.mojom.MediaFoundationServiceRemoteCallHandler = class {
 
 media.mojom.MediaFoundationService.getRemote = function() {
   let remote = new media.mojom.MediaFoundationServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaFoundationService',
     'context');
   return remote.$;
@@ -250,8 +252,9 @@ media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
 
 media.mojom.MediaFoundationServiceBroker.getRemote = function() {
   let remote = new media.mojom.MediaFoundationServiceBrokerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaFoundationServiceBroker',
     'context');
   return remote.$;

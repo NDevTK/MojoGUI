@@ -78,8 +78,9 @@ chromecast.media.mojom.VideoGeometryChangeClientRemoteCallHandler = class {
 
 chromecast.media.mojom.VideoGeometryChangeClient.getRemote = function() {
   let remote = new chromecast.media.mojom.VideoGeometryChangeClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.media.mojom.VideoGeometryChangeClient',
     'context');
   return remote.$;
@@ -148,8 +149,9 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberRemoteCallHandler = class {
 
 chromecast.media.mojom.VideoGeometryChangeSubscriber.getRemote = function() {
   let remote = new chromecast.media.mojom.VideoGeometryChangeSubscriberRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.media.mojom.VideoGeometryChangeSubscriber',
     'context');
   return remote.$;
@@ -214,8 +216,9 @@ chromecast.media.mojom.VideoGeometrySetterRemoteCallHandler = class {
 
 chromecast.media.mojom.VideoGeometrySetter.getRemote = function() {
   let remote = new chromecast.media.mojom.VideoGeometrySetterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.media.mojom.VideoGeometrySetter',
     'context');
   return remote.$;

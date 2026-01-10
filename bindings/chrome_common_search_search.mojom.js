@@ -80,8 +80,9 @@ search.mojom.EmbeddedSearchConnectorRemoteCallHandler = class {
 
 search.mojom.EmbeddedSearchConnector.getRemote = function() {
   let remote = new search.mojom.EmbeddedSearchConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'search.mojom.EmbeddedSearchConnector',
     'context');
   return remote.$;
@@ -195,8 +196,9 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
 
 search.mojom.EmbeddedSearch.getRemote = function() {
   let remote = new search.mojom.EmbeddedSearchRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'search.mojom.EmbeddedSearch',
     'context');
   return remote.$;
@@ -324,8 +326,9 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
 
 search.mojom.EmbeddedSearchClient.getRemote = function() {
   let remote = new search.mojom.EmbeddedSearchClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'search.mojom.EmbeddedSearchClient',
     'context');
   return remote.$;

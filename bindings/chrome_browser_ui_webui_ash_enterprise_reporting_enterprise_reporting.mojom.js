@@ -104,8 +104,9 @@ enterprise_reporting.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 enterprise_reporting.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new enterprise_reporting.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'enterprise_reporting.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -210,8 +211,9 @@ enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
 
 enterprise_reporting.mojom.PageHandler.getRemote = function() {
   let remote = new enterprise_reporting.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'enterprise_reporting.mojom.PageHandler',
     'context');
   return remote.$;
@@ -274,8 +276,9 @@ enterprise_reporting.mojom.PageRemoteCallHandler = class {
 
 enterprise_reporting.mojom.Page.getRemote = function() {
   let remote = new enterprise_reporting.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'enterprise_reporting.mojom.Page',
     'context');
   return remote.$;

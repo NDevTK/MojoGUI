@@ -105,8 +105,9 @@ blink.mojom.WebViewMediaIntegrityServiceRemoteCallHandler = class {
 
 blink.mojom.WebViewMediaIntegrityService.getRemote = function() {
   let remote = new blink.mojom.WebViewMediaIntegrityServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebViewMediaIntegrityService',
     'context');
   return remote.$;
@@ -175,8 +176,9 @@ blink.mojom.WebViewMediaIntegrityProviderRemoteCallHandler = class {
 
 blink.mojom.WebViewMediaIntegrityProvider.getRemote = function() {
   let remote = new blink.mojom.WebViewMediaIntegrityProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebViewMediaIntegrityProvider',
     'context');
   return remote.$;

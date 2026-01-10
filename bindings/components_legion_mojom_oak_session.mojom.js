@@ -152,8 +152,9 @@ legion.mojom.OakSessionRemoteCallHandler = class {
 
 legion.mojom.OakSession.getRemote = function() {
   let remote = new legion.mojom.OakSessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'legion.mojom.OakSession',
     'context');
   return remote.$;

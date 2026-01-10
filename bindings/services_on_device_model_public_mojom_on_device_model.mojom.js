@@ -364,8 +364,9 @@ on_device_model.mojom.StreamingResponderRemoteCallHandler = class {
 
 on_device_model.mojom.StreamingResponder.getRemote = function() {
   let remote = new on_device_model.mojom.StreamingResponderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_model.mojom.StreamingResponder',
     'context');
   return remote.$;
@@ -428,8 +429,9 @@ on_device_model.mojom.ContextClientRemoteCallHandler = class {
 
 on_device_model.mojom.ContextClient.getRemote = function() {
   let remote = new on_device_model.mojom.ContextClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_model.mojom.ContextClient',
     'context');
   return remote.$;
@@ -626,8 +628,9 @@ on_device_model.mojom.SessionRemoteCallHandler = class {
 
 on_device_model.mojom.Session.getRemote = function() {
   let remote = new on_device_model.mojom.SessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_model.mojom.Session',
     'context');
   return remote.$;
@@ -758,8 +761,9 @@ on_device_model.mojom.OnDeviceModelRemoteCallHandler = class {
 
 on_device_model.mojom.OnDeviceModel.getRemote = function() {
   let remote = new on_device_model.mojom.OnDeviceModelRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_model.mojom.OnDeviceModel',
     'context');
   return remote.$;
@@ -866,8 +870,9 @@ on_device_model.mojom.TextSafetySessionRemoteCallHandler = class {
 
 on_device_model.mojom.TextSafetySession.getRemote = function() {
   let remote = new on_device_model.mojom.TextSafetySessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_model.mojom.TextSafetySession',
     'context');
   return remote.$;
@@ -930,8 +935,9 @@ on_device_model.mojom.TextSafetyModelRemoteCallHandler = class {
 
 on_device_model.mojom.TextSafetyModel.getRemote = function() {
   let remote = new on_device_model.mojom.TextSafetyModelRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_model.mojom.TextSafetyModel',
     'context');
   return remote.$;
@@ -994,8 +1000,9 @@ on_device_model.mojom.AsrStreamResponderRemoteCallHandler = class {
 
 on_device_model.mojom.AsrStreamResponder.getRemote = function() {
   let remote = new on_device_model.mojom.AsrStreamResponderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_model.mojom.AsrStreamResponder',
     'context');
   return remote.$;
@@ -1058,8 +1065,9 @@ on_device_model.mojom.AsrStreamInputRemoteCallHandler = class {
 
 on_device_model.mojom.AsrStreamInput.getRemote = function() {
   let remote = new on_device_model.mojom.AsrStreamInputRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_model.mojom.AsrStreamInput',
     'context');
   return remote.$;

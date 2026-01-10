@@ -957,8 +957,9 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
 
 crosapi.mojom.DiagnosticsService.getRemote = function() {
   let remote = new crosapi.mojom.DiagnosticsServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.DiagnosticsService',
     'context');
   return remote.$;

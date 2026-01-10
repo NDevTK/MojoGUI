@@ -72,8 +72,9 @@ blink.mojom.SmartCardServiceRemoteCallHandler = class {
 
 blink.mojom.SmartCardService.getRemote = function() {
   let remote = new blink.mojom.SmartCardServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SmartCardService',
     'context');
   return remote.$;

@@ -105,8 +105,9 @@ shape_detection.mojom.BarcodeDetectionRemoteCallHandler = class {
 
 shape_detection.mojom.BarcodeDetection.getRemote = function() {
   let remote = new shape_detection.mojom.BarcodeDetectionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'shape_detection.mojom.BarcodeDetection',
     'context');
   return remote.$;

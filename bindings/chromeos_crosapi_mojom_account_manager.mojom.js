@@ -260,8 +260,9 @@ crosapi.mojom.AccountManagerObserverRemoteCallHandler = class {
 
 crosapi.mojom.AccountManagerObserver.getRemote = function() {
   let remote = new crosapi.mojom.AccountManagerObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.AccountManagerObserver',
     'context');
   return remote.$;
@@ -492,8 +493,9 @@ crosapi.mojom.AccountManagerRemoteCallHandler = class {
 
 crosapi.mojom.AccountManager.getRemote = function() {
   let remote = new crosapi.mojom.AccountManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.AccountManager',
     'context');
   return remote.$;
@@ -562,8 +564,9 @@ crosapi.mojom.AccessTokenFetcherRemoteCallHandler = class {
 
 crosapi.mojom.AccessTokenFetcher.getRemote = function() {
   let remote = new crosapi.mojom.AccessTokenFetcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.AccessTokenFetcher',
     'context');
   return remote.$;

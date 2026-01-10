@@ -106,8 +106,9 @@ content.mojom.RenderMessageFilterRemoteCallHandler = class {
 
 content.mojom.RenderMessageFilter.getRemote = function() {
   let remote = new content.mojom.RenderMessageFilterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.RenderMessageFilter',
     'context');
   return remote.$;

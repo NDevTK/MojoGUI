@@ -87,8 +87,9 @@ metrics.mojom.ChildHistogramFetcherFactoryRemoteCallHandler = class {
 
 metrics.mojom.ChildHistogramFetcherFactory.getRemote = function() {
   let remote = new metrics.mojom.ChildHistogramFetcherFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'metrics.mojom.ChildHistogramFetcherFactory',
     'context');
   return remote.$;
@@ -177,8 +178,9 @@ metrics.mojom.ChildHistogramFetcherRemoteCallHandler = class {
 
 metrics.mojom.ChildHistogramFetcher.getRemote = function() {
   let remote = new metrics.mojom.ChildHistogramFetcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'metrics.mojom.ChildHistogramFetcher',
     'context');
   return remote.$;

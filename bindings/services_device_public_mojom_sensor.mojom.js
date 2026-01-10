@@ -204,8 +204,9 @@ device.mojom.SensorRemoteCallHandler = class {
 
 device.mojom.Sensor.getRemote = function() {
   let remote = new device.mojom.SensorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.Sensor',
     'context');
   return remote.$;
@@ -282,8 +283,9 @@ device.mojom.SensorClientRemoteCallHandler = class {
 
 device.mojom.SensorClient.getRemote = function() {
   let remote = new device.mojom.SensorClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.SensorClient',
     'context');
   return remote.$;

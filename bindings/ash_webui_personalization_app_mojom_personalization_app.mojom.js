@@ -568,8 +568,9 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
 
 ash.personalization_app.mojom.WallpaperObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.WallpaperObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.WallpaperObserver',
     'context');
   return remote.$;
@@ -1145,8 +1146,9 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
 
 ash.personalization_app.mojom.WallpaperProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.WallpaperProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.WallpaperProvider',
     'context');
   return remote.$;
@@ -1307,8 +1309,9 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
 
 ash.personalization_app.mojom.ThemeObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.ThemeObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.ThemeObserver',
     'context');
   return remote.$;
@@ -1597,8 +1600,9 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
 
 ash.personalization_app.mojom.ThemeProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.ThemeProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.ThemeProvider',
     'context');
   return remote.$;
@@ -1709,8 +1713,9 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
 
 ash.personalization_app.mojom.UserImageObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.UserImageObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.UserImageObserver',
     'context');
   return remote.$;
@@ -1892,8 +1897,9 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
 
 ash.personalization_app.mojom.UserProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.UserProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.UserProvider',
     'context');
   return remote.$;
@@ -2101,8 +2107,9 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
 
 ash.personalization_app.mojom.AmbientObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.AmbientObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.AmbientObserver',
     'context');
   return remote.$;
@@ -2422,8 +2429,9 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
 
 ash.personalization_app.mojom.AmbientProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.AmbientProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.AmbientProvider',
     'context');
   return remote.$;
@@ -2502,8 +2510,9 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class
 
 ash.personalization_app.mojom.KeyboardBacklightObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.KeyboardBacklightObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.KeyboardBacklightObserver',
     'context');
   return remote.$;
@@ -2635,8 +2644,9 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
 
 ash.personalization_app.mojom.KeyboardBacklightProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.KeyboardBacklightProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.personalization_app.mojom.KeyboardBacklightProvider',
     'context');
   return remote.$;

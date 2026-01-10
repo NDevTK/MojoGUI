@@ -144,8 +144,9 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
 
 viz.mojom.FrameSinkManagerTestApi.getRemote = function() {
   let remote = new viz.mojom.FrameSinkManagerTestApiRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.FrameSinkManagerTestApi',
     'context');
   return remote.$;

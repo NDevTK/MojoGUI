@@ -67,8 +67,9 @@ chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class {
 
 chrome.mojom.OpenSearchDescriptionDocumentHandler.getRemote = function() {
   let remote = new chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.OpenSearchDescriptionDocumentHandler',
     'context');
   return remote.$;

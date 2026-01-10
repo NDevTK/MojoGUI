@@ -138,8 +138,9 @@ blink.mojom.MediaSessionClientRemoteCallHandler = class {
 
 blink.mojom.MediaSessionClient.getRemote = function() {
   let remote = new blink.mojom.MediaSessionClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.MediaSessionClient',
     'context');
   return remote.$;
@@ -314,8 +315,9 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
 
 blink.mojom.MediaSessionService.getRemote = function() {
   let remote = new blink.mojom.MediaSessionServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.MediaSessionService',
     'context');
   return remote.$;

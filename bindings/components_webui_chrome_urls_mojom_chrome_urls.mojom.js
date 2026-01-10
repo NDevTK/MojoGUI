@@ -95,8 +95,9 @@ chrome_urls.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 chrome_urls.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new chrome_urls.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome_urls.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -185,8 +186,9 @@ chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
 
 chrome_urls.mojom.PageHandler.getRemote = function() {
   let remote = new chrome_urls.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome_urls.mojom.PageHandler',
     'context');
   return remote.$;
@@ -233,8 +235,9 @@ chrome_urls.mojom.PageRemoteCallHandler = class {
 
 chrome_urls.mojom.Page.getRemote = function() {
   let remote = new chrome_urls.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome_urls.mojom.Page',
     'context');
   return remote.$;

@@ -511,8 +511,9 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
 
 network.mojom.DeviceBoundSessionManager.getRemote = function() {
   let remote = new network.mojom.DeviceBoundSessionManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.DeviceBoundSessionManager',
     'context');
   return remote.$;
@@ -591,8 +592,9 @@ network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
 
 network.mojom.DeviceBoundSessionAccessObserver.getRemote = function() {
   let remote = new network.mojom.DeviceBoundSessionAccessObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.DeviceBoundSessionAccessObserver',
     'context');
   return remote.$;
@@ -671,8 +673,9 @@ network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
 
 network.mojom.DeviceBoundSessionEventObserver.getRemote = function() {
   let remote = new network.mojom.DeviceBoundSessionEventObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.DeviceBoundSessionEventObserver',
     'context');
   return remote.$;

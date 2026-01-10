@@ -65,8 +65,9 @@ content.mojom.MediaInternalLogRecordsRemoteCallHandler = class {
 
 content.mojom.MediaInternalLogRecords.getRemote = function() {
   let remote = new content.mojom.MediaInternalLogRecordsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.MediaInternalLogRecords',
     'context');
   return remote.$;

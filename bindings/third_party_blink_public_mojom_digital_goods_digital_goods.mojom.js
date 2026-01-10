@@ -150,8 +150,9 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
 
 payments.mojom.DigitalGoods.getRemote = function() {
   let remote = new payments.mojom.DigitalGoodsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'payments.mojom.DigitalGoods',
     'context');
   return remote.$;
@@ -221,8 +222,9 @@ payments.mojom.DigitalGoodsFactoryRemoteCallHandler = class {
 
 payments.mojom.DigitalGoodsFactory.getRemote = function() {
   let remote = new payments.mojom.DigitalGoodsFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'payments.mojom.DigitalGoodsFactory',
     'context');
   return remote.$;

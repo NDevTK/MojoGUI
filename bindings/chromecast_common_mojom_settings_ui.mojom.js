@@ -107,8 +107,9 @@ chromecast.mojom.SettingsClientRemoteCallHandler = class {
 
 chromecast.mojom.SettingsClient.getRemote = function() {
   let remote = new chromecast.mojom.SettingsClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.SettingsClient',
     'context');
   return remote.$;
@@ -187,8 +188,9 @@ chromecast.mojom.SettingsPlatformRemoteCallHandler = class {
 
 chromecast.mojom.SettingsPlatform.getRemote = function() {
   let remote = new chromecast.mojom.SettingsPlatformRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.SettingsPlatform',
     'context');
   return remote.$;

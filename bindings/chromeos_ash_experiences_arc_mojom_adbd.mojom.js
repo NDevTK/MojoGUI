@@ -84,8 +84,9 @@ arc.mojom.AdbdMonitorHostRemoteCallHandler = class {
 
 arc.mojom.AdbdMonitorHost.getRemote = function() {
   let remote = new arc.mojom.AdbdMonitorHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.AdbdMonitorHost',
     'context');
   return remote.$;
@@ -153,8 +154,9 @@ arc.mojom.AdbdMonitorInstanceRemoteCallHandler = class {
 
 arc.mojom.AdbdMonitorInstance.getRemote = function() {
   let remote = new arc.mojom.AdbdMonitorInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.AdbdMonitorInstance',
     'context');
   return remote.$;

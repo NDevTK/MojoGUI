@@ -141,8 +141,9 @@ cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
 
 cc.mojom.RenderFrameMetadataObserver.getRemote = function() {
   let remote = new cc.mojom.RenderFrameMetadataObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cc.mojom.RenderFrameMetadataObserver',
     'context');
   return remote.$;
@@ -238,8 +239,9 @@ cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
 
 cc.mojom.RenderFrameMetadataObserverClient.getRemote = function() {
   let remote = new cc.mojom.RenderFrameMetadataObserverClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cc.mojom.RenderFrameMetadataObserverClient',
     'context');
   return remote.$;

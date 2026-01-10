@@ -79,8 +79,9 @@ chromecast.media.mojom.MediaCapsRemoteCallHandler = class {
 
 chromecast.media.mojom.MediaCaps.getRemote = function() {
   let remote = new chromecast.media.mojom.MediaCapsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.media.mojom.MediaCaps',
     'context');
   return remote.$;
@@ -143,8 +144,9 @@ chromecast.media.mojom.MediaCapsObserverRemoteCallHandler = class {
 
 chromecast.media.mojom.MediaCapsObserver.getRemote = function() {
   let remote = new chromecast.media.mojom.MediaCapsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.media.mojom.MediaCapsObserver',
     'context');
   return remote.$;

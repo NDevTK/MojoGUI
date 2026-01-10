@@ -96,8 +96,9 @@ blink.mojom.FileBackedBlobFactoryRemoteCallHandler = class {
 
 blink.mojom.FileBackedBlobFactory.getRemote = function() {
   let remote = new blink.mojom.FileBackedBlobFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FileBackedBlobFactory',
     'context');
   return remote.$;

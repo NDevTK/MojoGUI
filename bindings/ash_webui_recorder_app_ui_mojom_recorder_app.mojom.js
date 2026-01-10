@@ -157,8 +157,9 @@ ash.recorder_app.mojom.ModelStateMonitorRemoteCallHandler = class {
 
 ash.recorder_app.mojom.ModelStateMonitor.getRemote = function() {
   let remote = new ash.recorder_app.mojom.ModelStateMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.recorder_app.mojom.ModelStateMonitor',
     'context');
   return remote.$;
@@ -221,8 +222,9 @@ ash.recorder_app.mojom.QuietModeMonitorRemoteCallHandler = class {
 
 ash.recorder_app.mojom.QuietModeMonitor.getRemote = function() {
   let remote = new ash.recorder_app.mojom.QuietModeMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.recorder_app.mojom.QuietModeMonitor',
     'context');
   return remote.$;
@@ -631,8 +633,9 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.recorder_app.mojom.PageHandler.getRemote = function() {
   let remote = new ash.recorder_app.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.recorder_app.mojom.PageHandler',
     'context');
   return remote.$;

@@ -79,8 +79,9 @@ ash.color_internals.mojom.WallpaperColorsObserverRemoteCallHandler = class {
 
 ash.color_internals.mojom.WallpaperColorsObserver.getRemote = function() {
   let remote = new ash.color_internals.mojom.WallpaperColorsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.color_internals.mojom.WallpaperColorsObserver',
     'context');
   return remote.$;
@@ -143,8 +144,9 @@ ash.color_internals.mojom.WallpaperColorsHandlerRemoteCallHandler = class {
 
 ash.color_internals.mojom.WallpaperColorsHandler.getRemote = function() {
   let remote = new ash.color_internals.mojom.WallpaperColorsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.color_internals.mojom.WallpaperColorsHandler',
     'context');
   return remote.$;

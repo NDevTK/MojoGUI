@@ -72,8 +72,9 @@ ax.mojom.AccessibilityFileLoaderRemoteCallHandler = class {
 
 ax.mojom.AccessibilityFileLoader.getRemote = function() {
   let remote = new ax.mojom.AccessibilityFileLoaderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.AccessibilityFileLoader',
     'context');
   return remote.$;

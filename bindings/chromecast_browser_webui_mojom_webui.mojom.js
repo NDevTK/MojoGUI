@@ -77,8 +77,9 @@ chromecast.mojom.MessageCallbackRemoteCallHandler = class {
 
 chromecast.mojom.MessageCallback.getRemote = function() {
   let remote = new chromecast.mojom.MessageCallbackRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.MessageCallback',
     'context');
   return remote.$;
@@ -159,8 +160,9 @@ chromecast.mojom.WebUiRemoteCallHandler = class {
 
 chromecast.mojom.WebUi.getRemote = function() {
   let remote = new chromecast.mojom.WebUiRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.WebUi',
     'context');
   return remote.$;
@@ -229,8 +231,9 @@ chromecast.mojom.ResourcesRemoteCallHandler = class {
 
 chromecast.mojom.Resources.getRemote = function() {
   let remote = new chromecast.mojom.ResourcesRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.Resources',
     'context');
   return remote.$;
@@ -312,8 +315,9 @@ chromecast.mojom.WebUiClientRemoteCallHandler = class {
 
 chromecast.mojom.WebUiClient.getRemote = function() {
   let remote = new chromecast.mojom.WebUiClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.WebUiClient',
     'context');
   return remote.$;

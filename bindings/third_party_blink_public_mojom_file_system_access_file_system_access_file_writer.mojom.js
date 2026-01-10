@@ -145,8 +145,9 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
 
 blink.mojom.FileSystemAccessFileWriter.getRemote = function() {
   let remote = new blink.mojom.FileSystemAccessFileWriterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FileSystemAccessFileWriter',
     'context');
   return remote.$;

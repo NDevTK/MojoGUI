@@ -98,8 +98,9 @@ printing.mojom.PdfFlattenerRemoteCallHandler = class {
 
 printing.mojom.PdfFlattener.getRemote = function() {
   let remote = new printing.mojom.PdfFlattenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.PdfFlattener',
     'context');
   return remote.$;

@@ -315,8 +315,9 @@ network.mojom.WebTransportRemoteCallHandler = class {
 
 network.mojom.WebTransport.getRemote = function() {
   let remote = new network.mojom.WebTransportRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.WebTransport',
     'context');
   return remote.$;
@@ -463,8 +464,9 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
 
 network.mojom.WebTransportClient.getRemote = function() {
   let remote = new network.mojom.WebTransportClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.WebTransportClient',
     'context');
   return remote.$;
@@ -563,8 +565,9 @@ network.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
 
 network.mojom.WebTransportHandshakeClient.getRemote = function() {
   let remote = new network.mojom.WebTransportHandshakeClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.WebTransportHandshakeClient',
     'context');
   return remote.$;

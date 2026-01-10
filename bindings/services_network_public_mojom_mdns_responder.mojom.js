@@ -99,8 +99,9 @@ network.mojom.MdnsResponderRemoteCallHandler = class {
 
 network.mojom.MdnsResponder.getRemote = function() {
   let remote = new network.mojom.MdnsResponderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.MdnsResponder',
     'context');
   return remote.$;

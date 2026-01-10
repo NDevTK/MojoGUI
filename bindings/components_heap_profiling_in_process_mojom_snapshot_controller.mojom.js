@@ -82,8 +82,9 @@ heap_profiling.mojom.SnapshotControllerRemoteCallHandler = class {
 
 heap_profiling.mojom.SnapshotController.getRemote = function() {
   let remote = new heap_profiling.mojom.SnapshotControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'heap_profiling.mojom.SnapshotController',
     'context');
   return remote.$;

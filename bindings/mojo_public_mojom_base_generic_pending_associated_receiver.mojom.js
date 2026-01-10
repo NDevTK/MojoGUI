@@ -57,8 +57,9 @@ mojo_base.mojom.GenericAssociatedInterfaceRemoteCallHandler = class {
 
 mojo_base.mojom.GenericAssociatedInterface.getRemote = function() {
   let remote = new mojo_base.mojom.GenericAssociatedInterfaceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojo_base.mojom.GenericAssociatedInterface',
     'context');
   return remote.$;

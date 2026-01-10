@@ -289,8 +289,9 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
 
 blink.mojom.CacheStorageCache.getRemote = function() {
   let remote = new blink.mojom.CacheStorageCacheRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.CacheStorageCache',
     'context');
   return remote.$;
@@ -442,8 +443,9 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
 
 blink.mojom.CacheStorage.getRemote = function() {
   let remote = new blink.mojom.CacheStorageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.CacheStorage',
     'context');
   return remote.$;

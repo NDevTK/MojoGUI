@@ -72,8 +72,9 @@ media.mojom.MediaServiceRemoteCallHandler = class {
 
 media.mojom.MediaService.getRemote = function() {
   let remote = new media.mojom.MediaServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaService',
     'context');
   return remote.$;

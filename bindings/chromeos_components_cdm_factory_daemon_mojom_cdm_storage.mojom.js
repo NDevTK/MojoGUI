@@ -172,8 +172,9 @@ chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
 
 chromeos.cdm.mojom.CdmStorage.getRemote = function() {
   let remote = new chromeos.cdm.mojom.CdmStorageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cdm.mojom.CdmStorage',
     'context');
   return remote.$;

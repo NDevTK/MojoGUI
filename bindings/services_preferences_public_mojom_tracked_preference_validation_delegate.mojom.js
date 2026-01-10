@@ -109,8 +109,9 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
 
 prefs.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
   let remote = new prefs.mojom.TrackedPreferenceValidationDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'prefs.mojom.TrackedPreferenceValidationDelegate',
     'context');
   return remote.$;

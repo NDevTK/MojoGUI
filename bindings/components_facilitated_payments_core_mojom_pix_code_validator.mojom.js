@@ -81,8 +81,9 @@ payments.facilitated.mojom.PixCodeValidatorRemoteCallHandler = class {
 
 payments.facilitated.mojom.PixCodeValidator.getRemote = function() {
   let remote = new payments.facilitated.mojom.PixCodeValidatorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'payments.facilitated.mojom.PixCodeValidator',
     'context');
   return remote.$;

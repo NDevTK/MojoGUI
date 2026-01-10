@@ -81,8 +81,9 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemoteCallHand
 
 ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver.getRemote = function() {
   let remote = new ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver',
     'context');
   return remote.$;
@@ -168,8 +169,9 @@ ash.shortcut_customization.mojom.SearchHandlerRemoteCallHandler = class {
 
 ash.shortcut_customization.mojom.SearchHandler.getRemote = function() {
   let remote = new ash.shortcut_customization.mojom.SearchHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shortcut_customization.mojom.SearchHandler',
     'context');
   return remote.$;

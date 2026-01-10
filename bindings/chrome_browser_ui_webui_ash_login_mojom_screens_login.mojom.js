@@ -173,8 +173,9 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
 
 ash.screens_login.mojom.ArcVmDataMigrationPageHandler.getRemote = function() {
   let remote = new ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.screens_login.mojom.ArcVmDataMigrationPageHandler',
     'context');
   return remote.$;
@@ -318,8 +319,9 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
 
 ash.screens_login.mojom.ArcVmDataMigrationPage.getRemote = function() {
   let remote = new ash.screens_login.mojom.ArcVmDataMigrationPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.screens_login.mojom.ArcVmDataMigrationPage',
     'context');
   return remote.$;
@@ -441,8 +443,9 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
 
 ash.screens_login.mojom.EncryptionMigrationPageHandler.getRemote = function() {
   let remote = new ash.screens_login.mojom.EncryptionMigrationPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.screens_login.mojom.EncryptionMigrationPageHandler',
     'context');
   return remote.$;
@@ -588,8 +591,9 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
 
 ash.screens_login.mojom.EncryptionMigrationPage.getRemote = function() {
   let remote = new ash.screens_login.mojom.EncryptionMigrationPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.screens_login.mojom.EncryptionMigrationPage',
     'context');
   return remote.$;

@@ -97,8 +97,9 @@ password_manager.mojom.CSVPasswordParserRemoteCallHandler = class {
 
 password_manager.mojom.CSVPasswordParser.getRemote = function() {
   let remote = new password_manager.mojom.CSVPasswordParserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'password_manager.mojom.CSVPasswordParser',
     'context');
   return remote.$;

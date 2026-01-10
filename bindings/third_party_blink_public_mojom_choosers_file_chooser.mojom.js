@@ -160,8 +160,9 @@ blink.mojom.FileChooserRemoteCallHandler = class {
 
 blink.mojom.FileChooser.getRemote = function() {
   let remote = new blink.mojom.FileChooserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FileChooser',
     'context');
   return remote.$;

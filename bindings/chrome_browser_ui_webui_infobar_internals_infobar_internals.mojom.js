@@ -75,8 +75,9 @@ infobar_internals.mojom.PageRemoteCallHandler = class {
 
 infobar_internals.mojom.Page.getRemote = function() {
   let remote = new infobar_internals.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'infobar_internals.mojom.Page',
     'context');
   return remote.$;
@@ -166,8 +167,9 @@ infobar_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 infobar_internals.mojom.PageHandler.getRemote = function() {
   let remote = new infobar_internals.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'infobar_internals.mojom.PageHandler',
     'context');
   return remote.$;
@@ -231,8 +233,9 @@ infobar_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 infobar_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new infobar_internals.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'infobar_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;

@@ -138,8 +138,9 @@ heap_profiling.mojom.ProfilingClientRemoteCallHandler = class {
 
 heap_profiling.mojom.ProfilingClient.getRemote = function() {
   let remote = new heap_profiling.mojom.ProfilingClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'heap_profiling.mojom.ProfilingClient',
     'context');
   return remote.$;

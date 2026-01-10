@@ -82,8 +82,9 @@ blink.mojom.LockHandleRemoteCallHandler = class {
 
 blink.mojom.LockHandle.getRemote = function() {
   let remote = new blink.mojom.LockHandleRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.LockHandle',
     'context');
   return remote.$;
@@ -161,8 +162,9 @@ blink.mojom.LockRequestRemoteCallHandler = class {
 
 blink.mojom.LockRequest.getRemote = function() {
   let remote = new blink.mojom.LockRequestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.LockRequest',
     'context');
   return remote.$;
@@ -250,8 +252,9 @@ blink.mojom.LockManagerRemoteCallHandler = class {
 
 blink.mojom.LockManager.getRemote = function() {
   let remote = new blink.mojom.LockManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.LockManager',
     'context');
   return remote.$;

@@ -117,8 +117,9 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
 
 visitedlink.mojom.VisitedLinkNotificationSink.getRemote = function() {
   let remote = new visitedlink.mojom.VisitedLinkNotificationSinkRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'visitedlink.mojom.VisitedLinkNotificationSink',
     'context');
   return remote.$;

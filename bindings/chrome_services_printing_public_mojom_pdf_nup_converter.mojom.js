@@ -149,8 +149,9 @@ printing.mojom.PdfNupConverterRemoteCallHandler = class {
 
 printing.mojom.PdfNupConverter.getRemote = function() {
   let remote = new printing.mojom.PdfNupConverterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.PdfNupConverter',
     'context');
   return remote.$;

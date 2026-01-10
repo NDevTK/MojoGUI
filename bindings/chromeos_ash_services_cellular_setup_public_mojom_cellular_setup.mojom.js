@@ -105,8 +105,9 @@ ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.CarrierPortalHandler.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.CarrierPortalHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cellular_setup.mojom.CarrierPortalHandler',
     'context');
   return remote.$;
@@ -185,8 +186,9 @@ ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.ActivationDelegate.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.ActivationDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cellular_setup.mojom.ActivationDelegate',
     'context');
   return remote.$;
@@ -255,8 +257,9 @@ ash.cellular_setup.mojom.CellularSetupRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.CellularSetup.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.CellularSetupRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cellular_setup.mojom.CellularSetup',
     'context');
   return remote.$;

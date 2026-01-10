@@ -125,8 +125,9 @@ network.mojom.NetLogExporterRemoteCallHandler = class {
 
 network.mojom.NetLogExporter.getRemote = function() {
   let remote = new network.mojom.NetLogExporterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.NetLogExporter',
     'context');
   return remote.$;
@@ -189,8 +190,9 @@ network.mojom.NetLogProxySourceRemoteCallHandler = class {
 
 network.mojom.NetLogProxySource.getRemote = function() {
   let remote = new network.mojom.NetLogProxySourceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.NetLogProxySource',
     'context');
   return remote.$;
@@ -257,8 +259,9 @@ network.mojom.NetLogProxySinkRemoteCallHandler = class {
 
 network.mojom.NetLogProxySink.getRemote = function() {
   let remote = new network.mojom.NetLogProxySinkRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.NetLogProxySink',
     'context');
   return remote.$;

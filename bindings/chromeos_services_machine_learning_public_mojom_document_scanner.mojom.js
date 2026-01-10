@@ -161,8 +161,9 @@ chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler = class {
 
 chromeos.machine_learning.mojom.DocumentScanner.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.DocumentScannerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.machine_learning.mojom.DocumentScanner',
     'context');
   return remote.$;

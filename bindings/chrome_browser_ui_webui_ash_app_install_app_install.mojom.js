@@ -161,8 +161,9 @@ ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
 
 ash.app_install.mojom.AppInfoActions.getRemote = function() {
   let remote = new ash.app_install.mojom.AppInfoActionsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.app_install.mojom.AppInfoActions',
     'context');
   return remote.$;
@@ -224,8 +225,9 @@ ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler = class {
 
 ash.app_install.mojom.ConnectionErrorActions.getRemote = function() {
   let remote = new ash.app_install.mojom.ConnectionErrorActionsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.app_install.mojom.ConnectionErrorActions',
     'context');
   return remote.$;
@@ -288,8 +290,9 @@ ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.app_install.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.app_install.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.app_install.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -372,8 +375,9 @@ ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.app_install.mojom.PageHandler.getRemote = function() {
   let remote = new ash.app_install.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.app_install.mojom.PageHandler',
     'context');
   return remote.$;

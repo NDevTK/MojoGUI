@@ -105,8 +105,9 @@ chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler = class {
 
 chromeos.connectivity.mojom.PasspointEventsListener.getRemote = function() {
   let remote = new chromeos.connectivity.mojom.PasspointEventsListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.connectivity.mojom.PasspointEventsListener',
     'context');
   return remote.$;
@@ -234,8 +235,9 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
 
 chromeos.connectivity.mojom.PasspointService.getRemote = function() {
   let remote = new chromeos.connectivity.mojom.PasspointServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.connectivity.mojom.PasspointService',
     'context');
   return remote.$;

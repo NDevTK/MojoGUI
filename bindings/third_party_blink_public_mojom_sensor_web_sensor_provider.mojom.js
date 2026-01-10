@@ -75,8 +75,9 @@ blink.mojom.WebSensorProviderRemoteCallHandler = class {
 
 blink.mojom.WebSensorProvider.getRemote = function() {
   let remote = new blink.mojom.WebSensorProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebSensorProvider',
     'context');
   return remote.$;

@@ -154,8 +154,9 @@ blink.mojom.DevToolsAgentRemoteCallHandler = class {
 
 blink.mojom.DevToolsAgent.getRemote = function() {
   let remote = new blink.mojom.DevToolsAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DevToolsAgent',
     'context');
   return remote.$;
@@ -269,8 +270,9 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
 
 blink.mojom.DevToolsAgentHost.getRemote = function() {
   let remote = new blink.mojom.DevToolsAgentHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DevToolsAgentHost',
     'context');
   return remote.$;
@@ -350,8 +352,9 @@ blink.mojom.DevToolsSessionRemoteCallHandler = class {
 
 blink.mojom.DevToolsSession.getRemote = function() {
   let remote = new blink.mojom.DevToolsSessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DevToolsSession',
     'context');
   return remote.$;
@@ -433,8 +436,9 @@ blink.mojom.DevToolsSessionHostRemoteCallHandler = class {
 
 blink.mojom.DevToolsSessionHost.getRemote = function() {
   let remote = new blink.mojom.DevToolsSessionHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DevToolsSessionHost',
     'context');
   return remote.$;

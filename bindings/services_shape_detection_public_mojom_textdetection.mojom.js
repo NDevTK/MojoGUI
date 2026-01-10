@@ -85,8 +85,9 @@ shape_detection.mojom.TextDetectionRemoteCallHandler = class {
 
 shape_detection.mojom.TextDetection.getRemote = function() {
   let remote = new shape_detection.mojom.TextDetectionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'shape_detection.mojom.TextDetection',
     'context');
   return remote.$;

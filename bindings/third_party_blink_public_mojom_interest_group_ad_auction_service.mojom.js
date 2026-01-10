@@ -304,8 +304,9 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
 
 blink.mojom.AbortableAdAuction.getRemote = function() {
   let remote = new blink.mojom.AbortableAdAuctionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AbortableAdAuction',
     'context');
   return remote.$;
@@ -588,8 +589,9 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
 
 blink.mojom.AdAuctionService.getRemote = function() {
   let remote = new blink.mojom.AdAuctionServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AdAuctionService',
     'context');
   return remote.$;

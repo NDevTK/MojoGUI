@@ -129,8 +129,9 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHandler = class {
 
 chromeos.cfm.mojom.ExternalDisplayBrightness.getRemote = function() {
   let remote = new chromeos.cfm.mojom.ExternalDisplayBrightnessRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cfm.mojom.ExternalDisplayBrightness',
     'context');
   return remote.$;

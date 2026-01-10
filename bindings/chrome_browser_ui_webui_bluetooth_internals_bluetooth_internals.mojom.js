@@ -86,8 +86,9 @@ mojom.DebugLogsChangeHandlerRemoteCallHandler = class {
 
 mojom.DebugLogsChangeHandler.getRemote = function() {
   let remote = new mojom.DebugLogsChangeHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojom.DebugLogsChangeHandler',
     'context');
   return remote.$;
@@ -303,8 +304,9 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
 
 mojom.BluetoothInternalsHandler.getRemote = function() {
   let remote = new mojom.BluetoothInternalsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojom.BluetoothInternalsHandler',
     'context');
   return remote.$;
@@ -372,8 +374,9 @@ mojom.BluetoothBtsnoopRemoteCallHandler = class {
 
 mojom.BluetoothBtsnoop.getRemote = function() {
   let remote = new mojom.BluetoothBtsnoopRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojom.BluetoothBtsnoop',
     'context');
   return remote.$;

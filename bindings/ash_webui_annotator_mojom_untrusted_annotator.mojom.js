@@ -122,8 +122,9 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
 
 ash.annotator.mojom.UntrustedAnnotatorPage.getRemote = function() {
   let remote = new ash.annotator.mojom.UntrustedAnnotatorPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.annotator.mojom.UntrustedAnnotatorPage',
     'context');
   return remote.$;
@@ -203,8 +204,9 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
 
 ash.annotator.mojom.UntrustedAnnotatorPageHandler.getRemote = function() {
   let remote = new ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.annotator.mojom.UntrustedAnnotatorPageHandler',
     'context');
   return remote.$;
@@ -268,8 +270,9 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemoteCallHandler = clas
 
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.getRemote = function() {
   let remote = new ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory',
     'context');
   return remote.$;

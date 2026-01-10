@@ -75,8 +75,9 @@ blink.mojom.QuotaManagerHostRemoteCallHandler = class {
 
 blink.mojom.QuotaManagerHost.getRemote = function() {
   let remote = new blink.mojom.QuotaManagerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.QuotaManagerHost',
     'context');
   return remote.$;

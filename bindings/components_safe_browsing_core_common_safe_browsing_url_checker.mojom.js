@@ -75,8 +75,9 @@ safe_browsing.mojom.SafeBrowsingUrlCheckerRemoteCallHandler = class {
 
 safe_browsing.mojom.SafeBrowsingUrlChecker.getRemote = function() {
   let remote = new safe_browsing.mojom.SafeBrowsingUrlCheckerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'safe_browsing.mojom.SafeBrowsingUrlChecker',
     'context');
   return remote.$;

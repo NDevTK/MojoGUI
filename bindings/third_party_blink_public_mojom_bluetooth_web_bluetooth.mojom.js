@@ -667,8 +667,9 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
 
 blink.mojom.WebBluetoothService.getRemote = function() {
   let remote = new blink.mojom.WebBluetoothServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebBluetoothService',
     'context');
   return remote.$;
@@ -730,8 +731,9 @@ blink.mojom.WebBluetoothServerClientRemoteCallHandler = class {
 
 blink.mojom.WebBluetoothServerClient.getRemote = function() {
   let remote = new blink.mojom.WebBluetoothServerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebBluetoothServerClient',
     'context');
   return remote.$;
@@ -794,8 +796,9 @@ blink.mojom.WebBluetoothCharacteristicClientRemoteCallHandler = class {
 
 blink.mojom.WebBluetoothCharacteristicClient.getRemote = function() {
   let remote = new blink.mojom.WebBluetoothCharacteristicClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebBluetoothCharacteristicClient',
     'context');
   return remote.$;
@@ -858,8 +861,9 @@ blink.mojom.WebBluetoothAdvertisementClientRemoteCallHandler = class {
 
 blink.mojom.WebBluetoothAdvertisementClient.getRemote = function() {
   let remote = new blink.mojom.WebBluetoothAdvertisementClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebBluetoothAdvertisementClient',
     'context');
   return remote.$;

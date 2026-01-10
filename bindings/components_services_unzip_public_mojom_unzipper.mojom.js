@@ -107,8 +107,9 @@ unzip.mojom.UnzipFilterRemoteCallHandler = class {
 
 unzip.mojom.UnzipFilter.getRemote = function() {
   let remote = new unzip.mojom.UnzipFilterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'unzip.mojom.UnzipFilter',
     'context');
   return remote.$;
@@ -171,8 +172,9 @@ unzip.mojom.UnzipListenerRemoteCallHandler = class {
 
 unzip.mojom.UnzipListener.getRemote = function() {
   let remote = new unzip.mojom.UnzipListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'unzip.mojom.UnzipListener',
     'context');
   return remote.$;
@@ -312,8 +314,9 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
 
 unzip.mojom.Unzipper.getRemote = function() {
   let remote = new unzip.mojom.UnzipperRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'unzip.mojom.Unzipper',
     'context');
   return remote.$;

@@ -69,8 +69,9 @@ blink.mojom.WakeLockServiceRemoteCallHandler = class {
 
 blink.mojom.WakeLockService.getRemote = function() {
   let remote = new blink.mojom.WakeLockServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WakeLockService',
     'context');
   return remote.$;

@@ -564,8 +564,9 @@ crosapi.mojom.DocumentScanRemoteCallHandler = class {
 
 crosapi.mojom.DocumentScan.getRemote = function() {
   let remote = new crosapi.mojom.DocumentScanRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.DocumentScan',
     'context');
   return remote.$;

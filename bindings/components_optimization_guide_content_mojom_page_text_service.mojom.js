@@ -100,8 +100,9 @@ optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
 
 optimization_guide.mojom.PageTextConsumer.getRemote = function() {
   let remote = new optimization_guide.mojom.PageTextConsumerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'optimization_guide.mojom.PageTextConsumer',
     'context');
   return remote.$;
@@ -165,8 +166,9 @@ optimization_guide.mojom.PageTextServiceRemoteCallHandler = class {
 
 optimization_guide.mojom.PageTextService.getRemote = function() {
   let remote = new optimization_guide.mojom.PageTextServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'optimization_guide.mojom.PageTextService',
     'context');
   return remote.$;

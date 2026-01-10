@@ -118,8 +118,9 @@ user_data_importer.mojom.BookmarkHtmlParserRemoteCallHandler = class {
 
 user_data_importer.mojom.BookmarkHtmlParser.getRemote = function() {
   let remote = new user_data_importer.mojom.BookmarkHtmlParserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'user_data_importer.mojom.BookmarkHtmlParser',
     'context');
   return remote.$;

@@ -100,8 +100,9 @@ network.mojom.SharedDictionaryAccessObserverRemoteCallHandler = class {
 
 network.mojom.SharedDictionaryAccessObserver.getRemote = function() {
   let remote = new network.mojom.SharedDictionaryAccessObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.SharedDictionaryAccessObserver',
     'context');
   return remote.$;

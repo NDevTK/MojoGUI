@@ -66,8 +66,9 @@ blink.mojom.KeepAliveHandleFactoryRemoteCallHandler = class {
 
 blink.mojom.KeepAliveHandleFactory.getRemote = function() {
   let remote = new blink.mojom.KeepAliveHandleFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.KeepAliveHandleFactory',
     'context');
   return remote.$;

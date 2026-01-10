@@ -128,8 +128,9 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
 
 legion_internals.mojom.LegionInternalsPageHandler.getRemote = function() {
   let remote = new legion_internals.mojom.LegionInternalsPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'legion_internals.mojom.LegionInternalsPageHandler',
     'context');
   return remote.$;

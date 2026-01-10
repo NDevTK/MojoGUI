@@ -198,8 +198,9 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
 
 blink.mojom.LCPCriticalPathPredictorHost.getRemote = function() {
   let remote = new blink.mojom.LCPCriticalPathPredictorHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.LCPCriticalPathPredictorHost',
     'context');
   return remote.$;

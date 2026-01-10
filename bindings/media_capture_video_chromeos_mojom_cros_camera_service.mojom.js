@@ -228,8 +228,9 @@ cros.mojom.KioskVisionObserverRemoteCallHandler = class {
 
 cros.mojom.KioskVisionObserver.getRemote = function() {
   let remote = new cros.mojom.KioskVisionObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.KioskVisionObserver',
     'context');
   return remote.$;
@@ -300,8 +301,9 @@ cros.mojom.CameraHalDispatcherRemoteCallHandler = class {
 
 cros.mojom.CameraHalDispatcher.getRemote = function() {
   let remote = new cros.mojom.CameraHalDispatcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CameraHalDispatcher',
     'context');
   return remote.$;
@@ -431,8 +433,9 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
 
 cros.mojom.CrosCameraServiceObserver.getRemote = function() {
   let remote = new cros.mojom.CrosCameraServiceObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CrosCameraServiceObserver',
     'context');
   return remote.$;
@@ -646,8 +649,9 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
 
 cros.mojom.CrosCameraService.getRemote = function() {
   let remote = new cros.mojom.CrosCameraServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CrosCameraService',
     'context');
   return remote.$;

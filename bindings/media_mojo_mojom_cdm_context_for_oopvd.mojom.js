@@ -97,8 +97,9 @@ media.mojom.CdmContextEventCallbackRemoteCallHandler = class {
 
 media.mojom.CdmContextEventCallback.getRemote = function() {
   let remote = new media.mojom.CdmContextEventCallbackRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.CdmContextEventCallback',
     'context');
   return remote.$;
@@ -300,8 +301,9 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
 
 media.mojom.CdmContextForOOPVD.getRemote = function() {
   let remote = new media.mojom.CdmContextForOOPVDRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.CdmContextForOOPVD',
     'context');
   return remote.$;

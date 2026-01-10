@@ -93,8 +93,9 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerInstalledScriptsManagerHost.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ServiceWorkerInstalledScriptsManagerHost',
     'context');
   return remote.$;
@@ -157,8 +158,9 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerInstalledScriptsManager.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerInstalledScriptsManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ServiceWorkerInstalledScriptsManager',
     'context');
   return remote.$;

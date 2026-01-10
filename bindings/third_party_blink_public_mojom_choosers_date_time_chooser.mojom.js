@@ -113,8 +113,9 @@ blink.mojom.DateTimeChooserRemoteCallHandler = class {
 
 blink.mojom.DateTimeChooser.getRemote = function() {
   let remote = new blink.mojom.DateTimeChooserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DateTimeChooser',
     'context');
   return remote.$;

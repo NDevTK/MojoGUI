@@ -95,8 +95,9 @@ crosapi.mojom.RemotingRemoteCallHandler = class {
 
 crosapi.mojom.Remoting.getRemote = function() {
   let remote = new crosapi.mojom.RemotingRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.Remoting',
     'context');
   return remote.$;

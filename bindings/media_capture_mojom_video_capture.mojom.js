@@ -190,8 +190,9 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
 
 media.mojom.VideoCaptureObserver.getRemote = function() {
   let remote = new media.mojom.VideoCaptureObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoCaptureObserver',
     'context');
   return remote.$;
@@ -404,8 +405,9 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
 
 media.mojom.VideoCaptureHost.getRemote = function() {
   let remote = new media.mojom.VideoCaptureHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoCaptureHost',
     'context');
   return remote.$;

@@ -204,8 +204,9 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
 
 ash.settings.app_permission.mojom.AppPermissionsHandler.getRemote = function() {
   let remote = new ash.settings.app_permission.mojom.AppPermissionsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.app_permission.mojom.AppPermissionsHandler',
     'context');
   return remote.$;
@@ -284,8 +285,9 @@ ash.settings.app_permission.mojom.AppPermissionsObserverRemoteCallHandler = clas
 
 ash.settings.app_permission.mojom.AppPermissionsObserver.getRemote = function() {
   let remote = new ash.settings.app_permission.mojom.AppPermissionsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.app_permission.mojom.AppPermissionsObserver',
     'context');
   return remote.$;

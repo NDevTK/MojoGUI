@@ -203,8 +203,9 @@ blink.mojom.PresentationConnectionRemoteCallHandler = class {
 
 blink.mojom.PresentationConnection.getRemote = function() {
   let remote = new blink.mojom.PresentationConnectionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PresentationConnection',
     'context');
   return remote.$;
@@ -412,8 +413,9 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
 
 blink.mojom.PresentationService.getRemote = function() {
   let remote = new blink.mojom.PresentationServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PresentationService',
     'context');
   return remote.$;
@@ -528,8 +530,9 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
 
 blink.mojom.PresentationController.getRemote = function() {
   let remote = new blink.mojom.PresentationControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PresentationController',
     'context');
   return remote.$;
@@ -592,8 +595,9 @@ blink.mojom.PresentationReceiverRemoteCallHandler = class {
 
 blink.mojom.PresentationReceiver.getRemote = function() {
   let remote = new blink.mojom.PresentationReceiverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PresentationReceiver',
     'context');
   return remote.$;

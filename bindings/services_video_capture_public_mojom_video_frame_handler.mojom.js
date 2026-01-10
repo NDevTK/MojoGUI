@@ -90,8 +90,9 @@ video_capture.mojom.VideoFrameAccessHandlerRemoteCallHandler = class {
 
 video_capture.mojom.VideoFrameAccessHandler.getRemote = function() {
   let remote = new video_capture.mojom.VideoFrameAccessHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'video_capture.mojom.VideoFrameAccessHandler',
     'context');
   return remote.$;
@@ -342,8 +343,9 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
 
 video_capture.mojom.VideoFrameHandler.getRemote = function() {
   let remote = new video_capture.mojom.VideoFrameHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'video_capture.mojom.VideoFrameHandler',
     'context');
   return remote.$;

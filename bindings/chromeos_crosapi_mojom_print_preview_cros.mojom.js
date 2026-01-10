@@ -204,8 +204,9 @@ crosapi.mojom.PrintPreviewCrosDelegateRemoteCallHandler = class {
 
 crosapi.mojom.PrintPreviewCrosDelegate.getRemote = function() {
   let remote = new crosapi.mojom.PrintPreviewCrosDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.PrintPreviewCrosDelegate',
     'context');
   return remote.$;
@@ -297,8 +298,9 @@ crosapi.mojom.PrintPreviewCrosClientRemoteCallHandler = class {
 
 crosapi.mojom.PrintPreviewCrosClient.getRemote = function() {
   let remote = new crosapi.mojom.PrintPreviewCrosClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.PrintPreviewCrosClient',
     'context');
   return remote.$;

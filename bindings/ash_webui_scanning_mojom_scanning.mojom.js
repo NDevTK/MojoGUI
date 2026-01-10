@@ -248,8 +248,9 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
 
 ash.scanning.mojom.ScanJobObserver.getRemote = function() {
   let remote = new ash.scanning.mojom.ScanJobObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.scanning.mojom.ScanJobObserver',
     'context');
   return remote.$;
@@ -402,8 +403,9 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
 
 ash.scanning.mojom.ScanService.getRemote = function() {
   let remote = new ash.scanning.mojom.ScanServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.scanning.mojom.ScanService',
     'context');
   return remote.$;
@@ -528,8 +530,9 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
 
 ash.scanning.mojom.MultiPageScanController.getRemote = function() {
   let remote = new ash.scanning.mojom.MultiPageScanControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.scanning.mojom.MultiPageScanController',
     'context');
   return remote.$;

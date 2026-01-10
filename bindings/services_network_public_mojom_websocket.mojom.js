@@ -136,8 +136,9 @@ network.mojom.WebSocketAuthenticationHandlerRemoteCallHandler = class {
 
 network.mojom.WebSocketAuthenticationHandler.getRemote = function() {
   let remote = new network.mojom.WebSocketAuthenticationHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.WebSocketAuthenticationHandler',
     'context');
   return remote.$;
@@ -238,8 +239,9 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
 
 network.mojom.WebSocketHandshakeClient.getRemote = function() {
   let remote = new network.mojom.WebSocketHandshakeClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.WebSocketHandshakeClient',
     'context');
   return remote.$;
@@ -337,8 +339,9 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
 
 network.mojom.WebSocketClient.getRemote = function() {
   let remote = new network.mojom.WebSocketClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.WebSocketClient',
     'context');
   return remote.$;
@@ -434,8 +437,9 @@ network.mojom.WebSocketRemoteCallHandler = class {
 
 network.mojom.WebSocket.getRemote = function() {
   let remote = new network.mojom.WebSocketRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.WebSocket',
     'context');
   return remote.$;

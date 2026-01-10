@@ -71,8 +71,9 @@ cast_streaming.mojom.RendererControllerRemoteCallHandler = class {
 
 cast_streaming.mojom.RendererController.getRemote = function() {
   let remote = new cast_streaming.mojom.RendererControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cast_streaming.mojom.RendererController',
     'context');
   return remote.$;

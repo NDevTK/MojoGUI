@@ -187,8 +187,9 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
 
 input.mojom.RenderInputRouterDelegate.getRemote = function() {
   let remote = new input.mojom.RenderInputRouterDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'input.mojom.RenderInputRouterDelegate',
     'context');
   return remote.$;
@@ -318,8 +319,9 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
 
 input.mojom.RenderInputRouterDelegateClient.getRemote = function() {
   let remote = new input.mojom.RenderInputRouterDelegateClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'input.mojom.RenderInputRouterDelegateClient',
     'context');
   return remote.$;

@@ -325,8 +325,9 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
 
 discards.mojom.DetailsProvider.getRemote = function() {
   let remote = new discards.mojom.DetailsProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'discards.mojom.DetailsProvider',
     'context');
   return remote.$;
@@ -533,8 +534,9 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
 
 discards.mojom.GraphChangeStream.getRemote = function() {
   let remote = new discards.mojom.GraphChangeStreamRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'discards.mojom.GraphChangeStream',
     'context');
   return remote.$;
@@ -619,8 +621,9 @@ discards.mojom.GraphDumpRemoteCallHandler = class {
 
 discards.mojom.GraphDump.getRemote = function() {
   let remote = new discards.mojom.GraphDumpRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'discards.mojom.GraphDump',
     'context');
   return remote.$;

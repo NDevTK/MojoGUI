@@ -238,8 +238,9 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
 
 ash.multidevice_setup.mojom.AccountStatusChangeDelegate.getRemote = function() {
   let remote = new ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.multidevice_setup.mojom.AccountStatusChangeDelegate',
     'context');
   return remote.$;
@@ -303,8 +304,9 @@ ash.multidevice_setup.mojom.HostStatusObserverRemoteCallHandler = class {
 
 ash.multidevice_setup.mojom.HostStatusObserver.getRemote = function() {
   let remote = new ash.multidevice_setup.mojom.HostStatusObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.multidevice_setup.mojom.HostStatusObserver',
     'context');
   return remote.$;
@@ -367,8 +369,9 @@ ash.multidevice_setup.mojom.FeatureStateObserverRemoteCallHandler = class {
 
 ash.multidevice_setup.mojom.FeatureStateObserver.getRemote = function() {
   let remote = new ash.multidevice_setup.mojom.FeatureStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.multidevice_setup.mojom.FeatureStateObserver',
     'context');
   return remote.$;
@@ -690,8 +693,9 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
 
 ash.multidevice_setup.mojom.MultiDeviceSetup.getRemote = function() {
   let remote = new ash.multidevice_setup.mojom.MultiDeviceSetupRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.multidevice_setup.mojom.MultiDeviceSetup',
     'context');
   return remote.$;
@@ -760,8 +764,9 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemoteCallHandler = class 
 
 ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter.getRemote = function() {
   let remote = new ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter',
     'context');
   return remote.$;

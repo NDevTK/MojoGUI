@@ -47,8 +47,9 @@ extensions.KeepAliveRemoteCallHandler = class {
 
 extensions.KeepAlive.getRemote = function() {
   let remote = new extensions.KeepAliveRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.KeepAlive',
     'context');
   return remote.$;

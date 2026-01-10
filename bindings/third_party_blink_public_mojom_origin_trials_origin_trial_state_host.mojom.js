@@ -94,8 +94,9 @@ blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
 
 blink.mojom.OriginTrialStateHost.getRemote = function() {
   let remote = new blink.mojom.OriginTrialStateHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.OriginTrialStateHost',
     'context');
   return remote.$;

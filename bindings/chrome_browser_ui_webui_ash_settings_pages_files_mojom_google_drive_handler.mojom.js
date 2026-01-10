@@ -95,8 +95,9 @@ ash.settings.google_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.settings.google_drive.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.settings.google_drive.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.google_drive.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -214,8 +215,9 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.settings.google_drive.mojom.PageHandler.getRemote = function() {
   let remote = new ash.settings.google_drive.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.google_drive.mojom.PageHandler',
     'context');
   return remote.$;
@@ -293,8 +295,9 @@ ash.settings.google_drive.mojom.PageRemoteCallHandler = class {
 
 ash.settings.google_drive.mojom.Page.getRemote = function() {
   let remote = new ash.settings.google_drive.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.settings.google_drive.mojom.Page',
     'context');
   return remote.$;

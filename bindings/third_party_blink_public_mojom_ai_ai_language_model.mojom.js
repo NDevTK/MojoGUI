@@ -196,8 +196,9 @@ blink.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
 
 blink.mojom.AIManagerCreateLanguageModelClient.getRemote = function() {
   let remote = new blink.mojom.AIManagerCreateLanguageModelClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AIManagerCreateLanguageModelClient',
     'context');
   return remote.$;
@@ -333,8 +334,9 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
 
 blink.mojom.AILanguageModel.getRemote = function() {
   let remote = new blink.mojom.AILanguageModelRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AILanguageModel',
     'context');
   return remote.$;

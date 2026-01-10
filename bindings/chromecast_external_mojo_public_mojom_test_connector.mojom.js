@@ -68,8 +68,9 @@ chromecast.external_mojo.mojom.TestExternalConnectorRemoteCallHandler = class {
 
 chromecast.external_mojo.mojom.TestExternalConnector.getRemote = function() {
   let remote = new chromecast.external_mojo.mojom.TestExternalConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.external_mojo.mojom.TestExternalConnector',
     'context');
   return remote.$;

@@ -129,8 +129,9 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
 
 blink.mojom.NonPersistentNotificationListener.getRemote = function() {
   let remote = new blink.mojom.NonPersistentNotificationListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.NonPersistentNotificationListener',
     'context');
   return remote.$;
@@ -298,8 +299,9 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
 
 blink.mojom.NotificationService.getRemote = function() {
   let remote = new blink.mojom.NotificationServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.NotificationService',
     'context');
   return remote.$;

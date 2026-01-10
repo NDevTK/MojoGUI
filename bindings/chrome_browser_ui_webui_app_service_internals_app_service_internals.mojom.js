@@ -120,8 +120,9 @@ mojom.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler = cl
 
 mojom.app_service_internals.AppServiceInternalsPageHandler.getRemote = function() {
   let remote = new mojom.app_service_internals.AppServiceInternalsPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojom.app_service_internals.AppServiceInternalsPageHandler',
     'context');
   return remote.$;

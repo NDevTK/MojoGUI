@@ -148,8 +148,9 @@ webui_browser.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 webui_browser.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new webui_browser.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webui_browser.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -277,8 +278,9 @@ webui_browser.mojom.PageRemoteCallHandler = class {
 
 webui_browser.mojom.Page.getRemote = function() {
   let remote = new webui_browser.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webui_browser.mojom.Page',
     'context');
   return remote.$;
@@ -505,8 +507,9 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
 
 webui_browser.mojom.PageHandler.getRemote = function() {
   let remote = new webui_browser.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webui_browser.mojom.PageHandler',
     'context');
   return remote.$;
@@ -707,8 +710,9 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
 
 webui_browser.mojom.GuestHandler.getRemote = function() {
   let remote = new webui_browser.mojom.GuestHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webui_browser.mojom.GuestHandler',
     'context');
   return remote.$;

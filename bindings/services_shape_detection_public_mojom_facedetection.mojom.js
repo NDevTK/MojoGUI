@@ -110,8 +110,9 @@ shape_detection.mojom.FaceDetectionRemoteCallHandler = class {
 
 shape_detection.mojom.FaceDetection.getRemote = function() {
   let remote = new shape_detection.mojom.FaceDetectionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'shape_detection.mojom.FaceDetection',
     'context');
   return remote.$;

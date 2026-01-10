@@ -149,8 +149,9 @@ arc.mojom.WebApkInstanceRemoteCallHandler = class {
 
 arc.mojom.WebApkInstance.getRemote = function() {
   let remote = new arc.mojom.WebApkInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.WebApkInstance',
     'context');
   return remote.$;

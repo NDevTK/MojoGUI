@@ -395,8 +395,9 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
 
 chromeos.machine_learning.mojom.MachineLearningService.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.MachineLearningServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.machine_learning.mojom.MachineLearningService',
     'context');
   return remote.$;

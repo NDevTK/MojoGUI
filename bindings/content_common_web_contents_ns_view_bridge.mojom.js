@@ -237,8 +237,9 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
 
 remote_cocoa.mojom.WebContentsNSView.getRemote = function() {
   let remote = new remote_cocoa.mojom.WebContentsNSViewRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remote_cocoa.mojom.WebContentsNSView',
     'context');
   return remote.$;
@@ -473,8 +474,9 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
 
 remote_cocoa.mojom.WebContentsNSViewHost.getRemote = function() {
   let remote = new remote_cocoa.mojom.WebContentsNSViewHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remote_cocoa.mojom.WebContentsNSViewHost',
     'context');
   return remote.$;

@@ -173,8 +173,9 @@ cast_streaming.mojom.AudioBufferRequesterRemoteCallHandler = class {
 
 cast_streaming.mojom.AudioBufferRequester.getRemote = function() {
   let remote = new cast_streaming.mojom.AudioBufferRequesterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cast_streaming.mojom.AudioBufferRequester',
     'context');
   return remote.$;
@@ -263,8 +264,9 @@ cast_streaming.mojom.VideoBufferRequesterRemoteCallHandler = class {
 
 cast_streaming.mojom.VideoBufferRequester.getRemote = function() {
   let remote = new cast_streaming.mojom.VideoBufferRequesterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cast_streaming.mojom.VideoBufferRequester',
     'context');
   return remote.$;
@@ -348,8 +350,9 @@ cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = class {
 
 cast_streaming.mojom.DemuxerConnector.getRemote = function() {
   let remote = new cast_streaming.mojom.DemuxerConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cast_streaming.mojom.DemuxerConnector',
     'context');
   return remote.$;

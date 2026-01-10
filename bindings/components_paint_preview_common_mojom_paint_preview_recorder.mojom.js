@@ -164,8 +164,9 @@ paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
 
 paint_preview.mojom.PaintPreviewRecorder.getRemote = function() {
   let remote = new paint_preview.mojom.PaintPreviewRecorderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'paint_preview.mojom.PaintPreviewRecorder',
     'context');
   return remote.$;

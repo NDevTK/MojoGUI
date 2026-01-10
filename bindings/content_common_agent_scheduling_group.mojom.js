@@ -79,8 +79,9 @@ content.mojom.AgentSchedulingGroupHostRemoteCallHandler = class {
 
 content.mojom.AgentSchedulingGroupHost.getRemote = function() {
   let remote = new content.mojom.AgentSchedulingGroupHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.AgentSchedulingGroupHost',
     'context');
   return remote.$;
@@ -193,8 +194,9 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
 
 content.mojom.AgentSchedulingGroup.getRemote = function() {
   let remote = new content.mojom.AgentSchedulingGroupRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.AgentSchedulingGroup',
     'context');
   return remote.$;

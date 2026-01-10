@@ -83,8 +83,9 @@ launcher_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 launcher_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new launcher_internals.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'launcher_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -149,8 +150,9 @@ launcher_internals.mojom.PageRemoteCallHandler = class {
 
 launcher_internals.mojom.Page.getRemote = function() {
   let remote = new launcher_internals.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'launcher_internals.mojom.Page',
     'context');
   return remote.$;

@@ -78,8 +78,9 @@ mirroring.mojom.CastMessageChannelRemoteCallHandler = class {
 
 mirroring.mojom.CastMessageChannel.getRemote = function() {
   let remote = new mirroring.mojom.CastMessageChannelRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mirroring.mojom.CastMessageChannel',
     'context');
   return remote.$;

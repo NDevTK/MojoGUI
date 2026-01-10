@@ -72,8 +72,9 @@ webapps.mojom.WebPageMetadataAgentRemoteCallHandler = class {
 
 webapps.mojom.WebPageMetadataAgent.getRemote = function() {
   let remote = new webapps.mojom.WebPageMetadataAgentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webapps.mojom.WebPageMetadataAgent',
     'context');
   return remote.$;

@@ -212,8 +212,9 @@ ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.ESimManagerObserver.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.ESimManagerObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cellular_setup.mojom.ESimManagerObserver',
     'context');
   return remote.$;
@@ -297,8 +298,9 @@ ash.cellular_setup.mojom.ESimManagerRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.ESimManager.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.ESimManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cellular_setup.mojom.ESimManager',
     'context');
   return remote.$;
@@ -476,8 +478,9 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.Euicc.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.EuiccRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cellular_setup.mojom.Euicc',
     'context');
   return remote.$;
@@ -610,8 +613,9 @@ ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.ESimProfile.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.ESimProfileRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cellular_setup.mojom.ESimProfile',
     'context');
   return remote.$;

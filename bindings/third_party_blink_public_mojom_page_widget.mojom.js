@@ -504,8 +504,9 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
 
 blink.mojom.FrameWidget.getRemote = function() {
   let remote = new blink.mojom.FrameWidgetRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FrameWidget',
     'context');
   return remote.$;
@@ -664,8 +665,9 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
 
 blink.mojom.FrameWidgetHost.getRemote = function() {
   let remote = new blink.mojom.FrameWidgetHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FrameWidgetHost',
     'context');
   return remote.$;
@@ -770,8 +772,9 @@ blink.mojom.PopupWidgetHostRemoteCallHandler = class {
 
 blink.mojom.PopupWidgetHost.getRemote = function() {
   let remote = new blink.mojom.PopupWidgetHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PopupWidgetHost',
     'context');
   return remote.$;

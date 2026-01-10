@@ -196,8 +196,9 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler = class
 
 compose.mojom.ComposeSessionUntrustedPageHandlerFactory.getRemote = function() {
   let remote = new compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'compose.mojom.ComposeSessionUntrustedPageHandlerFactory',
     'context');
   return remote.$;
@@ -542,8 +543,9 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
 
 compose.mojom.ComposeSessionUntrustedPageHandler.getRemote = function() {
   let remote = new compose.mojom.ComposeSessionUntrustedPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'compose.mojom.ComposeSessionUntrustedPageHandler',
     'context');
   return remote.$;
@@ -651,8 +653,9 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
 
 compose.mojom.ComposeClientUntrustedPageHandler.getRemote = function() {
   let remote = new compose.mojom.ComposeClientUntrustedPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'compose.mojom.ComposeClientUntrustedPageHandler',
     'context');
   return remote.$;
@@ -731,8 +734,9 @@ compose.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
 
 compose.mojom.ComposeUntrustedDialog.getRemote = function() {
   let remote = new compose.mojom.ComposeUntrustedDialogRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'compose.mojom.ComposeUntrustedDialog',
     'context');
   return remote.$;

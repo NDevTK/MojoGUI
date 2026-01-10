@@ -98,8 +98,9 @@ url.mojom.UrlTestRemoteCallHandler = class {
 
 url.mojom.UrlTest.getRemote = function() {
   let remote = new url.mojom.UrlTestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'url.mojom.UrlTest',
     'context');
   return remote.$;

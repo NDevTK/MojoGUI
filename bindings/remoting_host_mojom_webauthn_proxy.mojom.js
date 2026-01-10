@@ -120,8 +120,9 @@ remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler = class {
 
 remoting.mojom.WebAuthnRequestCanceller.getRemote = function() {
   let remote = new remoting.mojom.WebAuthnRequestCancellerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.WebAuthnRequestCanceller',
     'context');
   return remote.$;
@@ -235,8 +236,9 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
 
 remoting.mojom.WebAuthnProxy.getRemote = function() {
   let remote = new remoting.mojom.WebAuthnProxyRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remoting.mojom.WebAuthnProxy',
     'context');
   return remote.$;

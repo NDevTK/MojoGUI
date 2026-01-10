@@ -76,8 +76,9 @@ blink.mojom.RendererAudioOutputStreamFactoryRemoteCallHandler = class {
 
 blink.mojom.RendererAudioOutputStreamFactory.getRemote = function() {
   let remote = new blink.mojom.RendererAudioOutputStreamFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.RendererAudioOutputStreamFactory',
     'context');
   return remote.$;

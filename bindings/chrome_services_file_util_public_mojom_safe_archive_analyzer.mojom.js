@@ -217,8 +217,9 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
 
 chrome.mojom.SafeArchiveAnalyzer.getRemote = function() {
   let remote = new chrome.mojom.SafeArchiveAnalyzerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.SafeArchiveAnalyzer',
     'context');
   return remote.$;
@@ -286,8 +287,9 @@ chrome.mojom.TemporaryFileGetterRemoteCallHandler = class {
 
 chrome.mojom.TemporaryFileGetter.getRemote = function() {
   let remote = new chrome.mojom.TemporaryFileGetterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.TemporaryFileGetter',
     'context');
   return remote.$;

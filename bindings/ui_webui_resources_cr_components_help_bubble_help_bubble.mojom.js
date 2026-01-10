@@ -143,8 +143,9 @@ help_bubble.mojom.HelpBubbleHandlerFactoryRemoteCallHandler = class {
 
 help_bubble.mojom.HelpBubbleHandlerFactory.getRemote = function() {
   let remote = new help_bubble.mojom.HelpBubbleHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'help_bubble.mojom.HelpBubbleHandlerFactory',
     'context');
   return remote.$;
@@ -208,8 +209,9 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHandler = class {
 
 help_bubble.mojom.PdfHelpBubbleHandlerFactory.getRemote = function() {
   let remote = new help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'help_bubble.mojom.PdfHelpBubbleHandlerFactory',
     'context');
   return remote.$;
@@ -306,8 +308,9 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
 
 help_bubble.mojom.HelpBubbleHandler.getRemote = function() {
   let remote = new help_bubble.mojom.HelpBubbleHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'help_bubble.mojom.HelpBubbleHandler',
     'context');
   return remote.$;
@@ -419,8 +422,9 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
 
 help_bubble.mojom.HelpBubbleClient.getRemote = function() {
   let remote = new help_bubble.mojom.HelpBubbleClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'help_bubble.mojom.HelpBubbleClient',
     'context');
   return remote.$;

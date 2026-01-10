@@ -135,8 +135,9 @@ media_session.mojom.MediaControllerManagerRemoteCallHandler = class {
 
 media_session.mojom.MediaControllerManager.getRemote = function() {
   let remote = new media_session.mojom.MediaControllerManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_session.mojom.MediaControllerManager',
     'context');
   return remote.$;
@@ -523,8 +524,9 @@ media_session.mojom.MediaControllerRemoteCallHandler = class {
 
 media_session.mojom.MediaController.getRemote = function() {
   let remote = new media_session.mojom.MediaControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_session.mojom.MediaController',
     'context');
   return remote.$;
@@ -651,8 +653,9 @@ media_session.mojom.MediaControllerObserverRemoteCallHandler = class {
 
 media_session.mojom.MediaControllerObserver.getRemote = function() {
   let remote = new media_session.mojom.MediaControllerObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_session.mojom.MediaControllerObserver',
     'context');
   return remote.$;
@@ -733,8 +736,9 @@ media_session.mojom.MediaControllerImageObserverRemoteCallHandler = class {
 
 media_session.mojom.MediaControllerImageObserver.getRemote = function() {
   let remote = new media_session.mojom.MediaControllerImageObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media_session.mojom.MediaControllerImageObserver',
     'context');
   return remote.$;

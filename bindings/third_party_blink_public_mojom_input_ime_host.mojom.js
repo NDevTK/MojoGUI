@@ -98,8 +98,9 @@ blink.mojom.ImeRenderWidgetHostRemoteCallHandler = class {
 
 blink.mojom.ImeRenderWidgetHost.getRemote = function() {
   let remote = new blink.mojom.ImeRenderWidgetHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ImeRenderWidgetHost',
     'context');
   return remote.$;

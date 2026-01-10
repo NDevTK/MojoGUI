@@ -79,8 +79,9 @@ test.mojom.FooRemoteCallHandler = class {
 
 test.mojom.Foo.getRemote = function() {
   let remote = new test.mojom.FooRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'test.mojom.Foo',
     'context');
   return remote.$;
@@ -148,8 +149,9 @@ test.mojom.BarRemoteCallHandler = class {
 
 test.mojom.Bar.getRemote = function() {
   let remote = new test.mojom.BarRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'test.mojom.Bar',
     'context');
   return remote.$;
@@ -217,8 +219,9 @@ test.mojom.BazRemoteCallHandler = class {
 
 test.mojom.Baz.getRemote = function() {
   let remote = new test.mojom.BazRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'test.mojom.Baz',
     'context');
   return remote.$;

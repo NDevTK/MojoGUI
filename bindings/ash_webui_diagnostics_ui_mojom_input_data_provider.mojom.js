@@ -175,8 +175,9 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.KeyboardObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.KeyboardObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.KeyboardObserver',
     'context');
   return remote.$;
@@ -239,8 +240,9 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemoteCallHandler = class
 
 ash.diagnostics.mojom.InternalDisplayPowerStateObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.InternalDisplayPowerStateObserver',
     'context');
   return remote.$;
@@ -303,8 +305,9 @@ ash.diagnostics.mojom.TabletModeObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.TabletModeObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.TabletModeObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.TabletModeObserver',
     'context');
   return remote.$;
@@ -367,8 +370,9 @@ ash.diagnostics.mojom.LidStateObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.LidStateObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.LidStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.LidStateObserver',
     'context');
   return remote.$;
@@ -479,8 +483,9 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.ConnectedDevicesObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.ConnectedDevicesObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.ConnectedDevicesObserver',
     'context');
   return remote.$;
@@ -688,8 +693,9 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
 
 ash.diagnostics.mojom.InputDataProvider.getRemote = function() {
   let remote = new ash.diagnostics.mojom.InputDataProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.InputDataProvider',
     'context');
   return remote.$;

@@ -238,8 +238,9 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
 
 audio.mojom.SystemInfo.getRemote = function() {
   let remote = new audio.mojom.SystemInfoRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'audio.mojom.SystemInfo',
     'context');
   return remote.$;

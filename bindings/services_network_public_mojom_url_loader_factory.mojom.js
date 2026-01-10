@@ -112,8 +112,9 @@ network.mojom.URLLoaderFactoryRemoteCallHandler = class {
 
 network.mojom.URLLoaderFactory.getRemote = function() {
   let remote = new network.mojom.URLLoaderFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.URLLoaderFactory',
     'context');
   return remote.$;

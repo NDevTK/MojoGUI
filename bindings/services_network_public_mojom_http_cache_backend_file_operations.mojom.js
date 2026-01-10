@@ -125,8 +125,9 @@ network.mojom.FileEnumeratorRemoteCallHandler = class {
 
 network.mojom.FileEnumerator.getRemote = function() {
   let remote = new network.mojom.FileEnumeratorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.FileEnumerator',
     'context');
   return remote.$;
@@ -370,8 +371,9 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
 
 network.mojom.HttpCacheBackendFileOperations.getRemote = function() {
   let remote = new network.mojom.HttpCacheBackendFileOperationsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.HttpCacheBackendFileOperations',
     'context');
   return remote.$;
@@ -434,8 +436,9 @@ network.mojom.HttpCacheBackendFileOperationsFactoryRemoteCallHandler = class {
 
 network.mojom.HttpCacheBackendFileOperationsFactory.getRemote = function() {
   let remote = new network.mojom.HttpCacheBackendFileOperationsFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.HttpCacheBackendFileOperationsFactory',
     'context');
   return remote.$;

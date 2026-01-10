@@ -124,8 +124,9 @@ blink.mojom.TextSuggestionHostRemoteCallHandler = class {
 
 blink.mojom.TextSuggestionHost.getRemote = function() {
   let remote = new blink.mojom.TextSuggestionHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.TextSuggestionHost',
     'context');
   return remote.$;

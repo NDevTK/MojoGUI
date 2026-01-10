@@ -224,8 +224,9 @@ ash.os_feedback_ui.mojom.HelpContentProviderRemoteCallHandler = class {
 
 ash.os_feedback_ui.mojom.HelpContentProvider.getRemote = function() {
   let remote = new ash.os_feedback_ui.mojom.HelpContentProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.os_feedback_ui.mojom.HelpContentProvider',
     'context');
   return remote.$;
@@ -492,8 +493,9 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
 
 ash.os_feedback_ui.mojom.FeedbackServiceProvider.getRemote = function() {
   let remote = new ash.os_feedback_ui.mojom.FeedbackServiceProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.os_feedback_ui.mojom.FeedbackServiceProvider',
     'context');
   return remote.$;

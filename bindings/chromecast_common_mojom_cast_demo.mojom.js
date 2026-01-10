@@ -86,8 +86,9 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverRemoteCallHandler = class {
 
 chromecast.shell.mojom.CastDemoVolumeChangeObserver.getRemote = function() {
   let remote = new chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.shell.mojom.CastDemoVolumeChangeObserver',
     'context');
   return remote.$;
@@ -367,8 +368,9 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
 
 chromecast.shell.mojom.CastDemo.getRemote = function() {
   let remote = new chromecast.shell.mojom.CastDemoRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.shell.mojom.CastDemo',
     'context');
   return remote.$;

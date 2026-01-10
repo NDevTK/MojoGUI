@@ -101,8 +101,9 @@ blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
 
 blink.mojom.SurfaceEmbedder.getRemote = function() {
   let remote = new blink.mojom.SurfaceEmbedderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.SurfaceEmbedder',
     'context');
   return remote.$;
@@ -165,8 +166,9 @@ blink.mojom.EmbeddedFrameSinkClientRemoteCallHandler = class {
 
 blink.mojom.EmbeddedFrameSinkClient.getRemote = function() {
   let remote = new blink.mojom.EmbeddedFrameSinkClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.EmbeddedFrameSinkClient',
     'context');
   return remote.$;
@@ -355,8 +357,9 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
 
 blink.mojom.EmbeddedFrameSinkProvider.getRemote = function() {
   let remote = new blink.mojom.EmbeddedFrameSinkProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.EmbeddedFrameSinkProvider',
     'context');
   return remote.$;

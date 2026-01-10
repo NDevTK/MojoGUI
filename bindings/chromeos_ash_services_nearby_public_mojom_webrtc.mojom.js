@@ -101,8 +101,9 @@ sharing.mojom.IceConfigFetcherRemoteCallHandler = class {
 
 sharing.mojom.IceConfigFetcher.getRemote = function() {
   let remote = new sharing.mojom.IceConfigFetcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sharing.mojom.IceConfigFetcher',
     'context');
   return remote.$;
@@ -165,8 +166,9 @@ sharing.mojom.MdnsResponderFactoryRemoteCallHandler = class {
 
 sharing.mojom.MdnsResponderFactory.getRemote = function() {
   let remote = new sharing.mojom.MdnsResponderFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sharing.mojom.MdnsResponderFactory',
     'context');
   return remote.$;

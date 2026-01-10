@@ -66,8 +66,9 @@ viz.mojom.TextureReleaserRemoteCallHandler = class {
 
 viz.mojom.TextureReleaser.getRemote = function() {
   let remote = new viz.mojom.TextureReleaserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.TextureReleaser',
     'context');
   return remote.$;

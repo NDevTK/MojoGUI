@@ -327,8 +327,9 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
 
 chrome.mojom.ProfileImportObserver.getRemote = function() {
   let remote = new chrome.mojom.ProfileImportObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.ProfileImportObserver',
     'context');
   return remote.$;
@@ -425,8 +426,9 @@ chrome.mojom.ProfileImportRemoteCallHandler = class {
 
 chrome.mojom.ProfileImport.getRemote = function() {
   let remote = new chrome.mojom.ProfileImportRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.ProfileImport',
     'context');
   return remote.$;

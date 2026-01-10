@@ -368,8 +368,9 @@ media.mojom.VideoEncodeAcceleratorProviderRemoteCallHandler = class {
 
 media.mojom.VideoEncodeAcceleratorProvider.getRemote = function() {
   let remote = new media.mojom.VideoEncodeAcceleratorProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoEncodeAcceleratorProvider',
     'context');
   return remote.$;
@@ -432,8 +433,9 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryRemoteCallHandler = class {
 
 media.mojom.VideoEncodeAcceleratorProviderFactory.getRemote = function() {
   let remote = new media.mojom.VideoEncodeAcceleratorProviderFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoEncodeAcceleratorProviderFactory',
     'context');
   return remote.$;
@@ -621,8 +623,9 @@ media.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
 
 media.mojom.VideoEncodeAccelerator.getRemote = function() {
   let remote = new media.mojom.VideoEncodeAcceleratorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoEncodeAccelerator',
     'context');
   return remote.$;
@@ -736,8 +739,9 @@ media.mojom.VideoEncodeAcceleratorClientRemoteCallHandler = class {
 
 media.mojom.VideoEncodeAcceleratorClient.getRemote = function() {
   let remote = new media.mojom.VideoEncodeAcceleratorClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoEncodeAcceleratorClient',
     'context');
   return remote.$;

@@ -103,8 +103,9 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCallHandler = class {
 
 new_tab_page.mojom.MicrosoftAuthUntrustedDocument.getRemote = function() {
   let remote = new new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'new_tab_page.mojom.MicrosoftAuthUntrustedDocument',
     'context');
   return remote.$;

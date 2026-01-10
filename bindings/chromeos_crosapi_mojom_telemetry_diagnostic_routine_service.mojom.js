@@ -601,8 +601,9 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler = class {
 
 crosapi.mojom.TelemetryDiagnosticRoutineControl.getRemote = function() {
   let remote = new crosapi.mojom.TelemetryDiagnosticRoutineControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.TelemetryDiagnosticRoutineControl',
     'context');
   return remote.$;
@@ -665,8 +666,9 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverRemoteCallHandler = class {
 
 crosapi.mojom.TelemetryDiagnosticRoutineObserver.getRemote = function() {
   let remote = new crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.TelemetryDiagnosticRoutineObserver',
     'context');
   return remote.$;
@@ -753,8 +755,9 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemoteCallHandler = class {
 
 crosapi.mojom.TelemetryDiagnosticRoutinesService.getRemote = function() {
   let remote = new crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.TelemetryDiagnosticRoutinesService',
     'context');
   return remote.$;

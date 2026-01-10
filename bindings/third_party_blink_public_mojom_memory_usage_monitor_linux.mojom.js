@@ -66,8 +66,9 @@ blink.mojom.MemoryUsageMonitorLinuxRemoteCallHandler = class {
 
 blink.mojom.MemoryUsageMonitorLinux.getRemote = function() {
   let remote = new blink.mojom.MemoryUsageMonitorLinuxRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.MemoryUsageMonitorLinux',
     'context');
   return remote.$;

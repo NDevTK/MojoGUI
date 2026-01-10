@@ -139,8 +139,9 @@ chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
 
 chromeos.cfm.mojom.CfmBrowser.getRemote = function() {
   let remote = new chromeos.cfm.mojom.CfmBrowserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cfm.mojom.CfmBrowser',
     'context');
   return remote.$;

@@ -98,8 +98,9 @@ ai.mojom.EnhancedCalendarServiceRemoteCallHandler = class {
 
 ai.mojom.EnhancedCalendarService.getRemote = function() {
   let remote = new ai.mojom.EnhancedCalendarServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ai.mojom.EnhancedCalendarService',
     'context');
   return remote.$;

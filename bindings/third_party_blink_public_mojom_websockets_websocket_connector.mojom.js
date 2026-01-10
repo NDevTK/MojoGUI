@@ -75,8 +75,9 @@ blink.mojom.WebSocketConnectorRemoteCallHandler = class {
 
 blink.mojom.WebSocketConnector.getRemote = function() {
   let remote = new blink.mojom.WebSocketConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebSocketConnector',
     'context');
   return remote.$;

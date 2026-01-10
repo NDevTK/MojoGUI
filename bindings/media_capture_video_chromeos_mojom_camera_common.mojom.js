@@ -178,8 +178,9 @@ cros.mojom.CameraModuleCallbacksRemoteCallHandler = class {
 
 cros.mojom.CameraModuleCallbacks.getRemote = function() {
   let remote = new cros.mojom.CameraModuleCallbacksRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CameraModuleCallbacks',
     'context');
   return remote.$;
@@ -334,8 +335,9 @@ cros.mojom.VendorTagOpsRemoteCallHandler = class {
 
 cros.mojom.VendorTagOps.getRemote = function() {
   let remote = new cros.mojom.VendorTagOpsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.VendorTagOps',
     'context');
   return remote.$;
@@ -558,8 +560,9 @@ cros.mojom.CameraModuleRemoteCallHandler = class {
 
 cros.mojom.CameraModule.getRemote = function() {
   let remote = new cros.mojom.CameraModuleRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CameraModule',
     'context');
   return remote.$;

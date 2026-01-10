@@ -87,8 +87,9 @@ arc.mojom.KioskHostRemoteCallHandler = class {
 
 arc.mojom.KioskHost.getRemote = function() {
   let remote = new arc.mojom.KioskHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.KioskHost',
     'context');
   return remote.$;
@@ -156,8 +157,9 @@ arc.mojom.KioskInstanceRemoteCallHandler = class {
 
 arc.mojom.KioskInstance.getRemote = function() {
   let remote = new arc.mojom.KioskInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.KioskInstance',
     'context');
   return remote.$;

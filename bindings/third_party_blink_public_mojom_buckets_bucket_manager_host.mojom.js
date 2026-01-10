@@ -330,8 +330,9 @@ blink.mojom.BucketHostRemoteCallHandler = class {
 
 blink.mojom.BucketHost.getRemote = function() {
   let remote = new blink.mojom.BucketHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BucketHost',
     'context');
   return remote.$;
@@ -463,8 +464,9 @@ blink.mojom.BucketManagerHostRemoteCallHandler = class {
 
 blink.mojom.BucketManagerHost.getRemote = function() {
   let remote = new blink.mojom.BucketManagerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.BucketManagerHost',
     'context');
   return remote.$;

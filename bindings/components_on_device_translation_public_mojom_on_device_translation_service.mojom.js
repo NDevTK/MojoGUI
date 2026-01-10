@@ -142,8 +142,9 @@ on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
 
 on_device_translation.mojom.FileOperationProxy.getRemote = function() {
   let remote = new on_device_translation.mojom.FileOperationProxyRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_translation.mojom.FileOperationProxy',
     'context');
   return remote.$;
@@ -253,8 +254,9 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
 
 on_device_translation.mojom.OnDeviceTranslationService.getRemote = function() {
   let remote = new on_device_translation.mojom.OnDeviceTranslationServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_translation.mojom.OnDeviceTranslationService',
     'context');
   return remote.$;

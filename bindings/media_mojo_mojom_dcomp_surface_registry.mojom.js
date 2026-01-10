@@ -89,8 +89,9 @@ media.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class {
 
 media.mojom.DCOMPSurfaceRegistry.getRemote = function() {
   let remote = new media.mojom.DCOMPSurfaceRegistryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.DCOMPSurfaceRegistry',
     'context');
   return remote.$;

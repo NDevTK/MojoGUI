@@ -199,8 +199,9 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
 
 echo.mojom.EchoService.getRemote = function() {
   let remote = new echo.mojom.EchoServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'echo.mojom.EchoService',
     'context');
   return remote.$;

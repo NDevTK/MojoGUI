@@ -82,8 +82,9 @@ reload_button.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 reload_button.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new reload_button.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'reload_button.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -179,8 +180,9 @@ reload_button.mojom.PageHandlerRemoteCallHandler = class {
 
 reload_button.mojom.PageHandler.getRemote = function() {
   let remote = new reload_button.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'reload_button.mojom.PageHandler',
     'context');
   return remote.$;
@@ -244,8 +246,9 @@ reload_button.mojom.PageRemoteCallHandler = class {
 
 reload_button.mojom.Page.getRemote = function() {
   let remote = new reload_button.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'reload_button.mojom.Page',
     'context');
   return remote.$;

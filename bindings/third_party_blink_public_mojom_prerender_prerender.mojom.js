@@ -103,8 +103,9 @@ blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
 
 blink.mojom.NoStatePrefetchProcessor.getRemote = function() {
   let remote = new blink.mojom.NoStatePrefetchProcessorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.NoStatePrefetchProcessor',
     'context');
   return remote.$;

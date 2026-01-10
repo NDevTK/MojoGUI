@@ -99,8 +99,9 @@ blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
 
 blink.mojom.ContentSecurityNotifier.getRemote = function() {
   let remote = new blink.mojom.ContentSecurityNotifierRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ContentSecurityNotifier',
     'context');
   return remote.$;

@@ -73,8 +73,9 @@ math.mojom.MathServiceRemoteCallHandler = class {
 
 math.mojom.MathService.getRemote = function() {
   let remote = new math.mojom.MathServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'math.mojom.MathService',
     'context');
   return remote.$;

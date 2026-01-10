@@ -281,8 +281,9 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
 
 mojom.ProcessInternalsHandler.getRemote = function() {
   let remote = new mojom.ProcessInternalsHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mojom.ProcessInternalsHandler',
     'context');
   return remote.$;

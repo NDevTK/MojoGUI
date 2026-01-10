@@ -682,8 +682,9 @@ arc.mojom.AppHostRemoteCallHandler = class {
 
 arc.mojom.AppHost.getRemote = function() {
   let remote = new arc.mojom.AppHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.AppHost',
     'context');
   return remote.$;
@@ -1316,8 +1317,9 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
 
 arc.mojom.AppInstance.getRemote = function() {
   let remote = new arc.mojom.AppInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.AppInstance',
     'context');
   return remote.$;

@@ -173,8 +173,9 @@ ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
 
 ax.mojom.SpeechRecognitionEventObserver.getRemote = function() {
   let remote = new ax.mojom.SpeechRecognitionEventObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.SpeechRecognitionEventObserver',
     'context');
   return remote.$;
@@ -265,8 +266,9 @@ ax.mojom.SpeechRecognitionRemoteCallHandler = class {
 
 ax.mojom.SpeechRecognition.getRemote = function() {
   let remote = new ax.mojom.SpeechRecognitionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.SpeechRecognition',
     'context');
   return remote.$;

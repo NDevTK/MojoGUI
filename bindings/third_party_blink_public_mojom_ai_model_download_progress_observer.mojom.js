@@ -66,8 +66,9 @@ blink.mojom.ModelDownloadProgressObserverRemoteCallHandler = class {
 
 blink.mojom.ModelDownloadProgressObserver.getRemote = function() {
   let remote = new blink.mojom.ModelDownloadProgressObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ModelDownloadProgressObserver',
     'context');
   return remote.$;

@@ -116,8 +116,9 @@ passage_embeddings.mojom.PassageEmbedderRemoteCallHandler = class {
 
 passage_embeddings.mojom.PassageEmbedder.getRemote = function() {
   let remote = new passage_embeddings.mojom.PassageEmbedderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'passage_embeddings.mojom.PassageEmbedder',
     'context');
   return remote.$;
@@ -188,8 +189,9 @@ passage_embeddings.mojom.PassageEmbeddingsServiceRemoteCallHandler = class {
 
 passage_embeddings.mojom.PassageEmbeddingsService.getRemote = function() {
   let remote = new passage_embeddings.mojom.PassageEmbeddingsServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'passage_embeddings.mojom.PassageEmbeddingsService',
     'context');
   return remote.$;

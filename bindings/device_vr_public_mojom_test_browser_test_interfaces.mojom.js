@@ -368,8 +368,9 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
 
 device_test.mojom.XRTestHook.getRemote = function() {
   let remote = new device_test.mojom.XRTestHookRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device_test.mojom.XRTestHook',
     'context');
   return remote.$;
@@ -457,8 +458,9 @@ device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
 
 device_test.mojom.XRServiceTestHook.getRemote = function() {
   let remote = new device_test.mojom.XRServiceTestHookRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device_test.mojom.XRServiceTestHook',
     'context');
   return remote.$;

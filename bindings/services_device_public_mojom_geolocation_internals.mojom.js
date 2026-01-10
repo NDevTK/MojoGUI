@@ -197,8 +197,9 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
 
 device.mojom.GeolocationInternalsObserver.getRemote = function() {
   let remote = new device.mojom.GeolocationInternalsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.GeolocationInternalsObserver',
     'context');
   return remote.$;
@@ -267,8 +268,9 @@ device.mojom.GeolocationInternalsRemoteCallHandler = class {
 
 device.mojom.GeolocationInternals.getRemote = function() {
   let remote = new device.mojom.GeolocationInternalsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.GeolocationInternals',
     'context');
   return remote.$;

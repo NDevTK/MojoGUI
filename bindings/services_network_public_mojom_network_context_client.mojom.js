@@ -193,8 +193,9 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
 
 network.mojom.NetworkContextClient.getRemote = function() {
   let remote = new network.mojom.NetworkContextClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.NetworkContextClient',
     'context');
   return remote.$;

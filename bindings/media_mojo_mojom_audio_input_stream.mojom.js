@@ -100,8 +100,9 @@ media.mojom.AudioInputStreamRemoteCallHandler = class {
 
 media.mojom.AudioInputStream.getRemote = function() {
   let remote = new media.mojom.AudioInputStreamRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioInputStream',
     'context');
   return remote.$;
@@ -180,8 +181,9 @@ media.mojom.AudioInputStreamClientRemoteCallHandler = class {
 
 media.mojom.AudioInputStreamClient.getRemote = function() {
   let remote = new media.mojom.AudioInputStreamClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioInputStreamClient',
     'context');
   return remote.$;
@@ -243,8 +245,9 @@ media.mojom.AudioInputStreamObserverRemoteCallHandler = class {
 
 media.mojom.AudioInputStreamObserver.getRemote = function() {
   let remote = new media.mojom.AudioInputStreamObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioInputStreamObserver',
     'context');
   return remote.$;

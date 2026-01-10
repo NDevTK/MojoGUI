@@ -194,8 +194,9 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
 
 ax.mojom.UserInterface.getRemote = function() {
   let remote = new ax.mojom.UserInterfaceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.UserInterface',
     'context');
   return remote.$;

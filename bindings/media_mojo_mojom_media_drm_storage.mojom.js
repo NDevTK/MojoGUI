@@ -179,8 +179,9 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
 
 media.mojom.MediaDrmStorage.getRemote = function() {
   let remote = new media.mojom.MediaDrmStorageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaDrmStorage',
     'context');
   return remote.$;

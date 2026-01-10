@@ -65,8 +65,9 @@ audio.mojom.LogFactoryManagerRemoteCallHandler = class {
 
 audio.mojom.LogFactoryManager.getRemote = function() {
   let remote = new audio.mojom.LogFactoryManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'audio.mojom.LogFactoryManager',
     'context');
   return remote.$;

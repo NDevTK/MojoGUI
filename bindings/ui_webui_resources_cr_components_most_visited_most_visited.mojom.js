@@ -130,8 +130,9 @@ most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler = class {
 
 most_visited.mojom.MostVisitedPageHandlerFactory.getRemote = function() {
   let remote = new most_visited.mojom.MostVisitedPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'most_visited.mojom.MostVisitedPageHandlerFactory',
     'context');
   return remote.$;
@@ -459,8 +460,9 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
 
 most_visited.mojom.MostVisitedPageHandler.getRemote = function() {
   let remote = new most_visited.mojom.MostVisitedPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'most_visited.mojom.MostVisitedPageHandler',
     'context');
   return remote.$;
@@ -538,8 +540,9 @@ most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
 
 most_visited.mojom.MostVisitedPage.getRemote = function() {
   let remote = new most_visited.mojom.MostVisitedPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'most_visited.mojom.MostVisitedPage',
     'context');
   return remote.$;

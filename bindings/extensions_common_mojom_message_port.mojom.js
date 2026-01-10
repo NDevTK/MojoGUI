@@ -189,8 +189,9 @@ extensions.mojom.MessagePortRemoteCallHandler = class {
 
 extensions.mojom.MessagePort.getRemote = function() {
   let remote = new extensions.mojom.MessagePortRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mojom.MessagePort',
     'context');
   return remote.$;
@@ -285,8 +286,9 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
 
 extensions.mojom.MessagePortHost.getRemote = function() {
   let remote = new extensions.mojom.MessagePortHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mojom.MessagePortHost',
     'context');
   return remote.$;

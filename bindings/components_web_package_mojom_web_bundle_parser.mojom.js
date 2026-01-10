@@ -284,8 +284,9 @@ web_package.mojom.WebBundleParserFactoryRemoteCallHandler = class {
 
 web_package.mojom.WebBundleParserFactory.getRemote = function() {
   let remote = new web_package.mojom.WebBundleParserFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'web_package.mojom.WebBundleParserFactory',
     'context');
   return remote.$;
@@ -422,8 +423,9 @@ web_package.mojom.WebBundleParserRemoteCallHandler = class {
 
 web_package.mojom.WebBundleParser.getRemote = function() {
   let remote = new web_package.mojom.WebBundleParserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'web_package.mojom.WebBundleParser',
     'context');
   return remote.$;
@@ -555,8 +557,9 @@ web_package.mojom.BundleDataSourceRemoteCallHandler = class {
 
 web_package.mojom.BundleDataSource.getRemote = function() {
   let remote = new web_package.mojom.BundleDataSourceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'web_package.mojom.BundleDataSource',
     'context');
   return remote.$;

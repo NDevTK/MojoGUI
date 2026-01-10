@@ -209,8 +209,9 @@ ash.diagnostics.mojom.NetworkListObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.NetworkListObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.NetworkListObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.NetworkListObserver',
     'context');
   return remote.$;
@@ -273,8 +274,9 @@ ash.diagnostics.mojom.NetworkStateObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.NetworkStateObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.NetworkStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.NetworkStateObserver',
     'context');
   return remote.$;
@@ -354,8 +356,9 @@ ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHandler = class {
 
 ash.diagnostics.mojom.NetworkHealthProvider.getRemote = function() {
   let remote = new ash.diagnostics.mojom.NetworkHealthProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.diagnostics.mojom.NetworkHealthProvider',
     'context');
   return remote.$;

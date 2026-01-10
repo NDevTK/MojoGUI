@@ -198,8 +198,9 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
 
 blink.mojom.ContentIndexService.getRemote = function() {
   let remote = new blink.mojom.ContentIndexServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ContentIndexService',
     'context');
   return remote.$;

@@ -133,8 +133,9 @@ blink.mojom.AISummarizerRemoteCallHandler = class {
 
 blink.mojom.AISummarizer.getRemote = function() {
   let remote = new blink.mojom.AISummarizerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AISummarizer',
     'context');
   return remote.$;

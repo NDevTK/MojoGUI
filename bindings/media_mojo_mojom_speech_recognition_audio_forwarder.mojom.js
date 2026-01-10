@@ -65,8 +65,9 @@ media.mojom.SpeechRecognitionAudioForwarderRemoteCallHandler = class {
 
 media.mojom.SpeechRecognitionAudioForwarder.getRemote = function() {
   let remote = new media.mojom.SpeechRecognitionAudioForwarderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.SpeechRecognitionAudioForwarder',
     'context');
   return remote.$;

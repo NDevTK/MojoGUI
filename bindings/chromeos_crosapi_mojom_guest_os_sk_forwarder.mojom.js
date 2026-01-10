@@ -69,8 +69,9 @@ crosapi.mojom.GuestOsSkForwarderFactoryRemoteCallHandler = class {
 
 crosapi.mojom.GuestOsSkForwarderFactory.getRemote = function() {
   let remote = new crosapi.mojom.GuestOsSkForwarderFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.GuestOsSkForwarderFactory',
     'context');
   return remote.$;
@@ -139,8 +140,9 @@ crosapi.mojom.GuestOsSkForwarderRemoteCallHandler = class {
 
 crosapi.mojom.GuestOsSkForwarder.getRemote = function() {
   let remote = new crosapi.mojom.GuestOsSkForwarderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.GuestOsSkForwarder',
     'context');
   return remote.$;

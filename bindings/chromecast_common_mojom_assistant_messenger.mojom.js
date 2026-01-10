@@ -71,8 +71,9 @@ chromecast.mojom.AssistantMessagePipeRemoteCallHandler = class {
 
 chromecast.mojom.AssistantMessagePipe.getRemote = function() {
   let remote = new chromecast.mojom.AssistantMessagePipeRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.AssistantMessagePipe',
     'context');
   return remote.$;
@@ -135,8 +136,9 @@ chromecast.mojom.AssistantMessageClientRemoteCallHandler = class {
 
 chromecast.mojom.AssistantMessageClient.getRemote = function() {
   let remote = new chromecast.mojom.AssistantMessageClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.AssistantMessageClient',
     'context');
   return remote.$;
@@ -201,8 +203,9 @@ chromecast.mojom.AssistantMessageServiceRemoteCallHandler = class {
 
 chromecast.mojom.AssistantMessageService.getRemote = function() {
   let remote = new chromecast.mojom.AssistantMessageServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.AssistantMessageService',
     'context');
   return remote.$;

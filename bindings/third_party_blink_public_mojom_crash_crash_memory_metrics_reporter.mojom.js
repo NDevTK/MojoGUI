@@ -65,8 +65,9 @@ blink.mojom.CrashMemoryMetricsReporterRemoteCallHandler = class {
 
 blink.mojom.CrashMemoryMetricsReporter.getRemote = function() {
   let remote = new blink.mojom.CrashMemoryMetricsReporterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.CrashMemoryMetricsReporter',
     'context');
   return remote.$;

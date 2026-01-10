@@ -102,8 +102,9 @@ sharing.mojom.MdnsObserverRemoteCallHandler = class {
 
 sharing.mojom.MdnsObserver.getRemote = function() {
   let remote = new sharing.mojom.MdnsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sharing.mojom.MdnsObserver',
     'context');
   return remote.$;
@@ -210,8 +211,9 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
 
 sharing.mojom.MdnsManager.getRemote = function() {
   let remote = new sharing.mojom.MdnsManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'sharing.mojom.MdnsManager',
     'context');
   return remote.$;

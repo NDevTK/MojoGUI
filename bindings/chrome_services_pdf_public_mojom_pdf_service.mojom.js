@@ -82,8 +82,9 @@ pdf.mojom.OcrRemoteCallHandler = class {
 
 pdf.mojom.Ocr.getRemote = function() {
   let remote = new pdf.mojom.OcrRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'pdf.mojom.Ocr',
     'context');
   return remote.$;
@@ -180,8 +181,9 @@ pdf.mojom.PdfServiceRemoteCallHandler = class {
 
 pdf.mojom.PdfService.getRemote = function() {
   let remote = new pdf.mojom.PdfServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'pdf.mojom.PdfService',
     'context');
   return remote.$;

@@ -179,8 +179,9 @@ url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandler = class {
 
 url_rewrite.mojom.UrlRequestRulesReceiver.getRemote = function() {
   let remote = new url_rewrite.mojom.UrlRequestRulesReceiverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'url_rewrite.mojom.UrlRequestRulesReceiver',
     'context');
   return remote.$;

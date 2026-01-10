@@ -177,8 +177,9 @@ blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
 
 blink.mojom.OneShotBackgroundSyncService.getRemote = function() {
   let remote = new blink.mojom.OneShotBackgroundSyncServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.OneShotBackgroundSyncService',
     'context');
   return remote.$;
@@ -295,8 +296,9 @@ blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
 
 blink.mojom.PeriodicBackgroundSyncService.getRemote = function() {
   let remote = new blink.mojom.PeriodicBackgroundSyncServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PeriodicBackgroundSyncService',
     'context');
   return remote.$;

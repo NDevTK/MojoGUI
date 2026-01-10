@@ -209,8 +209,9 @@ chromeos.machine_learning.mojom.TextClassifierRemoteCallHandler = class {
 
 chromeos.machine_learning.mojom.TextClassifier.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.TextClassifierRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.machine_learning.mojom.TextClassifier',
     'context');
   return remote.$;

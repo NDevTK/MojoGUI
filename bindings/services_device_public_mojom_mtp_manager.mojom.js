@@ -110,8 +110,9 @@ device.mojom.MtpManagerClientRemoteCallHandler = class {
 
 device.mojom.MtpManagerClient.getRemote = function() {
   let remote = new device.mojom.MtpManagerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.MtpManagerClient',
     'context');
   return remote.$;
@@ -441,8 +442,9 @@ device.mojom.MtpManagerRemoteCallHandler = class {
 
 device.mojom.MtpManager.getRemote = function() {
   let remote = new device.mojom.MtpManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.MtpManager',
     'context');
   return remote.$;

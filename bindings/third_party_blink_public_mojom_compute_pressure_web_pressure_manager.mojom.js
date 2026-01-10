@@ -79,8 +79,9 @@ blink.mojom.WebPressureManagerRemoteCallHandler = class {
 
 blink.mojom.WebPressureManager.getRemote = function() {
   let remote = new blink.mojom.WebPressureManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebPressureManager',
     'context');
   return remote.$;
@@ -143,8 +144,9 @@ blink.mojom.WebPressureClientRemoteCallHandler = class {
 
 blink.mojom.WebPressureClient.getRemote = function() {
   let remote = new blink.mojom.WebPressureClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebPressureClient',
     'context');
   return remote.$;

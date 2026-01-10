@@ -260,8 +260,9 @@ read_anything.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
 
 read_anything.mojom.UntrustedPageHandlerFactory.getRemote = function() {
   let remote = new read_anything.mojom.UntrustedPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'read_anything.mojom.UntrustedPageHandlerFactory',
     'context');
   return remote.$;
@@ -825,8 +826,9 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
 
 read_anything.mojom.UntrustedPageHandler.getRemote = function() {
   let remote = new read_anything.mojom.UntrustedPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'read_anything.mojom.UntrustedPageHandler',
     'context');
   return remote.$;
@@ -1159,8 +1161,9 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
 
 read_anything.mojom.UntrustedPage.getRemote = function() {
   let remote = new read_anything.mojom.UntrustedPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'read_anything.mojom.UntrustedPage',
     'context');
   return remote.$;

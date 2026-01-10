@@ -1021,8 +1021,9 @@ device.mojom.VRServiceRemoteCallHandler = class {
 
 device.mojom.VRService.getRemote = function() {
   let remote = new device.mojom.VRServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.VRService',
     'context');
   return remote.$;
@@ -1085,8 +1086,9 @@ device.mojom.XRSessionMetricsRecorderRemoteCallHandler = class {
 
 device.mojom.XRSessionMetricsRecorder.getRemote = function() {
   let remote = new device.mojom.XRSessionMetricsRecorderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.XRSessionMetricsRecorder',
     'context');
   return remote.$;
@@ -1148,8 +1150,9 @@ device.mojom.VRServiceClientRemoteCallHandler = class {
 
 device.mojom.VRServiceClient.getRemote = function() {
   let remote = new device.mojom.VRServiceClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.VRServiceClient',
     'context');
   return remote.$;
@@ -1300,8 +1303,9 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
 
 device.mojom.XREnvironmentIntegrationProvider.getRemote = function() {
   let remote = new device.mojom.XREnvironmentIntegrationProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.XREnvironmentIntegrationProvider',
     'context');
   return remote.$;
@@ -1386,8 +1390,9 @@ device.mojom.XRFrameDataProviderRemoteCallHandler = class {
 
 device.mojom.XRFrameDataProvider.getRemote = function() {
   let remote = new device.mojom.XRFrameDataProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.XRFrameDataProvider',
     'context');
   return remote.$;
@@ -1524,8 +1529,9 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
 
 device.mojom.XRPresentationProvider.getRemote = function() {
   let remote = new device.mojom.XRPresentationProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.XRPresentationProvider',
     'context');
   return remote.$;
@@ -1619,8 +1625,9 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
 
 device.mojom.XRPresentationClient.getRemote = function() {
   let remote = new device.mojom.XRPresentationClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.XRPresentationClient',
     'context');
   return remote.$;
@@ -1698,8 +1705,9 @@ device.mojom.XRSessionClientRemoteCallHandler = class {
 
 device.mojom.XRSessionClient.getRemote = function() {
   let remote = new device.mojom.XRSessionClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.XRSessionClient',
     'context');
   return remote.$;
@@ -1817,8 +1825,9 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
 
 device.mojom.XRLayerManager.getRemote = function() {
   let remote = new device.mojom.XRLayerManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.XRLayerManager',
     'context');
   return remote.$;
@@ -1897,8 +1906,9 @@ device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
 
 device.mojom.WebXrInternalsRendererListener.getRemote = function() {
   let remote = new device.mojom.WebXrInternalsRendererListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.WebXrInternalsRendererListener',
     'context');
   return remote.$;

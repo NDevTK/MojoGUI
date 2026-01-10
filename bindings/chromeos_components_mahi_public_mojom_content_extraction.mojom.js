@@ -149,8 +149,9 @@ mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
 
 mahi.mojom.ContentExtractionService.getRemote = function() {
   let remote = new mahi.mojom.ContentExtractionServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mahi.mojom.ContentExtractionService',
     'context');
   return remote.$;
@@ -229,8 +230,9 @@ mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
 
 mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
   let remote = new mahi.mojom.ContentExtractionServiceFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mahi.mojom.ContentExtractionServiceFactory',
     'context');
   return remote.$;

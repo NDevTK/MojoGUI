@@ -225,8 +225,9 @@ nearby_share.mojom.ShareTargetListenerRemoteCallHandler = class {
 
 nearby_share.mojom.ShareTargetListener.getRemote = function() {
   let remote = new nearby_share.mojom.ShareTargetListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby_share.mojom.ShareTargetListener',
     'context');
   return remote.$;
@@ -290,8 +291,9 @@ nearby_share.mojom.TransferUpdateListenerRemoteCallHandler = class {
 
 nearby_share.mojom.TransferUpdateListener.getRemote = function() {
   let remote = new nearby_share.mojom.TransferUpdateListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby_share.mojom.TransferUpdateListener',
     'context');
   return remote.$;
@@ -369,8 +371,9 @@ nearby_share.mojom.DiscoveryObserverRemoteCallHandler = class {
 
 nearby_share.mojom.DiscoveryObserver.getRemote = function() {
   let remote = new nearby_share.mojom.DiscoveryObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby_share.mojom.DiscoveryObserver',
     'context');
   return remote.$;
@@ -520,8 +523,9 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
 
 nearby_share.mojom.DiscoveryManager.getRemote = function() {
   let remote = new nearby_share.mojom.DiscoveryManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby_share.mojom.DiscoveryManager',
     'context');
   return remote.$;
@@ -631,8 +635,9 @@ nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
 
 nearby_share.mojom.ConfirmationManager.getRemote = function() {
   let remote = new nearby_share.mojom.ConfirmationManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby_share.mojom.ConfirmationManager',
     'context');
   return remote.$;
@@ -742,8 +747,9 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
 
 nearby_share.mojom.ReceiveObserver.getRemote = function() {
   let remote = new nearby_share.mojom.ReceiveObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby_share.mojom.ReceiveObserver',
     'context');
   return remote.$;
@@ -929,8 +935,9 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
 
 nearby_share.mojom.ReceiveManager.getRemote = function() {
   let remote = new nearby_share.mojom.ReceiveManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'nearby_share.mojom.ReceiveManager',
     'context');
   return remote.$;

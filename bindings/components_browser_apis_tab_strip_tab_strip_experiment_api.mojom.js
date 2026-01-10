@@ -88,8 +88,9 @@ tabs_api.mojom.TabStripExperimentServiceRemoteCallHandler = class {
 
 tabs_api.mojom.TabStripExperimentService.getRemote = function() {
   let remote = new tabs_api.mojom.TabStripExperimentServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tabs_api.mojom.TabStripExperimentService',
     'context');
   return remote.$;

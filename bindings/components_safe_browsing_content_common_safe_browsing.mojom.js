@@ -210,8 +210,9 @@ safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
 
 safe_browsing.mojom.SafeBrowsing.getRemote = function() {
   let remote = new safe_browsing.mojom.SafeBrowsingRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'safe_browsing.mojom.SafeBrowsing',
     'context');
   return remote.$;
@@ -279,8 +280,9 @@ safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
 
 safe_browsing.mojom.ThreatReporter.getRemote = function() {
   let remote = new safe_browsing.mojom.ThreatReporterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'safe_browsing.mojom.ThreatReporter',
     'context');
   return remote.$;
@@ -351,8 +353,9 @@ safe_browsing.mojom.PhishingDetectorRemoteCallHandler = class {
 
 safe_browsing.mojom.PhishingDetector.getRemote = function() {
   let remote = new safe_browsing.mojom.PhishingDetectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'safe_browsing.mojom.PhishingDetector',
     'context');
   return remote.$;
@@ -486,8 +489,9 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
 
 safe_browsing.mojom.PhishingModelSetter.getRemote = function() {
   let remote = new safe_browsing.mojom.PhishingModelSetterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'safe_browsing.mojom.PhishingModelSetter',
     'context');
   return remote.$;
@@ -549,8 +553,9 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
 
 safe_browsing.mojom.PhishingModelSetterTestObserver.getRemote = function() {
   let remote = new safe_browsing.mojom.PhishingModelSetterTestObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'safe_browsing.mojom.PhishingModelSetterTestObserver',
     'context');
   return remote.$;
@@ -620,8 +625,9 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
 
 safe_browsing.mojom.PhishingImageEmbedderDetector.getRemote = function() {
   let remote = new safe_browsing.mojom.PhishingImageEmbedderDetectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'safe_browsing.mojom.PhishingImageEmbedderDetector',
     'context');
   return remote.$;
@@ -703,8 +709,9 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
 
 safe_browsing.mojom.ExtensionWebRequestReporter.getRemote = function() {
   let remote = new safe_browsing.mojom.ExtensionWebRequestReporterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'safe_browsing.mojom.ExtensionWebRequestReporter',
     'context');
   return remote.$;

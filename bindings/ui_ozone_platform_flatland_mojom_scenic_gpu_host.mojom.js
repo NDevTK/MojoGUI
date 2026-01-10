@@ -66,8 +66,9 @@ ui.mojom.ScenicGpuHostRemoteCallHandler = class {
 
 ui.mojom.ScenicGpuHost.getRemote = function() {
   let remote = new ui.mojom.ScenicGpuHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ui.mojom.ScenicGpuHost',
     'context');
   return remote.$;

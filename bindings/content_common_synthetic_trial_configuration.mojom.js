@@ -91,8 +91,9 @@ content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
 
 content.mojom.SyntheticTrialConfiguration.getRemote = function() {
   let remote = new content.mojom.SyntheticTrialConfigurationRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.SyntheticTrialConfiguration',
     'context');
   return remote.$;

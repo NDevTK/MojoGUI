@@ -66,8 +66,9 @@ crosapi.mojom.StructuredMetricsServiceRemoteCallHandler = class {
 
 crosapi.mojom.StructuredMetricsService.getRemote = function() {
   let remote = new crosapi.mojom.StructuredMetricsServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.StructuredMetricsService',
     'context');
   return remote.$;

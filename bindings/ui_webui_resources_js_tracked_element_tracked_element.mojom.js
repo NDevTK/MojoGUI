@@ -104,8 +104,9 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
 
 tracked_element.mojom.TrackedElementHandler.getRemote = function() {
   let remote = new tracked_element.mojom.TrackedElementHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracked_element.mojom.TrackedElementHandler',
     'context');
   return remote.$;

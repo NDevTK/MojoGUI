@@ -309,8 +309,9 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
 
 printing.mojom.PrintCompositor.getRemote = function() {
   let remote = new printing.mojom.PrintCompositorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.PrintCompositor',
     'context');
   return remote.$;

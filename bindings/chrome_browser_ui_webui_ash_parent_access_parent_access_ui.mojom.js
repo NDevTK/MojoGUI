@@ -283,8 +283,9 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
 
 parent_access_ui.mojom.ParentAccessUiHandler.getRemote = function() {
   let remote = new parent_access_ui.mojom.ParentAccessUiHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'parent_access_ui.mojom.ParentAccessUiHandler',
     'context');
   return remote.$;

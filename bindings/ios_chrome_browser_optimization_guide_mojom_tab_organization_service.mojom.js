@@ -72,8 +72,9 @@ ai.mojom.TabOrganizationServiceRemoteCallHandler = class {
 
 ai.mojom.TabOrganizationService.getRemote = function() {
   let remote = new ai.mojom.TabOrganizationServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ai.mojom.TabOrganizationService',
     'context');
   return remote.$;

@@ -65,8 +65,9 @@ blink.mojom.DiskAllocatorRemoteCallHandler = class {
 
 blink.mojom.DiskAllocator.getRemote = function() {
   let remote = new blink.mojom.DiskAllocatorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DiskAllocator',
     'context');
   return remote.$;

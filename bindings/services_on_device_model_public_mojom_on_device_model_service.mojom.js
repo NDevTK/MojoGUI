@@ -228,8 +228,9 @@ on_device_model.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
 
 on_device_model.mojom.PlatformModelProgressObserver.getRemote = function() {
   let remote = new on_device_model.mojom.PlatformModelProgressObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_model.mojom.PlatformModelProgressObserver',
     'context');
   return remote.$;
@@ -360,8 +361,9 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
 
 on_device_model.mojom.OnDeviceModelService.getRemote = function() {
   let remote = new on_device_model.mojom.OnDeviceModelServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_model.mojom.OnDeviceModelService',
     'context');
   return remote.$;
@@ -523,8 +525,9 @@ on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler = class {
 
 on_device_model.mojom.OnDeviceModelPlatformService.getRemote = function() {
   let remote = new on_device_model.mojom.OnDeviceModelPlatformServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'on_device_model.mojom.OnDeviceModelPlatformService',
     'context');
   return remote.$;

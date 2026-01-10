@@ -127,8 +127,9 @@ media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
 
 media.mojom.MediaEngagementScoreDetailsProvider.getRemote = function() {
   let remote = new media.mojom.MediaEngagementScoreDetailsProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MediaEngagementScoreDetailsProvider',
     'context');
   return remote.$;

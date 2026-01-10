@@ -227,8 +227,9 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
 
 arc.mojom.DiskSpaceHost.getRemote = function() {
   let remote = new arc.mojom.DiskSpaceHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.DiskSpaceHost',
     'context');
   return remote.$;
@@ -334,8 +335,9 @@ arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
 
 arc.mojom.DiskSpaceInstance.getRemote = function() {
   let remote = new arc.mojom.DiskSpaceInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.DiskSpaceInstance',
     'context');
   return remote.$;

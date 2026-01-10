@@ -185,8 +185,9 @@ traces_internals.mojom.TracesInternalsHandlerFactoryRemoteCallHandler = class {
 
 traces_internals.mojom.TracesInternalsHandlerFactory.getRemote = function() {
   let remote = new traces_internals.mojom.TracesInternalsHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'traces_internals.mojom.TracesInternalsHandlerFactory',
     'context');
   return remote.$;
@@ -660,8 +661,9 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 traces_internals.mojom.PageHandler.getRemote = function() {
   let remote = new traces_internals.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'traces_internals.mojom.PageHandler',
     'context');
   return remote.$;
@@ -725,8 +727,9 @@ traces_internals.mojom.PageRemoteCallHandler = class {
 
 traces_internals.mojom.Page.getRemote = function() {
   let remote = new traces_internals.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'traces_internals.mojom.Page',
     'context');
   return remote.$;

@@ -122,8 +122,9 @@ subresource_filter.mojom.SubresourceFilterRulesetObserverRemoteCallHandler = cla
 
 subresource_filter.mojom.SubresourceFilterRulesetObserver.getRemote = function() {
   let remote = new subresource_filter.mojom.SubresourceFilterRulesetObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'subresource_filter.mojom.SubresourceFilterRulesetObserver',
     'context');
   return remote.$;

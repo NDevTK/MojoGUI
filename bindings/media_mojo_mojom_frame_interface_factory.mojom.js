@@ -75,8 +75,9 @@ media.mojom.MuteStateObserverRemoteCallHandler = class {
 
 media.mojom.MuteStateObserver.getRemote = function() {
   let remote = new media.mojom.MuteStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.MuteStateObserver',
     'context');
   return remote.$;
@@ -224,8 +225,9 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
 
 media.mojom.FrameInterfaceFactory.getRemote = function() {
   let remote = new media.mojom.FrameInterfaceFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.FrameInterfaceFactory',
     'context');
   return remote.$;

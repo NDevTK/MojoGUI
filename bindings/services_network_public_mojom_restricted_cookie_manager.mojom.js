@@ -271,8 +271,9 @@ network.mojom.RestrictedCookieManagerRemoteCallHandler = class {
 
 network.mojom.RestrictedCookieManager.getRemote = function() {
   let remote = new network.mojom.RestrictedCookieManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.RestrictedCookieManager',
     'context');
   return remote.$;

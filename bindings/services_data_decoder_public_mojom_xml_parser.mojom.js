@@ -99,8 +99,9 @@ data_decoder.mojom.XmlParserRemoteCallHandler = class {
 
 data_decoder.mojom.XmlParser.getRemote = function() {
   let remote = new data_decoder.mojom.XmlParserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'data_decoder.mojom.XmlParser',
     'context');
   return remote.$;

@@ -1159,8 +1159,9 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.boca.mojom.PageHandler.getRemote = function() {
   let remote = new ash.boca.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.boca.mojom.PageHandler',
     'context');
   return remote.$;
@@ -1364,8 +1365,9 @@ ash.boca.mojom.PageRemoteCallHandler = class {
 
 ash.boca.mojom.Page.getRemote = function() {
   let remote = new ash.boca.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.boca.mojom.Page',
     'context');
   return remote.$;
@@ -1429,8 +1431,9 @@ ash.boca.mojom.BocaPageHandlerFactoryRemoteCallHandler = class {
 
 ash.boca.mojom.BocaPageHandlerFactory.getRemote = function() {
   let remote = new ash.boca.mojom.BocaPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.boca.mojom.BocaPageHandlerFactory',
     'context');
   return remote.$;

@@ -128,8 +128,9 @@ arc.mojom.CrashCollectorHostRemoteCallHandler = class {
 
 arc.mojom.CrashCollectorHost.getRemote = function() {
   let remote = new arc.mojom.CrashCollectorHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.CrashCollectorHost',
     'context');
   return remote.$;
@@ -197,8 +198,9 @@ arc.mojom.CrashCollectorInstanceRemoteCallHandler = class {
 
 arc.mojom.CrashCollectorInstance.getRemote = function() {
   let remote = new arc.mojom.CrashCollectorInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.CrashCollectorInstance',
     'context');
   return remote.$;

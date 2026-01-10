@@ -318,8 +318,9 @@ chrome.mojom.AppShimRemoteCallHandler = class {
 
 chrome.mojom.AppShim.getRemote = function() {
   let remote = new chrome.mojom.AppShimRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.AppShim',
     'context');
   return remote.$;
@@ -522,8 +523,9 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
 
 chrome.mojom.AppShimHost.getRemote = function() {
   let remote = new chrome.mojom.AppShimHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.AppShimHost',
     'context');
   return remote.$;
@@ -595,8 +597,9 @@ chrome.mojom.AppShimHostBootstrapRemoteCallHandler = class {
 
 chrome.mojom.AppShimHostBootstrap.getRemote = function() {
   let remote = new chrome.mojom.AppShimHostBootstrapRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.AppShimHostBootstrap',
     'context');
   return remote.$;

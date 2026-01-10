@@ -65,8 +65,9 @@ test.mojom.MojoFileSystemAccessTestRemoteCallHandler = class {
 
 test.mojom.MojoFileSystemAccessTest.getRemote = function() {
   let remote = new test.mojom.MojoFileSystemAccessTestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'test.mojom.MojoFileSystemAccessTest',
     'context');
   return remote.$;

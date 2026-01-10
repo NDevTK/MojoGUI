@@ -219,8 +219,9 @@ dlp_internals.mojom.ReportingObserverRemoteCallHandler = class {
 
 dlp_internals.mojom.ReportingObserver.getRemote = function() {
   let remote = new dlp_internals.mojom.ReportingObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'dlp_internals.mojom.ReportingObserver',
     'context');
   return remote.$;
@@ -368,8 +369,9 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 dlp_internals.mojom.PageHandler.getRemote = function() {
   let remote = new dlp_internals.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'dlp_internals.mojom.PageHandler',
     'context');
   return remote.$;

@@ -285,8 +285,9 @@ arc.mojom.CameraServiceRemoteCallHandler = class {
 
 arc.mojom.CameraService.getRemote = function() {
   let remote = new arc.mojom.CameraServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.CameraService',
     'context');
   return remote.$;
@@ -392,8 +393,9 @@ arc.mojom.CameraHostRemoteCallHandler = class {
 
 arc.mojom.CameraHost.getRemote = function() {
   let remote = new arc.mojom.CameraHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.CameraHost',
     'context');
   return remote.$;
@@ -461,8 +463,9 @@ arc.mojom.CameraInstanceRemoteCallHandler = class {
 
 arc.mojom.CameraInstance.getRemote = function() {
   let remote = new arc.mojom.CameraInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.CameraInstance',
     'context');
   return remote.$;

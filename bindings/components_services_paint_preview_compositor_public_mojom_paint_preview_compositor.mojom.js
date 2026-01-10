@@ -235,8 +235,9 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
 
 paint_preview.mojom.PaintPreviewCompositor.getRemote = function() {
   let remote = new paint_preview.mojom.PaintPreviewCompositorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'paint_preview.mojom.PaintPreviewCompositor',
     'context');
   return remote.$;
@@ -342,8 +343,9 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
 
 paint_preview.mojom.PaintPreviewCompositorCollection.getRemote = function() {
   let remote = new paint_preview.mojom.PaintPreviewCompositorCollectionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'paint_preview.mojom.PaintPreviewCompositorCollection',
     'context');
   return remote.$;

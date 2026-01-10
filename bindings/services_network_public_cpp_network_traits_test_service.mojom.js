@@ -73,8 +73,9 @@ network.mojom.TraitsTestServiceRemoteCallHandler = class {
 
 network.mojom.TraitsTestService.getRemote = function() {
   let remote = new network.mojom.TraitsTestServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.TraitsTestService',
     'context');
   return remote.$;

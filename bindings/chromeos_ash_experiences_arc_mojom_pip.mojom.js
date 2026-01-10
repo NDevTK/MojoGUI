@@ -77,8 +77,9 @@ arc.mojom.PipHostRemoteCallHandler = class {
 
 arc.mojom.PipHost.getRemote = function() {
   let remote = new arc.mojom.PipHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.PipHost',
     'context');
   return remote.$;
@@ -177,8 +178,9 @@ arc.mojom.PipInstanceRemoteCallHandler = class {
 
 arc.mojom.PipInstance.getRemote = function() {
   let remote = new arc.mojom.PipInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.PipInstance',
     'context');
   return remote.$;

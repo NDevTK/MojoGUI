@@ -67,8 +67,9 @@ content.mojom.FrameHostTestInterfaceRemoteCallHandler = class {
 
 content.mojom.FrameHostTestInterface.getRemote = function() {
   let remote = new content.mojom.FrameHostTestInterfaceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.FrameHostTestInterface',
     'context');
   return remote.$;

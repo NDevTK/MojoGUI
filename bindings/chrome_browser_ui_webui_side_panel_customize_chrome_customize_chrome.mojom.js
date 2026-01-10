@@ -234,8 +234,9 @@ side_panel.mojom.CustomizeChromePageHandlerFactoryRemoteCallHandler = class {
 
 side_panel.mojom.CustomizeChromePageHandlerFactory.getRemote = function() {
   let remote = new side_panel.mojom.CustomizeChromePageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.mojom.CustomizeChromePageHandlerFactory',
     'context');
   return remote.$;
@@ -763,8 +764,9 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
 
 side_panel.mojom.CustomizeChromePageHandler.getRemote = function() {
   let remote = new side_panel.mojom.CustomizeChromePageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.mojom.CustomizeChromePageHandler',
     'context');
   return remote.$;
@@ -963,8 +965,9 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
 
 side_panel.mojom.CustomizeChromePage.getRemote = function() {
   let remote = new side_panel.mojom.CustomizeChromePageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.mojom.CustomizeChromePage',
     'context');
   return remote.$;

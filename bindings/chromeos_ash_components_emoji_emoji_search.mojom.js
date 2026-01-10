@@ -100,8 +100,9 @@ emoji_search.mojom.EmojiSearchRemoteCallHandler = class {
 
 emoji_search.mojom.EmojiSearch.getRemote = function() {
   let remote = new emoji_search.mojom.EmojiSearchRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'emoji_search.mojom.EmojiSearch',
     'context');
   return remote.$;

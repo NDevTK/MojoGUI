@@ -88,8 +88,9 @@ blink.mojom.IdleMonitorRemoteCallHandler = class {
 
 blink.mojom.IdleMonitor.getRemote = function() {
   let remote = new blink.mojom.IdleMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.IdleMonitor',
     'context');
   return remote.$;
@@ -159,8 +160,9 @@ blink.mojom.IdleManagerRemoteCallHandler = class {
 
 blink.mojom.IdleManager.getRemote = function() {
   let remote = new blink.mojom.IdleManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.IdleManager',
     'context');
   return remote.$;

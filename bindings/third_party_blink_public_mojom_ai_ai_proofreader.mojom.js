@@ -99,8 +99,9 @@ blink.mojom.AIProofreaderRemoteCallHandler = class {
 
 blink.mojom.AIProofreader.getRemote = function() {
   let remote = new blink.mojom.AIProofreaderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AIProofreader',
     'context');
   return remote.$;

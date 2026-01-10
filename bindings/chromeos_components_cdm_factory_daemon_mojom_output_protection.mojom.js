@@ -119,8 +119,9 @@ chromeos.cdm.mojom.OutputProtectionRemoteCallHandler = class {
 
 chromeos.cdm.mojom.OutputProtection.getRemote = function() {
   let remote = new chromeos.cdm.mojom.OutputProtectionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.cdm.mojom.OutputProtection',
     'context');
   return remote.$;

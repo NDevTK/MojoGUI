@@ -238,8 +238,9 @@ viz.mojom.VizMainRemoteCallHandler = class {
 
 viz.mojom.VizMain.getRemote = function() {
   let remote = new viz.mojom.VizMainRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.VizMain',
     'context');
   return remote.$;

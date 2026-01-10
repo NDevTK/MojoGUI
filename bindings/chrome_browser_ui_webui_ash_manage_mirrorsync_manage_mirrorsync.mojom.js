@@ -80,8 +80,9 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.manage_mirrorsync.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.manage_mirrorsync.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.manage_mirrorsync.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -172,8 +173,9 @@ ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.manage_mirrorsync.mojom.PageHandler.getRemote = function() {
   let remote = new ash.manage_mirrorsync.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.manage_mirrorsync.mojom.PageHandler',
     'context');
   return remote.$;

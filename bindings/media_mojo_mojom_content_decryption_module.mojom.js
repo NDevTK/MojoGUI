@@ -306,8 +306,9 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
 
 media.mojom.ContentDecryptionModule.getRemote = function() {
   let remote = new media.mojom.ContentDecryptionModuleRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.ContentDecryptionModule',
     'context');
   return remote.$;
@@ -424,8 +425,9 @@ media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
 
 media.mojom.ContentDecryptionModuleClient.getRemote = function() {
   let remote = new media.mojom.ContentDecryptionModuleClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.ContentDecryptionModuleClient',
     'context');
   return remote.$;
@@ -496,8 +498,9 @@ media.mojom.CdmFactoryRemoteCallHandler = class {
 
 media.mojom.CdmFactory.getRemote = function() {
   let remote = new media.mojom.CdmFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.CdmFactory',
     'context');
   return remote.$;

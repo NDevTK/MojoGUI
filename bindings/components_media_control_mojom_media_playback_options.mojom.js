@@ -101,8 +101,9 @@ components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
 
 components.media_control.mojom.MediaPlaybackOptions.getRemote = function() {
   let remote = new components.media_control.mojom.MediaPlaybackOptionsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'components.media_control.mojom.MediaPlaybackOptions',
     'context');
   return remote.$;

@@ -83,8 +83,9 @@ cros.mojom.CrosDocumentScannerRemoteCallHandler = class {
 
 cros.mojom.CrosDocumentScanner.getRemote = function() {
   let remote = new cros.mojom.CrosDocumentScannerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'cros.mojom.CrosDocumentScanner',
     'context');
   return remote.$;

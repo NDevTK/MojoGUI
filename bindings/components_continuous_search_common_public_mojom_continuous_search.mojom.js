@@ -123,8 +123,9 @@ continuous_search.mojom.SearchResultExtractorRemoteCallHandler = class {
 
 continuous_search.mojom.SearchResultExtractor.getRemote = function() {
   let remote = new continuous_search.mojom.SearchResultExtractorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'continuous_search.mojom.SearchResultExtractor',
     'context');
   return remote.$;

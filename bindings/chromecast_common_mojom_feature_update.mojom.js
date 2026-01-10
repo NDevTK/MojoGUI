@@ -68,8 +68,9 @@ chromecast.mojom.FeatureUpdateObserverRemoteCallHandler = class {
 
 chromecast.mojom.FeatureUpdateObserver.getRemote = function() {
   let remote = new chromecast.mojom.FeatureUpdateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.FeatureUpdateObserver',
     'context');
   return remote.$;
@@ -132,8 +133,9 @@ chromecast.mojom.FeatureUpdateServiceRemoteCallHandler = class {
 
 chromecast.mojom.FeatureUpdateService.getRemote = function() {
   let remote = new chromecast.mojom.FeatureUpdateServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.FeatureUpdateService',
     'context');
   return remote.$;

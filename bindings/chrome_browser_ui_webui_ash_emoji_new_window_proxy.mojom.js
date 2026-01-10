@@ -66,8 +66,9 @@ new_window_proxy.mojom.NewWindowProxyRemoteCallHandler = class {
 
 new_window_proxy.mojom.NewWindowProxy.getRemote = function() {
   let remote = new new_window_proxy.mojom.NewWindowProxyRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'new_window_proxy.mojom.NewWindowProxy',
     'context');
   return remote.$;

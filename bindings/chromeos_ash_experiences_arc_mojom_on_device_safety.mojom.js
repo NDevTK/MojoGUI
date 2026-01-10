@@ -90,8 +90,9 @@ arc.mojom.OnDeviceSafetyHostRemoteCallHandler = class {
 
 arc.mojom.OnDeviceSafetyHost.getRemote = function() {
   let remote = new arc.mojom.OnDeviceSafetyHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.OnDeviceSafetyHost',
     'context');
   return remote.$;
@@ -181,8 +182,9 @@ arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class {
 
 arc.mojom.OnDeviceSafetyInstance.getRemote = function() {
   let remote = new arc.mojom.OnDeviceSafetyInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.OnDeviceSafetyInstance',
     'context');
   return remote.$;

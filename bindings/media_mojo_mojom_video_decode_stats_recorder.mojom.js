@@ -82,8 +82,9 @@ media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
 
 media.mojom.VideoDecodeStatsRecorder.getRemote = function() {
   let remote = new media.mojom.VideoDecodeStatsRecorderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoDecodeStatsRecorder',
     'context');
   return remote.$;

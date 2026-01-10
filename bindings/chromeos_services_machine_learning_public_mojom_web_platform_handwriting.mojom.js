@@ -144,8 +144,9 @@ chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemoteCallHand
 
 chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer.getRemote = function() {
   let remote = new chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer',
     'context');
   return remote.$;

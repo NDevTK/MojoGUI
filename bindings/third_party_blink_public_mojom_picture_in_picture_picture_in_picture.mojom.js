@@ -95,8 +95,9 @@ blink.mojom.PictureInPictureSessionObserverRemoteCallHandler = class {
 
 blink.mojom.PictureInPictureSessionObserver.getRemote = function() {
   let remote = new blink.mojom.PictureInPictureSessionObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PictureInPictureSessionObserver',
     'context');
   return remote.$;
@@ -199,8 +200,9 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
 
 blink.mojom.PictureInPictureSession.getRemote = function() {
   let remote = new blink.mojom.PictureInPictureSessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PictureInPictureSession',
     'context');
   return remote.$;
@@ -276,8 +278,9 @@ blink.mojom.PictureInPictureServiceRemoteCallHandler = class {
 
 blink.mojom.PictureInPictureService.getRemote = function() {
   let remote = new blink.mojom.PictureInPictureServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PictureInPictureService',
     'context');
   return remote.$;

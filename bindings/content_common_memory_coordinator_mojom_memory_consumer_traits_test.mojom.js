@@ -73,8 +73,9 @@ content.mojom.MemoryConsumerTraitsTestRemoteCallHandler = class {
 
 content.mojom.MemoryConsumerTraitsTest.getRemote = function() {
   let remote = new content.mojom.MemoryConsumerTraitsTestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.MemoryConsumerTraitsTest',
     'context');
   return remote.$;

@@ -48,8 +48,9 @@ blink.mojom.DedicatedWorkerHostRemoteCallHandler = class {
 
 blink.mojom.DedicatedWorkerHost.getRemote = function() {
   let remote = new blink.mojom.DedicatedWorkerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DedicatedWorkerHost',
     'context');
   return remote.$;

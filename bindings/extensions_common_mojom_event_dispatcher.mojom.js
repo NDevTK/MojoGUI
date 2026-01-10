@@ -101,8 +101,9 @@ extensions.mojom.EventDispatcherRemoteCallHandler = class {
 
 extensions.mojom.EventDispatcher.getRemote = function() {
   let remote = new extensions.mojom.EventDispatcherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'extensions.mojom.EventDispatcher',
     'context');
   return remote.$;

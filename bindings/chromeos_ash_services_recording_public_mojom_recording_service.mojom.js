@@ -106,8 +106,9 @@ recording.mojom.DriveFsQuotaDelegateRemoteCallHandler = class {
 
 recording.mojom.DriveFsQuotaDelegate.getRemote = function() {
   let remote = new recording.mojom.DriveFsQuotaDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'recording.mojom.DriveFsQuotaDelegate',
     'context');
   return remote.$;
@@ -171,8 +172,9 @@ recording.mojom.RecordingServiceClientRemoteCallHandler = class {
 
 recording.mojom.RecordingServiceClient.getRemote = function() {
   let remote = new recording.mojom.RecordingServiceClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'recording.mojom.RecordingServiceClient',
     'context');
   return remote.$;
@@ -360,8 +362,9 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
 
 recording.mojom.RecordingService.getRemote = function() {
   let remote = new recording.mojom.RecordingServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'recording.mojom.RecordingService',
     'context');
   return remote.$;

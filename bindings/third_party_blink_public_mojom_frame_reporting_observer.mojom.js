@@ -93,8 +93,9 @@ blink.mojom.ReportingObserverRemoteCallHandler = class {
 
 blink.mojom.ReportingObserver.getRemote = function() {
   let remote = new blink.mojom.ReportingObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.ReportingObserver',
     'context');
   return remote.$;

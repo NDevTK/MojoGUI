@@ -88,8 +88,9 @@ blink.mojom.FileSystemAccessTransferTokenRemoteCallHandler = class {
 
 blink.mojom.FileSystemAccessTransferToken.getRemote = function() {
   let remote = new blink.mojom.FileSystemAccessTransferTokenRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FileSystemAccessTransferToken',
     'context');
   return remote.$;

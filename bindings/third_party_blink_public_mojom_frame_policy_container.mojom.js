@@ -121,8 +121,9 @@ blink.mojom.PolicyContainerHostRemoteCallHandler = class {
 
 blink.mojom.PolicyContainerHost.getRemote = function() {
   let remote = new blink.mojom.PolicyContainerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PolicyContainerHost',
     'context');
   return remote.$;

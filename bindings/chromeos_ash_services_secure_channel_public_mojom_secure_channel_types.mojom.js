@@ -95,8 +95,9 @@ ash.secure_channel.mojom.FilePayloadListenerRemoteCallHandler = class {
 
 ash.secure_channel.mojom.FilePayloadListener.getRemote = function() {
   let remote = new ash.secure_channel.mojom.FilePayloadListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.secure_channel.mojom.FilePayloadListener',
     'context');
   return remote.$;

@@ -71,8 +71,9 @@ web.mojom.WebUsageControllerRemoteCallHandler = class {
 
 web.mojom.WebUsageController.getRemote = function() {
   let remote = new web.mojom.WebUsageControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'web.mojom.WebUsageController',
     'context');
   return remote.$;

@@ -240,8 +240,9 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
 
 history_embeddings.mojom.PageHandler.getRemote = function() {
   let remote = new history_embeddings.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'history_embeddings.mojom.PageHandler',
     'context');
   return remote.$;
@@ -304,8 +305,9 @@ history_embeddings.mojom.PageRemoteCallHandler = class {
 
 history_embeddings.mojom.Page.getRemote = function() {
   let remote = new history_embeddings.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'history_embeddings.mojom.Page',
     'context');
   return remote.$;

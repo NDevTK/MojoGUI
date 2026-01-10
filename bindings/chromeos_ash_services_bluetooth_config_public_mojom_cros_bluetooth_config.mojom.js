@@ -247,8 +247,9 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverRemoteCallHandler = class {
 
 ash.bluetooth_config.mojom.SystemPropertiesObserver.getRemote = function() {
   let remote = new ash.bluetooth_config.mojom.SystemPropertiesObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.bluetooth_config.mojom.SystemPropertiesObserver',
     'context');
   return remote.$;
@@ -343,8 +344,9 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemoteCallHandler = clas
 
 ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver.getRemote = function() {
   let remote = new ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver',
     'context');
   return remote.$;
@@ -407,8 +409,9 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemoteCallHandler = cla
 
 ash.bluetooth_config.mojom.DiscoverySessionStatusObserver.getRemote = function() {
   let remote = new ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.bluetooth_config.mojom.DiscoverySessionStatusObserver',
     'context');
   return remote.$;
@@ -471,8 +474,9 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerRemoteCallHandler = class {
 
 ash.bluetooth_config.mojom.KeyEnteredHandler.getRemote = function() {
   let remote = new ash.bluetooth_config.mojom.KeyEnteredHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.bluetooth_config.mojom.KeyEnteredHandler',
     'context');
   return remote.$;
@@ -638,8 +642,9 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
 
 ash.bluetooth_config.mojom.DevicePairingDelegate.getRemote = function() {
   let remote = new ash.bluetooth_config.mojom.DevicePairingDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.bluetooth_config.mojom.DevicePairingDelegate',
     'context');
   return remote.$;
@@ -731,8 +736,9 @@ ash.bluetooth_config.mojom.DevicePairingHandlerRemoteCallHandler = class {
 
 ash.bluetooth_config.mojom.DevicePairingHandler.getRemote = function() {
   let remote = new ash.bluetooth_config.mojom.DevicePairingHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.bluetooth_config.mojom.DevicePairingHandler',
     'context');
   return remote.$;
@@ -826,8 +832,9 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemoteCallHandler = class {
 
 ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate.getRemote = function() {
   let remote = new ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate',
     'context');
   return remote.$;
@@ -1068,8 +1075,9 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
 
 ash.bluetooth_config.mojom.CrosBluetoothConfig.getRemote = function() {
   let remote = new ash.bluetooth_config.mojom.CrosBluetoothConfigRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.bluetooth_config.mojom.CrosBluetoothConfig',
     'context');
   return remote.$;

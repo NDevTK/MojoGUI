@@ -210,8 +210,9 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
 
 chromecast.mojom.GestureHandler.getRemote = function() {
   let remote = new chromecast.mojom.GestureHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.GestureHandler',
     'context');
   return remote.$;
@@ -322,8 +323,9 @@ chromecast.mojom.GestureSourceRemoteCallHandler = class {
 
 chromecast.mojom.GestureSource.getRemote = function() {
   let remote = new chromecast.mojom.GestureSourceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromecast.mojom.GestureSource',
     'context');
   return remote.$;

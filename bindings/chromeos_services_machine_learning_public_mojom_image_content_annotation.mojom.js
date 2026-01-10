@@ -138,8 +138,9 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorRemoteCallHandler = class {
 
 chromeos.machine_learning.mojom.ImageContentAnnotator.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.ImageContentAnnotatorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.machine_learning.mojom.ImageContentAnnotator',
     'context');
   return remote.$;

@@ -217,8 +217,9 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
 
 ash.local_search_service.mojom.Index.getRemote = function() {
   let remote = new ash.local_search_service.mojom.IndexRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.local_search_service.mojom.Index',
     'context');
   return remote.$;

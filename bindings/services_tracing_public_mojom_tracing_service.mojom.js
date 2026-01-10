@@ -114,8 +114,9 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
 
 tracing.mojom.TracingService.getRemote = function() {
   let remote = new tracing.mojom.TracingServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracing.mojom.TracingService',
     'context');
   return remote.$;

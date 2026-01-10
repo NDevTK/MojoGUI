@@ -228,8 +228,9 @@ arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
 
 arc.mojom.DigitalGoodsInstance.getRemote = function() {
   let remote = new arc.mojom.DigitalGoodsInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.DigitalGoodsInstance',
     'context');
   return remote.$;

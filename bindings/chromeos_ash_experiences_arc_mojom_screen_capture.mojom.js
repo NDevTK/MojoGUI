@@ -135,8 +135,9 @@ arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
 
 arc.mojom.ScreenCaptureHost.getRemote = function() {
   let remote = new arc.mojom.ScreenCaptureHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ScreenCaptureHost',
     'context');
   return remote.$;
@@ -229,8 +230,9 @@ arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
 
 arc.mojom.ScreenCaptureSession.getRemote = function() {
   let remote = new arc.mojom.ScreenCaptureSessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ScreenCaptureSession',
     'context');
   return remote.$;
@@ -298,8 +300,9 @@ arc.mojom.ScreenCaptureInstanceRemoteCallHandler = class {
 
 arc.mojom.ScreenCaptureInstance.getRemote = function() {
   let remote = new arc.mojom.ScreenCaptureInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ScreenCaptureInstance',
     'context');
   return remote.$;
@@ -361,8 +364,9 @@ arc.mojom.ScreenCaptureSessionNotifierRemoteCallHandler = class {
 
 arc.mojom.ScreenCaptureSessionNotifier.getRemote = function() {
   let remote = new arc.mojom.ScreenCaptureSessionNotifierRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.ScreenCaptureSessionNotifier',
     'context');
   return remote.$;

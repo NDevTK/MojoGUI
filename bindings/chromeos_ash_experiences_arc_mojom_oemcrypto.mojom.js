@@ -2295,8 +2295,9 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
 
 arc.mojom.OemCryptoService.getRemote = function() {
   let remote = new arc.mojom.OemCryptoServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.OemCryptoService',
     'context');
   return remote.$;
@@ -2359,8 +2360,9 @@ arc.mojom.OemCryptoHostRemoteCallHandler = class {
 
 arc.mojom.OemCryptoHost.getRemote = function() {
   let remote = new arc.mojom.OemCryptoHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.OemCryptoHost',
     'context');
   return remote.$;
@@ -2428,8 +2430,9 @@ arc.mojom.OemCryptoInstanceRemoteCallHandler = class {
 
 arc.mojom.OemCryptoInstance.getRemote = function() {
   let remote = new arc.mojom.OemCryptoInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.OemCryptoInstance',
     'context');
   return remote.$;

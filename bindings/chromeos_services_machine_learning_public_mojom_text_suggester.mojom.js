@@ -155,8 +155,9 @@ chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler = class {
 
 chromeos.machine_learning.mojom.TextSuggester.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.TextSuggesterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.machine_learning.mojom.TextSuggester',
     'context');
   return remote.$;

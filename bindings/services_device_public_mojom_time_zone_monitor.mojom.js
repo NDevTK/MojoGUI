@@ -68,8 +68,9 @@ device.mojom.TimeZoneMonitorRemoteCallHandler = class {
 
 device.mojom.TimeZoneMonitor.getRemote = function() {
   let remote = new device.mojom.TimeZoneMonitorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.TimeZoneMonitor',
     'context');
   return remote.$;
@@ -132,8 +133,9 @@ device.mojom.TimeZoneMonitorClientRemoteCallHandler = class {
 
 device.mojom.TimeZoneMonitorClient.getRemote = function() {
   let remote = new device.mojom.TimeZoneMonitorClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.TimeZoneMonitorClient',
     'context');
   return remote.$;

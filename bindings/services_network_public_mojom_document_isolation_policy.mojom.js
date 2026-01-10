@@ -104,8 +104,9 @@ network.mojom.DocumentIsolationPolicyReporterRemoteCallHandler = class {
 
 network.mojom.DocumentIsolationPolicyReporter.getRemote = function() {
   let remote = new network.mojom.DocumentIsolationPolicyReporterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.DocumentIsolationPolicyReporter',
     'context');
   return remote.$;

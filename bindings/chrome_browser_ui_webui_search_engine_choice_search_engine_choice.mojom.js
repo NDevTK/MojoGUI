@@ -80,8 +80,9 @@ search_engine_choice.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 search_engine_choice.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new search_engine_choice.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'search_engine_choice.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -206,8 +207,9 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
 
 search_engine_choice.mojom.PageHandler.getRemote = function() {
   let remote = new search_engine_choice.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'search_engine_choice.mojom.PageHandler',
     'context');
   return remote.$;

@@ -93,8 +93,9 @@ arc.mojom.EnterpriseReportingHostRemoteCallHandler = class {
 
 arc.mojom.EnterpriseReportingHost.getRemote = function() {
   let remote = new arc.mojom.EnterpriseReportingHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.EnterpriseReportingHost',
     'context');
   return remote.$;
@@ -184,8 +185,9 @@ arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = class {
 
 arc.mojom.EnterpriseReportingInstance.getRemote = function() {
   let remote = new arc.mojom.EnterpriseReportingInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.EnterpriseReportingInstance',
     'context');
   return remote.$;

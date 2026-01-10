@@ -69,8 +69,9 @@ content.mojom.WebUIHostRemoteCallHandler = class {
 
 content.mojom.WebUIHost.getRemote = function() {
   let remote = new content.mojom.WebUIHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.WebUIHost',
     'context');
   return remote.$;
@@ -134,8 +135,9 @@ content.mojom.WebUIRemoteCallHandler = class {
 
 content.mojom.WebUI.getRemote = function() {
   let remote = new content.mojom.WebUIRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.WebUI',
     'context');
   return remote.$;

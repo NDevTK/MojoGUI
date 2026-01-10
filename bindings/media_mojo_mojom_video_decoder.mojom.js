@@ -125,8 +125,9 @@ media.mojom.VideoFrameHandleReleaserRemoteCallHandler = class {
 
 media.mojom.VideoFrameHandleReleaser.getRemote = function() {
   let remote = new media.mojom.VideoFrameHandleReleaserRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoFrameHandleReleaser',
     'context');
   return remote.$;
@@ -302,8 +303,9 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
 
 media.mojom.VideoDecoder.getRemote = function() {
   let remote = new media.mojom.VideoDecoderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoDecoder',
     'context');
   return remote.$;
@@ -399,8 +401,9 @@ media.mojom.VideoDecoderClientRemoteCallHandler = class {
 
 media.mojom.VideoDecoderClient.getRemote = function() {
   let remote = new media.mojom.VideoDecoderClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.VideoDecoderClient',
     'context');
   return remote.$;

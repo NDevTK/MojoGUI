@@ -225,8 +225,9 @@ network.mojom.GssapiLibraryLoadObserverRemoteCallHandler = class {
 
 network.mojom.GssapiLibraryLoadObserver.getRemote = function() {
   let remote = new network.mojom.GssapiLibraryLoadObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.GssapiLibraryLoadObserver',
     'context');
   return remote.$;
@@ -985,8 +986,9 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
 
 network.mojom.NetworkService.getRemote = function() {
   let remote = new network.mojom.NetworkServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.NetworkService',
     'context');
   return remote.$;
@@ -1118,8 +1120,9 @@ network.mojom.DurableMessageCollectorRemoteCallHandler = class {
 
 network.mojom.DurableMessageCollector.getRemote = function() {
   let remote = new network.mojom.DurableMessageCollectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.DurableMessageCollector',
     'context');
   return remote.$;

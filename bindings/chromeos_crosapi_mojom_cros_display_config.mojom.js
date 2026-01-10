@@ -451,8 +451,9 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
 
 crosapi.mojom.CrosDisplayConfigController.getRemote = function() {
   let remote = new crosapi.mojom.CrosDisplayConfigControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.CrosDisplayConfigController',
     'context');
   return remote.$;
@@ -514,8 +515,9 @@ crosapi.mojom.CrosDisplayConfigObserverRemoteCallHandler = class {
 
 crosapi.mojom.CrosDisplayConfigObserver.getRemote = function() {
   let remote = new crosapi.mojom.CrosDisplayConfigObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.CrosDisplayConfigObserver',
     'context');
   return remote.$;

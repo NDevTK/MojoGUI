@@ -633,8 +633,9 @@ ash.shimless_rma.mojom.ErrorObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.ErrorObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.ErrorObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shimless_rma.mojom.ErrorObserver',
     'context');
   return remote.$;
@@ -699,8 +700,9 @@ ash.shimless_rma.mojom.OsUpdateObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.OsUpdateObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.OsUpdateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shimless_rma.mojom.OsUpdateObserver',
     'context');
   return remote.$;
@@ -779,8 +781,9 @@ ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.CalibrationObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.CalibrationObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shimless_rma.mojom.CalibrationObserver',
     'context');
   return remote.$;
@@ -845,8 +848,9 @@ ash.shimless_rma.mojom.ProvisioningObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.ProvisioningObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.ProvisioningObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shimless_rma.mojom.ProvisioningObserver',
     'context');
   return remote.$;
@@ -909,8 +913,9 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemoteCallHandler = c
 
 ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver',
     'context');
   return remote.$;
@@ -973,8 +978,9 @@ ash.shimless_rma.mojom.PowerCableStateObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.PowerCableStateObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.PowerCableStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shimless_rma.mojom.PowerCableStateObserver',
     'context');
   return remote.$;
@@ -1037,8 +1043,9 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.ExternalDiskStateObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.ExternalDiskStateObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shimless_rma.mojom.ExternalDiskStateObserver',
     'context');
   return remote.$;
@@ -1101,8 +1108,9 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemoteCallHandler = cla
 
 ash.shimless_rma.mojom.HardwareVerificationStatusObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shimless_rma.mojom.HardwareVerificationStatusObserver',
     'context');
   return remote.$;
@@ -1167,8 +1175,9 @@ ash.shimless_rma.mojom.FinalizationObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.FinalizationObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.FinalizationObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shimless_rma.mojom.FinalizationObserver',
     'context');
   return remote.$;
@@ -1231,8 +1240,9 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.UpdateRoFirmwareObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shimless_rma.mojom.UpdateRoFirmwareObserver',
     'context');
   return remote.$;
@@ -2780,8 +2790,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.ShimlessRmaService.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.ShimlessRmaServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.shimless_rma.mojom.ShimlessRmaService',
     'context');
   return remote.$;

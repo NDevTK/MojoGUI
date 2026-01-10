@@ -183,8 +183,9 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
 
 mirroring.mojom.SessionObserver.getRemote = function() {
   let remote = new mirroring.mojom.SessionObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'mirroring.mojom.SessionObserver',
     'context');
   return remote.$;

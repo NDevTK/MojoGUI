@@ -223,8 +223,9 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler
 
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.getRemote = function() {
   let remote = new side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory',
     'context');
   return remote.$;
@@ -466,8 +467,9 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
 
 side_panel.customize_chrome.mojom.WallpaperSearchHandler.getRemote = function() {
   let remote = new side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.customize_chrome.mojom.WallpaperSearchHandler',
     'context');
   return remote.$;
@@ -530,8 +532,9 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientRemoteCallHandler = class
 
 side_panel.customize_chrome.mojom.WallpaperSearchClient.getRemote = function() {
   let remote = new side_panel.customize_chrome.mojom.WallpaperSearchClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'side_panel.customize_chrome.mojom.WallpaperSearchClient',
     'context');
   return remote.$;

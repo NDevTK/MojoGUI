@@ -121,8 +121,9 @@ blink.mojom.V8DetailedMemoryReporterRemoteCallHandler = class {
 
 blink.mojom.V8DetailedMemoryReporter.getRemote = function() {
   let remote = new blink.mojom.V8DetailedMemoryReporterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.V8DetailedMemoryReporter',
     'context');
   return remote.$;

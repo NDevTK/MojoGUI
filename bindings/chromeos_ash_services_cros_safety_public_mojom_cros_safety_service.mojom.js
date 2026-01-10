@@ -123,8 +123,9 @@ ash.cros_safety.mojom.CrosSafetyServiceRemoteCallHandler = class {
 
 ash.cros_safety.mojom.CrosSafetyService.getRemote = function() {
   let remote = new ash.cros_safety.mojom.CrosSafetyServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_safety.mojom.CrosSafetyService',
     'context');
   return remote.$;

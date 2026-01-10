@@ -227,8 +227,9 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
 
 blink.mojom.DWriteFontProxy.getRemote = function() {
   let remote = new blink.mojom.DWriteFontProxyRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.DWriteFontProxy',
     'context');
   return remote.$;

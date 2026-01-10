@@ -127,8 +127,9 @@ content.mojom.GinJavaBridgeRemoteCallHandler = class {
 
 content.mojom.GinJavaBridge.getRemote = function() {
   let remote = new content.mojom.GinJavaBridgeRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.GinJavaBridge',
     'context');
   return remote.$;
@@ -242,8 +243,9 @@ content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
 
 content.mojom.GinJavaBridgeRemoteObject.getRemote = function() {
   let remote = new content.mojom.GinJavaBridgeRemoteObjectRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.GinJavaBridgeRemoteObject',
     'context');
   return remote.$;
@@ -323,8 +325,9 @@ content.mojom.GinJavaBridgeHostRemoteCallHandler = class {
 
 content.mojom.GinJavaBridgeHost.getRemote = function() {
   let remote = new content.mojom.GinJavaBridgeHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.GinJavaBridgeHost',
     'context');
   return remote.$;

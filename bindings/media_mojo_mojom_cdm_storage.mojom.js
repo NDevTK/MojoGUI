@@ -94,8 +94,9 @@ media.mojom.CdmStorageRemoteCallHandler = class {
 
 media.mojom.CdmStorage.getRemote = function() {
   let remote = new media.mojom.CdmStorageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.CdmStorage',
     'context');
   return remote.$;
@@ -186,8 +187,9 @@ media.mojom.CdmFileRemoteCallHandler = class {
 
 media.mojom.CdmFile.getRemote = function() {
   let remote = new media.mojom.CdmFileRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.CdmFile',
     'context');
   return remote.$;

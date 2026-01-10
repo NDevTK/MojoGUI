@@ -64,8 +64,9 @@ video_capture.mojom.DevicesChangedObserverRemoteCallHandler = class {
 
 video_capture.mojom.DevicesChangedObserver.getRemote = function() {
   let remote = new video_capture.mojom.DevicesChangedObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'video_capture.mojom.DevicesChangedObserver',
     'context');
   return remote.$;

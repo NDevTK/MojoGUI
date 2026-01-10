@@ -77,8 +77,9 @@ ash.quick_start.mojom.QuickStartDecoderRemoteCallHandler = class {
 
 ash.quick_start.mojom.QuickStartDecoder.getRemote = function() {
   let remote = new ash.quick_start.mojom.QuickStartDecoderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.quick_start.mojom.QuickStartDecoder',
     'context');
   return remote.$;

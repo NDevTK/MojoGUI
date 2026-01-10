@@ -75,8 +75,9 @@ blink.mojom.GeolocationServiceRemoteCallHandler = class {
 
 blink.mojom.GeolocationService.getRemote = function() {
   let remote = new blink.mojom.GeolocationServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.GeolocationService',
     'context');
   return remote.$;

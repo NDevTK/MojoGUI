@@ -292,8 +292,9 @@ content.mojom.InputInjectorRemoteCallHandler = class {
 
 content.mojom.InputInjector.getRemote = function() {
   let remote = new content.mojom.InputInjectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.mojom.InputInjector',
     'context');
   return remote.$;

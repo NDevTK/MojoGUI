@@ -91,8 +91,9 @@ aim_eligibility.mojom.PageRemoteCallHandler = class {
 
 aim_eligibility.mojom.Page.getRemote = function() {
   let remote = new aim_eligibility.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'aim_eligibility.mojom.Page',
     'context');
   return remote.$;
@@ -197,8 +198,9 @@ aim_eligibility.mojom.PageHandlerRemoteCallHandler = class {
 
 aim_eligibility.mojom.PageHandler.getRemote = function() {
   let remote = new aim_eligibility.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'aim_eligibility.mojom.PageHandler',
     'context');
   return remote.$;
@@ -262,8 +264,9 @@ aim_eligibility.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 aim_eligibility.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new aim_eligibility.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'aim_eligibility.mojom.PageHandlerFactory',
     'context');
   return remote.$;

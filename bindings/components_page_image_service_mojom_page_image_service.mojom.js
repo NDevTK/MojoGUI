@@ -104,8 +104,9 @@ page_image_service.mojom.PageImageServiceHandlerRemoteCallHandler = class {
 
 page_image_service.mojom.PageImageServiceHandler.getRemote = function() {
   let remote = new page_image_service.mojom.PageImageServiceHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'page_image_service.mojom.PageImageServiceHandler',
     'context');
   return remote.$;

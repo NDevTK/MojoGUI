@@ -70,8 +70,9 @@ chrome.mojom.NetworkDiagnosticsRemoteCallHandler = class {
 
 chrome.mojom.NetworkDiagnostics.getRemote = function() {
   let remote = new chrome.mojom.NetworkDiagnosticsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.NetworkDiagnostics',
     'context');
   return remote.$;
@@ -150,8 +151,9 @@ chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = class {
 
 chrome.mojom.NetworkDiagnosticsClient.getRemote = function() {
   let remote = new chrome.mojom.NetworkDiagnosticsClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.NetworkDiagnosticsClient',
     'context');
   return remote.$;

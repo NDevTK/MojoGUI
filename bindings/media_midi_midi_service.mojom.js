@@ -206,8 +206,9 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
 
 midi.mojom.MidiSessionClient.getRemote = function() {
   let remote = new midi.mojom.MidiSessionClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'midi.mojom.MidiSessionClient',
     'context');
   return remote.$;
@@ -271,8 +272,9 @@ midi.mojom.MidiSessionProviderRemoteCallHandler = class {
 
 midi.mojom.MidiSessionProvider.getRemote = function() {
   let remote = new midi.mojom.MidiSessionProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'midi.mojom.MidiSessionProvider',
     'context');
   return remote.$;
@@ -337,8 +339,9 @@ midi.mojom.MidiSessionRemoteCallHandler = class {
 
 midi.mojom.MidiSession.getRemote = function() {
   let remote = new midi.mojom.MidiSessionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'midi.mojom.MidiSession',
     'context');
   return remote.$;

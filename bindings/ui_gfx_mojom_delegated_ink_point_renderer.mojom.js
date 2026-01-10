@@ -83,8 +83,9 @@ gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
 
 gfx.mojom.DelegatedInkPointRenderer.getRemote = function() {
   let remote = new gfx.mojom.DelegatedInkPointRendererRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'gfx.mojom.DelegatedInkPointRenderer',
     'context');
   return remote.$;

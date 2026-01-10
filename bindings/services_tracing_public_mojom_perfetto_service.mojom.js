@@ -370,8 +370,9 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
 
 tracing.mojom.ProducerHost.getRemote = function() {
   let remote = new tracing.mojom.ProducerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracing.mojom.ProducerHost',
     'context');
   return remote.$;
@@ -508,8 +509,9 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
 
 tracing.mojom.ProducerClient.getRemote = function() {
   let remote = new tracing.mojom.ProducerClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracing.mojom.ProducerClient',
     'context');
   return remote.$;
@@ -575,8 +577,9 @@ tracing.mojom.PerfettoServiceRemoteCallHandler = class {
 
 tracing.mojom.PerfettoService.getRemote = function() {
   let remote = new tracing.mojom.PerfettoServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracing.mojom.PerfettoService',
     'context');
   return remote.$;
@@ -669,8 +672,9 @@ tracing.mojom.ConsumerHostRemoteCallHandler = class {
 
 tracing.mojom.ConsumerHost.getRemote = function() {
   let remote = new tracing.mojom.ConsumerHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracing.mojom.ConsumerHost',
     'context');
   return remote.$;
@@ -815,8 +819,9 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
 
 tracing.mojom.TracingSessionHost.getRemote = function() {
   let remote = new tracing.mojom.TracingSessionHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracing.mojom.TracingSessionHost',
     'context');
   return remote.$;
@@ -894,8 +899,9 @@ tracing.mojom.TracingSessionClientRemoteCallHandler = class {
 
 tracing.mojom.TracingSessionClient.getRemote = function() {
   let remote = new tracing.mojom.TracingSessionClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracing.mojom.TracingSessionClient',
     'context');
   return remote.$;

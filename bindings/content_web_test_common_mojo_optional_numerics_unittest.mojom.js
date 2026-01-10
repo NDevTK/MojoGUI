@@ -1266,8 +1266,9 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
 
 content.optional_numerics_unittest.mojom.Params.getRemote = function() {
   let remote = new content.optional_numerics_unittest.mojom.ParamsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.optional_numerics_unittest.mojom.Params',
     'context');
   return remote.$;
@@ -2274,8 +2275,9 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
 
 content.optional_numerics_unittest.mojom.ResponseParams.getRemote = function() {
   let remote = new content.optional_numerics_unittest.mojom.ResponseParamsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.optional_numerics_unittest.mojom.ResponseParams',
     'context');
   return remote.$;
@@ -2364,8 +2366,9 @@ content.optional_numerics_unittest.mojom.InterfaceV0RemoteCallHandler = class {
 
 content.optional_numerics_unittest.mojom.InterfaceV0.getRemote = function() {
   let remote = new content.optional_numerics_unittest.mojom.InterfaceV0Remote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.optional_numerics_unittest.mojom.InterfaceV0',
     'context');
   return remote.$;
@@ -2500,8 +2503,9 @@ content.optional_numerics_unittest.mojom.InterfaceV2RemoteCallHandler = class {
 
 content.optional_numerics_unittest.mojom.InterfaceV2.getRemote = function() {
   let remote = new content.optional_numerics_unittest.mojom.InterfaceV2Remote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'content.optional_numerics_unittest.mojom.InterfaceV2',
     'context');
   return remote.$;

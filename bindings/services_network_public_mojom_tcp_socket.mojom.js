@@ -162,8 +162,9 @@ network.mojom.TCPBoundSocketRemoteCallHandler = class {
 
 network.mojom.TCPBoundSocket.getRemote = function() {
   let remote = new network.mojom.TCPBoundSocketRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.TCPBoundSocket',
     'context');
   return remote.$;
@@ -328,8 +329,9 @@ network.mojom.TCPConnectedSocketRemoteCallHandler = class {
 
 network.mojom.TCPConnectedSocket.getRemote = function() {
   let remote = new network.mojom.TCPConnectedSocketRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.TCPConnectedSocket',
     'context');
   return remote.$;
@@ -408,8 +410,9 @@ network.mojom.SocketObserverRemoteCallHandler = class {
 
 network.mojom.SocketObserver.getRemote = function() {
   let remote = new network.mojom.SocketObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.SocketObserver',
     'context');
   return remote.$;
@@ -482,8 +485,9 @@ network.mojom.TCPServerSocketRemoteCallHandler = class {
 
 network.mojom.TCPServerSocket.getRemote = function() {
   let remote = new network.mojom.TCPServerSocketRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'network.mojom.TCPServerSocket',
     'context');
   return remote.$;

@@ -75,8 +75,9 @@ blink.mojom.UnhandledTapNotifierRemoteCallHandler = class {
 
 blink.mojom.UnhandledTapNotifier.getRemote = function() {
   let remote = new blink.mojom.UnhandledTapNotifierRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.UnhandledTapNotifier',
     'context');
   return remote.$;

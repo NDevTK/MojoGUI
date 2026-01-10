@@ -205,8 +205,9 @@ media.mojom.RendererRemoteCallHandler = class {
 
 media.mojom.Renderer.getRemote = function() {
   let remote = new media.mojom.RendererRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.Renderer',
     'context');
   return remote.$;
@@ -415,8 +416,9 @@ media.mojom.RendererClientRemoteCallHandler = class {
 
 media.mojom.RendererClient.getRemote = function() {
   let remote = new media.mojom.RendererClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.RendererClient',
     'context');
   return remote.$;

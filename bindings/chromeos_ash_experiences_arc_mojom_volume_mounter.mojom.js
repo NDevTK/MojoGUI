@@ -141,8 +141,9 @@ arc.mojom.VolumeMounterHostRemoteCallHandler = class {
 
 arc.mojom.VolumeMounterHost.getRemote = function() {
   let remote = new arc.mojom.VolumeMounterHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VolumeMounterHost',
     'context');
   return remote.$;
@@ -248,8 +249,9 @@ arc.mojom.VolumeMounterInstanceRemoteCallHandler = class {
 
 arc.mojom.VolumeMounterInstance.getRemote = function() {
   let remote = new arc.mojom.VolumeMounterInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VolumeMounterInstance',
     'context');
   return remote.$;

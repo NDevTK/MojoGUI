@@ -639,8 +639,9 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
 
 arc.mojom.FileSystemHost.getRemote = function() {
   let remote = new arc.mojom.FileSystemHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.FileSystemHost',
     'context');
   return remote.$;
@@ -1185,8 +1186,9 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
 
 arc.mojom.FileSystemInstance.getRemote = function() {
   let remote = new arc.mojom.FileSystemInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.FileSystemInstance',
     'context');
   return remote.$;

@@ -75,8 +75,9 @@ blink.mojom.OomInterventionHostRemoteCallHandler = class {
 
 blink.mojom.OomInterventionHost.getRemote = function() {
   let remote = new blink.mojom.OomInterventionHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.OomInterventionHost',
     'context');
   return remote.$;
@@ -143,8 +144,9 @@ blink.mojom.OomInterventionRemoteCallHandler = class {
 
 blink.mojom.OomIntervention.getRemote = function() {
   let remote = new blink.mojom.OomInterventionRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.OomIntervention',
     'context');
   return remote.$;

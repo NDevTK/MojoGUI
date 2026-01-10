@@ -72,8 +72,9 @@ blink.mojom.FileUtilitiesHostRemoteCallHandler = class {
 
 blink.mojom.FileUtilitiesHost.getRemote = function() {
   let remote = new blink.mojom.FileUtilitiesHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FileUtilitiesHost',
     'context');
   return remote.$;

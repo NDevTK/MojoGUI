@@ -104,8 +104,9 @@ ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHandler = class {
 
 ntp.calendar.mojom.OutlookCalendarPageHandler.getRemote = function() {
   let remote = new ntp.calendar.mojom.OutlookCalendarPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ntp.calendar.mojom.OutlookCalendarPageHandler',
     'context');
   return remote.$;

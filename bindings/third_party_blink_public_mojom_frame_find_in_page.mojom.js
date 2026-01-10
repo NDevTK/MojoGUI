@@ -219,8 +219,9 @@ blink.mojom.FindInPageRemoteCallHandler = class {
 
 blink.mojom.FindInPage.getRemote = function() {
   let remote = new blink.mojom.FindInPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FindInPage',
     'context');
   return remote.$;
@@ -304,8 +305,9 @@ blink.mojom.FindInPageClientRemoteCallHandler = class {
 
 blink.mojom.FindInPageClient.getRemote = function() {
   let remote = new blink.mojom.FindInPageClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FindInPageClient',
     'context');
   return remote.$;

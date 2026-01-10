@@ -378,8 +378,9 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
 
 contextual_tasks.mojom.PageHandler.getRemote = function() {
   let remote = new contextual_tasks.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'contextual_tasks.mojom.PageHandler',
     'context');
   return remote.$;
@@ -646,8 +647,9 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
 
 contextual_tasks.mojom.Page.getRemote = function() {
   let remote = new contextual_tasks.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'contextual_tasks.mojom.Page',
     'context');
   return remote.$;
@@ -711,8 +713,9 @@ contextual_tasks.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 contextual_tasks.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new contextual_tasks.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'contextual_tasks.mojom.PageHandlerFactory',
     'context');
   return remote.$;

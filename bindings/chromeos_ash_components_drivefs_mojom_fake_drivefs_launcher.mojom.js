@@ -67,8 +67,9 @@ drivefs.mojom.FakeDriveFsLauncherRemoteCallHandler = class {
 
 drivefs.mojom.FakeDriveFsLauncher.getRemote = function() {
   let remote = new drivefs.mojom.FakeDriveFsLauncherRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'drivefs.mojom.FakeDriveFsLauncher',
     'context');
   return remote.$;

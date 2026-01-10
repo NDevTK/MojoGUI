@@ -207,8 +207,9 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.UntrustedServiceFactory.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.UntrustedServiceFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.media_app_ui.mojom.UntrustedServiceFactory',
     'context');
   return remote.$;
@@ -304,8 +305,9 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.OcrUntrustedService.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.OcrUntrustedServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.media_app_ui.mojom.OcrUntrustedService',
     'context');
   return remote.$;
@@ -406,8 +408,9 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.OcrUntrustedPage.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.OcrUntrustedPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.media_app_ui.mojom.OcrUntrustedPage',
     'context');
   return remote.$;
@@ -517,8 +520,9 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.MahiUntrustedService.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.MahiUntrustedServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.media_app_ui.mojom.MahiUntrustedService',
     'context');
   return remote.$;
@@ -602,8 +606,9 @@ ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.MahiUntrustedPage.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.MahiUntrustedPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.media_app_ui.mojom.MahiUntrustedPage',
     'context');
   return remote.$;
@@ -790,8 +795,9 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.MantisUntrustedService.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.MantisUntrustedServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.media_app_ui.mojom.MantisUntrustedService',
     'context');
   return remote.$;
@@ -854,8 +860,9 @@ ash.media_app_ui.mojom.MantisUntrustedPageRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.MantisUntrustedPage.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.MantisUntrustedPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.media_app_ui.mojom.MantisUntrustedPage',
     'context');
   return remote.$;

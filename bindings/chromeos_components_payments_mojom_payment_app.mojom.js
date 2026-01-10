@@ -147,8 +147,9 @@ chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandler = class {
 
 chromeos.payments.mojom.PaymentAppInstance.getRemote = function() {
   let remote = new chromeos.payments.mojom.PaymentAppInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chromeos.payments.mojom.PaymentAppInstance',
     'context');
   return remote.$;

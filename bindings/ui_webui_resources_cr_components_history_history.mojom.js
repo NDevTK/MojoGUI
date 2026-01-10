@@ -399,8 +399,9 @@ history.mojom.PageHandlerRemoteCallHandler = class {
 
 history.mojom.PageHandler.getRemote = function() {
   let remote = new history.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'history.mojom.PageHandler',
     'context');
   return remote.$;
@@ -494,8 +495,9 @@ history.mojom.PageRemoteCallHandler = class {
 
 history.mojom.Page.getRemote = function() {
   let remote = new history.mojom.PageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'history.mojom.Page',
     'context');
   return remote.$;

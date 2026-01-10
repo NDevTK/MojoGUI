@@ -89,8 +89,9 @@ userspace_swap.mojom.UserspaceSwapInitializationRemoteCallHandler = class {
 
 userspace_swap.mojom.UserspaceSwapInitialization.getRemote = function() {
   let remote = new userspace_swap.mojom.UserspaceSwapInitializationRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'userspace_swap.mojom.UserspaceSwapInitialization',
     'context');
   return remote.$;
@@ -192,8 +193,9 @@ userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
 
 userspace_swap.mojom.UserspaceSwap.getRemote = function() {
   let remote = new userspace_swap.mojom.UserspaceSwapRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'userspace_swap.mojom.UserspaceSwap',
     'context');
   return remote.$;

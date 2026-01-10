@@ -239,8 +239,9 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
 
 browsing_topics.mojom.PageHandler.getRemote = function() {
   let remote = new browsing_topics.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'browsing_topics.mojom.PageHandler',
     'context');
   return remote.$;

@@ -71,8 +71,9 @@ webui_examples.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 webui_examples.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new webui_examples.mojom.PageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webui_examples.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -168,8 +169,9 @@ webui_examples.mojom.PageHandlerRemoteCallHandler = class {
 
 webui_examples.mojom.PageHandler.getRemote = function() {
   let remote = new webui_examples.mojom.PageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'webui_examples.mojom.PageHandler',
     'context');
   return remote.$;

@@ -99,8 +99,9 @@ blink.mojom.WebOTPServiceRemoteCallHandler = class {
 
 blink.mojom.WebOTPService.getRemote = function() {
   let remote = new blink.mojom.WebOTPServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebOTPService',
     'context');
   return remote.$;

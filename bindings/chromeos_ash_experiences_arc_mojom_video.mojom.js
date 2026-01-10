@@ -117,8 +117,9 @@ arc.mojom.VideoHostRemoteCallHandler = class {
 
 arc.mojom.VideoHost.getRemote = function() {
   let remote = new arc.mojom.VideoHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VideoHost',
     'context');
   return remote.$;
@@ -186,8 +187,9 @@ arc.mojom.VideoInstanceRemoteCallHandler = class {
 
 arc.mojom.VideoInstance.getRemote = function() {
   let remote = new arc.mojom.VideoInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VideoInstance',
     'context');
   return remote.$;
@@ -300,8 +302,9 @@ arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = class {
 
 arc.mojom.VideoAcceleratorFactory.getRemote = function() {
   let remote = new arc.mojom.VideoAcceleratorFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.VideoAcceleratorFactory',
     'context');
   return remote.$;

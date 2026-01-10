@@ -479,8 +479,9 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
 
 attribution_internals.mojom.Observer.getRemote = function() {
   let remote = new attribution_internals.mojom.ObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'attribution_internals.mojom.Observer',
     'context');
   return remote.$;
@@ -590,8 +591,9 @@ attribution_internals.mojom.HandlerRemoteCallHandler = class {
 
 attribution_internals.mojom.Handler.getRemote = function() {
   let remote = new attribution_internals.mojom.HandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'attribution_internals.mojom.Handler',
     'context');
   return remote.$;
@@ -655,8 +657,9 @@ attribution_internals.mojom.FactoryRemoteCallHandler = class {
 
 attribution_internals.mojom.Factory.getRemote = function() {
   let remote = new attribution_internals.mojom.FactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'attribution_internals.mojom.Factory',
     'context');
   return remote.$;

@@ -132,8 +132,9 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
 
 supervised_user.mojom.SupervisedUserCommands.getRemote = function() {
   let remote = new supervised_user.mojom.SupervisedUserCommandsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'supervised_user.mojom.SupervisedUserCommands',
     'context');
   return remote.$;

@@ -103,8 +103,9 @@ file_suggestion.mojom.MicrosoftFilesPageHandlerRemoteCallHandler = class {
 
 file_suggestion.mojom.MicrosoftFilesPageHandler.getRemote = function() {
   let remote = new file_suggestion.mojom.MicrosoftFilesPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'file_suggestion.mojom.MicrosoftFilesPageHandler',
     'context');
   return remote.$;

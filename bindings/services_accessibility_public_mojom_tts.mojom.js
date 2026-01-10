@@ -153,8 +153,9 @@ ax.mojom.TtsUtteranceClientRemoteCallHandler = class {
 
 ax.mojom.TtsUtteranceClient.getRemote = function() {
   let remote = new ax.mojom.TtsUtteranceClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.TtsUtteranceClient',
     'context');
   return remote.$;
@@ -311,8 +312,9 @@ ax.mojom.TtsRemoteCallHandler = class {
 
 ax.mojom.Tts.getRemote = function() {
   let remote = new ax.mojom.TtsRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.Tts',
     'context');
   return remote.$;

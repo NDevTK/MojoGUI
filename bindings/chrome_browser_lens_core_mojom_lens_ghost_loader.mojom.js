@@ -68,8 +68,9 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHandler = class {
 
 lens.mojom.LensGhostLoaderPageHandlerFactory.getRemote = function() {
   let remote = new lens.mojom.LensGhostLoaderPageHandlerFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'lens.mojom.LensGhostLoaderPageHandlerFactory',
     'context');
   return remote.$;
@@ -131,8 +132,9 @@ lens.mojom.LensGhostLoaderPageRemoteCallHandler = class {
 
 lens.mojom.LensGhostLoaderPage.getRemote = function() {
   let remote = new lens.mojom.LensGhostLoaderPageRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'lens.mojom.LensGhostLoaderPage',
     'context');
   return remote.$;

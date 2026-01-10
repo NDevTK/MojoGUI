@@ -161,8 +161,9 @@ arc.mojom.PolicyHostRemoteCallHandler = class {
 
 arc.mojom.PolicyHost.getRemote = function() {
   let remote = new arc.mojom.PolicyHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.PolicyHost',
     'context');
   return remote.$;
@@ -267,8 +268,9 @@ arc.mojom.PolicyInstanceRemoteCallHandler = class {
 
 arc.mojom.PolicyInstance.getRemote = function() {
   let remote = new arc.mojom.PolicyInstanceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'arc.mojom.PolicyInstance',
     'context');
   return remote.$;

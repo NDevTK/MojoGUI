@@ -74,8 +74,9 @@ blink.mojom.PaidContentMetadataObserverRemoteCallHandler = class {
 
 blink.mojom.PaidContentMetadataObserver.getRemote = function() {
   let remote = new blink.mojom.PaidContentMetadataObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PaidContentMetadataObserver',
     'context');
   return remote.$;
@@ -138,8 +139,9 @@ blink.mojom.MetaTagsObserverRemoteCallHandler = class {
 
 blink.mojom.MetaTagsObserver.getRemote = function() {
   let remote = new blink.mojom.MetaTagsObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.MetaTagsObserver',
     'context');
   return remote.$;
@@ -219,8 +221,9 @@ blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
 
 blink.mojom.FrameMetadataObserverRegistry.getRemote = function() {
   let remote = new blink.mojom.FrameMetadataObserverRegistryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.FrameMetadataObserverRegistry',
     'context');
   return remote.$;

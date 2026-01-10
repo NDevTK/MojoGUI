@@ -66,8 +66,9 @@ viz.mojom.VSyncParameterObserverRemoteCallHandler = class {
 
 viz.mojom.VSyncParameterObserver.getRemote = function() {
   let remote = new viz.mojom.VSyncParameterObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'viz.mojom.VSyncParameterObserver',
     'context');
   return remote.$;

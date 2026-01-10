@@ -506,8 +506,9 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
 
 ash.orca.mojom.EditorClient.getRemote = function() {
   let remote = new ash.orca.mojom.EditorClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.orca.mojom.EditorClient',
     'context');
   return remote.$;
@@ -570,8 +571,9 @@ ash.orca.mojom.EditorClientConnectorRemoteCallHandler = class {
 
 ash.orca.mojom.EditorClientConnector.getRemote = function() {
   let remote = new ash.orca.mojom.EditorClientConnectorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.orca.mojom.EditorClientConnector',
     'context');
   return remote.$;
@@ -634,8 +636,9 @@ ash.orca.mojom.EditorEventSinkRemoteCallHandler = class {
 
 ash.orca.mojom.EditorEventSink.getRemote = function() {
   let remote = new ash.orca.mojom.EditorEventSinkRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.orca.mojom.EditorEventSink',
     'context');
   return remote.$;
@@ -822,8 +825,9 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
 
 ash.orca.mojom.SystemActuator.getRemote = function() {
   let remote = new ash.orca.mojom.SystemActuatorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.orca.mojom.SystemActuator',
     'context');
   return remote.$;
@@ -892,8 +896,9 @@ ash.orca.mojom.TextQueryProviderRemoteCallHandler = class {
 
 ash.orca.mojom.TextQueryProvider.getRemote = function() {
   let remote = new ash.orca.mojom.TextQueryProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.orca.mojom.TextQueryProvider',
     'context');
   return remote.$;
@@ -960,8 +965,9 @@ ash.orca.mojom.OrcaServiceRemoteCallHandler = class {
 
 ash.orca.mojom.OrcaService.getRemote = function() {
   let remote = new ash.orca.mojom.OrcaServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.orca.mojom.OrcaService',
     'context');
   return remote.$;

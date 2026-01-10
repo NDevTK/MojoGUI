@@ -102,8 +102,9 @@ language_detection.mojom.ContentLanguageDetectionDriverRemoteCallHandler = class
 
 language_detection.mojom.ContentLanguageDetectionDriver.getRemote = function() {
   let remote = new language_detection.mojom.ContentLanguageDetectionDriverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'language_detection.mojom.ContentLanguageDetectionDriver',
     'context');
   return remote.$;

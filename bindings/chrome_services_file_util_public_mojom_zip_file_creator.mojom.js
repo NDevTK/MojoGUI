@@ -89,8 +89,9 @@ chrome.mojom.ZipListenerRemoteCallHandler = class {
 
 chrome.mojom.ZipListener.getRemote = function() {
   let remote = new chrome.mojom.ZipListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.ZipListener',
     'context');
   return remote.$;
@@ -156,8 +157,9 @@ chrome.mojom.ZipFileCreatorRemoteCallHandler = class {
 
 chrome.mojom.ZipFileCreator.getRemote = function() {
   let remote = new chrome.mojom.ZipFileCreatorRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'chrome.mojom.ZipFileCreator',
     'context');
   return remote.$;

@@ -60,8 +60,9 @@ media.mojom.LocalMuterRemoteCallHandler = class {
 
 media.mojom.LocalMuter.getRemote = function() {
   let remote = new media.mojom.LocalMuterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.LocalMuter',
     'context');
   return remote.$;
@@ -257,8 +258,9 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
 
 media.mojom.AudioStreamFactory.getRemote = function() {
   let remote = new media.mojom.AudioStreamFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.AudioStreamFactory',
     'context');
   return remote.$;

@@ -113,8 +113,9 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
 
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.getRemote = function() {
   let remote = new ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler',
     'context');
   return remote.$;

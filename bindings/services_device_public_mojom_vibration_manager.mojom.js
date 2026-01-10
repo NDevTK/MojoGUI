@@ -96,8 +96,9 @@ device.mojom.VibrationManagerRemoteCallHandler = class {
 
 device.mojom.VibrationManager.getRemote = function() {
   let remote = new device.mojom.VibrationManagerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.VibrationManager',
     'context');
   return remote.$;
@@ -159,8 +160,9 @@ device.mojom.VibrationManagerListenerRemoteCallHandler = class {
 
 device.mojom.VibrationManagerListener.getRemote = function() {
   let remote = new device.mojom.VibrationManagerListenerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'device.mojom.VibrationManagerListener',
     'context');
   return remote.$;

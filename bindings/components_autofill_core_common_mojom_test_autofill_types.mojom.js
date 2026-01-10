@@ -241,8 +241,9 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
 
 autofill.mojom.TypeTraitsTest.getRemote = function() {
   let remote = new autofill.mojom.TypeTraitsTestRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'autofill.mojom.TypeTraitsTest',
     'context');
   return remote.$;

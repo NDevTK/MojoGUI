@@ -85,8 +85,9 @@ spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class {
 
 spellcheck.mojom.SpellCheckPanel.getRemote = function() {
   let remote = new spellcheck.mojom.SpellCheckPanelRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'spellcheck.mojom.SpellCheckPanel',
     'context');
   return remote.$;
@@ -165,8 +166,9 @@ spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = class {
 
 spellcheck.mojom.SpellCheckPanelHost.getRemote = function() {
   let remote = new spellcheck.mojom.SpellCheckPanelHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'spellcheck.mojom.SpellCheckPanelHost',
     'context');
   return remote.$;

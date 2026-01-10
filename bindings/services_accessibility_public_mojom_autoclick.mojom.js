@@ -72,8 +72,9 @@ ax.mojom.AutoclickRemoteCallHandler = class {
 
 ax.mojom.Autoclick.getRemote = function() {
   let remote = new ax.mojom.AutoclickRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.Autoclick',
     'context');
   return remote.$;
@@ -157,8 +158,9 @@ ax.mojom.AutoclickClientRemoteCallHandler = class {
 
 ax.mojom.AutoclickClient.getRemote = function() {
   let remote = new ax.mojom.AutoclickClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ax.mojom.AutoclickClient',
     'context');
   return remote.$;

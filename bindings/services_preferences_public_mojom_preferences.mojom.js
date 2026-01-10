@@ -110,8 +110,9 @@ prefs.mojom.ResetOnLoadObserverRemoteCallHandler = class {
 
 prefs.mojom.ResetOnLoadObserver.getRemote = function() {
   let remote = new prefs.mojom.ResetOnLoadObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'prefs.mojom.ResetOnLoadObserver',
     'context');
   return remote.$;

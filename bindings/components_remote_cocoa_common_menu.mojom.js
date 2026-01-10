@@ -164,8 +164,9 @@ remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
 
 remote_cocoa.mojom.MenuHost.getRemote = function() {
   let remote = new remote_cocoa.mojom.MenuHostRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remote_cocoa.mojom.MenuHost',
     'context');
   return remote.$;
@@ -246,8 +247,9 @@ remote_cocoa.mojom.MenuRemoteCallHandler = class {
 
 remote_cocoa.mojom.Menu.getRemote = function() {
   let remote = new remote_cocoa.mojom.MenuRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'remote_cocoa.mojom.Menu',
     'context');
   return remote.$;

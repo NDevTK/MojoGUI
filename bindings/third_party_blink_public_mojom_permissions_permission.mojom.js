@@ -239,8 +239,9 @@ blink.mojom.PermissionObserverRemoteCallHandler = class {
 
 blink.mojom.PermissionObserver.getRemote = function() {
   let remote = new blink.mojom.PermissionObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PermissionObserver',
     'context');
   return remote.$;
@@ -304,8 +305,9 @@ blink.mojom.EmbeddedPermissionControlClientRemoteCallHandler = class {
 
 blink.mojom.EmbeddedPermissionControlClient.getRemote = function() {
   let remote = new blink.mojom.EmbeddedPermissionControlClientRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.EmbeddedPermissionControlClient',
     'context');
   return remote.$;
@@ -537,8 +539,9 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
 
 blink.mojom.PermissionService.getRemote = function() {
   let remote = new blink.mojom.PermissionServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.PermissionService',
     'context');
   return remote.$;

@@ -209,8 +209,9 @@ ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler = class {
 
 ash.device_sync.mojom.DeviceSyncObserver.getRemote = function() {
   let remote = new ash.device_sync.mojom.DeviceSyncObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.device_sync.mojom.DeviceSyncObserver',
     'context');
   return remote.$;
@@ -543,8 +544,9 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
 
 ash.device_sync.mojom.DeviceSync.getRemote = function() {
   let remote = new ash.device_sync.mojom.DeviceSyncRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.device_sync.mojom.DeviceSync',
     'context');
   return remote.$;

@@ -116,8 +116,9 @@ blink.mojom.WebInstallServiceRemoteCallHandler = class {
 
 blink.mojom.WebInstallService.getRemote = function() {
   let remote = new blink.mojom.WebInstallServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.WebInstallService',
     'context');
   return remote.$;

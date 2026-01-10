@@ -88,8 +88,9 @@ blink.mojom.AppBannerControllerRemoteCallHandler = class {
 
 blink.mojom.AppBannerController.getRemote = function() {
   let remote = new blink.mojom.AppBannerControllerRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AppBannerController',
     'context');
   return remote.$;
@@ -167,8 +168,9 @@ blink.mojom.AppBannerEventRemoteCallHandler = class {
 
 blink.mojom.AppBannerEvent.getRemote = function() {
   let remote = new blink.mojom.AppBannerEventRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AppBannerEvent',
     'context');
   return remote.$;
@@ -230,8 +232,9 @@ blink.mojom.AppBannerServiceRemoteCallHandler = class {
 
 blink.mojom.AppBannerService.getRemote = function() {
   let remote = new blink.mojom.AppBannerServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'blink.mojom.AppBannerService',
     'context');
   return remote.$;

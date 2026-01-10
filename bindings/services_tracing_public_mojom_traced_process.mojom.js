@@ -80,8 +80,9 @@ tracing.mojom.TracedProcessRemoteCallHandler = class {
 
 tracing.mojom.TracedProcess.getRemote = function() {
   let remote = new tracing.mojom.TracedProcessRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'tracing.mojom.TracedProcess',
     'context');
   return remote.$;

@@ -113,8 +113,9 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
 
 printing.mojom.PdfToEmfConverter.getRemote = function() {
   let remote = new printing.mojom.PdfToEmfConverterRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.PdfToEmfConverter',
     'context');
   return remote.$;
@@ -185,8 +186,9 @@ printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
 
 printing.mojom.PdfToEmfConverterFactory.getRemote = function() {
   let remote = new printing.mojom.PdfToEmfConverterFactoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'printing.mojom.PdfToEmfConverterFactory',
     'context');
   return remote.$;

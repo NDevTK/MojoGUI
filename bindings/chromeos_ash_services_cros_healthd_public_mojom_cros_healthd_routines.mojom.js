@@ -1031,8 +1031,9 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdRoutinesService.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.CrosHealthdRoutinesService',
     'context');
   return remote.$;
@@ -1131,8 +1132,9 @@ ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.RoutineControl.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.RoutineControlRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.RoutineControl',
     'context');
   return remote.$;
@@ -1195,8 +1197,9 @@ ash.cros_healthd.mojom.RoutineObserverRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.RoutineObserver.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.RoutineObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'ash.cros_healthd.mojom.RoutineObserver',
     'context');
   return remote.$;

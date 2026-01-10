@@ -73,8 +73,9 @@ metrics.mojom.SingleSampleMetricsProviderRemoteCallHandler = class {
 
 metrics.mojom.SingleSampleMetricsProvider.getRemote = function() {
   let remote = new metrics.mojom.SingleSampleMetricsProviderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'metrics.mojom.SingleSampleMetricsProvider',
     'context');
   return remote.$;
@@ -137,8 +138,9 @@ metrics.mojom.SingleSampleMetricRemoteCallHandler = class {
 
 metrics.mojom.SingleSampleMetric.getRemote = function() {
   let remote = new metrics.mojom.SingleSampleMetricRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'metrics.mojom.SingleSampleMetric',
     'context');
   return remote.$;

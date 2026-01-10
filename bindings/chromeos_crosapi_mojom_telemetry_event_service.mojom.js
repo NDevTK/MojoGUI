@@ -421,8 +421,9 @@ crosapi.mojom.TelemetryEventObserverRemoteCallHandler = class {
 
 crosapi.mojom.TelemetryEventObserver.getRemote = function() {
   let remote = new crosapi.mojom.TelemetryEventObserverRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.TelemetryEventObserver',
     'context');
   return remote.$;
@@ -508,8 +509,9 @@ crosapi.mojom.TelemetryEventServiceRemoteCallHandler = class {
 
 crosapi.mojom.TelemetryEventService.getRemote = function() {
   let remote = new crosapi.mojom.TelemetryEventServiceRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'crosapi.mojom.TelemetryEventService',
     'context');
   return remote.$;

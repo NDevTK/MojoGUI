@@ -91,8 +91,9 @@ media.mojom.WebrtcVideoPerfRecorderRemoteCallHandler = class {
 
 media.mojom.WebrtcVideoPerfRecorder.getRemote = function() {
   let remote = new media.mojom.WebrtcVideoPerfRecorderRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.WebrtcVideoPerfRecorder',
     'context');
   return remote.$;
@@ -162,8 +163,9 @@ media.mojom.WebrtcVideoPerfHistoryRemoteCallHandler = class {
 
 media.mojom.WebrtcVideoPerfHistory.getRemote = function() {
   let remote = new media.mojom.WebrtcVideoPerfHistoryRemote();
-  remote.bindNewPipeAndPassReceiver();
-  remote.proxy.endpoint_.bindInBrowser(
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
     'media.mojom.WebrtcVideoPerfHistory',
     'context');
   return remote.$;
