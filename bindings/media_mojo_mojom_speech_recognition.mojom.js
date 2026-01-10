@@ -249,7 +249,8 @@ media.mojom.SpeechRecognitionContextReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -411,7 +412,8 @@ media.mojom.SpeechRecognitionRecognizerReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -570,7 +572,8 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -710,7 +713,8 @@ media.mojom.SpeechRecognitionBrowserObserverReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -827,7 +831,8 @@ media.mojom.SpeechRecognitionSurfaceReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -939,7 +944,8 @@ media.mojom.SpeechRecognitionSurfaceClientReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -1062,7 +1068,8 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {

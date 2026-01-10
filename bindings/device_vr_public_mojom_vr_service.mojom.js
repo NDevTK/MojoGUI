@@ -1032,7 +1032,8 @@ device.mojom.VRServiceReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -1168,7 +1169,8 @@ device.mojom.XRSessionMetricsRecorderReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -1254,7 +1256,8 @@ device.mojom.VRServiceClientReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -1429,7 +1432,8 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -1576,7 +1580,8 @@ device.mojom.XRFrameDataProviderReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -1748,7 +1753,8 @@ device.mojom.XRPresentationProviderReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -1886,7 +1892,8 @@ device.mojom.XRPresentationClientReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -1998,7 +2005,8 @@ device.mojom.XRSessionClientReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -2145,7 +2153,8 @@ device.mojom.XRLayerManagerReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -2269,7 +2278,8 @@ device.mojom.WebXrInternalsRendererListenerReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {

@@ -131,7 +131,8 @@ global_media_controls.mojom.DeviceListHostReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -233,7 +234,8 @@ global_media_controls.mojom.DeviceListClientReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -360,7 +362,8 @@ global_media_controls.mojom.DeviceServiceReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -581,7 +584,8 @@ global_media_controls.mojom.DevicePickerProviderReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -752,7 +756,8 @@ global_media_controls.mojom.DevicePickerObserverReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {

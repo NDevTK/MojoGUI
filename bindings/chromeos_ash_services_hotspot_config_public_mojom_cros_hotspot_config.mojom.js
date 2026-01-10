@@ -309,7 +309,8 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -444,7 +445,8 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -546,7 +548,8 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {

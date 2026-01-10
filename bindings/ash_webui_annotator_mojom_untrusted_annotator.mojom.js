@@ -135,7 +135,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -254,7 +255,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
@@ -347,7 +349,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
       switch (header.ordinal) {
