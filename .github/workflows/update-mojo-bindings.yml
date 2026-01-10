@@ -1012,7 +1012,7 @@ jobs:
                   js_code += "  bind(handle) {\n"
                   js_code += "    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);\n"
                   js_code += "    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);\n"
-                  js_code += "    this.endpoint.start((message) => {\n"
+                  js_code += "    this.endpoint.start({ onMessageReceived: (message) => {\n"
                   js_code += "      const header = message.header;\n"
                   js_code += "      switch (header.ordinal) {\n"
                   
@@ -1049,7 +1049,7 @@ jobs:
                       js_code += "        }\n"
                   
                   js_code += "      }\n" # End switch
-                  js_code += "    });\n" # End start
+                  js_code += "    }});\n" # End start
                   js_code += "  }\n"
                   js_code += "};\n\n"
                   
