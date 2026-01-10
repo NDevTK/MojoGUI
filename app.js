@@ -352,7 +352,52 @@
     }
 
     function getMethodParams(interfaceName, methodName) {
-        // Demo parameter definitions
+        // First try to look up parameters in global scope from loaded bindings
+        const ifaceMetadata = state.selectedInterface;
+        if (ifaceMetadata && ifaceMetadata.module) {
+            const specName = `${interfaceName}_${methodName}_ParamsSpec`;
+            const namespace = resolveNamespace(ifaceMetadata.module);
+
+            if (namespace && namespace[specName]) {
+                const specWrapper = namespace[specName];
+                // specWrapper is like { $: { structSpec: { ... } } }
+                // or just { structSpec: ... } depending on generation
+                // The bindings use { $: { structSpec: ... } } for types like ParamsSpec
+
+                const structSpec = specWrapper.$ ? specWrapper.$.structSpec : specWrapper.structSpec;
+
+                if (structSpec && structSpec.fields) {
+                    return structSpec.fields.map(field => {
+                        let type = 'any';
+                        let originalName = field.name;
+
+                        // Handle formatting from StructFieldSpec
+                        // field.name might be internal name needed for packing
+
+                        // Check if it's a nullable value kind field (has originalFieldName)
+                        // In bindings_lite.js StructFieldSpec logic
+                        if (field.nullableValueKindProperties && field.nullableValueKindProperties.isPrimary) {
+                            originalName = field.nullableValueKindProperties.originalFieldName;
+                        }
+
+                        // Infer type string better from the type object if possible, 
+                        // but for now use MojoParser's helper if we can get type name
+                        // In bindings_lite, type is a MojomType object.
+
+                        // We need to convert the MojomType back to a string representation for getInputType
+                        type = inferTypeFromMojomType(field.type);
+
+                        return {
+                            name: originalName,
+                            type: type,
+                            optional: !!field.nullable
+                        };
+                    }).filter(f => !f.name.endsWith('_$flag') && !f.name.endsWith('_$value')); // Simple filter for split numerics if not handled
+                }
+            }
+        }
+
+        // Demo parameter definitions fallback
         const paramDefs = {
             'BlobRegistry': {
                 'Register': [
@@ -422,6 +467,41 @@
         };
 
         return paramDefs[interfaceName]?.[methodName] || generateDefaultParams(methodName);
+    }
+
+    function resolveNamespace(moduleName) {
+        if (!moduleName) return window;
+        const parts = moduleName.split('.');
+        let current = window;
+        for (const part of parts) {
+            current = current[part];
+            if (!current) return null;
+        }
+        return current;
+    }
+
+    function inferTypeFromMojomType(mojomType) {
+        // Best effort mapping from runtime Mojo types to strings for UI
+        if (!mojomType) return 'any';
+
+        // generated bindings use mojo.internal.String etc.
+        if (mojomType === mojo.internal.String) return 'string';
+        if (mojomType === mojo.internal.Bool) return 'bool';
+        if (mojomType === mojo.internal.Int8 ||
+            mojomType === mojo.internal.Int16 ||
+            mojomType === mojo.internal.Int32 ||
+            mojomType === mojo.internal.Int64 ||
+            mojomType === mojo.internal.Uint8 ||
+            mojomType === mojo.internal.Uint16 ||
+            mojomType === mojo.internal.Uint32 ||
+            mojomType === mojo.internal.Uint64 ||
+            mojomType === mojo.internal.Float ||
+            mojomType === mojo.internal.Double) return 'number';
+
+        // Arrays are tricky because they are constructible functions in bindings_lite
+        // We can check if it has array properties or naming convention
+
+        return 'string'; // Default to string input for complex types so user can paste JSON/values
     }
 
     function generateDefaultParams(methodName) {
