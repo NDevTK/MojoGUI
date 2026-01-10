@@ -81,7 +81,7 @@
 
         // Inspect interfaceSupport
         if (mojo.internal.interfaceSupport) {
-            console.log('[Interceptor] mojo.internal.interfaceSupport keys:', Object.keys(mojo.internal.interfaceSupport));
+            // console.log('[Interceptor] mojo.internal.interfaceSupport keys:', Object.keys(mojo.internal.interfaceSupport));
 
             // Mapping of Endpoint -> { header, rawHeader } to store context for createResponder
             const _endpointContexts = new WeakMap();
@@ -106,31 +106,59 @@
                 const handler = origGetHandler(endpoint);
                 if (handler && !handler._interceptor_patched) {
                     handler._interceptor_patched = true;
-                    const origDecode = handler.decodeMessageHeader;
-                    if (typeof origDecode === 'function') {
+
+                    // Ensure decodeMessageHeader exists (Polyfill if missing on the handler)
+                    if (typeof handler.decodeMessageHeader !== 'function') {
                         handler.decodeMessageHeader = function (message) {
-                            const header = origDecode.call(this, message);
-                            if (header) {
-                                // Fix the missing property that causes generated code to skip responses
-                                if (header.expectsResponse === undefined) {
-                                    header.expectsResponse = !!(header.flags & 1);
+                            try {
+                                const view = new DataView(message.buffer);
+                                const headerSize = view.getUint32(0, true);
+                                const headerVersion = view.getUint32(4, true);
+                                const interfaceId = view.getUint32(8, true);
+                                const ordinal = view.getUint32(12, true);
+                                const flags = view.getUint32(16, true);
+                                // requestId is optional (uint64 at 24)
+                                let requestId = 0n;
+                                if (headerSize >= 32) {
+                                    requestId = view.getBigUint64(24, true);
                                 }
-                                // Store context for perfect symmetry in createResponder
-                                _endpointContexts.set(endpoint, {
-                                    header: header,
-                                    rawHeader: message.buffer ? message.buffer.slice(0, header.headerSize) : null
-                                });
+                                return {
+                                    headerSize,
+                                    headerVersion,
+                                    interfaceId,
+                                    ordinal,
+                                    flags,
+                                    requestId,
+                                    expectsResponse: !!(flags & 1)
+                                };
+                            } catch (e) {
+                                console.error('[Interceptor] Robust decodeMessageHeader failed:', e);
+                                return null;
                             }
-                            return header;
                         };
                     }
+
+                    const origDecode = handler.decodeMessageHeader;
+                    handler.decodeMessageHeader = function (message) {
+                        const header = origDecode.call(this, message);
+                        if (header) {
+                            if (header.expectsResponse === undefined) {
+                                header.expectsResponse = !!(header.flags & 1);
+                            }
+                            _endpointContexts.set(endpoint, {
+                                header: header,
+                                rawHeader: message.buffer ? message.buffer.slice(0, header.headerSize) : null
+                            });
+                        }
+                        return header;
+                    };
                 }
                 return handler;
             };
 
             // Polyfill createResponder if missing
             if (typeof mojo.internal.interfaceSupport.createResponder !== 'function') {
-                console.log('[Interceptor] Polyfilling createResponder');
+                // console.log('[Interceptor] Polyfilling createResponder');
                 mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec, ordinal) {
                     return function (response) {
                         try {
@@ -258,10 +286,7 @@
                 };
             }
         }
-        // DEBUG: Check Decoder prototype
-        if (mojo.internal && mojo.internal.Decoder) {
-            console.log('[Interceptor] mojo.internal.Decoder.prototype:', mojo.internal.Decoder.prototype);
-        }
+        // console.log('[Interceptor] mojo.internal.Decoder.prototype:', mojo.internal.Decoder.prototype);
 
     }
 
