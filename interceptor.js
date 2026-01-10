@@ -154,7 +154,18 @@
                                 view.setUint32(36, 0, true);
 
                                 // Create Message wrapper
-                                message = new mojo.internal.Message(buffer, []);
+                                // message = new mojo.internal.Message(buffer, []); // Crashes due to internal validation
+
+                                // Bypassing constructor: return a plain object that satisfies Router.accept
+                                message = {
+                                    buffer: buffer,
+                                    handles: [],
+                                    header: {
+                                        requestId: requestId,
+                                        flags: 2,
+                                        ordinal: 0
+                                    }
+                                };
 
                             } catch (fallbackErr) {
                                 console.error('[Interceptor] Manual fallback failed:', fallbackErr);
@@ -163,10 +174,14 @@
                         }
 
                         if (message) {
+                            // Ensure header properties are set (if using encoder path)
                             if (message.header && !message.header.requestId) {
                                 message.header.requestId = requestId;
                                 message.header.flags = 2;
                             }
+
+                            // If it's our raw object, it already has them.
+
                             endpoint.router_.accept(message);
                         }
                     };
