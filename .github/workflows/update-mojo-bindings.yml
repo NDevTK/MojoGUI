@@ -1056,7 +1056,9 @@ jobs:
                        js_code += f"             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> {method_name} ({idx})');\n"
                        js_code += f"             this.mapOrdinal(header.ordinal, {idx});\n"
                        js_code += f"             dispatchId = {idx};\n"
-                       js_code += "           } catch (e) { /* Ignore mismatch */ }\n"
+                       js_code += "           } catch (e) {\n"
+                       js_code += f"             console.warn('[GeneratedReceiver] Discovery trial {idx} failed:', e);\n"
+                       js_code += "           }\n"
                        js_code += "        }\n"
 
                   js_code += "        if (dispatchId === undefined) {\n"
