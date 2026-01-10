@@ -853,8 +853,8 @@ jobs:
                   js_code += f"\n// Struct: {struct_name}\n"
                   js_code += f"mojo.internal.Struct(\n"
                   js_code += f"    {full_name}Spec, '{module}.{struct_name}', [\n"
-                   for field in fields_code:
-                       js_code += f"      mojo.internal.StructField({field}),\n"
+                  for field in fields_code:
+                      js_code += f"      mojo.internal.StructField({field}),\n"
                   js_code += f"    ],\n"
                   js_code += f"    {versions_code});\n"
               
