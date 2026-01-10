@@ -83,14 +83,47 @@
         if (mojo.internal.interfaceSupport) {
             console.log('[Interceptor] mojo.internal.interfaceSupport keys:', Object.keys(mojo.internal.interfaceSupport));
 
+            // Fix Endpoint globally to capture headers and ensure expectsResponse is valid
+            if (mojo.internal.interfaceSupport && mojo.internal.interfaceSupport.Endpoint) {
+                const OriginalEndpoint = mojo.internal.interfaceSupport.Endpoint;
+                mojo.internal.interfaceSupport.Endpoint = function (router, callback) {
+                    const wrappedCallback = function (message) {
+                        try {
+                            // The generated code (Lite bindings) usually decodes the header itself,
+                            // but some versions pass the decoded header as an argument.
+                            // We hook the callback to ensure we capture the context.
+                            if (message && message.header) {
+                                // Fix the missing property that causes generated code to skip responses
+                                if (message.header.expectsResponse === undefined) {
+                                    message.header.expectsResponse = !!(message.header.flags & 1);
+                                }
+                                // Store raw header for perfect symmetry in createResponder
+                                this._interceptor_last_header = message.header;
+                                if (message.buffer) {
+                                    this._interceptor_last_raw_header = message.buffer.slice(0, message.header.headerSize);
+                                }
+                            }
+                        } catch (e) {
+                            console.warn('[Interceptor] Header capture failed:', e);
+                        }
+                        return callback.apply(this, arguments);
+                    };
+                    const instance = new OriginalEndpoint(router, wrappedCallback);
+                    return instance;
+                };
+                // Maintain prototype link
+                mojo.internal.interfaceSupport.Endpoint.prototype = OriginalEndpoint.prototype;
+            }
+
             // Polyfill createResponder if missing
             if (typeof mojo.internal.interfaceSupport.createResponder !== 'function') {
                 console.log('[Interceptor] Polyfilling createResponder');
-                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec, headerOrOrdinal, rawHeaderBuffer) {
+                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec, ordinal) {
                     return function (response) {
                         try {
                             const structSpec = responseParamsSpec.$.structSpec;
-                            const reqHeader = typeof headerOrOrdinal === 'object' ? headerOrOrdinal : { ordinal: headerOrOrdinal };
+                            const reqHeader = endpoint._interceptor_last_header || { ordinal: ordinal };
+                            const rawHeaderBuffer = endpoint._interceptor_last_raw_header;
 
                             // Protocol Symmetry: Match the size and version of the request header
                             const headerSize = reqHeader.headerSize || 32;
@@ -106,14 +139,13 @@
                                 new Uint8Array(buffer).set(new Uint8Array(rawHeaderBuffer));
                             } else {
                                 // Fallback: Manual construction
-                                const ordinal = reqHeader.ordinal || 0;
                                 const interfaceId = (reqHeader.interfaceId !== undefined) ? reqHeader.interfaceId : (endpoint.interfaceId_ || 0);
                                 const version = (reqHeader.headerVersion !== undefined) ? reqHeader.headerVersion : 1;
 
                                 view.setUint32(0, headerSize, true); // Header Size (confirmed via sniffer)
                                 view.setUint32(4, version, true);
                                 view.setUint32(8, interfaceId, true);
-                                view.setUint32(12, ordinal, true);
+                                view.setUint32(12, ordinal || 0, true);
                                 view.setUint32(20, 0, true); // padding
                             }
 

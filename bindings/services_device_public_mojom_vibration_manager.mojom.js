@@ -187,109 +187,47 @@ device.mojom.VibrationManagerReceiver = class {
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({
-      onMessageReceived: (...args) => {
-        try {
-          console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-          let message = args[0];
-          // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-          if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-            // Create a view of ONLY the payload (skipping the header)
-            let payload = args[2];
-            const headerSize = args[1].headerSize;
-            if (payload instanceof ArrayBuffer) {
-              payload = new DataView(payload, headerSize);
-            }
-            message = {
-              header: args[1],
-              payload: payload,
-              handles: args[3] || []
-            };
-          }
-          const header = message && message.header;
-          if (!header) return;
-          let dispatchId = this.ordinalMap.get(header.ordinal);
-          if (dispatchId === undefined) {
-            // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-            console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-            // Decoder uses payload view starting at 0
-            const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(
+      new mojo.internal.interfaceSupport.Router(handle, false),
+      this.onMessageReceived.bind(this));
+  }
 
-            // Try Method 0: Vibrate
-            if (dispatchId === undefined) {
-              try {
-                decoder.decodeStructInline(device.mojom.VibrationManager_Vibrate_ParamsSpec);
-                console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Vibrate (0)');
-                this.mapOrdinal(header.ordinal, 0);
-                dispatchId = 0;
-              } catch (e) {
-                console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-              }
-            }
-            // Try Method 1: Cancel
-            if (dispatchId === undefined) {
-              try {
-                decoder.decodeStructInline(device.mojom.VibrationManager_Cancel_ParamsSpec);
-                console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (1)');
-                this.mapOrdinal(header.ordinal, 1);
-                dispatchId = 1;
-              } catch (e) {
-                console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-              }
-            }
-            if (dispatchId === undefined) {
-              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-              return;
-            }
+  onMessageReceived(message) {
+    const header = mojo.internal.interfaceSupport.getControlMessageHandler(this.endpoint).decodeMessageHeader(message);
+    if (header.controlMessage) {
+      mojo.internal.interfaceSupport.getControlMessageHandler(this.endpoint).handleMessage(header, message);
+    } else {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+        // Fallback discovery if scrambler failed
+        console.warn('[GeneratedReceiver] Unknown ordinal ' + header.ordinal);
+        return;
+      }
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(device.mojom.VibrationManager_Vibrate_ParamsSpec.$.structSpec);
+          const result = this.impl.vibrate(params.milliseconds);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Vibrate_ResponseParamsSpec, header.ordinal);
+              responder(response);
+            });
           }
-          console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-          switch (dispatchId) {
-            case 0: {
-              const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-              const params = decoder.decodeStructInline(device.mojom.VibrationManager_Vibrate_ParamsSpec.$.structSpec);
-              console.log('[GeneratedReceiver] Calling impl.vibrate');
-              const result = this.impl.vibrate(params.milliseconds);
-              const vibratesExpectsResponse = header.expectsResponse || (header.flags & 1);
-              console.log('[GeneratedReceiver] Vibrate expectsResponse:', vibratesExpectsResponse);
-              if (vibratesExpectsResponse) {
-                Promise.resolve(result).then(response => {
-                  console.log('[GeneratedReceiver] Sending vibrate response:', response);
-                  const rawHeader = args[2].slice(0, header.headerSize);
-                  const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Vibrate_ResponseParamsSpec, header, rawHeader);
-                  responder(response);
-                }).catch(e => console.error('[GeneratedReceiver] Vibrate FAILED:', e));
-              }
-              break;
-            }
-            case 1: {
-              const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-              const params = decoder.decodeStructInline(device.mojom.VibrationManager_Cancel_ParamsSpec.$.structSpec);
-              console.log('[GeneratedReceiver] Calling impl.cancel');
-              const result = this.impl.cancel();
-              const cancelExpectsResponse = header.expectsResponse || (header.flags & 1);
-              console.log('[GeneratedReceiver] Cancel expectsResponse:', cancelExpectsResponse);
-              if (cancelExpectsResponse) {
-                Promise.resolve(result).then(response => {
-                  console.log('[GeneratedReceiver] Sending cancel response:', response);
-                  const rawHeader = args[2].slice(0, header.headerSize);
-                  const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Cancel_ResponseParamsSpec, header, rawHeader);
-                  responder(response);
-                  console.log('[GeneratedReceiver] Cancel response sent.');
-                }).catch(e => console.error('[GeneratedReceiver] Cancel FAILED:', e));
-              } else {
-                console.log('[GeneratedReceiver] No response expected for cancel.');
-              }
-              break;
-            }
+          break;
+        }
+        case 1: {
+          const result = this.impl.cancel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Cancel_ResponseParamsSpec, header.ordinal);
+              responder(response);
+            });
           }
-        } catch (err) {
-          console.error('[GeneratedReceiver] Error processing message:', err);
+          break;
         }
       }
-    });
+    }
   }
 };
 
