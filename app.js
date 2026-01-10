@@ -922,6 +922,7 @@
         // Add to list
         const row = document.createElement('tr');
         row.dataset.id = id;
+        row.dataset.proxyId = e.detail.proxyId;
         row.innerHTML = `
             <td>${new Date(timestamp).toLocaleTimeString()}</td>
             <td>${escapeHtml(method)}</td>
@@ -963,14 +964,55 @@
         elements.interceptorTableBody.querySelectorAll('tr').forEach(tr => tr.classList.remove('active'));
         elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`)?.classList.add('active');
 
-        // Show details
-        // Show details
+        // Show details with action buttons
+        const isPending = !row.cells[2].innerHTML.includes('Done') && !row.cells[2].innerHTML.includes('Error');
+
         elements.interceptorDetails.innerHTML = safeHTML(`
-            <h4>${escapeHtml(iface)}.${escapeHtml(method)}</h4>
+            <div class="interceptor-actions">
+                <h4>${escapeHtml(iface)}.${escapeHtml(method)}</h4>
+                ${isPending ? `
+                <div class="action-buttons">
+                    <button class="btn btn-primary btn-small" onclick="resumeIntercept('${id}', false)">Forward</button>
+                    <button class="btn btn-small" onclick="resumeIntercept('${id}', true)">Drop</button>
+                </div>
+                ` : ''}
+            </div>
             <div class="code-block" style="margin-top: 10px;">
-                ${escapeHtml(JSON.stringify(params, null, 2))}
+                <textarea id="interceptParams_${id}" class="params-editor" ${!isPending ? 'disabled' : ''}>${escapeHtml(JSON.stringify(params, null, 2))}</textarea>
             </div>
         `);
+    }
+
+    // Modify request function (globally accessible for onclick)
+    window.resumeIntercept = function (id, drop) {
+        const textarea = document.getElementById(`interceptParams_${id}`);
+        let params = null;
+        try {
+            params = JSON.parse(textarea.value);
+        } catch (e) {
+            alert('Invalid JSON params');
+            return;
+        }
+
+        // Find the proxy instance
+        // We need the proxy ID from the row or stored data
+        // For simplicity, we can dispatch an event or use the global registry if we stored the proxyId
+        // In handleMojoIntercept we received proxyId. Let's store it in the dataset of the row.
+
+        const row = document.querySelector(`tr[data-id="${id}"]`);
+        const proxyId = row.dataset.proxyId;
+
+        if (drop) {
+            // We need to call resumeCall on the proxy
+            const proxy = MojoProxyRegistry.get(proxyId);
+            if (proxy) proxy.resumeCall(id, null, true);
+        } else {
+            const proxy = MojoProxyRegistry.get(proxyId);
+            if (proxy) proxy.resumeCall(id, params, false);
+        }
+
+        // Update status in UI immediately (opt)
+        // handleMojoResponse/Error will update it effectively
     }
 
     // ========================================

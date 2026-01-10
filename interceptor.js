@@ -14,13 +14,22 @@
             this.interfaceName = interfaceName;
             this.realRemote = remote;
             this.receiver = receiver;
-            this.pendingMessages = [];
+            this.pendingMessages = new Map(); // id -> { resolve, reject, args }
             this.id = Math.random().toString(36).substr(2, 9);
 
-            // Create a local remote to act as the "middleman"
-            // The receiver we got from Interceptor acts as the "remote" for the client
-            // We need to implement the interface methods to catch calls
+            // Register globally so UI can access it easily via ID
+            if (!global.MojoProxyRegistry) {
+                global.MojoProxyRegistry = new Map();
+            }
+            global.MojoProxyRegistry.set(this.id, this);
         }
+
+        cleanup() {
+            if (global.MojoProxyRegistry) {
+                global.MojoProxyRegistry.delete(this.id);
+            }
+        }
+
 
         static create(interfaceName, handle) {
             // 1. Get the interface definition
@@ -164,39 +173,75 @@
                     method: methodName,
                     params: args,
                     timestamp: Date.now(),
-                    proxy: this
+                    proxyId: this.id
                 }
             });
             window.dispatchEvent(event);
 
-            // Check if we should pause/modify logic here
-            // For Step 1, we just log and forward
             console.log(`[MojoProxy] Intercepted ${this.interfaceName}.${methodName}`, args);
 
-            try {
-                // Forward to real implementation
-                const result = await this.realRemote[methodName](...args);
+            // Create a Promise that we will manually resolve later
+            // This effectively PAUSES execution here until the UI calls resume
+            return new Promise((resolve, reject) => {
+                this.pendingMessages.set(callId, {
+                    resolve,
+                    reject,
+                    methodName,
+                    originalArgs: args
+                });
+            });
+        }
 
-                // Notify UI of response
-                window.dispatchEvent(new CustomEvent('mojo-response', {
-                    detail: {
-                        id: callId,
-                        result: result,
-                        timestamp: Date.now()
-                    }
-                }));
-
-                return result;
-            } catch (err) {
-                window.dispatchEvent(new CustomEvent('mojo-error', {
-                    detail: {
-                        id: callId,
-                        error: err.toString(),
-                        timestamp: Date.now()
-                    }
-                }));
-                throw err;
+        resumeCall(callId, modifiedArgs, shouldDrop = false) {
+            const pending = this.pendingMessages.get(callId);
+            if (!pending) {
+                console.warn(`[MojoProxy] No pending call found for ID ${callId}`);
+                return;
             }
+
+            this.pendingMessages.delete(callId);
+            const { resolve, reject, methodName, originalArgs } = pending;
+
+            if (shouldDrop) {
+                // To "drop", we can either never resolve (hanging the caller) 
+                // or reject with a specific error, or resolve with null (if void).
+                // Hanging might be bad for resource usage but is "true" drop.
+                // Safest for stability is usually to return typical void/default.
+                console.log(`[MojoProxy] Dropped ${callId}`);
+                // Let's resolve with undefined; hopefully caller handles void
+                resolve(undefined);
+                return;
+            }
+
+            const argsToUse = modifiedArgs || originalArgs;
+
+            // Execute on real implementation
+            (async () => {
+                try {
+                    console.log(`[MojoProxy] Resuming ${callId} with`, argsToUse);
+                    const result = await this.realRemote[methodName](...argsToUse);
+
+                    // Notify UI of response
+                    window.dispatchEvent(new CustomEvent('mojo-response', {
+                        detail: {
+                            id: callId,
+                            result: result,
+                            timestamp: Date.now()
+                        }
+                    }));
+
+                    resolve(result);
+                } catch (err) {
+                    window.dispatchEvent(new CustomEvent('mojo-error', {
+                        detail: {
+                            id: callId,
+                            error: err.toString(),
+                            timestamp: Date.now()
+                        }
+                    }));
+                    reject(err);
+                }
+            })();
         }
     }
 
