@@ -599,6 +599,19 @@
         }
     }
 
+    function resolveNamespace(moduleName) {
+        const parts = moduleName.split('.');
+        let current = window;
+        for (const part of parts) {
+            if (current[part]) {
+                current = current[part];
+            } else {
+                return null;
+            }
+        }
+        return current;
+    }
+
     // ========================================
     // Code Generation
     // ========================================
