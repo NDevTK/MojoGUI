@@ -1050,13 +1050,14 @@ jobs:
                        param_struct_name = f"{iface_name}_{method_name}_Params"
                        
                        js_code += f"        // Try Method {idx}: {method_name}\n"
-                       js_code += "        try {\n"
+                       js_code += "        if (dispatchId === undefined) {\n"
+                       js_code += "           try {\n"
                        js_code += f"             decoder.decodeStruct({current_ns}.{param_struct_name}Spec.$, message.header.headerSize);\n"
                        js_code += f"             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> {method_name} ({idx})');\n"
                        js_code += f"             this.mapOrdinal(header.ordinal, {idx});\n"
                        js_code += f"             dispatchId = {idx};\n"
-                       js_code += "        } catch (e) { /* Ignore mismatch */ }\n"
-                       js_code += "        if (dispatchId !== undefined) break;\n\n"
+                       js_code += "           } catch (e) { /* Ignore mismatch */ }\n"
+                       js_code += "        }\n"
 
                   js_code += "        if (dispatchId === undefined) {\n"
                   js_code += "             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);\n"
@@ -1068,13 +1069,13 @@ jobs:
                   js_code += "      switch (dispatchId) {\n"
                   
                   for idx, method in enumerate(interface.get('methods', [])):
-                      # Use Index as the dispatch ID for internal switch consistency
-                      # ordinal = method.get('ordinal') ... we ignore this for the switch case logic now, using idx
+                      # Use Index as the dispatch ID for internal switch logic (since discovery maps to idx)
+                      ordinal = idx 
                       
                       method_name = method['name']
                       method_name_camel = to_camel_case(method_name)
                       
-                      js_code += f"        case {ordinal}: {{\n"
+                      js_code += f"        case {idx}: {{\n"
                       
                       # Decode params MANUALLY
                       param_struct_name = f"{iface_name}_{method_name}_Params"

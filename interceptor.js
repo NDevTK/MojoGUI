@@ -264,14 +264,6 @@
             try {
                 if (comps.Receiver) {
                     const receiver = new comps.Receiver(proxyImpl);
-
-                    // INJECT DYNAMIC ORDINALS for hashed interfaces
-                    if (interfaceName.includes("VibrationManager") && receiver.mapOrdinal) {
-                        console.log('[MojoProxy] Injecting hashed ordinals for VibrationManager');
-                        receiver.mapOrdinal(929088604, 0); // Vibrate
-                        receiver.mapOrdinal(436128439, 1); // Cancel
-                    }
-
                     receiver.bind(handle);
                 } else if (typeof mojo !== 'undefined' && mojo.Binding) {
                     // Fallback to generic mojo.Binding for standard/old bindings
