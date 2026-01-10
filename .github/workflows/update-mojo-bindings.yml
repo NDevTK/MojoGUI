@@ -1014,6 +1014,7 @@ jobs:
                   js_code += "    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);\n"
                   js_code += "    this.endpoint.start({ onMessageReceived: (message) => {\n"
                   js_code += "      const header = message.header;\n"
+                  js_code += "      if (!header) return;\n"
                   js_code += "      switch (header.ordinal) {\n"
                   
                   for idx, method in enumerate(interface.get('methods', [])):
