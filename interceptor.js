@@ -86,10 +86,12 @@
             // Polyfill createResponder if missing
             if (typeof mojo.internal.interfaceSupport.createResponder !== 'function') {
                 console.log('[Interceptor] Polyfilling createResponder');
-                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec, ordinal) {
+                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec, headerOrOrdinal) {
                     return function (response) {
                         try {
                             const structSpec = responseParamsSpec.$.structSpec;
+                            const header = typeof headerOrOrdinal === 'object' ? headerOrOrdinal : { ordinal: headerOrOrdinal };
+
                             const headerSize = 32; // V1 Header (necessary for RequestID)
                             const payloadSize = structSpec.packedSize;
                             const totalSize = headerSize + payloadSize;
@@ -98,10 +100,15 @@
                             const view = new DataView(buffer);
 
                             // 1. Build Mojo Message Header V1
+                            // We use values from the original request header if provided
+                            const ordinal = header.ordinal || 0;
+                            const interfaceId = (header.interfaceId !== undefined) ? header.interfaceId : (endpoint.interfaceId_ || 0);
+                            const version = (header.version !== undefined && header.version > 1) ? header.version : 1;
+
                             view.setUint32(0, totalSize, true);     // num_bytes
-                            view.setUint32(4, 1, true);             // version (1 = includes requestId)
-                            view.setUint32(8, 0, true);             // interface_id
-                            view.setUint32(12, ordinal || 0, true); // ordinal (MATCH REQUEST)
+                            view.setUint32(4, version, true);       // version (at least 1 for requestId)
+                            view.setUint32(8, interfaceId, true);   // interface_id (MATCH REQUEST)
+                            view.setUint32(12, ordinal, true);      // ordinal (MATCH REQUEST)
                             view.setUint32(16, 2, true);            // flags (2 = kMessageIsResponse)
                             view.setUint32(20, 0, true);            // padding (aligned to 8 bytes)
 
